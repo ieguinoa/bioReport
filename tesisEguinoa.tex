@@ -1,4 +1,17 @@
 \documentclass[oneside,numbers,spanish]{ezthesis}
+\usepackage[utf8]{inputenc}
+% \usepackage{caratula}
+\usepackage{comment}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+
 %% # Opciones disponibles para el documento #
 %%
 %% Las opciones con un (*) son las opciones predeterminadas.
@@ -46,14 +59,26 @@
 %% # Datos del documento #
 %% Nota que los acentos se deben escribir: \'a, \'e, \'i, etc.
 %% La letra n con tilde es: \~n.
+% 
+% \author{Ignacio Eguinoa}
+% \title{Implementación de una herramienta bioinformática para el diseño de secuencias linker}
+% % \degree{Li}
+% \supervisor{Ignacio E. Sánchez}
+% \institution{Universidad Nacional de La Plata}
+% \faculty{Facultad de Ciencias Exactas}
+% 
+% 
+% \author{Ignacio Eguinoa}
+% \tituloTesis{Implementación de una herramienta bioinformática para el diseño de secuencias linker}
+% % \degree{Li}
+% \director{Ignacio E. Sánchez}
+% \institution{Universidad Nacional de La Plata}
+% \faculty{Facultad de Ciencias Exactas}
+% \lugar{La Plata, 2015}
+% 
 
-\author{Juan Antonio Navarro P\'erez}
-\title{Ejemplo de una Tesis}
-\degree{Doctor en Ciencias}
-\supervisor{Nombre de mi Asesor}
-\institution{Universidad de Alg\'un Sitio}
-\faculty{Escuela de Ingenier\'ia y Ciencias}
-\department{Departamento de Sistemas Computacionales}
+
+% \department{Departamento de Sistemas Computacionales}
 
 %% # M'argenes del documento #
 %% 
@@ -65,22 +90,35 @@
 %% El siguiente comando agrega ligas activas en el documento para las
 %% referencias cruzadas y citas bibliogr'aficas. Tiene que ser *la 'ultima*
 %% instrucci'on antes de \begin{document}.
-\hyperlinking
+% \hyperlinking
 \begin{document}
 
+\def\titulo{Licenciado }
+%\def\titulo{Licenciado }
+
+\def\autor{Ignacio Eguinoa}
+\def\tituloTesis{Implementación de una herramienta bioinformática para el diseño de secuencias linker}
+\def\director{Dr. Ignacio E. Sánchez}
+% \def\codirector{Dr. Mariano Camilo Gonz\'alez Lebrero}
+\def\lugar{La Plata, 2015}
+% \input{caratula}
 %% En esta secci'on se describe la estructura del documento de la tesis.
 %% Consulta los reglamentos de tu universidad para determinar el orden
 %% y la cantidad de secciones que debes de incluir.
 
 %% # Portada de la tesis #
 %% Mirar el archivo "titlepage.tex" para los detalles.
-\include{titlepage}
+% \include{titlepage}
 
+% \include{caratula}
 %% # Prefacios #
 %% Por cada prefacio (p.e. agradecimientos, resumen, etc.) crear
 %% un nuevo archivo e incluirlo aqu'i.
 %% Para m'as detalles y un ejemplo mirar el archivo "gracias.tex".
-\include{gracias}
+
+\include{resumen}
+
+% \include{gracias}
 
 %% # 'Indices y listas de contenido #
 %% Quitar los comentarios en las lineas siguientes para obtener listas de
@@ -93,11 +131,18 @@
 %% Por cada cap'itulo hay que crear un nuevo archivo e incluirlo aqu'i.
 %% Mirar el archivo "intro.tex" para un ejemplo y recomendaciones para
 %% escribir.
+
+% CAPITULO 1: INTRODUCCION
 \include{intro}
-%\include{capitulo1}
-%\include{capitulo2}
-%\include{capitulo3}
-%\include{conclu}
+
+% CAPITULO 2: ESQUEMA GENERAL DEL ALGORITMO
+\include{algoritmo}
+
+% CAPITULO 3: POPIEDADES EVALUADAS / HERRAMIENTAS UTILIZADAS
+\include{herramientas}
+
+% CAPITULO 4: EVALUACION DE LA HERRAMIENTA Y RESULTADOS
+\include{resultados}
 
 \appendix
 %% Cap'itulos incluidos despues del comando \appendix aparecen como ap'endices

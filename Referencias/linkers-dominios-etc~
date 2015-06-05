@@ -1,0 +1,214 @@
+
+******************************************************************************************************
+******************************************************************************************************
+	TEXTO SOBRE:        LINKERS NATURALES-ARTIFICIALES/ DOMINIOS  / INGENIERIA DE PROTEINAS
+
+******************************************************************************************************
+******************************************************************************************************
+
+LINKERS NATURALES:
+
+Los linkers naturales son secuencias que actuan como espaciadores entre los dominios de una proteina.
+Esto solo se puede decir acerca de su definicion.
+
+Los estudios sobre secuencias linkers se comenzaron a hacer a partir del analisis estadistico de secuencias que podian ser clasificadas como linkers a partir de estructuras/secuencias almacenadas en bases de datos de prototeinas.
+A lo largo de los años los conocimientos sobre la composición y propiedades de estas secuencias ha ido cambiando, 
+a medida que mayor cantidad de estructuras se resolvian y mayor conocimiento se obtenia acerca de los dominios que componen las proteinas(ademas tambien influyeron otras cosas como tecnicas de biofisica para obtener informacion estructural en solucion, o algoritmos para automatizar la identificacion de la secuencia que actua como linker en una proteina)
+
+A partir de estudios de las secuencias linkers naturales se ha encontrado que:
+Proline is common to many naturally derived interdomain
+linkers, and structural studies indicate that proline-
+rich sequences form relatively rigid extended struc-
+tures to prevent unfavorable interactions between
+the domains.  
+The probable reason why proline is favored over other
+residues in linking different domains is the inability
+of proline to donate hydrogen bonds or participate
+comfortably in any regular secondary structure con-
+formation. This ensures a relatively rigid separation
+of the domains, thereby preventing unfavorable con-
+tacts between them.
+These linkers are more defined by their ability to reliably predict and maintain end-to-end
+distances between attached domains. Such structurally
+rigid peptides, often called molecular rulers, have been
+conjugated to molecules to serve a metric function.
+
+An independent analysis showed that
+Thr, Ser, Gly, and Ala are also preferred residues in
+natural linkers. 
+
+Besides, flexible Gly-rich regions
+have been observed as natural linkers in proteins,
+generating loops that connect domains in multido-
+main proteins. 
+These glycine-rich peptides confer flexibility,
+which allows the specific engineering of hinge regions
+into proteins to achieve desired functional motions.
+
+
+En otra clasificacion(ref: An analysis of protein domain linkers: their classification and role in protein folding)
+Two main types of linker were identified; helical and non-helical. Helical linkers are
+thought to act as rigid spacers separating two domains.
+Non-helical linkers are rich in prolines, which also leads to structural rigidity and isolation of the linker from
+the attached domains. This means that both linker types are likely to act as a scaffold to prevent unfavourable interactions between folding domains.
+
+
+A partir de esta diversidad en las estructuras y propiedades de las secuencias linkers, 
+podría decirse que estas secuencias pueden haber sido seleccionados como parte de la evolución de la proteina, para cumplir una funcion en la proteina, 
+probablemente a partir de sus propiedades estructurales.
+Recent studies have shown that domain linkers can play
+an essential role in maintaining cooperative inter-domain
+interactions. 
+
+Inter-domain linkers are likely to
+facilitate the folding of multidomain proteins: α-helical linkers
+are thought to act as rigid spacers to prevent non-native
+interactions between domains that may interfere with correct
+domain folding. The requirement for stiffness turns out to be
+important also for the non-helical linkers: having a large
+proportion of proline residues leads to a rigidity of the
+polypeptide. Compared to their helical counterparts, non-
+helical linkers have evolved further away from intra-domain
+segments, to obtain the required rigidity inherent to the α-
+helical conformation.
+However, prolines can form tight turns or cis-Pro isomers,
+which negatively affect domain independence. The chance of
+these conformations can be reduced by careful selection of the
+preceding residue, and this study confirms that this happens
+in nature.
+
+The observed natural tendency to form rigid linkers might also
+be related to avoiding proteolytic cleavage, as linkers are likely
+targets for protease degradation
+
+
+Mediante mutaciones puntuales o deleciones  sobre una secuencia linker que llevan a reprimir alguna funcionalidad/iteraccion/actividad global de la proteina (Gokhale and Khosla, 2000),
+SE DEMUESTRA QUE, NO SOLO LA COMPOSICION SINO TAMBIEN LA LONGITUD DE LA SECUENCIA LINKER SON IMPORTANTES
+In general, altering the length of linkers
+connecting domains has been shown to affect protein stability,
+folding rates and domain–domain orientation
+
+Naturally occurring Gly-rich linkers exist in many
+proteins and, aside from linking domains, they are
+known to have a functional role in the protein. 
+Ejemplos: 
+
+-Crystal structure analysis of the human PAX6 PD-DNA com-
+plex revealed that the extended linker makes minor
+groove contacts with the DNA. 
+
+-In transmembrane glycoproteins (TMs) of retroviruses, important func-
+tional roles are also carried out by the linkers, which
+mediate membrane fusion through an N-terminal
+fusion peptide. The fusion peptide is linked to the
+central coiled-coil core through Gly-rich linkers.
+
+
+
+
+****************************************
+
+INGENIERIA DE PROTEINAS  /  LINKERS ARTIFICIALES:
+
+
+
+Recombinant chimeric fusion proteins are routinely
+constructed to increase the expression of soluble pro-
+teins and to facilitate protein purification. 32,83 Other
+engineering approaches that link two proteins or pro-
+tein domains by a peptide linker include immunoas-
+says (e.g., using chimeras between antibody frag-
+ments and proteins 84,85 ), selection and production
+of antibodies, 86 and engineering of bifunctional
+enzymes. 8
+
+In addition to structural studies of protein–protein
+interactions, a wide range of applications in the field
+of biotechnology have employed these fused proteins
+to explore protein-based biochemistry, such as to cre-
+ate artificial bifunctional enzymes, 7 to produce anti-
+bodies 8 and proteins with specialized functions, 9 and
+as tools for FRET analysis. 10
+
+
+
+
+
+
+/ RECURSOS ACTUALES 
+
+Actualmente se han usado linkers ricos en gly o secuencias poli-Gly. 
+Este tipo de polipeptidos do not affect the function of the individual proteins to which they attach. 
+The fused proteins behave independently, such that the
+single chained proteins can perform the combined
+function of fused partner
+ 
+In other systems, however, linker regions can affect the stability, solu-
+bility, oligomeric state, and proteolytic resistance of
+the fused proteins
+
+Thus, it is important that the
+length and amino acid composition of a potential
+linker is optimized in order to preserve the biological
+activity of the individual proteins in the fused
+complex.
+
+The loop length created by the linker can have a
+profound effect on the action of the linker in the
+fused complex
+
+
+Linker engineering, with the aim to control the
+distance, orientation, and relative motion of two func-
+tional domains, will increase in importance with
+increasing emphasis on the de novo design of multi-
+domain proteins.
+
+
+***********************************************
+
+
+
+
+
+DOMINIOS 
+
+Many cellular processes involve proteins with multiple
+domains. The modular nature of proteins has many advantages,
+providing increased stability and new cooperative functions.
+Other advantages include the protection of intermediates within
+inter-domain clefts that may otherwise be unstable in aqueous
+environments and the fixed stoichiometric ratio of enzymatic
+activity necessary for a sequential set of reactions
+
+
+Protein domains can be defined as segmented por-
+tions of a polypeptide sequence that assume stable
+three-dimensional structure. 6 Such recurring protein
+motifs are significant because it is increasingly recog-
+nized that there are only a limited number of domain
+families in nature.
+
+Although a consensus in detail is still lacking, various
+effective criteria have been proposed to detect and
+define protein domains. These criteria rely mainly on
+the existence of local structural compactness arising
+from beta-sheets or hydrophobic cores. 11,12 Based on
+such compactness, computational algorithms to detect
+structural domains have been proposed
+
+
+Hinge regions occur between domains, allowing
+them to move independently of one another while
+maintaining the individual domains’ three-dimen-
+sional shape. 6 In that sense, hinge regions are charac-
+terized by a structural softness that enables this
+motion.
+
+
+
+
+
+
+
+
