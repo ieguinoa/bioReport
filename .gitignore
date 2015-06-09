@@ -9,7 +9,7 @@
 *.pdf
 
 #temp
-*.~
+*~
 
 ## Intermediate documents:
 *.dvi
