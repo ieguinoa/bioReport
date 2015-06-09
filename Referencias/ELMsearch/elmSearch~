@@ -1,5 +1,25 @@
+Many proteins have a modular architecture in the sense that they contain a variety of globular domains, which contribute to different molecular functions such as
+catalysis and ligand binding. Over the last 20 years, it has gradually been established that sequences of many regulatory proteins also contain abundant short, conserved
+motifs constituting a second class of module that contribute to molecular functions of the proteins.
+
+These motifs are linear, in the sense that three-dimensional organization is not required to bring distant segments of the molecule together to make the recognizable
+unit. The conservation of these motifs varies: some are highly conserved while others allow substitutions that retain only a certain pattern of charge across the motif.”
+
+La falta de estudio que ha habido en este tipo de motivos se basa en que se encuentran principalmente en segmentos desestructurados y, como sabemos, el estudio de la función de las proteinas
+se ha centrado en los dominios globulares que poseen una estructura definida, principalmente aquellos mas simples de cristalizar.
+
+Además de esto, las propiedades secuenciales de los motivos lineales, principalmente su corta longitud (typically 3 to 10 amino acids long) y su secuencia poco conservada(altamente degenerada?), hacen que sea mas dificil su deteccion mediante alineamientos secuenciales, como si ocurre con los dominios globulares, mas conservados.
+
+The short length of the motifs also makes them much more likely to arise/disappear spontaneously via mutations, making them evolutionarily more labile.
+Natural selection can thus operate, by point mutation, to fine-tune cell regulatory processes including those affecting development.
+
+It is also important to underline that the roles that linear motifs and domains play in the cellular interaction networks are quite different, not least because of the affinity
+with which they bind to their interacting partners. While domains can bind to each other with relatively strong affinities , linear motifs bind with lower affinity.
+
+
+
 Como se mencionó, el objetivo de este trabajo es lograr una herramienta que provea una secuencia que pueda ser utilizada experimentalmente como linker en el proceso de ingeniería de proteínas. Esto implica no solo asegurar con cierta certeza que tendrá la funcionalidad deseada, sino también evaluar el comportamiento en todos los pasos del proceso de ingeniería. Es necesario, entonces, conocer el comportamiento que pueda tener la secuencia al ser expresada en un organismo. 
-De forma general, se debe apuntar a tener una secuencia que no tenga ninguna interacción ni funcionalidad, evitando asi cualquier interferencia con el proceso de expresión. Esto implica que no tenga regiones target para clivaje (fosforilación, glicolisacion,etc.), regiones de unión a otras proteínas, etc.
+De forma general, se debe apuntar a tener una secuencia que no tenga ninguna interacción ni funcionalidad, evitando asi cualquier interferencia con el proceso de expresión. Esto implica que no tenga regiones target para clivaje, fosforilación, glicolisacion,etc.), regiones de unión a otras proteínas, etc.
 Si bien es posible reducir este análisis conociendo mas detalladamente las condiciones experimentales con las que se trabajará, el objetivo de esta herramienta es que se pueda obtener un resultado que cumpla con el objetivo en cualquier contexto experimental. 
 
 En este algoritmo utilizamos distintas herramientas para evaluar la estructura que adopta la secuencia, con el fin de poder llevarla hacia una composición que provea la flexibilidad necesaria para la función de linker. En ese proceso podemos asumir también que la secuencia no podrá cumplir ninguna función que requiera de una estructura en una conformación definida.

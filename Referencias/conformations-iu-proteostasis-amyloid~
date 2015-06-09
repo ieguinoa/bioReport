@@ -43,19 +43,80 @@ Al diseñar una secuencia con estas propiedades estructurales, y que queremos qu
 ***********************
 PROTEIN AGGREGATES
 ***********************
+The state of a protein that is adopted under specific conditions
+depends on the relative thermodynamic stabilities of the various
+accessible conformations and on the kinetics of their interconversion
+
 
 Proteins might aggregate into ordered(fibrillar amyloids) or amorphous aggregates structures, utilizing relatively short sequence stretches, 
 usually organized in b-sheet-like assemblies. 
+These differences in structure also reflect biological differences; amyloid and amorphous beta-sheet aggregates have different chaperone affinities,
+accumulate in different cellular locations and are degraded by different mechanisms.
+
+The amyloid conformation reflects an intrinsic conformational
+propensity of polypeptides as many proteins can be forced into
+amyloid fibrils by manipulating external conditions. However,
+amyloid formation is also a sequence-specific process 14,15 .
+Under physiological conditions, most peptide sequences derived
+from proteins will remain soluble even at high concentrations,
+whereas most hydrophobic sequences will invariably aggregate
+as amorphous aggregates.
+Despite active research, a detailed under-
+standing of the molecular principles underlying the transformation
+of soluble proteins into amyloid aggregates is still lacking
 
 Several methods have been published recently that attempt to predict aggregation-prone or amyloidogenic regions based on various properties of proteins (TANGO, PASTA, WALTZ, SALSA, aggrescan, zyggregator).Some of these prediction methods try to distinguish amyloid fibril
 (ordered aggregates) prediction from amorphous
 aggregate prediction, providing also the relevant physi-
 cal reasoning and influencing factors.
 
+Owing to the relatively small amount
+and diversity of experimentally validated amyloidogenic sequences,
+sequence-based prediction algorithms do not possess sufficient
+information to distinguish amyloid from amorphous aggregates.
+They generally also have rather poor predictive capabilities toward
+amyloid sequences from yeast prions and functional amyloids. In
+contrast, structure-based homology modeling methods 25,40 can in
+principle provide very specific predictions. However, as side-chain
+modeling is very sensitive to even modest changes in backbone
+conformation, structure-based approaches are also limited by a
+shortage of experimentally determined structures 28
+
+
 Es importante analizar un poco este tema de los diferentes factores que influyen en adoptar distintas formas de agregacion.
 De todas formas, en nuestro trabajo se intenta eliminar toda posibilidad de agregado de proteinas.
 
 
+
+Most proteins form amorphous aggregates that
+are characterized by a lack of regular three-dimensional structure.
+Under physiologically relevant conditions, however, several pro-
+teins aggregate into fibrillar amyloids (ver proximo parrafo, que habla de una propiedad inherente de las proteinas) .
+As with all self-assembly processes, these differences in macromolecular structure reflect
+differences in packing and molecular structure at the atomic level 7 .
+These structural differences also reflect biological differences.
+Whereas misfolded and aggregated proteins are found in peri-
+nuclear locations and are generally degraded by the protea­somal
+system 8,9 , amyloids preferentially accumulate in perivacuolar
+inclusions, where they are degraded by the autophagosome.
+This segregation directly results from a differential recognition by the
+protein quality control system 10 . A reduced affinity of amyloids
+for the protein quality control system is probably also at the root
+of their higher toxicity 11 as artificial overexpression of chaperones
+usually leads to decreased toxicity and removal of amyloids from
+he cell 12 . Contrary to amorphous aggregates, amyloid structures
+can fulfill biological functions, and functional amyloids are found
+in organisms from prokaryotes to humans(ver paper functionalAmyloids).
+
+
+
+From a wide range of in vitro experiments on
+peptides and proteins we now know that the formation of
+amyloid structures is not a rare phenomenon associated
+with a small number of diseases but rather that it reflects a
+well-defined structural form of the protein that is an alter-
+native to the native state — a form that may in principle be
+adopted by many, if not all, polypeptide sequences
 
 Amyloidogenic proteins are quite diverse, with little similarity in
 sequence and native three-dimensional structure [1,2].
@@ -68,16 +129,19 @@ An increasingly adopted view is that
 the ability to form amyloid fibrils is a general property of the
 polypeptide backbone (6). Nevertheless, the propensity of a given
 polypeptide to form amyloid fibrils depends enormously on amino
-acid composition
+acid composition.
+Dicho de otra forma: Even though the ability to form amyloid fibrils seems to be generic,
+the propensity to do so under given circumstances can vary markedly
+between different sequences.
 
-
-From a wide range of in vitro experiments on
-peptides and proteins we now know that the formation of
-amyloid structures is not a rare phenomenon associated
-with a small number of diseases but rather that it reflects a
-well-defined structural form of the protein that is an alter-
-native to the native state — a form that may in principle be
-adopted by many, if not all, polypeptide sequences
+Amorphous β-sheet aggregation, however, is less position-
+dependent and can, in principle, be achieved by any sequence that
+can adopt an extended conformation, is sufficiently hydrophobic
+and has no unsatisfied hydrogens or electostatic groups 18,19 . Thus
+β-sheet aggregation can be relatively easily predicted by methods
+that evaluate aggregation by evaluating biophysical parameters
+over a sequence segment, without the need for considering
+position-dependent values of these parameters.
 
 
 
@@ -117,6 +181,7 @@ emerged as a central aspect of the more general topic of
 protein homeostasis 3,43,44 .
 
 
+***Esto esta en \cite{de2004sequence} ***
 A protein has to be partially or fully unfolded to aggregate (1, 2).
 Yet, mutations leading to aggregation can alter (9, 10), or not alter
 (11, 12), protein stability. Aggregation from some peptides and
@@ -132,6 +197,7 @@ that, once they become exposed, are more prone to aggregation
 than others. In fact, experimental evidence is compelling in favor of
 the hypothesis that small regions of a protein are responsible for its
 amyloidogenic behavior
+
 
 
 Como se dice, intrinsically disordered proteins are not necessarily prone to aggregation, as
@@ -211,6 +277,9 @@ populate. Perturbations to such balance, unless they are
 kept under strict control, can lead to deleterious events
 and disease.
 ****************************************
+It is accepted that misfolding of peptides and proteins cause the
+fibrillar aggregates that characterize the group of diseases known
+as amyloidoses
 
 
 
@@ -218,10 +287,24 @@ and disease.
 
 
 
-
-
-
-
+FUNCTIONAL AMYLOIDS:
+Amyloids are not only associated with disease-related proteins.
+Nature also exploits the structural and mechanical properties
+of amyloids to regulate biological functions 13 . For example, in
+bacteria amyloids such as curli promote biofilm formation and
+host invasion, and chaplins in bacteria and hydrophobins in yeast
+act as regulators of surface tension of water. Insects and fish
+use chorion amyloid as a component of eggshell, and spiders
+use spidroins in spider silk. Humans possess at least one func-
+tional amyloid protein: Pmel17 is used as a structural scaffold
+in melanin synthesis. The strength and flexibility of amyloids
+have attracted attention for their use as biomaterials. However,
+it remains to be understood how functional amyloids avoid the
+cytotoxic effects observed in disease amyloids. In part, functional
+amyloids are regulated by chaperones and proteases. But it is
+also becoming evident that sequence composition modulates
+critical biophysical parameters determining kinetics of assembly
+or mechanical strength.
 
 
 
@@ -319,7 +402,122 @@ of some residual (and highly flexible) structure. This fact is very important fo
 of these proteins.
 
 
+INDUCED FIT:
+Induced fit interactions can also occur between structural domains and relatively large natively unstructured regions of other proteins. 
+The natively unstructured region is then induced to form a stable structure, but only in the presence of the interacting structural domain.
 
+
+
+
+
+
+LINEAR MOTIFS:
+
+
+
+
+
+RELACION ENTRE IUPs AND LINEAR MOTIFs:
+
+***** GRAN PARTe ESTA SACADO DEL paper \cite{fuxreiter2007local}  Se analiza the relationship  between LMs and molecular recognition elements in IUPs.**********
+******LA HIPOTESIS INICIAL ES QUE EL MECANISMO SUBYACENTE DE FUNCIONAMIENTO DE LOS LMs ES EXACTAMENTE EL MISMO QUE EL QUE FUE ASIGNADO A LOS ELEMENTOS(MoREs???) de las IUPs.
+PARA PROBAR ESTA HIPOTESIS, ENTONCES AGARRAN LOS ELMs CONOCIDOS Y EVALUAN SUS PROPIEDADES DE ESTRUCTURA Y COMPOSICION PRINCIPALMENTE, LLEGANDO A LA CONCLUSION QUE ESTAS PROPIEDADES SE INTERSECTAN/CONCUERDAN COMPLETAMENTE CON LAS DE LOS SEGMENTOS DE RECONOCIMIENTO EN LAS IUPs, QUIERE DECIR QUE SON LO MISMO???????? *************
+
+INTRODUCCION:
+LMs represent a functionally very heterogeneous group, with proteins involved in either distinct post-translational modification reactions, or transient/permanent binding of other cellular constituents.
+Dynamics of the cell is ensured by the information flow across precisely regulated protein–protein interaction networks. This process requires efficient communication between the partici pating proteins realized via their interactions. In classical terms, this is achieved via a tight, high-affinity fit of protein domains that possess stable three-dimensional structures. Evolution of such globular domains, however, is slower than that of short sequential motifs of a linear arrangement of specificity determinants. These latter, due to relying on a very few confined residues and limited structural constraints, may frequently arise and disappear by point mutations, and confer extreme adaptability to the interactome.
+The resulting low affinity complexes are characterized by fast on and off binding rates that may serve regulatory purposes. Our interest was grasped by the fact that these very same features and functional advantages are repeatedly ascribed to IUPs, proteins or protein domains that function without a stable structure. Key advantages of LMs reside in that they facilitate the communication between proteins by having less stringent requirements for association. The resulting lowaffinity complexes are characterized by fast on and off binding rates that may serve regulatory purposes.
+The overlap, or possible mutual correspondence, of LMs and short recognition elements in IUPs is of significant appeal. ((( los short recog. elements son los elementos funcionales de las IUPs????????))) 
+The recent recognition that alternative splicing preferentially occurs in locally disordered regions of proteins, and removes short recognition elements (Romero et al., 2006) extends the range of this possible correspondence. These examples raised the question if the molecular action of all LMs is based on the same principle of short recognition elements in unstructured regions.
+ *****LA HIPOTESIS ES QUE SON LO MISMO......... AL MENOS EN ALGUNOS CASOS, O PARA ALGUNAS FUNCIONALIDADES !!! !!!!!!!!!!! ******
+
+
+ESTUDIO DE DESORDEN:
+Linear motif-domain interactions are a subset of induced fit interactions, where the templated structure is induced in a short peptide of only a few residues. As a
+consequence of the small number of residues involved, such interactions tend to be transient and have low binding affinities.
+Therefore, they are well suited for mediating functions that require a fast response to changing stimuli. 
+A classical example is the dynamic interaction between a kinase and its phosphorylation site: the kinase domain needs to bind to the peptide, attach the phosphate, and then dissociate again, potentially to then go on to interact in a similar way with other substrates.
+
+The rationale of the connection between LMs(linear motifs) and intrinsically unstructured/disordered proteins(IUPs/IDPs), is that the latters are frequently associated with
+regulatory functions in signal transduction or transcription in eukaryotic proteomes. These functions are carried out by molecular recognition that is linked to a binding-coupled
+folding process
+Para realizar este analisis,se predice el desorden de LMs and their flanking regions en todos los ejemplos de LMs que fueron caracaterizados experimentalmente y estan en la base de datos
+de Eukaryotic Linear Motif (ELM).
+El analisis de desorden se hacen utilizando 2 herramientas seleccionadas de entre todas las herramientas existentes. Las herramientas de analisis utilizadas fueron IUPred y PONDR VSL1.
+En todos los casos se obtiene que, tanto los LMs como las regiones flanquentes son preferentemente desestructuradas: the two predictors provide the consensus result that
+the average score for LMs and their approximately 20 residue long flanking segments on both sides is above 0.5, i.e. these regions can be considered as intrinsically disordered
+Un detalle es que IUPred predice un pico ´hacia abajo´ en el punto central del LM(indicando una region mas estructurada que su contexto). 
+Tal irregularity in the disorder pattern was suggested to indicate a transient structural element that can facilitate binding.
+
+Within LMs, however, the uniformity breaks down as the IUP-like attributes mostly apply to the variable residues
+(non-restricted sites, NRSs), whereas specificity-determinant
+conserved (consensus) residues (restricted sites, RSs) take on
+the character of ordered, globular proteins. In general, LMs
+appear to have been constructed by grafting residues prone to
+be involved in protein-protein interactions onto a principally
+unstructured carrier sequence. Whereas this design of embed-
+ding appears to hold for the majority of LMs studied here, we
+must not overlook that there are exceptions mostly occuring in
+proteins associated with non-regulatory functions, where both
+the LM and the neighboring environment can adopt a well-
+defined fold.
+
+
+
+ESTUDIO DE LA COMPOSICION DE LMs
+The composition of LMs, as well as their 20-residue flanking segments shows significant deviations from the composition of globular proteins. 
+Flanking regions are fairly similar to IUPs: they are enriched in flexible (disorder-promoting) amino acids, whereas depleted in hydrophobic and rigid (order-promoting) residues. 
+On the other hand, they have considerably less charged residues than unstructured proteins, while they exhibit a larger excess of a small, polar residue, serine. 
+
+LMs themselves have a unique amino acid composition, dissimilar to either globular or unstructured proteins, being abundant in both floppy and rigid residues, while depleted in amino acids of
+medium flexibility. LMs are enriched in hydrophobic residues W, L, F and Y as well as in charged residues R, and D, likely to play distinguished role in partner recognition. 
+They are conspicuously depleted in G and A, possibly to simultaneously curb flexibility (G) and the overt tendency to form secondary structural elements (A), while preserving an open but structurally somewhat constrained state. The prevalence of proline in both LMs and their flanking segments underscores this logic due to its preference for an extended secondary structure motif, the polyproline-II helix.
+
+The sequence of LMs can be dissected, as typical motifs are defined by a short sequence pattern , in which certain residues are of restricted identity (usualmente serve as specificity
+determinants of the LM), whereas others are of unrestricted identity (likely act as spacers).
+As anticipated, the compositions of these sites are markedly different, which is responsible for the aforementioned peculiarity of LM propensities.
+
+Overall, the amino acid composition reveals the mixed nature of LMs and their embedding environments as extended disordered regions (flanking + NRSs), onto which a few specificity-determinant
+residues (RSs) have been grafted.
+
+One of the characteristic features that distinguish IUPs from globular proteins is their high mean net charge and low mean hydrophobicity.
+Una propiedad interesante es que, dentro de los LMs, a level of net charge both in RS and NRS positions exceeding even that of IUPs can be observed.
+
+These charge/hydrophathy ratios unveil the functional relevance of the unique amino acid composition of LMs: the high propensity of both hydrophobicity and charge at RS positions
+reflects their distinguished role as contacting residues in recognition, with interspersed variable positions selected more for flexibility/malleability. This pattern may also reveal an evolutionary compensatory mechanism, in which increased hydrophobicity brought about by residues involved in critical interactions(al aprecer, para cumplir ciertas funciones de interaccion son necesarios ciertos residuos que tambien favorecen el orden, cosa que no es favorable ya que estos motivos tienden al desorden) has been compensated by an increased net charge of LM, preserving a significant tendency of disorder despite the presence of residues, which strongly favor order.
+En general, specificity determinant positions are abundant in hydrophobic and charged residues, and in many respects resemble globular proteins, whereas variable residues approximate features of IUPs. As a consequence, a local drop in plasticity is observed in the disorder profile computed by the IUPred method.
+
+
+RESULTADOS - CONCLUSIONES - DISCUSION:
+Our results suggest that LMs and molecular recognition
+elements of IUPs significantly overlap, and in the majority of
+cases represent an equivalent set of motifs in modular proteins.
+The two definitions correspond to each other such as for
+phosphorylation sites or calmodulin-binding regions, and is
+expected to be so for more regulatory sites. In the case of
+association of metabolic proteins however, they likely conform
+to different concepts.
+
+Basandose en el patron estructural encontrado (the LM with its flanking region is a locally unstructured segment of the protein, onto which a couple of conserved, mostly hydrophobic, specificity-determinant residues are grafted.) se propone que los LM, junto con las secuencias flanqueantes forman una unidad funcional 
+structural pattern, we propose
+that LMs together with their flanking segments form a larger
+functional unit that can be considered as a super-secondary
+structural element. Such elements classically correspond to structural/functional units within globular proteins, exemplified by the helix-turn-helix motif in DNA recognition 
+or the alfa-beta-alfa fold in nucleotide coenzyme binding. These elements are defined by a conserved spatial arrangement of secondary structural elements, maintained by a characteristic amino acid composition. 
+The super-secondary element encompassing LMs, as defined here, conforms to this definition, as it consists of a functional unit composed of three structurally defined parts: a
+short, locally structured segment sandwiched between two disordered regions. The properties of the unstructured stretches are determined solely by their amino acid composition(ver estudios sobre la composicion en los parrafos anteriores), while the actual primary sequence is critical only for the central part. This is not only an evolutionary economical solution to modulate protein-protein interactions, but also provides various benefits in the recognition process itself.
+
+The ensuing binding mode, where determinant residues serve as contact sites, while variable residues within the LM as well as in its flanking environment ensures their proper orientation, has
+been often implicated in the interactions of IUPs with their partners, in the form of short recognition elements, described in various contexts as preformed structural elements, primary contact sites or molecular recognition elements (ACA YA HAY UN PARECIDO EN EL MECANISMO).
+Besides a proper control on the thermodynamics of binding, this binding mode also enables an increased speed of recognition, also formulated in mechanistic models such as protein fishing or fly-casting. 
+These considerations argue that the molecular action of LMs is intertwined(entrelazada) with the structural malleability of their embedding environment. Flanking segments enable the effective recognition of the target site that results in low-affinity contacts, which are of high specificity but readily reversible. Such modes of interactions are of significant benefit in regulation, signaling and network organization functions,
+
+According to this scenario, the molecular mode of action of LMs and recognition elements of IUPs overlap, and probably reflect a similar phenomenon viewed from different angles thus far.
+
+Whereas LMs have been identified as short sequence motifs critical in recognition functions, primary contact sites, preformed structural elements and molecular recognition elments/features have been approached from the direction of protein disorder, emphasizing recognition segments embedded in such regions. Unity of these concepts is underlined by the key role of a few specificity determinants in all these recognition elements, and also by their local preferences for undergoing disorder-to-order transition upon molecular recognition, which might already
+be manifested prior to binding. 
+Apart from a minority of the cases when LMs are constituted of segments of ordered domains, these different concepts of short recognition elements express the same underlying physical and
+functional principles that provide a probably widespread solution to the dynamic control of protein-protein interaction networks.
 
 
 *************************
