@@ -151,6 +151,72 @@ Dentro de nuestro algoritmo, la herramienta ANCHOR se aplica utilizando un punto
 
 
 \section{Deteccion de motivos lineales}
+
+
+% QUE SON ?
+Short linear motifs (SLiMs, LMs or MiniMotifs) are
+regulatory protein modules characterized by their
+compact interaction interfaces (the affinity and specificity
+determining residues are usually encoded between 3 and
+11 contiguous amino acids (1)) and their enrichment in
+natively unstructured, or disordered, regions of proteins
+(2). As a result of limited intermolecular contacts with
+their interaction partners, SLiMs bind with relatively
+ow affinity (in the low-micromolar range), an advan-
+tageous attribute for use as transient, conditional and
+tunable interactions necessary for many regulatory
+processes. 
+Due to the limited number of mutations
+necessary for the genesis of a novel motif, SLiMs are
+amenable to convergent evolution, functioning as a
+driver of network evolution by adding novel interaction
+interfaces, and thereby new functionality, to proteins. 
+Novel SLiMs can readily evolve de novo, adding functionality to a protein.
+This evolutionary plasticity facilitates the rapid proliferation
+within a proteome, and as a result, motif use is ubiquitous
+in higher eukaryotes.
+The ease of evolution of motifs has resulted in the proliferation of
+SLiMs that encode functions of broad utility and many
+motif classes are ubiquitous, occurring in tens or hundreds
+of proteins. Many pathogens have also taken advantage
+of the intrinsic evolutionary plasticity of SLiMs by
+mimicking host motifs to deregulate and repurpose host
+pathways.
+On a higher regulatory level, short linear motifs often
+exhibit complex switching behavior by co-operating with
+each other and with post-translational modifications to
+facilitate switching between different functional states of
+a protein, and thus, SLiMs function as key regulatory
+modules that allow for context-dependent, integrative
+regulatory decision-making
+
+% En los últimos años, sin embargo, ha cambiado drásticamente el concepto que se tenía sobre las interacciones entre proteínas. En este paso, se han establecido regiones intrínsecamente
+% desordenadas como factores claves en la funcionalidad de proteínas. Se puede ver a partir de esto que, independientemente de la eficiencia que tengan los métodos usados para lograr una 
+% estructura desordenada, no es correcto asegurar que la secuencia no tendrá ninguna función asociada solamente por haber logrado restringir la formación de una estructura conformacional definida.
+% 
+% Los principales modulos funcionales encontrados en las regiones intrínsecamente desordenadas son los motivos lineales cortos (short linear motifs, o SLiMs), que se refieren a una clase de modulos de interacción compactos, degenerados y evolutivamente convergentes.
+% Se ha demostrado que la interacción mediada por SLiMs participa en diversos procesos biológicos tales como el control de progresión del ciclo celular, marcado de proteínas para la degradación en el proteasoma, modulación de la eficiencia en la traducción, y localización de proteínas en compartimientos subcelulares específicos. Se espera que en un futuro se develen más funciones asociadas a instancias de SLiMs.
+
+
+
+% FUNCIONES:
+Interactions mediated by SLiMs, also referred to as linear motifs or MiniMotifs, have been shown to direct many diverse processes, such as controlling cell cycle progression, 
+tagging proteins for proteasomal degradation, modulating the efficiency of translation, targeting proteins to specific sub-cellular localizations and stabilizing scaffolding complexes.
+Undoubtedly, more functions will be revealed in the future as additional SLiM instances are characterized.
+
+Short linear peptide motifs are used for regulation by phosphorylation, acetylation, glycosylation and a host of other post-translational modifications.
+The functionality of linear motifs can be modulated by modifications such as phosphorylation
+
+% funcionamiento como switches
+As key regulatory interaction modules, linear motifs are tightly controlled and many motifs are conditionally turned ‘on’ and ‘off’ depending on cell state. Pre-translational addition or removal of a SLiM-containing exon,
+post-translational modification of the SLiM-containing peptide, allosteric SLiM inhibition or activation and SLiM binding site competition are amongst the most common mechanisms to regulate linear motifs.
+% El descubrimiento de estas propiedades de ser activados o desactivados mediante modifications pre-traduccionales llevo al desarrollo de una BBDD especifica:
+% The switches.ELM  database is a resource dedicated to the curation and representation of experimentally validated motif-based molecular switches.
+% (ver paper The switches.ELMresource:a compendium of conditional regulatory interaction interfaces)
+
+
+
+% POR QUE LOS QUITAMOS?
 El objetivo de este trabajo es lograr una herramienta que provea una secuencia capaz ser utilizada experimentalmente como linker en el proceso de ingeniería de proteínas. 
 Esto implica no sólo probar con cierta certeza que tendrá la funcionalidad deseada, sino también evaluar el comportamiento en todos los pasos del proceso de ingeniería. 
 Es necesario saber que las propiedades de la secuencia no afectarán este proceso de ninguna forma.
@@ -162,25 +228,59 @@ un resultado que cumpla con el objetivo en cualquier contexto experimental.
 En este algoritmo utilizamos distintas herramientas para evaluar la estructura que adopta la secuencia, con el fin de poder llevarla hacia una composición que provea la flexibilidad
 necesaria para la función de linker. En ese proceso podemos asumir también que la secuencia no podrá cumplir ninguna función que requiera de una estructura en una conformación definida.
 
-En los últimos años, sin embargo, ha cambiado drásticamente el concepto que se tenía sobre las interacciones entre proteínas. En este paso, se han establecido regiones intrínsecamente
-desordenadas como factores claves en la funcionalidad de proteínas. Se puede ver a partir de esto que, independientemente de la eficiencia que tengan los métodos usados para lograr una 
-estructura desordenada, no es correcto asegurar que la secuencia no tendrá ninguna función asociada solamente por haber logrado restringir la formación de una estructura conformacional definida.
 
-Los principales modulos funcionales encontrados en las regiones intrínsecamente desordenadas son los motivos lineales cortos (short linear motifs, o SLiMs), que se refieren a una clase de modulos de interacción compactos, degenerados y evolutivamente convergentes.
-Se ha demostrado que la interacción mediada por SLiMs participa en diversos procesos biológicos tales como el control de progresión del ciclo celular, marcado de proteínas para la degradación en el proteasoma, modulación de la eficiencia en la traducción, y localización de proteínas en compartimientos subcelulares específicos. Se espera que en un futuro se develen más funciones asociadas a instancias de SLiMs.
+Una propiedad característica de los LMs es su relación con un contexto de estructura desordenada\cite{fuxreiter2007local}.
+% ACA DESCRIBIR UN POCO LAS CONCLUSIONES DE ESTE PAPER
+
+Dadas estas propiedades estructurales, será relevante para nuestro trabajo . Más aún, teniendo en cuenta las caracteristicas secuenciales de este tipo de motivos, que le 
+podía esperarse que, luego de ser detectados y mutados puedan resurgir facilmente dentro de una misma ejecución, con un comportamiento similar al que ocurre en la naturaleza.
+% es relevante detectarlos en cada paso...., y se espera que, dadas las caracteristicas evolutivas??? de este tipo de motivos, 
+% resurgan luego de una cierta cantidad de pasos de mutacion.
 
 
-En este paso del algoritmo se intentará identificar este tipo de motivos en la secuencia, con el fin de eliminarlos, reduciendo las posibilidades que el resultado final tenga funcionalidades no deseadas. Para detectarlos se utilizará el recurso ELM.
-El recurso de motivos lineales eucariotas(ELM) \cite{puntervoll2003elm,dinkel2013eukaryotic} fue establecido con la misión de recolectar, anotar y clasificar motivos lineales cortos. Consiste en una base de datos que almacena las 
 
-anotaciones y un módulo que permite predecir instancias de estos motivos en una secuencia a partir de los datos almacenados. Es relevante destacar que todos los datos anotados son curados manualmente a partir de la literatura y están a disposición de la comunidad científica.
-La base de datos se organiza jerárquicamente: en el nivel superior se tiene un conjunto de tipos (actualmente hay un total de 6 tipos diferentes), que agrupan clases de motivos. Cada clase define la especificación de un dominio o familia de dominios de péptidos, los cuales se describen generalmente mediante una expresión regular sobre la secuencia que los compone. Cada clase contiene al menos una instancia, donde cada instancia representa una secuencia encontrada experimentalmente que se ajusta a la expresión definida para la clase del motivo.
+
+
+% COMO VAMOS A DETECTARLOS
+En este paso del algoritmo se intentará identificar este tipo de motivos en la secuencia, con el fin de eliminarlos, reduciendo las posibilidades que el resultado final tenga funcionalidades no deseadas. 
+Para detectarlos se utilizará el recurso ELM.
+El recurso de motivos lineales eucariotas(ELM) \cite{puntervoll2003elm,dinkel2013eukaryotic} fue establecido con la misión de recolectar, anotar y clasificar motivos lineales cortos. 
+Provides the biological community with a comprehensive database of known experimentally validated motifs, and an exploratory tool to discover putative linear motifs in user-submitted protein sequences.
+Es relevante destacar que todos los datos anotados son curados manualmente a partir de la literatura y están a disposición de la comunidad científica.
+La base de datos se organiza jerárquicamente: en el nivel superior se tiene un conjunto de tipos (actualmente hay un total de 6 tipos diferentes), que agrupan clases de motivos. 
+% los tipos son: 
+% 	Proteolytic cleavage sites (CLV)
+% 	general ligand binding sites (LIG),
+% 	sites for post-translational modification (MOD)
+% 	sub-cellular targeting sites (TRG)
+% 	Ligand binding classes describing docking sites (DOC): can be described as motifs that recruit a modifying enzyme using a site that is distinct from the active site
+% 	destruction motifs (DEG) is a specific region of a protein sequence that directs protein polyubiquitylation and targets the protein to the proteasome for degradation
+%  ESTOS ULTIMOS 2 TIPOS FUERON AGREGADOS EN EL ULTIMO TIEMPO: 
+%           Technically, all docking sites and destruction motifs belong to the ‘ligand binding sites (LIG)’ type; however, grouping together motif classes of similar function adds an additional level of discrimination.
+
+Cada clase define la especificación de un dominio o familia de dominios de péptidos, los cuales se describen generalmente mediante una expresión regular sobre la secuencia que los compone.
+Cada clase contiene al menos una instancia, donde cada instancia representa una secuencia encontrada experimentalmente que se ajusta a la expresión definida para la clase del motivo.
 El énfasis está puesto en la validación experimental que ha sido realizada sobre estas secuencias, logrando un proceso de curación manual con las instancias que son ingresadas en la base de datos. 
 
+
+The aim(del recurso) is to cover the set of functional sites that can be defined by the local peptide sequence, operating essentially independently of protein tertiary structure. 
+The resource suffers from the overprediction problem inherent to small protein motifs, but we are developing context filters such as cell compartment, taxonomy and globular domain clash that can partly reduce the severity
+of the problem. In this resource, we use the term ELM to denote our bioinformatical representation of a functional site including the sequence motif and its context.
+For any such analysis, the user should be aware that many matches to ELM regular expressions are false positives. 
+Before conducting experiments based on ELM results, it is strongly advisable to check if a motif match is conserved, exposed in a cell compartment in which the motif is known to be functional. 
+The ELM resource applies several filters to provide the user with such information that should ideally also be supported by the experimental evidence.
+% ACA PODRIA DECIR QUE LA CANTIDAD DE FALSOS POSITIVOS(OVERPREDICTION) NO ES UN PROBLEMA PARA EL USO QUE LE VAMOS A DAR YA QUE ASUMIMOS INICIALMENTE Q EL ESPACIO DE SOLUCIONES ES SUFICIENTEMENTE GRANDE, Y CON EL METODO DE BUSQUEDA
+% QUE UTILIZAREMOS, ESTA CONDICION PODRA, COMO MUCHO, DISMINUIR UN POCO ESTE ESPACIO DE SOLUCIONES RETRASANDO MINIMAMENTE LA OBTENCION DE UN RESULTADO
+
+
 Para poder utilizar este recurso es posible hacerlo directamente a traves de la herramienta web que se provee en http://elm.eu.org/. Esta herramienta permite encontrar en una secuencia ingresada por el usuario, instancias de los motivos contenidos en la base de datos.
-Otra forma de realizar esto es haciendo una búsqueda local. Para ésto es necesario descargar las expresiones correspondientes a todas las clases de la base de datos. A partir de estos datos,sólo queda realizar la búsqueda de la expresión regular sobre la secuencia con la que estamos trabajando.
+Otra forma de realizar esto es haciendo una búsqueda local. Para ésto es necesario descargar las expresiones correspondientes a todas las clases de la base de datos. 
+A partir de estos datos,sólo queda realizar la búsqueda de la expresión regular sobre la secuencia con la que estamos trabajando.
+En la BBDD de ELM, the motif patterns are currently represented as POSIX regular expressions (usable in the Python and Perl languages), analogous to PROSITE, but with a different syntax.
 Esta última forma es la que utilizamos en nuestra herramienta, ya que nos permite independizarnos de la disponibilidad de la herramienta en el momento en que la requerimos.
 Para realizar la detección de los motivos no se utiliza ningún punto de corte, todos los motivos se tienen en cuenta, independientemente de la probabilidad de ocurrencia por azar que tengan (en la herramienta online es posible restringir la búsqueda usando un valor de corte límite).
+% DEBERIA ACLARAR QUE TAMPOCO SE UTILIZA NINGUN FILTRO: LOS MOTIVOS ENCONTRADOS NO SE FILTRAN SEGUN LA UBICACION CELULAR EN LA QUE SUPUESTAMENTE ESTAN(USANDO GO), NI PARA UNA ESPECIE EN PARTICULAR,..
+
 La búsqueda de motivos sobre la secuencia resulta en un conjunto de subsecuencias que representan una instancia encontrada, las cuales pueden estar solapadas. Cada una de estas subsecuencias se trata de forma individual.
 El algoritmo toma cada una de las subsecuencias resultantes y, por cada posición de éste, se suma 1 al valor de la posición en el puntaje global.
 Se puede ver ésto en un ejemplo sencillo:
@@ -195,6 +295,10 @@ KPLRGNAMVGL(posiciones 3-13) =   0011111111111
  -------------
 Total                        =   1122221222222
 
+
+% DIFERENCIAS CON PROSITE
+The PROSITE database has collected a number of linear protein motifs, representing them as regular expression patterns. 
+PROSITE patterns have been very useful, but also suffer from severe overprediction problems and more recently the database has emphasised globular domain annotation at the expense of linear motifs.
 
 
 \section{Motivos Secuenciales (Prosite)}
@@ -552,8 +656,24 @@ rompen esta capacidad de agregación(conocidos como amyloid breakers).
 En nuestra aplicación, implementamos la búsqueda de este patrón como parte del conjunto de evaluaciones que se hacen sobre la secuencia. El resultado de buscar la expresión regular asociada a este patron secuencial podría aportar subsecuencias
 que generen una tendencia a formar este tipo de fibras amiloides.
 
+\section{Secuencias transmembrana}
+\cite{sonnhammer1998hidden}
+\cite{krogh2001predicting}
+
 
 \section{Carga neta de la secuencia}
 
 Otro de los motivos por las cuales se podría querer eliminar aminoácidos cargados es cuando se esta diseñando una proteína que se une a dna porque los residuos del linker podrían 
 entonces formar puentes salinos con los fosfatos del dna
+
+
+
+\section{Otras posibles herramientas}
+Homologias secuenciales mas distantes? ej mediante HMM (usando HMMer por ej.)
+
+Busqueda de dominios en BBDD: Known domains are now stored in a number of databases including Pfam [1], SMART [13], CDD [14] and InterPro [15]. % ESTAS BBDD ALMACENAN SOLO DOMINIOS GLOBULARES????????
+Particular domains and domain architectures are well conserved over the course of evolution. The sequences diverge, but the overall domain architecture remains the same.
+
+
+Protein interaction databases such as BIND and DIP. More informative protein interaction databases that store known instances of linear motifs (36) include MINT (37), Phosphobase (20) and ASC (38). 
+Databases of instances are not directly useful for prediction but provide valuable data-mining resources.
