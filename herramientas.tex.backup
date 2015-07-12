@@ -151,6 +151,64 @@ Dentro de nuestro algoritmo, la herramienta ANCHOR se aplica utilizando un punto
 
 
 \section{Deteccion de motivos lineales}
+
+
+% QUE SON ?
+Short linear motifs (SLiMs, LMs or MiniMotifs) are
+regulatory protein modules characterized by their
+compact interaction interfaces (the affinity and specificity
+determining residues are usually encoded between 3 and
+11 contiguous amino acids (1)) and their enrichment in
+natively unstructured, or disordered, regions of proteins
+(2). As a result of limited intermolecular contacts with
+their interaction partners, SLiMs bind with relatively
+ow affinity (in the low-micromolar range), an advan-
+tageous attribute for use as transient, conditional and
+tunable interactions necessary for many regulatory
+processes. 
+Due to the limited number of mutations
+necessary for the genesis of a novel motif, SLiMs are
+amenable to convergent evolution, functioning as a
+driver of network evolution by adding novel interaction
+interfaces, and thereby new functionality, to proteins. 
+Novel SLiMs can readily evolve de novo, adding functionality to a protein.
+This evolutionary plasticity facilitates the rapid proliferation
+within a proteome, and as a result, motif use is ubiquitous
+in higher eukaryotes.
+The ease of evolution of motifs has resulted in the proliferation of
+SLiMs that encode functions of broad utility and many
+motif classes are ubiquitous, occurring in tens or hundreds
+of proteins. Many pathogens have also taken advantage
+of the intrinsic evolutionary plasticity of SLiMs by
+mimicking host motifs to deregulate and repurpose host
+pathways.
+On a higher regulatory level, short linear motifs often
+exhibit complex switching behavior by co-operating with
+each other and with post-translational modifications to
+facilitate switching between different functional states of
+a protein, and thus, SLiMs function as key regulatory
+modules that allow for context-dependent, integrative
+regulatory decision-making
+
+% En los últimos años, sin embargo, ha cambiado drásticamente el concepto que se tenía sobre las interacciones entre proteínas. En este paso, se han establecido regiones intrínsecamente
+% desordenadas como factores claves en la funcionalidad de proteínas. Se puede ver a partir de esto que, independientemente de la eficiencia que tengan los métodos usados para lograr una 
+% estructura desordenada, no es correcto asegurar que la secuencia no tendrá ninguna función asociada solamente por haber logrado restringir la formación de una estructura conformacional definida.
+% 
+% Los principales modulos funcionales encontrados en las regiones intrínsecamente desordenadas son los motivos lineales cortos (short linear motifs, o SLiMs), que se refieren a una clase de modulos de interacción compactos, degenerados y evolutivamente convergentes.
+% Se ha demostrado que la interacción mediada por SLiMs participa en diversos procesos biológicos tales como el control de progresión del ciclo celular, marcado de proteínas para la degradación en el proteasoma, modulación de la eficiencia en la traducción, y localización de proteínas en compartimientos subcelulares específicos. Se espera que en un futuro se develen más funciones asociadas a instancias de SLiMs.
+
+
+
+% FUNCIONES:
+Interactions mediated by SLiMs, also referred to as linear motifs or MiniMotifs, have been shown to direct many diverse processes, such as controlling cell cycle progression, 
+tagging proteins for proteasomal degradation, modulating the efficiency of translation, targeting proteins to specific sub-cellular localizations and stabilizing scaffolding complexes.
+Undoubtedly, more functions will be revealed in the future as additional SLiM instances are characterized.
+
+Short linear peptide motifs are used for regulation by phosphorylation, acetylation, glycosylation and a host of other post-translational modifications.
+The functionality of linear motifs can be modulated by modifications such as phosphorylation
+
+
+% POR QUE LOS QUITAMOS?
 El objetivo de este trabajo es lograr una herramienta que provea una secuencia capaz ser utilizada experimentalmente como linker en el proceso de ingeniería de proteínas. 
 Esto implica no sólo probar con cierta certeza que tendrá la funcionalidad deseada, sino también evaluar el comportamiento en todos los pasos del proceso de ingeniería. 
 Es necesario saber que las propiedades de la secuencia no afectarán este proceso de ninguna forma.
@@ -162,25 +220,39 @@ un resultado que cumpla con el objetivo en cualquier contexto experimental.
 En este algoritmo utilizamos distintas herramientas para evaluar la estructura que adopta la secuencia, con el fin de poder llevarla hacia una composición que provea la flexibilidad
 necesaria para la función de linker. En ese proceso podemos asumir también que la secuencia no podrá cumplir ninguna función que requiera de una estructura en una conformación definida.
 
-En los últimos años, sin embargo, ha cambiado drásticamente el concepto que se tenía sobre las interacciones entre proteínas. En este paso, se han establecido regiones intrínsecamente
-desordenadas como factores claves en la funcionalidad de proteínas. Se puede ver a partir de esto que, independientemente de la eficiencia que tengan los métodos usados para lograr una 
-estructura desordenada, no es correcto asegurar que la secuencia no tendrá ninguna función asociada solamente por haber logrado restringir la formación de una estructura conformacional definida.
-
-Los principales modulos funcionales encontrados en las regiones intrínsecamente desordenadas son los motivos lineales cortos (short linear motifs, o SLiMs), que se refieren a una clase de modulos de interacción compactos, degenerados y evolutivamente convergentes.
-Se ha demostrado que la interacción mediada por SLiMs participa en diversos procesos biológicos tales como el control de progresión del ciclo celular, marcado de proteínas para la degradación en el proteasoma, modulación de la eficiencia en la traducción, y localización de proteínas en compartimientos subcelulares específicos. Se espera que en un futuro se develen más funciones asociadas a instancias de SLiMs.
 
 
-En este paso del algoritmo se intentará identificar este tipo de motivos en la secuencia, con el fin de eliminarlos, reduciendo las posibilidades que el resultado final tenga funcionalidades no deseadas. Para detectarlos se utilizará el recurso ELM.
-El recurso de motivos lineales eucariotas(ELM) fue establecido con la misión de recolectar, anotar y clasificar motivos lineales cortos. Consiste en una base de datos que almacena las 
 
-anotaciones y un módulo que permite predecir instancias de estos motivos en una secuencia a partir de los datos almacenados. Es relevante destacar que todos los datos anotados son curados manualmente a partir de la literatura y están a disposición de la comunidad científica.
+
+
+% COMO VAMOS A DETECTARLOS
+En este paso del algoritmo se intentará identificar este tipo de motivos en la secuencia, con el fin de eliminarlos, reduciendo las posibilidades que el resultado final tenga funcionalidades no deseadas. 
+Para detectarlos se utilizará el recurso ELM.
+El recurso de motivos lineales eucariotas(ELM) \cite{puntervoll2003elm,dinkel2013eukaryotic} fue establecido con la misión de recolectar, anotar y clasificar motivos lineales cortos. 
+Provides the biological community with a comprehensive database of known experimentally validated motifs, and an exploratory tool to discover putative linear motifs in user-submitted protein sequences.
+Es relevante destacar que todos los datos anotados son curados manualmente a partir de la literatura y están a disposición de la comunidad científica.
 La base de datos se organiza jerárquicamente: en el nivel superior se tiene un conjunto de tipos (actualmente hay un total de 6 tipos diferentes), que agrupan clases de motivos. Cada clase define la especificación de un dominio o familia de dominios de péptidos, los cuales se describen generalmente mediante una expresión regular sobre la secuencia que los compone. Cada clase contiene al menos una instancia, donde cada instancia representa una secuencia encontrada experimentalmente que se ajusta a la expresión definida para la clase del motivo.
 El énfasis está puesto en la validación experimental que ha sido realizada sobre estas secuencias, logrando un proceso de curación manual con las instancias que son ingresadas en la base de datos. 
 
+
+The aim(del recurso) is to cover the set of functional sites that can be defined by the local peptide sequence, operating essentially independently of protein tertiary structure. 
+The resource suffers from the overprediction problem inherent to small protein motifs, but we are developing context filters such as cell compartment, taxonomy and globular domain clash that can partly reduce the severity
+of the problem. In this resource, we use the term ELM to denote our bioinformatical representation of a functional site including the sequence motif and its context.
+For any such analysis, the user should be aware that many matches to ELM regular expressions are false positives. 
+Before conducting experiments based on ELM results, it is strongly advisable to check if a motif match is conserved, exposed in a cell compartment in which the motif is known to be functional. 
+The ELM resource applies several filters to provide the user with such information that should ideally also be supported by the experimental evidence.
+% ACA PODRIA DECIR QUE LA CANTIDAD DE FALSOS POSITIVOS(OVERPREDICTION) NO ES UN PROBLEMA PARA EL USO QUE LE VAMOS A DAR YA QUE ASUMIMOS INICIALMENTE Q EL ESPACIO DE SOLUCIONES ES SUFICIENTEMENTE GRANDE, Y CON EL METODO DE BUSQUEDA
+% QUE UTILIZAREMOS, ESTA CONDICION PODRA, COMO MUCHO, DISMINUIR UN POCO ESTE ESPACIO DE SOLUCIONES RETRASANDO MINIMAMENTE LA OBTENCION DE UN RESULTADO
+
+
 Para poder utilizar este recurso es posible hacerlo directamente a traves de la herramienta web que se provee en http://elm.eu.org/. Esta herramienta permite encontrar en una secuencia ingresada por el usuario, instancias de los motivos contenidos en la base de datos.
-Otra forma de realizar esto es haciendo una búsqueda local. Para ésto es necesario descargar las expresiones correspondientes a todas las clases de la base de datos. A partir de estos datos,sólo queda realizar la búsqueda de la expresión regular sobre la secuencia con la que estamos trabajando.
+Otra forma de realizar esto es haciendo una búsqueda local. Para ésto es necesario descargar las expresiones correspondientes a todas las clases de la base de datos. 
+A partir de estos datos,sólo queda realizar la búsqueda de la expresión regular sobre la secuencia con la que estamos trabajando.
+En la BBDD de ELM, the motif patterns are currently represented as POSIX regular expressions (usable in the Python and Perl languages), analogous to PROSITE, but with a different syntax.
 Esta última forma es la que utilizamos en nuestra herramienta, ya que nos permite independizarnos de la disponibilidad de la herramienta en el momento en que la requerimos.
 Para realizar la detección de los motivos no se utiliza ningún punto de corte, todos los motivos se tienen en cuenta, independientemente de la probabilidad de ocurrencia por azar que tengan (en la herramienta online es posible restringir la búsqueda usando un valor de corte límite).
+% DEBERIA ACLARAR QUE TAMPOCO SE UTILIZA NINGUN FILTRO: LOS MOTIVOS ENCONTRADOS NO SE FILTRAN SEGUN LA UBICACION CELULAR EN LA QUE SUPUESTAMENTE ESTAN(USANDO GO), NI PARA UNA ESPECIE EN PARTICULAR,..
+
 La búsqueda de motivos sobre la secuencia resulta en un conjunto de subsecuencias que representan una instancia encontrada, las cuales pueden estar solapadas. Cada una de estas subsecuencias se trata de forma individual.
 El algoritmo toma cada una de las subsecuencias resultantes y, por cada posición de éste, se suma 1 al valor de la posición en el puntaje global.
 Se puede ver ésto en un ejemplo sencillo:
@@ -195,6 +267,10 @@ KPLRGNAMVGL(posiciones 3-13) =   0011111111111
  -------------
 Total                        =   1122221222222
 
+
+% DIFERENCIAS CON PROSITE
+The PROSITE database has collected a number of linear protein motifs, representing them as regular expression patterns. 
+PROSITE patterns have been very useful, but also suffer from severe overprediction problems and more recently the database has emphasised globular domain annotation at the expense of linear motifs.
 
 
 \section{Motivos Secuenciales (Prosite)}
@@ -219,8 +295,64 @@ PONER UN EJEMPLO!!! especificar que usamos patrones por la lentitud de los perfi
 
 describir si hay superposición entre elm y prosite. Se justifica usar los dos? qué hipótesis subyacente estamos usando?
 
+\section{Limbo}
 
-\section{Tango}
+Limbo utiliza Tango(deberia explicar este antes) ?????????????
+
+http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2717214/
+
+Las chaperonas son elementos fundamentales para el correcto funcionamiento y calidad de las proteinas, interviniendo en el correcto plegado, activacion, la posible translocacion, replegamiento o degradacion de proteinas incorrectamente plegadas, etc.
+
+Distintas chaperonas reconocen distintos motivos secuenciales expuestos por las proteinas y esta gama de chaperonas llevara a la proteina unida a un final distinto.
+Existen distintas posibilidades reales en el proceso de ingenieria de proteinas en las cuales la secuencia diseñada artificialmente se encuentre con chaperonas en alguna situación experimental. Sin dudas la degradacion de nuestra secuencia linker es el peor final en esta situación, pero todas las posibilidades tienen un impacto negativo en la funcionalidad de linker que se quiere asignar(imponer) a la secuencia. El reconocimiento por parte de la chaperona implica la unión a esta, lo cual puede interferir en la flexibilidad natural que (idealmente) ha adquirido la secuencia linker diseñada. 
+De esta forma, dado que apuntamos a abarcar todas las posibles situaciones experimentales con las que uno se puede encontrar, es necesario tener en cuenta la posibilidad de que esten presentes proteinas chaperonas en algun paso del uso experimental de la secuencia. 
+ 
+Existen chaperonas cuya funcion implica unirse a proteinas que no esten totalmente plegadas para evitar la agregacion de estas. El objetivo de esto es intervenir en situaciones de shock termico donde la perdida de la estructura nativa puede llevar a uniones entre distintas proteinas dando un agregado no funcional. Si bien uno de los objetivos de este trabajo es lograr una tendencia reducida a la agregacion en la secuencia generada y ciertas chaperonas podrian facilitar esto, la union implica, como se menciono anteriormente una perdida de flexibilidad que es necesaria para la funcion de linker. De esta forma buscamos evitar la agregacion mediante analisis sobre la secuencia que tienen este objetivo particular.
+
+??????????
+Por otro lado, es importante este paso porque las secuencias intrinsecamente desordenadas tales como la secuencia linker que estamos diseñando suelen tener propiedades que forman targets comunes para las chaperonas (exposicion de sitios hidrofobicos???)?????????????????????????
+
+
+A continuación se describe la aproximacion utilizada para intentar detectar en la secuencia de trabajo motivos asociados con el reconocimiento por parte de chaperonas.
+
+El método utiliza una combinacion de informacion secuencial y estructural para analizar el perfil de secuencias que se unen a la proteina chaperona DnaK
+
+Para desarrollar el algoritmo predictor, lo que se realizó fue:
+
+ARMAN 3 GRUPOS DE PEPTIDOS (ver de donde salen los 3 grupos)
+PRUEBAN TODOS LOS PEPTIDOS MEDIANTE ENSAYO DE UNION A DnaK: sintetizan los peptidos unidos a placa de celulosa, los lavan, los incuban con DnaK y los revelan con un anticuerpo anti-DnaK. (hacen ademas controles negativos de donde vuelan un par de peptidos que se unen directamente al anticuerpo, ademas restan el valor de fluorecencia que aparece cuando no ponen peptidos)
+Del total de peptidos se dividieron en conjuntos de peptidos binders y peptidos no binders(usando dos valores de cutoff - un valor alto y un bajo). De cada uno de estos conjuntos se separo un pequeño % como conjunto de prueba(para probar luego que tal funciona el predictor que se va a hacer) y un gran % es el que luego se usa para el set de aprendizaje? (conjunto benchmark)
+Para poder armar una matriz de score especifica de posicion(PSSM) es necesario que todos los peptidos del conjunto de aprendizaje tengan la misma longitud. El conjunto de aprendizaje en si se obtiene dividiendo los peptidos binders y los no binders en heptapéptidos. Para el conjunto de no binders se tomaron todas las posibles subsecuencias de longitud 7 como negativos(y se agregaron al conjunto negativo de aprendizaje). Para el conjunto de binders no es tan simple, entonces se utilizo el campo de fuerzas FoldX: se evaluo la energia de union para cada heptapeptido posible(subsecuencias) y se agrega al conjunto de aprendizaje el mejor heptapeptido.(tambien se agregaron aquellos que tenian una enegia de union en un rango de 0.5kcal/mol menor)
+Construccion de la PSSM basada en datos de secuencias: inicialmente se construyeron 2 PSSMs separadas basandose en los conjuntos de aprendizaje positivos y negativos. La frecuencia observada se calculo normalizando el numero de ocurrencias de un dado residuo por el numero de secuencias totales en el conjunto de aprendizaje. La frecuencia esperada es la ocurrencia de residuos obtenida de la base de datos SwissProt. El valor que se usa en la PSSM resultante es el logaritmo de la relacion entre la frecuencia observada y la frecuencia esperada. Se generaron asi una PSSM que representa el perfil de secuencia favorable para la union a DnaK(obtenida a partir del conjunto de binders) y otra PSSM que representa el perfil desfavorable(obtenida a partir del conjunto no binder). Estos datos se integran en una misma PSSM cuyos valores estan dados por la resta de ambos valores(valor binder - valor no binder).
+Construccion de la PSSM basada en datos estructurales: se uso como template la estructura cristalizada de DnaK, junto con la cual estaba co-cristalizado un peptido con la secuencia NRLLLTG, el cual muestra el motivo(estructural?) reconocido por la DnaK, constituido por un minimo de 7 residuos en una conformacion extendida. 
+Para conocer el aporte energetico de cada posible residuo en cada una de las 7
+posiciones se utilizo nuevamente FoldX para hacer un scan posicion por posicion.
+En primer lugar se pusieron todas alaninas. Después se fueron mutando cada
+posicion por los 19 residuos restantes. Para cada uno se calcula el valor de la 
+% diferencia energética con el valor del de alanina ΔΔG (cuanto mas negativo es este 
+valor mejor es el binding). El valor que se usó para llenar la PSSM es el negativo de 
+% este valor ΔΔG.
+Dado que los valores se evaluaron mutando las posiciones sobre un backbone fijo,
+este backbone va a influenciar la PSSM resultante. Lo que se hizo entonces fue
+generar distintas PSSMs utilizando múltiples conformaciones de backbones de 
+toda la estructura de la DnaK, obtenidas de un ensamble de conformaciones 
+resueltas por NMR (para cada una se hizo una PSSM y se hizo la evaluación de 
+la ROC). Los resultados de las estructuras del ensamble NMR fueron mucho peores
+que el de la estructura cristalizada y resuelta por rayos X, por lo tanto se uso esta
+solamente
+
+
+La evaluación de la performance se hizo mediante 3? tests que se aplican sobre las dos PSSM: la PSSM basada solo en información secuencial y los mismos tests sobre la PSSM que combina información secuencial y estructural. Los tests consisten en calcular el MCC para la evaluación del set de entrenamiento, calcular el MCC mediante una cross-validation(se separan distintos grupos -***EN BASE A QUE???** del set de entrenamiento inicial y se generan nuevos PSSM en base a esto y evaluándolo sobre el resto del conjunto. Se calcula el MCC para cada combinación de grupos y se saca el valor medio), el otro test es calcular el MCC resultante de evaluar contra el conjunto independiente(separado al principio) para la PSSM entrenada con todo el conjunto de pruebas.
+El resultado da que las 2 primeras pruebas son un poquito mejores para la PSSM hecha solo en base a secuencias, pero en la prueba sobre el conjunto independiente la PSSM basada solo en secuencias da muy mal y la PSSM con informacion secuencial es considerablemente mejor. Esto indicaría que la informacion estructural ayuda a hacer el predictor mas general.
+
+
+*****************************************************
+FALTA DESDE DONDE DICE:  Although the heptapeptides in the learning sets were selected on a methodologically acceptable basis, inconsistencies in the learning set selection could not be excluded.
+
+
+\section{Formación de fibras amyloides}
+
+\subsection{Tango}
 
 General sobre agregacion, beta-aggregation, amyloid fybrils, etc
 De (1): although aggregation and amyloidosis correlate to a certain extent, they are different
@@ -276,63 +408,7 @@ Like all algorithms that use averaged physicochemical properties to detect aggre
 
 
 
-
-\section{Limbo}
-
-Limbo utiliza Tango(deberia explicar este antes)
-
-http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2717214/
-
-Las chaperonas son elementos fundamentales para el correcto funcionamiento y calidad de las proteinas, interviniendo en el correcto plegado, activacion, la posible translocacion, replegamiento o degradacion de proteinas incorrectamente plegadas, etc.
-
-Distintas chaperonas reconocen distintos motivos secuenciales expuestos por las proteinas y esta gama de chaperonas llevara a la proteina unida a un final distinto.
-Existen distintas posibilidades reales en el proceso de ingenieria de proteinas en las cuales la secuencia diseñada artificialmente se encuentre con chaperonas en alguna situación experimental. Sin dudas la degradacion de nuestra secuencia linker es el peor final en esta situación, pero todas las posibilidades tienen un impacto negativo en la funcionalidad de linker que se quiere asignar(imponer) a la secuencia. El reconocimiento por parte de la chaperona implica la unión a esta, lo cual puede interferir en la flexibilidad natural que (idealmente) ha adquirido la secuencia linker diseñada. 
-De esta forma, dado que apuntamos a abarcar todas las posibles situaciones experimentales con las que uno se puede encontrar, es necesario tener en cuenta la posibilidad de que esten presentes proteinas chaperonas en algun paso del uso experimental de la secuencia. 
- 
-Existen chaperonas cuya funcion implica unirse a proteinas que no esten totalmente plegadas para evitar la agregacion de estas. El objetivo de esto es intervenir en situaciones de shock termico donde la perdida de la estructura nativa puede llevar a uniones entre distintas proteinas dando un agregado no funcional. Si bien uno de los objetivos de este trabajo es lograr una tendencia reducida a la agregacion en la secuencia generada y ciertas chaperonas podrian facilitar esto, la union implica, como se menciono anteriormente una perdida de flexibilidad que es necesaria para la funcion de linker. De esta forma buscamos evitar la agregacion mediante analisis sobre la secuencia que tienen este objetivo particular.
-
-??????????
-Por otro lado, es importante este paso porque las secuencias intrinsecamente desordenadas tales como la secuencia linker que estamos diseñando suelen tener propiedades que forman targets comunes para las chaperonas (exposicion de sitios hidrofobicos???)?????????????????????????
-
-
-A continuación se describe la aproximacion utilizada para intentar detectar en la secuencia de trabajo motivos asociados con el reconocimiento por parte de chaperonas.
-
-El método utiliza una combinacion de informacion secuencial y estructural para analizar el perfil de secuencias que se unen a la proteina chaperona DnaK
-
-Para desarrollar el algoritmo predictor, lo que se realizó fue:
-
-ARMAN 3 GRUPOS DE PEPTIDOS (ver de donde salen los 3 grupos)
-PRUEBAN TODOS LOS PEPTIDOS MEDIANTE ENSAYO DE UNION A DnaK: sintetizan los peptidos unidos a placa de celulosa, los lavan, los incuban con DnaK y los revelan con un anticuerpo anti-DnaK. (hacen ademas controles negativos de donde vuelan un par de peptidos que se unen directamente al anticuerpo, ademas restan el valor de fluorecencia que aparece cuando no ponen peptidos)
-Del total de peptidos se dividieron en conjuntos de peptidos binders y peptidos no binders(usando dos valores de cutoff - un valor alto y un bajo). De cada uno de estos conjuntos se separo un pequeño % como conjunto de prueba(para probar luego que tal funciona el predictor que se va a hacer) y un gran % es el que luego se usa para el set de aprendizaje? (conjunto benchmark)
-Para poder armar una matriz de score especifica de posicion(PSSM) es necesario que todos los peptidos del conjunto de aprendizaje tengan la misma longitud. El conjunto de aprendizaje en si se obtiene dividiendo los peptidos binders y los no binders en heptapéptidos. Para el conjunto de no binders se tomaron todas las posibles subsecuencias de longitud 7 como negativos(y se agregaron al conjunto negativo de aprendizaje). Para el conjunto de binders no es tan simple, entonces se utilizo el campo de fuerzas FoldX: se evaluo la energia de union para cada heptapeptido posible(subsecuencias) y se agrega al conjunto de aprendizaje el mejor heptapeptido.(tambien se agregaron aquellos que tenian una enegia de union en un rango de 0.5kcal/mol menor)
-Construccion de la PSSM basada en datos de secuencias: inicialmente se construyeron 2 PSSMs separadas basandose en los conjuntos de aprendizaje positivos y negativos. La frecuencia observada se calculo normalizando el numero de ocurrencias de un dado residuo por el numero de secuencias totales en el conjunto de aprendizaje. La frecuencia esperada es la ocurrencia de residuos obtenida de la base de datos SwissProt. El valor que se usa en la PSSM resultante es el logaritmo de la relacion entre la frecuencia observada y la frecuencia esperada. Se generaron asi una PSSM que representa el perfil de secuencia favorable para la union a DnaK(obtenida a partir del conjunto de binders) y otra PSSM que representa el perfil desfavorable(obtenida a partir del conjunto no binder). Estos datos se integran en una misma PSSM cuyos valores estan dados por la resta de ambos valores(valor binder - valor no binder).
-Construccion de la PSSM basada en datos estructurales: se uso como template la estructura cristalizada de DnaK, junto con la cual estaba co-cristalizado un peptido con la secuencia NRLLLTG, el cual muestra el motivo(estructural?) reconocido por la DnaK, constituido por un minimo de 7 residuos en una conformacion extendida. 
-Para conocer el aporte energetico de cada posible residuo en cada una de las 7
-posiciones se utilizo nuevamente FoldX para hacer un scan posicion por posicion.
-En primer lugar se pusieron todas alaninas. Después se fueron mutando cada
-posicion por los 19 residuos restantes. Para cada uno se calcula el valor de la 
-% diferencia energética con el valor del de alanina ΔΔG (cuanto mas negativo es este 
-valor mejor es el binding). El valor que se usó para llenar la PSSM es el negativo de 
-% este valor ΔΔG.
-Dado que los valores se evaluaron mutando las posiciones sobre un backbone fijo,
-este backbone va a influenciar la PSSM resultante. Lo que se hizo entonces fue
-generar distintas PSSMs utilizando múltiples conformaciones de backbones de 
-toda la estructura de la DnaK, obtenidas de un ensamble de conformaciones 
-resueltas por NMR (para cada una se hizo una PSSM y se hizo la evaluación de 
-la ROC). Los resultados de las estructuras del ensamble NMR fueron mucho peores
-que el de la estructura cristalizada y resuelta por rayos X, por lo tanto se uso esta
-solamente
-
-
-La evaluación de la performance se hizo mediante 3? tests que se aplican sobre las dos PSSM: la PSSM basada solo en información secuencial y los mismos tests sobre la PSSM que combina información secuencial y estructural. Los tests consisten en calcular el MCC para la evaluación del set de entrenamiento, calcular el MCC mediante una cross-validation(se separan distintos grupos -***EN BASE A QUE???** del set de entrenamiento inicial y se generan nuevos PSSM en base a esto y evaluándolo sobre el resto del conjunto. Se calcula el MCC para cada combinación de grupos y se saca el valor medio), el otro test es calcular el MCC resultante de evaluar contra el conjunto independiente(separado al principio) para la PSSM entrenada con todo el conjunto de pruebas.
-El resultado da que las 2 primeras pruebas son un poquito mejores para la PSSM hecha solo en base a secuencias, pero en la prueba sobre el conjunto independiente la PSSM basada solo en secuencias da muy mal y la PSSM con informacion secuencial es considerablemente mejor. Esto indicaría que la informacion estructural ayuda a hacer el predictor mas general.
-
-
-*****************************************************
-FALTA DESDE DONDE DICE:  Although the heptapeptides in the learning sets were selected on a methodologically acceptable basis, inconsistencies in the learning set selection could not be excluded.
-
-
-\section{PASTA}
+\subsection{PASTA}
 PRIMERO HAGO UNA DESCRIPCION DE LO QUE SON LAS FIBRAS AMILOIDES Y POR QUE LAS QUEREMOS SACAR (ESTO ES GENERAL PARA TODOS LOS METODOS)
 
 fibras amiloides: convierte a la forma soluble de la proteina en agregados fibrilares altamente organizados.
@@ -400,7 +476,7 @@ Basicamente, lo que dicen es que para formar las fibras amiloides, la secuencia 
 Otra caracteristica del servidor PASTA 2.0 es que implementa un mecanismo basado en redes neuronales(ESpritz: accurate and fast prediction of protein disorder) para predecir la tendencia a formar estructuras secundarias o a permanecer en una conformacion desordenada. 
 
 
-\section{Formación de fibras amyloides}
+
 
 
 \subsection{Waltz}
@@ -509,7 +585,7 @@ position-specific amyloid sequence prediction tool that can be
 used to distinguish between amyloid and amorphous aggre-
 gate sequences.
 
-\section{Determinantes secuenciales}
+\subsection{Determinantes secuenciales}
 Ya se ha mencionado en varias oportunidades hasta aquí la relación entre la secuencia y la predisposición a formar fibras amiloides in vivo. En el trabajo realizado en \cite{de2004sequence} se analiza esta relación en profundidad mediante un 
 analisis de mutagenesis a partir de un péptido amiloide diseñado \textit{de novo} en \cite{de2002novo}. El ensayo consiste en reemplazar sistematicamente los residuos de este péptido(STVIIE) con todos los AAs naturales, excepto Cys.
 
@@ -518,12 +594,12 @@ basándose en la idea que este proceso(agregación) es conducido(generado?) por 
 
 El trabajo implica la evaluación experimental de los péptidos resultantes de la mutación
 El análisis revela una dependencia posicional con la formación de este tipo de estructuras de agregación, existiendo posiciones muy tolearantes y muy restrictivas a las mutaciones.
-Como parte de tal trabajo, se deriva un patron secuencial que permitiría identificar tramos de secuencias formadores de fibras amiloides.
+Como parte de tal trabajo, se deriva a partir de los resultados de esta mutación sistematica, un patrón secuencial que permitiría identificar tramos de secuencias formadores de fibras amiloides.
 
-Utilizando este patrón, se realizó una evaluación \textit{in silico}. En este análisis, se encontró que las secuencias de una base de datos que matcheaban el patron eran menos frecuentes en proteinas que las combinaciones innocuas y que, en caso de encontrarse, estaban rodeadas de aminoácidos que 
-rompen esta capacidad de agregación(conocidos como amyloid breakers).
+El patrón resultante es:
 
-% *************
+$\{P\}_1 -\{PKRHW\}_2 -[VLS(C)WFNQ]_3 -[ILTYWFN]_4 -[FIY]_5- \{PKRH\}_6 $
+
 % Because the sequence space explored in this work is very small, we are conscious that many dangerous motifs cannot be detected unless a more complete pattern is provided. Therefore, similar experiments on unrelated amyloid sequences would be very
 % useful to refine this amyloid fingerprint.
 % 
@@ -539,17 +615,33 @@ rompen esta capacidad de agregación(conocidos como amyloid breakers).
 % Amino acid replacements producing abundant amyloid products are not always the substitutions that allow for a faster beta-sheet polymerization
 % *************
 
+
+Para validar experimentalmente el patrón, se seleccionarion algunas combinaciones de mutaciones que, de forma individual, daban altas capacidades de formación de fibras amiloides. 
+% VER COMO SE HACE LA EVALUACION EXPERIMENTAL 
+
+Este patrón fue también validado \textit{in silico}. En este análisis, se encontró que las secuencias de una base de datos que matcheaban el patron eran menos frecuentes en proteinas que las combinaciones innocuas y que, en caso de encontrarse, estaban rodeadas de aminoácidos que 
+rompen esta capacidad de agregación(conocidos como amyloid breakers).
+
+
+% *************
+
 En nuestra aplicación, implementamos la búsqueda de este patrón como parte del conjunto de evaluaciones que se hacen sobre la secuencia. El resultado de buscar la expresión regular asociada a este patron secuencial podría aportar subsecuencias
 que generen una tendencia a formar este tipo de fibras amiloides.
-
-El patrón que se busca es:
-
-% Neutral pH: 
-
-$\{P\}_1 -\{PKRHW\}_2 -[VLS(C)WFNQ]_3 -[ILTYWFN]_4 -[FIY]_5- \{PKRH\}_6 $
 
 
 \section{Carga neta de la secuencia}
 
 Otro de los motivos por las cuales se podría querer eliminar aminoácidos cargados es cuando se esta diseñando una proteína que se une a dna porque los residuos del linker podrían 
 entonces formar puentes salinos con los fosfatos del dna
+
+
+
+\section{Otras posibles herramientas}
+Homologias secuenciales mas distantes? ej mediante HMM (usando HMMer por ej.)
+
+Busqueda de dominios en BBDD: Known domains are now stored in a number of databases including Pfam [1], SMART [13], CDD [14] and InterPro [15]. % ESTAS BBDD ALMACENAN SOLO DOMINIOS GLOBULARES????????
+Particular domains and domain architectures are well conserved over the course of evolution. The sequences diverge, but the overall domain architecture remains the same.
+
+
+Protein interaction databases such as BIND and DIP. More informative protein interaction databases that store known instances of linear motifs (36) include MINT (37), Phosphobase (20) and ASC (38). 
+Databases of instances are not directly useful for prediction but provide valuable data-mining resources.

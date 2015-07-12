@@ -48,7 +48,7 @@ En este paso, a cada residuo que se alinea correctamente con el hit se le sumar�
 
 
 \section{IUPred (analisis de propiedades de flexibilidad/estrucutales)}
-ANÁLISIS ESTRUCTURAL (IUPred)
+% ANÁLISIS ESTRUCTURAL (IUPred)
 
 Otro de los aspectos a considerar acerca de la secuencia es el grado de estructuración o desorden que puede adoptar. 
 Una de las principales propiedades que buscamos al diseñar una secuencia linker es la existencia de ésta en un ensamble
@@ -58,6 +58,8 @@ ha sido desafiado por diversas proteínas intrínsecamente desordenadas que llev
 evaluar la tendencia de la secuencia a formar una estructura nos da una pauta acerca de la posibilidad de tener una función asociada. 
 De esta forma, además de asegurarnos obtener una estructura flexible que permita cumplir la función de linker, 
 estamos descartando que la secuencia tenga asociada alguna función que requiera la existencia de una conformación tridimensional.
+
+
 
 La herramienta que utilizaremos es IUPred, disponible a través de un servidor web (http://iupred.enzim.hu/) o descargando la implementación 
 y ejecutándola localmente (http://iupred.enzim.hu/Downloads.php).   
@@ -378,7 +380,26 @@ El resultado da que las 2 primeras pruebas son un poquito mejores para la PSSM h
 FALTA DESDE DONDE DICE:  Although the heptapeptides in the learning sets were selected on a methodologically acceptable basis, inconsistencies in the learning set selection could not be excluded.
 
 
-\section{Formación de fibras amyloides}
+% \section{Formación de fibras amyloides}
+
+\section{Formación de agregados de proteínas}
+En el review \cite{hamodrakas2011protein} hay una gran cantidad de software/metodos existentes para predecir agregacion desestructurada y formacion de fibras amiloides
+
+Each method makes its own assumptions and implements its own predictors, which range from quite simplistic to quite complex. 
+The ability to form b-strands is a predominant feature in most works, either in the form of statistical propensities or in the form of structural stability.
+
+% 
+% Como conlusion interesante en este paper(ver mas en detalle)
+% se tiene que: the introduction of aggregation-disrupting
+% amino acid substitutions in the aggregation-
+% prone ⁄ amyloidogenic short sequence regions suggests
+% the possibility of fine-tuning and controlling the solu-
+% bility of proteins, synthesized by recombinant technol-
+% ogy in bacterial cell factories.
+% Basicamente plantean analizar las secuencias mediante alguno/s de estos software y mutar las posiciones que poseen la tendencia a formar amyloids.
+% se mutan por cualquiera o por cuales????
+% 
+
 
 \subsection{Tango}
 
@@ -523,6 +544,53 @@ SE HIZO UN ALINEAMIENTO Y SE SACO UNA PSSM CON LAS PROBABILIDADES PARA CADA AA Y
 -The final component of the scoring function is the position-specific pseudoenergy matrix from structural modeling using amyloid backbone structures
 % ************************************************
 
+% 
+% ****************** RESUMEN SACADO DEL REVIEW
+% 
+%  waltz combines sequence, physicochemical as well as structural information into a composite scoring function.
+% web-based tool that uses, mainly, a posi-
+% tion-specific scoring matrix (PSSM) to determine amy-
+% loid-forming sequences [39]. The PSSM was built
+% based on the experimental exploration of the sequence
+% space of amyloid hexapeptides. According to its
+% authors, waltz allows for identification and better dis-
+% tinction between amyloid sequences and amorphous
+% b-sheet aggregates, and also allows for identification of
+% amyloid-forming regions in functional amyloids. In
+% more detail, the waltz algorithm was developed by
+% combining specific sequence information with physico-
+% chemical as well as structural information.
+% The PSSM for amyloid propensity of waltz, was
+% constructed from an experimentally defined training set
+% comprising 116 ‘positive’ (amyloid-forming) hexapeptides and 162 ‘negative’ (non-forming) hexapeptides
+% (http://waltz.switchlab.org/).
+% The position-specific score for
+% an amino acid was calculated as a standard log-odd
+% score in a position-specific scoring matrix (the value
+% for each amino acid at each position is the logarithm
+% of the ratio of its frequency in the training set and the
+% background database).
+% 
+% As the analysis of the hexapeptide experimental data
+% sets (positive and negative) may impose sequence bias
+% specific to the available data, the authors of waltz
+% estimated the preference or non-preference of amino
+% acids at the hexapeptide motif positions on a structural
+% basis using the atomic force field foldx. The fibril
+% crystal structure of the GNNQQNY peptide from
+% Sup35 (PDB 1YJP) was first simplified to polyalanine.
+% Then, all possible pair combinations of all 20 natural
+% amino acids at all positions were generated and
+% energy-optimized using foldx [40]. Energy estimates
+% were calculated with foldx as the DG difference
+% (DDG) to the reference polyalanine. To retrieve a posi-
+% tion-specific pseudoenergy matrix for the prediction
+% scoring function (and calculate S struct ), they averaged
+% for each amino acid the energies for all its occurrences
+% at a certain position in combination with all amino
+% acids at other positions [39]. 
+
+
 
 To better understand the sequence determinants of amyloid structure, we explored the sequence diversity of amyloid hexapeptides by inspecting more than 200 peptides using various
 structural and biophysical methods.
@@ -612,6 +680,11 @@ increasing the sequence diversity of the existing dataset by almost
 position-specific amyloid sequence prediction tool that can be
 used to distinguish between amyloid and amorphous aggre-
 gate sequences.
+
+
+
+
+
 
 \subsection{Determinantes secuenciales}
 Ya se ha mencionado en varias oportunidades hasta aquí la relación entre la secuencia y la predisposición a formar fibras amiloides in vivo. En el trabajo realizado en \cite{de2004sequence} se analiza esta relación en profundidad mediante un 

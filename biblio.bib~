@@ -15,6 +15,7 @@ por el apropiado "y".
 
 
 
+
 ******  PARA CITAR EN LA GENERACION DE SEQ. RANDOM
 @article{krick2014amino,
   title={Amino acid metabolism conflicts with protein diversity},
@@ -26,6 +27,129 @@ por el apropiado "y".
   year={2014},
   publisher={SMBE}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*****************************************************************
+****  DISORDER, IDPs, ETC....
+
+
+
+**********REVIEW DE IDPs
+@article{uversky2010understanding,
+  title={Understanding protein non-folding},
+  author={Uversky, Vladimir N and Dunker, A Keith},
+  journal={Biochimica et Biophysica Acta (BBA)-Proteins and Proteomics},
+  volume={1804},
+  number={6},
+  pages={1231--1264},
+  year={2010},
+  publisher={Elsevier}
+}
+
+
+
+******** FUNCIONALIDADES DE IDPs
+@article{gunasekaran2003extended,
+  title={Extended disordered proteins: targeting function with less scaffold},
+  author={Gunasekaran, Kannan and Tsai, Chung-Jung and Kumar, Sandeep and Zanuy, David and Nussinov, Ruth},
+  journal={Trends in biochemical sciences},
+  volume={28},
+  number={2},
+  pages={81--85},
+  year={2003},
+  publisher={Elsevier}
+}
+
+
+@article{dyson2005intrinsically,
+  title={Intrinsically unstructured proteins and their functions},
+  author={Dyson, H Jane and Wright, Peter E},
+  journal={Nature reviews Molecular cell biology},
+  volume={6},
+  number={3},
+  pages={197--208},
+  year={2005},
+  publisher={Nature Publishing Group}
+}
+
+
+
+*******REGULACION DE IUPs
+@article{gsponer2008tight,
+  title={Tight regulation of unstructured proteins: from transcript synthesis to protein degradation},
+  author={Gsponer, J{\"o}rg and Futschik, Matthias E and Teichmann, Sarah A and Babu, M Madan},
+  journal={Science},
+  volume={322},
+  number={5906},
+  pages={1365--1368},
+  year={2008},
+  publisher={American Association for the Advancement of Science}
+}
+
+
+
+*********DISORDER vs FLEXIBILITY 
+@article{radivojac2004protein,
+  title={Protein flexibility and intrinsic disorder},
+  author={Radivojac, Predrag and Obradovic, Zoran and Smith, David K and Zhu, Guang and Vucetic, Slobodan and Brown, Celeste J and Lawson, J David and Dunker, A Keith},
+  journal={Protein Science},
+  volume={13},
+  number={1},
+  pages={71--80},
+  year={2004},
+  publisher={Wiley Online Library}
+}
+
+
+
+*******REVIEW DE METODOS DE PREDICCION DE DISORDER 
+@article{he2009predicting,
+  title={Predicting intrinsic disorder in proteins: an overview},
+  author={He, Bo and Wang, Kejun and Liu, Yunlong and Xue, Bin and Uversky, Vladimir N and Dunker, A Keith},
+  journal={Cell research},
+  volume={19},
+  number={8},
+  pages={929--949},
+  year={2009},
+  publisher={Nature Publishing Group}
+}
+
+
+
+
+
+
+
+
+********************************************************
+************* AGGREGATION, AMYLOID ....
+
+@article{fowler2007functional,
+  title={Functional amyloid--from bacteria to humans},
+  author={Fowler, Douglas M and Koulov, Atanas V and Balch, William E and Kelly, Jeffery W},
+  journal={Trends in biochemical sciences},
+  volume={32},
+  number={5},
+  pages={217--224},
+  year={2007},
+  publisher={Elsevier}
+}
+
+
 
 
 
@@ -115,6 +239,36 @@ por el apropiado "y".
   pages={16052--16057},
   year={2002},
   publisher={National Acad Sciences}
+}
+
+
+@article{fuxreiter2007local,
+  title={Local structural disorder imparts plasticity on linear motifs},
+  author={Fuxreiter, Monika and Tompa, Peter and Simon, Istv{\'a}n},
+  journal={Bioinformatics},
+  volume={23},
+  number={8},
+  pages={950--956},
+  year={2007},
+  publisher={Oxford Univ Press}
+}
+
+
+
+
+
+
+
+**************REVIEW DE SOFTWARE DE PREDICCION DE AGREGACION
+@article{hamodrakas2011protein,
+  title={Protein aggregation and amyloid fibril formation prediction software from primary sequence: towards controlling the formation of bacterial inclusion bodies},
+  author={Hamodrakas, Stavros J},
+  journal={Febs Journal},
+  volume={278},
+  number={14},
+  pages={2428--2435},
+  year={2011},
+  publisher={Wiley Online Library}
 }
 
 

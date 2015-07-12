@@ -1,7 +1,14 @@
+
+
+
 Como ya se ha mencionado, uno de los objetivos de la herramienta desarrollada es eliminar cualquier posible funcionalidad asociada a la secuencia resultante. Para esto se realiza una búsqueda exhaustiva de motivos secuenciales que puedan relacionar la composicion secuencial con alguna función biológica.
 Como parte de esta búsqueda, en este paso se utilizará un recurso que agrupa una gran cantidad de motivos secuenciales de diversas características.
+
 El recurso a utilizar es PROSITE (http://prosite.expasy.org/), que reúne documentación de dominios, familias y sitios funcionales de proteínas.
 PROSITE es un recurso que permite anotar e identificar regiones conservadas en secuencias de proteínas.
+Es uno de los primeros recursos computacionales para análisis secuencial, siendo creado en 1989. En esos momentos, tal como se describe en (\ref PROSITE: a dictionary of sites and patterns in proteins - 1991), el uso de patrones(o motivos) secuenciales para determinar la funcion de nuevas proteinas estaba empezando a convertirse en una de las herramientas esenciales del analisis secuencial.
+Además de ser uno de los primeros recursos, este ha sido actualizado constantemente desde sus inicios.
+
 De forma resumida, se puede definir como una colección anotada de motivos biológicamente significativos, dedicada a la identificación de familias y dominios de proteínas.
 Este tipo de bases de datos contiene información derivada de alineamiento de multiples secuencias homólogas. Los motivos resultantes se describen usando dos métodos distintos, cada uno con sus ventajas y desventajas que definen la utilidad que tendrán:
 	-La primera forma de describir los motivos es a través de patrones (expresiones regulares) en los cuales se tiene en cuenta solo la información de los residuos mas significativos, descartando el resto. La búsqueda de un patron en una secuencia da un resultado cualitativo: hay una coincidencia o no la hay. Si hay una sustitución en alguna de las posiciones de la secuencia el patrón no coincide, independientemente del tipo de sustitución que ocurrió.
