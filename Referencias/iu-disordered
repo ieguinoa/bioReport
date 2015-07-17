@@ -1,169 +1,23 @@
 
-DISORDERED PROTEINS
-
-
-
-
-COMPOSICION DE AAs y PROPIEDADES FISICOQUIMICAS(tipicamente alta carga neta y baja hidrofobicidad):
-
-Disordered regions can be highly conserved between species in both composition and sequence and
-
-Some of the ID proteins have been discovered due their unusual amino acid sequence compositions and the absence of regular structure in these proteins has been explained by the specific features of their amino acid sequences including the presence of numerous uncompensated charged groups (often negative); i.e., a high net charge at neutral pH, arising from the extreme pI values in such proteins , and a low content of hydrophobic amino acid residues.
-It has been concluded that the combination of low mean hydrophobicity and relatively high net charge represents an important prerequisite for the absence of compact structure in proteins under physiological conditions. This observation was used to develop a charge-hydropathy (CH) plot method of analysis that distinguishes ordered and disordered proteins based only on their net charges and hydropathies.
-From the physical viewpoint, such a combination of low hydrophobicity with high net charge as a prerequisite for intrinsic unfoldedness makes perfect sense: high net charge leads to charge-
-charge repulsion, and low hydrophobicity means less driving force for protein compaction. In other words, these features are characteristic for ID proteins with the coil-like (or close to coil-
-like) structures.
-The disordered proteins are significantly depleted in bulky hydrophobic (Ile, Leu, and Val) and aromatic amino acid residues (Trp, Tyr, and Phe), which would normally form the hydrophobic core of a folded globular protein, and also possess low content of Cys and Asn residues.
-The depletion of ID protein in Cys is also crucial as this amino acid residue is known to have a significant contribution to the protein conformation stability via the disulfide bond formation or being involved in coordination of different prosthetic groups.
-On the other hand, ID proteins were shown to be substantially enriched in polar, disorder-promoting, amino acids: Ala, Arg, Gly, Gln, Ser, Glu, and Lys and also in the hydrophobic, but structure braking Pro.
-
-In addition to amino-acid composition, the disordered segments have also been compared with the ordered ones by various attributes such as hydropathy, net charge, flexibility index, helix
-propensities, strand propensities, and compositions for groups of amino acids such as W + Y + F (aromaticity).
-Thus, the ID proteins differ dramatically from the ordered proteins in their amino acid sequences. These differences were used to develop different predictors of intrinsic disorder.
-********* LOS PRIMEROS PREDICTORES DE DESORDEN NACEN DE ANALISIS DE LA COMPOSICION Y DE CIERTAS PROPIEDADES FISICOQUIMICAS DE LA SECUENCIAS
-
-The fact that natively unfolded proteins, with their depleted hydrophobicity, are noncompact under physiological conditions indicates that ‘salted water’ (typical ‘physiological’ buffer contains 100–150 mM NaCl) does not represent for them a poor solvent.
-In other words, these
-conditions do not force polymer segments to interact
-specifically with each other and, thus, do not force them
-to be effectively excluded from the solvent. On the other
-hand, it has already been noted that even high concentra-
-tions of strong denaturants do not represent a good sol-
-vent for a polypeptide chain encoding for a typical glob-
-ular protein, and a globular protein was assumed to never
-be a random coil.
-
-
-
-
-
-CONFORMACIONES ADOPTADAS EN SOLUCION:
-
-
-
-En la introduccion a los diferentes estados conformacionales de las proteinas en general, dije que el estado nativo podia estar compuesto por una conformacion random coil. En esa descripcion, se llego a una conclusion that globular proteins are never random coils(es decir, nunca estan en una conformacion totalmente desplegada o random). Accumulated data nonambiguously show that they most likely represent the polymer coils below a critical point, even under harsh denaturing conditions.
-Pero acá estamos hablando de un numero considerable de proteinas cuya secuencia encodes for the intrinsically unstructured proteins without specific structure.
-These raise several compelling biophysical questions related to the structural characteristics of natively unfolded proteins. How unfolded are these proteins? Are they random coils, or do
-they possess residual structure? If they have residual structure, how should they be classified?
-Based on the analysis of the available literature, it has
-been concluded that intrinsically unstructured proteins do
-not possess uniform structural properties, as expected for
-members of a single thermodynamic entity. In fact, they
-may be divided into two structurally different groups, in-
-trinsic coils and premolten globules.
-Proteins from the
-first group have hydrodynamic dimensions typical of
-considerably unfolded polypeptide chain in poor solvent
-(see below and fig. 1), and do not possess any (or almost any) ordered secondary structure. Proteins from the sec-
-ond group are more compact (see below and fig. 1), and
-exhibit some amount of residual secondary structure.
-However, they are still less dense than native globular or
-molten globule proteins
-
-For an IDP, the energy landscape is characterized by the lack of a global minimum and by the presence of multiple local minima separated by low energy barriers. As a consequence, such a protein exists as a dynamic ensemble of interconverting structures.
-Functional complexes of IDPs with their partners are formed via the specific intermolecular interactions that change the energy landscape creating more defined free energy minima.(ESTO LO PODRIA PONER EN LA PARTE DE INDUCED FIT)
-A similar mechanism underlies the formation of the non-productive protein complexes (oligomers, amorphous aggregates, amyloid-like fibrils, etc.). Here, interactions of the disordered parts of IDPs or interactions of the denatured proteins result in the appearance of profound free energy minima.
-
-
-Structurally, IDPs range
-from completely unstructured polypeptides (native coils, that resemble the highly unfolded
-states of globular proteins) to extended partially structured forms (native pre-molten
-globules) or even to compact disordered ensembles that may contain significant secondary
-structure (native molten globules)
-
-ID proteins have dynamic structures that interconvert on a number of timescales and have been shown to have many similarities to non-native states of “normal” globular proteins, which may
-exist in at least four different conformations: native (ordered), molten globule, pre-molten globule, and coil-like.
-Using this analogy, it has been established that ID proteins and regions under physiological conditions in vitro might contain collapsed-disorder (i.e., where ID is present in a form of molten globules) and extended-disorder (i.e., regions where ID is present in a form of random coil or pre-molten globule)
-
-
-****Collapsed disorder********  The structural properties of the molten globule (which was originally described as universal folding intermediate of globular proteins) are well known and
-have been systematized in number of reviews. The protein molecule in this intermediate state has no (or has only a trace of) rigid cooperatively melted tertiary structure. However, it is characterized not only by the well-developed secondary structure, but also by the presence of some topology, i.e., relatively fixed mutual positioning of the secondary structure elements. A considerable increase in the accessibility of a protein molecule to proteases was noted as a specific property of the molten globule.
-The transformation into this intermediate state is accompanied by a considerable increase in the affinity of a protein molecule to the hydrophobic fluorescence probes
-
-
-****** Extended disorder***  A significant number of sequences encodes for the extendedly disordered proteins that are characterized by low sequence complexity. Are these proteins
-random coils, or do they possess residual or transient structure? If they have residual or transient structure, how should they be classified? Based on the analysis of the available literature, it has been concluded that such proteins do not possess uniform structural properties, as expected for members of a single thermodynamic entity. In fact, they may be divided into two structurally different groups, intrinsic coils and intrinsic pre-molten globules
-
-The unfolded protein is essentially never a true random coil. In fact, the existence of significant residual structure in the unfolded globular protein has been described even under the most
-severe denaturing conditions, such as high concentrations of strong denaturants [144-147]. Thus, coil-like ID proteins are not completely random, but are characterized by the presence
-of some residual (and highly flexible) structure. This fact is very important for the functioning of these proteins.
-Protein random coils differ from true random coils in important respects, such as a non-random population of internal bond angles along the chain.
-
-Coincidiendo con esta idea que la proteina no plegada nunca es una true random-coil, the persistence of native-like contacts in the denatured (disordered) state has been shown in NMR experiements and in high temperature molecular dynamics simulation. The existence of preferred limited proteolysis cutting sites also indicates that the native conformation prevails
-
-
-These and many other studies made the term unstructured obsolete. The distinguishing and unifying feature of these proteins,if any, is their inability to fold into a unique and stable tertiary structure. They display a vast array of function-related structural organization, therefore, the field has settled on the term ‘disordered’. This term applies to both short and long regions that are part of a larger folded protein (loops and linkers) and proteins that entirely lack a folded structure. This latter category is sometimes also termed (natively) unfolded. Terms such as ‘pliable’, ‘malleable’, and others have also been suggested in the literature, but have not gained general recognition.
-
-
-The conformational behavior of IDPs is typically characterized by a low cooperativity (or the
-complete lack thereof) during denaturant-induced unfolding of any structure that might exist,
-by the lack of measurable excess heat absorption peak(s) characteristic for the melting of
-ordered proteins, by a gain of structure in response to heat and changes in pH, by the ability to
-gain structure in the presence of various counter ions, osmolytes, membranes and binding
-partners, and by different, protein-specific responses to macromolecular crowding
-
-An increase in temperature often induces the partial folding of intrinsically unstructured
-proteins (i.e., proteins with extended disorder), rather than the unfolding that is typically
-observed for globular proteins. The effects of elevated temperature may be attributed to the
-increased strength of the hydrophobic interaction at higher temperatures, leading to a stronger
-hydrophobic driving force for partial folding
-
-For a number of extendedly-disordered proteins it has been shown that a decrease (or increase)
-in pH induces partial folding of intrinsically unordered proteins due to the minimization of
-their large net charge present at neutral pH, thereby decreasing charge/charge intramolecular
-repulsion and permitting hydrophobic-driven collapse to the partially-folded conformation
-
-Importantly, this high temperature and extreme pH stability of ID proteins can be used isolate
-them from cell extracts
-
-Un aspecto importante que se evaluo sobre la conformacion es que esta ocurre tambien in-vivo. Cuando se comenzo a hablar de las proteinas desordenadas y se hicieron los primeros experimentos in vitro sobre las conformaciones adoptadas, se hipotetizo que quizas la desestructuracion era caused by isolation and high dilution of the protein in the test tube. If this were the case, crowding elicited by extreme macromolecular concentrations and/or folding induced by physiological binding partners would actually make them fold in vivo.
-Se realizaron distintos experimentos para evaluar esto, tales como simular situaciones de aglomeracion in-vitro, mediante in-cell NMR, o midiendo in-vivo sensitivity of IDPs to ubiquitin-independent degradation. In all, the evidence seems overwhelming now that structural disorder also exists in vivo and it is truly the native, functional state of these proteins.
-
-
-
+IDPs.....
 
 
 
 
 INDUCED FIT:
 
-Protein folding and binding are analogous processes, in which the
-protein ‘searches’ for favourable intramolecular or intermolecular
-interactions on a funnelled energy landscape 1,2 . Many eukaryotic
-proteins are disordered under physiological conditions, and fold
-into ordered structures only on binding to their cellular targets
-
-Many intrinsically disordered proteins undergo
-transitions to more ordered states or fold into stable
-secondary or tertiary structures on binding to their
-targets — that is, they undergo coupled folding and
-binding processes
 
 
-IDPs cannot spontaneously fold into the compact globular structures. Some of them fold as a
-whole while interacting with their partners, if the free energy of complex is
-lower than the free energies of IDP and its partner before their interaction.
-More
-often, however, only a part of an IDP, a specific recognition element, which is a relatively
-short amphipathic linear motif contained within long disordered sequence, is involved in the
-coupled folding and binding events
+2 modelos describen el coupled binding and folding
 
-Induced fit interactions can also occur between structural domains and relatively large natively unstructured regions of other proteins. 
-The natively unstructured region is then induced to form a stable structure, but only in the presence of the interacting structural domain.
-
-
-There are two major models describing
-the coupled folding and binding process in proteins, the conformational selection model and
-the simultaneous binding and folding model, also known as the induced folding model.
-
-The conformational selection
-mechanism is based on the hypothesis that when free in solution, IDP populates the
+The conformational selection mechanism is based on the hypothesis that when free in solution, IDP populates the
 ensemble of conformations and, from this ensemble, the binding partner “chooses” or
 “selects” a specific conformation which closely approximates that of the bound form. An
 illustrative example of the conformational selection mechanism in the recognition process is
 so-called “preformed structural elements” or elements of local residual structure, which are
 frequently observed in IDPs and which are crucial for the IDP interactions with its specific
 partners
+
 Induced folding model postulates that IDP associates with
 its binding partner in a fully disordered state and subsequently folds in association with the
 target protein. In molecular recognition, this model is exemplified by so-called molecular
@@ -172,6 +26,7 @@ which are found within the regions of disorder and which mediates certain classe
 events of disordered regions undergoing a disorder-to-order transition into a specific
 structure that is stabilized by binding to its partner. These recognition motifs can fold
 into α-helix, β-strand, or form irregular structure on binding to a target protein
+
 
 Obviously, in reality, either one of the outlined above
 mechanisms, the conformational selection model or the induced folding model, or some
@@ -183,42 +38,6 @@ An important feature of the intrinsically unstructured proteins is that they are
 
 
 
-There is, however, an alternative view to the problem of
-existence and functionality of intrinsically unstructured
-proteins. It is possible that these proteins are as folded in
-the cell as ‘normal’ proteins, due to the fact that concen-
-tration of their ligands is always high enough in vivo to
-fold them. Thus, evolution never sees them as any differ-
-ent from normal proteins.
-In this view, the property of be-
-ing intrinsically unstructured is merely an artifact result-
-ing from the proteins being studied after being purified to
-homogeneity. Evolutionarily, intrinsically unstructured
-proteins persist not because there is an advantage to be-
-ing intrinsically unstructured, but because there is no dis-
-advantage as long as there are enough ligands around in
-vivo to fold the proteins. The stability of the folded, lig-
-and bound form may only be a few kcal/mol, but this
-would be enough to keep the vast majority of molecules
-folded and functional (even most normal, folded proteins
-are only marginally stable
-
-
-
-
-
-
-
-
-
-En base a todo esto que se dice de disorder e induced fit, en el paper (Intrinsically Disordered Protein A. Keith Dunker) se plantea una clasificacion en 2:
-
-we suggest two categories of disorder: intermittent and constant.
-The former describes protein molecular
-recognition domains and other regions that undergo order/disorder transitions to
-carry out binding or other functions. The latter describes regions such as
-roteinaceous detergents, flexible linkers, entropic springs, entropic clocks and
-entropic bristles that remain disordered while carrying out function.
 
 
 
@@ -242,15 +61,7 @@ entropic bristles that remain disordered while carrying out function.
 
 
 
-
-
-
-
-
-
-
-
-*************************************************************************************************
+***********************************************************************************************
 
 
 FUNCIONES Y MECANISMOS FUNCIONALES:
@@ -258,46 +69,11 @@ FUNCIONES Y MECANISMOS FUNCIONALES:
 
 
 MECANISMOS FUNCIONALES:
-The intrinsic lack of structure and function-related disorder-to-order transitions provide
-IDPs with various functional advantages, such as: (i) Decoupled specificity and strength of
-binding provides for high-specificity-low-affinity interactions; (ii) Increased speed of
-interaction due to greater capture radius and the ability to spatially search through
-interaction space; (iii) Increased interaction (surface) area per residue; (iv) The ability for
-one-to-many and many-to-one interactions; (v) Increased capture radius for a specific
-binding site in comparison with that of ordered protein with its restricted conformational
-freedom, (vi) Fast binding kinetics, etc
 
 
-Intrinsic plasticity has been proposed to be advantageous because it could enable a single protein to recognize many biological targets while
-still being specific [13– 15]. Moreover, it has been pointed out that the susceptibility to proteases and, hence,
-shortened lifespan of disordered proteins is an added advantage because these proteins play roles in cell-cycle
-regulation [13].
-Ademas(o, en lugar) de estas propiedades adaptativas leading to advantages in regulation and in binding diverse ligands, las proteinas IDPs pueden conferir otra ventaja.
-Disordered proteins often have
-large intermolecular interfaces, the size of which is dic-
-tated by protein function. For proteins to be stable as
-monomers with extensive interfaces, protein size
-would need to be 2–3 times larger. This would either
-increase cellular crowding or enlarge the size of the cell
-by 15 –30%, owing to the increase in the sequence
-length. Smaller sizes of cells, proteins, DNA and RNA
-conserve energy. Thus, disordered proteins provide a
-simple yet elegant solution to having large intermolecu-
-lar interfaces, but with smaller protein, genome and
-cell sizes.
-The natively disordered state is a simple
-and elegant solution adopted by evolution to avoid large
-protein, genome and cell sizes.
 
-For many examples, the given disordered regions are not known to bind to any partner, but they still carry out
-important functions such as providing flexible linkers be-
-tween structured domains or providing flexible tails that
-regulate the structured domains
 
-Even if the lifetime of the preferred native
-conformation is short(como es el caso de las disordered conformations), this conformation still exists. The
-binding and shift in the equilibrium takes care of
-the function.
+
 A large interface with a
 particular structure and pattern of residues is required for
 protein function; as to the rest, function is not affected.
@@ -307,7 +83,13 @@ large. Conformational shift and re-distribution will attend
 to the function.
 
 
-As a result of breathtaking advances in comparative evolutionary and experimental structure–function studies, it is now clear that structural disorder provides multiple functional advantages, and IDP functions either directly stem from their disorder (entropic chains) or from molecular recognition, when they undergo induced folding (disorder-to-order transition) upon binding to a partner molecule. Several of their specific functional modalities, such as adaptability in binding, high functional density, weak but specific binding, and frequent regulation by post-translational modification, have been formally demonstrated. The induced folding concept stimulated much research and led to a virtual explosion in the field of short motifs.
+
+
+
+
+
+
+
 
 Non-globular sequence segments often contain short linear peptide motifs (e.g. SH3-binding sites) which are important for protein function.
 ***********ACA HAY UN POSIBLE ENGANCHE CON EL TEMA DE ELM *********
@@ -349,41 +131,6 @@ of several motifs,
 
 
 
-
-
-
-****ACA NO SE POR QUE ASUME COMO QUE LAS IDP SIEMPRE SE PLIEGAN PARA EL BINDING(ANTES O DESPUES DE LA UNION)*****
-An often-raised issue with respect to IDP binding is
-whether folding occurs before or after binding (termed
-conformational selection and induced folding, respective-
-ly). Detailed
-studies suggest that folding can occur both before and
-after binding in distinct cases
-
-
-
-
-Two unexpected and important concepts have also
-emerged in the binding-folding paradigm. One is the
-intriguing observation that two IDPs/IDRs can bind each
-other in a process of mutual (synergistic) folding [47].
-The other, even more confounding finding, is that recog-
-nition can proceed even in the lack of folding in the bound
-state. The many examples of such ‘fuzzy’ interactions demand the extension of the concept of structural disorder to the bound state.
-
-
-Irrespective of the actual mechanism of binding, an IDP/
-IDR might have a greater capture radius than a globular
-protein and it can bind at a relatively larger distance
-followed by reeling on to the partner, potentially enhancing
-the rate of binding by a ‘fly-casting’ mechanism, according to which the unfolded polypeptide first binds weakly at a relatively large
-distance from the actual binding site and then folds as the protein approaches the binding
-site.
-
-A related phenomenon
-might operate in the spatial search by transcription factors
-in sequence-specific DNA recognition, termed the ‘monkey-
-bar’ binding mechanism
 
 
 
@@ -449,6 +196,7 @@ interaction energies of IUPs.
 FUNCIONALIDADES:
 
 El estudio de estas proteinas llevo a encontrar una gran cantidad de funcionalidades asociadas.The physical characteristics of IDPs allow an exquisite level of control of cellular signalling processes. Their favourable characteristics include: the presence of small recognition elements that fold on partner binding; a degree of flexibility, which enables them to interact promiscuously with different targets on different occasions; accessible sites for post-translational modificatio­n; e­fficient utilization of conserved sequence motifs to mediate binding interactions; the ability to bind partners with high specificity but modest affinity, leading to rapid and spontaneous dissociation and termination of the signal 1,3,19 ; kinetic advantages in signalling 20 , as their extremely fast association rates allow signals to be rapidly turned on.
+
 
 
 TIGHT REGULATION:
@@ -577,6 +325,13 @@ evolutionary selection.
 
 
 
+
+
+
+
+
+
+
 METODOS EXPERIMENTALES QUE SE USARON INICIALMENTE PARA IDENTIFICAR PROTEINAS/REGIONES DESORDENADAS:
 
 The key experimental method for obtaining systematic
@@ -641,18 +396,54 @@ given molecular weight provide evidence of disorder.
 
 
 
+*********************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 METODOS COMPUTACIONALES PARA PREDECIR DESORDEN:
+
+
 REFERENCIAS: 
-	Predicting intrinsic disorder in proteins: an overview  (REVIEW COMPLETO)
 	PONDR-FIT: a meta-predictor of intrinsically disordered amino acids 
 
 
-Accurate IDP prediction is a necessary prerequisite for
-the complete understanding of the principles of protein
-folding. IDP prediction is also needed for comprehension
-of the molecular mechanisms of protein function and
-for building a new structural and functional hierarchy
-of proteins.
+
 
 
 A signature
@@ -668,43 +459,13 @@ acids (Gln, Ser, Pro, Glu, Lys and, on occasion, Gly and
 Ala) .
 
 
-A number of computer programs are now available
-for the prediction of unstructured regions from amino-
-acid sequences. These include PONDR 14 , FoldIndex 15 ,
-DisEMBL 16 , GLOBPLOT 2 (REF. 17) and DISOPRED2
-
 
 Disprot: Intriguingly, thousands of the structures in PDB are now known to contain disordered chains that become structured only in the presence of the partner, and there are also many regions that are actually missing from electron density maps [11]. Such evidence added to that obtained by other techniques [mostly NMR and circular dichroism (CD)], which enabled the creation of DisProt, a database dedicated to structural disorder (Ref: DisProt: the Database of Disordered Proteins. Nucleic Acids Res).
 
 
-GlobPlot (ref: GlobPlot: exploring protein sequences for globularity and disorder)
-	
-
-Whereas the latest release
-(2010 November) of the DisProt database [7] contains
-1342 disordered regions in 627 IDPs (www.disprot.org),
-there is still a very wide gap between experimentally
-demonstrated and expected structural disorder, which
-leaves much room for bioinformatics in large-scale func-
-tional association studies. Based on the compositional bias
-of IDPs, several dozen predictors of different principles
-have been developed [8]. To handle limitations inherent
-in prediction accuracy due to distinct flavors of disorder,
-however, different predictors are recently combined into
-metapredictors, such as metaPrDOS [9] or PONDR-FIT
-[10]. These combined predictors do show improved per-
-formance over their composite ones.
 
 
 
-
-En el review (\ref Predicting intrinsic disorder in proteins: an overview ) se analizan distintos metodos computacionales que habia disponibles en esa fecha(2009)	
-Los predictores que se analizan son:
-PONDR[36-41], FoldIndex [42], GlobPlot [43], Dis-
-EMBL [44], DISOPRED and DISOPRED2 [45-48],
-DRIPPRED [49], IUPred [50, 51], FoldUnfold [52-54],
-RONN [55], DISpro [56], DisPSSMP and DisPSSMP2
-[57, 58], Spritz [59] and PrDOS [60], etc.
 
 
 
@@ -806,7 +567,7 @@ tions. Based on this reasoning, an IUPred algorithm esti-
 mating the inter-residue interactions was designed. First,
 the interaction energy between each pair of amino acids
 based on their C β positions was estimated. This was done
-by calculating the potential mutual contact energies for
+	by calculating the potential mutual contact energies for
 all amino acid pairs in a dataset of globular proteins with
 known structure. This is a fairly standard approach in
 computational biology, and in this work Dosztanyi et al.
@@ -847,87 +608,3 @@ indicate the lack of potential for folding
 
 
 
-
-LIMITACIONES EN LOS PREDICTORES:
-
-Although the IDP-related research is con-
-tinuing to be of significant interest, and, although gratify-
-ing achievements occurred, this field is still experiencing
-many difficulties.
-First, the number of proteins with experimentally de-
-termined disordered structure is still small.
-
-Second, because the molecular mechanisms of dis-
-ordered structure formation are not very clear yet, the
-selected characteristics and attributes in the prediction
-process are mainly focused on the biochemical proper-
-ties of amino acids and on the compositional content of
-sequences.
-
-Third, IDPs can be characterized by more than 20
-biophysical methods, each of which gives slightly differ-
-ent information. Thus, if time and money were no issue,
-there would be a significant advantage to characterize
-a significant number of disordered regions by multiple
-methods [110, 118]. A collection of IDPs characterized
-by multiple methods would provide an important basis
-set for developing a deeper understanding of different
-types of disorder.
-
-Fourth, a consensus has not yet been reached among
-different researchers regarding even the definition of
-IDPs. Typically researchers involved in the IDP studies
-have put forward different IDP definitions based on dif-
-ferent aspects of the protein structural ensembles, and
-several researchers have pointed out the importance of
-characterizing individual IDPs by a variety of compu-
-tational methods
-
-
-En general, the current limitation to further improve-
-ment in prediction accuracies comes from noise in the
-structured and disordered protein data. Unstructured
-proteins can form complexes that become structured
-[86], and unless care is taken when selecting structured
-proteins from the Protein Data Bank, structured proteins
-arising from disorder would contribute noise to the train-
-ing set for structured protein. Likewise, regions that are
-characterized as disordered experimentally can undergo
-coupled binding and folding.
-
-
-
-
-
-
-
-
-
-
-
-**********************************************************************************
-	
-
-
-
-
-METODOS COMPUTACIONALES PARA PREDECIR FUNCIONALIDAD EN REGIONES DESORDENADAS:
-
-Predicting function and/or functional sites of IDPs is a
-task even more difficult(que predecir la conformacion desordenada). 
-Recently, significant advance has
-been made in this direction, based on the observation that
-interactions of IDPs are often mediated by short linear
-motifs [11]. Because linear motifs are 3–15 residues in
-length, they contain very little sequence information and
-their prediction from sequence alone is fraught with very
-high false positive rates. A critical advance in this direc-
-tion has been made by applying context-filters, which
-significantly increase prediction accuracy by taking into
-consideration motif enrichment in proteins that share the
-same binding partner or evolutionary history (e.g. SLiM-
-Finder [12]). Completely different logic forms the basis of
-ANCHOR, which predicts disordered binding sites by
-estimating their interaction energy with a general partner
-[13], and of the molecular recognition feature predictor
-(a-MoRF-PredII

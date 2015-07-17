@@ -117,8 +117,8 @@
 
 %% margins
 \RequirePackage[
-  top     = 40mm, bottom     = 33mm,
-  outer   = 25mm, inner      = 40mm,
+  top     = 30mm, bottom     = 23mm,
+  outer   = 15mm, inner      = 25mm,
   headsep = 10mm, headheight = 15pt,
   marginparwidth = 15mm ]{geometry}
 

@@ -62,6 +62,19 @@ por el apropiado "y".
 
 
 
+****OTRO REVIEW
+@article{dunker2001intrinsically,
+  title={Intrinsically disordered protein},
+  author={Dunker, A Keith and Lawson, J David and Brown, Celeste J and Williams, Ryan M and Romero, Pedro and Oh, Jeong S and Oldfield, Christopher J and Campen, Andrew M and Ratliff, Catherine M and Hipps, Kerry W and others},
+  journal={Journal of Molecular Graphics and Modelling},
+  volume={19},
+  number={1},
+  pages={26--59},
+  year={2001},
+  publisher={Elsevier}
+}
+
+
 ******** FUNCIONALIDADES DE IDPs
 @article{gunasekaran2003extended,
   title={Extended disordered proteins: targeting function with less scaffold},
@@ -127,6 +140,27 @@ por el apropiado "y".
   year={2009},
   publisher={Nature Publishing Group}
 }
+
+
+
+****globprot
+@article{linding2003globplot,
+  title={GlobPlot: Exploring protein sequences for globularity and disorder},
+  author={Linding, Rune and Russell, Robert B and Neduva, Victor and Gibson, Toby J},
+  journal={Nucleic acids research},
+  volume={31},
+  number={13},
+  pages={3701--3708},
+  year={2003},
+  publisher={Oxford Univ Press}
+}
+
+
+
+
+
+
+
 
 
 
@@ -361,6 +395,18 @@ por el apropiado "y".
   pages={gkr1064},
   year={2011},
   publisher={Oxford Univ Press}
+}
+
+
+@article{neduva2005linear,
+  title={Linear motifs: evolutionary interaction switches},
+  author={Neduva, Victor and Russell, Robert B},
+  journal={FEBS letters},
+  volume={579},
+  number={15},
+  pages={3342--3345},
+  year={2005},
+  publisher={Elsevier}
 }
 
 

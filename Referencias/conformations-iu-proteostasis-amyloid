@@ -16,70 +16,17 @@ CITAS:
 
 
 
-LAS PROTEINAS IN-VIVO PUEDEN ESTAR EN DISTINTOS ESTADOS. EN FORMA GENERAL SE PUEDEN CLASIFICAR EN:
-	-CONFORMACION PLEGADA. Este estado nativo puede dividirse ademas en: native (ordered), molten globule, pre-molten globule, and coil-like.
-	-DISORDERED STRUCTURE (ID): podria considerarse como un conjunto de estados entre los cuales se interconvierte a diferentes velocidades.
-	-MISFOLDED (AGREGATION,AMYLOID, ETC)
-
-
-
-
-
-
-This picture enables us to speculate on the origins of
-the amyloid diseases from the point of view of the
-physico-chemical properties of the protein molecules. If
-the stability or cooperativity of the native state of a
-protein is reduced, for example by a mutation, the popu-
-lation of non-native states will increase.
-This rise will increase the probability of aggregation, as the
-concentration of polypeptide chains with at least partial
-exposure to the external environment will be greater.
-Whether or not aggregation does occur will depend on
-the concentration of protein molecules, the intrinsic
-propensity for a given sequence to aggregate when
-unfolded, and on the rate of the aggregation process. The
-fact that formation of ordered amyloid ¢brils can be
-seeded, like the well-studied processes of crystallization
-and gelation, means that once the aggregation process is
-initiated it often proceeds very much more rapidly.
-In the absence of seeding there can be
-long `lag' phases before aggregation occurs .
-This lag can be thought of as arising because the growth
-of a ¢bril cannot occur until a `nucleus' of a small number
-of aggregated molecules is formed. Such a nucleus can be
-formed by the local £uctuations in concentration that
-occur in solution as a result of random molecular motion.
-When such fluctuations result in a local concentration of
-molecules above a critical value, the molecules associate
-with one other to form a species that is su¤ciently large
-to have intrinsic stability, and hence to grow in size by
-interacting with other molecules in the solution. The act
-of seeding provides such nuclei to the solution and hence
-reduces or abolishes the lag phase
-
-The proposal that amyloid fibrils are a generic structure of polypeptide chains (se desarrolla mas adelante en la parte de amyloids) coincide con esta forma de ver.
-
-
-
-
-
-
-
 
 
 *****************************************
-FOLDED PROTEINS (CONFORMACION PLEGADA)
-***************************************
-
 FOLDING
+*****************************************
+
+
 The emerging view of folding is that it is a stochastic process, but one biased by the fact that native-like interactions between residues are on average more stable than non-native ones.
-The sequences of natural proteins have emerged through evolutionary processes such that their unique native states can be found very e¤ciently even in the complex
-environment inside a living cell.
 
-In vivo, the beginning of the folding process is the nascent chain as it emerges from the ribosome. In vitro, folding begins from a fully formed polypeptide chain that has been unfolded, usually by addition of a chemical denaturant such as urea. In both cases the polypeptide chain is highly disordered before folding is initiated. In the extreme case, approximated rather well for many proteins in denaturants, the protein is said to be in a `random coil' state, where only local steric interactions constrain the conformations adopted by the molecule.
-
-In order to achieve the native state encoded by the fold, the protein molecule has to find its way to this unique conformation rather than one of the countless alternatives. Contemplation of this problem gave rise to the `Levinthal paradox'. The solution to this apparent paradox has emerged
+In order to achieve the native state encoded by the fold, the protein molecule has to find its way to this unique conformation rather than one of the countless alternatives. 
+Contemplation of this problem gave rise to the `Levinthal paradox'. The solution to this apparent paradox has emerged
 recently through the consideration of the energy surfaces
 or `landscapes' on which the folding reaction occurs.
 The energy surface is itself determined from the
@@ -138,32 +85,9 @@ cules are able to achieve the native structure.
 
 
 
-
-The number of observations of both stable and transient partially folded
-intermediates is now sufficient for us to assume that all proteins, under
-the appropriate conditions, will form such species. These intermediates
-are characterized by substantial secondary structure and little tertiary
-structure; a collapsed conformation more compact than the unfolded
-state; exposed hydrophobic surfaces, which lead to binding of hydrophobic dyes and a propensity to aggregate; and a heat capacity similar
-to that of the unfolded state. The term compact intermediates encom­
-passes a broad range of conformations and degrees of folding and com­
-pactness: compact intermediates have no single, unique conformation,
-but rather a whole plethora of structures that range from being very
-similar to the native state to being substantially expanded and signifi­
-cantly unfolded. The properties of compact intermediates from differ­
-ent proteins, and in some cases from the same protein under different
-conditions, may be significantly different. Equilibrium compact inter­
-mediates may be good models for transient intermediates formed during
-folding
-
-Sufficient numbers of different proteins forming stable-equilib­
-rium, partially folded conformations have been observed that we can
-make the generalization that all proteins, urider the appropriate condi­
-tions, will form such species.
-
-
-Como se dijo antes, esta conformación plegada es algo que se adopta luego de un proceso de plegado, por lo tanto puede dividirse en distintos estados (intermedios??), aparte del estado nativo ordenado.
-
+**************************************
+ESTADOS INTERMEDIOS DE PLEGAMIENTO
+**************************************
 
 RANDOM COIL CONFORMATION:
 Obviously, to be able to solve the problem of protein folding, it is necessary to first characterize the unfolded state, which represents the starting point of the folding reaction. It is known that the unfolded state represents an ensemble of rapidly interchanging conformations, some of which are extended, and some more compact. It is possible that when stabilizing interactions occur, they induce a more populated ensemble of chain conformations, and, if such structures exist in the unfolded state, they would probably guide the folding process and function as folding-initiation sites.
@@ -246,68 +170,6 @@ structure but were forced somehow to denature to fulfill their functions [38,60]
 
 
 
-***********************
-MISFOLDED PROTEINS
-***********************
-
-As the size and complexity of proteins increase, there-
-fore, the folding process becomes more complex. Inter-
-mediates with only partially formed structures can be
-populated and have significant lifetimes. In addition,
-events that may be termed `misfolding' may take place
-during the search for the stable native-like contacts
-between residues. That such complexities are seen even in
-the benign environment of a dilute solution of a pure
-protein suggests that they are even more likely to occur in
-the crowded environment of the cell.
-Undoubtedly,
-molecular chaperones are able to mitigate some of the consequences of this complex behaviour and provide
-some protection for the incompletely folded chain. But the idea that proteins can misfold, or
-fold to intermediates that may undergo undesirable re-
-actions such as aggregation, provides insight into potential
-problems that can arise during folding even in the best
-designed environments.
-Folding and unfolding are also
-now known to be coupled to many of the key events in the
-functioning of a biological system, including translocation
-of proteins across membranes, protein tra¤cking, secre-
-tion of extracellular proteins, and the control and regula-
-tion of the cell cycle (Radford & Dobson 1999). Thus, the
-failure of proteins to fold or to remain folded under
-physiological conditions ö is likely to cause malfunctions
-and hence disease
-
-
-Protein misfolding is a wide-spread phenomenon. Any protein with changes in native
-structure which affect its normal function is misfolded. Aggregation and formation of
-amyloid-specific cross-β structure is only one of the forms of misfolding.
-The terms “misfolded” and “aggregated” are not equivalent. The ability of a protein to aggregate and to form fibrils
-depends on many factors, including protein sequence and environment.
-Not all the partially unfolded conformations have increased propensity to aggregate. In fact, only a small fraction of such conformations is aggregation
-prone.
-
-
-The energy landscape model suggests that some folding intermediates might have structural
-elements not present in the final folded state. The appearance of such misfolded
-intermediates might initiate protein oligomerization or aggregation
-
-
-De acuerdo con la forma de ver las distintas conformaciones que se dijo en la introduccion (y que se ve en el grafico conformDiagram.png)
-The critical step in the aggregation process is the unfolding of the native structure. 
-In the case of most proteins, except the smallest ones discussed at the
-beginning of this article, unfolding under physiological
-conditions will not generate the type of highly unfolded
-states seen in high concentrations of denaturant. Instead
-the denatured protein will be more stable in a partially
-collapsed `intermediate' state that may well resemble the
-folding intermediates observed in the normal folding
-process
-
-The intermediates may be important, however,
-for another reason in that they are generally much more
-soluble than highly unfolded polypeptides, enabling the
-concentrations of non-native species to reach those
-required for nucleation as described above.
 
 
 
@@ -317,119 +179,9 @@ required for nucleation as described above.
 
 
 
-The amyloid conformation reflects an intrinsic conformational
-propensity of polypeptides as many proteins can be forced into
-amyloid fibrils by manipulating external conditions. However,
-amyloid formation is also a sequence-specific process 14,15 .
-Under physiological conditions, most peptide sequences derived
-from proteins will remain soluble even at high concentrations,
-whereas most hydrophobic sequences will invariably aggregate
-as amorphous aggregates.
-Despite active research, a detailed under-
-standing of the molecular principles underlying the transformation
-of soluble proteins into amyloid aggregates is still lacking
-
-Several methods have been published recently that attempt to predict aggregation-prone or amyloidogenic regions based on various properties of proteins (TANGO, PASTA, WALTZ, SALSA, aggrescan, zyggregator).Some of these prediction methods try to distinguish amyloid fibril
-(ordered aggregates) prediction from amorphous
-aggregate prediction, providing also the relevant physi-
-cal reasoning and influencing factors.
-
-Owing to the relatively small amount
-and diversity of experimentally validated amyloidogenic sequences,
-sequence-based prediction algorithms do not possess sufficient
-information to distinguish amyloid from amorphous aggregates.
-They generally also have rather poor predictive capabilities toward
-amyloid sequences from yeast prions and functional amyloids. In
-contrast, structure-based homology modeling methods 25,40 can in
-principle provide very specific predictions. However, as side-chain
-modeling is very sensitive to even modest changes in backbone
-conformation, structure-based approaches are also limited by a
-shortage of experimentally determined structures 28
 
 
 
-
-
-
-
-
-
-From a wide range of in vitro experiments on
-peptides and proteins we now know that the formation of
-amyloid structures is not a rare phenomenon associated
-with a small number of diseases but rather that it reflects a
-well-defined structural form of the protein that is an alter-
-native to the native state — a form that may in principle be
-adopted by many, if not all, polypeptide sequences
-
-Amyloidogenic proteins are quite diverse, with little similarity in
-sequence and native three-dimensional structure [1,2].
-Additionally, several proteins and peptides not related
-to amyloidoses have the potential to form amyloid
-fibrils in vitro, suggesting that this ability for structural 
-rearrangement and aggregation may be inherent to
-proteins.
-An increasingly adopted view is that
-the ability to form amyloid fibrils is a general property of the
-polypeptide backbone (6). Nevertheless, the propensity of a given
-polypeptide to form amyloid fibrils depends enormously on amino
-acid composition.
-Dicho de otra forma: Even though the ability to form amyloid fibrils seems to be generic,
-the propensity to do so under given circumstances can vary markedly
-between different sequences.
-
-
-
-
-
-
-
-
-Amorphous β-sheet aggregation, however, is less position-
-dependent and can, in principle, be achieved by any sequence that
-can adopt an extended conformation, is sufficiently hydrophobic
-and has no unsatisfied hydrogens or electostatic groups 18,19 . Thus
-β-sheet aggregation can be relatively easily predicted by methods
-that evaluate aggregation by evaluating biophysical parameters
-over a sequence segment, without the need for considering
-position-dependent values of these parameters.
-
-
-
-
-
-
-
-The multiplicity of protein states:
-In addition to their functional native structures, protein­s
-also populate various other states, including disordered
-and partially ordered conformations, and different
-aggregate­d assemblies
-
-Although it was evident from early studies that both soluble and fibril-
-lar forms of proteins could exist 33 , most attention was
-focused on the soluble states that were found to possess
-demonstrable biological function.
-
-
-A combination of experimental and
-theoretical studies has clarified how given sequences
-define specific free energy surfaces that enable folding 38–40 .
-This problem is, however, challenging, as a free energy
-surface depends on a very large number of relatively
-weak interactions, including hydrogen bonds, electro­
-static interactions, dispersion forces and interactions with
-solvent molecules that underlie the hydrophobic effect.
-Moreover, as we discuss below, in some cases the native
-state of a given peptide or protein may not be structured
-in a globular form but disordered. Regardless of its nature,
-however, the functional native state is likely to only reflect
-a local free energy minimum at physiological concentra-
-tions, as self-association into aggregated protein spe-
-cies may in many cases lower the global free energy 41,42
-(BOX 1) . Indeed, the maintenance of protein solubility has
-emerged as a central aspect of the more general topic of
-protein homeostasis 3,43,44 .
 
 
 
@@ -463,130 +215,6 @@ would be very difficult for them to reach the conditions of zero net charge phys
 This means that evolution worked against misfolding and aggregation, and the sequences of
 IDPs were selected so that they do not misfold and aggregate easily.
 
-***Esto esta en \cite{de2004sequence} ***
-A protein has to be partially or fully unfolded to aggregate (1, 2).
-Yet, mutations leading to aggregation can alter (9, 10), or not alter
-(11, 12), protein stability. Aggregation from some peptides and
-proteins involved in relevant amyloidoses, such as type II diabetes
-and Alzheimer’s and Parkinson’s disease, does not require, how-
-ever, previous unfolding, because these molecules are largely
-unstructured under physiological conditions (2). Nevertheless, most
-of the natively unfolded proteins in vivo do not undergo aggregation
-(13), indicating that unfolding is necessary, but not sufficient, to
-promote aggregation.
-Hence, there must be some sequence motifs
-that, once they become exposed, are more prone to aggregation
-than others. In fact, experimental evidence is compelling in favor of
-the hypothesis that small regions of a protein are responsible for its
-amyloidogenic behavior
-
-
-
-Como se dice, intrinsically disordered proteins are not necessarily prone to aggregation, as
-their sequences have usually evolved to maintain the level
-of solubility that is required for their optimal function;
-for example, through the existence of extensive regions
-that are highly abundant in charged and polar groups
-that disfavour intermolecular association from a thermo­
-dynamic point of view. 
-Moreover, as is discussed below,
-kinetic barriers to aggregation are crucial in enabling both
-globular and disordered proteins to maintain their soluble
-and functional states
-
-
-Many proteins adopt various other biologically rel-
-evant conformational states in addition to their native
-structure.  These
-partially folded protein species are particularly vulner-
-able to misfolding and aggregation from which they must
-be protected in living systems
-
-
-Although most common forms of proteins are
-soluble, some functional states are insoluble,
-for example the fibrillar assemblies that form the cellular
-cytoskeleton. Proteins are also, however,
-vulnerable to forming a wide variety of non-functional
-aggregated species. Indeed, proteins exhibit generic poly­
-meric and colloidal patterns of behaviour.
-Aggregated forms of proteins can be generally amorphous on an ultra­structural
-level. Of particular fascination, however, because of their
-remarkable structures and properties, are highly ordered
-self-associated species of peptides and proteins, notably
-amyloid fibrils and closely related prion-like states.
-
-it has been found that the proteinaceous
-deposits extracted from tissues in misfolding diseases
-typically have amyloid characteristics.
-Remarkably, there is no evident similarity in
-the sequences, native structures or functions of the group
-of disease-associated proteins.
-
-
-Normally soluble proteins or peptides convert under
-certain conditions into ordered fibrillar aggregates
-known as amyloid deposits.
-
-Several observations (por ejemplo que ordinary peptides and proteins can convert
-under appropriate laboratory conditions into aggregates with all the characteristics of the amyloid fibrils),
-, together with a wide variety of biophysical and computational
-studies, led to the suggestion that the amyloid structure
-can in principle be adopted by any polypeptide chain.
-
-
-******* The amyloid state of a protein is therefore generic,
-as it is accessible to many different polypeptide chains,
-and, unlike the native state, its essential architecture is
-not encoded by the amino acid sequence 1,26 , although
-the details of its structure and stability can be markedly
-sequence-dependent, as we discuss below. ********************
-
-
-Similar to globular
-native states, amyloid structures are closely packed and
-highly ordered
-
-
-
-
-
-
-****************************************
-The healthy state of a cell is characterized by a detailed
-balance between the different states that proteins can
-populate. Perturbations to such balance, unless they are
-kept under strict control, can lead to deleterious events
-and disease.
-****************************************
-It is accepted that misfolding of peptides and proteins cause the
-fibrillar aggregates that characterize the group of diseases known
-as amyloidoses
-
-
-
-
-
-
-
-FUNCTIONAL AMYLOIDS:
-Amyloids are not only associated with disease-related proteins.
-Nature also exploits the structural and mechanical properties
-of amyloids to regulate biological functions 13 . For example, in
-bacteria amyloids such as curli promote biofilm formation and
-host invasion, and chaplins in bacteria and hydrophobins in yeast
-act as regulators of surface tension of water. Insects and fish
-use chorion amyloid as a component of eggshell, and spiders
-use spidroins in spider silk. Humans possess at least one func-
-tional amyloid protein: Pmel17 is used as a structural scaffold
-in melanin synthesis. The strength and flexibility of amyloids
-have attracted attention for their use as biomaterials. However,
-it remains to be understood how functional amyloids avoid the
-cytotoxic effects observed in disease amyloids. In part, functional
-amyloids are regulated by chaperones and proteases. But it is
-also becoming evident that sequence composition modulates
-critical biophysical parameters determining kinetics of assembly
-or mechanical strength.
 
 
 
@@ -625,50 +253,6 @@ LINEAR MOTIFS:
 
 INTRODUCCION, ORIGEN EVOLUTIVO, FUNCION, ETC:
 
-******GRAN PARTE ESTA EN \CITE(Linear motifs: Evolutionary interaction switches) *********
-Proteins are usually modular, containing discrete regions
-each of which performs a different sub-function. The most
-widely known modular element is the protein domain. These
-are typically more than 30 residues in length and fold into
-an independent compact structure. More than 7000 domains
-are known [1], performing an enormous diversity of functions
-from catalysis during metabolism to cell–cell recognition in the
-immune system. Domain duplication is now an accepted mech-
-anism of evolution, and differences in domain architecture are
-often responsible for critical differences between organisms.
-Duplications are thought to be followed either by loss of one
-copy or the evolution of a new function by point mutations.
-
-However, domains are only part of the picture. Many studies
-have shown that they cover only a fraction of the protein se-
-quence contained in an organism. The remaining parts of the
-sequence only rarely contain undiscovered domains, and in-
-deed have been shown to be low-complexity (i.e., dominated
-by a few amino acids) or intrinsically disordered (see [3] for re-
-view).A fraction of these regions are likely linkers that permit
-the correct spacing of domains in a functional protein, though
-many others are known to play pivotal functional roles. Crit-
-ical sites for phosphorylation, or other modifications often
-lie within them, as do regions important for interactions with
-other proteins. These very short, functional regions, though
-not globular domains, often conform to particular sequence
-patterns or linear motifs indicative of a particular function
-
-Despite the availability of
-many thousands of sequences, the discovery of linear motifs,
-in contrast to domains, has remained difficult. Their short
-length makes them difficult to detect using sequence compari-
-son procedures that aid domain discovery. They are typically
-discovered by difficult and time-consuming experimental pro-
-cedures. This usually involves first identifying a set of proteins
-sharing a common function (e.g., a common interaction part-
-ner or targeting within the cell), and then gradually delineating
-a short, common segment associated with this function
-through a variety of experimental techniques.
-
-the difficulties in their discovery
-mean that only about two hundred linear motifs are known
-compared to thousands of domains that might bind them.
 
 
 Linear motifs are short: between three and ten amino acids,
@@ -717,6 +301,10 @@ ear motifs can be switched on or off relatively easily by point
 mutations, and their redundancy and weak affinity probably
 means that the loss or gain of one will only rarely have drastic
 consequences on the evolving system.
+
+
+
+
 
 
 
@@ -830,65 +418,5 @@ functional principles that provide a probably widespread solution to the dynamic
 
 
 
-
-
-
-
-***************************************************************
-
-
-PROTEIN FUNCTION:
-
-There are many methods, such as SMART (Simple Modular
-Architecture Research Tool) (3), PRODOM (4) , Pfam (5,6),
-PROSITE (7) and ELM (Eukaryotic Linear Motif, http://
-elm.eu.org) (8), available for finding globular domains (e.g.
-SH3, TyrKc, active sites) and linear motifs (e.g. SH3 ligands,
-LXXLL nuclear receptor ligands, tyrosine phosphorylation
-sites, post-translational modification sites) within a protein
-sequence. These methods typically rely on sequence similarity
-models, looking for recurrence of known domains or motifs by
-such means as HMMs (Hidden Markov Models) (9), pattern
-discovery
-(http://www.cs.ucr.edu/~stelo/pattern.html)
-or
-SW(Smith-Waterman)-profiles (10). Although these methods
-are of great value in annotating protein sequences, they are
-limited in their ability to uncover new features not yet
-discovered.
-
-
-
-
-
-
-
-
-
-*************************
-	AMYLOIDs
-*************************
-
-All amyloid fibrils share the same cross-beta archi-
-tecture and several functional proteins found in bacte-
-ria, fungi, insects and humans have also been found to
-adopt the same architecture under physiological condi-
-tions, as part of their functional role despite the diversity of origin of their
-constituent proteins.
-
-
-Since all fibrils independent of the original structure of the given amyloidogenic protein have a common cross-b structure, considerable conformational rearrangements have to occur prior to fibrillation. Such changes cannot happen in a native protein, due to its stable and rigid tertiary structure. Thus, protein destabilization favoring partial unfolding and culminating in the formation of a partially unfolded conformation is required. Presumably, such a partially unfolded conformation favors reciprocal and specific intermolecular interactions, including electrostatic attraction, hydrogen bonding and hydrophobic contacts, which are necessary for oligomerization and fibrillation
-Obviously, this model does take into account a class of natively unfolded proteins, as they are devoid of rigid tertiary structure in their native state.
-
-A question then arises about the nature of the amyloidogenic intermediate(s). It has been already mentioned that the conformational space of globular proteins involves
-four general conformations(random cloil, pre-molten globules,molten globules, native).
-Potentially, either of these latter conformations may play a role as the crucial amyloidogenic species. Detailed structural analysis of early fibrillation events in several proteins has demonstrated that the amyloidogenic conformation is only slightly folded and shares many structural properties with the premolten globule state.
-
-Data have been reported indicating that the first critical step in protein fibrillogenesis is the partial unfolding of the protein. Due to structural fluctuations (conformational breathing) the structure of a globular protein under physiological conditions represents a mixture of tightly folded and multiple partially unfolded conformations, with great prevalence of the former. Most mutations associated with accelerated fibrillation and protein deposition diseases have been shown to destabilize the native structure, increasing the steady-state concentration of partially folded conformers
-
-
-Theoretical and experimental evidence indicates that
-short sequence stretches may be responsible for amy-
-loid formation [11–13].
 
 

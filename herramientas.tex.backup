@@ -47,8 +47,11 @@ En este paso, a cada residuo que se alinea correctamente con el hit se le sumar�
 
 
 
-\section{IUPred (analisis de propiedades de flexibilidad/estrucutales)}
-ANÁLISIS ESTRUCTURAL (IUPred)
+
+
+
+\section{IUPred Analisis de tendencia al desorden}
+
 
 Otro de los aspectos a considerar acerca de la secuencia es el grado de estructuración o desorden que puede adoptar. 
 Una de las principales propiedades que buscamos al diseñar una secuencia linker es la existencia de ésta en un ensamble
@@ -58,6 +61,43 @@ ha sido desafiado por diversas proteínas intrínsecamente desordenadas que llev
 evaluar la tendencia de la secuencia a formar una estructura nos da una pauta acerca de la posibilidad de tener una función asociada. 
 De esta forma, además de asegurarnos obtener una estructura flexible que permita cumplir la función de linker, 
 estamos descartando que la secuencia tenga asociada alguna función que requiera la existencia de una conformación tridimensional.
+
+
+
+En el capitulo 1 se desarrollaron algunos aspectos encontrados acerca de la composicion de AAs propia de las secuencia que adoptan conformaciones intrinsecamente desestructuradas.
+Como resultado de estos estudios se encontro que the ID proteins differ dramatically from the ordered proteins in their amino acid sequences. 
+Based on the compositional bias of IDPs, several dozen predictors of different principles have been developed
+% En base a estos estudios, se han desarrollado los primeros predictores de desorden intrinseco, que resultan del analisis de la composicion y propiedades fisicoquimicas de la secuencias.
+
+Actualmente existen una gran cantidad de metodos diversos para predecir desorden estructural \cite{he2009predicting}.
+These include GLOBPLOT \cite{linding2003globplot}, PONDR 14 , FoldIndex 15 , DisEMBL 16 , and DISOPRED2
+To handle limitations inherent in prediction accuracy due to distinct flavors of disorder, however, different predictors are recently combined into metapredictors, such as metaPrDOS [9] or PONDR-FIT
+[10]. These combined predictors do show improved performance over their composite ones.
+
+
+
+% LIMITACIONES PARA OBTENER PREDICTORES MAS CONFIABLES
+En general, the current limitation to further improvement in prediction accuracies comes from noise in the structured and disordered protein data.
+The number of proteins with experimentally determined disordered structure is still small.
+Unstructured proteins can form complexes that become structured[86], and unless care is taken when selecting structured proteins from the Protein Data Bank, structured proteins arising from disorder would contribute noise to the training set for structured protein. 
+Likewise, regions that are characterized as disordered experimentally can undergo coupled binding and folding.
+
+Second, because the molecular mechanisms of disordered structure formation are not very clear yet, the selected characteristics and attributes in the prediction process are mainly focused on the biochemical properties of amino acids and on the compositional content of sequences.
+
+Third, IDPs can be characterized by more than 20 biophysical methods, each of which gives slightly different information. Thus, if time and money were no issue,
+there would be a significant advantage to characterize a significant number of disordered regions by multiple
+methods [110, 118]. A collection of IDPs characterized by multiple methods would provide an important basis
+set for developing a deeper understanding of different types of disorder.
+
+Fourth, a consensus has not yet been reached among different researchers regarding even the definition of IDPs. Typically researchers involved in the IDP studies
+have put forward different IDP definitions based on dif ferent aspects of the protein structural ensembles, and
+several researchers have pointed out the importance of characterizing individual IDPs by a variety of computational methods
+
+
+
+
+
+
 
 La herramienta que utilizaremos es IUPred, disponible a través de un servidor web (http://iupred.enzim.hu/) o descargando la implementación 
 y ejecutándola localmente (http://iupred.enzim.hu/Downloads.php).   
@@ -101,7 +141,17 @@ un modelo a datos de estructuras correspondientes a proteínas intrínsecamente 
 y con distintos significados del término desordenado.
   
 
-  
+\section{Busqueda de propiedades funcionales}
+
+
+% FUNCIONALIDAD EN IDPs
+Predicting function and/or functional sites of IDPs is a task even more difficult(que predecir la conformacion desordenada). 
+Recently, significant advance has been made in this direction, based on the observation that interactions of IDPs are often mediated by short linear motifs [11]. 
+Because linear motifs are 3–15 residues in length, they contain very little sequence information and their prediction from sequence alone is fraught with very
+high false positive rates. A critical advance in this direction has been made by applying context-filters, which significantly increase prediction accuracy by taking into
+consideration motif enrichment in proteins that share the same binding partner or evolutionary history (e.g. SLiM-Finder [12]). 
+Completely different logic forms the basis of ANCHOR, which predicts disordered binding sites by estimating their interaction energy with a general partner [13], and of the molecular recognition feature predictor
+(a-MoRF-PredII  
   
 \section{Prediccion de union a proteinas (ANCHOR)}
 Los valores de n representan las frecuencias de aminoácidos i y j en la secuencia.
@@ -207,6 +257,14 @@ Undoubtedly, more functions will be revealed in the future as additional SLiM in
 Short linear peptide motifs are used for regulation by phosphorylation, acetylation, glycosylation and a host of other post-translational modifications.
 The functionality of linear motifs can be modulated by modifications such as phosphorylation
 
+% funcionamiento como switches
+As key regulatory interaction modules, linear motifs are tightly controlled and many motifs are conditionally turned ‘on’ and ‘off’ depending on cell state. Pre-translational addition or removal of a SLiM-containing exon,
+post-translational modification of the SLiM-containing peptide, allosteric SLiM inhibition or activation and SLiM binding site competition are amongst the most common mechanisms to regulate linear motifs.
+% El descubrimiento de estas propiedades de ser activados o desactivados mediante modifications pre-traduccionales llevo al desarrollo de una BBDD especifica:
+% The switches.ELM  database is a resource dedicated to the curation and representation of experimentally validated motif-based molecular switches.
+% (ver paper The switches.ELMresource:a compendium of conditional regulatory interaction interfaces)
+
+
 
 % POR QUE LOS QUITAMOS?
 El objetivo de este trabajo es lograr una herramienta que provea una secuencia capaz ser utilizada experimentalmente como linker en el proceso de ingeniería de proteínas. 
@@ -221,6 +279,14 @@ En este algoritmo utilizamos distintas herramientas para evaluar la estructura q
 necesaria para la función de linker. En ese proceso podemos asumir también que la secuencia no podrá cumplir ninguna función que requiera de una estructura en una conformación definida.
 
 
+Una propiedad característica de los LMs es su relación con un contexto de estructura desordenada\cite{fuxreiter2007local}.
+% ACA DESCRIBIR UN POCO LAS CONCLUSIONES DE ESTE PAPER
+
+Dadas estas propiedades estructurales, será relevante para nuestro trabajo . Más aún, teniendo en cuenta las caracteristicas secuenciales de este tipo de motivos, que le 
+podía esperarse que, luego de ser detectados y mutados puedan resurgir facilmente dentro de una misma ejecución, con un comportamiento similar al que ocurre en la naturaleza.
+% es relevante detectarlos en cada paso...., y se espera que, dadas las caracteristicas evolutivas??? de este tipo de motivos, 
+% resurgan luego de una cierta cantidad de pasos de mutacion.
+
 
 
 
@@ -231,7 +297,19 @@ Para detectarlos se utilizará el recurso ELM.
 El recurso de motivos lineales eucariotas(ELM) \cite{puntervoll2003elm,dinkel2013eukaryotic} fue establecido con la misión de recolectar, anotar y clasificar motivos lineales cortos. 
 Provides the biological community with a comprehensive database of known experimentally validated motifs, and an exploratory tool to discover putative linear motifs in user-submitted protein sequences.
 Es relevante destacar que todos los datos anotados son curados manualmente a partir de la literatura y están a disposición de la comunidad científica.
-La base de datos se organiza jerárquicamente: en el nivel superior se tiene un conjunto de tipos (actualmente hay un total de 6 tipos diferentes), que agrupan clases de motivos. Cada clase define la especificación de un dominio o familia de dominios de péptidos, los cuales se describen generalmente mediante una expresión regular sobre la secuencia que los compone. Cada clase contiene al menos una instancia, donde cada instancia representa una secuencia encontrada experimentalmente que se ajusta a la expresión definida para la clase del motivo.
+La base de datos se organiza jerárquicamente: en el nivel superior se tiene un conjunto de tipos (actualmente hay un total de 6 tipos diferentes), que agrupan clases de motivos. 
+% los tipos son: 
+% 	Proteolytic cleavage sites (CLV)
+% 	general ligand binding sites (LIG),
+% 	sites for post-translational modification (MOD)
+% 	sub-cellular targeting sites (TRG)
+% 	Ligand binding classes describing docking sites (DOC): can be described as motifs that recruit a modifying enzyme using a site that is distinct from the active site
+% 	destruction motifs (DEG) is a specific region of a protein sequence that directs protein polyubiquitylation and targets the protein to the proteasome for degradation
+%  ESTOS ULTIMOS 2 TIPOS FUERON AGREGADOS EN EL ULTIMO TIEMPO: 
+%           Technically, all docking sites and destruction motifs belong to the ‘ligand binding sites (LIG)’ type; however, grouping together motif classes of similar function adds an additional level of discrimination.
+
+Cada clase define la especificación de un dominio o familia de dominios de péptidos, los cuales se describen generalmente mediante una expresión regular sobre la secuencia que los compone.
+Cada clase contiene al menos una instancia, donde cada instancia representa una secuencia encontrada experimentalmente que se ajusta a la expresión definida para la clase del motivo.
 El énfasis está puesto en la validación experimental que ha sido realizada sobre estas secuencias, logrando un proceso de curación manual con las instancias que son ingresadas en la base de datos. 
 
 
@@ -350,7 +428,26 @@ El resultado da que las 2 primeras pruebas son un poquito mejores para la PSSM h
 FALTA DESDE DONDE DICE:  Although the heptapeptides in the learning sets were selected on a methodologically acceptable basis, inconsistencies in the learning set selection could not be excluded.
 
 
-\section{Formación de fibras amyloides}
+% \section{Formación de fibras amyloides}
+
+\section{Formación de agregados de proteínas}
+En el review \cite{hamodrakas2011protein} hay una gran cantidad de software/metodos existentes para predecir agregacion desestructurada y formacion de fibras amiloides
+
+Each method makes its own assumptions and implements its own predictors, which range from quite simplistic to quite complex. 
+The ability to form b-strands is a predominant feature in most works, either in the form of statistical propensities or in the form of structural stability.
+
+% 
+% Como conlusion interesante en este paper(ver mas en detalle)
+% se tiene que: the introduction of aggregation-disrupting
+% amino acid substitutions in the aggregation-
+% prone ⁄ amyloidogenic short sequence regions suggests
+% the possibility of fine-tuning and controlling the solu-
+% bility of proteins, synthesized by recombinant technol-
+% ogy in bacterial cell factories.
+% Basicamente plantean analizar las secuencias mediante alguno/s de estos software y mutar las posiciones que poseen la tendencia a formar amyloids.
+% se mutan por cualquiera o por cuales????
+% 
+
 
 \subsection{Tango}
 
@@ -495,6 +592,53 @@ SE HIZO UN ALINEAMIENTO Y SE SACO UNA PSSM CON LAS PROBABILIDADES PARA CADA AA Y
 -The final component of the scoring function is the position-specific pseudoenergy matrix from structural modeling using amyloid backbone structures
 % ************************************************
 
+% 
+% ****************** RESUMEN SACADO DEL REVIEW
+% 
+%  waltz combines sequence, physicochemical as well as structural information into a composite scoring function.
+% web-based tool that uses, mainly, a posi-
+% tion-specific scoring matrix (PSSM) to determine amy-
+% loid-forming sequences [39]. The PSSM was built
+% based on the experimental exploration of the sequence
+% space of amyloid hexapeptides. According to its
+% authors, waltz allows for identification and better dis-
+% tinction between amyloid sequences and amorphous
+% b-sheet aggregates, and also allows for identification of
+% amyloid-forming regions in functional amyloids. In
+% more detail, the waltz algorithm was developed by
+% combining specific sequence information with physico-
+% chemical as well as structural information.
+% The PSSM for amyloid propensity of waltz, was
+% constructed from an experimentally defined training set
+% comprising 116 ‘positive’ (amyloid-forming) hexapeptides and 162 ‘negative’ (non-forming) hexapeptides
+% (http://waltz.switchlab.org/).
+% The position-specific score for
+% an amino acid was calculated as a standard log-odd
+% score in a position-specific scoring matrix (the value
+% for each amino acid at each position is the logarithm
+% of the ratio of its frequency in the training set and the
+% background database).
+% 
+% As the analysis of the hexapeptide experimental data
+% sets (positive and negative) may impose sequence bias
+% specific to the available data, the authors of waltz
+% estimated the preference or non-preference of amino
+% acids at the hexapeptide motif positions on a structural
+% basis using the atomic force field foldx. The fibril
+% crystal structure of the GNNQQNY peptide from
+% Sup35 (PDB 1YJP) was first simplified to polyalanine.
+% Then, all possible pair combinations of all 20 natural
+% amino acids at all positions were generated and
+% energy-optimized using foldx [40]. Energy estimates
+% were calculated with foldx as the DG difference
+% (DDG) to the reference polyalanine. To retrieve a posi-
+% tion-specific pseudoenergy matrix for the prediction
+% scoring function (and calculate S struct ), they averaged
+% for each amino acid the energies for all its occurrences
+% at a certain position in combination with all amino
+% acids at other positions [39]. 
+
+
 
 To better understand the sequence determinants of amyloid structure, we explored the sequence diversity of amyloid hexapeptides by inspecting more than 200 peptides using various
 structural and biophysical methods.
@@ -585,6 +729,12 @@ position-specific amyloid sequence prediction tool that can be
 used to distinguish between amyloid and amorphous aggre-
 gate sequences.
 
+
+
+
+
+
+
 \subsection{Determinantes secuenciales}
 Ya se ha mencionado en varias oportunidades hasta aquí la relación entre la secuencia y la predisposición a formar fibras amiloides in vivo. En el trabajo realizado en \cite{de2004sequence} se analiza esta relación en profundidad mediante un 
 analisis de mutagenesis a partir de un péptido amiloide diseñado \textit{de novo} en \cite{de2002novo}. El ensayo consiste en reemplazar sistematicamente los residuos de este péptido(STVIIE) con todos los AAs naturales, excepto Cys.
@@ -627,6 +777,10 @@ rompen esta capacidad de agregación(conocidos como amyloid breakers).
 
 En nuestra aplicación, implementamos la búsqueda de este patrón como parte del conjunto de evaluaciones que se hacen sobre la secuencia. El resultado de buscar la expresión regular asociada a este patron secuencial podría aportar subsecuencias
 que generen una tendencia a formar este tipo de fibras amiloides.
+
+\section{Secuencias transmembrana}
+\cite{sonnhammer1998hidden}
+\cite{krogh2001predicting}
 
 
 \section{Carga neta de la secuencia}
