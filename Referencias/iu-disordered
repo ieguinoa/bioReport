@@ -1,68 +1,4 @@
-
 IDPs.....
-
-
-
-
-INDUCED FIT:
-
-
-
-2 modelos describen el coupled binding and folding
-
-The conformational selection mechanism is based on the hypothesis that when free in solution, IDP populates the
-ensemble of conformations and, from this ensemble, the binding partner “chooses” or
-“selects” a specific conformation which closely approximates that of the bound form. An
-illustrative example of the conformational selection mechanism in the recognition process is
-so-called “preformed structural elements” or elements of local residual structure, which are
-frequently observed in IDPs and which are crucial for the IDP interactions with its specific
-partners
-
-Induced folding model postulates that IDP associates with
-its binding partner in a fully disordered state and subsequently folds in association with the
-target protein. In molecular recognition, this model is exemplified by so-called molecular
-recognition elements or features, which are short (around 20 residues) structural elements
-which are found within the regions of disorder and which mediates certain classes of binding
-events of disordered regions undergoing a disorder-to-order transition into a specific
-structure that is stabilized by binding to its partner. These recognition motifs can fold
-into α-helix, β-strand, or form irregular structure on binding to a target protein
-
-
-Obviously, in reality, either one of the outlined above
-mechanisms, the conformational selection model or the induced folding model, or some
-combination of the two can be used
-
-
-**********ESTO ES MASOMENOS LO MISMO PERO DICHO DE OTRA FORMA
-An important feature of the intrinsically unstructured proteins is that they are able to undergo a disorder-to-or-der transition (i. e. partial or complete folding) during or prior to their biological function. In other words, intrinsically unfolded proteins in vivo are likely to be stabilized by functional binding to specific targets and ligands (such as a variety of small molecules, substrates, cofactors, other proteins, nucleic acids, membranes and so on). The functional importance of being disordered has been intensively analyzed, and it has been established that increased intrinsic plasticity represents an important prerequisite for effective molecular recognition
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-***********************************************************************************************
-
 
 FUNCIONES Y MECANISMOS FUNCIONALES:
 
@@ -72,35 +8,6 @@ MECANISMOS FUNCIONALES:
 
 
 
-
-
-A large interface with a
-particular structure and pattern of residues is required for
-protein function; as to the rest, function is not affected.
-Even if the protein is natively disordered in the ensemble,
-the relative population of the native conformation is still
-large. Conformational shift and re-distribution will attend
-to the function.
-
-
-
-
-
-
-
-
-
-
-Non-globular sequence segments often contain short linear peptide motifs (e.g. SH3-binding sites) which are important for protein function.
-***********ACA HAY UN POSIBLE ENGANCHE CON EL TEMA DE ELM *********
-It was
-previously known that many types of protein–protein
-interactions and enzymatic modifications are mediated
-by short sequence elements (consensus sites), which gave
-way to the much broader concept of short linear motifs
-(SLiMs) or eukaryotic linear motifs (ELMs). It was formally shown
-that most motifs are found in intrinsically disordered
-regions (IDRs)
 
 On a more structural basis, the related
 concepts of preformed structural elements (PSEs [41]) and
@@ -116,6 +23,7 @@ bining several motifs, or utilizing longer disordered
 domains (VER ref:Close encounters of the third kind: disordered
 domains and the interactions of proteins,
  en este paper se habla de 'disordered domains' como un tipo distinto a los short recognition motifs)
+
 ************DICHO DE OTRA FORMA
 Binding of IDPs to their partners via linear motifs is often
 weak and is of limited specificity [11]. When stronger,
@@ -128,6 +36,9 @@ These long disordered regions (Figure 2) should be
 recognized as novel structural–functional elements of
 IDPs [23]. The other strategy is the combined action
 of several motifs,
+
+
+
 
 
 
@@ -332,66 +243,104 @@ evolutionary selection.
 
 
 
-METODOS EXPERIMENTALES QUE SE USARON INICIALMENTE PARA IDENTIFICAR PROTEINAS/REGIONES DESORDENADAS:
 
-The key experimental method for obtaining systematic
-site-specific information on unstructured proteins is
-NMR spectroscopy.
-Other techniques, including CIRCULAR DICHROISM (CD),
-hydrodynamic measurements, FLUORESCENCE SPECTROSCOPY ,
-VIBRATIONAL CD SPECTROSCOPY and RAMAN SPECTROSCOPY , as well
-as traditional biochemical studies of proteolytic suscep-
-tibility, can give important information
 
-	-X-ray crystallography: Disorder leads to missing electron density in protein structures determined by X-ray crystallography. Two
-types of disorder have been recognized, static and dynamic. 30,72
 
-	-NMR spectroscopy: 3D structures can be determined for proteins in
-solution by NMR. The absence of the requirement for crystallization means that
-NMR provides a less biased estimate of the commonness of disorder as compared
-to crystallography. 
-For several examples, comparison of the results of the X-ray and NMR analyses of the same
-protein has revealed that solution and crystal structures can be quite different, with solution
-structures being much more flexible [24,25]. Evidently the interactions in the crystal lattice
-reduce protein flexibility and, in some cases, have even been observed to induce disorder to
-order transitions in functionally important protein regions. Thus, NMR spectroscopy is able to
-directly confirm the flexibility of protein segments that are missing in crystallographic
-experiments and can sometimes indicate flexible regions that have become rigid due to crystal
-contacts.
-One way to characterize the dynamic struc-
-ture of IUPs is by measuring their backbone flexibility
-using nuclear magnetic resonance (NMR) relaxation
-experiments
-NMR relaxation measurements can be
-used to assess the residue specific molecular motions of
-IUPs on timescales ranging from picoseconds to millisec-
-onds, covering the range of most biologically relevant
-protein motions. A particularly powerful and rapid way to
-assess backbone flexibility is by analyzing the NMR
-relaxation data using reduced spectral density mapping
-(Farrow et al. 1997; Lefevre et al. 1996). This approach
-provides an estimate of backbone flexibility for each amino
-acid residue and it can be used to determine whether the
-backbone flexibility in a family of IUPs is conserved.
-	-Circular dichroism (CD) spectroscopy: Structural information for proteins
-in solution is also provided by circular dichroism. 81 Far UV CD spectra provide
-estimates of secondary structure and so distinguish ordered and molten globular
-forms from random coil.
-	
-	-Protease digestion: Since a structured region has to become unfolded over more than 10
-residues to be cut by typical proteases, 87 the ratio of the digestion rates,
-(disordered) / (ordered), should be about equal to e -∆G/RT , where ∆G is the free
-energy of unfolding the segment. Protease digestion is especially useful when used in combination with
-other methods.
-For example, protease digestion can be used with X-ray
-diffraction to help sort out whether a region of missing electron density is due to a
-wobbly domain or to intrinsic disorder.
 
-	-Stoke’s radius determination: Random-coil disorder has also been
-detected by various methods for obtaining Stoke’s radius such as small angle X-
-ray scattering or size exclusion chromatography. 93 Abnormally large radii for a
-given molecular weight provide evidence of disorder.
 
+
+
+****************************************************************************************
+
+LINEAR MOTIFS:
+
+
+
+INTRODUCCION, ORIGEN EVOLUTIVO, FUNCION, ETC:
+
+
+
+Linear motifs are short: between three and ten amino acids,
+of which usually just two or three are important for function.
+This makes them fundamentally different from domains in
+terms of how they arise or how long they tend to be conserved
+over evolutionary lineages.
+Domains face tough requirements
+of being able to fold into a stable, globular structure and enact
+a specific function. When duplicated they face the additional
+challenge of evolving a new function before being lost [2]. Lin-
+ear motifs, in contrast, are very likely to arise or disappear by
+chance: just one mutation can change an inert stretch of se-
+quence into a functional linear motif, or cause a functional site
+to become inactive. This gives them a certain evolutionary
+plasticity missing from protein domains.
+For critical interactions, this plasticity is risky, since a sin-
+gle mutation can remove a critical interaction.
+The overall consequence of the above is a poor general con-
+servation of instances of linear motifs.
+
+In the sense that they are modular, or repeated in many dif-
+ferent contexts, linear motifs are similar to domains. However,
+they differ in one critical aspect: whereas domains are now ac-
+cepted only to arise by gene duplication, linear motifs, because
+of their short length, can easily arise convergently.The fact
+that they are defined by only a handful (usually 2–4) fixed ami-
+no acids makes them very likely to arise or disappear by muta-
+tions.
+
+
+The short length and the fact that they are rarely conserved
+over long evolutionary distances makes linear motifs difficult
+to find computationally, or to detect in the laboratory.
+
+
+what do they mean for Nature?
+The low-affinity probably means that Nature herself is just a little bit fuzzy on what
+she considers to be a functional instance of a motif. As men-
+tioned above, localization and regulation of expression could
+reduce the number of accessible functional sites, but the ques-
+tion nevertheless arises as to why such a system exists in Nature
+at all? The best explanation is probably plasticity: such a fuzzy
+network of interactions lends itself well to fast adaptation. Lin-
+ear motifs can be switched on or off relatively easily by point
+mutations, and their redundancy and weak affinity probably
+means that the loss or gain of one will only rarely have drastic
+consequences on the evolving system.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\cite{fuxreiter2007local}
+
+RESULTADOS - CONCLUSIONES - DISCUSION:
+
+
+Basandose en el patron estructural encontrado (the LM with its flanking region is a locally unstructured segment of the protein, onto which a couple of conserved, mostly hydrophobic, specificity-determinant residues are grafted.) se propone que los LM, junto con las secuencias flanqueantes forman una unidad funcional 
+structural pattern, we propose
+that LMs together with their flanking segments form a larger
+functional unit that can be considered as a super-secondary
+structural element. Such elements classically correspond to structural/functional units within globular proteins, exemplified by the helix-turn-helix motif in DNA recognition 
+or the alfa-beta-alfa fold in nucleotide coenzyme binding. These elements are defined by a conserved spatial arrangement of secondary structural elements, maintained by a characteristic amino acid composition. 
+The super-secondary element encompassing LMs, as defined here, conforms to this definition, as it consists of a functional unit composed of three structurally defined parts: a
+short, locally structured segment sandwiched between two disordered regions. The properties of the unstructured stretches are determined solely by their amino acid composition(ver estudios sobre la composicion en los parrafos anteriores), while the actual primary sequence is critical only for the central part. This is not only an evolutionary economical solution to modulate protein-protein interactions, but also provides various benefits in the recognition process itself.
+
+The ensuing binding mode, where determinant residues serve as contact sites, while variable residues within the LM as well as in its flanking environment ensures their proper orientation, has
+been often implicated in the interactions of IUPs with their partners, in the form of short recognition elements, described in various contexts as preformed structural elements, primary contact sites or molecular recognition elements (ACA YA HAY UN PARECIDO EN EL MECANISMO).
+Besides a proper control on the thermodynamics of binding, this binding mode also enables an increased speed of recognition, also formulated in mechanistic models such as protein fishing or fly-casting. 
+These considerations argue that the molecular action of LMs is intertwined(entrelazada) with the structural malleability of their embedding environment. Flanking segments enable the effective recognition of the target site that results in low-affinity contacts, which are of high specificity but readily reversible. Such modes of interactions are of significant benefit in regulation, signaling and network organization functions,
 
 
 
@@ -416,6 +365,35 @@ given molecular weight provide evidence of disorder.
 
 
 
+RELACION ENTRE AGREGACION Y  IUPs:
+Since many completely or partially disordered proteins, especially hubs, play key roles in
+regulation and coordination of almost all the biochemical processes inside the cell, their
+misfolding can be pathogenic. This fact provides a new view on the molecular mechanisms
+of the diseases associated with amyloid fibril formation. In contrast to the globular proteins,
+which have to unfold prior to aggregation (Jahn and Radford, 2005), IDPs are always ready
+for intermolecular interactions. An unbound fragment of an IDP possesses a strong ability to
+interact, and therefore can bind either to natural partners forming native complexes or to
+similar molecules forming various aggregates. This raises the question of why IDPs do not
+always form aggregates in the norm. One of the potential answers is the fact that inside the
+cell, the IDPs typically form complexes with natural partners.
+Furthermore, nature developed very sophisticated protection mechanisms (chaperones,
+proteasome, etc.) for the effective prevention of dangerous consequences of misfolding. In
+other words, in the cell, any given protein is not acting in the isolation, is never alone and is
+constantly "watched" by the protective machinery. This machinery is rather robust and can
+tolerate significant loads. Obviously, factors that affect these protective mechanisms will
+contribute to the probability of disease development (see below). Finally, based on the
+analysis of the IDP amino acid composition, it would be clearly a mistake to assume that an
+averaged IDP possesses higher propensity towards aggregation than an averaged ordered
+protein. In fact, many IDPs contain large number of charged and polar residues. In addition
+to the hydrophobic interactions, the net charge is one of the major factors determining
+aggregation behavior of a protein.
+Many proteins tend to aggregate when the net charge is
+zero (at their respective pIs); i.e., under the conditions where the repulsion between the
+various protein molecules is minimized (Chiti, 2006). However, since IDPs are often
+characterized by extreme pIs (which can be as low as pH 3.0 and as high as pH 12.0) it
+would be very difficult for them to reach the conditions of zero net charge physiologically.
+This means that evolution worked against misfolding and aggregation, and the sequences of
+IDPs were selected so that they do not misfold and aggregate easily.
 
 
 
@@ -436,175 +414,41 @@ given molecular weight provide evidence of disorder.
 
 
 
-METODOS COMPUTACIONALES PARA PREDECIR DESORDEN:
 
 
-REFERENCIAS: 
-	PONDR-FIT: a meta-predictor of intrinsically disordered amino acids 
-
-
-
-
-
-A signature
-of probable intrinsic disorder is the presence of low
-sequence complexity and amino-acid compositional
-bias, with a low content of bulky hydrophobic aminoacids (Val, Leu, Ile, Met, Phe, Trp and Tyr), which would
-normally form the core of a folded globular protein, and
-a high proportion of particular polar and charged amino
-
-
-PONDR: In 1997, the first Predictor Of Natural Disordered Regions (PONDR) was developed.
-acids (Gln, Ser, Pro, Glu, Lys and, on occasion, Gly and
-Ala) .
-
-
-
-Disprot: Intriguingly, thousands of the structures in PDB are now known to contain disordered chains that become structured only in the presence of the partner, and there are also many regions that are actually missing from electron density maps [11]. Such evidence added to that obtained by other techniques [mostly NMR and circular dichroism (CD)], which enabled the creation of DisProt, a database dedicated to structural disorder (Ref: DisProt: the Database of Disordered Proteins. Nucleic Acids Res).
+*********************************************************************************
 
 
 
 
 
+METODOS DE PREDICCION
 
 
+Amino acid
+composition differences between structured
+proteins and IDPs (85) encouraged the devel-
+opment of disorder prediction algorithms (90–
+93). Two of the four seminal algorithms were
+based on machine learning methods (90, 91),
+and two were based on biophysical models of
+protein folding (92, 93).
 
-En orden historico:
-
-
-1) Primeros predictores: The first period (1) First informal IDP predictor The
-first period is the beginning of the prediction for IDPs
-and includes the predictors designed before 2002. In
-1979, much earlier than the publication of the PONDR ® s,
-Williams [34] made the first attempt to predict lack of
-structure based on amino acid sequence. He suggested
-that the ratio given by (number of charged amino acids)/
-(number of hydrophobic amino acids) would distinguish
-non-folding proteins from structured examples. This
-suggestion was based on very good results for a small
-number of examples.
-
-
-2) Development of the PONDR ® family: The first formal predictor was published by Romero et al. [36]
-in 1997, which could predict disordered structure in
-proteins based on the specific biases of their amino acid
-sequences.These predictors were subsequently called
-Predictors of Natural Disordered Regions (PONDR ® )
-followed by letters that describe the proteins in the train-
-ing set for that particular predictor.
-Basically, the PONDR ® algorithms work because the
-amino acid compositions in a window of N amino ac-
-ids for structured proteins are distinguishable from the
-compositions for disordered proteins. A typical PONDR ®
-uses the following types of inputs: (1) amino acid com-
-positions; (2) attributes derived from compositions such
-as sequence complexity; and (3) attributes derived from
-compositions via some function or scale such as hydrop-
-athy, net charge, etc. These various types of attributes
-are then weighted and combined in a non-linear manner,
-typically via artificial neural networks (ANNs). Other
-methods of combining the attributes such as support vec-
-tor machines (SVMs) and logistic regression give results
-very similar to those obtained with ANNs.
+90. Romero P, Obradovi ́c Z, Kissinger C, Villafranca JE, Dunker AK. 1997. Identifying disordered regions
+in proteins from amino acid sequence. Int. Conf. Neural Netw. 1997:90–95
+91. Romero P, Obradovi ́c Z, Dunker AK. 1997. Sequence data analysis for long disordered regions prediction
+in the calcineurin family. Workshop Genome Inform. 8:110–24
+92. Uversky VN, Gillespie JR, Fink AL. 2000. Why are “natively unfolded” proteins unstructured under
+physiologic conditions? Proteins 41:415–27
+93. Doszt ́anyi Z, Csizm ok
+ ́ V, Tompa P, Simon I. 2005. The pairwise energy content estimated from amino
+acid composition discriminates between folded and intrinsically unstructured proteins. J. Mol. Biol.
+347:827–39	
 
 
 
 
-3) CH-plot In 2000 Uversky et al. used charge and
-hydropathy to predict disorder, but in an entirely new
-way compared to approach used by Williams much
-earlier as described above. The Uversky et al. [35] ap-
-proach is based on the simple reasoning that the folding
-of a protein is governed by a balance between attractive
-forces (e.g., hydrophobic interactions) and repulsive
-forces (Coulomb or electrostatic repulsion). Rather than
-the total charge used in the Williams ratio, net charge
-is more appropriate for estimating repulsion. High net
-charge leads to strong electrostatic repulsion and low
-hydropathy minimally means less driving force for com-
-paction. Thus, whether a query sequence is disordered
-or not can be predicted based on the ratio of its mean net
-charge with mean hydropathy. The mean hydropathy is
-defined as the sum of the hydropathies of all residues di-
-vided by the number of residues in the polypeptide. The
-mean net charge is similarly defined as the net charge, at
-pH 7.0, divided by the total number of residues. A plot of
-mean net charge versus mean hydropathy (the CH-plot)
-separates structured and disordered proteins into distinct
-regions and thereby provides a binary predictor
 
-
-4) GlobPlot: The kernel idea of GlobPlot is the relative propensity
-of an amino acid residue to be in an ordered or disor-
-dered state [43]. GlobPlot uses an amino acid scale based
-on the difference in the probability for a given amino
-acid to be in random coil or to be in regular secondary
-structure. The basic algorithm behind GlobPlot is simple
-and very fast, representing a sum function.
-
-5)DisEMBL designed by Linding et al. [43] consists
-of three separate ANN predictors, to predict three kinds
-of disordered structures in proteins, which represent
-residues within “loops/coils (as defined by DSSP38)”,
-“hot loops (loops with high B-factors)”, or those that are
-missing from the PDB X-ray structures (called “Remark
-465”
-
-
-6)DISOPRED employs a feed-forward neural network
-to predict disordered regions [45]. It needs to use a rela-
-tively large number of hidden units to enhance the map-
-ping ability, and this may cause over-fitting and slow the
-training down. So, they designed DISOPRED2 based on
-SVMs instead of ANN
-
-
-7) IUPred: Dosztanyi et al. suggested that a large number of inter-
-residue interactions is responsible for structure stabiliza-
-tion of proteins [50, 51]. In contrast, IDPs don’t have
-sufficient numbers of stabilizing inter-residue interac-
-tions. Based on this reasoning, an IUPred algorithm esti-
-mating the inter-residue interactions was designed. First,
-the interaction energy between each pair of amino acids
-based on their C β positions was estimated. This was done
-	by calculating the potential mutual contact energies for
-all amino acid pairs in a dataset of globular proteins with
-known structure. This is a fairly standard approach in
-computational biology, and in this work Dosztanyi et al.
-compared several such mutual contact energies estimated
-previously by other researchers, with the set developed
-by Thomas and Dill, found to be the best in this particu-
-lar application [92]. The various pairwise energies were
-assembled into a 20 × 20 energy matrix, which was used
-in the next step, the estimation of the mutual interaction
-energies for any given protein. The prediction utilizes
-this energy prediction matrix and the amino acid compo-
-sitions put into a quadratic expression. These statistical
-values represent the ability to form stabilization contacts
-between amino acids in polypeptide chains. The poten-
-tial mutual interactions were estimated using amino acid
-compositions, not three-dimensional structures. These
-composition-based energies were compared with three-
-dimensional structure-based energies of the proteins for
-which the actual side chain interactions are known. The
-composition-based potential mutual interaction energies
-and the structure-based energies were found to be highly
-correlated, thus the former can be used to estimate the
-latter even when the structures are not known. To use
-this approach to predict structure or disorder, compo-
-sition-based calculations for a set of proteins that fold
-into three-dimensional structures were compared with
-composition-based calculations for a set of disordered
-proteins. The estimated potential interaction energies for
-the structured proteins were much greater than the same
-energies for the unstructured proteins, and from these
-results the energy boundary between ordered and disor-
-dered proteins as a function of length was determined.
-This boundary allows the recognition of intrinsic disor-
-der. In brief, if a sequence contains too few hydrophobic
-residues, then the composition-based potential mutual in-
-teraction energy will necessarily be too small and thereby
-indicate the lack of potential for folding
 
 
 

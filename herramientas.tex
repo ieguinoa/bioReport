@@ -1,4 +1,5 @@
 \chapter{Propiedades evaluadas}
+\label{tools}
 
 \section{Predicción de propiedades conformacionales}
 
@@ -17,6 +18,16 @@ De esta forma, además de asegurarnos obtener una estructura flexible que permit
 estamos descartando que la secuencia tenga asociada alguna función que requiera la existencia de una conformación tridimensional.
 
 
+The reliability of disorder prediction benefits from the use of several
+methods based on different concepts, different physicochemical
+parameters, or different implementations. In principle, this
+problem can be approached from three distinct directions:
+% ESTO ESTA DETALLADO EN EL REVIEW \cite{habchi2014introducing}
+1. Simple amino acid propensities reflect some basic physical
+or sequence features.
+2. Machine-learning algorithms (MLAs) are trained on data
+sets of disordered regions.
+3. Amino acids tend to make or avoid contacts with each other.
 
 En el capitulo 1 se desarrollaron algunos aspectos encontrados acerca de la composicion de AAs propia de las secuencia que adoptan conformaciones intrinsecamente desestructuradas.
 Como resultado de estos estudios se encontro que the ID proteins differ dramatically from the ordered proteins in their amino acid sequences. 
@@ -57,6 +68,19 @@ have put forward different IDP definitions based on dif ferent aspects of the pr
 several researchers have pointed out the importance of characterizing individual IDPs by a variety of computational methods
 
 
+It should
+be stressed that it is difficult and maybe impractical to establish
+the “best” predictor at the moment. Some predictors perform
+better on short disordered regions (i.e., DISOPRED2 and
+PreLink), while other predictors (IUPred for instance) perform
+well in predicting long disordered segments, and finally some
+predictors, such as PONDR, GlobPlot, and FoldIndex, have been
+trained on both short and long disorder and provide a balanced
+performance. 25 Therefore, to avoid pitfalls, different predictors
+should be combined, as performed by metapredictors that seek a
+consensus of the scores of different predictors relying on different
+principles (PONDR-FIT for instance).
+
 
 
 
@@ -64,6 +88,35 @@ several researchers have pointed out the importance of characterizing individual
 
 La herramienta que utilizaremos es IUPred, disponible a través de un servidor web (http://iupred.enzim.hu/) o descargando la implementación 
 y ejecutándola localmente (http://iupred.enzim.hu/Downloads.php).   
+
+
+% RESUMEN SACADO DEL REVIEW
+% 
+% Dosztanyi et al. suggested that a large number of interresidue interactions is responsible for structure stabilization of proteins [50, 51]. In contrast, IDPs don’t have sufficient numbers of stabilizing inter-residue interac-
+% tions. Based on this reasoning, an IUPred algorithm estimating the inter-residue interactions was designed. First, the interaction energy between each pair of amino acids
+% based on their C β positions was estimated. This was done by calculating the potential mutual contact energies for
+% all amino acid pairs in a dataset of globular proteins with known structure. This is a fairly standard approach in
+% computational biology, and in this work Dosztanyi et al. compared several such mutual contact energies estimated
+% previously by other researchers, with the set developed by Thomas and Dill, found to be the best in this particu-
+% lar application [92]. The various pairwise energies were assembled into a 20x20 energy matrix, which was used
+% in the next step, the estimation of the mutual interaction energies for any given protein. The prediction utilizes
+% this energy prediction matrix and the amino acid compositions put into a quadratic expression. These statistical values represent the ability to form stabilization contacts
+% between amino acids in polypeptide chains. The potential mutual interactions were estimated using amino acid
+% compositions, not three-dimensional structures. These composition-based energies were compared with three-
+% dimensional structure-based energies of the proteins for which the actual side chain interactions are known. The
+% composition-based potential mutual interaction energies and the structure-based energies were found to be highly
+% correlated, thus the former can be used to estimate the latter even when the structures are not known. To use
+% this approach to predict structure or disorder, composition-based calculations for a set of proteins that fold
+% into three-dimensional structures were compared with composition-based calculations for a set of disordered
+% proteins. The estimated potential interaction energies for the structured proteins were much greater than the same
+% energies for the unstructured proteins, and from these results the energy boundary between ordered and disor-
+% dered proteins as a function of length was determined. This boundary allows the recognition of intrinsic disor-
+% der. In brief, if a sequence contains too few hydrophobic residues, then the composition-based potential mutual in-
+% teraction energy will necessarily be too small and thereby indicate the lack of potential for folding
+
+
+
+
 Tal como se menciona en la información de la aplicación (ref. 1), los residuos que tengan un valor asociado resultante mayor a 0.5 pueden ser tomados como desordenados.
 Utilizando esta herramienta se identifican los residuos que favorecen la formación de una estructura estable 
 y se los marca como posibles objetivos para la siguiente ronda de mutaciones del algoritmo, llevando a la secuencia 
@@ -167,6 +220,20 @@ FALTA DESDE DONDE DICE:  Although the heptapeptides in the learning sets were se
 
  
 \subsection{ANCHOR: Predicción de unión a proteinas}
+
+Due to their functional importance, predicting recognition
+elements (motifs) from sequence is of great interest. Although
+the information content of short sites is very limited, due to their
+enrichment in hydrophobic residues, indirect techniques have
+some success in delineating them. As mentioned, for example,
+the HCA plot 43 (see section 3.2) can indeed unveil such binding
+sites. 25 The PONDR VL-XT, 23 ANCHOR (http://anchor.
+enzim.hu), 207 and DynaMine 208 disorder predictors are sensitive
+to local tendency of ordering, and are thus informative in
+highlighting potential induced folding regions.
+
+
+
 Los valores de n representan las frecuencias de aminoácidos i y j en la secuencia.
 El valor de P es el parámetro a estimar, el cual se deriva a partir del modelo mencionado previamente, que evalúa la energía a partir de las interacciones que ocurren en la estructura. 
 El ajuste se realiza minimizando la diferencia entre ambas ecuaciones.
@@ -809,13 +876,36 @@ PONER UN EJEMPLO!!! especificar que usamos patrones por la lentitud de los perfi
 describir si hay superposición entre elm y prosite. Se justifica usar los dos? qué hipótesis subyacente estamos usando?
 
 
+% 
+% PROSITE patterns have been very useful, but
+% also suffer from severe overprediction problems and more
+% recently the database has emphasised globular domain
+% annotation at the expense of linear motifs. However, the
+% number of known categories of functional sites has burgeoned
+% dramatically in the last few years and it is clear that there are
+% more to be discovered. One only has to think of the huge
+% current research activity into specific methylation and acetyla-
+% tion of histones and chromatin proteins, which erupted after
+% decades of more indirect analyses (13,14). There has been a
+% growing gap in the bioinformatics resources available to
+% researchers for dealing with small functional sites. Indeed, it is
+% impossible for a researcher to find a list of currently known
+% motifs, while going through the literature to retrieve them is
+% impractical without foreknowledge in more areas than any one
+% person will have.
 
 
 \subsection{BLAST}
 
 % Búsqueda de secuencias homólogas
 
-Una forma de evaluar la existencia de secuencias similares en la naturaleza es haciendo un alineamiento secuencial frente a una base de datos de secuencias proteicas conocidas. El descubrimiento de una secuencia homóloga provee un primer indicio acerca de la función que está puede cumplir. En el contexto de la herramienta que estamos desarrollando, la información resultante de la búsqueda sirve como indicador de que posiciones puntuales son las que conforman esta similitud secuencial y que, por lo tanto, podrían inducir la función. 
+Una forma de evaluar la existencia de secuencias similares en la naturaleza es haciendo un alineamiento secuencial frente a una base de datos de secuencias proteicas conocidas. 
+El descubrimiento de una secuencia homóloga provee un primer indicio acerca de la función que está puede cumplir. 
+En el contexto de la herramienta que estamos desarrollando, la información resultante de la búsqueda sirve como indicador de que posiciones puntuales son las que conforman esta similitud secuencial y que, por lo tanto, podrían inducir la función. 
+
+
+% La idea es detectar cualquier secuencia que pueda ser detectada por homologia. Es decir, cualquier elemento funcional que se caracterice por 
+% En terminos estructurales .... Most protein domains that are identified using sequence-based approaches are structured, but some can be fully or largely disordered  or contain conserved disordered regions, mencionados antes como intrinsically disordered domains (IDDs)
 
 ¿QUE DESEAMOS PARA EL LINKER? ¿POR QUE?
 
@@ -882,8 +972,6 @@ Databases of instances are not directly useful for prediction but provide valuab
 
 
 
-
-
 Analisis de otras condiciones experimentales tales como pH y temperatura:
 For a number of extendedly-disordered proteins it has been shown that a decrease (or increase) in pH induces partial folding of intrinsically unordered proteins due to the minimization of
 their large net charge present at neutral pH, thereby decreasing charge/charge intramolecular repulsion and permitting hydrophobic-driven collapse to the partially-folded conformation
@@ -895,3 +983,23 @@ proteins (i.e., proteins with extended disorder), rather than the unfolding that
 observed for globular proteins. The effects of elevated temperature may be attributed to the
 increased strength of the hydrophobic interaction at higher temperatures, leading to a stronger
 hydrophobic driving force for partial folding
+
+
+
+
+ELM is already the largest collection of linear motifs, followed
+by PROSITE and Scansite (32). There are other sites that
+specialise on one or a few motifs for which they may provide
+better prediction quality than ELM and should be utilised
+where appropriate. Many functional sites reside in unstructured
+polypeptide regions and the GlobPlot server (http://globplot.
+embl.de/) is useful for revealing sequence segments of
+non-globular character (33), the inverse of the SMART and
+Pfam domain servers. Some useful motif servers are listed in
+Table 2 and the ELM and ExPASy servers list more. Also of
+note are protein interaction databases such as BIND (34) and
+DIP (35). More informative protein interaction databases that
+store known instances of linear motifs (36) include MINT (37),
+Phosphobase (20) and ASC (38). Databases of instances are
+not directly useful for prediction but provide valuable
+data-mining resources.
