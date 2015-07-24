@@ -1,13 +1,17 @@
 \chapter{Propiedades evaluadas}
 \label{tools}
 
-\section{Predicción de propiedades conformacionales}
+\section{Predicción de propiedades conformacionales} \label{propiedadesConformacionales}
+
+% DIVIDO LA SECCION EN 2, YA QUE, EN GENERAL HAY 2 COSAS QUE QUEREMOS SACAR, LAS PROPIEDADES ESTRUCTURALES Y LA UNION A CHAPERONAS
+% EN CADA SECCION PONGO, POR QUE LO QUEREMOS SACAR, CUALES SON LOS METODOS Y CUAL/ES VAMOS A USAR.
 
 
 
-\subsection{IUPred: Análisis de tendencia al desorden}
 
+% PROPIEDADES ESTRUCTURALES
 
+% POR QUE LO QUEREMOS SACAR
 Otro de los aspectos a considerar acerca de la secuencia es el grado de estructuración o desorden que puede adoptar. 
 Una de las principales propiedades que buscamos al diseñar una secuencia linker es la existencia de ésta en un ensamble
 de estructuras desordenadas que proveen la flexibilidad necesaria para que los dominios que conecta puedan realizar sus funciones libremente.
@@ -17,7 +21,7 @@ evaluar la tendencia de la secuencia a formar una estructura nos da una pauta ac
 De esta forma, además de asegurarnos obtener una estructura flexible que permita cumplir la función de linker, 
 estamos descartando que la secuencia tenga asociada alguna función que requiera la existencia de una conformación tridimensional.
 
-
+% QUE METODOS EXISTEN
 The reliability of disorder prediction benefits from the use of several
 methods based on different concepts, different physicochemical
 parameters, or different implementations. In principle, this
@@ -83,11 +87,109 @@ principles (PONDR-FIT for instance).
 
 
 
+% QUE HERRAMIENTAS VAMOS A USAR
+Se utiliza la herramienta IUPred....
 
 
 
-La herramienta que utilizaremos es IUPred, disponible a través de un servidor web (http://iupred.enzim.hu/) o descargando la implementación 
-y ejecutándola localmente (http://iupred.enzim.hu/Downloads.php).   
+% SECUENCIAS-HELICES TRANSMEMBRANA
+El conjunto de proteinas conocidas como proteinas de membrana posee una topologia/arquitectura particular compuesta por ....
+
+La particularidad que presentan resultan en que transmembrane helices are substantially easier to predict than helices in globular domains.
+The reason for this high accuracy is that most transmembrane alpha helices are encoded by an unusually long stretch of
+hydrophobic residues. This compositional bias is imposed by the constraint that residues buried in lipid membranes
+must be suitable for hydrophobic interactions with the lipids.
+The hydrophobic signal is so strong that a straightforward approach of calculating a propensity scale for residues in
+transmembrane helices and applying a sliding window with a cutoff already performs quite well.
+
+Aprovechando estas propiedades particulares, utilizamos la herramienta TMHMM para detectar este tipo de estructuras con propiedades particulares, profundizando nuestra capacidad de detectar la tendencia a formar estructuras no flexibles.
+
+
+
+
+
+% EL SOLAPAMIENTO QUE HAY CON BLAST
+% PUEDO SACAR ESTO Y SOLO ACLARAR ESTE SOLAPAMIENTO EN LA SECCION QUE DESCRIBO BLAST
+Además de estas herramientas, en \ref{blast} se detalla como realizamos la busqueda mediante metodos basados en secuencia. 
+Como se verá, most protein domains that are identified using these sequence-based approaches are structured.
+Por lo tanto, esa busqueda tambien permite sesgar la busqueda hacia secuencias que no posean estructura definida.
+
+
+
+
+
+
+
+
+% MoREs
+Dentro de segmentos desordenados igual pueden encontrarse regiones que adoptan conformaciones estructuradas transitivamente(posiblemente frente a la presencia de ligandos).
+La deteccion de estos segmentos es relevante, no solo por los aspectos estructurales que queremos evitar %esto lo tengo que explicar en los parrafo anteriores 
+sino tambien due to their functional importance. % en que otro lado menciono este solapamiento
+
+% METODO DE DETECCION DE MoREs
+Although the information content of short sites is very limited, due to their enrichment in hydrophobic residues, indirect techniques have
+some success in delineating them. As mentioned, for example, the HCA plot 43 (see section 3.2) can indeed unveil such binding
+sites. 25 The PONDR VL-XT, 23 ANCHOR (http://anchor.enzim.hu), 207 and DynaMine 208 disorder predictors are sensitive
+to local tendency of ordering, and are thus informative in highlighting potential induced folding regions.
+
+
+
+
+% QUE HERRAMIENTAS VAMOS A USAR
+ANCHOR permite detectar segmentos con cierta tendencia a adquirir estructuras pero que se encuentran insertados en regiones desordenadas.
+
+
+
+
+
+
+
+
+% CHAPERONAS
+
+% POR QUE LO QUEREMOS SACAR
+En la introduccion se vieron, tambien, distintos mecanismos y elementos que intervienen en la homeostasis de las proteinas. Dentro de estos.... 
+las chaperonas son elementos fundamentales para el correcto funcionamiento y calidad de las proteinas, interviniendo en el correcto plegado, activacion, la posible translocacion, replegamiento o degradacion de proteinas incorrectamente plegadas, etc.
+Distintas chaperonas reconocen distintos motivos secuenciales expuestos por las proteinas y esta gama de chaperonas llevara a la proteina unida a un final distinto.
+Existen distintas posibilidades reales en el proceso de ingenieria de proteinas en las cuales la secuencia diseñada artificialmente se encuentre con chaperonas en alguna situación experimental. Sin dudas la degradacion de nuestra secuencia linker es el peor final en esta situación, 
+pero todas las posibilidades tienen un impacto negativo en la funcionalidad de linker que se quiere asignar(imponer) a la secuencia. El reconocimiento por parte de la chaperona implica la unión a esta, lo cual puede interferir en la flexibilidad natural que (idealmente) ha adquirido la secuencia linker diseñada. 
+De esta forma, dado que apuntamos a abarcar todas las posibles situaciones experimentales con las que uno se puede encontrar, es necesario tener en cuenta la posibilidad de que esten presentes proteinas chaperonas en algun paso del uso experimental de la secuencia. 
+ 
+Existen chaperonas cuya funcion implica unirse a proteinas que no esten totalmente plegadas para evitar la agregacion de estas. El objetivo de esto es intervenir en situaciones de shock termico donde la perdida de la estructura nativa puede llevar a uniones entre distintas proteinas dando un agregado no funcional.
+Si bien uno de los objetivos de este trabajo es lograr una tendencia reducida a la agregacion en la secuencia generada y ciertas chaperonas podrian facilitar esto, la union implica, como se menciono anteriormente una perdida de flexibilidad que es necesaria para la funcion de linker. 
+De esta forma buscamos evitar la agregacion mediante analisis sobre la secuencia que tienen este objetivo particular.
+
+Por otro lado, es importante este paso porque las secuencias intrinsecamente desordenadas tales como la secuencia linker que estamos diseñando suelen tener propiedades que forman targets comunes para las chaperonas (exposicion de sitios hidrofobicos???)?????????????????????????
+
+
+
+
+% QUE HERRAMIENTAS VAMOS A USAR
+La herramienta Limbo se utiliza, por otro lado, para intentar detectar en la secuencia de trabajo motivos asociados con el reconocimiento por parte de chaperonas.
+
+Además de estas herramientas, en \ref{blast} se detalla como realizamos la busqueda mediante metodos basados en secuencia. 
+Como se verá, most protein domains that are identified using these sequence-based approaches are structured.
+Por lo tanto, esa busqueda tambien permite sesgar la busqueda hacia secuencias que no posean estructura definida.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{IUPred: Análisis de tendencia al desorden}
+
+La herramienta IUPred está disponible a través de un servidor web (http://iupred.enzim.hu/) o descargando la implementación y ejecutándola localmente (http://iupred.enzim.hu/Downloads.php).   
 
 
 % RESUMEN SACADO DEL REVIEW
@@ -158,6 +260,12 @@ y con distintos significados del término desordenado.
   
   
   
+
+  
+  
+  
+  
+  
   
 
 \subsection{Limbo: Interacción con chaperonas}
@@ -166,19 +274,7 @@ Limbo utiliza Tango(deberia explicar este antes) ?????????????
 
 http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2717214/
 
-Las chaperonas son elementos fundamentales para el correcto funcionamiento y calidad de las proteinas, interviniendo en el correcto plegado, activacion, la posible translocacion, replegamiento o degradacion de proteinas incorrectamente plegadas, etc.
 
-Distintas chaperonas reconocen distintos motivos secuenciales expuestos por las proteinas y esta gama de chaperonas llevara a la proteina unida a un final distinto.
-Existen distintas posibilidades reales en el proceso de ingenieria de proteinas en las cuales la secuencia diseñada artificialmente se encuentre con chaperonas en alguna situación experimental. Sin dudas la degradacion de nuestra secuencia linker es el peor final en esta situación, pero todas las posibilidades tienen un impacto negativo en la funcionalidad de linker que se quiere asignar(imponer) a la secuencia. El reconocimiento por parte de la chaperona implica la unión a esta, lo cual puede interferir en la flexibilidad natural que (idealmente) ha adquirido la secuencia linker diseñada. 
-De esta forma, dado que apuntamos a abarcar todas las posibles situaciones experimentales con las que uno se puede encontrar, es necesario tener en cuenta la posibilidad de que esten presentes proteinas chaperonas en algun paso del uso experimental de la secuencia. 
- 
-Existen chaperonas cuya funcion implica unirse a proteinas que no esten totalmente plegadas para evitar la agregacion de estas. El objetivo de esto es intervenir en situaciones de shock termico donde la perdida de la estructura nativa puede llevar a uniones entre distintas proteinas dando un agregado no funcional. Si bien uno de los objetivos de este trabajo es lograr una tendencia reducida a la agregacion en la secuencia generada y ciertas chaperonas podrian facilitar esto, la union implica, como se menciono anteriormente una perdida de flexibilidad que es necesaria para la funcion de linker. De esta forma buscamos evitar la agregacion mediante analisis sobre la secuencia que tienen este objetivo particular.
-
-??????????
-Por otro lado, es importante este paso porque las secuencias intrinsecamente desordenadas tales como la secuencia linker que estamos diseñando suelen tener propiedades que forman targets comunes para las chaperonas (exposicion de sitios hidrofobicos???)?????????????????????????
-
-
-A continuación se describe la aproximacion utilizada para intentar detectar en la secuencia de trabajo motivos asociados con el reconocimiento por parte de chaperonas.
 
 El método utiliza una combinacion de informacion secuencial y estructural para analizar el perfil de secuencias que se unen a la proteina chaperona DnaK
 
@@ -219,19 +315,8 @@ FALTA DESDE DONDE DICE:  Although the heptapeptides in the learning sets were se
 
 
  
-\subsection{ANCHOR: Predicción de unión a proteinas}
-
-Due to their functional importance, predicting recognition
-elements (motifs) from sequence is of great interest. Although
-the information content of short sites is very limited, due to their
-enrichment in hydrophobic residues, indirect techniques have
-some success in delineating them. As mentioned, for example,
-the HCA plot 43 (see section 3.2) can indeed unveil such binding
-sites. 25 The PONDR VL-XT, 23 ANCHOR (http://anchor.
-enzim.hu), 207 and DynaMine 208 disorder predictors are sensitive
-to local tendency of ordering, and are thus informative in
-highlighting potential induced folding regions.
-
+ 
+\subsection{ANCHOR: predicción de MoREs } \label{anchor}
 
 
 Los valores de n representan las frecuencias de aminoácidos i y j en la secuencia.
@@ -283,28 +368,96 @@ Dentro de nuestro algoritmo, la herramienta ANCHOR se aplica utilizando un punto
 
 
 
-\subsection{Formación de agregados de proteínas}
-En el review \cite{hamodrakas2011protein} hay una gran cantidad de software/metodos existentes para predecir agregacion desestructurada y formacion de fibras amiloides
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Formación de agregados de proteínas}
+
+
+% POR QUE QUEREMOS/DEBEMOS PREVENIR LA FORMACION DE AGREGADOS
+En nuestro caso, la formacion de amiloides fibrilares entre los linkers 'arrastraria' a los dominios que unen y podria interferir en la funcionalidad de estos. 
+La funcionalidad de cualquier dominio proteico se podria ver limitada si esta se encuentra formando algun tipo de agregado.
+
+Al ser una caracteristica generica de los polipeptidicos, es posible que ocurra este tipo de agregacion en cualquier secuencia. 
+Ademas, no podriamos simplemente descartar las proteinas que se sabe tienen tendencia a formar fibras amiloides, al ser una propiedad intrinseca de las secuencias polipeptidicas es necesario analizar todas las secuencias.
+
+
+
+
+
+% COMO ES POSIBLE DETECTAR TENDENCIA A AGREGACION
+
+% CARACTERISTICAS DE LAS FIBRAS QUE PUEDEN AYUDAR A DISTINGUIR
+
+% ESTO QUE SIGUE ESTA SACADO DE : The triple power of D-3: Protein intrinsic disorder in degenerative diseases
+It has been pointed out that the propensity of a protein to aggregate can be reliably correlated with a set of simple
+physico-chemical parameters (73-75). In fact, these specific “aggregation signatures” are concentrated in APRs, which possess a
+number of recognizable sequence features related to their charge, hydrophobicity, aromaticity, and secondary structure
+preferences (66, 74-77). All this provides a unique opportunity to identify such aggregation-prone regions by various
+bioinformatics-based phenomenological approaches that have been specifically developed to predict potential APRs in proteins
+(72). The existing set of such computational tools is rather large and different research groups are focused on the identification of
+short (typically 5–9 residues), amyloidogenic regions based solely on the amino acid sequence of a parent protein, whereas other
+researchers develop tools focused on pattern recognition, 3D profiles, and molecular simulations [reviewed in (72)]. However,
+one should keep in mind that the presence of APR in a given protein is necessary but not sufficient condition for aggregation
+since an active APR, which can indeed promote aggregation, should have high intrinsic aggregation propensity, be surface
+exposed or become exposed upon conformational transition, and facilitate intermolecular interactions (72).
+
+
+Generally speaking, it is believed that aggregation occurs when protein segments with a high hydrophobicity, a good $\beta$-
+sheet propensity and a low net charge are solvent-exposed so that they can associate, act as nuclei for $\beta$-aggregation, and
+therefore initiate the formation of an intermolecular $\beta$-sheet (21, 78-82). In the folded state, such aggregation-prone segments are
+buried, not exposed to the solvent, and therefore protein does not aggregate. On the other hand, aggregation of many globular
+proteins occurs during refolding or under conditions in which denatured or partially folded states are significantly populated, i.e.
+at high concentration or as a result of destabilizing conditions or mutations (5, 14). Based on these findings, the algorithm
+TANGO was developed to predict $\beta$-aggregating stretches in proteins, based on a statistical mechanics algorithm that considers
+the physico-chemical parameters described above and also takes into account competition between different structural
+conformations: $\beta$-trn, $\alpha$-helix, $\beta$-sheet aggregates and the folded state (83). This algorithm accurately predicted the aggregation
+propensity of ~250 peptides, including those derived from human disease-related proteins, such as prion protein, lysozyme and
+beta 2-microglobulin. It was even able to correctly predict pathogenic as well as protective mutations of the A$\beta$, human lysozyme
+and transthyretin, and discriminates between $\beta$-sheet propensity and aggregation. Therefore, these data clearly confirmed the
+model of intermolecular $\beta$-sheet formation as a widespread underlying mechanism of protein aggregation (83). Importantly, the
+application of TANGO also showed that the $\beta$-aggregation propensity of all-$\alpha$, all-$\beta$ and mixed $\alpha\beta$ globular proteins as well as
+membrane-associated proteins was fairly similar, suggesting that $\beta$-aggregation was not determined by hydrophobicity and $\beta$-
+sheet propensity alone (82). Importantly, it has been established that globular proteins contained almost three times as much
+aggregation nucleating regions as IDPs and that the formation of highly structured globular proteins comes at the cost of a higher
+$\beta$-aggregation propensity because both structure formation and aggregation follow very similar physico-chemical rules (82).
+
+
+
+
+
+
+% METODOS DISPONIBLES PARA HACER LA DETECCION
+
+Several methods have been published recently that attempt to predict aggregation-prone or amyloidogenic regions based on various properties of proteins (TANGO, PASTA, WALTZ, SALSA, aggrescan, zyggregator).
+Some of these prediction methods try to distinguish amyloid fibril
+(ordered aggregates) prediction from amorphous aggregate prediction, providing also the relevant physical reasoning and influencing factors.
+
+Amorphous $\beta$-sheet aggregation, however, is less position-dependent and can, in principle, be achieved by any sequence that
+can adopt an extended conformation, is sufficiently hydrophobic and has no unsatisfied hydrogens or electostatic groups 18,19 . Thus
+$\beta$-sheet aggregation can be relatively easily predicted by methods that evaluate aggregation by evaluating biophysical parameters
+over a sequence segment, without the need for considering position-dependent values of these parameters.
+
+
+En  \cite{hamodrakas2011protein,redler2014computational,agrawal2011aggregation} se describen y evaluan una gran cantidad de software/metodos existentes para predecir agregacion desestructurada y formacion de fibras amiloides
 Each method makes its own assumptions and implements its own predictors, which range from quite simplistic to quite complex. 
 The ability to form b-strands is a predominant feature in most works, either in the form of statistical propensities or in the form of structural stability.
 
-% 
-% Como conlusion interesante en este paper(ver mas en detalle)
-% se tiene que: the introduction of aggregation-disrupting
-% amino acid substitutions in the aggregation-
-% prone ⁄ amyloidogenic short sequence regions suggests
-% the possibility of fine-tuning and controlling the solu-
-% bility of proteins, synthesized by recombinant technol-
-% ogy in bacterial cell factories.
-% Basicamente plantean analizar las secuencias mediante alguno/s de estos software y mutar las posiciones que poseen la tendencia a formar amyloids.
-% se mutan por cualquiera o por cuales????
-% 
 
-
-
-Several methods have been published recently that attempt to predict aggregation-prone or amyloidogenic regions based on various properties of proteins (TANGO, PASTA, WALTZ, SALSA, aggrescan, zyggregator).Some of these prediction methods try to distinguish amyloid fibril
-(ordered aggregates) prediction from amorphous aggregate prediction, providing also the relevant physical reasoning and influencing factors.
 
 Owing to the relatively small amount
 and diversity of experimentally validated amyloidogenic sequences,
@@ -319,24 +472,42 @@ conformation, structure-based approaches are also limited by a
 shortage of experimentally determined structures 28
 
 
-Amorphous $\beta$-sheet aggregation, however, is less position-dependent and can, in principle, be achieved by any sequence that
-can adopt an extended conformation, is sufficiently hydrophobic and has no unsatisfied hydrogens or electostatic groups 18,19 . Thus
-$\beta$-sheet aggregation can be relatively easily predicted by methods that evaluate aggregation by evaluating biophysical parameters
-over a sequence segment, without the need for considering position-dependent values of these parameters.
 
-\subsubsection{Tango}
+
+
+
+% QUE METODOS VAMOS A USAR NOSOTROS:
+En primer lugar utilizamos 
+Like all algorithms that use averaged physicochemical properties to detect aggregation hot spots, TANGO is not specific for amyloid formation or amorphous beta-aggregation. 
+However, amyloid structures are a very specific subclass of aggregates formed by sequences that allow the intermolecular beta-sheet arrangements to pack in a well defined three dimensional structure,
+resulting in the formation of highly stable amyloid fibrils.
+The biological properties of these fibrils differ critically from those of amorphous aggregates: amyloid fibrils are highly stable nanowires that are used throughout all kingdoms of life as structural scaffolds, 
+adhesives, water tension modulators etc. 
+Also, protein deposits found in association with a range of human diseases are most often enriched in amyloid structure, which is probably also due to their stability. 
+In order to specifically predict amyloid structure, we developed the Waltz algorithm
+
+
+Por último, en la introducción se dejo planteada la existencia de 
+small amino acid stretches within protein sequences, which
+promote and guide protein aggregation into amyloid-like structures
+En el trabajo realizado en \cite{de2004sequence} se analiza esta relación, 
+en \ref{determinantesSecuenciales} explicamos los resultados obtenidos y como los utilizamos para la deteccion la tendencia a formar este tipo de agregados dentro de nuestro método.
+
+
+
+
+
 
 General sobre agregacion, beta-aggregation, amyloid fybrils, etc
-De (1): although aggregation and amyloidosis correlate to a certain extent, they are different
-processes and should be treated as such.
+De (1): although aggregation and amyloidosis correlate to a certain extent, they are different processes and should be treated as such.
 
-b-Aggregation and amyloidosis often co-occur in these disease-associated protein aggregation processes and, when this is the case, the former is frequently observed as a precursor of the latter. It is now also generally accepted that a subgroup of these prefibrillar
-aggregates, not the mature fibers themselves, are associated with cytotoxicity.
+b-Aggregation and amyloidosis often co-occur in these disease-associated protein aggregation processes and, when this is the case, the former is frequently observed as a precursor of the latter. 
+It is now also generally accepted that a subgroup of these prefibrillar aggregates, not the mature fibers themselves, are associated with cytotoxicity.
 
-Some proteins form fibers that are non-toxic and probably even functionally relevant,
-whereas other proteins form toxic aggregates without forming fiber
+Some proteins form fibers that are non-toxic and probably even functionally relevant, whereas other proteins form toxic aggregates without forming fiber
 
-Comparing the sequence space of b-aggregation predicted by TANGO or Zyggregator with the sequence space of amyloidosis derived from experimental studies of the STVIIE amylogenic peptide reveals the similarities, but also interesting differences between both processes:
+Comparing the sequence space of b-aggregation predicted by TANGO or Zyggregator with the sequence space of amyloidosis derived from experimental studies of the STVIIE amylogenic peptide reveals the similarities, 
+but also interesting differences between both processes:
 
 -As both amyloid formation and amorphous cross-b aggregation require amino acid compositions that are compatible with a b-strand conformation, an overlap in
 sequence space is to be expected
@@ -363,6 +534,10 @@ The aggregation-opposing properties of proline and glycine originate primarily f
 structure-breaking properties. Identically charged residues are also very effective at opposing aggregation, because of the huge repulsive force generated upon self-assembly.
 
 
+
+
+\subsubsection{Tango}
+
 El método se deriva a partir de aplicar la mecanica estadistica a un conjunto de datos experimentales obtenidos de los residuos dentro de proteinas que promueven el 'agregamiento ordenado' o la formacion de amyloids. El algoritmo resultante permite identificar las regiones de agregacion beta dentro de una secuencia.
 El algoritmo tiene en cuenta un conjunto de estados(conformaciones) posibles: alfa helice, hojas beta, beta-turns, estado plegado(nativo??*****ver abajo) y agregado de hojas beta. Ademas, se asume incialmente que la region en el estado de agregado de hojas beta esta totalmente internalizada y tiende a satisfacer el potencial de puentes de hidrogeno. 
 El metodo TANGO tiene tambien en cuenta la estabilidad de la proteinas y los parametros fisicoquimicos tales como el pH, la concentracion, la fuerza ionica y la concentracion de trifluoroetanol.
@@ -374,78 +549,8 @@ Para predecir la agregado beta de un segmento, Tango calcula la funcion de parti
 ****la inclusion del estado plegado dentro de la funcion de particion tiene como objetivo ayudar a predecir efectos de agregacion debido a mutaciones puntuales en proteinas que naturalmente adquiren un estado plegado. La inclusion de este estado permite ver la competencia entre este estado natural de plegado y otros estados estructurales incluidos en la particion. De esta forma se puede predecir la tendencia a la agregacion del estado desnaturalizado y tambien las mutaciones que aumentan la tendencia a la agregacion de la proteina desestabilizando el estado plegado.
 
 
-Like all algorithms that use averaged physicochemical properties to detect aggregation hot spots, TANGO is not specific for amyloid formation or amorphous beta-aggregation. However, amyloid structures are a very specific subclass of aggregates formed by sequences that allow the intermolecular beta-sheet arrangements to pack in a well defined three dimensional structure, resulting in the formation of highly stable amyloid fibrils. The biological properties of these fibrils differ critically from those of amorphous aggregates: amyloid fibrils are highly stable nanowires that are used throughout all kingdoms of life as structural scaffolds, adhesives, water tension modulators etc. Also, protein deposits found in association with a range of human diseases are most often enriched in amyloid structure, which is probably also due to their stability. In order to specifically predict amyloid structure, we developed the Waltz algorithm
 
 
-
-
-
-\subsubsection{PASTA}
-PRIMERO HAGO UNA DESCRIPCION DE LO QUE SON LAS FIBRAS AMILOIDES Y POR QUE LAS QUEREMOS SACAR (ESTO ES GENERAL PARA TODOS LOS METODOS)
-
-fibras amiloides: convierte a la forma soluble de la proteina en agregados fibrilares altamente organizados.
-
-% En nuestro caso, la formacion de amiloides fibrilares entre los linkers ¨arrastraria¨ a los dominios que unen y podria interferir en la funcionalidad de estos. La funcionalidad de cualquier dominio proteico se podria ver limitada si esta se encuentra formando algun tipo de agregado.
-
-Amyloid formation is not restricted, however, to those
-polypeptide chains that have recognised links to protein
-deposition diseases. Several other proteins that have no such
-link have been found to form fibrillar aggregates in vitro with
-morphological, structural, and tinctorial properties that
-allow them to be classified as amyloid-like fibrils [4,5]. This
-finding has led to the idea that the ability to form the amyloid
-structure is an inherent property of polypeptide chains,
-encoded in main backbone chain interactions.
-
-Esto ultimo es importante porque al ser una caracteristica comun es bastante probable que ocurra este tipo de agregacion. Ademas, no podriamos simplemente descartar las proteinas que se sabe tienen tendencia a formar fibras amiloides, al ser una propiedad intrinseca de las secuencias polipeptidicas es necesario analizar todas las secuencias.
-
-
-Los metodos que utilizaremos para intentar eliminar la tendencia a formacion de fibras amiloides son: busqueda de determinantes secuenciales, PASTA, TANGO.
-
-
-**************************
-
-
-Pasta asume que el mecanismo (las interacciones) que llevan a la formacion de beta-sheets en proteinas globulares es el mismo que el que lleva a la formacion de beta-sheets en estructuras cross-beta(estructura asociada a fibras amiloides).
-En primer lugar, Pasta deriva una funcion energetica a partir de un conjunto de datos de estructuras globulares (potenciales estadisticos). Para derivar la funcion, lo que hace es ver cual es la probabilidad de encontrar cierto par de residuos dentro de una hoja beta, enfrentados en hebras vecinas. Esto resulta en una matriz con un valor asociado para cada par de residuos posibles.
-El metodo asume que la forma soluble es nativamente desestructurada, por lo que hay que tener cuidado cuando se lo usa para predecir proteinas que nativamente adquieren una estructura globular.
-Ademas, se asume que las moleculas involucradas en la formacion de pares de interaccion adoptaran la forma en la que el emparejamiento tenga la menor energia.
-el valor de este potencial estadistico para cada clase(paralela,antiparalela, etc) se calcula segun la relacion entre la frecuencia observada y la frecuencia esperada:
-la frecuencia observada es el numero de pares ab que estan en esa clase / el total de pares ab encontrados.
-La frecuencia esperada se aproxima como: el numero de pares ab (para cualquiera ab) que esta en una clase dada / el numero de pares ab (para cualquier ab) que hay.
-
-Se extraen valores de potencial segun esten interaccionando en sentido paralelo o antiparalelo.
-
-Durante el analisis se usan estos conjuntos para asignar un score a cada emparejamiento especifico entre subsecuencias de la misma longitud (PERTENECIENTES A MOLECULAS DISTINTAS CON LA MISMA SECUENCIA). Durante la evaluacion se prueban todos los emparejamientos posibles (todas las subsecuencias posibles, pero siempre las subsecuencias de ambas moleculas son de la misma longitud).
-Para cada posible subsecuencia se analiza tanto la posibilidad de que esten emparejados paralelamente o de forma antiparalela (tienen distinta tendencia por lo que el score final es distinto)
-
-Entonces: dada una longitud L , un par de indices i,j (correspondientes al inicio de la subsequencia de interaccion en las moleculas 1 y 2), se puede deducir un score para el emparejamiento beta paralelo y otro para el antiparalelo. Estos scores se calculan como la suma de todos los potenciales estadisticos asociados a los residuos que se estan emparejando en la conformacion, mas un valor de diferencia en la entropia que corresponde a la perdida de entropia por el emparejamiento de estos L residuos. Esta diferencia se calcula como L*deltaS, donde deltaS es la perdida de entropia promedio por residuo.
-
-
-Estos scores energeticos permiten saber cual de todos los emparejamientos posibles tendra una menor energia, y por lo tanto(segun lo asumido previamente) sera el que adoptaran las secuencias EN CASO QUE HAYA UNA AGREGACION FORMANDO FIBRAS AMILOIDES.
-
-
-
-Para conocer mejor cual es la dependencia que tiene la secuencia con la tendencia a formar agregados, es posible calcular un valor de propensity(tendencia) a formar un agregado amiloide que tiene cada residuo de la secuencia. Para esto se usa una aproximacion de mecanica estadistica, que relaciona el peso de la enegia asociada a todos los emparejamientos en lss que participa cierto residuo(usando una distribucion de boltzman) con respecto al peso total de todos los emparejamientos posibles de una conformacion de agregado amiloide. 
-ESTE VALOR DA LA TENDENCIA QUE TIENE CADA RESIDUO A FORMAR PARTE DEL EMPAREJAMIENTO EN CASO QUE LA SECUENCIA ADQUIERA UNA CONFORMACION DE AMILOIDE, NO RELACIONA EL VALOR ESTADISTICO DE LA ENERGIA CONFORMACIONAL CON RESPECTO A CUALQUIER OTRA CONFORMACION (ESTRUCTURA GLOBULAR, ALFA-HELICE, ETC)
-
-El valor de propensity es util para saber, en caso de formar agregados amiloides, cuales serian los segmentos que formaran las uniones.
-El valor de la tendencia por residuo es un valor relativo de la tendencia que tiene cada residuo a formar conformaciones amiloides estables, con respecto a la tendencia que tienen los demas residuos. La suma total de los valores de toda la secuencia da 1?? de esta forma, el valor de la tendencia serviria para saber, en caso de formar una fibra amiloide, cuales son los residuos involucrados.
-
-
-Lo que nosotros queremos conocer son los residuos que podrian formar conformaciones de fibra amiloide(interacciones beta) con una energia potencial(score) suficientemente chico, es decir, conformaciones suficientemente estables como para que esta estructura se adopte realmente en un % considerable.
-Para lograr esto debemos obviamente definir un valor de cutoff ya que el termino "suficientemente chica" es algo relativo. De esta forma, todos los residuos que tengan un valor de perfil energetico (masomenos este valor es la suma de score de todas las conformaciones en las que esta involucrado el residuo) menor que el valor de cut-off, seran considerados como los posibles estabilizadores de la estructura y por lo tanto se marcan como targets para la mutacion en nuestro algoritmo.
-El valor de cutoff se debera elegir de forma tal que se balancee la sensibilidad y la especificidad en la deteccion.
-
-
-In this version of the server we included methods for secondary structure and intrinsic disorder, which provide additional reinforcement to the fibril assignment. Briefly, a new machine learning algorithm was constructed to detect secondary structure while our previously developed disorder predictor was also included.
-
-
-Basicamente, lo que dicen es que para formar las fibras amiloides, la secuencia tiene que tener tendencia a interaccionar estando en una estructura beta. Si analizamos cuales son los pares de residuos que mas interaccionan(estadisticamente) entre diferentes hebras dentro de una hoja plegada beta, entonces podemos predecir la tendencia que tendra una secuencia, analizando solamente su composicion.
-
-
-
-Otra caracteristica del servidor PASTA 2.0 es que implementa un mecanismo basado en redes neuronales(ESpritz: accurate and fast prediction of protein disorder) para predecir la tendencia a formar estructuras secundarias o a permanecer en una conformacion desordenada. 
 
 
 
@@ -610,20 +715,62 @@ gate sequences.
 
 
 
-\subsubsection{Determinantes secuenciales de fibras amiloides}
 
-% ESTE PRIMER PARRAFO ESTA EN \cite{de2004sequence} , PODRIA PASAR UNA PARTE A LA INTRODUCCION Y HACER REFERENCIA A ESO ACA
-Como se describe en la introduction.....A protein has to be partially or fully unfolded to aggregate (1, 2).
-Yet, mutations leading to aggregation can alter (9, 10), or not alter (11, 12), protein stability. 
-Aggregation from some peptides and proteins involved in relevant amyloidoses, such as type II diabetes and Alzheimer’s and Parkinson’s disease, does not require, however, previous unfolding, because these molecules are largely
-unstructured under physiological conditions (2). 
-Nevertheless, most of the natively unfolded proteins in vivo do not undergo aggregation (13), indicating that unfolding is necessary, but not sufficient, to promote aggregation. 
-Hence, there must be some sequence motifs that, once they become exposed, are more prone to aggregation than others. 
-In fact, experimental evidence is compelling in favor of the hypothesis that small regions of a protein are responsible for its amyloidogenic behavior
-% Theoretical and experimental evidence indicates that short sequence stretches may be responsible for amyloid formation [11–13].
 
-En el trabajo realizado en \cite{de2004sequence} se analiza esta relación %( entre la secuencia y la predisposición a formar fibras amiloides in vivo)
-en profundidad mediante un analisis de mutagenesis a partir de un péptido amiloide diseñado \textit{de novo} en \cite{de2002novo}. 
+\subsubsection{PASTA}
+
+
+Pasta asume que el mecanismo (las interacciones) que llevan a la formacion de beta-sheets en proteinas globulares es el mismo que el que lleva a la formacion de beta-sheets en estructuras cross-beta(estructura asociada a fibras amiloides).
+En primer lugar, Pasta deriva una funcion energetica a partir de un conjunto de datos de estructuras globulares (potenciales estadisticos). Para derivar la funcion, lo que hace es ver cual es la probabilidad de encontrar cierto par de residuos dentro de una hoja beta, enfrentados en hebras vecinas. Esto resulta en una matriz con un valor asociado para cada par de residuos posibles.
+El metodo asume que la forma soluble es nativamente desestructurada, por lo que hay que tener cuidado cuando se lo usa para predecir proteinas que nativamente adquieren una estructura globular.
+Ademas, se asume que las moleculas involucradas en la formacion de pares de interaccion adoptaran la forma en la que el emparejamiento tenga la menor energia.
+el valor de este potencial estadistico para cada clase(paralela,antiparalela, etc) se calcula segun la relacion entre la frecuencia observada y la frecuencia esperada:
+la frecuencia observada es el numero de pares ab que estan en esa clase / el total de pares ab encontrados.
+La frecuencia esperada se aproxima como: el numero de pares ab (para cualquiera ab) que esta en una clase dada / el numero de pares ab (para cualquier ab) que hay.
+
+Se extraen valores de potencial segun esten interaccionando en sentido paralelo o antiparalelo.
+
+Durante el analisis se usan estos conjuntos para asignar un score a cada emparejamiento especifico entre subsecuencias de la misma longitud (PERTENECIENTES A MOLECULAS DISTINTAS CON LA MISMA SECUENCIA). Durante la evaluacion se prueban todos los emparejamientos posibles (todas las subsecuencias posibles, pero siempre las subsecuencias de ambas moleculas son de la misma longitud).
+Para cada posible subsecuencia se analiza tanto la posibilidad de que esten emparejados paralelamente o de forma antiparalela (tienen distinta tendencia por lo que el score final es distinto)
+
+Entonces: dada una longitud L , un par de indices i,j (correspondientes al inicio de la subsequencia de interaccion en las moleculas 1 y 2), se puede deducir un score para el emparejamiento beta paralelo y otro para el antiparalelo. Estos scores se calculan como la suma de todos los potenciales estadisticos asociados a los residuos que se estan emparejando en la conformacion, mas un valor de diferencia en la entropia que corresponde a la perdida de entropia por el emparejamiento de estos L residuos. Esta diferencia se calcula como L*deltaS, donde deltaS es la perdida de entropia promedio por residuo.
+
+
+Estos scores energeticos permiten saber cual de todos los emparejamientos posibles tendra una menor energia, y por lo tanto(segun lo asumido previamente) sera el que adoptaran las secuencias EN CASO QUE HAYA UNA AGREGACION FORMANDO FIBRAS AMILOIDES.
+
+
+
+Para conocer mejor cual es la dependencia que tiene la secuencia con la tendencia a formar agregados, es posible calcular un valor de propensity(tendencia) a formar un agregado amiloide que tiene cada residuo de la secuencia. Para esto se usa una aproximacion de mecanica estadistica, que relaciona el peso de la enegia asociada a todos los emparejamientos en lss que participa cierto residuo(usando una distribucion de boltzman) con respecto al peso total de todos los emparejamientos posibles de una conformacion de agregado amiloide. 
+ESTE VALOR DA LA TENDENCIA QUE TIENE CADA RESIDUO A FORMAR PARTE DEL EMPAREJAMIENTO EN CASO QUE LA SECUENCIA ADQUIERA UNA CONFORMACION DE AMILOIDE, NO RELACIONA EL VALOR ESTADISTICO DE LA ENERGIA CONFORMACIONAL CON RESPECTO A CUALQUIER OTRA CONFORMACION (ESTRUCTURA GLOBULAR, ALFA-HELICE, ETC)
+
+El valor de propensity es util para saber, en caso de formar agregados amiloides, cuales serian los segmentos que formaran las uniones.
+El valor de la tendencia por residuo es un valor relativo de la tendencia que tiene cada residuo a formar conformaciones amiloides estables, con respecto a la tendencia que tienen los demas residuos. La suma total de los valores de toda la secuencia da 1?? de esta forma, el valor de la tendencia serviria para saber, en caso de formar una fibra amiloide, cuales son los residuos involucrados.
+
+
+Lo que nosotros queremos conocer son los residuos que podrian formar conformaciones de fibra amiloide(interacciones beta) con una energia potencial(score) suficientemente chico, es decir, conformaciones suficientemente estables como para que esta estructura se adopte realmente en un % considerable.
+Para lograr esto debemos obviamente definir un valor de cutoff ya que el termino "suficientemente chica" es algo relativo. De esta forma, todos los residuos que tengan un valor de perfil energetico (masomenos este valor es la suma de score de todas las conformaciones en las que esta involucrado el residuo) menor que el valor de cut-off, seran considerados como los posibles estabilizadores de la estructura y por lo tanto se marcan como targets para la mutacion en nuestro algoritmo.
+El valor de cutoff se debera elegir de forma tal que se balancee la sensibilidad y la especificidad en la deteccion.
+
+
+In this version of the server we included methods for secondary structure and intrinsic disorder, which provide additional reinforcement to the fibril assignment. Briefly, a new machine learning algorithm was constructed to detect secondary structure while our previously developed disorder predictor was also included.
+
+
+Basicamente, lo que dicen es que para formar las fibras amiloides, la secuencia tiene que tener tendencia a interaccionar estando en una estructura beta. Si analizamos cuales son los pares de residuos que mas interaccionan(estadisticamente) entre diferentes hebras dentro de una hoja plegada beta, entonces podemos predecir la tendencia que tendra una secuencia, analizando solamente su composicion.
+
+
+
+Otra caracteristica del servidor PASTA 2.0 es que implementa un mecanismo basado en redes neuronales(ESpritz: accurate and fast prediction of protein disorder) para predecir la tendencia a formar estructuras secundarias o a permanecer en una conformacion desordenada. 
+
+
+
+
+
+
+
+
+\subsubsection{Determinantes secuenciales de fibras amiloides}\label{determinantesSecuenciales}
+
+El trabajo realizado en  \cite{de2004sequence} realiza un  profundidad mediante un analisis de mutagenesis a partir de un péptido amiloide diseñado \textit{de novo} en \cite{de2002novo}. 
 El ensayo consiste en reemplazar sistematicamente los residuos de este péptido(STVIIE) con todos los AAs naturales, excepto Cys.
 
 Este estudio sigue la linea de utilizar péptidos cortos para investigar elementos de la secuencia que favorecen la agregación, 
@@ -637,7 +784,8 @@ El patrón resultante es:
 
 $\{P\}_1 -\{PKRHW\}_2 -[VLS(C)WFNQ]_3 -[ILTYWFN]_4 -[FIY]_5- \{PKRH\}_6 $
 
-% Because the sequence space explored in this work is very small, we are conscious that many dangerous motifs cannot be detected unless a more complete pattern is provided. Therefore, similar experiments on unrelated amyloid sequences would be very
+% Because the sequence space explored in this work is very small, we are conscious that many dangerous motifs cannot be detected unless a more complete pattern is provided. 
+% Therefore, similar experiments on unrelated amyloid sequences would be very
 % useful to refine this amyloid fingerprint.
 % 
 % DISCUSION DEL PATRON ENCONTRADO
@@ -662,8 +810,60 @@ rompen esta capacidad de agregación(conocidos como amyloid breakers).
 
 % *************
 
-En nuestra aplicación, implementamos la búsqueda de este patrón como parte del conjunto de evaluaciones que se hacen sobre la secuencia. El resultado de buscar la expresión regular asociada a este patron secuencial podría aportar subsecuencias
-que generen una tendencia a formar este tipo de fibras amiloides.
+En nuestra aplicación, implementamos la búsqueda de este patrón como parte del conjunto de evaluaciones que se hacen sobre la secuencia.
+El resultado de buscar la expresión regular asociada a este patron secuencial podría aportar subsecuencias que generen una tendencia a formar este tipo de fibras amiloides.
+
+Para buscarlo lo que se hace es utilizar 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -672,23 +872,43 @@ que generen una tendencia a formar este tipo de fibras amiloides.
 \section{Busqueda de propiedades funcionales}
 
 
-There are many methods, such as SMART (Simple Modular
-Architecture Research Tool) (3), PRODOM (4) , Pfam (5,6),
-PROSITE (7) and ELM (Eukaryotic Linear Motif, http://
-elm.eu.org) (8), available for finding globular domains (e.g.
-SH3, TyrKc, active sites) and linear motifs (e.g. SH3 ligands,
-LXXLL nuclear receptor ligands, tyrosine phosphorylation
-sites, post-translational modification sites) within a protein
-sequence. These methods typically rely on sequence similarity
-models, looking for recurrence of known domains or motifs by
-such means as HMMs (Hidden Markov Models) (9), pattern
-discovery
-(http://www.cs.ucr.edu/~stelo/pattern.html)
-or
-SW(Smith-Waterman)-profiles (10). Although these methods
-are of great value in annotating protein sequences, they are
-limited in their ability to uncover new features not yet
-discovered.
+% POR QUE QUEREMOS SACAR TODAS LAS PROPIEDADES FUNCIONALES
+% ¿QUE DESEAMOS PARA EL LINKER? ¿POR QUE?
+
+
+% There are many methods, such as SMART (Simple Modular
+% Architecture Research Tool) (3), PRODOM (4) , Pfam (5,6),
+% PROSITE (7) and ELM (Eukaryotic Linear Motif, http://
+% elm.eu.org) (8), available for finding globular domains (e.g.
+% SH3, TyrKc, active sites) and linear motifs (e.g. SH3 ligands,
+% LXXLL nuclear receptor ligands, tyrosine phosphorylation
+% sites, post-translational modification sites) within a protein
+% sequence. These methods typically rely on sequence similarity
+% models, looking for recurrence of known domains or motifs by
+% such means as HMMs (Hidden Markov Models) (9), pattern
+% discovery
+% (http://www.cs.ucr.edu/~stelo/pattern.html)
+% or
+% SW(Smith-Waterman)-profiles (10). Although these methods
+% are of great value in annotating protein sequences, they are
+% limited in their ability to uncover new features not yet
+% discovered.
+
+
+
+% Búsqueda de secuencias homólogas
+Como se desarrollo en la introducción, las secuencias de proteinas que estan asociadas a una misma funcion tienen ciertas restricciones en su evolución, asociadas con funcionalidad que deben proveer y con propiedades estructurales, lo cual se da, 
+principalmente, en secuencias que codifican proteinas globulares, cuyos requerimientos estructurales son mas estrictos. 
+Esta restriccion en la evolucion de la secuencia resulta en una similitud secuencial entre secuencias homólogas.
+Una forma de evaluar la existencia de secuencias similares en la naturaleza es haciendo un alineamiento secuencial frente a una base de datos de secuencias proteicas conocidas. 
+El descubrimiento de una secuencia con gran similitid y que, por lo tanto, se presume homóloga provee un primer indicio acerca de la función que está puede cumplir. 
+En el contexto de la herramienta que estamos desarrollando, la información resultante de la búsqueda sirve como indicador de que posiciones puntuales son las que conforman esta similitud secuencial y que, por lo tanto, podrían inducir la función. 
+
+Para realizar la búsqueda de similitud secuencial utilizamos la herramienta BLAST (ref. 1 ,2 ), la cual puede ser ejecutada de dos maneras:
+
+
+Además de poder predecir alguna funcionalidad no deseada, como dijimos, las secuencias que se encuentran mas conservadas son aquellas que tienen mas restricciones estructurales, es decir, tienen 
+% La idea es detectar cualquier secuencia que pueda ser detectada por homologia. Es decir, cualquier elemento funcional que se caracterice por 
 
 
 
@@ -701,74 +921,18 @@ high false positive rates. A critical advance in this direction has been made by
 consideration motif enrichment in proteins that share the same binding partner or evolutionary history (e.g. SLiM-Finder [12]). 
 Completely different logic forms the basis of ANCHOR, which predicts disordered binding sites by estimating their interaction energy with a general partner [13], and of the molecular recognition feature predictor
 (a-MoRF-PredII  
- 
-\subsection{ELM}
-
-% Deteccion de motivos lineales 
-% QUE SON ?
-Short linear motifs (SLiMs, LMs or MiniMotifs) are
-regulatory protein modules characterized by their
-compact interaction interfaces (the affinity and specificity
-determining residues are usually encoded between 3 and
-11 contiguous amino acids (1)) and their enrichment in
-natively unstructured, or disordered, regions of proteins
-(2). As a result of limited intermolecular contacts with
-their interaction partners, SLiMs bind with relatively
-ow affinity (in the low-micromolar range), an advan-
-tageous attribute for use as transient, conditional and
-tunable interactions necessary for many regulatory
-processes. 
-Due to the limited number of mutations
-necessary for the genesis of a novel motif, SLiMs are
-amenable to convergent evolution, functioning as a
-driver of network evolution by adding novel interaction
-interfaces, and thereby new functionality, to proteins. 
-Novel SLiMs can readily evolve de novo, adding functionality to a protein.
-This evolutionary plasticity facilitates the rapid proliferation
-within a proteome, and as a result, motif use is ubiquitous
-in higher eukaryotes.
-The ease of evolution of motifs has resulted in the proliferation of
-SLiMs that encode functions of broad utility and many
-motif classes are ubiquitous, occurring in tens or hundreds
-of proteins. Many pathogens have also taken advantage
-of the intrinsic evolutionary plasticity of SLiMs by
-mimicking host motifs to deregulate and repurpose host
-pathways.
-On a higher regulatory level, short linear motifs often
-exhibit complex switching behavior by co-operating with
-each other and with post-translational modifications to
-facilitate switching between different functional states of
-a protein, and thus, SLiMs function as key regulatory
-modules that allow for context-dependent, integrative
-regulatory decision-making
-
-% En los últimos años, sin embargo, ha cambiado drásticamente el concepto que se tenía sobre las interacciones entre proteínas. En este paso, se han establecido regiones intrínsecamente
-% desordenadas como factores claves en la funcionalidad de proteínas. Se puede ver a partir de esto que, independientemente de la eficiencia que tengan los métodos usados para lograr una 
-% estructura desordenada, no es correcto asegurar que la secuencia no tendrá ninguna función asociada solamente por haber logrado restringir la formación de una estructura conformacional definida.
-% 
-% Los principales modulos funcionales encontrados en las regiones intrínsecamente desordenadas son los motivos lineales cortos (short linear motifs, o SLiMs), que se refieren a una clase de modulos de interacción compactos, degenerados y evolutivamente convergentes.
-% Se ha demostrado que la interacción mediada por SLiMs participa en diversos procesos biológicos tales como el control de progresión del ciclo celular, marcado de proteínas para la degradación en el proteasoma, modulación de la eficiencia en la traducción, y localización de proteínas en compartimientos subcelulares específicos. Se espera que en un futuro se develen más funciones asociadas a instancias de SLiMs.
 
 
 
-% FUNCIONES:
-Interactions mediated by SLiMs, also referred to as linear motifs or MiniMotifs, have been shown to direct many diverse processes, such as controlling cell cycle progression, 
-tagging proteins for proteasomal degradation, modulating the efficiency of translation, targeting proteins to specific sub-cellular localizations and stabilizing scaffolding complexes.
-Undoubtedly, more functions will be revealed in the future as additional SLiM instances are characterized.
-
-Short linear peptide motifs are used for regulation by phosphorylation, acetylation, glycosylation and a host of other post-translational modifications.
-The functionality of linear motifs can be modulated by modifications such as phosphorylation
-
-% funcionamiento como switches
-As key regulatory interaction modules, linear motifs are tightly controlled and many motifs are conditionally turned ‘on’ and ‘off’ depending on cell state. Pre-translational addition or removal of a SLiM-containing exon,
-post-translational modification of the SLiM-containing peptide, allosteric SLiM inhibition or activation and SLiM binding site competition are amongst the most common mechanisms to regulate linear motifs.
-% El descubrimiento de estas propiedades de ser activados o desactivados mediante modifications pre-traduccionales llevo al desarrollo de una BBDD especifica:
-% The switches.ELM  database is a resource dedicated to the curation and representation of experimentally validated motif-based molecular switches.
-% (ver paper The switches.ELMresource:a compendium of conditional regulatory interaction interfaces)
 
 
+
+% DETECCION DE LINEAR MOTIFS
 
 % POR QUE LOS QUITAMOS?
+Los principales modulos funcionales encontrados en las regiones intrínsecamente desordenadas son los motivos lineales cortos (short linear motifs, o SLiMs), que se refieren a una clase de modulos de interacción compactos, 
+degenerados y evolutivamente convergentes.
+
 El objetivo de este trabajo es lograr una herramienta que provea una secuencia capaz ser utilizada experimentalmente como linker en el proceso de ingeniería de proteínas. 
 Esto implica no sólo probar con cierta certeza que tendrá la funcionalidad deseada, sino también evaluar el comportamiento en todos los pasos del proceso de ingeniería. 
 Es necesario saber que las propiedades de la secuencia no afectarán este proceso de ninguna forma.
@@ -780,10 +944,7 @@ un resultado que cumpla con el objetivo en cualquier contexto experimental.
 En este algoritmo utilizamos distintas herramientas para evaluar la estructura que adopta la secuencia, con el fin de poder llevarla hacia una composición que provea la flexibilidad
 necesaria para la función de linker. En ese proceso podemos asumir también que la secuencia no podrá cumplir ninguna función que requiera de una estructura en una conformación definida.
 
-
 Una propiedad característica de los LMs es su relación con un contexto de estructura desordenada\cite{fuxreiter2007local}.
-% ACA DESCRIBIR UN POCO LAS CONCLUSIONES DE ESTE PAPER
-
 Dadas estas propiedades estructurales, será relevante para nuestro trabajo . Más aún, teniendo en cuenta las caracteristicas secuenciales de este tipo de motivos, que le 
 podía esperarse que, luego de ser detectados y mutados puedan resurgir facilmente dentro de una misma ejecución, con un comportamiento similar al que ocurre en la naturaleza.
 % es relevante detectarlos en cada paso...., y se espera que, dadas las caracteristicas evolutivas??? de este tipo de motivos, 
@@ -792,10 +953,28 @@ podía esperarse que, luego de ser detectados y mutados puedan resurgir facilmen
 
 
 
-
 % COMO VAMOS A DETECTARLOS
-En este paso del algoritmo se intentará identificar este tipo de motivos en la secuencia, con el fin de eliminarlos, reduciendo las posibilidades que el resultado final tenga funcionalidades no deseadas. 
-Para detectarlos se utilizará el recurso ELM.
+Para detectar LMs se utilizará principalmente el recurso ELM, cuya aplicación en el método se describe en \ref{elm}
+
+% DIFERENCIAS CON PROSITE
+The PROSITE database has collected a number of linear protein motifs, representing them as regular expression patterns. 
+PROSITE patterns have been very useful, but also suffer from severe overprediction problems and more recently the database has emphasised globular domain annotation at the expense of linear motifs.
+
+
+
+Además de los motivos lineales, en la introducción se describieron otros modulos funcionales que pueden estar contenidos en IDRs/IDPs.
+Utilizando la herramienta ANCHOR(ver \ref{anchor}) se pueden detectar motivos de reconocimiento a partir de sus propiedades estructurales lo cual, como se menciona en \ref{propiedadesConformacionales}, es importante para restringir las 
+caracteristicas estructurales del peptido resultante. Sin embargo, dada su functional importance, predicting recognition elements (motifs) from sequence is of great interest, tambien para evitar la ocurrencia de funcionalidades no deseadas.
+Ademas, most protein domains that are identified using sequence-based approaches(como el utilizado en \ref{blast}) are structured, but some can be fully or largely disordered  or contain conserved disordered regions,
+es decir, intrinsically disordered domains (IDDs).
+Teniendo en cuenta la hipotesis desarrollada en la introduccion acerca del solapamiento entre los MoREs y SLMs, e incluso con los dominios desordenados, las herramientas utilizadas para detectar estos tres pueden proveer resultados que se solapen.
+Sin embargo, como ya se describió previamente, esto no es una desventaja.
+
+
+
+
+\subsection{ELM}\label{elm}
+
 El recurso de motivos lineales eucariotas(ELM) \cite{puntervoll2003elm,dinkel2013eukaryotic} fue establecido con la misión de recolectar, anotar y clasificar motivos lineales cortos. 
 Provides the biological community with a comprehensive database of known experimentally validated motifs, and an exploratory tool to discover putative linear motifs in user-submitted protein sequences.
 Es relevante destacar que todos los datos anotados son curados manualmente a partir de la literatura y están a disposición de la comunidad científica.
@@ -848,9 +1027,12 @@ KPLRGNAMVGL(posiciones 3-13) =   0011111111111
 Total                        =   1122221222222
 
 
-% DIFERENCIAS CON PROSITE
-The PROSITE database has collected a number of linear protein motifs, representing them as regular expression patterns. 
-PROSITE patterns have been very useful, but also suffer from severe overprediction problems and more recently the database has emphasised globular domain annotation at the expense of linear motifs.
+
+
+
+
+
+
 
 
 \subsection{Prosite}
@@ -895,21 +1077,9 @@ describir si hay superposición entre elm y prosite. Se justifica usar los dos? 
 % person will have.
 
 
-\subsection{BLAST}
+\subsection{BLAST}\label{blast}
 
-% Búsqueda de secuencias homólogas
-
-Una forma de evaluar la existencia de secuencias similares en la naturaleza es haciendo un alineamiento secuencial frente a una base de datos de secuencias proteicas conocidas. 
-El descubrimiento de una secuencia homóloga provee un primer indicio acerca de la función que está puede cumplir. 
-En el contexto de la herramienta que estamos desarrollando, la información resultante de la búsqueda sirve como indicador de que posiciones puntuales son las que conforman esta similitud secuencial y que, por lo tanto, podrían inducir la función. 
-
-
-% La idea es detectar cualquier secuencia que pueda ser detectada por homologia. Es decir, cualquier elemento funcional que se caracterice por 
-% En terminos estructurales .... Most protein domains that are identified using sequence-based approaches are structured, but some can be fully or largely disordered  or contain conserved disordered regions, mencionados antes como intrinsically disordered domains (IDDs)
-
-¿QUE DESEAMOS PARA EL LINKER? ¿POR QUE?
-
-Para realizar la búsqueda de similitud secuencial utilizamos la herramienta BLAST (ref. 1 ,2 ), la cual puede ser ejecutada de dos maneras:
+La herramienta BLAST (ref. 1 ,2 ), la cual puede ser ejecutada de dos maneras:
 
 %     -Una opción es hacer una llamada al servidor remoto que ejecuta la búsqueda (http://blast.ncbi.nlm.nih.gov/). Esta opción es simple pero implica ejecutar la búsqueda remotamente y retardos para obtener los resultados. Se puede hacer simplemente desde Python utilizando el módulo BioPython(http://biopython.org/). (http://www.biotnet.org/sites/biotnet.org/files/documents/25/biopython_blast.pdf ) 
  
@@ -943,6 +1113,28 @@ USAR FUENTE COURIER PARA ALINEAMIENTOS
 
 Dentro de nuestra herramienta se utiliza este resultado para marcar los posibles targets en la mutación. En el ejemplo dado, excepto las posiciones 13 y 14, todos los residuos tienen una similitud puntual con la secuencia encontrada y, por lo tanto, son targets para una próxima mutación.
 En este paso, a cada residuo que se alinea correctamente con el hit se le sumará 1 punto al valor de score asociado.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

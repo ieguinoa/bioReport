@@ -34,8 +34,12 @@ En el capítulo \ref{results} se muestran, en primer lugar, las evaluaciones rea
 Además, se evaluan distintas propiedades de la herramienta resultante y su ejecución analizando, luego, las secuencias obtenidas. 
 
 
+
+
 \section{Perfil conformacional y funcional de proteinas}
 \label{proteinLandscape}
+
+
 
 \subsection{Propiedades conformacionales de las proteinas}
 \label{conformationalLandscape}
@@ -49,13 +53,47 @@ Además, se evaluan distintas propiedades de la herramienta resultante y su ejec
 \end{itemize}
 
 
+
 % la idea de esta introduccion es describir conformational-functional landscape de las proteinas en la celula
 
+% **************** ESTA INTRODUCCION PODRIA IR EN LA SECCION SUPERIOR(Perfil conformacional y funcional de proteinas)
+% ES DECIR, HAGO UNA INTRODUCCION A TODO EL TEMA DE CONFORMACION-FUNCION-HOMEOSTASIS-ETC, Y VOY REFERENCIANDO LAS DISTINTAS SUBSECCIONES
 
 
 
+% PRIMERO HABLO DE LA RELACION UNA SECUENCIA-UNA ESTRUCTURA
+Proteins are heteropolymers consisting of covalent linkages between consecutive amino
+acids monomers, forming a chain. The amino acid sequence of a protein, termed its
+primary structure, confers chemical properties to the protein through the unique
+properties of the 20 different amino acids.
+For traditional "folded" proteins, this chain tends to fold into a unique structure. Es decir, una secuencia de AAs determina una unica estructura resultante.
 
-% esta parte de estructuras individuales podria ir en 
+
+It became evident from early studies that
+the varied and intricate structures of globular proteins
+are encoded by their amino acid sequences, and that
+these molecules have an intrinsic ability to fold sponta-
+neously 37 . Much research has been carried out since then
+into the mechanism of folding, both under carefully con-
+trolled conditions in the laboratory and within cellular
+environments
+From these studies we now know that the folding
+process can be described as a diffusional search on a free
+energy surface
+A combination of experimental and
+theoretical studies has clarified how given sequences
+define specific free energy surfaces that enable folding
+Regardless of its nature,
+however, the functional native state is likely to only reflect
+a local free energy minimum at physiological concentra-
+tions, as self-association into aggregated protein spe-
+cies may in many cases lower the global free energy 41,42
+(BOX 1) . Indeed, the maintenance of protein solubility has
+emerged as a central aspect of the more general topic of
+protein homeostasis
+
+
+% ACA DIGO LA RELACION ESTRUCTURA-FUNCION TRADICIONAL 
 The structure-function paradigm claims that a specific function of a protein is determined by its unique and rigid three-dimensional (3D) structure. 
 Thus, following its biosynthesis on the ribosome, a protein must fold to a native, defined 3D structure to be functional. 
 The primary origin of this structure-function paradigm is the “lock and key” hypothesis formulated in 1894 by Emil Fischer to explain the astonishing specificity of the enzymatic hydrolysis of glucoside multimers by different types
@@ -65,8 +103,8 @@ Este paradigma se deriva de los primeros avances en el estudio de estructuras de
 
 Basic biology and biochemistry textbooks that explain biological phenomena at the molecular level exquisitely rely on this notion, the ‘structure–function paradigm’.
 
-The explanatory power of these 3-D
-structures continued to reinforce the static view of protein
+The explanatory power of these 3-D structures continued to reinforce the static view of protein
+
 
 Throughout the 20th century, tens of
 thousands of structures have been solved and deposited in the
@@ -84,6 +122,20 @@ structure was thought to be the hallmark of protein function.
 
 
 
+% ANTES HABLE DE LA RELACION SECUENCIA-ESTRUCTURA, AHHORA HABLO DE LA RELACION ESTRUCTURA-FUNCION, 
+% POR LO TANTO .....ACA DEBERIA PONER UNA FRASE PARA ENTENDER QUE SE EXTIENDE LA IDEA ANTERIOR DE SECUENCIA-ESTRUTURA A SECUENCIA-ESTRUCTURA-FUNCION
+
+
+
+
+
+
+
+% ACA PASO A LA IDEA DE POSIBLES DIFERENCIAS CON ESTE PARADIGMA CLASICO
+
+some peptides and proteins, even under normal physiological conditions, do not fold into globular structures,
+or they do so only in certain regions of their sequences or in the presence of specific binding partners
+
 Although deviations from this norm were always apparent, they had been invariably neglected or ignored.
 Mas adelante en el tiempo se fue encontrando que, además de las estructuras globulares funcionales mas estudiadas, proteins also populate various other states under native, functional conditions, including disordered and partially ordered conformations, and different aggregated assemblies.
 Although it was evident from early studies that both soluble and fibrillar forms of proteins could exist (33 ????) , most attention was focused on the soluble states that were found to possess demonstrable biological function.
@@ -100,15 +152,29 @@ to these questions ruled out flexible proteins as artifacts and
 enlightened the “dark side” of structural biology, that of
 disordered proteins (i.e., proteins that lack 3-D structure).
 
-
-
 Wright and Dyson 8 suggested that the existence of proteins with intrinsic protein disorder calls for a reassessment of the protein–structure– function paradigm.
 
+Such proteins, often described as ‘intrinsically disordered’ or ‘natively unfolded’, have important biological roles, notably in signalling and regulation, not least
+because they are capable of interacting in different ways with multiple partners. %REFERENCIAR A LA SECCION QUE HABLO DE FUNCIONALIDAD IDPs
+
+Durante la última década, uno de los mayores cambios en el campo de las proteínas ha sido el reconocimiento de la ubicuidad e importancia de las proteínas intrínsecamente desordenadas. 
+% \cite(INTRINSICALLY UNSTRUCTURED PROTEINS AND THEIR FUNCTIONS)
+Las proteinas en solucion fall onto a structural continuum, from tightly folded single domains, to multidomain proteins that might have flexible or disordered regions, to compact but disordered MOLTEN GLOBULES and, finally, to highly extended, heterogeneous unstructured states (FIG. 1) 
+% This continuum has been interpreted in terms of a ‘PROTEIN TRINITY’ (ordered, molten globule and RANDOM COIL 20 ) or ‘PROTEIN QUARTET ’ 
+As the main criterion of a native protein is its ability to perform a biological function, these partially or completely disordered proteins must be regarded as native entities.
+
+
+% Si bien decimos aca que las proteinas pueden adquirir estructuras correspondientes un ensamble de estructuras accesibles , es posible hacer una clasificación entre proteinas que adoptan estructuras plegadas(con un estado nativo definido por un pequeño conjunto de estructuras) 
+% y proteínas intrínsecamente desestructuradas (que adoptan estructuras correspondientes a un gran ensamble continuo de conformaciones). Luego se tratará las conformaciones agregadas de proteínas como una dimensión conformacional distinta.
 
 
 
-En el grafico (*** poner grafico de proteostasis que tiene un estado 'nativo' , un estado 'misfolded' y los demas estados de agregacion, etc) se ve que al sintetizarse, 
+
+% ACA HABLO DE ASPECTOS GENERALES, OTROS POSIBLES CAMINOS , MISFOLDING, ETC
+
+En el grafico (*** poner grafico de proteostasis que tiene un estado 'nativo' , un estado 'misfolded' y los demas estados de agregacion, etc) se ve que, al sintetizarse, 
 la proteina naturalmente tiende a ir adquiriendo una conformacion estructural (conjunto de conformaciones mas restringida).
+
 Lo que se fue desarrollando en los ultimos años es que el estado funcional no pertenece(siempre) a una estructura altamente definida sino que puede pertenecer a un conjunto de conformaciones que van desde
 estado plegado hasta estados desestructurados, que pueden confundirse con estados totalmente desordenados. 
 % fall onto a structural continuum, from tightly folded single domains, to multidomain proteins that might have flexible or disordered regions, to compact but disordered MOLTEN GLOBULES and, finally, to highly extended, heterogeneous unstructured states 
@@ -128,30 +194,25 @@ Estos requerimientos pueden indicar por ejemplo q ciertos estados altamente esta
 
 Las propiedades cinéticas y termodinámicas están dadas por el contexto celular (pH, iones, concentracion de proteinas, presencia de otras moleculas con las que interactúa, etc) y, obviamente, por los posibles cambios que puede tener una proteina,
 ya sean mutaciones o modificaciones postraduccionales.
-% Las propiedades estructurales de una proteina, descritas de esta forma, pueden modificarse para una proteina a partir de cambios en el contexto(pH, iones, concentracion de proteinas, presencia de otras moleculas con las que interactúa, etc) 
-% y, obviamente, también a partir de mutaciones o modificaciones quimicas sobre ésta. 
+
 Esta forma de ver las propiedades estructurales permite ver los origenes de los cambios conformacionales desde el punto de vista de las propiedades fisicoquimicas de las proteinas.
 If the stability or cooperativity of the native state of a protein is reduced, for example by a mutation, the population of non-native states will increase.
 
 
 Es importante destacar, entonces que, for a given polypeptide chain a chosen fate is not a final one, and a choice may be further modulated by environmental pressure. 
-Thus, intrinsically unstructured proteins may be forced to fold or misfold via modification of their environment (addition of natural binding partners, changes in properties of solvent and so on), whereas a destabilizing environment may push a natively
-folded protein to the misfolding route. Alternatively, the
-presence of chaperones may reverse the misfolding route
-and effectively dissolve small aggregates
+Thus, intrinsically unstructured proteins may be forced to fold or misfold via modification of their environment (addition of natural binding partners, changes in properties of solvent and so on), 
+whereas a destabilizing environment may push a natively folded protein to the misfolding route. Alternatively, the presence of chaperones may reverse the misfolding route and effectively dissolve small aggregates
+
+
+To begin to understand the manner in which proteins either adopt and maintain the specific states that are needed to carry out given functions or instead misfold
+and form potentially pathogenic aggregates such as amyloid fibrils, it is important to investigate the nature and properties of the various states in which these molecules
+can be found.  %REFERENCIAR LAS SECCIONES DE CONFORMACIONES Y DE AGREGADOS
+
+It is also important to clarify how the conversion of proteins into the amyloid state is generally avoided in living systems.  %ESTO SE HACE EN LA SECCION  .... referenciar la parte de homeostasis
 
 
 
 
-Durante la última década, uno de los mayores cambios en el campo de las proteínas ha sido el reconocimiento de la ubicuidad e importancia de las proteínas intrínsecamente desordenadas. 
-% \cite(INTRINSICALLY UNSTRUCTURED PROTEINS AND THEIR FUNCTIONS)
-Las proteinas en solucion fall onto a structural continuum, from tightly folded single domains, to multidomain proteins that might have flexible or disordered regions, to compact but disordered MOLTEN GLOBULES and, finally, to highly extended, heterogeneous unstructured states (FIG. 1) 
-% This continuum has been interpreted in terms of a ‘PROTEIN TRINITY’ (ordered, molten globule and RANDOM COIL 20 ) or ‘PROTEIN QUARTET ’ 
-As the main criterion of a native protein is its ability to perform a biological function, these partially or completely disordered proteins must be regarded as native entities.
-
-
-% Si bien decimos aca que las proteinas pueden adquirir estructuras correspondientes un ensamble de estructuras accesibles , es posible hacer una clasificación entre proteinas que adoptan estructuras plegadas(con un estado nativo definido por un pequeño conjunto de estructuras) 
-% y proteínas intrínsecamente desestructuradas (que adoptan estructuras correspondientes a un gran ensamble continuo de conformaciones). Luego se tratará las conformaciones agregadas de proteínas como una dimensión conformacional distinta.
 
 
 
@@ -164,8 +225,41 @@ As the main criterion of a native protein is its ability to perform a biological
 
 
 
+
+
+
+
+
+
+
+
+
+
 \subsubsection{Proteinas globulares, fibrosas y de membrana}
 
+
+It became evident from early studies that
+the varied and intricate structures of globular proteins
+are encoded by their amino acid sequences, and that
+these molecules have an intrinsic ability to fold sponta-
+neously 37 . Much research has been carried out since then
+into the mechanism of folding, both under carefully con-
+trolled conditions in the laboratory and within cellular
+environments
+
+
+
+Although proteins are often depicted as having static three-dimensional structures,
+thermal fluctuations at body temperature enable them to sample different conformations
+throughout their biological lifetime (4). Protein motions range from fast (-picoseconds)
+small amplitude (-Angstroms) fluctuations, to relatively slow (microseconds to seconds
+or longer), large scale motions that involve domain motions and/or folding (5).
+Ingeneral, all of these motions enable proteins to perform their prescribed functions.
+
+For a number of proteins, the structural ensemble consisting of its thermally accessible
+states contains structures that have only relatively small deviations from the ensemble
+average structure. In general, such proteins are categorized as being "folded", and for
+these proteins, structures determined by experimental methods such as X-ray crystallography correspond to the ensemble-averaged structures.
 
 
 Obviously, the consideration of a protein as a rigid crystal-like entity is an oversimplification, since even the most stable and well-folded proteins are dynamic systems that possess different degrees of conformational flexibility.
@@ -220,6 +314,13 @@ The intermediates in the folding process can be classified in
 
 
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{img/globularEnLandscape.png} 
+\caption{Perfil energetico de los estados de un polipeptido con estructura nativa globular. Figura extraida de \cite{turoverov2010protein}}
+\label{globularEnergyLandscape}
+\end{figure}
+
 
 
 \subsubsection{Proteinas intrínsecamente desestructuradas}
@@ -237,10 +338,64 @@ the transition in paradigm was enforced by scattered experimental observations o
 % una de las dudas que se tenia era si este estado conformacional existia solo in vitro y en realidad in-vivo lo que ocurria era que el crowding generaba el plegamiento
 Evidence added to that obtained by other techniques [mostly NMR and circular dichroism (CD)]..... and the evidence seems overwhelming now that structural disorder also exists in vivo and it is truly the native, functional state of these proteins.
 
+
+The difference between folded proteins and disordered proteins can be understood based
+on an analysis of their free energy landscapes (Fig. 2).
+Folded proteins have a "funnel-
+shaped" global free energy minimum, where the lowest energy state corresponds to the
+11native structure (23) (24), and the width of the unique global energy minimum
+determines the conformational entropy of the native state
+
+By contrast,
+disordered proteins have multiple local energy minima separated by small barriers (Fig.
+2B). Transitions between the different local energy minima occur quickly and often,
+leading to an ensemble consisting of a vast number of structurally dissimilar states,
+which have approximately equal energies. Thus, a comprehensive characterization of an
+IDP consists of an ensemble of states and the transition rates between them
+In
+practice, knowledge of the transition rates between conformers in an IDP ensemble is
+very difficult to capture, both experimentally and computationally.
+Consequently, in
+practice, studies of IDPs have focused on modeling the thermodynamically accessible
+states alone. As we outline below, while this represents an incomplete picture of these
+proteins, a great deal of information and insight has arisen from such studies.
+
 En terminos energeticos, for an IDP, the energy landscape is characterized by the lack of a global minimum and by the presence of multiple local minima separated by low energy barriers. 
-As a consequence, such a protein exists as a dynamic ensemble of interconverting structures.
+As a consequence, such a protein exists as a dynamic ensemble of interconverting structures, which can be described by relatively flat energy landscapes.
 Estas secuencias presentan en solución un conjunto heterogéneo de conformaciones fácilmente maleable por cambios en el medio. 
+Conditions, post-translational modifications,
+and binding events (see section 6) change the relative free
+energies of individual conformations as well as the energy
+differences between conformations.
+As a result, the
+populations of individual conformations within the ensemble
+change under different conditions. These individual states are
+often important for function. Thus, the dynamic nature of IDPs is
+best modeled by statistical approaches that describe the
+probabilities of individual conformations in the ensem-
+ble, 172,177,178 and is best measured by experimental techniques
+that prevent conformational averaging.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{img/idpEnLandscape.png} 
+\caption{Perfil energetico de los estados de un polipeptido con estructura nativa desordenada. 
+Disordered segments of these proteins can gain ordered structure at the interaction with specific binding partners in a case if the free energy of such complexes is lower 
+than the free energies of the intrinsically disordered protein and its partner. 
+1, 2, and 3 represents native complexes of intrinsically disordered proteins with various partners.
+Por si solo, el polipeptido presenta a relatively flat energy landscape(sección central). Figura extraida de \cite{turoverov2010protein}}
+\label{idpenergyLandscape}
+\end{figure}
+
 En lugar del análisis estructural clásico basado en dominios globulares, podemos describir estos conjuntos conformacionales en términos de los promedios y desviaciones estándar de la distancia entre los extremos de la secuencia, el radio hidrodinámico, el contenido en estructura secundaria y otros parámetros (20).
+
+These proteins challenge the
+“one sequence—one structure—one func-
+tion” concept by demonstrating that the
+lack of stable tertiary and/or secondary
+structure does not preclude proteins
+from being biologically active
 
 Functional complexes of IDPs with their partners are formed via the specific intermolecular interactions that change the energy landscape creating more defined free energy minima.(ESTO LO PODRIA PONER EN LA PARTE DE INDUCED FIT)
 A similar mechanism underlies the formation of the non-productive protein complexes (oligomers, amorphous aggregates, amyloid-like fibrils, etc.). Here, interactions of the disordered parts of IDPs or interactions of the denatured proteins result in the appearance of profound free energy minima.
@@ -310,11 +465,11 @@ Usando esta analogia(similitud) con los estados intermedios del plegamiento, en 
 contain collapsed-disorder (i.e., where ID is present in a form of molten globules) and extended-disorder (i.e., regions where ID is present in a form of random coil or pre-molten globule)
 
 \begin{itemize}
- \item[Collapsed disorder: ] The structural properties of the molten globule (which was originally described as universal folding intermediate of globular proteins) are well known and
+ \item Collapsed disorder:  The structural properties of the molten globule (which was originally described as universal folding intermediate of globular proteins) are well known and
 have been systematized in number of reviews. The protein molecule in this intermediate state has no (or has only a trace of) rigid cooperatively melted tertiary structure. However, it is characterized not only by the well-developed secondary structure, but also by the presence of some topology, i.e., relatively fixed mutual positioning of the secondary structure elements. A considerable increase in the accessibility of a protein molecule to proteases was noted as a specific property of the molten globule.
 The transformation into this intermediate state is accompanied by a considerable increase in the affinity of a protein molecule to the hydrophobic fluorescence probes
 
- \item[Extended disorder: ] A significant number of sequences encodes for the extendedly disordered proteins that are characterized by low sequence complexity. Are these proteins
+ \item Extended disorder:  A significant number of sequences encodes for the extendedly disordered proteins that are characterized by low sequence complexity. Are these proteins
 random coils, or do they possess residual or transient structure? If they have residual or transient structure, how should they be classified? Based on the analysis of the available literature, it has been concluded that such proteins do not possess uniform structural properties, as expected for members of a single thermodynamic entity.
 In fact, they may be divided into two structurally different groups, intrinsic coils and intrinsic pre-molten globules, tal como se realiza en \cite{uversky2002natively}: 
  Proteins from the first group have hydrodynamic dimensions typical of considerably unfolded polypeptide chain in poor solvent (see below and fig. 1), and do not possess any (or almost any) ordered secondary structure. 
@@ -335,7 +490,7 @@ El modelo resultante actual esta compuesto de 4 estados\ref{proteinQuartet} que 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.7\textwidth]{img/proteinQuartet.png} 
+\includegraphics[width=0.7\textwidth]{img/proteinQuartet.jpg} 
 \caption{Protein quartet model of protein function. Function can arise
 from four different conformations of the polypeptide chain, or from
 transitions between any of the states. \cite{uversky2002natively}}
@@ -373,6 +528,8 @@ An important feature of the intrinsically unstructured proteins is that they are
 In other words, intrinsically unfolded proteins in vivo are likely to be stabilized by functional binding to specific targets and ligands (such as a variety of small molecules, substrates, cofactors, other proteins, nucleic acids, membranes and so on). 
 % Many intrinsically disordered proteins undergo transitions to more ordered states or fold into stable secondary or tertiary structures on binding to their targets — that is, they undergo coupled folding and binding processes.
 
+
+
 IDPs fold as a whole while interacting with their partners, if the free energy of complex is lower than the free energies of IDP and its partner before their interaction.
 More often, however, only a part of an IDP, a specific recognition element, which is a relatively short amphipathic linear motif contained within long disordered sequence, is involved in the coupled folding and binding events
 Induced fit interactions can also occur between structural domains and relatively large natively unstructured regions of other proteins. 
@@ -397,7 +554,20 @@ within the regions of disorder and which mediates certain classes of binding
 events of disordered regions undergoing a disorder-to-order transition into a specific structure that is stabilized by binding to its partner.
 These recognition motifs can fold into $\alpha$-helix, $\beta$-strand, or form irregular structure on binding to a target protein
 
-Obviously, in reality, either one of the outlined above mechanisms, the conformational selection model or the induced folding model, or some combination of the two can be used
+Obviously, in reality, either one of the outlined above mechanisms, the conformational selection model or the induced folding model, or some combination of the two can be used.
+
+Esto se ve representado en la figura \ref{idpBinding}
+
+
+
+\begin{figure}[h!,centered]
+\includegraphics[width=\textwidth]{img/PSE-MoRE.jpg} 
+\caption{Distintos modelos de binding para IDRs/IDPs} \label{idpBinding}
+\end{figure}
+
+
+
+
 
 
 En relacion a este concepto, nuevos conceptos han nacido para describir este tipo de entidades biologicas, en \cite{oldfield2005coupled} se 
@@ -682,39 +852,60 @@ major cellular processes evidence that this chaos is tightly controlled
 
 Cada tipo de macromolécula está compuesta por una clase distinta de monómeros. En el caso
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsubsection{Misfolding \& Aggregation}
 
-% The sequences of proteins have evolved in such a way that their unique native states can be found very efficiently even in the complex environment inside a living cell. 
 
-contrary to the process of productive protein folding, leading to the appearance of rigid conformation with specific function, the end products of misfolding may have a different appearance. 
-The morphology of these end products depends on the particular experimental conditions, and misfolded product may appear as soluble oligomers, amorphous aggregates or amyloid-like fibrils. 
-Any of these three species could be cytotoxic, thus giving rise to the development of pathological conditions. 
-The reason for such a morphological difference is potentially connected with the diversity of the partially folded intermediates favoring protein self-association. 
-In fact, multiple environmental factors, such as point mutations, decrease in pH, increase in temperature, the presence of small organic molecules or metal ions, and other charged molecules, might induce structural rearrangements within a protein molecule, shifting equilirium toward the partially folded conformation(s). As different factors may stabilize slightly different partially folded intermediates, the formation of morphologically
-different aggregates is expected.
+% INTRODUCCION
+% 
 
-
-Como se dijo en las secciones cuando se habló sobre el proceso de plegamiento, las secuencias de proteinas con estructuras plegadas have evolved in such a way that their unique native states 
-can be found very efficiently even in the complex environment inside a living cell.
-
-
-Sin embargo, as the size and complexity of proteins increase, therefore, the folding process becomes more complex. 
+As has been already noted, the sequences of proteins have evolved in such a way that their unique native states can be found very efficiently even in the complex environment inside a living cell.
+Sin embargo, as the size and complexity of proteins increase, therefore, the folding process becomes more complex,
+thus, errors along folding may occur and drive proteins to incorrectly folded or misfolded states, which may still possess certain stability in the physiological
+environment and, therefore, start to accumulate. 
 Intermediates with only partially formed structures can be populated and have significant lifetimes. 
-Under some conditions, then, proteins fail to fold properly or to remain correctly folded; this misfolding can lead to the development of different pathological conditions.
+Under some conditions, then, proteins fail to fold properly or to remain correctly folded; this misfolding can lead to malfunction of proteins and the development of different  pathological conditions.
 In addition, events that may be termed 'misfolding' may take place during the search for the stable native-like contacts between residues. 
 That such complexities are seen even in the benign environment of a dilute solution of a pure protein suggests that they are even more likely to occur in the crowded environment of the cell.
 
 Protein misfolding is a wide-spread phenomenon. Any protein with changes in native structure which affect its normal function is misfolded. 
 The terms 'misfolded' and 'aggregated' are not equivalent. Como se verá en las proximas secciones, la habilidad de una proteina formar agregados desestructurados o fibras depende de muchos factores, including protein sequence and environment.
 De otra forma, las proteinas que adquieran conformaciones no estructuradas o que se encuentren en estados de plegamiento intermedios semi-estables tendrían una gran tendencia a la agregación, sin embargo esto no es así. 
-De hecho, sólo una pequeña fraccion de tales conformaciones tiene tendencia a formar agregados
+% De hecho, sólo una pequeña fraccion de tales conformaciones tiene tendencia a formar agregados.
 
-
-Undoubtedly,molecular chaperones are able to mitigate some of the consequences of this complex behaviour and provide some protection for the incompletely folded chain. 
 But the idea that proteins can misfold, or fold to intermediates that may undergo undesirable reactions such as aggregation, provides insight into potential problems that can arise during folding even in the best designed environments.
 Folding and unfolding are also now known to be coupled to many of the key events in the functioning of a biological system, including translocation of proteins across membranes, protein trafficking, 
-secretion of extracellular proteins, and the control and regulation of the cell cycle (Radford  Dobson 1999).
+secretion of extracellular proteins, and the control and regulation of the cell cycle.
 Thus, the failure of proteins to fold or to remain folded under physiological conditions is likely to cause malfunctions and hence disease
+
 
 
 
@@ -723,28 +914,22 @@ Thus, the failure of proteins to fold or to remain folded under physiological co
 
 % **************** AGGREGATION
 
-Although most common forms of proteins are
-soluble, some functional states are insoluble,
-for example the fibrillar assemblies that form the cellular
-cytoskeleton. Proteins are also, however,
-vulnerable to forming a wide variety of non-functional
-aggregated species. 
-Indeed, proteins exhibit generic polymeric and colloidal patterns of behaviour.
-Aggregated forms of proteins can be generally amorphous on an ultrastructural level. Of particular fascination, however, because of their
-remarkable structures and properties, are highly ordered
-self-associated species of peptides and proteins, notably
-amyloid fibrils and closely related prion-like states.
-
-
-Proteins might aggregate into ordered(fibrillar amyloids) or amorphous aggregates structures, utilizing relatively short sequence stretches, usually organized in b-sheet-like assemblies. 
+The abnormal association of misfolded proteins usually leads to the formation of aggregates. 
+Small aggregates can remain soluble, but large protein aggregates precipitate out of solution under physiological conditions. 
+From the morphological point of view we can differentiate essentially two types of aggregates: amorphous aggregates and amyloid fibrils. 
+Amorphous aggregates display a granular appearance when imaged by electron microscopy and consist mostly of disordered polypeptide chains, even if they
+display certain regions enriched in $\beta$-sheet structures, which glue the macromolecular assembly.
+Por otro lado.....Amyloid fibrils are highly ordered and repetitive structures where all polypeptides adopt a common fold.
+Si bien no se van a dar detalles puntuales de la estructura, se sabe que estas diferencias que se ven en la estructura macromolecular son el reflejo de diferencias en las interacciones y estructura a nivel atómico.
 These differences in structure also reflect biological differences; amyloid and amorphous beta-sheet aggregates have different chaperone affinities, accumulate in different cellular locations and are degraded by different mechanisms.
 
-La mayoria de las proteínas forma agregados desordenados, caracterizados por la falta de una estructura tridimensional regular(amorfos).
-En condiciones fisiologicas, sin embargo, varias proteinas pueden agregarse formando estructuras altamente ordenadas conocidas como fibras amiloides.
-Si bien no se van a dar detalles puntuales de la estructura, se sabe que estas diferencias que se ven en la estructura macromolecular son el reflejo de diferencias en las interacciones y estructura a nivel atómico.
+Proteins might aggregate utilizing relatively short sequence stretches, usually organized in b-sheet-like assemblies. 
 
 
+La idea construida en las secciones previas, en la que un polipéptido nasciente podía adopar un continuo de conformaciones estructurales monoméricas y solo formar interacciones transitivas para cumplir si función, 
+debe extenderse ahora para incluir este conjunto de posibles estados de agregación. 
 De forma gráfica, los equilibrios de agregacion pueden verse en la figura \ref{aggregationDiagram}
+% De la figura puede verse también, que los distintos procesos de agregación, que resultan en disintas estructuras agregadas, pueden originarse a partir de distintos estados iniciales de conformación.
 
 \begin{figure}[h!,centered]
 \includegraphics[width=\textwidth]{img/aggregationDiagram.png} 
@@ -752,43 +937,14 @@ De forma gráfica, los equilibrios de agregacion pueden verse en la figura \ref{
 \end{figure}
 
 
-
-De la figura puede verse también, que pueden ocurrir distintos procesos de agregación, que resultan en disintas estructuras agregadas, a partir de distintas estructuras adoptadas por las proteinas.
-
-
-
-% FIBRAS AMILOIDES: CARACTERISTICAS ESTRUCTURALES Y PROPIEDADES BASICAS
-All amyloid fibrils share the same cross-beta archi-
-tecture and several functional proteins found in bacte-
-ria, fungi, insects and humans have also been found to
-adopt the same architecture under physiological condi-
-tions, as part of their functional role despite the diversity of origin of their
-constituent proteins.
-
-
-
-
-
-
-
-
-
-
-
-
-
-The critical step in the aggregation process is the unfolding of the native structure. 
-En la mayoria de las proteinas, excepto las mas pequeñas, el 'unfolding' que ocurre en condiciones fisiologicas no lleva a una estructura totalmente desplegada sino que la proteina adquiere una estructura semi-estable parcialmente collapsada,
-donde las interacciones no son las mismas que en el estado nativo estructurado, estas son caracteristicas propias de los intermediarios del plegamiento.
-
-The energy landscape model suggests that some folding intermediates might have structural elements not present in the final folded state.
-The appearance of such misfolded intermediates might initiate protein oligomerization or aggregation
-
-La formacion de estos intermediarios es importante porque generalmente son mucho mas solubles que si se formaran conformaciones altamente desplegadas. 
-Esta solubilidad permite alcanzar las concentraciones requeridas para la nucleacion propia de la formacion de amyloids(y de agregados en general????)
-
-
-
+De la figura....
+One should distinguish between precipitates, in which proteins maintain the native folded conformation and aggregates, in which proteins adopt new non-native structures. 
+The first type of self-assembly is generated during random precipitation of already native protein due to an environment promoted reduction of solubility in the polypeptide chain. 
+Examples of these processes are salting out by ammonium sulfate or isoelectric precipitation. 
+Reducing ionic force or shifting solution's pH results in immediate dissolution of these precipitates. 
+The second type of macromolecular structures exhibits, without exception, an increase in $\beta$-sheet secondary structure content relative to the native conformation and
+very high concentrations of denaturants or detergents are needed to dissolve them into mainly unfolded polypeptide chains. 
+We will focus our attention on these aggregates, which include amyloid fibrils, thermal aggregates and bacterial IBs. 
 
 
 
@@ -800,10 +956,77 @@ Esta solubilidad permite alcanzar las concentraciones requeridas para la nucleac
 
 
 % ***********************************************************
-% ******* PROPIEDADES DE FORMACION DE AMYLOIDS
+% *******          AMYLOIDS
 % ***********************************************************
 
+Lo que se ve al parecer en la figura \ref{aggregationDiagram} es que...
+Amyloid fibrils are just one of the types of aggregate that
+can be formed by proteins.
+Sin embargo....
+% ACA PONGO MUY EN GENERAL ALGUNAS PROPIEDADES DE LAS FIBRAS AMILOIDES COMO PARA EMPEZAR A HABLAR DE ESTO
+Similar to globular native states, amyloid structures are closely packed and highly ordered
+Although, a significant feature of this particular species is that its highly organized hydrogen-bonded struc-
+ture is likely to give it unique kinetic stability. Thus, once formed, such aggregates can persist for long periods, allowing a progressive
+build-up of deposits in tissue, and indeed enabling seeding of the subsequent conversion of additional quantities of the same protein
+into amyloid fibrils.
 
+Ademas, las fibras amiloides se consideran que estan asociadas to more than 40 human pathologies, esto generó un gran interés en estudiar sus propiedades, 
+las formas detectar secuencias con tendencia a formarse y las formas de prevenir su formación in vivo.
+
+
+
+
+
+
+
+
+% CONCEPTOS GENERALES DE LA ESTRUCTURA
+The amyloid state was first observed in the context of systemic amylodidosis more than 150 years ago, and indeed the name ‘amyloid’ means ‘starch-like’, 
+as the deposits observed in the tissues and organs of patients who died from these conditions contained deposits that stained
+with iodine, which is used to detect starch. Since then, it has been found that the proteinaceous deposits extracted from tissues in misfolding diseases
+typically have amyloid characteristics. Such deposits are usually primarily composed of one protein, although they are typically associated in vivo with various other molecules.
+% Remarkably, there is no evident similarity in the sequences, native structures or functions of the group of disease-associated proteins. 
+% Despite such differences, the corresponding amyloid fibrils all contain a common cross-$\beta$ pattern in X-ray fibre diffraction studies that is indicative of the component $\beta$-strands being oriented
+% perpendicularly to the fibril axis. Moreover,in solid-state magic angle spinning NMR spectroscopy studies, the typically high-resolution nature of the amyloid fibril spectra provides direct evidence for extensive regions of highly ordered molecular structures within the
+% fibrillar environment
+
+All amyloid fibrils share the a common architecture composed of cross-$beta$ supersecondary structure,
+where parallel $beta$ -sheets extend with their strands facing to each other and perpendicular to the fibril axis; 
+such a conformation se encontro inicialmente ya que mostraban a characteristic X-ray diffraction pattern that is indicative of the component $\beta$-strands being oriented
+perpendicularly to the fibril axis. 
+The cross-$/beta$ architecture provides very great stability to the fibrils, as it allows the formation of a continuous array of hydrogen bonds
+
+Sin embargo...Amyloidogenic proteins are quite diverse, with little similarity in sequence and native three-dimensional structure.
+Ademas, Several observations muestran que ordinary peptides and proteins( not related to amyloidoses) can convert under appropriate laboratory conditions into aggregates with all the characteristics of the amyloid fibrils).
+Together with a wide variety of biophysical and computational studies, 
+led to the suggestion that the amyloid structure can in principle be adopted by any polypeptide chain and that this ability for structural rearrangement and aggregation may be inherent to proteins.
+% CITAR LOS PAPERS QUE HACEN ESTAS CONCLUSIONES
+\cite{fandrich2002behaviour}
+The amyloid state of a protein is therefore generic, as it is accessible to many different polypeptide chains, and, unlike the native state, its essential architecture is not encoded by the amino acid sequence,
+However, amyloid formation(la tendencia) is also a sequence-specific process and the details of its structure and stability can be markedly sequence-dependent, as we discuss below.
+Por lo tanto, the propensity to do so under given circumstances can vary markedly between different sequences.
+Under physiological conditions, most peptide sequences derived from proteins will remain soluble even at high concentrations, whereas most hydrophobic sequences will invariably aggregate as amorphous aggregates.
+
+Despite active research, a detailed understanding of the molecular principles underlying the transformation of soluble proteins into amyloid aggregates is still lacking
+
+
+
+
+
+% ACA DEBERIA PONER ALGO MAS SOBRE LA ARQUITECTURE EN DETALLE
+This type of structures are denominated amyloid fibrils, their diameters range within tens of nanometers and their longitude can reach several
+micrometers; mature fibrils can further associate laterally to form fibers. 
+Amyloid fibrils have been shown to share a common molecular architecture composed of the cross-ß supersecondary structure, where parallel “-sheets extend with their
+strands facing to each other and perpendicular to the fibril axis; such a conformation
+possesses a characteristic X-ray diffraction pattern
+
+
+
+
+
+
+
+% INTENTO DE TEORIA SOBRE LOS INTERMEDIARIOS DEL PLEGAMIENTO
 Since all fibrils independent of the original structure of the given amyloidogenic protein have a common cross-b structure, considerable conformational rearrangements have to occur prior to fibrillation. 
 Such changes cannot happen in a native protein, due to its stable and rigid tertiary structure. Thus, protein destabilization favoring partial unfolding and culminating in the formation of a partially unfolded conformation is required. 
 Presumably, such a partially unfolded conformation favors reciprocal and specific intermolecular interactions, including electrostatic attraction, hydrogen bonding and hydrophobic contacts, which are necessary for oligomerization and fibrillation
@@ -814,71 +1037,29 @@ Due to structural fluctuations (conformational breathing) the structure of a glo
 with great prevalence of the former. 
 Most mutations associated with accelerated fibrillation and protein deposition diseases have been shown to destabilize the native structure, increasing the steady-state concentration of partially folded conformers
 
+En la mayoria de las proteinas, excepto las mas pequeñas, el 'unfolding' que ocurre en condiciones fisiologicas no lleva a una estructura totalmente desplegada sino que la proteina adquiere una estructura semi-estable parcialmente collapsada,
+donde las interacciones no son las mismas que en el estado nativo estructurado, estas son caracteristicas propias de los intermediarios del plegamiento.
+
+The energy landscape model suggests that some folding intermediates might have structural elements not present in the final folded state(en el estado final pueden estar metidas en el centro hidrofobico).
+The appearance of such misfolded intermediates might initiate protein oligomerization or aggregation.
+
+La formacion de estos intermediarios es importante porque generalmente son mucho mas solubles que si se formaran conformaciones altamente desplegadas. 
+Esta solubilidad permite alcanzar las concentraciones requeridas para la nucleacion propia de la formacion de amyloids(y de agregados en general????)
+
 Detailed structural analysis of early fibrillation events in several proteins has demonstrated that the amyloidogenic conformation is only slightly folded and shares many structural properties with the premolten globule state.
 
-This picture enables us to speculate on the origins of the amyloid diseases from the point of view of the physico-chemical properties of the protein molecules. If
-the stability or cooperativity of the native state of a protein is reduced, for example by a mutation, the population of non-native states will increase.
+This picture enables us to speculate on the origins of the amyloid diseases from the point of view of the physico-chemical properties of the protein molecules. 
+If the stability or cooperativity of the native state of a protein is reduced, for example by a mutation, the population of non-native states will increase.
 This rise will increase the probability of aggregation, as the concentration of polypeptide chains with at least partial exposure to the external environment will be greater. Whether or not aggregation does occur will depend on
 the concentration of protein molecules, the intrinsic propensity for a given sequence to aggregate when unfolded, and on the rate of the aggregation process. The
 fact that formation of ordered amyloid fibrils can be seeded, like the well-studied processes of crystallization
 and gelation, means that once the aggregation process is initiated it often proceeds very much more rapidly.
 In the absence of seeding there can be long 'lag' phases before aggregation occurs . This lag can be thought of as arising because the growth of a fibril cannot occur until a 'nucleus' of a small number
-of aggregated molecules is formed. Such a nucleus can be formed by the local £uctuations in concentration that occur in solution as a result of random molecular motion. When such fluctuations result in a local concentration of
+of aggregated molecules is formed. Such a nucleus can be formed by the local fluctuations in concentration that occur in solution as a result of random molecular motion. When such fluctuations result in a local concentration of
 molecules above a critical value, the molecules associate with one other to form a species that is suficiently large to have intrinsic stability, and hence to grow in size by interacting with other molecules in the solution. The act
 of seeding provides such nuclei to the solution and hence reduces or abolishes the lag phase
 
-The proposal that amyloid fibrils are a generic structure of polypeptide chains (se desarrolla mas adelante en la parte de amyloids) coincide con esta forma de ver.
-
-% The amyloid conformation reflects an intrinsic conformational propensity of polypeptides as many proteins can be forced into amyloid fibrils by manipulating external conditions. 
-Several observations (por ejemplo que ordinary peptides and proteins can convert under appropriate laboratory conditions into aggregates with all the characteristics of the amyloid fibrils),
-together with a wide variety of biophysical and computational studies, led to the suggestion that the amyloid structure can in principle be adopted by any polypeptide chain.
-The amyloid state of a protein is therefore generic, as it is accessible to many different polypeptide chains, and, unlike the native state, its essential architecture is not encoded by the amino acid sequence,
-although the details of its structure and stability can be markedly sequence-dependent, as we discuss below. 
-% Despite active research, a detailed understanding of the molecular principles underlying the transformation of soluble proteins into amyloid aggregates is still lacking
-
-% However, amyloid formation is also a sequence-specific process 14,15 .
-Even though the ability to form amyloid fibrils seems to be generic, the propensity to do so under given circumstances can vary markedly between different sequences.
-Under physiological conditions, most peptide sequences derived from proteins will remain soluble even at high concentrations, whereas most hydrophobic sequences will invariably aggregate as amorphous aggregates.
-
-Similar to globular native states, amyloid structures are closely packed and highly ordered
-
-
-
-Amyloidogenic proteins are quite diverse, with little similarity in sequence and native three-dimensional structure.
-Additionally, several proteins and peptides not related to amyloidoses have the potential to form amyloid fibrils in vitro, suggesting that this ability for structural rearrangement and aggregation may be inherent to proteins.
-Even though the ability to form amyloid fibrils seems to be generic(is a general property of the polypeptide backbone), the propensity to do so under given circumstances can vary markedly between different sequences(depends enormously on amino acid composition.).
-
-This picture enables us to speculate on the origins of
-the amyloid diseases from the point of view of the
-physico-chemical properties of the protein molecules. If
-the stability or cooperativity of the native state of a
-protein is reduced, for example by a mutation, the popu-
-lation of non-native states will increase.
-This rise will increase the probability of aggregation, as the
-concentration of polypeptide chains with at least partial
-exposure to the external environment will be greater.
-Whether or not aggregation does occur will depend on
-the concentration of protein molecules, the intrinsic
-propensity for a given sequence to aggregate when
-unfolded, and on the rate of the aggregation process. The
-fact that formation of ordered amyloid fibrils can be
-seeded, like the well-studied processes of crystallization
-and gelation, means that once the aggregation process is
-initiated it often proceeds very much more rapidly.
-In the absence of seeding there can be
-long 'lag' phases before aggregation occurs .
-This lag can be thought of as arising because the growth
-of a fibril cannot occur until a 'nucleus' of a small number
-of aggregated molecules is formed. Such a nucleus can be
-formed by the local fluctuations in concentration that
-occur in solution as a result of random molecular motion.
-When such fluctuations result in a local concentration of
-molecules above a critical value, the molecules associate
-with one other to form a species that is suficiently large
-to have intrinsic stability, and hence to grow in size by
-interacting with other molecules in the solution. The act
-of seeding provides such nuclei to the solution and hence
-reduces or abolishes the lag phase
+The proposal that amyloid fibrils are a generic structure of polypeptide chains (lo que los hace genericos, que se desarrollo antes) coincide con esta forma de ver.
 
 
 
@@ -886,32 +1067,146 @@ reduces or abolishes the lag phase
 
 
 
-% **********************
-% AGREGADOS AMORFOS
-% **************************
-
-Amorphous beta-sheet aggregation, is less position-dependent(than amyloid aggregation) and can, in principle, be achieved by any sequence that can adopt an extended conformation, is sufficiently hydrophobic and has no unsatisfied hydrogens or electostatic groups. 
-Thus beta-sheet aggregation can be relatively easily predicted by methods that evaluate aggregation by evaluating biophysical parameters over a sequence segment, without the need for considering position-dependent values of these parameters.
 
 
+% PROPIEDADES ESTRUCTURALES A NIVEL ATOMICO QUE PODRIAN AYUDAR A DESARROLLAR PREDICTORES
+Fortunately, the development of new techniques, such as solid state NMR (ss NMR) [32] or microcrystallization
+of amyloidogenic peptides [33] has allowed to unveil the molecular detail of
+amyloid formation for certain proteins and short peptides. The solved structures
+provide an outstanding framework to rationalize the intrinsic determinants of protein
+aggregation. Many of the solved structures correspond to an extended $\beta$-sheet whose
+$\beta$-strands run perpendicular to the axis of the fibril. In these $\beta$-sheets, hydrophobic
+residues are protected from the solvent by establishing interactions with other apolar
+residues of $\beta$-strands in the opposite $\beta$-sheet, while polar residues are exposed to the
+solvent The geometry of the $\beta$-conformation allows the side chains of contiguous
+residues to point in opposite senses, so this explains how alternation of non polar
+and polar residues in the primary structure facilitates amyloid formation.
 
 
 
-% AGREGACION DE PROTEINAS IDPs
 
-%Many proteins adopt various other biologically relevant conformational states in addition to their native structure. 
-%These partially folded protein species are particularly vulnerable to misfolding and aggregation from which they must be protected in living systems
 
-Intrinsically disordered proteins are not necessarily prone to aggregation, as their sequences have usually evolved to maintain the level
-of solubility that is required for their optimal function; for example, through the existence of extensive regions that are highly abundant in charged and polar groups
-that disfavour intermolecular association from a thermodynamic point of view. 
-Moreover, as is discussed below, kinetic barriers to aggregation are crucial in enabling both globular and disordered proteins to maintain their soluble and functional states
+
+% EL PROCESO Y LA CINETICA DE LA FORMACION DE FIBRAS AMYILOIDS
+
+% REF:  Protein aggregation: Mechnisms and functional consequences
+Amyloid fibrillogenesis is usually modelled as a nucleation-elongation polymerization process, which reaction rate depends on the protein concentration and can be accelerated 
+by the addition of homologous pre-aggregated polypeptides that act as seeds/templates promoting the transition from the soluble to the aggregated state
+According to this simplified model, amyloid aggregation can be divided in three main phases: 
+(1) The thermodynamically dis-
+favoured lag phase where the soluble species (usually monomers)
+associate to form nuclei, a poorly characterized state which for-
+mation influences the overall kinetics of the amyloid reaction. (2)
+The population of these transient assemblies triggers the poly-
+merization and fibril growth at the so-called exponential phase.
+(3) Finally, the exhaustion of monomers leads to the saturation
+phase where no more soluble species can associate to the ends of
+preformed fibrils and fibril maturation occurs, usually by lateral
+association of fibrils
+
+
+
+
+
+
+
+
+% ***********************************************
+% DEPENDENCIA DE LA AGREGACION CON LA SECUENCIA
+% ***********************************************
+Even though the ability to form amyloid fibrils seems to be generic(is a general property of the polypeptide backbone), 
+the propensity to do so under given circumstances can vary markedly between different sequences(depends enormously on amino acid composition.).
+
+The question of how amino acid composition influences aggregation propensity is highly relevant to protein design, as well as
+to our understanding of protein evolution and the pathogenicity of certain amino acid substitutions.
+Ademas, funciona como base para el desarrollo de herramientas bioinformaticas que permitan detectar secuencias con tendencia a formacion de agregados
+
+
+% DEPENDENCIA CON LA COMPOSICION
+Given the fact that hydrophobic
+interactions are a major driving force of protein self-assembly, it is
+expected that increased hydrophobic content in a peptide would
+lead to increased aggregation propensity, while a net charge on
+the peptide would impede aggregation. Also, with the evidence
+for common cross-b architecture among amyloid fibrils of diverse
+proteins (Nelson et al., 2005), a stretch of amino acids with
+enhanced propensity to adopt b-strand secondary structure
+would be expected to promote formation of fibrils. Such physico-
+chemical properties of amino acids are the basis of most of the algo-
+rithms that predict either the rate or propensity of aggregation of
+different regions of a protein .  %****ESTO SE CONTINUA EN LA SECCION HERRAMIENTAS 
+
+La relacion entre estas propiedades(hidrofobicidad, carga neta, tendencia a formar $\beta$) se analiza en  \cite{chiti2003rationalization} utilizando mutaciones sistematicas sobre polipeptidos,
+encontrándose que ... the propensity of a  given  polypeptide  chain  to  aggregate  under  specific  conditions varies  dramatically  with  its  composition  and  sequence.
+These results show how the primary structure of proteins plays an extremely relevant role in determining the tendency of polypeptides to form insoluble deposits;
+this would arise from the impact over such propensity of inherent physical-chemical properties of amino acids such as hydrophobicity, the
+structural suitability to adopt $\beta$-conformation or its mean charge
+
+The aforementioned factors may be regarded as intrinsic determinants arising
+from individual properties of amino acids. Nonetheless, the linear combination
+of their properties along the primary structure has a cooperative impact over the
+aggregation propensity. 
+% It has been observed that the consecutive occurrence of three
+% or more hydrophobic residues is clearly disfavored in nature [29]. In a similar way,
+% the combinatorial design of amyloidogenic proteins has shown how polypeptidic
+% patterns alternating apolar and polar aminoacids favor amyloid formation [30].
+
+
+
+
+% DEPENDENCIA CON SEGMENTOS DE SECUENCIA
+The intrinsic determinants described before inform us about specific properties of the amino acid side chain either favoring or disfavoring protein aggregation.
+The linear combination of such properties within the primary structure plays a
+major role in protein aggregation. However, it has been observed that not all
+the polypeptide sequence has the same importance in defining its propensity to
+aggregate. En \cite{ventura2004short} se demuestra que ....
+There exist small amino acid stretches within protein sequences, which
+promote and guide protein aggregation into amyloid-like structures
+These short fragments, generally referred to as aggregation-prone regions (APRs) or “hot-
+spots”, are characterized by an enrichment in hydrophobic, both aliphatic (Val, Leu,
+Ile) and aromatic (Phe, Trp, Tyr), residues.
+The analysis of the structural models for some amyloids [38] also allow to rationalize the reason why APRs direct the
+formation of amyloid-like structures, since the cross-$\beta$ arrangement in the core of
+amyloid fibrils does only strictly require the minimum participation of a single $\beta$-strand per molecule, and the rest of the polypeptide may remain exposed to the
+solvent even when “attached” along the fibril.
+
+
+% Although all proteins can form amyloid fibrils under the appropriate conditions, the list of currently known trouble 
+% makers  (i.e.,  proteins  aggregation  of  which  is  directly  responsible  for  the  development  of  various  pathologies)  is  rather  short, including 30-40 proteins and protein fragments.
+% Why  do some proteins form fibrils under the  physiological conditions, whereas others do not? 
+% It is clear now that frequently not entire protein is responsible for aggregation and rather aggregation 
+% is driven by specific  protein  regions  that  contains  specific  structural  or  sequence  motifs,  so-called aggregation-prone  regions,  APRs, which contribute significantly toward the overall aggregation propensity of the protein
+% 
+
+
+
+
+
+
+
+
+
+
+% FACTORES EXTERNOS QUE AFECTAN LA AGREGACION
+Además de las propiedades que se analizaron sobre la secuencia primera, es importante destacar factores externos a la secuencia que pueden afectar la formación de agregados.
+The most relevant extrinsic determinants are the pH and
+the ionic strength of the solution, together with the temperature of the system [34].
+These variables may affect both the kinetics and thermodynamics of aggregation
+into amyloid-like structures, and can, subsequently, influence the assembly and
+the macroscopic structure of the aggregated species, thus being important deter-
+minants of the polymorphism the aggregates of a given protein sequence may
+present.
+
+
+
 
 
 
 
 
 % FUNCTIONAL AMYLOIDS
+Contrary to amorphous aggregates, amyloid structures can fulfill biological functions, and functional amyloids are found in organisms from prokaryotes to humans \cite{fowler2007functional}.
+
 Amyloids are not only associated with disease-related proteins.
 Nature also exploits the structural and mechanical properties
 of amyloids to regulate biological functions 13 . For example, in
@@ -933,7 +1228,116 @@ or mechanical strength.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+% ACA DIGO QUE LAS FIBRAS AMILOIDES NO SON LA UNICA ESTRUCTURA PRODUCTO DE MISFOLDING
+
+% PUEDO APROVECHAR ESTE PARRAFO PARA EXTENDER LA IDEA QUE LOS AGREGADOS NO SON NI 1 NI 2 Y QUE PUEDE HABER UNA GRAN CANTIDAD DE FORMAS EN LAS QUE SE AGREGAN LAS PROETEINAS
+En \cite{narhi2012classification} se estudian distintas formas de clasificación de agregados de proteínas:
+Protein aggregation is a complicated phenomenon,
+which is sensitive to solvent conditions, sample his-
+tory, protein sequence, and so on. Our ability to un-
+derstand aggregation will depend on the identifica-
+tion of patterns within this vast parameter space. It
+is our hope that these patterns will be more appar-
+ent with a more precise naming scheme. We propose
+using five categories: size, reversibility/dissociability,
+conformation, chemical modification, and morphol-
+ogy, to consistently describe protein aggregates.
+
+
+De todos los posibles estados de agregación, nos centramos en la formación de fibras amiloides porque....
+% Esto esta en \cite{knowles2014amyloid}
+The amyloid state, however, is relevant not only in
+the context of disease, but also because its very existence
+challenges in many ways our current understanding of the
+nature, structure and evolution of the functional states of
+proteins 26–30 . From a wide range of in vitro experiments on
+peptides and proteins we now know that the formation of
+amyloid structures is not a rare phenomenon associated
+with a small number of diseases but rather that it reflects a
+well-defined structural form of the protein that is an alter-
+native to the native state — a form that may in principle be
+adopted by many, if not all, polypeptide sequences
+
+
+
+
+
+
+
+Although the data presented above were mostly devoted to a consideration of 
+protein fibrillation, the process of amyloid fibril formation does not represent 
+the only misfolding route. 
+in fact, contrary to the process of productive protein 
+folding leading to the appearance of a rigid conformation with the specific 
+function, the end products of misfolding may have a different appearance. The 
+morphology of these end products depends on the particular experimental 
+conditions, and misfolded product may appear as soluble oligomers, amorphous aggregates, or amyloid-like fibrils. 
+any of these three species could be 
+cytotoxic, thus giving rise to the development of pathological conditions. 
+The reason for such a morphological difference is potentially connected with the diversity of the partially folded intermediates favoring protein self-association. 
+In fact, multiple environmental factors, such as point mutations, decrease in pH, increase in temperature, the presence of small organic molecules or metal ions, and other charged molecules, might induce structural rearrangements within a protein molecule, shifting equilirium toward the partially folded conformation(s). As different factors may stabilize slightly different partially folded intermediates, the formation of morphologically
+different aggregates is expected.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsubsection{Mecanismos naturales de proteostasis}
+
+%  En \cite{balch2008adapting} se hace un desarrollo bastante completoo de los mecanismos de homeostasis
+The  obvious  consequences  of  misfolding  are protein  aggregation  (and/or  fibril  formation),  loss  of  function,  and  gain  of  toxic  function.  
+In  order  for  any  biological  system  to  function  effectively,  it  is essential to avoid the inherent tendency of proteins to aggregate and form potentially harmful deposits
+It  is  clear (a partir de lo que se dijo en la seccion anterior)  that  the aggregation  process  is  generally   initiated  from  partially  or completely  unfolded  forms  of  the  peptides  and  proteins. 
+
+
 En secciones previas(en la introduccion) se dijo que el espacio de conformaciones accesibles por las proteinas dependia de las estabilidades termodinamicas de los estados y la cinetica de interconversión entre estos. 
 Estas propiedades, a su vez, dependen del contexto celular en el que se encuentran(ademas de la secuencia de la proteina en si misma), concentraciones de proteinas, localizacion, interacciones, etc.
 El balance correcto entre todas estas condiciones está regulado a traves del proceso de proteostasis.
@@ -951,27 +1355,53 @@ that influence protein synthesis, folding, trafficking, disaggregation, and degr
 
 La celula posee distintos mecanismos para regular estos procesos .....chaperonas para regular el proceso de folding/misfonding (y tambien de aggregation), 
 Nature developed very sophisticated protection mechanisms (chaperones, proteasome, etc.) for the effective regulation of the folding process, y por lo tanto prevenir las peligrosas consecuencias de misfolding. 
-In other words, in the cell, any given protein is not acting in the isolation, is never alone and is
-constantly "watched" by the protective machinery. This machinery is rather robust and can
-tolerate significant loads. Obviously, factors that affect these protective mechanisms will
-contribute to the probability of disease development
+In other words, in the cell, any given protein is not acting in the isolation, is never alone and is constantly "watched" by the protective machinery. This machinery is rather robust and can
+tolerate significant loads. Obviously, factors that affect these protective mechanisms will contribute to the probability of disease development
 
 
--Cells possess a complex proteostasis network (PN) to ensure protein homeostasis.
--Aggregates permanently engage molecular chaperones and other PN components.
--The PN is challenged by chronic stress in protein-aggregation diseases and aging.
--Overtaxing the PN drives a vicious cycle of disease progression with eventual proteostasis collapse.
+% -Cells possess a complex proteostasis network (PN) to ensure protein homeostasis.
+% -Aggregates permanently engage molecular chaperones and other PN components.
+% -The PN is challenged by chronic stress in protein-aggregation diseases and aging.
+% -Overtaxing the PN drives a vicious cycle of disease progression with eventual proteostasis collapse.
 
 
+
+En \cite{gsponer2012cellular} se desarrollan una gran cantidad de mecanismos celulares que ayudan a prevenir la agregacion de proteinas. 
+Se demuestra que aggregation-prone proteins are subject to differential transcriptional, translational, and degradation control compared to nonaggregation-prone proteins, which leads to their decreased
+synthesis, low abundance, and high turnover. 
+
+
+Como se vio en las secciones previas, as proteins in their functional forms can be thermodynamically and chemically metastable, mechanisms have evolved to maintain their solubility in vivo for prolonged periods of
+time and to avoid their conversion into non-functional amyloid states.
+En \cite{knowles2014amyloid} se muestran varias propiedades de estos mecanismos. 
+Es decir, además de los mecanismos dinámicos que se encuentran en la celula y que, generalmente, se adaptan a las señales del entorno celular, existen propiedades evolutivas para mantener estados de proeostasis.
+
+Algunos de estos son:
+
+APRs are usually located within or
+substantially take part in the hydrophobic cores of the native state of proteins [39]
+and also frequently map to protein-protein interaction surfaces of protein adopting
+a stable quaternary structure [40, 41], which prevents APRs from establishing
+aberrant intermolecular contacts
+
+The examination of APRs in the context of entire proteins has also revealed how
+these stretches are usually flanked by charged residues (Asp, Glu, Lys, Arg), whose
+function would be to hamper intermolecular interactions between APRs in the event
+they become exposed by providing repulsive charge, or by residues acting as “-sheet
+breakers, like Pro
+
+
+IDPs play a central role in many cellular processes, as their disordered nature provides them with the ability to bind many partners, thereby regulating many biochemical
+processes. Because of this central role, the malfunction of IDPs can disrupt proper cellular function and lead to disease.
 
 Las diferencias estructurales vistas entre los distintos estados de agregación tambien se ven reflejada en diferencias biológicas 
 Whereas misfolded and aggregated proteins are found in perinuclear locations and are generally degraded by the 
 proteasomal system, amyloids preferentially accumulate in perivacuolar inclusions, where they are degraded by the autophagosome.
-% This segregation directly results from a differential recognition by the protein quality control system. 
+
 Esta segregación resulta en un tratamiento distinto por parte de los mecanismos encargados de la proteostasis.
 A reduced affinity of amyloids for the protein quality control system is probably also at the root of their higher toxicity 11 as artificial overexpression of chaperones
 usually leads to decreased toxicity and removal of amyloids from he cell.
-Contrary to amorphous aggregates, amyloid structures can fulfill biological functions, and functional amyloids are found in organisms from prokaryotes to humans \cite{fowler2007functional}.
+
 
 
 
@@ -1004,13 +1434,105 @@ though native proteins are only marginally stable relative
 to denatured ones under normal physiological conditions
 
 
+
+An analysis of a series of amyloid fibrils suggests that
+these types of structure are likely to become thermodynamically unstable relative to globular native structures, and indeed even relative to unstructured states, for
+polypeptide chains of more than ~150 residues because
+of the topological constraints that are associated with the
+packing of a long polypeptide chain into the fibril core 41 .
+Biology may have exploited this feature by evolving proteins with 300-500 residues on average to minimize the
+risk of amyloid formation. In accordance with this view,
+the amyloid fibrils that are known to be associated with
+disease are all composed of relatively short peptides or
+proteins, or of proteolytic fragments of larger precursor
+proteins (TABLE 1) .
+These observations, therefore, have led to the remarkable conclusion that,
+at the concentrations present in living systems,
+the native states may not always represent
+the absolute free energy minima of the corresponding polypeptide chains, the native form of a protein could in some cases simply be a metastable monomeric
+(or functionally oligomeric) state that is separated from
+its polymeric amyloid form by high kinetic barriers 41,42
+(BOX 1) . As much evidence reveals that the amyloid state is
+very resistant to denaturants and proteases, and mechanically robust 5,43 , such a state could represent, at least under
+some conditions, a highly structured alternative to the
+native state but one that under normal biological conditions, although not under some disease-associated ones,
+may be kinetically inaccessible. Understanding such
+kinetic factors therefore becomes a major target for developing an understanding of the circumstances in which
+amyloid assemblies occur in living systems.
+
+
+
+
+
 % ACA EXPLICO POR QUE LAS IDPs NO TIENEN TANTA TENDENCIA A FORMAR AGREGADOS
-In contrast to the globular proteins, which have to unfold prior to aggregation (Jahn and Radford, 2005), IDPs are always ready for intermolecular interactions. 
+
+En \cite{linding2004comparative} se hace un estudio interesante de comparación entre un set de proteinas que adoptan estructuras globulares y otro que experimentalmente se sabe que son IDPs.
+Se hace el analisis usando TANGO
+
+Intrinsically disordered proteins are not necessarily prone to aggregation, as their sequences have usually evolved to maintain the level
+of solubility that is required for their optimal function; for example, through the existence of extensive regions that are highly abundant in charged and polar groups
+that disfavour intermolecular association from a thermodynamic point of view. 
+Moreover, as is discussed below, kinetic barriers to aggregation are crucial in enabling both globular and disordered proteins to maintain their soluble and functional states.
+
+In contrast to the globular proteins, which have to unfold prior to aggregation, IDPs are always ready for intermolecular interactions. 
 An unbound fragment of an IDP possesses a strong ability to interact, and therefore can bind either to natural partners forming native complexes or to similar molecules forming various aggregates. 
 This raises the question of why IDPs do not always form aggregates in the norm. One of the potential answers is the fact that inside the cell, the IDPs typically form complexes with natural partners.
 Los mecanismos de proteccion (chaperonas, proteasoma, etc) tienen una gran capacidad para mantener la solubilidad de proteinas.
 Además, based on the analysis of the IDP amino acid composition, it would be clearly a mistake to assume that an averaged IDP possesses higher propensity towards aggregation than an averaged ordered
 protein. In fact, many IDPs contain large number of charged and polar residues. In addition to the hydrophobic interactions, the net charge is one of the major factors determining aggregation behavior of a protein.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1031,6 +1553,23 @@ protein. In fact, many IDPs contain large number of charged and polar residues. 
  \item motivos secuenciales
  \item funcionalidad en proteinas IDPs
 \end{itemize}
+
+
+% FALTA CONECTAR CON LA IDEA DE FOLDED QUE PUSE EN LA PARTE DE CONFORMACIONES
+
+Since the folded ensemble contains structures that have only small deviations from the ensemble average
+structure, the ensemble average itself captures many important features of the protein's structure, and many insights into a protein's function can be garnered from this
+ensemble average structure
+By contrast, proteins within the more recently class of intrinsically disordered
+proteins (IDPs) sample dissimilar conformations during their biological lifetime, and therefore the corresponding structural
+ensembles are heterogeneous.
+Given the vast number of structural states that are
+accessible to a disordered protein, the ensemble averaged structure for an IDP is typically
+not representative of any structure in the ensemble itself and therefore has little utility
+for understanding that protein's function.
+
+
+
 
 % PRIMERO HABLAR DE DOMINIOS GLOBULARES.....
 Dado que en dominios globulares la estructura esta definida y esta asociada a la funcion que desarrolla la proteina, este estructura puede ser usada para clasificacion y para inferir la funcionalidad en nuevas proteinas.
@@ -1117,6 +1656,11 @@ cepted only to arise by gene duplication, linear motifs, because
 of their short length, can easily arise convergently.
 
 
+The rationale of the connection between LMs(linear motifs) and intrinsically unstructured/disordered proteins(IUPs/IDPs), is that the latters are frequently associated with
+regulatory functions in signal transduction or transcription in eukaryotic proteomes. These functions are carried out by molecular recognition that is linked to a binding-coupled
+folding process
+% ESTA ES LA BASE DE LA RELACION, Y DESPUES SE COMPROBO QUE EFECTIVAMENTE LA MAYORIA DE LOS LMs CAEN EN REGIONES IDPs/IDRs
+
 
 
 % ESTO ES MASOMENOS LO MISMO QUE LOS ULTIMOS 4 PARRAFOS, MERGEAR TODO............
@@ -1170,7 +1714,7 @@ blocks of proteins
 
 \begin{figure}[h!,centered]
 \centering
-\includegraphics[width=0.9\textwidth]{img/structure-idp-function.jpg} 
+\includegraphics[width=0.9\textwidth]{img/structure-idp-function.jpeg} 
 \caption{Paralelismo entre funcionalidad emergente de dominios plegados y de proteinas IDPs. Figura extraida de \cite{van2014classification}}
 \label{stuctured-idp-functions}
 \end{figure}
@@ -1248,7 +1792,7 @@ The most important question of the field, therefore, is the physiological functi
 % PROPIEDADES Y MECANISMOS FUNCIONALES
 
 El estudio de las funcionalidades provistas por IDRs y IDPs se ve dificultada por las propiedades intrínsecas de estas proteinas:
-Given the absence of structural constraints, IDRs tend to evolve more rapidly than protein domains that adopt defined structures. 51−56 As a result,
+Given the absence of structural constraints, IDRs tend to evolve more rapidly than protein domains that adopt defined structures. As a result,
 identifying homologous regions is harder for IDRs and IDPs than it is for structured domains.
 This complicates the transfer of
 information about function between homologues and thus the
@@ -1260,9 +1804,13 @@ specifically for disordered regions in proteins that may enhance
 the function prediction and annotation for this important class of
 protein segments.
 
+Aun cuando las propiedades a clasificar no sean discretas sino que formen un continuo de opciones, es util para explicar y entender mejor los conceptos.
+En secciones anteriores(mas precisamente en la seccion sobre propiedades conformacionales) se hicieron clasificaciones sobre la estructura global de la proteinas/regiones desordenadas, 
+ademas se clasificaron los mecanismos de binding en este tipo de proteinas como conformational selection and induced folding
 Especificamente se hablara aqui de clasificaciones sobre las funcionalidades y mecanismos funcionales provistos por estas proteinas.
 
-En la figura \ref{proteinMechanisms} se ve una clasificación general de los , y en la figura \ref{idpFunctions} se detalla la clasificacion para IDPs/IDRs.
+En la figura \ref{proteinMechanisms} se ve una clasificación general bastante simplificada de los roles y mecanismos funcionales generalmente provistos por los distintos tipos de proteinas. 
+En esta clasificacion de proteinas segun su rol general, se incluyen también los dominios/proteinas plegadas que mencionamos previamente.
 
 \begin{figure}[h!,centered]
 \centering
@@ -1272,6 +1820,8 @@ En la figura \ref{proteinMechanisms} se ve una clasificación general de los , y
 \end{figure}
 
 
+En la figura \ref{idpFunctions} se detalla la clasificacion de funcionalidades y mecanismos funcionales para IDPs/IDRs.
+
 
 Como parte de estos avances para intentar dilucidar las funcionalidades de las IDPs y sus mecanismos asociados, se han intentado organizar y clasificar las funcionalidades provistas por estas \cite{van2014classification}.
 
@@ -1279,7 +1829,7 @@ Como parte de estos avances para intentar dilucidar las funcionalidades de las I
 \begin{figure}[h!,centered]
 \centering
 \includegraphics[width=0.9\textwidth]{img/idpFunctionMechanisms.jpg} 
-\caption{Clasificación funcional de IDPs/IDRs. Figura extraida de \cite{van2014classification}}
+\caption{Clasificación roles y mecanismos funcionales de IDPs/IDRs. Figura extraida de \cite{van2014classification}}
 \label{idpFunctions}
 \end{figure}
 
@@ -1289,8 +1839,10 @@ involves no coupled binding and folding; rather it directly depends on the flexi
 or from molecular recognition mechanisms , when they undergo induced folding (disorder-to-order transition) upon binding to a partner molecule.
 
 
+Para entender mejor las funcionalidades, intentaremos ahora hacer una clasificacion de las functional features(modulos funcionales) que pueden encontrarse dentro de IDRs/IDP:
 
-As also apparent from the foregoing classification, IDPs often
+% As also 
+apparent from the foregoing classification, IDPs often
 function via molecular recognition, when they bind partner
 molecules in, and induced folding process. Their mode of
 binding is thought to confer many advantages %REFERENCIA AL PAPER DE MECANISMOS FUNCIOMNALES DE IDPs
@@ -1298,7 +1850,7 @@ binding is thought to confer many advantages %REFERENCIA AL PAPER DE MECANISMOS 
 mediated by short recognition elements (motifs)\cite{neduva2005systematic,fuxreiter2007local,davey2012attributes}.
 
 
-Desde el punto de vista estructural, se desarrollaron los conceptos de MoREs y PSE en las secciones previas......
+En las secciones previas se desarrollaron los conceptos de MoREs y PSE como elementos que se han descubierto desde el punto de vista estructural, podían conferir ....
 
 % ACA CONECTO CON SLM
 Sin embargo, molecular recognition by short recognition elements (motifs)
@@ -1308,15 +1860,37 @@ determining functional interactions and enzymatic modification,
 i.e., LMs, ELMs, and SLiMs
 
 
+% PUEDO DESARROLLAR LOS CONCEPTOS SOBRE SLMs ACA O PONER PRIMERO ESTOS PARRAFOS 
+
+
+ 
+% ACA DIGO QUE, A PESAR DE TENER DIFERENCIAS, LOS SLMs Y LOS MoREs SON LO MISMO BASICAMENTE
+% 
+
+A measure that is often used to distinguish the different types of
+disordered binding modules is length.
+
+Ademas..MoRFs differ from ELMs and SLiMs in not depending on a specific sequence motif, but rather upon a pattern in a disorder prediction output. 
+
+Although there are differences in the definitions of linear
+motifs and MoRFs, they share many common features 72,163
+including a tendency to undergo disorder-to-order transition (all
+MoRFs by definition and aprox. 60\% of LMs 48 ), an enrichment in
+IDRs (MoRFs by definition and aprox. 80\% of LMs are in IDRs 48,72 ),
+and a tendency to promote complex formation.
 
 
 
-A pesar de las diferencias que podremos encontrar 
-\cite{meszaros2012disordered}
-
-
-Different concepts regarding short recognition elements have
-been extensively discussed in the literature. Indeed, depending
+Yet, interestingly, recent analysis suggests that linear motifs (LMs) (thus not differentiating between ELMs and SLiMs) show high overlap with MoRFs \cite{fuxreiter2007local}
+A pesar de las diferencias que podremos encontrar entre los . Los últimos trabajos que se han hecho sobre el tema \cite{meszaros2012disordered, fuxreiter2007local} 
+parecen indicar que .....
+The overlap between linear motifs and MoRFs
+especially, but also IDDs, suggests that these functional features
+are different states in the same continuum of binding
+mechanisms involving disordered regions.
+% Different concepts regarding short recognition elements have
+% been extensively discussed in the literature. Indeed,
+depending
 on whether the idea is approached from a structural point of view
 or defined at the sequence level, a short motif could be denoted
 as a “molecular recognition element” (MoRE)/“molecular
@@ -1325,18 +1899,66 @@ respectively (LM is also denoted as “eukaryotic linear motif”
 (ELM) or “short linear motif” (SLiM)).
 
 
+Whereas LMs have been identified as short sequence motifs critical in recognition functions, primary contact sites, preformed structural elements and molecular recognition elments/features have been approached from the direction of protein disorder, emphasizing recognition segments embedded in such regions. Unity of these concepts is underlined by the key role of a few specificity determinants in all these recognition elements, and also by their local preferences for undergoing disorder-to-order transition upon molecular recognition, which might already
+be manifested prior to binding. 
+Apart from a minority of the cases when LMs are constituted of segments of ordered domains, these different concepts of short recognition elements express the same underlying physical and
+functional principles that provide a probably widespread solution to the dynamic control of protein-protein interaction networks.
 
 
-% ESTE PARRAFITO LO PODRIA REUBICAR EN OTRA PARTE, DESPUES DE HABER HABLADO UN POCO SOBRE SLMs
 
-% It is to be noted, however, that binding regions within IDPs
-% might correspond more to a domain than a motif, with their
-% lengths exceeding 20-30 residues. Indeed, these regions
-% possess typical characteristics of domains: (1) they are
-% structurally and functionally independent of the remainder of
-% the protein molecule, (2) they can be recognized by homology
-% due to evolutionary conservation of sequences, and (3)
-% they possess at least one specific function.
+
+
+% ACA AGREGO OTRO ELEMENTO, LOS DOMINIOS ID, QUE PUEDEN SER OTRA CLASIFICACION
+Binding by motifs is usually weak, transient, and possibly of limited
+specificity [39], which can be made stronger and/or more
+specific by either cooperating with flanking regions, com-
+bining several motifs, or utilizing longer disordered
+domains
+
+It is to be noted, however, that binding regions within IDPs
+might correspond more to a domain than a motif, with their
+lengths exceeding 20-30 residues \cite{tompa2009close,chen2006conservation,chen2006conservationB}  
+Por lo tanto, estos pueden clasificarse como un elemento independiente que puede encontrarse dentro de IDPs (llamados intrinsically disordered domains (IDDs))
+Indeed, these regions
+possess typical characteristics of domains: (1) they are
+structurally and functionally independent of the remainder of
+the protein molecule, (2) they can be recognized by homology
+due to evolutionary conservation of sequences, and (3)
+they possess at least one specific function.
+
+Potein domains with
+conserved disordered regions have a variety of functions, but are
+most commonly involved in DNA, RNA, and protein binding
+
+A pesar de tener una longitud (al parecer) bastante mayor,
+intrinsically disordered domains (IDDs) can also have significant
+overlap with MoRFs and linear motifs
+
+
+
+
+
+
+
+Though disordered interaction modules encompass a continuous range of binding interfaces, they can be approximately split into
+three major classes of autonomous functional interfaces: 
+- large serpentine disordered domains (e.g. CREB-binding protein (CBP) TAZ domain-binding modules in Hypoxia-inducible factor 1a 7 ), 
+- multi-partite disordered interfaces (e.g. Inhibitor-2 binding to Protein phosphatase 1 8 ), and 
+- compact mono-partite, short linear motifs (SLiMs) (e.g. the canonical SH3 domain-binding PxxP motif 9 ).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1438,6 +2060,10 @@ tional modification sites are less homogeneous, and many
 appear to lack specificity determinants outside of the modified
 residue
 
+Linear motif-domain interactions are a subset of induced fit interactions, where the templated structure is induced in a short peptide of only a few residues.
+As a consequence of the small number of residues involved, such interactions tend to be transient and have low binding affinities.
+Therefore, they are well suited for mediating functions that require a fast response to changing stimuli. 
+A classical example is the dynamic interaction between a kinase and its phosphorylation site: the kinase domain needs to bind to the peptide, attach the phosphate, and then dissociate again, potentially to then go on to interact in a similar way with other substrates.
 
 Binding motifs are on average 6–7 amino acids in length, with
 only 3–4 core positions conferring the majority of the interaction
@@ -1452,6 +2078,10 @@ in peptide motifs, these functional modules exhibit high evolu-
 tionary plasticity, and they can arise de novo and evolve conver-
 gently by one or a few mutations within disordered regions
 
+Due to relying on a very few confined residues and limited structural constraints, may frequently arise and disappear by point mutations, and confer extreme adaptability to the interactome.
+
+Key advantages of LMs reside in that they facilitate the communication between proteins by having less stringent requirements for association. 
+The resulting lowaffinity complexes are characterized by fast on and off binding rates that may serve regulatory purposes.
 
 
 The amino acid composition of the polypeptide segment in
@@ -1466,6 +2096,7 @@ This preference likely reflects (a)
 the accessibility of such motifs within disordered regions, which
 allows recognition by their binding partner, and (b) the flexibility
 of such motifs, which enables them to adopt a specific conformation upon binding 
+
 
 
 
@@ -1507,7 +2138,27 @@ typical proteome.
 Binding non-functional patterns might also
 be avoided by cellular compartmentalization and temporal dif-
 ferences in gene expression, but it remains unclear as to whether
-these are enough to maintain interaction specificit
+these are enough to maintain interaction specificity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
