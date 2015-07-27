@@ -3,95 +3,170 @@
 
 \section{Predicción de propiedades conformacionales} \label{propiedadesConformacionales}
 
+% DIVIDO LA SECCION EN 2, YA QUE, EN GENERAL HAY 2 COSAS QUE QUEREMOS SACAR, LAS PROPIEDADES ESTRUCTURALES Y LA UNION A CHAPERONAS
+% EN CADA SECCION PONGO, POR QUE LO QUEREMOS SACAR, CUALES SON LOS METODOS Y CUAL/ES VAMOS A USAR.
 
 
-Además de estas herramientas, en \ref{blast} se detalla como realizamos la busqueda mediante metodos basados en secuencia. 
-Como se verá, ,ost protein domains that are identified using these sequence-based approaches are structured.
-Por lo tanto, esa busqueda tambien permite sesgar la 
 
-\subsection{IUPred: Análisis de tendencia al desorden}
+% PROPIEDADES ESTRUCTURALES
 
+% POR QUE LO QUEREMOS SACAR
+Uno de los principales aspectos a considerar acerca de la secuencia es el grado de estructuración o desorden que puede adoptar. 
+Una de las principales propiedades que buscamos al diseñar una secuencia linker es la existencia de ésta en un ensamble conformacional 
+de estructuras desordenadas que proveen la flexibilidad necesaria para que los dominios que conecta puedan moverse libremente.
 
-Otro de los aspectos a considerar acerca de la secuencia es el grado de estructuración o desorden que puede adoptar. 
-Una de las principales propiedades que buscamos al diseñar una secuencia linker es la existencia de ésta en un ensamble
-de estructuras desordenadas que proveen la flexibilidad necesaria para que los dominios que conecta puedan realizar sus funciones libremente.
-Si bien el paradigma clásico, que asume la necesidad de adoptar una estructura tridimensional estable para que la proteína posea una función,
-ha sido desafiado por diversas proteínas intrínsecamente desordenadas que llevan a cabo funciones celulares básicas, 
-evaluar la tendencia de la secuencia a formar una estructura nos da una pauta acerca de la posibilidad de tener una función asociada. 
-De esta forma, además de asegurarnos obtener una estructura flexible que permita cumplir la función de linker, 
-estamos descartando que la secuencia tenga asociada alguna función que requiera la existencia de una conformación tridimensional.
+Para lograr esto, se analizará la secuencia con el fin de encontrar y eliminar cualquier elemento que pueda permitirle adoptar una estructura plegada
+buscando que la secuencia tenga, así, una mayor tendencia a adquirir una conformación intrínsecamente desordenada.
 
 
-The reliability of disorder prediction benefits from the use of several
-methods based on different concepts, different physicochemical
-parameters, or different implementations. In principle, this
-problem can be approached from three distinct directions:
-% ESTO ESTA DETALLADO EN EL REVIEW \cite{habchi2014introducing}
-1. Simple amino acid propensities reflect some basic physical
-or sequence features.
-2. Machine-learning algorithms (MLAs) are trained on data
-sets of disordered regions.
-3. Amino acids tend to make or avoid contacts with each other.
 
-En el capitulo 1 se desarrollaron algunos aspectos encontrados acerca de la composicion de AAs propia de las secuencia que adoptan conformaciones intrinsecamente desestructuradas.
-Como resultado de estos estudios se encontro que the ID proteins differ dramatically from the ordered proteins in their amino acid sequences. 
-Based on the compositional bias of IDPs, several dozen predictors of different principles have been developed
-% En base a estos estudios, se han desarrollado los primeros predictores de desorden intrinseco, que resultan del analisis de la composicion y propiedades fisicoquimicas de la secuencias.
-
+% QUE METODOS EXISTEN
+Muchas de las propiedades vistas en la introducción(propiedades fisicoquimicas, composición, etc) pueden trasladarse fácilmente en herramientas de predicción.
+Además, se han desarrollado aproximaciones y métodos que hacen uso de distintos conceptos y conocimientos de IDPs estudiadas experimentalmente.
+Accurate IDP prediction is a necessary prerequisite for the complete understanding of the principles of protein folding. IDP prediction is also needed for comprehension of the molecular mechanisms of protein function and
+for building a new structural and functional hierarchy of proteins.
 Actualmente existen una gran cantidad de metodos diversos para predecir desorden estructural \cite{he2009predicting}.
 These include GLOBPLOT \cite{linding2003globplot}, PONDR 14 , FoldIndex 15 , DisEMBL 16 ,  DisEMBL [44], DISOPRED and DISOPRED2 [45-48],
 DRIPPRED [49], IUPred [50, 51], FoldUnfold [52-54], RONN [55], DISpro [56], DisPSSMP and DisPSSMP2 [57, 58], Spritz [59] and PrDOS [60], etc.
 
-To handle limitations inherent in prediction accuracy due to distinct flavors of disorder, however, different predictors are recently combined into metapredictors, such as metaPrDOS [9] or PONDR-FIT
-[10]. These combined predictors do show improved performance over their composite ones.
+En \cite{habchi2014introducing} se analizan distintas aproximaciones y se esboza una clasificación, concluyendo que el problema de la detección de IDPs 
+se puede atacar desde tres direcciones distintas:
+\begin{enumerate}
+
+\item Los primeros predictores se basaron en propiedades de la composicion y propiedades fisicoquímicas de la secuencia como la relación carga/hidrofobicidad. 
+Estas características(detalladas en la introducción ) se obtuvieron haciendo análisis estadísticos sobre conjuntos reducidos de IDPs/IDRs descubiertas inicialmente.
+% Como resultado de estos estudios se encontro que the ID proteins differ dramatically from the ordered proteins in their amino acid sequences. 
+
+\item Distintas aproximaciones utilizan algoritmos del tipo machine-learning. Estos y otros algoritmos de aprendizaje automático son ejecutado primero sobre de datos de entrenamiento 
+(en este caso disintos conjuntos de secuencias que se sabe adquieren conformaciones no-plegadas) para intentar extraer un patron propio del conjunto de datos.
+El algoritmo permite aplicar luego este patrón encontrado para predecir las mismas propiedades de conjunto sobre nuevos datos. 
+La calidad del predictor resultante es muy variable ya que dependera del método aplicado, la representatividad del conjunto de entrenamiento usado y la complejidad del patrón a predecir.
+En particular, the number of proteins with experimentally determined disordered structure is still small y, además se debe tener en cuenta que ciertas regiones pueden igualmente plegarse mediante procesos de binding and folding,
+por lo que los resultados no son muy buenos.
 
 
-
-Accurate IDP prediction is a necessary prerequisite for
-the complete understanding of the principles of protein
-folding. IDP prediction is also needed for comprehension
-of the molecular mechanisms of protein function and
-for building a new structural and functional hierarchy
-of proteins.
-
-% LIMITACIONES PARA OBTENER PREDICTORES MAS CONFIABLES
-En general, the current limitation to further improvement in prediction accuracies comes from noise in the structured and disordered protein data.
-The number of proteins with experimentally determined disordered structure is still small.
-Unstructured proteins can form complexes that become structured[86], and unless care is taken when selecting structured proteins from the Protein Data Bank, structured proteins arising from disorder would contribute noise to the training set for structured protein. 
-Likewise, regions that are characterized as disordered experimentally can undergo coupled binding and folding.
-
-Second, because the molecular mechanisms of disordered structure formation are not very clear yet, the selected characteristics and attributes in the prediction process are mainly focused on the biochemical properties of amino acids and on the compositional content of sequences.
-
-Third, IDPs can be characterized by more than 20 biophysical methods, each of which gives slightly different information. Thus, if time and money were no issue,
-there would be a significant advantage to characterize a significant number of disordered regions by multiple
-methods [110, 118]. A collection of IDPs characterized by multiple methods would provide an important basis
-set for developing a deeper understanding of different types of disorder.
-
-Fourth, a consensus has not yet been reached among different researchers regarding even the definition of IDPs. Typically researchers involved in the IDP studies
-have put forward different IDP definitions based on dif ferent aspects of the protein structural ensembles, and
-several researchers have pointed out the importance of characterizing individual IDPs by a variety of computational methods
+\item Una gran cantidad de métodos siguen una aproximación común en el análisis de propiedades conformacionales que utiliza conocimientos sobre las tendencias a formar interacciones entre cada par de AAs    . 
+The underlying idea is that IDPs are unfolded because they cannot make sufficient interresidue contacts to overcome the large decrease in configurational entropy during folding.
+Es decir, en este tipo de conformaciones lo que se espera es que las interacciones posibles no sean tan favorables.
+Esta hipótesis es aplicada de distinta forma para dar diversos métodos.
+A diferencia de los métodos mencionados en el punto anterior, los conocimientos previos son extraidos de datos sobre proteinas plegadas y/o IDPs ya que las tendencias de interacción son las mismas para un par de residuos dado que se encuentra en un mismo contexto.
+Este tipo de datos es mucho mas númeroso y por lo tanto se espera que la predicción sea más acertada y menos sesgada.
+Se debe tener en cuenta que, como se vió en secciones previas, muchas IDRs pueden plegarse temporalmente en presencia de ciertos ligandos, por lo tanto se deben tener en cuenta estos aspectos cuando se extraen propiedades de bases de bases de datos de estructuras.   
+\end{enumerate}
 
 
-It should
-be stressed that it is difficult and maybe impractical to establish
-the “best” predictor at the moment. Some predictors perform
-better on short disordered regions (i.e., DISOPRED2 and
-PreLink), while other predictors (IUPred for instance) perform
-well in predicting long disordered segments, and finally some
-predictors, such as PONDR, GlobPlot, and FoldIndex, have been
-trained on both short and long disorder and provide a balanced
-performance. 25 Therefore, to avoid pitfalls, different predictors
-should be combined, as performed by metapredictors that seek a
-consensus of the scores of different predictors relying on different
+It should be stressed that it is difficult and maybe impractical to establish the “best” predictor at the moment. Some predictors perform
+better on short disordered regions (i.e., DISOPRED2 and PreLink), while other predictors (IUPred for instance) perform well in predicting long disordered segments, and finally some
+predictors, such as PONDR, GlobPlot, and FoldIndex, have been trained on both short and long disorder and provide a balanced performance. 
+Therefore, to avoid pitfalls, different predictors should be combined, as performed by metapredictors that seek a consensus of the scores of different predictors relying on different
 principles (PONDR-FIT for instance).
 
+To handle limitations inherent in prediction accuracy due to distinct flavors of disorder, however, different predictors are recently combined into metapredictors, such as metaPrDOS [9] or PONDR-FIT[10]. 
+These combined predictors do show improved performance over their composite ones.
+
+% QUE HERRAMIENTAS VAMOS A USAR
+Se utiliza la herramienta IUPred....
+
+
+
+
+% SECUENCIAS-HELICES TRANSMEMBRANA
+El conjunto de proteinas conocidas como proteinas de membrana posee una topologia/arquitectura particular compuesta por ....
+
+La particularidad que presentan resultan en que transmembrane helices are substantially easier to predict than helices in globular domains.
+The reason for this high accuracy is that most transmembrane alpha helices are encoded by an unusually long stretch of
+hydrophobic residues. This compositional bias is imposed by the constraint that residues buried in lipid membranes
+must be suitable for hydrophobic interactions with the lipids.
+The hydrophobic signal is so strong that a straightforward approach of calculating a propensity scale for residues in
+transmembrane helices and applying a sliding window with a cutoff already performs quite well.
+
+Aprovechando estas propiedades particulares, utilizamos la herramienta TMHMM para detectar este tipo de estructuras con propiedades particulares, profundizando nuestra capacidad de detectar la tendencia a formar estructuras no flexibles.
+
+
+
+
+% EL SOLAPAMIENTO QUE HAY CON BLAST
+% PUEDO SACAR ESTO Y SOLO ACLARAR ESTE SOLAPAMIENTO EN LA SECCION QUE DESCRIBO BLAST
+Además de estas herramientas, en \ref{blast} se detalla como realizamos la busqueda mediante metodos basados en secuencia. 
+Como se verá, most protein domains that are identified using these sequence-based approaches are structured.
+Por lo tanto, esa busqueda tambien permite sesgar la busqueda hacia secuencias que no posean estructura definida.
+% Si bien el paradigma clásico, que asume la necesidad de adoptar una estructura tridimensional estable para que la proteína posea una función,
+% ha sido desafiado por diversas proteínas intrínsecamente desordenadas que llevan a cabo funciones celulares básicas, 
+% evaluar la tendencia de la secuencia a formar una estructura nos da una pauta acerca de la posibilidad de tener una función asociada. 
+% De esta forma, además de asegurarnos obtener una estructura flexible que permita cumplir la función de linker, 
+% estamos descartando que la secuencia tenga asociada alguna función que requiera la existencia de una conformación tridimensional.
 
 
 
 
 
-La herramienta que utilizaremos es IUPred, disponible a través de un servidor web (http://iupred.enzim.hu/) o descargando la implementación 
-y ejecutándola localmente (http://iupred.enzim.hu/Downloads.php).   
+
+
+
+% MoREs
+Dentro de segmentos desordenados igual pueden encontrarse regiones que adoptan conformaciones estructuradas transitivamente(posiblemente frente a la presencia de ligandos).
+La deteccion de estos segmentos es relevante, no solo por los aspectos estructurales que queremos evitar %esto lo tengo que explicar en los parrafo anteriores 
+sino tambien due to their functional importance. % en que otro lado menciono este solapamiento
+
+% METODO DE DETECCION DE MoREs
+Although the information content of short sites is very limited, due to their enrichment in hydrophobic residues, indirect techniques have
+some success in delineating them. As mentioned, for example, the HCA plot 43 (see section 3.2) can indeed unveil such binding
+sites. 25 The PONDR VL-XT, 23 ANCHOR (http://anchor.enzim.hu), 207 and DynaMine 208 disorder predictors are sensitive
+to local tendency of ordering, and are thus informative in highlighting potential induced folding regions.
+
+
+
+% QUE HERRAMIENTAS VAMOS A USAR
+ANCHOR permite detectar segmentos con cierta tendencia a adquirir estructuras pero que se encuentran insertados en regiones desordenadas.
+
+
+
+
+
+
+
+
+% CHAPERONAS
+
+% POR QUE LO QUEREMOS SACAR
+En la introduccion se vieron, tambien, distintos mecanismos y elementos que intervienen en la homeostasis de las proteinas. Dentro de estos.... 
+las chaperonas son elementos fundamentales para el correcto funcionamiento y calidad de las proteinas, interviniendo en el correcto plegado, activacion, la posible translocacion, replegamiento o degradacion de proteinas incorrectamente plegadas, etc.
+Distintas chaperonas reconocen distintos motivos secuenciales expuestos por las proteinas y esta gama de chaperonas llevara a la proteina unida a un final distinto.
+Existen distintas posibilidades reales en el proceso de ingenieria de proteinas en las cuales la secuencia diseñada artificialmente se encuentre con chaperonas en alguna situación experimental. Sin dudas la degradacion de nuestra secuencia linker es el peor final en esta situación, 
+pero todas las posibilidades tienen un impacto negativo en la funcionalidad de linker que se quiere asignar(imponer) a la secuencia. El reconocimiento por parte de la chaperona implica la unión a esta, lo cual puede interferir en la flexibilidad natural que (idealmente) ha adquirido la secuencia linker diseñada. 
+De esta forma, dado que apuntamos a abarcar todas las posibles situaciones experimentales con las que uno se puede encontrar, es necesario tener en cuenta la posibilidad de que esten presentes proteinas chaperonas en algun paso del uso experimental de la secuencia. 
+ 
+Existen chaperonas cuya funcion implica unirse a proteinas que no esten totalmente plegadas para evitar la agregacion de estas. El objetivo de esto es intervenir en situaciones de shock termico donde la perdida de la estructura nativa puede llevar a uniones entre distintas proteinas dando un agregado no funcional.
+Si bien uno de los objetivos de este trabajo es lograr una tendencia reducida a la agregacion en la secuencia generada y ciertas chaperonas podrian facilitar esto, la union implica, como se menciono anteriormente una perdida de flexibilidad que es necesaria para la funcion de linker. 
+De esta forma buscamos evitar la agregacion mediante analisis sobre la secuencia que tienen este objetivo particular.
+
+Por otro lado, es importante este paso porque las secuencias intrinsecamente desordenadas tales como la secuencia linker que estamos diseñando suelen tener propiedades que forman targets comunes para las chaperonas (exposicion de sitios hidrofobicos???)?????????????????????????
+
+
+
+% QUE HERRAMIENTAS VAMOS A USAR
+Para intentar detectar en la secuencia de trabajo motivos asociados con el reconocimiento por parte de chaperonas utilizamos la herramienta Limbo. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{IUPred: Análisis de tendencia al desorden}
+
+La herramienta IUPred está disponible a través de un servidor web (http://iupred.enzim.hu/) o descargando la implementación y ejecutándola localmente (http://iupred.enzim.hu/Downloads.php).   
 
 
 % RESUMEN SACADO DEL REVIEW
@@ -162,7 +237,20 @@ y con distintos significados del término desordenado.
   
   
   
+
   
+  
+  
+  
+  
+  
+\subsection{Secuencias transmembrana}
+\cite{sonnhammer1998hidden}
+\cite{krogh2001predicting}
+
+
+
+
 
 \subsection{Limbo: Interacción con chaperonas}
 
@@ -170,19 +258,7 @@ Limbo utiliza Tango(deberia explicar este antes) ?????????????
 
 http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2717214/
 
-Las chaperonas son elementos fundamentales para el correcto funcionamiento y calidad de las proteinas, interviniendo en el correcto plegado, activacion, la posible translocacion, replegamiento o degradacion de proteinas incorrectamente plegadas, etc.
 
-Distintas chaperonas reconocen distintos motivos secuenciales expuestos por las proteinas y esta gama de chaperonas llevara a la proteina unida a un final distinto.
-Existen distintas posibilidades reales en el proceso de ingenieria de proteinas en las cuales la secuencia diseñada artificialmente se encuentre con chaperonas en alguna situación experimental. Sin dudas la degradacion de nuestra secuencia linker es el peor final en esta situación, pero todas las posibilidades tienen un impacto negativo en la funcionalidad de linker que se quiere asignar(imponer) a la secuencia. El reconocimiento por parte de la chaperona implica la unión a esta, lo cual puede interferir en la flexibilidad natural que (idealmente) ha adquirido la secuencia linker diseñada. 
-De esta forma, dado que apuntamos a abarcar todas las posibles situaciones experimentales con las que uno se puede encontrar, es necesario tener en cuenta la posibilidad de que esten presentes proteinas chaperonas en algun paso del uso experimental de la secuencia. 
- 
-Existen chaperonas cuya funcion implica unirse a proteinas que no esten totalmente plegadas para evitar la agregacion de estas. El objetivo de esto es intervenir en situaciones de shock termico donde la perdida de la estructura nativa puede llevar a uniones entre distintas proteinas dando un agregado no funcional. Si bien uno de los objetivos de este trabajo es lograr una tendencia reducida a la agregacion en la secuencia generada y ciertas chaperonas podrian facilitar esto, la union implica, como se menciono anteriormente una perdida de flexibilidad que es necesaria para la funcion de linker. De esta forma buscamos evitar la agregacion mediante analisis sobre la secuencia que tienen este objetivo particular.
-
-??????????
-Por otro lado, es importante este paso porque las secuencias intrinsecamente desordenadas tales como la secuencia linker que estamos diseñando suelen tener propiedades que forman targets comunes para las chaperonas (exposicion de sitios hidrofobicos???)?????????????????????????
-
-
-A continuación se describe la aproximacion utilizada para intentar detectar en la secuencia de trabajo motivos asociados con el reconocimiento por parte de chaperonas.
 
 El método utiliza una combinacion de informacion secuencial y estructural para analizar el perfil de secuencias que se unen a la proteina chaperona DnaK
 
@@ -223,19 +299,8 @@ FALTA DESDE DONDE DICE:  Although the heptapeptides in the learning sets were se
 
 
  
+ 
 \subsection{ANCHOR: predicción de MoREs } \label{anchor}
-
-Due to their functional importance, predicting recognition
-elements (motifs) from sequence is of great interest. Although
-the information content of short sites is very limited, due to their
-enrichment in hydrophobic residues, indirect techniques have
-some success in delineating them. As mentioned, for example,
-the HCA plot 43 (see section 3.2) can indeed unveil such binding
-sites. 25 The PONDR VL-XT, 23 ANCHOR (http://anchor.
-enzim.hu), 207 and DynaMine 208 disorder predictors are sensitive
-to local tendency of ordering, and are thus informative in
-highlighting potential induced folding regions.
-
 
 
 Los valores de n representan las frecuencias de aminoácidos i y j en la secuencia.
@@ -794,6 +859,17 @@ Para buscarlo lo que se hace es utilizar
 % POR QUE QUEREMOS SACAR TODAS LAS PROPIEDADES FUNCIONALES
 % ¿QUE DESEAMOS PARA EL LINKER? ¿POR QUE?
 
+El objetivo de este trabajo es lograr una herramienta que provea una secuencia capaz ser utilizada experimentalmente como linker en el proceso de ingeniería de proteínas. 
+Esto implica no sólo probar con cierta certeza que tendrá la funcionalidad deseada, sino también evaluar el comportamiento en todos los pasos del proceso de ingeniería. 
+Es necesario saber que las propiedades de la secuencia no afectarán este proceso de ninguna forma.
+De forma general, se debe apuntar a tener una secuencia que no tenga ninguna interacción ni funcionalidad, evitando así cualquier interferencia con la expresión y utilización del producto 
+de ingeniería. Esto implica que no tenga regiones target para clivaje (fosforilación, glicosilación,etc.), regiones de unión a otras proteínas, etc.
+Si bien es posible reducir este análisis conociendo más detalladamente las condiciones experimentales con las que se trabajará, el objetivo de esta herramienta es que se pueda obtener 
+un resultado que cumpla con el objetivo en cualquier contexto experimental. 
+
+En este algoritmo utilizamos distintas herramientas para evaluar la estructura que adopta la secuencia, con el fin de poder llevarla hacia una composición que provea la flexibilidad
+necesaria para la función de linker. 
+
 
 % There are many methods, such as SMART (Simple Modular
 % Architecture Research Tool) (3), PRODOM (4) , Pfam (5,6),
@@ -816,54 +892,64 @@ Para buscarlo lo que se hace es utilizar
 
 
 % Búsqueda de secuencias homólogas
-Como se desarrollo en la introducción, las secuencias de proteinas que estan asociadas a una misma funcion tienen ciertas restricciones en su evolución, asociadas con funcionalidad que deben proveer y con propiedades estructurales, lo cual se da, 
+% Como se desarrollo en la introducción,
+las secuencias de proteinas que estan asociadas a una misma funcion tienen ciertas restricciones en su evolución, 
+asociadas con funcionalidad que deben proveer y con propiedades estructurales, lo cual se da, 
 principalmente, en secuencias que codifican proteinas globulares, cuyos requerimientos estructurales son mas estrictos. 
 Esta restriccion en la evolucion de la secuencia resulta en una similitud secuencial entre secuencias homólogas.
-Una forma de evaluar la existencia de secuencias similares en la naturaleza es haciendo un alineamiento secuencial frente a una base de datos de secuencias proteicas conocidas. 
+Una forma de evaluar la funcionalidad asociada a una proteina, entonces, es buscando la existencia de secuencias secuencias proteicas similares en la naturaleza, que hayan sido detectadas y que se encuentren anotadas en una base de datos
+
+Domains are now readily detectable with sequence searching programs (e.g., Blast [9] or HMMer [10]) and readily alignable by standard methods (e.g., ClustalW [11] or MUS-
+CLE [12]). Known domains are now stored in a number of databases including Pfam [1], SMART [13], CDD [14] and
+InterPro [15] and remain a critical component of genome annotation procedures. 
+
 El descubrimiento de una secuencia con gran similitid y que, por lo tanto, se presume homóloga provee un primer indicio acerca de la función que está puede cumplir. 
 En el contexto de la herramienta que estamos desarrollando, la información resultante de la búsqueda sirve como indicador de que posiciones puntuales son las que conforman esta similitud secuencial y que, por lo tanto, podrían inducir la función. 
 
-Para realizar la búsqueda de similitud secuencial utilizamos la herramienta BLAST (ref. 1 ,2 ), la cual puede ser ejecutada de dos maneras:
+Para realizar la búsqueda de similitud secuencial utilizaremos, en principio, dos herramientas:  
+la herramienta BLAST (usando la base de datos SwissProt) y la herramienta PROSITE
 
+These requirements impose very tight constraints on the evolution of those limited (in size) but important portion(s) of a protein sequence.
 
-Además de poder predecir alguna funcionalidad no deseada, como dijimos, las secuencias que se encuentran mas conservadas son aquellas que tienen mas restricciones estructurales, es decir, tienen 
+% Además de poder predecir alguna funcionalidad no deseada, como dijimos, las secuencias que se encuentran mas conservadas son aquellas que tienen mas restricciones estructurales, es decir, tienen 
+% una estructura/arquitectura conservada. Por lo tanto, al detectar secuencias 
 % La idea es detectar cualquier secuencia que pueda ser detectada por homologia. Es decir, cualquier elemento funcional que se caracterice por 
 
 
 
 
+
+
+
+
+
 % FUNCIONALIDAD EN IDPs
-Predicting function and/or functional sites of IDPs is a task even more difficult(que predecir la conformacion desordenada). 
-Recently, significant advance has been made in this direction, based on the observation that interactions of IDPs are often mediated by short linear motifs [11]. 
-Because linear motifs are 3–15 residues in length, they contain very little sequence information and their prediction from sequence alone is fraught with very
-high false positive rates. A critical advance in this direction has been made by applying context-filters, which significantly increase prediction accuracy by taking into
-consideration motif enrichment in proteins that share the same binding partner or evolutionary history (e.g. SLiM-Finder [12]). 
-Completely different logic forms the basis of ANCHOR, which predicts disordered binding sites by estimating their interaction energy with a general partner [13], and of the molecular recognition feature predictor
-(a-MoRF-PredII  
+
+% Predicting function and/or functional sites of IDPs is a task even more difficult(que predecir la conformacion desordenada). 
+% Recently, significant advance has been made in this direction, based on the observation that interactions of IDPs are often mediated by short linear motifs [11]. 
+% Because linear motifs are 3–15 residues in length, they contain very little sequence information and their prediction from sequence alone is fraught with very
+% high false positive rates. A critical advance in this direction has been made by applying context-filters, which significantly increase prediction accuracy by taking into
+% consideration motif enrichment in proteins that share the same binding partner or evolutionary history (e.g. SLiM-Finder [12]). 
+% Completely different logic forms the basis of ANCHOR, which predicts disordered binding sites by estimating their interaction energy with a general partner [13], and of the molecular recognition feature predictor
+% (a-MoRF-PredII  
 
 
 
-
-
-
-% DETECCION DE LINEAR MOTIFS
-
-% POR QUE LOS QUITAMOS?
+Estas busqueda de similitud secuencial(BLAST y PROSITE) será importante en detectar dominios funcionales de distintas longitudes. 
+sin embargo, como se vio en la sección \ref{functionalLandscape}, las   
 Los principales modulos funcionales encontrados en las regiones intrínsecamente desordenadas son los motivos lineales cortos (short linear motifs, o SLiMs), que se refieren a una clase de modulos de interacción compactos, 
 degenerados y evolutivamente convergentes.
 
-El objetivo de este trabajo es lograr una herramienta que provea una secuencia capaz ser utilizada experimentalmente como linker en el proceso de ingeniería de proteínas. 
-Esto implica no sólo probar con cierta certeza que tendrá la funcionalidad deseada, sino también evaluar el comportamiento en todos los pasos del proceso de ingeniería. 
-Es necesario saber que las propiedades de la secuencia no afectarán este proceso de ninguna forma.
-De forma general, se debe apuntar a tener una secuencia que no tenga ninguna interacción ni funcionalidad, evitando así cualquier interferencia con la expresión y utilización del producto 
-de ingeniería. Esto implica que no tenga regiones target para clivaje (fosforilación, glicosilación,etc.), regiones de unión a otras proteínas, etc.
-Si bien es posible reducir este análisis conociendo más detalladamente las condiciones experimentales con las que se trabajará, el objetivo de esta herramienta es que se pueda obtener 
-un resultado que cumpla con el objetivo en cualquier contexto experimental. 
 
-En este algoritmo utilizamos distintas herramientas para evaluar la estructura que adopta la secuencia, con el fin de poder llevarla hacia una composición que provea la flexibilidad
-necesaria para la función de linker. En ese proceso podemos asumir también que la secuencia no podrá cumplir ninguna función que requiera de una estructura en una conformación definida.
+Encontrar los elementos funcionales conocidos en la naturaleza dentro de nuestra secuencia es, entonces, una tarea más dificil.
+ 
+Dado que nuestro algoritmo guiara la búsqueda hacia conformaciones desordenadas, y que una propiedad característica de los LMs es su relación con un contexto de estructura desordenada\cite{fuxreiter2007local}.
+será relevante para nuestro trabajo buscar este tipo de elementos con mayor detenimiento. Más aún, teniendo en cuenta las caracteristicas secuenciales de este tipo de motivos, que le 
+podía esperarse que, luego de ser detectados y mutados puedan resurgir facilmente dentro de una misma ejecución, con un comportamiento similar al que ocurre en la naturaleza.
 
-Una propiedad característica de los LMs es su relación con un contexto de estructura desordenada\cite{fuxreiter2007local}.
+
+
+
 Dadas estas propiedades estructurales, será relevante para nuestro trabajo . Más aún, teniendo en cuenta las caracteristicas secuenciales de este tipo de motivos, que le 
 podía esperarse que, luego de ser detectados y mutados puedan resurgir facilmente dentro de una misma ejecución, con un comportamiento similar al que ocurre en la naturaleza.
 % es relevante detectarlos en cada paso...., y se espera que, dadas las caracteristicas evolutivas??? de este tipo de motivos, 
@@ -956,10 +1042,12 @@ Total                        =   1122221222222
 
 \subsection{Prosite}
 % Motivos Secuenciales
-Como ya se ha mencionado, uno de los objetivos de la herramienta desarrollada es eliminar cualquier posible funcionalidad asociada a la secuencia resultante. Para esto se realiza una búsqueda exhaustiva de motivos secuenciales que puedan relacionar la composición secuencial con alguna función biológica.
+Como ya se ha mencionado, uno de los objetivos de la herramienta desarrollada es eliminar cualquier posible funcionalidad asociada a la secuencia resultante. 
+Para esto se realiza una búsqueda exhaustiva de motivos secuenciales que puedan relacionar la composición secuencial con alguna función biológica.
 Como parte de esta búsqueda, en este paso se utilizará un recurso que agrupa una gran cantidad de motivos secuenciales de diversas características, se trata de PROSITE (http://prosite.expasy.org/), el cual permite anotar e identificar regiones conservadas en secuencias de proteínas.
 De forma resumida, se puede definir como una colección anotada de motivos biológicamente significativos, dedicada a la identificación de familias y dominios de proteínas.
-Este tipo de bases de datos contiene información derivada de alineamiento de múltiples secuencias homólogas. Los motivos resultantes se describen usando dos métodos distintos, cada uno con sus ventajas y desventajas que definen la utilidad que tendrán:
+Este tipo de bases de datos contiene información derivada de alineamiento de múltiples secuencias homólogas. 
+Los motivos resultantes se describen usando dos métodos distintos, cada uno con sus ventajas y desventajas que definen la utilidad que tendrán:
 
 La primera forma de describir los motivos es a través de patrones (expresiones regulares) en los cuales se tiene en cuenta solo la información de los residuos más significativos, descartando el resto. La búsqueda de un patrón en una secuencia da un resultado cualitativo: hay una coincidencia o no la hay. Si hay una sustitución en alguna de las posiciones de la secuencia el patrón no coincide, independientemente del tipo de sustitución que ocurrió.
 
@@ -1058,10 +1146,6 @@ En este paso, a cada residuo que se alinea correctamente con el hit se le sumar�
 
 
 
-
-\section{Secuencias transmembrana}
-\cite{sonnhammer1998hidden}
-\cite{krogh2001predicting}
 
 
 \section{Carga neta de la secuencia}

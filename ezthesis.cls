@@ -117,10 +117,11 @@
 
 %% margins
 \RequirePackage[
-  top     = 30mm, bottom     = 23mm,
+  top     = 20mm, bottom     = 23mm,
   outer   = 15mm, inner      = 25mm,
-  headsep = 10mm, headheight = 15pt,
+  headsep = 10mm, headheight = 15.73pt,
   marginparwidth = 15mm ]{geometry}
+
 
 %% page styles
 \if@fancyhdr
