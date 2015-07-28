@@ -1,0 +1,36 @@
+\chapter{Manual de uso}\label{manual}
+
+\section{Parámetros de ejecución}\label{parametros}
+\subsection{Secuencia inicial} \label{secuenciaInicial}
+\subsubsection{Secuencia inicial random}\label{secuenciaInicialRandom}
+Por default (si no se agrega ningún parámetro), la secuencia inicial se generará una secuencia random con la composición designada para la ejecución (ver \ref{composicion}).\\
+Por default esta secuencia tendrá una longitud inicial = 10 AAs.
+
+La longitud(en número de residuos) de esta secuencia inicial puede ser definida por el usuario mediante el parámetro \texttt{length} de la forma: \\
+\indent \texttt{--length [seq-length]}
+\\Por ejemplo: \\
+\indent \texttt{--length 30} \hspace{0.5cm} Inicia la ejecución con una secuencia random de largo = 30 AAs
+
+
+\subsubsection{Secuencia inicial definida}\label{secuenciaInicialDefinida}
+Para definir una secuencia inicial especifica se debe usar el parámetro \texttt{seq} de la forma: \\
+\indent \texttt{--seq [secuencia]} 
+\\Por ejemplo: \\
+\indent \texttt{--seq AAHHWWWLLLLHHGGG} \hspace{0.5cm} Inicia la ejecución con la secuencia \texttt{AAHHWWWLLLLHHGGG}
+
+En caso de especificarse una secuencia inicial no es necesario definir longitud y, si se define, es ignorada.
+
+\subsection{Composición de la secuencia} \label{composicion}
+
+
+
+
+\subsection{Formato y detalles del resultado}\label{output}
+Los parámetros que permiten modificar el formato de la salida son:
+\vspace{0.2cm}\\
+\texttt{--verbose} \\
+\indent \indent Devuelve una salida detallada de la ejecución \\
+\texttt{--minoutput} \\
+\indent \indent Solo devuelve el resultado final y guarda el historial de mutaciones en un log \\
+\texttt{--stepped} \\
+\indent \indent Espera por input del usuario en cada paso del método. \\

@@ -14,7 +14,22 @@ por el apropiado "y".
 
 
 
+@misc{randseq,
+  author = {},
+  title = {{RandSeq}},
+  howpublished = "\url{http://web.expasy.org/randseq/}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
 
+
+@misc{compositionAA,
+  author = {},
+  title = {{Amino acid composition (\%) in the UniProtKB/Swiss-Prot data bank.}},
+  howpublished = "\url{http://web.expasy.org/protscale/pscale/A.A.Swiss-Prot.html}",
+  year = {}, 
+  note = "[Release notes for UniProtKB/Swiss-Prot release 2013_04 - April 2013]"
+}
 
 ******  PARA CITAR EN LA GENERACION DE SEQ. RANDOM
 @article{krick2014amino,
@@ -283,6 +298,18 @@ por el apropiado "y".
   publisher={ACS Publications}
 }
 
+
+*********PSEs
+@article{fuxreiter2004preformed,
+  title={Preformed structural elements feature in partner recognition by intrinsically unstructured proteins},
+  author={Fuxreiter, Monika and Simon, Istvan and Friedrich, Peter and Tompa, Peter},
+  journal={Journal of molecular biology},
+  volume={338},
+  number={5},
+  pages={1015--1026},
+  year={2004},
+  publisher={Elsevier}
+}
 
 
 

@@ -101,27 +101,32 @@ available sequence space.
 
 
 
+
 \subsection{Secuencia inicial}
 
 El método comienza la busqueda a partir de una secuencia inicial. 
-Esta secuencia puede ser creada de forma aleatoria como primer paso del algoritmo o puede ser pasada por parámetro. 
-% (mediante el parámetro --seq).
+Esta secuencia puede ser creada de forma aleatoria como primer paso del algoritmo(ver \ref{secuenciaInicialRandom}) o puede ser pasada como parámetro por el usuario \ref{secuenciaInicialDefinida}. 
 
 La generación de una secuencia aleatoria no es un problema trivial. 
 En la naturaleza las proteínas están compuestas de un conjunto de 20 aminoácidos, los cuales se encuentran con diferentes abundancias relativas. 
 La frecuencia de cada aminoácido dentro de un proteoma está dada por un balance entre el costo metabólico de este y la necesidad de contar con un conjunto de secuencias diversas que darán proteínas funcionales \cite{krick2014amino}. 
-Para generar una secuencia aleatoria, entonces, es necesario definir la frecuencia que tendrá cada aminoácido. Esta frecuencia se obtiene a partir de la frecuencia global que tiene cada aminoácido en la base de datos de secuencias proteicas.
-La aplicación que se utiliza para obtener la secuencia random es RandSeq 
-HAY REFERENCIA PARA LA APLICACION?
-(http://web.expasy.org/randseq/). Entre otras que existen, esta herramienta ofrece la posibilidad al usuario de definir las frecuencias que desea para cada aminoácido, o usar por default la composición estándar obtenida de SwissProt.  
-Los valores de la composición estándar se encuentran en http://web.expasy.org/protscale/pscale/A.A.Swiss-Prot.html
-Estos valores resultan del cálculo de la composición de aminoácidos de todas las proteínas de la base de datos. De esta forma, la composición total representa un consenso de frecuencias de aminoácidos entre todas las secuencias documentadas hasta el momento.
+Para generar una secuencia aleatoria, entonces, es necesario definir la frecuencia que tendrá cada aminoácido. 
+Esta frecuencia se obtiene a partir de la frecuencia global que tiene cada aminoácido en la base de datos de secuencias proteicas.
+La aplicación que se utiliza para obtener la secuencia random es RandSeq \cite{randseq}.
 
-El programa permite también indicar solo la frecuencia de algunos residuos en particular, dejando el restos con la frecuencia estándar. INCLUIR EJEMPLO.
-Esta funcionalidad permitiría, por ejemplo indicar que cierto aminoácido no esté presente en la secuencia (asignándole una frecuencia igual a 0). Para el fin que tiene la herramienta, es útil tener este tipo de funcionalidades ya que permite adaptar los requerimientos a las capacidades(limitaciones) del laboratorio experimental. El nuevo linker diseñado deberá poder ser sintetizado eficientemente junto con la nueva proteína, lo cual implica una carga metabólica para el sistema biológico en el cual está siendo producido. De esta forma, se intentará adaptar las propiedades de la secuencia diseñada para aumentar la capacidad de síntesis reduciendo, por ejemplo, los aminoácidos que implican un gran gasto energético y que limitarán la producción de la proteína final.
+Por default, la herramienta utiliza la composición estándar obtenida de SwissProt \cite{compositionAA}.  
+Estos valores resultan del cálculo de la composición de aminoácidos de todas las proteínas de la base de datos. 
+De esta forma, la composición total representa un consenso de frecuencias de aminoácidos entre todas las secuencias documentadas hasta el momento en la base de datos UniProtKB/Swiss-Prot.
+% Los valores de la composición estándar se encuentran en http://web.expasy.org/protscale/pscale/A.A.Swiss-Prot.html
 
+Entre otras que existen, esta herramienta ofrece la posibilidad al usuario de definir las frecuencias que desea para cada aminoácido e, incluso,
+indicar solo la frecuencia de algunos residuos en particular, dejando el restos con la frecuencia estándar. 
+Nuestra herramienta también ofrece al usuario esta flexibilidad para definir la composición que tendrá la secuencia (ver \ref{composicion})
+Esta funcionalidad permitiría, por ejemplo, indicar que cierto aminoácido no esté presente en la secuencia (asignándole una frecuencia igual a 0). 
+Para el fin que tiene la herramienta, es útil tener este tipo de funcionalidades ya que permite adaptar los requerimientos a las capacidades(limitaciones) del laboratorio experimental. 
+El nuevo linker diseñado deberá poder ser sintetizado eficientemente junto con la nueva proteína, lo cual implica una carga metabólica para el sistema biológico en el cual está siendo producido. 
+De esta forma, se intentará adaptar las propiedades de la secuencia diseñada para aumentar la capacidad de síntesis reduciendo, por ejemplo, los aminoácidos que implican un gran gasto energético y que limitarán la producción de la proteína final.
 
-DESPUES INCLUIR SNAPSHOT DEL FORMULARIO
 
 
 
@@ -205,3 +210,4 @@ En la figura \ref{fig:esquema-algoritmo} se ve un esquema general del método, a
 
 \subsubsection{Método de mutación}
 % POR QUE HACEMOS UNA MUTACION DE A 1 PASO, ES DECIR 1 SOLA MUTACION POR VEZ? 
+
