@@ -908,12 +908,16 @@ En el contexto de la herramienta que estamos desarrollando, la información resu
 
 Para realizar la búsqueda de similitud secuencial utilizaremos, en principio, dos herramientas:  
 la herramienta BLAST (usando la base de datos SwissProt) y la herramienta PROSITE
+BLAST permite hacer un overall sequence alignment frente a una base de datos de proteinas anotadas(en nuestro caso SwissProt), y por lo tanto se encontraran secuencias 
 
-These requirements impose very tight constraints on the evolution of those limited (in size) but important portion(s) of a protein sequence.
+Algunas funcionalidades en las proteinas no imponen restricciones homogeneamente a lo largo de toda la secuencia y por lo tanto quizas no puedan ser detectadas por este mecanismo.
+Sin embargo las secuencias asociadas a una funcion pueden tener regiones limitadas en tamaño sobre las cuales existen(se imponen) restricciones (evolutivas) muy fuertas, ya que contienen determinantes secuenciales y/o funcionales importantes.
+La herramienta PROSITE contiene extracciones de estos cluster of residue types which is variously known as a pattern, motif, signature, or fingerprint. 
+Usando esta herramienta se pueden buscar estos motivos en la secuencia. 
 
-% Además de poder predecir alguna funcionalidad no deseada, como dijimos, las secuencias que se encuentran mas conservadas son aquellas que tienen mas restricciones estructurales, es decir, tienen 
-% una estructura/arquitectura conservada. Por lo tanto, al detectar secuencias 
-% La idea es detectar cualquier secuencia que pueda ser detectada por homologia. Es decir, cualquier elemento funcional que se caracterice por 
+Estos motivos pueden representar funcionalidades simples que, normalmente, no representan la funcionalidad global de la proteína natural.
+Sin embargo, en nuestro caso, donde estamos trabajando con secuencias artificiales, o que han sido iterativamente mutadas, 
+esta herramienta nos permite detectar(principalmente en los pasos finales???) la aparición(o la existencia/que no se haya eliminado) de elementos funcionales que igualmente queremos eliminar.  
 
 
 
@@ -936,7 +940,7 @@ These requirements impose very tight constraints on the evolution of those limit
 
 
 Estas busqueda de similitud secuencial(BLAST y PROSITE) será importante en detectar dominios funcionales de distintas longitudes. 
-sin embargo, como se vio en la sección \ref{functionalLandscape}, las   
+Sin embargo, como se vio en la sección \ref{functionalLandscape}, las   
 Los principales modulos funcionales encontrados en las regiones intrínsecamente desordenadas son los motivos lineales cortos (short linear motifs, o SLiMs), que se refieren a una clase de modulos de interacción compactos, 
 degenerados y evolutivamente convergentes.
 
@@ -950,31 +954,27 @@ podía esperarse que, luego de ser detectados y mutados puedan resurgir facilmen
 
 
 
-Dadas estas propiedades estructurales, será relevante para nuestro trabajo . Más aún, teniendo en cuenta las caracteristicas secuenciales de este tipo de motivos, que le 
-podía esperarse que, luego de ser detectados y mutados puedan resurgir facilmente dentro de una misma ejecución, con un comportamiento similar al que ocurre en la naturaleza.
-% es relevante detectarlos en cada paso...., y se espera que, dadas las caracteristicas evolutivas??? de este tipo de motivos, 
-% resurgan luego de una cierta cantidad de pasos de mutacion.
-
-
-
-
 % COMO VAMOS A DETECTARLOS
 Para detectar LMs se utilizará principalmente el recurso ELM, cuya aplicación en el método se describe en \ref{elm}
-
 % DIFERENCIAS CON PROSITE
 The PROSITE database has collected a number of linear protein motifs, representing them as regular expression patterns. 
 PROSITE patterns have been very useful, but also suffer from severe overprediction problems and more recently the database has emphasised globular domain annotation at the expense of linear motifs.
 
 
 
+
 Además de los motivos lineales, en la introducción se describieron otros modulos funcionales que pueden estar contenidos en IDRs/IDPs.
 Utilizando la herramienta ANCHOR(ver \ref{anchor}) se pueden detectar motivos de reconocimiento a partir de sus propiedades estructurales lo cual, como se menciona en \ref{propiedadesConformacionales}, es importante para restringir las 
 caracteristicas estructurales del peptido resultante. Sin embargo, dada su functional importance, predicting recognition elements (motifs) from sequence is of great interest, tambien para evitar la ocurrencia de funcionalidades no deseadas.
-Ademas, most protein domains that are identified using sequence-based approaches(como el utilizado en \ref{blast}) are structured, but some can be fully or largely disordered  or contain conserved disordered regions,
-es decir, intrinsically disordered domains (IDDs).
+Además, el método de busqueda secuencial BLAST puede detectar, también, dominios que son fully or largely disordered or contain conserved disordered regions es decir, intrinsically disordered domains (IDDs).
 Teniendo en cuenta la hipotesis desarrollada en la introduccion acerca del solapamiento entre los MoREs y SLMs, e incluso con los dominios desordenados, las herramientas utilizadas para detectar estos tres pueden proveer resultados que se solapen.
 Sin embargo, como ya se describió previamente, esto no es una desventaja.
 
+
+% Ademas, most protein domains that are identified using sequence-based approaches(como el utilizado en \ref{blast}) are structured, but some can be fully or largely disordered or contain conserved disordered regions,
+% es decir, intrinsically disordered domains (IDDs).
+% ESTO ES CORRECTO, LO SAQUE DE    \cite{tompa2009close}
+% Podria entonces decir que BLAST tambien ayuda a eliminar secuencias que puuedan adoptar estructuras plegadas?? 
 
 
 
@@ -1041,10 +1041,7 @@ Total                        =   1122221222222
 
 
 \subsection{Prosite}
-% Motivos Secuenciales
-Como ya se ha mencionado, uno de los objetivos de la herramienta desarrollada es eliminar cualquier posible funcionalidad asociada a la secuencia resultante. 
-Para esto se realiza una búsqueda exhaustiva de motivos secuenciales que puedan relacionar la composición secuencial con alguna función biológica.
-Como parte de esta búsqueda, en este paso se utilizará un recurso que agrupa una gran cantidad de motivos secuenciales de diversas características, se trata de PROSITE (http://prosite.expasy.org/), el cual permite anotar e identificar regiones conservadas en secuencias de proteínas.
+Se trata de un recurso que agrupa una gran cantidad de motivos secuenciales de diversas características, se trata de PROSITE (http://prosite.expasy.org/), el cual permite anotar e identificar regiones conservadas en secuencias de proteínas.
 De forma resumida, se puede definir como una colección anotada de motivos biológicamente significativos, dedicada a la identificación de familias y dominios de proteínas.
 Este tipo de bases de datos contiene información derivada de alineamiento de múltiples secuencias homólogas. 
 Los motivos resultantes se describen usando dos métodos distintos, cada uno con sus ventajas y desventajas que definen la utilidad que tendrán:
@@ -1090,9 +1087,15 @@ La herramienta BLAST (ref. 1 ,2 ), la cual puede ser ejecutada de dos maneras:
 
 %     -Una opción es hacer una llamada al servidor remoto que ejecuta la búsqueda (http://blast.ncbi.nlm.nih.gov/). Esta opción es simple pero implica ejecutar la búsqueda remotamente y retardos para obtener los resultados. Se puede hacer simplemente desde Python utilizando el módulo BioPython(http://biopython.org/). (http://www.biotnet.org/sites/biotnet.org/files/documents/25/biopython_blast.pdf ) 
  
-    -Otra opción es instalar localmente el software para realizar la búsqueda, lo cual requiere también disponer de las bases de datos sobre las cuales se realizarán. (http://www.ncbi.nlm.nih.gov/books/NBK52640/).
+    -Otra opción es instalar localmente el software para realizar la búsqueda, lo cual requiere también disponer de las bases de datos sobre las cuales se realizarán.
+    
+    (http://www.ncbi.nlm.nih.gov/books/NBK52640/).
 
-Para la implementación de nuestra herramienta se utilizará una instalación local del software BLAST junto con las bases de datos asociadas, contra las cuales se realizará la búsqueda de similitud. En nuestro caso utilizaremos la base de datos SwissProt (Ref. 3 )
+
+Para la implementación de nuestra herramienta se utilizará una instalación local del software BLAST junto con las bases de datos asociadas, contra las cuales se realizará la búsqueda de similitud. 
+En nuestro caso utilizaremos la base de datos SwissProt.
+% Swiss-Prot (created in 1986) is a high quality manually annotated and non-redundant protein sequence database, which brings together experimental results, computed features and scientific conclusions. 
+% UniProtKB/Swiss-Prot is now the reviewed section of the UniProt Knowledgebase.
 
 (Descripción BLAST??)
 DESCRIBIR BREVEMENTE BLAST COMO PARA UN EXPERIMENTALISTA

@@ -28,7 +28,7 @@ por el apropiado "y".
   title = {{Amino acid composition (\%) in the UniProtKB/Swiss-Prot data bank.}},
   howpublished = "\url{http://web.expasy.org/protscale/pscale/A.A.Swiss-Prot.html}",
   year = {}, 
-  note = "[Release notes for UniProtKB/Swiss-Prot release 2013_04 - April 2013]"
+  note = "[Release notes for UniProtKB/SwissProt release April 2013]"
 }
 
 ******  PARA CITAR EN LA GENERACION DE SEQ. RANDOM
@@ -454,6 +454,39 @@ por el apropiado "y".
 
 
 
+*************  FUNDAMENTOS
+
+@article{dill1999polymer,
+  title={Polymer principles and protein folding},
+  author={Dill, Ken A},
+  journal={Protein Science},
+  volume={8},
+  number={06},
+  pages={1166--1180},
+  year={1999},
+  publisher={Cambridge Univ Press}
+}
+
+
+@article{dryden2008much,
+  title={How much of protein sequence space has been explored by life on Earth?},
+  author={Dryden, David TF and Thomson, Andrew R and White, John H},
+  journal={Journal of The Royal Society Interface},
+  volume={5},
+  number={25},
+  pages={953--956},
+  year={2008},
+  publisher={The Royal Society}
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -479,7 +512,7 @@ por el apropiado "y".
   publisher={Elsevier}
 }
 
-*******   BLAST  *********
+
 @article{mcginnis2004blast,
   title={BLAST: at the core of a powerful and diverse set of sequence analysis tools},
   author={McGinnis, Scott and Madden, Thomas L},
@@ -490,6 +523,25 @@ por el apropiado "y".
   year={2004},
   publisher={Oxford Univ Press}
 }
+
+
+@misc{blastLocal,
+  author = {},
+  title = {{Standalone BLAST Setup for Unix}},
+  howpublished = "\url{(http://www.ncbi.nlm.nih.gov/books/NBK52640/}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
+
+@misc{blastWeb,
+  author = {},
+  title = {{WEB - BLAST: Basic local alignment search tool}},
+  howpublished = "\url{(http://blast.ncbi.nlm.nih.gov/Blast.cgi}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
 
 
 
@@ -856,8 +908,25 @@ por el apropiado "y".
 }
 
 
+@misc{iupredDownload,
+  author = {},
+  title = {{IUPred Download link}},
+  howpublished = "\url{(http://iupred.enzim.hu/Downloads.php}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
 
 ***********   IUPRED WEB SERVER *******************
+
+@misc{iupredWeb,
+  author = {},
+  title = {{IUPred Web server}},
+  howpublished = "\url{http://iupred.enzim.hu/}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
 
 @article{dosztanyi2005iupred,
   title={IUPred: web server for the prediction of intrinsically unstructured regions of proteins based on estimated energy content},

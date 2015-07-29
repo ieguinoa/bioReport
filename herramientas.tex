@@ -1,6 +1,9 @@
 \chapter{Propiedades evaluadas}
 \label{tools}
 
+
+
+
 \section{Predicción de propiedades conformacionales} \label{propiedadesConformacionales}
 
 % DIVIDO LA SECCION EN 2, YA QUE, EN GENERAL HAY 2 COSAS QUE QUEREMOS SACAR, LAS PROPIEDADES ESTRUCTURALES Y LA UNION A CHAPERONAS
@@ -65,7 +68,7 @@ To handle limitations inherent in prediction accuracy due to distinct flavors of
 These combined predictors do show improved performance over their composite ones.
 
 % QUE HERRAMIENTAS VAMOS A USAR
-Se utiliza la herramienta IUPred....
+Se utiliza la herramienta IUPred \ref{iupred}
 
 
 
@@ -80,7 +83,7 @@ must be suitable for hydrophobic interactions with the lipids.
 The hydrophobic signal is so strong that a straightforward approach of calculating a propensity scale for residues in
 transmembrane helices and applying a sliding window with a cutoff already performs quite well.
 
-Aprovechando estas propiedades particulares, utilizamos la herramienta TMHMM para detectar este tipo de estructuras con propiedades particulares, profundizando nuestra capacidad de detectar la tendencia a formar estructuras no flexibles.
+Aprovechando estas propiedades particulares, utilizamos la herramienta TMHMM(\ref{tmhmm}) para detectar este tipo de estructuras con propiedades particulares, profundizando nuestra capacidad de detectar la tendencia a formar estructuras no flexibles.
 
 
 
@@ -117,7 +120,7 @@ to local tendency of ordering, and are thus informative in highlighting potentia
 
 
 % QUE HERRAMIENTAS VAMOS A USAR
-ANCHOR permite detectar segmentos con cierta tendencia a adquirir estructuras pero que se encuentran insertados en regiones desordenadas.
+ANCHOR permite detectar segmentos con cierta tendencia a adquirir estructuras pero que se encuentran insertados en regiones desordenadas(ver \ref{anchor}).
 
 
 
@@ -145,7 +148,7 @@ Por otro lado, es importante este paso porque las secuencias intrinsecamente des
 
 
 % QUE HERRAMIENTAS VAMOS A USAR
-Para intentar detectar en la secuencia de trabajo motivos asociados con el reconocimiento por parte de chaperonas utilizamos la herramienta Limbo. 
+Para intentar detectar en la secuencia de trabajo motivos asociados con el reconocimiento por parte de chaperonas utilizamos la herramienta Limbo(\ref{limbo}). 
 
 
 
@@ -164,9 +167,13 @@ Para intentar detectar en la secuencia de trabajo motivos asociados con el recon
 
 
 
-\subsection{IUPred: Análisis de tendencia al desorden}
 
-La herramienta IUPred está disponible a través de un servidor web (http://iupred.enzim.hu/) o descargando la implementación y ejecutándola localmente (http://iupred.enzim.hu/Downloads.php).   
+
+
+
+\subsection{IUPred: Análisis de tendencia al desorden} \label{iupred}
+
+La herramienta IUPred está disponible a través de un servidor web \cite{iupredWeb,dosztanyi2005iupred} o descargando la implementación y ejecutándola localmente \cite{iupredDownload}.   
 
 
 % RESUMEN SACADO DEL REVIEW
@@ -202,7 +209,7 @@ y se los marca como posibles objetivos para la siguiente ronda de mutaciones del
 global hacia un perfil estructuralmente flexible y desordenado, con pocas posibilidades de desarrollar una función.
 
 
-Fundamento
+% Fundamento
 Utilizando bases de datos con estructuras conformacionales de proteínas globulares, 
 es posible derivar campos de fuerzas empíricos(potenciales estadísticos) de las interacciones que ocurren en las conformaciones nativas. 
 Estos modelos de campos de fuerzas han resultado muy útiles para evaluar la contribución de cada interacción entre pares a la energía total,
@@ -244,20 +251,20 @@ y con distintos significados del término desordenado.
   
   
   
-\subsection{Secuencias transmembrana}
-\cite{sonnhammer1998hidden}
-\cite{krogh2001predicting}
+\subsection{TMHMM: Secuencias transmembrana} \label{tmhmm}
+% \cite{sonnhammer1998hidden}
+% \cite{krogh2001predicting}
 
 
 
 
 
-\subsection{Limbo: Interacción con chaperonas}
 
-Limbo utiliza Tango(deberia explicar este antes) ?????????????
+\subsection{Limbo: Interacción con chaperonas} \label{limbo}
 
-http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2717214/
+% Limbo utiliza Tango(deberia explicar este antes) ?????????????
 
+\cite{van2009accurate}
 
 
 El método utiliza una combinacion de informacion secuencial y estructural para analizar el perfil de secuencias que se unen a la proteina chaperona DnaK
@@ -274,9 +281,9 @@ Para conocer el aporte energetico de cada posible residuo en cada una de las 7
 posiciones se utilizo nuevamente FoldX para hacer un scan posicion por posicion.
 En primer lugar se pusieron todas alaninas. Después se fueron mutando cada
 posicion por los 19 residuos restantes. Para cada uno se calcula el valor de la 
-% diferencia energética con el valor del de alanina ΔΔG (cuanto mas negativo es este 
+diferencia energética con el valor del de alanina $\Delta\Delta$G (cuanto mas negativo es este 
 valor mejor es el binding). El valor que se usó para llenar la PSSM es el negativo de 
-% este valor ΔΔG.
+este valor $\Delta\Delta$G.
 Dado que los valores se evaluaron mutando las posiciones sobre un backbone fijo,
 este backbone va a influenciar la PSSM resultante. Lo que se hizo entonces fue
 generar distintas PSSMs utilizando múltiples conformaciones de backbones de 
@@ -291,8 +298,11 @@ La evaluación de la performance se hizo mediante 3? tests que se aplican sobre 
 El resultado da que las 2 primeras pruebas son un poquito mejores para la PSSM hecha solo en base a secuencias, pero en la prueba sobre el conjunto independiente la PSSM basada solo en secuencias da muy mal y la PSSM con informacion secuencial es considerablemente mejor. Esto indicaría que la informacion estructural ayuda a hacer el predictor mas general.
 
 
-*****************************************************
-FALTA DESDE DONDE DICE:  Although the heptapeptides in the learning sets were selected on a methodologically acceptable basis, inconsistencies in the learning set selection could not be excluded.
+% *****************************************************
+% FALTA DESDE DONDE DICE:  Although the heptapeptides in the learning sets were selected on a methodologically acceptable basis, inconsistencies in the learning set selection could not be excluded.
+
+
+
 
 
 
@@ -372,13 +382,13 @@ Dentro de nuestro algoritmo, la herramienta ANCHOR se aplica utilizando un punto
 \subsection{Formación de agregados de proteínas}
 
 
+
 % POR QUE QUEREMOS/DEBEMOS PREVENIR LA FORMACION DE AGREGADOS
 En nuestro caso, la formacion de amiloides fibrilares entre los linkers 'arrastraria' a los dominios que unen y podria interferir en la funcionalidad de estos. 
 La funcionalidad de cualquier dominio proteico se podria ver limitada si esta se encuentra formando algun tipo de agregado.
 
 Al ser una caracteristica generica de los polipeptidicos, es posible que ocurra este tipo de agregacion en cualquier secuencia. 
 Ademas, no podriamos simplemente descartar las proteinas que se sabe tienen tendencia a formar fibras amiloides, al ser una propiedad intrinseca de las secuencias polipeptidicas es necesario analizar todas las secuencias.
-
 
 
 
@@ -522,11 +532,14 @@ structure-breaking properties. Identically charged residues are also very effect
 
 \subsubsection{Tango}
 
-El método se deriva a partir de aplicar la mecanica estadistica a un conjunto de datos experimentales obtenidos de los residuos dentro de proteinas que promueven el 'agregamiento ordenado' o la formacion de amyloids. El algoritmo resultante permite identificar las regiones de agregacion beta dentro de una secuencia.
-El algoritmo tiene en cuenta un conjunto de estados(conformaciones) posibles: alfa helice, hojas beta, beta-turns, estado plegado(nativo??*****ver abajo) y agregado de hojas beta. Ademas, se asume incialmente que la region en el estado de agregado de hojas beta esta totalmente internalizada y tiende a satisfacer el potencial de puentes de hidrogeno. 
+El método se deriva a partir de aplicar la mecanica estadistica a un conjunto de datos experimentales obtenidos de los residuos dentro de proteinas que promueven el 'agregamiento ordenado' o la formacion de amyloids. 
+El algoritmo resultante permite identificar las regiones de agregacion beta dentro de una secuencia.
+El algoritmo tiene en cuenta un conjunto de estados(conformaciones) posibles: alfa helice, hojas beta, beta-turns, estado plegado(nativo??*****ver abajo) y agregado de hojas beta.
+Ademas, se asume incialmente que la region en el estado de agregado de hojas beta esta totalmente internalizada y tiende a satisfacer el potencial de puentes de hidrogeno. 
 El metodo TANGO tiene tambien en cuenta la estabilidad de la proteinas y los parametros fisicoquimicos tales como el pH, la concentracion, la fuerza ionica y la concentracion de trifluoroetanol.
 
-Cada segmento de una proteina puede estar en alguno de los estados conformacionales de acuerdo con una distribucion de Boltzman. Es decir, la frecuencia con la que ese segmento adopta un estado en una poblacion es relativa a su energia, la cual se deriva de consideraciones estadisticas a partir de datos empiricos.  
+Cada segmento de una proteina puede estar en alguno de los estados conformacionales de acuerdo con una distribucion de Boltzman. 
+Es decir, la frecuencia con la que ese segmento adopta un estado en una poblacion es relativa a su energia, la cual se deriva de consideraciones estadisticas a partir de datos empiricos.  
 Para predecir la agregado beta de un segmento, Tango calcula la funcion de particion del espacio de fases conformacionales.
 
 
@@ -1085,23 +1098,26 @@ describir si hay superposición entre elm y prosite. Se justifica usar los dos? 
 
 La herramienta BLAST (ref. 1 ,2 ), la cual puede ser ejecutada de dos maneras:
 
-%     -Una opción es hacer una llamada al servidor remoto que ejecuta la búsqueda (http://blast.ncbi.nlm.nih.gov/). Esta opción es simple pero implica ejecutar la búsqueda remotamente y retardos para obtener los resultados. Se puede hacer simplemente desde Python utilizando el módulo BioPython(http://biopython.org/). (http://www.biotnet.org/sites/biotnet.org/files/documents/25/biopython_blast.pdf ) 
+Una opción es a través del servidor web \cite{blastWeb}
+    Esta opción es simple pero implica ejecutar la búsqueda remotamente y retardos para obtener los resultados. 
+%     hacer una llamada al servidor remoto que ejecuta la búsqueda (http://blast.ncbi.nlm.nih.gov/). 
+%     Se puede hacer simplemente desde Python utilizando el módulo BioPython(http://biopython.org/). (http://www.biotnet.org/sites/biotnet.org/files/documents/25/biopython_blast.pdf ) 
  
-    -Otra opción es instalar localmente el software para realizar la búsqueda, lo cual requiere también disponer de las bases de datos sobre las cuales se realizarán.
+Otra opción es instalar localmente el software para realizar la búsqueda, lo cual requiere también disponer de las bases de datos sobre las cuales se realizarán.
     
     (http://www.ncbi.nlm.nih.gov/books/NBK52640/).
 
 
 Para la implementación de nuestra herramienta se utilizará una instalación local del software BLAST junto con las bases de datos asociadas, contra las cuales se realizará la búsqueda de similitud. 
-En nuestro caso utilizaremos la base de datos SwissProt.
+En nuestro caso utilizaremos la base de datos UniProtKB-SwissProt \cite{bairoch2000swiss}.
 % Swiss-Prot (created in 1986) is a high quality manually annotated and non-redundant protein sequence database, which brings together experimental results, computed features and scientific conclusions. 
 % UniProtKB/Swiss-Prot is now the reviewed section of the UniProt Knowledgebase.
 
-(Descripción BLAST??)
-DESCRIBIR BREVEMENTE BLAST COMO PARA UN EXPERIMENTALISTA
-INCLUIR REFERENCIA BLAST
-¿QUE OPCION TOMAMOS NOSOTROS?
-QUE SCORE TOMAMOS COMO CUTOFF?
+% (Descripción BLAST??)
+% DESCRIBIR BREVEMENTE BLAST COMO PARA UN EXPERIMENTALISTA
+% INCLUIR REFERENCIA BLAST
+% ¿QUE OPCION TOMAMOS NOSOTROS?
+% QUE SCORE TOMAMOS COMO CUTOFF?
 
 
 La búsqueda BLAST se basa en los cambios que pueden ocurrir entre 2 secuencias homólogas durante la evolución. Las mutaciones pueden dar como resultado distintos residuos en las secuencias de proteínas, también pueden ocurrir inserciones y deleciones de residuos. Cada uno de los posibles eventos tiene una frecuencia de ocurrencia asociada. El método de alineamiento utiliza un esquema de valores para asignar puntaje a cada uno de estos eventos y,  utilizando una estrategia de optimización, se exploran formas alternativas de alinear los residuos de ambas secuencias para logar sumar el máximo score.

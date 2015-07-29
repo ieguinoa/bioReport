@@ -3,65 +3,44 @@
 \chapter{Método/herramienta desarrollada}
 \label{method}
 
-% \section{Objetivo}
 
 \section{Fundamentos}
-Existencia de herramientas disponibles.
-Hipótesis asumida respecto del espacio de soluciones, dependencia de la superficie de búsqueda con las propiedades a evaluar.
+% Existencia de herramientas disponibles.
+% Hipótesis asumida respecto del espacio de soluciones, dependencia de la superficie de búsqueda con las propiedades a evaluar.
 
 
 
-
-% COMPLEJIDAD DE LAS IDPs
-It was pointed out that IDPs possess noticeable
-amino acid biases, and many IDPs/IDPRs are char-
-acterized by sequence redundancy and low sequence
-complexity, containing long stretches of various
-repeats and being completely devoid of some (often
-many) types of amino acid residues. These observa-
-tions seem to indicate that the sequence space of
-IDPs/IDPRs should be simpler than that of ordered
-proteins.
-However, the reality is more complex than
-conventional wisdom might suggest, and the
-sequence space attainable by simple IDPs/IDPRs is
-more diversified than that of the structurally more
-sophisticated ordered proteins.
-In fact, a 100 resi-
-due-long protein in which any of the normally occur-
-ring 20 amino acids can be found has a sequence
-space of 20 100 (10 130 ) sequences. 54 Obviously, not
-all random amino acid sequences can fold into
-unique structures. In other words, a sequence space
-of a foldable protein (or “foldable” sequence space) is
-noticeably smaller than the entire sequence space
-available for a random polypeptide chain.
-
-foldable proteins fold first and
-then bind to their partners whereas IDPs/IDPRs
-remain disordered until they interact with their
-partners. 68,69 Furthermore, many IDPs/IDPRs do
-not require folding to be functional, 1,4,13,14,70–73 and
-some of them form fuzzy complexes, in which they
-preserve significant amount of disorder. 74,75 All this
-suggests that the sequence space of IDPs (at least
-those which either do not fold at all or do not com-
-pletely fold at binding) is noticeably greater than
-the “foldable” sequence space due to the removal of
-restrictions posed by the need to gain ordered struc-
-ture spontaneously. 68 This represents one of the
-conundrums of intrinsic disorder, where the appa-
-rent sequence redundancy and simplicity are com-
-bined with the lack of structural restrains leading to
-the increase in the dimensions and complexity of the
-available sequence space.
-
-% 
-% En los últimos años se han realizado importantes avances en el estudio de las relación existente entre la estructura primaria de proteínas y el conjunto de propiedades experimentalmente observables de éstas(\textit{in-vivo} o \textit{in-vitro}). 
+Como se desarrollo a lo largo del capítulo 1, existen distintos elementos estructurales y funcionales que pueden estar presentes en una secuencia.
+Clasificando, aislando y estudiando estos elementos podemos comprender mejor cuales son sus propiedades. 
+Los avances en este campo se trasladan a una gran cantidad(y variedad) de métodos que permiten predecir la ocurrencia de las estas propiedades sobre una secuencia polipeptídica, tanto natural como artificial.
+De forma abstracta, estas herramientas permiten predecir el mapeo entre la secuencia y el perfil de propiedades resultantes. 
+% Diferentes herramientas bioinformáticas resultan de trasladar estos conocimientos a
 % Estos avances, además, dieron paso al desarrollo de una gran cantidad(y variedad) de herramientas bioinformáticas que permiten predecir éstas propiedades a partir de la secuencia .
 % La disponibilidad de estas herramientas permite tener una idea más clara del comportamiento que tendrá una proteína en un contexto experimental dado, solamente conociendo su secuencia y utilizando las herramientas adecuadas. 
 % 
-% De forma abstracta, estas herramientas permiten predecir el mapeo entre la secuencia y las propiedades resultantes. 
+
+
+% COMPLEJIDAD DE LAS IDPs
+% SACADO DE A decade and a half of protein intrinsic disorder: Biology still waits for physics
+It was pointed out that IDPs possess noticeable amino acid biases, and many IDPs/IDPRs are characterized by sequence redundancy and low sequence
+complexity, containing long stretches of various repeats and being completely devoid of some (often many) types of amino acid residues. 
+These observations seem to indicate that the sequence space of IDPs/IDPRs should be simpler than that of ordered proteins.
+However, the reality is more complex than conventional wisdom might suggest, and the sequence space attainable by simple IDPs/IDPRs is more diversified than that of the structurally more sophisticated ordered proteins.
+In fact, a 100 residue-long protein in which any of the normally occurring 20 amino acids can be found has a sequence space of $20^100$ (aprox. $10^130$) sequences. 
+Obviamente, no todas las secuencias al azar se pliegan para dar una estructura unica y, por lo tanto, no cualquier secuencia pertenecerá al conjunto que denominamos como plegadas.
+In other words, a sequence space of a foldable protein (or “foldable” sequence space) is noticeably smaller than the entire sequence space available for a random polypeptide chain\cite{dill1999polymer}. 
+
+Foldable proteins fold first and then bind to their partners whereas IDPs/IDPRs remain disordered until they interact with their partners. 
+Furthermore, many IDPs/IDPRs do not require folding to be functional, and some of them form fuzzy complexes, in which they preserve significant amount of disorder. 
+All this suggests that the sequence space of IDPs (at least those which either do not fold at all or do not completely fold at binding) 
+is noticeably greater than the “foldable” sequence space due to the removal of restrictions posed by the need to gain ordered structure spontaneously. 
+This represents one of the conundrums of intrinsic disorder, where the apparent sequence redundancy and simplicity are combined with the lack of structural restrains leading to the increase in the dimensions and complexity of the
+available sequence space.
+
+
+% 
+% En los últimos años se han realizado importantes avances en el estudio de las relación existente entre la estructura primaria de proteínas y el conjunto de propiedades experimentalmente observables de éstas(\textit{in-vivo} o \textit{in-vitro}). 
+
 % 
 % 
 % 
@@ -77,23 +56,25 @@ available sequence space.
 % Un reflejo de esto puede verse en las estructuras de ciertas proteinas naturales, las cuales tienen una fuerte dependencia con la secuencia que se mantiene altamente conservada. 
 % 
 % Sin embargo, como se detalló en la sección previa, el objetivo de nuestra herramienta es lograr obtener una secuencia con un comportamiento bastante 'simple' de obtener.... 
-% 
-% De esta forma, estamos en una situación en la que: tenemos un conjunto de herramientas que nos permiten mapear cada secuencia con distintos comportamientos (deseado o no deseados) de acuerdo a nuestro objetivo y, además, 
-% podemos asumir que el conjunto de secuencias que cumple con éstos comportamientos buscados, es considerablemente grande dentro del espacio de secuencias posibles (cualquier combinación de AAs).
-% 
-% El esquema de búsqueda dependerá de nuestros objetivos y los conocimientos/desconocimientos/hipotesis acerca del espacio de búsqueda.
-% Una primera aproximación obvia sería probar distintas combinaciones al azar...
-% El problema es que es una forma totalmente ineficiente de búsqueda, tiene un alto costo computacional y el resultado(asumiendo que lo encontramos) tendrá una composición al azar(esto puede no resultar un problema, dependiendo del objetivo especifico).
-% 
-% Una aproximación mas adecuada sería utilizar todo el conocimiento que tenemos acerca de la evaluación de la secuencia. 
-% La existencia de una función ideal implicaría que esta represente la dependencia de cada posicion con el contexto de la secuencia, con respecto a la propiedad analizada.
-% Si bien las herramientas disponibles de predicción nos son las ideales, generalmente brindan información sobre cada posición y no sobre la secuencia como un todo.
-% 
-% Uilizando esta información podríamos analizar que posiciones no son acordes con el comportamiento/propiedades deseado/a y utilizar esta información para guiar la búsqueda, modificando solo aquellas posiciones que no nos resultan favorables.
-%  
-% Si bien asumimos que el conjunto de secuencia que cumplen las condiciones estandar del resultado es grande con respecto al especio total de soluciones, no conocemos la forma funcional que no esta guiando la busqueda,
-% es decir, como esta depende con la secuencia.  Para implementar un mecanismo eficiente de búsqueda debemos tener en cuenta este desconocimiento.
-% 
+
+
+
+De esta forma, estamos en una situación en la que: tenemos un conjunto de herramientas que nos permiten mapear cada secuencia con distintos comportamientos (deseado o no deseados) de acuerdo a nuestro objetivo y, además, 
+podemos asumir que el conjunto de secuencias que cumple con los principales comportamientos buscados, es considerablemente grande dentro del espacio de secuencias posibles (cualquier combinación de AAs).
+
+El esquema de búsqueda dependerá de nuestros objetivos y los conocimientos/desconocimientos/hipotesis acerca del espacio de búsqueda.
+Una primera aproximación obvia sería probar distintas combinaciones al azar...
+El problema es que es una forma totalmente ineficiente de búsqueda, tiene un alto costo computacional y el resultado(asumiendo que lo encontramos) tendrá una composición al azar(esto puede no resultar un problema, dependiendo del objetivo especifico).
+
+Una aproximación mas adecuada sería utilizar todo el conocimiento que tenemos acerca de la evaluación de la secuencia. 
+La existencia de una función ideal implicaría que esta represente la dependencia de cada posicion con el contexto de la secuencia, con respecto a la propiedad analizada.
+Si bien las herramientas disponibles de predicción nos son las ideales, generalmente brindan información sobre cada posición y no sobre la secuencia como un todo.
+
+Uilizando esta información podríamos analizar que posiciones no son acordes con el comportamiento/propiedades deseado/a y utilizar esta información para guiar la búsqueda, modificando solo aquellas posiciones que no nos resultan favorables.
+ 
+Si bien asumimos que el conjunto de secuencia que cumplen las condiciones estandar del resultado es grande con respecto al especio total de soluciones, no conocemos la forma funcional que no esta guiando la busqueda,
+es decir, como esta depende con la secuencia.  Para implementar un mecanismo eficiente de búsqueda debemos tener en cuenta este desconocimiento.
+
 
 
 
@@ -104,7 +85,7 @@ available sequence space.
 
 \subsection{Secuencia inicial}
 
-El método comienza la busqueda a partir de una secuencia inicial. 
+El método comienza la búsqueda a partir de una secuencia inicial. 
 Esta secuencia puede ser creada de forma aleatoria como primer paso del algoritmo(ver \ref{secuenciaInicialRandom}) o puede ser pasada como parámetro por el usuario \ref{secuenciaInicialDefinida}. 
 
 La generación de una secuencia aleatoria no es un problema trivial. 
