@@ -816,7 +816,7 @@ Estas fibrillas maduras pueden, además, asociarse lateralmente entre si para fo
 Todas las fibrillas amiloides comparten una arquitectura en común compuesta de una estructura suprasecundaria de unión entre hojas-$\beta$.
 % All amyloid fibrils share the a common architecture composed of cross-$beta$ supersecondary structure,
 A partir de los patrones característicos resultantes de la difracción con rayos X, se resolvió mas en detalle las características de esta arquitectura, en la cual 
-las hojas-$\beta$ se extienden con las caras de sus hebras enfrentadas entre si pero perpendiculares al eje de la fibrilla que forman.  
+las hojas-$\beta$ se extienden con las caras de sus hebras enfrentadas entre si pero perpendiculares al eje de la fibrilla que forman\cite{nelson2005structure}.  
 % where parallel $beta$ -sheets extend with their strands facing to each other and perpendicular to the fibril axis; 
 % such a conformation se encontro inicialmente ya que mostraban a characteristic X-ray diffraction pattern that is indicative of the component $\beta$-strands being oriented
 % perpendicularly to the fibril axis. 
@@ -880,61 +880,76 @@ Por lo tanto, la tendencia a la agregación para formar fibrillas amiloides pued
 % ***********************************************
 % DEPENDENCIA DE LA AGREGACION CON LA SECUENCIA
 % ***********************************************
-Even though the ability to form amyloid fibrils seems to be generic(is a general property of the polypeptide backbone), 
-the propensity to do so under given circumstances can vary markedly between different sequences(depends enormously on amino acid composition.).
+% Even though the ability to form amyloid fibrils seems to be generic(is a general property of the polypeptide backbone), 
+% the propensity to do so under given circumstances can vary markedly between different sequences(depends enormously on amino acid composition.).
 
-The question of how amino acid composition influences aggregation propensity is highly relevant to protein design, as well as
-to our understanding of protein evolution and the pathogenicity of certain amino acid substitutions.
-Ademas, funciona como base para el desarrollo de herramientas bioinformaticas que permitan detectar secuencias con tendencia a formacion de agregados
-
+La pregunta clave es cómo influye la secuencia(o composición) de aminoácidos sobre esta tendencia a la agregación.
+La respuesta a esto es importante, no solo para entender los estados de agregación y sus mecanismos de formación, sino también para otros aspectos como la producción biotecnológica de proteínas, o el diseño racional de cadenas polipeptídicas funcionales.
+Estos conocimientos sirven luego como base para el desarrollo de herramientas bioinformaticas que permitan detectar la tendencia a formación de agregados a partir de una secuencia.
+% The question of how amino acid composition influences aggregation propensity is highly relevant to protein design, as well as
+% to our understanding of protein evolution and the pathogenicity of certain amino acid substitutions.
 
 % DEPENDENCIA CON LA COMPOSICION
-Given the fact that hydrophobic
-interactions are a major driving force of protein self-assembly, it is
-expected that increased hydrophobic content in a peptide would
-lead to increased aggregation propensity, while a net charge on
-the peptide would impede aggregation. Also, with the evidence
-for common cross-b architecture among amyloid fibrils of diverse
-proteins (Nelson et al., 2005), a stretch of amino acids with
-enhanced propensity to adopt b-strand secondary structure
-would be expected to promote formation of fibrils. Such physico-
-chemical properties of amino acids are the basis of most of the algo-
-rithms that predict either the rate or propensity of aggregation of
-different regions of a protein .  %****ESTO SE CONTINUA EN LA SECCION HERRAMIENTAS 
+Como se describió en la sección anterior, cuando se desarrollaron las propiedades secuenciales de IDRs/IDPs, las interacciones hidrofóbicas son escenciales para la compactación de la estructura lineal de un polipéptido.
+% Given the fact that hydrophobic interactions are a major driving force of protein self-assembly, it is
+Se podría esperar, entonces, que un incremento en el contenido de residuos hidrofóbicos pueda aumentar la tendencia a la agregación de una secuencia, mientras que un incremento en la carga neta impida esta agregación. 
+% expected that increased hydrophobic content in a peptide would
+% lead to increased aggregation propensity, while a net charge on
+% the peptide would impede aggregation. 
+Además de estas propiedades fisicoquimicas, dadas las propiedades de estructura/arquitectura encontradas para las fibrillas amiloides con un alto contenido de hojas-$\beta$,
+las secuencias que tienen tendencia intrínseca a adoptar conformaciones de hoja-$\beta$ en su estructura secundaria probablemente tendrán cierta tendencia a la formación de fibrillas amiloides.  
+% Also, with the evidence
+% for common cross-b architecture among amyloid fibrils of diverse
+% proteins , a stretch of amino acids with
+% enhanced propensity to adopt b-strand secondary structure
+% would be expected to promote formation of fibrils. 
+% AGREGO ESTO??? 
+% Such physicochemical properties of amino acids are the basis of most of the algorithms that predict either the rate or propensity of aggregation of different regions of a protein .  %****ESTO SE CONTINUA EN LA SECCION HERRAMIENTAS 
+En \cite{chiti2003rationalization} se estudian todas estas propiedades secuenciales mediante mutaciones sistemáticas sobre polipéptidos, concluyendo 
+que la estructura primaria de un polipéptido cumple un papel muy importante en la tendencia a formar depósitos insolubles.
 
-La relacion entre estas propiedades(hidrofobicidad, carga neta, tendencia a formar $\beta$) se analiza en  \cite{chiti2003rationalization} utilizando mutaciones sistematicas sobre polipeptidos,
-encontrándose que ... the propensity of a  given  polypeptide  chain  to  aggregate  under  specific  conditions varies  dramatically  with  its  composition  and  sequence.
-These results show how the primary structure of proteins plays an extremely relevant role in determining the tendency of polypeptides to form insoluble deposits;
-this would arise from the impact over such propensity of inherent physical-chemical properties of amino acids such as hydrophobicity, the
-structural suitability to adopt $\beta$-conformation or its mean charge
+% La relacion entre estas propiedades(hidrofobicidad, carga neta, tendencia a formar $\beta$) se analiza en  \cite{chiti2003rationalization} utilizando mutaciones sistematicas sobre polipeptidos,
+% encontrándose que ... the propensity of a  given  polypeptide  chain  to  aggregate  under  specific  conditions varies  dramatically  with  its  composition  and  sequence.
+% These results show how the primary structure of proteins plays an extremely relevant role in determining the tendency of polypeptides to form insoluble deposits;
+% this would arise from the impact over such propensity of inherent physical-chemical properties of amino acids such as hydrophobicity, the
+% structural suitability to adopt $\beta$-conformation or its mean charge
 
-The aforementioned factors may be regarded as intrinsic determinants arising
-from individual properties of amino acids. Nonetheless, the linear combination
-of their properties along the primary structure has a cooperative impact over the
-aggregation propensity. 
+
+% DEPENDENCIA CON SEGMENTOS DE SECUENCIA
+
+
+Los elementos hasta aqui mencionados proveen propiedades especificas de los aminoacidos que favorecen o no la agregación de proteinas
+Estos representan determinantes intrínsecos ya que provienen de propiedades individuales de los aminoacidos que componen todas las proteínas.
+% The intrinsic determinants described before inform us about specific properties of the amino acid side chain either favoring or disfavoring protein aggregation.
+% The aforementioned factors may be regarded as intrinsic determinants arising from individual properties of amino acids. 
 % It has been observed that the consecutive occurrence of three
 % or more hydrophobic residues is clearly disfavored in nature [29]. In a similar way,
 % the combinatorial design of amyloidogenic proteins has shown how polypeptidic
 % patterns alternating apolar and polar aminoacids favor amyloid formation [30].
+Sin embargo, la combinación lineal de estas propiedades a lo largo de la estructura primaria puede tener un impacto mayor sobre la tendencia a la argegación.
+% Nonetheless, the linear combination of their properties along the primary structure has a cooperative impact over the aggregation propensity. 
+% The linear combination of such properties within the primary structure plays a major role in protein aggregation.
+Es decir, no todas las secuencias de polipéptidos con la misma composición tienen la misma tendencia a la agregación.
+% However, it has been observed that not all the polypeptide sequence has the same importance in defining its propensity to aggregate. 
+En \cite{ventura2004short} se demuestran la existencia de ciertos tramos cortos en la secuencia que promueven la agregación en estructuras amiloides.
+% There exist small amino acid stretches within protein sequences, which promote and guide protein aggregation into amyloid-like structures
+Estos tramos cortos, llamados generamente regiones propensas a la agregacion (o APRs) y se distinguen por tener composiciónes características de residuos.
 
+% ESTO LO PONGO????
+% These short fragments, generally referred to as aggregation-prone regions (APRs) or “hot-spots”, are characterized by an enrichment in hydrophobic, both aliphatic (Val, Leu,
+% Ile) and aromatic (Phe, Trp, Tyr), residues.
+% The analysis of the structural models for some amyloids also allow to rationalize the reason why APRs direct the formation of amyloid-like structures, since the cross-$\beta$ arrangement in the core of
+% amyloid fibrils does only strictly require the minimum participation of a single $\beta$-strand per molecule, and the rest of the polypeptide may remain exposed to the
+% solvent even when “attached” along the fibril.
 
+% ESTO DE LAS REGIONES PEQUEÑAS LO TENGO QUE PONER PORQUE ES LA BASE DE ALGUNOS METODOS QUE DESPUES USAMOS
+Además del analisis secuencial, existen otras evidencias a favor de la hipótesis que algunas regiones pequeñas de las proteínas son responsables principales de la formación de fibrillas amiloides. 
+Por ejemplo, la mayoria de las IDRs/IDPs no experimentan agregación \textit{in-vivo}\cite{linding2004comparative}, lo que indica que, si bien la conformación no-plegada es necesaria, no es condición suficiente para promover el proceso de agregación.
+Por lo tanto, deberían existir patrones secuenciales distinguibles que, una vez expuestos(salen del nucleo hidrofóbico de la estructura plegada), son mas propensos a la agregación que otros  
+% most of the natively unfolded proteins in vivo do not undergo aggregation (13), indicating that unfolding is necessary, but not sufficient, to promote aggregation. 
+% Hence, there must be some sequence motifs that, once they become exposed, are more prone to aggregation than others. 
+% In fact, experimental evidence is compelling in favor of the hypothesis that small regions of a protein are responsible for its amyloidogenic behavior
 
-
-% DEPENDENCIA CON SEGMENTOS DE SECUENCIA
-The intrinsic determinants described before inform us about specific properties of the amino acid side chain either favoring or disfavoring protein aggregation.
-The linear combination of such properties within the primary structure plays a major role in protein aggregation.
-However, it has been observed that not all the polypeptide sequence has the same importance in defining its propensity to aggregate. 
-En \cite{ventura2004short} se demuestra que ....
-There exist small amino acid stretches within protein sequences, which promote and guide protein aggregation into amyloid-like structures
-These short fragments, generally referred to as aggregation-prone regions (APRs) or “hot-spots”, are characterized by an enrichment in hydrophobic, both aliphatic (Val, Leu,
-Ile) and aromatic (Phe, Trp, Tyr), residues.
-The analysis of the structural models for some amyloids also allow to rationalize the reason why APRs direct the formation of amyloid-like structures, since the cross-$\beta$ arrangement in the core of
-amyloid fibrils does only strictly require the minimum participation of a single $\beta$-strand per molecule, and the rest of the polypeptide may remain exposed to the
-solvent even when “attached” along the fibril.
-
- most of the natively unfolded proteins in vivo do not undergo aggregation (13), indicating that unfolding is necessary, but not sufficient, to promote aggregation. 
-Hence, there must be some sequence motifs that, once they become exposed, are more prone to aggregation than others. 
-In fact, experimental evidence is compelling in favor of the hypothesis that small regions of a protein are responsible for its amyloidogenic behavior
 
 % Although all proteins can form amyloid fibrils under the appropriate conditions, the list of currently known trouble 
 % makers  (i.e.,  proteins  aggregation  of  which  is  directly  responsible  for  the  development  of  various  pathologies)  is  rather  short, including 30-40 proteins and protein fragments.
@@ -943,21 +958,14 @@ In fact, experimental evidence is compelling in favor of the hypothesis that sma
 % is driven by specific  protein  regions  that  contains  specific  structural  or  sequence  motifs,  so-called aggregation-prone  regions,  APRs, which contribute significantly toward the overall aggregation propensity of the protein
 % 
 
+El hecho que, en la naturaleza, las IDRs/IDPs no son necesariamente propensas a la agregación implica, entonces, que sus secuencias han evolucionado para mantener el nivel de solubilidad necesaria que es requerido para su 
+realizar correctamente las funciones asociadas. Por ejemplo, a través de extensas regiones de AAs con grupos polares y altamente cargados que desestabilizan las asociaciones intermoleculares.
+Este y otros aspectos energéticos relevantes(que se verán a continuación) resisten la formación de agregados no-funcionales en los sitemas biológicos.  
+% AdemHay que destacar, sin embargo, que existen barreras cinéticas que ayudan a los sistemas biológicos a mantener tanto las IDRs/IDPs como las proteínas plegadas en solución, evitando la formación de agregados no-funcionales.
 
-
-% FACTORES EXTERNOS QUE AFECTAN LA AGREGACION
-Además de las propiedades que se analizaron sobre la secuencia primaria, es importante destacar factores externos a la secuencia que pueden afectar la formación de agregados.
-The most relevant extrinsic determinants are the pH and
-the ionic strength of the solution, together with the temperature of the system [34].
-These variables may affect both the kinetics and thermodynamics of aggregation
-into amyloid-like structures, and can, subsequently, influence the assembly and
-the macroscopic structure of the aggregated species, thus being important deter-
-minants of the polymorphism the aggregates of a given protein sequence may
-present.
-
-
-
-
+% Intrinsically disordered proteins are not necessarily prone to aggregation, as their sequences have usually evolved to maintain the level of solubility that is required for their optimal function; 
+% for example, through the existence of extensive regions that are highly abundant in charged and polar groups that disfavour intermolecular association from a thermodynamic point of view. 
+% Moreover, as is discussed below, kinetic barriers to aggregation are crucial in enabling both globular and disordered proteins to maintain their soluble and functional states.
 
 
 
@@ -993,12 +1001,12 @@ present.
 
 % Las fibras amiloides se consideran que estan asociadas to more than 40 human pathologies, esto generó un gran interés en estudiar sus propiedades, 
 % las formas detectar secuencias con tendencia a formarse y las formas de prevenir su formación in vivo.
-Despite active research, a detailed understanding of the molecular principles underlying the transformation of soluble proteins into amyloid aggregates is still lacking
 
-Since all fibrils independent of the original structure of the given amyloidogenic protein have a common cross-b structure, considerable conformational rearrangements have to occur prior to fibrillation. 
-Such changes cannot happen in a native protein, due to its stable and rigid tertiary structure. Thus, protein destabilization favoring partial unfolding and culminating in the formation of a partially unfolded conformation is required. 
-Presumably, such a partially unfolded conformation favors reciprocal and specific intermolecular interactions, including electrostatic attraction, hydrogen bonding and hydrophobic contacts, which are necessary for oligomerization and fibrillation
-Obviously, this model does take into account a class of natively unfolded proteins, as they are devoid of rigid tertiary structure in their native state.
+
+% Since all fibrils independent of the original structure of the given amyloidogenic protein have a common cross-b structure, considerable conformational rearrangements have to occur prior to fibrillation. 
+% Such changes cannot happen in a native protein, due to its stable and rigid tertiary structure. Thus, protein destabilization favoring partial unfolding and culminating in the formation of a partially unfolded conformation is required. 
+% Presumably, such a partially unfolded conformation favors reciprocal and specific intermolecular interactions, including electrostatic attraction, hydrogen bonding and hydrophobic contacts, which are necessary for oligomerization and fibrillation
+% Obviously, this model does take into account a class of natively unfolded proteins, as they are devoid of rigid tertiary structure in their native state.
 
 % Data have been reported indicating that the first critical step in protein fibrillogenesis is the partial unfolding of the protein. 
 % Due to structural fluctuations (conformational breathing) the structure of a globular protein under physiological conditions represents a mixture of tightly folded and multiple partially unfolded conformations, 
@@ -1020,37 +1028,27 @@ Obviously, this model does take into account a class of natively unfolded protei
 % If the stability or cooperativity of the native state of a protein is reduced, for example by a mutation, the population of non-native states will increase.
 % This rise will increase the probability of aggregation, as the concentration of polypeptide chains with at least partial exposure to the external environment will be greater. 
 
-Whether or not aggregation does occur will depend on the concentration of protein molecules, the intrinsic propensity for a given sequence to aggregate when unfolded, and on the rate of the aggregation process. 
-The fact that formation of ordered amyloid fibrils can be seeded, like the well-studied processes of crystallization
-and gelation, means that once the aggregation process is initiated it often proceeds very much more rapidly.
-In the absence of seeding there can be long 'lag' phases before aggregation occurs . 
-This lag can be thought of as arising because the growth of a fibril cannot occur until a 'nucleus' of a small number
-of aggregated molecules is formed. 
 
-Such a nucleus can be formed by the local fluctuations in concentration that occur in solution as a result of random molecular motion. When such fluctuations result in a local concentration of
-molecules above a critical value, the molecules associate with one other to form a species that is suficiently large to have intrinsic stability, and hence to grow in size by interacting with other molecules in the solution. The act
-of seeding provides such nuclei to the solution and hence reduces or abolishes the lag phase
+% La ocurrencia o no de la formación de agregados dependerá, entonces, de la tendencia intrínseca que posee la secuencia, de la concentración de proteínas y del proceso de agregación.
+% Sin embargo, a pesar de la diversidad de estudios al respecto, no se tiene aún conocimiento del mecanismo molecular subyacente a la transformación de proteínas solubles en agregados amiloides.
+% % Despite active research, a detailed understanding of the molecular principles underlying the transformation of soluble proteins into amyloid aggregates is still lacking
+% % Whether or not aggregation does occur will depend on the concentration of protein molecules, the intrinsic propensity for a given sequence to aggregate when unfolded, and on the rate of the aggregation process. 
+% Se ha encontrado que la formacion de fibrillas amiloides puede ser generado utilizando un nucleo estructural como en los procesos de cristalización.
+% % The fact that formation of ordered amyloid fibrils can be seeded, like the well-studied processes of crystallization and gelation,
+% Esto parece indicar que, una vez iniciado el proceso de agregación, este avanza muy rapidamente en la acumulación y expansión.
+% % means that once the aggregation process is initiated it often proceeds very much more rapidly.
 
-The proposal that amyloid fibrils are a generic structure of polypeptide chains (lo que los hace genericos, que se desarrollo antes) coincide con este modelo de formación.
+% In the absence of seeding there can be long 'lag' phases before aggregation occurs . 
+% This lag can be thought of as arising because the growth of a fibril cannot occur until a 'nucleus' of a small number of aggregated molecules is formed. 
+% Such a nucleus can be formed by the local fluctuations in concentration that occur in solution as a result of random molecular motion. 
+% When such fluctuations result in a local concentration of molecules above a critical value, the molecules associate with one other to form a species that is suficiently 
+% large to have intrinsic stability, and hence to grow in size by interacting with other molecules in the solution. The act
+% of seeding provides such nuclei to the solution and hence reduces or abolishes the lag phase
+% 
+% The proposal that amyloid fibrils are a generic structure of polypeptide chains (lo que los hace genericos, que se desarrollo antes) coincide con este modelo de formación.
 
 
 
-
-% ACA EXPLICO POR QUE LAS IDPs NO TIENEN TANTA TENDENCIA A FORMAR AGREGADOS
-In contrast to the globular proteins, which have to unfold prior to aggregation, IDPs are always ready for intermolecular interactions. 
-An unbound fragment of an IDP possesses a strong ability to interact, and therefore can bind either to natural partners forming native complexes or to similar molecules forming various aggregates. 
-This raises the question of why IDPs do not always form aggregates in the norm. One of the potential answers is the fact that inside the cell, the IDPs typically form complexes with natural partners.
-Los mecanismos de proteccion (chaperonas, proteasoma, etc) tienen una gran capacidad para mantener la solubilidad de proteinas.
-Además, based on the analysis of the IDP amino acid composition, it would be clearly a mistake to assume that an averaged IDP possesses higher propensity towards aggregation than an averaged ordered
-protein. In fact, many IDPs contain large number of charged and polar residues. In addition to the hydrophobic interactions, the net charge is one of the major factors determining aggregation behavior of a protein.
-
-En \cite{linding2004comparative} se hace un estudio interesante de comparación entre un set de proteinas que adoptan estructuras globulares y otro que experimentalmente se sabe que son IDPs.
-Se hace el analisis usando TANGO
-
-Intrinsically disordered proteins are not necessarily prone to aggregation, as their sequences have usually evolved to maintain the level
-of solubility that is required for their optimal function; for example, through the existence of extensive regions that are highly abundant in charged and polar groups
-that disfavour intermolecular association from a thermodynamic point of view. 
-Moreover, as is discussed below, kinetic barriers to aggregation are crucial in enabling both globular and disordered proteins to maintain their soluble and functional states.
 
 
 
@@ -1123,11 +1121,21 @@ Mediante un mecanismo similar, la interacción entre proteínas lleva a la forma
 En este caso, las interacciones (que como vimos, ocurre entre estados no plegados) llevan a la formación de estados muy estables, reflejados en un profundo mínimo sobre el perfil de energía correspondiente. 
 % Here, interactions of the disordered parts of IDPs or interactions of the denatured proteins result in the appearance of profound free energy minima. 
 
-En la figura se ven 
 
-\begin{figure}[htbp]
+% FACTORES EXTERNOS QUE AFECTAN LA AGREGACION
+Además de las propiedades que se analizaron sobre la secuencia primaria, es importante destacar factores externos a la secuencia que pueden afectar la formación de agregados.
+The most relevant extrinsic determinants are the pH and the ionic strength of the solution, together with the temperature of the system [34].
+These variables may affect both the kinetics and thermodynamics of aggregation
+into amyloid-like structures, and can, subsequently, influence the assembly and
+the macroscopic structure of the aggregated species, thus being important deter-
+minants of the polymorphism the aggregates of a given protein sequence may
+present.
+
+
+
+\begin{figure}[ht!]
 \centering
-\begin{subfigure}[b]{\linewidth}
+\begin{subfigure}[ht]{\linewidth}
 \includegraphics[width=0.7\textwidth]{img/globularEnLandscape.png} 
 \centering
 % \includegraphics[width=0.7\textwidth]{img/globularEnLandscape.png} 
@@ -1135,7 +1143,7 @@ En la figura se ven
 \label{globularFullEnLandscape}
 \end{subfigure}
 
-\begin{subfigure}[htbp]{\linewidth}
+\begin{subfigure}[ht]{\linewidth}
 \centering
 \includegraphics[width=0.7\textwidth]{img/idpEnLandscape.png} 
 \caption{Perfil energetico de los estados de un polipeptido con estructura nativa desordenada. Figura extraida de \cite{turoverov2010protein}}
@@ -1153,7 +1161,7 @@ En la figura se ven
 % molecules in an ensemble are globally unfolded, even
 % though native proteins are only marginally stable relative
 % to denatured ones under normal physiological conditions
-Como se ve en la fig.\ref{fullEnLandscape}\textbf{(a)}, en condiciones normales, donde los proteínas se mantienen en sus estados plegados, \
+Como se ve en la fig.\ref{fullEnLandscape}\textbf{(a)}, en condiciones normales, donde los proteínas se mantienen en sus estados plegados, 
 la estabilidad de estos estados los mantiene separados mediante barreras cinéticas relativamente altas de la formación de agregados(que se muestran considerablemente mas estables).
 % Provided that the native state is maintained under conditions where it remains folded, aggregation to amyloid fibrils will be resisted by
 % the kinetic barrier associated with unfolding, even if the aggregated state is thermodynamically more stable.
@@ -1391,33 +1399,41 @@ Este es el tema central que se desarrolla en la próxima sección.
 
 \subsubsection{Mecanismos naturales de proteostasis}
 
-
-
 %  En \cite{balch2008adapting} se hace un desarrollo bastante completoo de los mecanismos de homeostasis
-The  obvious  consequences  of  misfolding  are protein  aggregation  (and/or  fibril  formation),  loss  of  function,  and  gain  of  toxic  function.  
-In  order  for  any  biological  system  to  function  effectively,  it  is essential to avoid the inherent tendency of proteins to aggregate and form potentially harmful deposits.
-It  is  clear (a partir de lo que se dijo en la seccion anterior)  that  the aggregation  process  is  generally   initiated  from  partially  or completely  unfolded  forms  of  the  peptides  and  proteins. 
 
-
-Como se vió en las secciones previas, el espacio de conformaciones accesibles por las proteinas dependia de las estabilidades termodinamicas de los estados y la cinetica de interconversión entre estos. 
-Estas propiedades, a su vez, dependen del contexto celular en el que se encuentran(ademas de la secuencia de la proteina en si misma), concentraciones de proteinas, localizacion, interacciones, etc.
 The healthy state of a cell is characterized by a detailed balance between the different states that proteins can populate. 
 Perturbations to such balance, unless they are kept under strict control, can lead to deleterious events and disease.
+% CUALES SON LOS ESTADOS QUE HAY QUE EVITAR Y POR QUE?? 
+The  obvious  consequences  of  misfolding  are protein  aggregation  (and/or  fibril  formation),  loss  of  function,  and  gain  of  toxic  function.  
+In  order  for  any  biological  system  to  function  effectively,  it  is essential to avoid the inherent tendency of proteins to aggregate and form potentially harmful deposits.
+
+
 El balance correcto entre todas estas condiciones está regulado a traves del proceso de proteostasis.
 Proteostasis refers to controlling the concentration, conformation, binding interactions (quaternary structure), and location of individual proteins making up the proteome by readapting the innate biology of the cell, 
 often through transcriptional and translational changes.
 % The protein components of eukaryotic cells face acute and chronic challenges to their integrity. Eukaryotic protein homeostasis, or proteostasis, enables healthy cell and organismal development and aging and protects against disease
 % Los mecanismos dentro del proceso de proteostasis permiten successful organismal development and aging in the face of constant intrinsic and environmental challenges %previniendo el desarrollo de enfernedades.
-La proteostasis es influenciada por todos los mecanismos que controlan los aspectis vistos en las secciones previas..... 
+
+Como se vió en las secciones previas, el espacio de conformaciones accesibles por las proteinas dependia de las estabilidades termodinamicas de los estados y la cinetica de interconversión entre estos. 
+% Estas propiedades, a su vez, dependen del contexto celular en el que se encuentran(ademas de la secuencia de la proteina en si misma), concentraciones de proteinas, localizacion, interacciones, etc.
+
+Por lo tanto, la proteostasis es influenciada por todos los mecanismos que controlan estos aspectos.
+% los aspectis vistos en las secciones previas..... 
+En general, estos dependen de la 
 by the chemistry of protein folding/misfolding and by numerous regulated networks of interacting and competing biological pathways 
 that influence protein synthesis, folding, trafficking, disaggregation, and degradation.
 
-La celula posee distintos mecanismos para regular estos procesos .....chaperonas para regular el proceso de folding/misfonding (y tambien de aggregation), 
+La celula posee distintos mecanismos para regular estos procesos .....
+Por ejemplo, 
+It  is  clear (a partir de lo que se dijo en la seccion anterior)  that  the aggregation  process  is  generally   initiated  from  partially  or completely  unfolded  forms  of  the  peptides  and  proteins. 
+chaperonas para regular el proceso de folding/misfonding (y tambien de aggregation), 
 Nature developed very sophisticated protection mechanisms (chaperones, proteasome, etc.) for the effective regulation of the folding process, y por lo tanto prevenir las peligrosas consecuencias de misfolding. 
 In other words, in the cell, any given protein is not acting in the isolation, is never alone and is constantly "watched" by the protective machinery. This machinery is rather robust and can
 tolerate significant loads. Obviously, factors that affect these protective mechanisms will contribute to the probability of disease development
 
-% MECANISMOS CELULARES
+
+
+% MECANISMOS CELULARES DE PREVENSION
 En \cite{gsponer2012cellular} se desarrollan una gran cantidad de mecanismos celulares que ayudan a prevenir la agregacion de proteinas. 
 Se demuestra que aggregation-prone proteins are subject to differential transcriptional, translational, and degradation control compared to nonaggregation-prone proteins, which leads to their decreased
 synthesis, low abundance, and high turnover. 
@@ -1460,6 +1476,21 @@ Esta segregación resulta en un tratamiento distinto por parte de los mecanismos
 A reduced affinity of amyloids for the protein quality control system is probably also at the root of their higher toxicity 11 as artificial overexpression of chaperones
 usually leads to decreased toxicity and removal of amyloids from he cell.
 
+
+
+
+
+% ACA EXPLICO POR QUE LAS IDPs NO TIENEN TANTA TENDENCIA A FORMAR AGREGADOS
+% YA PUSE ALGO DE ESTO EN LA SECCION ANTERIOR, NO SE SI ES NECESARIO AGREGAR MAS
+% In contrast to the globular proteins, which have to unfold prior to aggregation, IDPs are always ready for intermolecular interactions. 
+% An unbound fragment of an IDP possesses a strong ability to interact, and therefore can bind either to natural partners forming native complexes or to similar molecules forming various aggregates. 
+% This raises the question of why IDPs do not always form aggregates in the norm. One of the potential answers is the fact that inside the cell, the IDPs typically form complexes with natural partners.
+% Los mecanismos de proteccion (chaperonas, proteasoma, etc) tienen una gran capacidad para mantener la solubilidad de proteinas.
+% Además, based on the analysis of the IDP amino acid composition, it would be clearly a mistake to assume that an averaged IDP possesses higher propensity towards aggregation than an averaged ordered
+% protein. In fact, many IDPs contain large number of charged and polar residues. In addition to the hydrophobic interactions, the net charge is one of the major factors determining aggregation behavior of a protein.
+% 
+% En \cite{linding2004comparative} se hace un estudio interesante de comparación entre un set de proteinas que adoptan estructuras globulares y otro que experimentalmente se sabe que son IDPs.
+% % Se hace el analisis usando TANGO
 
 
 
