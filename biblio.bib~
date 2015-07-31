@@ -398,6 +398,18 @@ por el apropiado "y".
   publisher={Nature Publishing Group}
 }
 
+****ESTRUCTURA AMYLOID
+@article{nelson2005structure,
+  title={Structure of the cross-$\beta$ spine of amyloid-like fibrils},
+  author={Nelson, Rebecca and Sawaya, Michael R and Balbirnie, Melinda and Madsen, Anders {\O} and Riekel, Christian and Grothe, Robert and Eisenberg, David},
+  journal={Nature},
+  volume={435},
+  number={7043},
+  pages={773--778},
+  year={2005},
+  publisher={Nature Publishing Group}
+}
+
 
 @article{fowler2007functional,
   title={Functional amyloid--from bacteria to humans},

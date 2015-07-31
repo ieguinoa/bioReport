@@ -149,8 +149,8 @@ se muestran en la última sección como modulos individuales que proveen a la ev
 
 % ACA EMPIEZO A HABLAR DE FLUCTUACIONES EN LA CONFORMACION, Y QUE NO SON TOTALMENTE ESTÁTICAS
 
-El paradigma clásico de la biología estructural afirma que la secuencia primaria de una proteína contiene la codificación para que esta adopte una 
-Si bien esta idea es una simplificación, dado que aún las proteínas mas estables son sistemas dinámicos que poseen distintos grados de flexiblidad, este modelo se adapta a una gran cantidad de proteínas.
+El paradigma clásico de la biología estructural afirma que la secuencia primaria de una proteína contiene la codificación para que esta adopte una estructura ordenada definida.
+Si bien esta idea es una simplificación, dado que aún las proteínas mas estables son sistemas dinámicos con distintos grados de flexiblidad, este modelo se adapta a una gran cantidad de proteínas.
 En éstas, el ensamble conformado por los estados accesibles en condiciones fisiológicas está conformado por un conjunto de estructuras que solo difieren en leves desviaciones del promedio del ensamble.
 La dinámica de estas estructuras está dada por movimientos que varían entre fluctuaciones rápidas de pequeña amplitud(del orden de \AA) hasta cambios relativamente lentos($\mu$s - $s$) que involucran cambios estructurales relevantes(plegamiento y movimientos asociados a la función)
 Todos los movimientos son resultantes de rupturas y formaciones de interacciones provocadas por fuerzas de interacción las cuales, debido a su naturaleza débil pueden romperse por efecto de la energía térmica, aún a temperatura ambiente.
@@ -186,7 +186,7 @@ La búsqueda de respuestas a estos nuevos problemas llevo a descubir toda un are
 % La idea de que las proteínas puedan adoptar estructuras 'desordenadas' era inaceptable inicialmente, 
 % principalmente por la gran cantidad de evidencia sobre los requerimientos de 
 Inicialmente, gran cantidad de evidencia soportaba la idea que la funcionalidad de las proteínas estaba asociada a su estructura tridimensional bien definida pero dinámica.
-Consecuentemente, la idea de que muchas proteínas o regiones no adopten una estructura definida y posean una conformación intrínsecamente desordenada se creyo inaceptable. 
+Consecuentemente, la idea de que muchas proteínas o regiones no adopten una estructura definida y posean una conformación intrínsecamente desordenada se creyó inaceptable. 
 % Consequently, the notion that many proteins or regions of proteins could be not ordered, but were intrinsically disordered, was unacceptable for a long time.
 Por lo tanto, durante un largo tiempo fueron identificandose y estudiándose experimentalmente una a una, tratándolas como excepciones al modelo clásico.
 % These proteins were independently discovered one-by-one over a long period of time and therefore they were considered as rare exceptions to the general rule.
@@ -1401,31 +1401,43 @@ Este es el tema central que se desarrolla en la próxima sección.
 
 %  En \cite{balch2008adapting} se hace un desarrollo bastante completoo de los mecanismos de homeostasis
 
+El estado `normal'{} de la célula se caracteriza por un fino balance entre la gran variedad de diferentes estados que las proteinas puede poblar y que hemos desarrollado a lo largo de las secciones previas.
+% The healthy state of a cell is characterized by a detailed balance between the different states that proteins can populate. 
+A menos que se mantengan bajo control, las perturbaciones a este estado pueden llevar a efectos perjudiciales para la célula o el sistema. 
+% Perturbations to such balance, unless they are kept under strict control, can lead to deleterious events and disease.
 
-The  obvious  consequences  of  misfolding  are protein  aggregation  (and/or  fibril  formation),  loss  of  function,  and  gain  of  toxic  function.  
-In  order  for  any  biological  system  to  function  effectively,  it  is essential to avoid the inherent tendency of proteins to aggregate and form potentially harmful deposits.
-It  is  clear (a partir de lo que se dijo en la seccion anterior)  that  the aggregation  process  is  generally   initiated  from  partially  or completely  unfolded  forms  of  the  peptides  and  proteins. 
+% CUALES SON LOS ESTADOS QUE HAY QUE EVITAR Y POR QUE?? 
+% El plegamiento correcto de las proteínas para alcanzar su estado nativo es una gran parte de este balance y distintas perturbaciones pueden provocar el aumento de poblaciones en estados intermedios o \textit{misfolded}.
+Las consecuencias obvias de aumentar la población de estos estados es la formación de agregados proteicos, perdida de funcionalidades en las proteínas y aumento de funciones/componentes tóxicos o perjudiciales.
+% In  order  for  any  biological  system  to  function  effectively,  it  is essential to avoid the inherent tendency of proteins to aggregate and form potentially harmful deposits.
 
-
-Como se vió en las secciones previas, el espacio de conformaciones accesibles por las proteinas dependia de las estabilidades termodinamicas de los estados y la cinetica de interconversión entre estos. 
-Estas propiedades, a su vez, dependen del contexto celular en el que se encuentran(ademas de la secuencia de la proteina en si misma), concentraciones de proteinas, localizacion, interacciones, etc.
-The healthy state of a cell is characterized by a detailed balance between the different states that proteins can populate. 
-Perturbations to such balance, unless they are kept under strict control, can lead to deleterious events and disease.
 El balance correcto entre todas estas condiciones está regulado a traves del proceso de proteostasis.
+
 Proteostasis refers to controlling the concentration, conformation, binding interactions (quaternary structure), and location of individual proteins making up the proteome by readapting the innate biology of the cell, 
 often through transcriptional and translational changes.
 % The protein components of eukaryotic cells face acute and chronic challenges to their integrity. Eukaryotic protein homeostasis, or proteostasis, enables healthy cell and organismal development and aging and protects against disease
 % Los mecanismos dentro del proceso de proteostasis permiten successful organismal development and aging in the face of constant intrinsic and environmental challenges %previniendo el desarrollo de enfernedades.
-La proteostasis es influenciada por todos los mecanismos que controlan los aspectis vistos en las secciones previas..... 
+
+Como se vió en las secciones previas, el espacio de conformaciones accesibles por las proteinas dependia de las estabilidades termodinamicas de los estados y la cinetica de interconversión entre estos. 
+% Estas propiedades, a su vez, dependen del contexto celular en el que se encuentran(ademas de la secuencia de la proteina en si misma), concentraciones de proteinas, localizacion, interacciones, etc.
+
+Por lo tanto, la proteostasis es influenciada por todos los mecanismos que controlan estos aspectos.
+% los aspectis vistos en las secciones previas..... 
+En general, estos dependen de la 
 by the chemistry of protein folding/misfolding and by numerous regulated networks of interacting and competing biological pathways 
 that influence protein synthesis, folding, trafficking, disaggregation, and degradation.
 
-La celula posee distintos mecanismos para regular estos procesos .....chaperonas para regular el proceso de folding/misfonding (y tambien de aggregation), 
+La celula posee distintos mecanismos para regular estos procesos .....
+Por ejemplo, 
+It  is  clear (a partir de lo que se dijo en la seccion anterior)  that  the aggregation  process  is  generally   initiated  from  partially  or completely  unfolded  forms  of  the  peptides  and  proteins. 
+chaperonas para regular el proceso de folding/misfonding (y tambien de aggregation), 
 Nature developed very sophisticated protection mechanisms (chaperones, proteasome, etc.) for the effective regulation of the folding process, y por lo tanto prevenir las peligrosas consecuencias de misfolding. 
 In other words, in the cell, any given protein is not acting in the isolation, is never alone and is constantly "watched" by the protective machinery. This machinery is rather robust and can
 tolerate significant loads. Obviously, factors that affect these protective mechanisms will contribute to the probability of disease development
 
-% MECANISMOS CELULARES
+
+
+% MECANISMOS CELULARES DE PREVENSION
 En \cite{gsponer2012cellular} se desarrollan una gran cantidad de mecanismos celulares que ayudan a prevenir la agregacion de proteinas. 
 Se demuestra que aggregation-prone proteins are subject to differential transcriptional, translational, and degradation control compared to nonaggregation-prone proteins, which leads to their decreased
 synthesis, low abundance, and high turnover. 
@@ -1472,17 +1484,17 @@ usually leads to decreased toxicity and removal of amyloids from he cell.
 
 
 
-
 % ACA EXPLICO POR QUE LAS IDPs NO TIENEN TANTA TENDENCIA A FORMAR AGREGADOS
-In contrast to the globular proteins, which have to unfold prior to aggregation, IDPs are always ready for intermolecular interactions. 
-An unbound fragment of an IDP possesses a strong ability to interact, and therefore can bind either to natural partners forming native complexes or to similar molecules forming various aggregates. 
-This raises the question of why IDPs do not always form aggregates in the norm. One of the potential answers is the fact that inside the cell, the IDPs typically form complexes with natural partners.
-Los mecanismos de proteccion (chaperonas, proteasoma, etc) tienen una gran capacidad para mantener la solubilidad de proteinas.
-Además, based on the analysis of the IDP amino acid composition, it would be clearly a mistake to assume that an averaged IDP possesses higher propensity towards aggregation than an averaged ordered
-protein. In fact, many IDPs contain large number of charged and polar residues. In addition to the hydrophobic interactions, the net charge is one of the major factors determining aggregation behavior of a protein.
-
-En \cite{linding2004comparative} se hace un estudio interesante de comparación entre un set de proteinas que adoptan estructuras globulares y otro que experimentalmente se sabe que son IDPs.
-% Se hace el analisis usando TANGO
+% YA PUSE ALGO DE ESTO EN LA SECCION ANTERIOR, NO SE SI ES NECESARIO AGREGAR MAS
+% In contrast to the globular proteins, which have to unfold prior to aggregation, IDPs are always ready for intermolecular interactions. 
+% An unbound fragment of an IDP possesses a strong ability to interact, and therefore can bind either to natural partners forming native complexes or to similar molecules forming various aggregates. 
+% This raises the question of why IDPs do not always form aggregates in the norm. One of the potential answers is the fact that inside the cell, the IDPs typically form complexes with natural partners.
+% Los mecanismos de proteccion (chaperonas, proteasoma, etc) tienen una gran capacidad para mantener la solubilidad de proteinas.
+% Además, based on the analysis of the IDP amino acid composition, it would be clearly a mistake to assume that an averaged IDP possesses higher propensity towards aggregation than an averaged ordered
+% protein. In fact, many IDPs contain large number of charged and polar residues. In addition to the hydrophobic interactions, the net charge is one of the major factors determining aggregation behavior of a protein.
+% 
+% En \cite{linding2004comparative} se hace un estudio interesante de comparación entre un set de proteinas que adoptan estructuras globulares y otro que experimentalmente se sabe que son IDPs.
+% % Se hace el analisis usando TANGO
 
 
 
@@ -1585,62 +1597,73 @@ En \cite{linding2004comparative} se hace un estudio interesante de comparación 
 
 
 % PARADIGMA ESTRUCTURA-FUNCION TRADICIONAL 
-The structure-function paradigm claims that a specific function of a protein is determined by its unique and rigid three-dimensional (3D) structure. 
-Thus, following its biosynthesis on the ribosome, a protein must fold to a native, defined 3D structure to be functional. 
-One of the bestunderstood functions of proteins is catalysis (i.e., enzymatic activity), which attracted much attention in the early days of
-protein science and led to the elaboration of the “lock and key” model by Fisher. 
+El paradigma estructura-funcion original afirmaba que la función específica de una proteína está determinada por su estructura tridimensional, la cual es única y rígida. 
+% The structure-function paradigm claims that a specific function of a protein is determined by its unique and rigid three-dimensional (3D) structure. 
+% Thus, following its biosynthesis on the ribosome, a protein must fold to a native, defined 3D structure to be functional. 
+
+% One of the bestunderstood functions of proteins is catalysis (i.e., enzymatic activity), which attracted much attention in the early days of protein science and led to the elaboration of the “lock and key” model by Fisher. 
 % En este caso(enzimas) la proteina provee un scaffold para el sitio activo, 
-Central to this model is the notion that the correct shape of the substrate can fit into the active site of the enzyme for enabling an efficient and specific catalysis,
-The primary origin of this structure-function paradigm is the “lock and key” hypothesis formulated in 1894 by Emil Fischer to explain the astonishing specificity of the enzymatic hydrolysis of glucoside multimers by different types
-of similar enzymes. For a long period of time, the validity of “lock and key” model and its associated sequence-structure-function paradigm was unquestioned, especially after the crystal structures of proteins started to be solved by X-ray diffraction
-Este paradigma se deriva de los primeros avances en el estudio de estructuras de proteinas. Over the past century evidence steadily accumulated that a well-defined structure is the prerequisite of protein function.
-Basic biology and biochemistry textbooks that explain biological phenomena at the molecular level exquisitely rely on this notion, the ‘structure–function paradigm’.
-The explanatory power of these 3-D structures continued to reinforce the static view of protein
+% Central to this model is the notion that the correct shape of the substrate can fit into the active site of the enzyme for enabling an efficient and specific catalysis,
+El origen de este paradigma es el modelo de llave-cerradura propuesto por Emil Fisher el 1894. El modelo nace de la necesidad por explicar la especificidad encontrada en el funcionamiento de diversas enzimas similares. 
+% The primary origin of this structure-function paradigm is the “lock and key” hypothesis formulated in 1894 by Emil Fischer to explain the astonishing specificity of the enzymatic hydrolysis of glucoside multimers by different types
+% of similar enzymes. 
+La hipótesis utilizada para explicar esto era que la estructura de la proteína(en este caso la enzima) era perfectamente complementaria a la del sustrato correspondiente, en un sistema similar al de una llave en una cerradura.
+Este paradigma extiende los conocimientos vistos previamente acerca de que la secuencia de la proteína tiene codificada la información necesaria para plegarse espontáneamente luego de ser sintetizada en la célula,
+alcanzando esta estructura nativa asociada a la función.
+Por un largo período de tiempo, entonces, el modelo de llave-cerradura y el paradigma asociado de sequencia-estructura-función se mantuvieron como teorías aceptadas, confirmadas continuamente por la
+gran diversidad de estructuras que se resolvieron mediante difracción con rayos X. 
+% For a long period of time, the validity of “lock and key” model and its associated sequence-structure-function paradigm was unquestioned, especially after the crystal structures of proteins started to be solved by X-ray diffraction
+% Este paradigma se deriva de los primeros avances en el estudio de estructuras de proteinas. 
+% Over the past century evidence steadily accumulated that a well-defined structure is the prerequisite of protein function.
+% Basic biology and biochemistry textbooks that explain biological phenomena at the molecular level exquisitely rely on this notion, the ‘structure–function paradigm’.
+La capacidad de asociar una estructura unica encontrada en el cristal con la función observada de la proteína en solución reforzaba la idea de una estructura estática asociada a las proteínas
+% The explanatory power of these 3-D structures continued to reinforce the static view of protein
 
-Throughout the 20th century, tens of thousands of structures have been solved and deposited in the Protein Data Bank (PDB), supporting again the necessity of a 3-D structure for functionality.
-that remained unquestioned.
-In contrast to this view, already in 1958 Koshland suggested the “induced-fit” model based on the observations that some enzymes could act on
-differently shaped substrates and hence a degree of flexibility is inevitable in function. 
-A pesar de este reconocimiento de la dinamica para la funcion biologica, con cambios conformacionales que van desde variaciones en rotameros de las cadenas laterales hasta reordenamientos conformacionales mas relevantes
-(por ej. en proteinas alostericas), estas variaciones podian aun ser interpretadas dentro del modelo establecido por el paradigma estructura-funcion.
-A well-folded, albeit dynamic, structure was thought to be the hallmark of protein function.
+% Throughout the 20th century, tens of thousands of structures have been solved and deposited in the Protein Data Bank (PDB), supporting again the necessity of a 3-D structure for functionality.
+% that remained unquestioned.
+Contrario a este modelo, en 1894 Koshlan sugiere el modelo de encaje inducido, basado en observaciones de enzimas que podían aceptar 
+ligandos con diferentes estructuras y, por lo tanto, la proteína debía poseer cierta flexibilidad que le permitiera esta función.
+% In contrast to this view, already in 1958 Koshland suggested the “induced-fit” model based on the observations that some enzymes could act on
+% differently shaped substrates and hence a degree of flexibility is inevitable in function. 
+Siguientes evidencias mostraron que esta flexibilidad era parte del  y que podía implicar cambios conformacionales que van desde variaciones en rotameros de las cadenas laterales hasta reordenamientos conformacionales mas relevantes
+(por ej. en proteínas alostéricas).
+% A pesar de este reconocimiento de la dinamica para la funcion biologica, con 
+Estas variaciones podian aún ser interpretadas dentro del modelo establecido por el paradigma estructura-funcion, el cual fue levemente adaptado.
+El requerimiento necesario para que la proteína cumpla su función era, entonces, una estructura definida, sin embargo ésta era dinámica. 
+% A well-folded, albeit dynamic, structure was thought to be the hallmark of protein function.
 
-In general, such proteins are categorized as being "folded", and for these proteins(como se vio al inicio de la seccion de conformaciones), 
-structures determined by experimental methods such as X-ray crystallography correspond to the ensemble-averaged structures.
-Since the folded ensemble contains structures that have only small deviations from the ensemble average structure, 
-the ensemble average itself captures many important features of the protein's structure, and many insights into a protein's function can be garnered from this
-ensemble average structure
-Es decir, dado que en dominios globulares la estructura esta definida(podemos obtener un ensemble avarage) y esta asociada a la funcion que desarrolla la proteina, 
+Como vimos en las secciones previas, las proteínas que se adaptan a esta descripción son proteínas plegadas y la estructura resultante que se observa de la cristalización es, en realidad, un promedio del ensamble de conformaciones.
+% In general, such proteins are categorized as being "folded", and for these proteins(como se vio al inicio de la seccion de conformaciones), 
+% structures determined by experimental methods such as X-ray crystallography correspond to the ensemble-averaged structures.
+Como este ensemble de conformaciones es relativamente pequeño, con estructuras que varían poco respecto al promedio observado, es posible inferir información funcional a partir de la estructura promedio observada en la cristalización.
+% Since the folded ensemble contains structures that have only small deviations from the ensemble average structure, 
+% the ensemble average itself captures many important features of the protein's structure, and many insights into a protein's function can be garnered from this
+% ensemble average structure
+% Es decir, dado que en dominios globulares la estructura esta definida(podemos obtener un ensemble avarage) y esta asociada a la funcion que desarrolla la proteina, 
 % esta estructura puede ser usada para clasificacion y para inferir la funcionalidad en nuevas proteinas.
-Estos dominios globulares pueden ser identificados y asociados a una funcion individual o a una funcion dentro de la funcion global de la proteina.
+% Estos dominios globulares pueden ser identificados y asociados a una funcion individual o a una funcion dentro de la funcion global de la proteina.
 % PFAM, SCOP
 
+% ACA IRIA LO DE SCOP
+% Los análisis de estructuras existentes permiten la clasificación y anotación de éstas en bases de datos: ej. SCOP
+
 El paradigma secuencia-estructura-funcion permite extender este concepto a la estructura primara de la proteína.
-Dado que la estructura asociada a la función debe mantenerse, los requerimientos estructurales(y funcionales) imponen, a su vez, ciertas restricciones sobre la evolución de la secuencia.
-Esto facilita la anotación de funcionalidad/elementos funcionales en secuencias nuevas, aun cuando no se conoce su estructura.
-
-Incluso cuando ....The sequences diverge, but the overall domain architecture remains the same.
-Particular domains and domain architectures are well conserved over the course of evolution. 
-
-
-
-
-
+Dado que la estructura asociada a la función debe ser mantenida evolutivamente para continuar cumpliendo la función, los requerimientos estructurales(y funcionales) imponen ciertas restricciones sobre la evolución de la secuencia.
+Por lo tanto, la similitud secuencial también permite inferir propiedades funcionales. Esto facilita la anotación de funcionalidad/elementos funcionales en secuencias nuevas, aun cuando no se conoce su estructura.
+% Incluso cuando ....The sequences diverge, but the overall domain architecture remains the same.
+% Particular domains and domain architectures are well conserved over the course of evolution. 
 
 % HASTA ACA DEBERIA HABER DEFINIDO TODOS LO QUE RESPECTA A ESTRUCTURA-FUNCION EN DOMINIOS GLOBULARES
 
+
+
+
 % ARRANCO CON IDPs
+En las secciones anteriores se demostró que las proteínas completamente ordenadas eran sólo una parte de los estados posibles y que las conformaciones nativas de las proteinas pertenecen a un continuo mosaico estructural.
 
-
-However, globular domains are only part of the picture. 
-Many studies have shown that they cover only a fraction of the protein sequence contained in an organism. 
-Como se vio en la primera sección, las conformaciones nativas de las proteinas pertenecen a un continuo de conformaciones y multiples evidencias indican, independientemente, 
-que una proteina pueden existir simultaneamente en distintas conformaciones.
 
 
 % ACA YA SE SOBREENTIENDE QUE LAS IDPs/IDRs PUEDEN TENER FUNCIONALIDADES
-
-
 % Protein sequences in a genome can be viewed as modular because they are made up of combinations of structured and disordered regions.
 % Proteins without IDRs are called structured proteins, and proteins with entirely disordered sequences that do not adopt any tertiary
 % structure are referred to as intrinsically disordered proteins (IDPs). 
@@ -1652,32 +1675,41 @@ que una proteina pueden existir simultaneamente en distintas conformaciones.
 % considered as two fundamental classes of functional building
 % blocks of proteins
 
+% Como se dijo en la introduccion, a little more than 10 years ago,however, such challenge to the almost dogmatic ‘structure–function paradigm’ was pure heresy due to the overwhelming evidence that structure determines function.
 
-
-
-
-Como se dijo en la introduccion, a little more than 10 years ago,however, such challenge to the almost dogmatic ‘structure–function paradigm’ was pure heresy due to the overwhelming evidence that structure determines function.
-As it is often the case for new scientific concepts, the idea of structure-less functionality went through the stages of passive ignorance and active denial to scrupulous examination and enthusiastic acceptance
-Como parte de estos avances, en los ultimos años se han encontrado gran cantidad de proteinas que adoptan estructuras cuyas conformaciones son total o parcialmente desordenadas(segmentos globulares), soportando esta definicion, formalizada a principios de milenio. 
-the transition in paradigm was enforced by scattered experimental observations of disorder in a few dozen proteins. 
-Evidence added to that obtained by other techniques [mostly NMR and circular dichroism (CD)]..... and the evidence seems overwhelming now that structural disorder also exists in vivo and it is truly the native, functional state of these proteins.
-A decade of steady progress turned skepticism around and the suggestion that the native state of many proteins is intrinsically disordered (or, as originally termed, unstructured) is now integral to our general view of protein structure and function.
+Debido a su amplio ensamble conformacional, el cual va mas alla de una simple variación estructural, el modelo de encaje inducido no permitiría explicar su funcionamiento.
+El paradigma estructura-función fuertemente establecido impedia aceptar, inicialmente, la idea de una función asociada a una IDR/IDP. 
+% As it is often the case for new scientific concepts, the idea of structure-less functionality went through the stages of passive ignorance and active denial to scrupulous examination and enthusiastic acceptance
+% Como parte de estos avances, en los ultimos años se han encontrado gran cantidad de proteinas que adoptan estructuras cuyas conformaciones son total o parcialmente desordenadas(segmentos globulares), soportando esta definicion, formalizada a principios de milenio. 
+% the transition in paradigm was enforced by scattered experimental observations of disorder in a few dozen proteins. 
+% Evidence added to that obtained by other techniques [mostly NMR and circular dichroism (CD)]..... and the evidence seems overwhelming now that structural disorder also exists in vivo and it is truly the native, 
+% functional state of these proteins.
+% Varios años de progresos en el área vencieron la sugestion y hoy en día la existencia de una gran variedad de funciones dependientes de IDRs/IDPs es parte del modelo actual de estructura-función.
+% A decade of steady progress turned skepticism around and the suggestion that the native state of many proteins is intrinsically disordered (or, as originally termed, unstructured)
+% is now integral to our general view of protein structure and function.
 % una de las dudas que se tenia era si este estado conformacional existia solo in vitro y en realidad in-vivo lo que ocurria era que el crowding generaba el plegamiento
+
+Como vimos antes, diversos estudios estructurales mostraron que este tipo de conformaciones existe realmente \textit{in-vivo} y representa el estado funcional de estas proteínas y,
+dado que la habilidad para realizar su función biológica es lo que distingue al estado nativo, este conjunto de proteínas parcial o totalmente desordenadas debe ser considerada como entidades nativas. 
+% As the main criterion of a native protein is its ability to perform a biological function, these partially or completely disordered proteins must be regarded as native entities.
+% These proteins challenge(o mejor dicho destruyen) the “one sequence—one structure—one function” concept by demonstrating that the lack of stable tertiary and/or secondary structure
+% does not preclude proteins from being biologically active
+% Esta idea de proteínas desordenadas cumpliendo funciones biológicas desafía el paradigma(casi dogmático) de estructura-función.
+Esto significa que el paradigma estructura-función previo, que implica la indispensable existencia de una estructura ordenada como requisito para una función efectiva, debe ser redefinido para incluir ese nuevo conjunto de entidades
+\cite{wright1999intrinsically}.
+% This means that the structure-function paradigm, which emphasizes that ordered 3D structures represent an indispensable prerequisite to effective protein functioning, should be redefined to include intrinsically unstructured proteins. 
+De acuerdo a este nuevo paradigma, las proteínas nativas(o sus regiones funcionales) pueden existir en cualquiera de los estados conformacionales conocidos que se desarrollaron en las secciones previas.
+% According to this redefined paradigm(disorder funcio),  native proteins (or their functional regions) can exist in any of the known conformational states.
+En la figura \ref{stuctured-idp-functions} se muestra el paralelismo entre los paradigmas descritos y el proteoma resultante.
+% El proteoma funcional esta compuesto, entonces, de un continuo de conformaciones que fall onto a structural continuum, from tightly folded single domains, to multidomain proteins that might have flexible or disordered regions, 
+% to compact but disordered MOLTEN GLOBULES and, finally, to highly extended, heterogeneous unstructured states 
 
 \begin{figure}[h!,centered]
 \centering
 \includegraphics[width=0.9\textwidth]{img/structure-idp-function.jpeg} 
-\caption{Paralelismo entre funcionalidad emergente de dominios plegados y de proteinas IDPs. Figura extraida de \cite{van2014classification}}
+\caption{Paralelismo entre funcionalidad emergente de dominios plegados y de proteinas/regiones intrínsecamente desordenadas. Figura extraida de \cite{van2014classification}}
 \label{stuctured-idp-functions}
 \end{figure}
-
-
-These proteins challenge(o mejor dicho destruyen) the “one sequence—one structure—one function” concept by demonstrating that the lack of stable tertiary and/or secondary structure does not preclude proteins from being biologically active
-As the main criterion of a native protein is its ability to perform a biological function, these partially or completely disordered proteins must be regarded as native entities.
-This means that the structure-function paradigm, which emphasizes that ordered 3D structures represent an indispensable prerequisite to effective protein functioning, should be redefined to include intrinsically unstructured proteins. 
-According to this redefined paradigm,  native proteins (or their functional regions) can exist in any of the known conformational states.
-El proteoma funcional esta compuesto, entonces, de un continuo de conformaciones que fall onto a structural continuum, from tightly folded single domains, to multidomain proteins that might have flexible or disordered regions, 
-to compact but disordered MOLTEN GLOBULES and, finally, to highly extended, heterogeneous unstructured states \ref{stuctured-idp-functions}
 
 
 
@@ -1708,33 +1740,58 @@ to compact but disordered MOLTEN GLOBULES and, finally, to highly extended, hete
 
 % PROPIEDADES Y MECANISMOS FUNCIONALES
 
-The ultimate goal of the structural description of IDPs is to elucidate and rationalize the types and modes of functions they play.
-The most important question of the field, therefore, is the physiological function and functional mode of IDPs/IDRs.
-
-
+El principal objetivo de todos los modelos y estudios estructurales en estas proteínas busca elucidar los tipos y modos funcionales subyacentes.
+% The ultimate goal of the structural description of IDPs is to elucidate and rationalize the types and modes of functions they play.
+La pregunta mas importante, entonces, es la función fisiológica que cumplen las IDRs/IDPs y como es su mecanismo funcional.
+% The most important question of the field, therefore, is the physiological function and functional mode of IDPs/IDRs.
 El estudio de las funcionalidades provistas por IDRs y IDPs se ve dificultada por las propiedades intrínsecas de estas proteinas:
+Como se dijo antes, el paradigma inicial de secuencia-estructura-funcion provee una base para relacionar los conocimientos entre mediante metodos de analisis y anotaciones de secuencias estructuras y funciones.
+Por el contrario, las proteínas dentro de este nuevo conjunto de IDPs se corresponden con un ensamble conformacional heterogéneo.
+Dado que, entonces, no es posible obtener una estructura promedio representativa, es díficil obtener información relevante de la funcionalidad a partir del ensamble conformacional.
+% By contrast, proteins within the more recently class of intrinsically disordered proteins (IDPs) sample dissimilar conformations during their biological lifetime, and therefore the corresponding structural
+% ensembles are heterogeneous. 
+% Given the vast number of structural states that are accessible to a disordered protein, the ensemble averaged structure for an IDP is typically not representative of any structure in 
+% the ensemble itself and therefore has little utility for understanding that protein's function.
+Lo que es más, dada la ausencia de restricciones estructurales, las secuencias de estas proteínas tienden a evolucionar más rapidamente que sus pares ordenados.
+% Given the absence of structural constraints, IDRs tend to evolve more rapidly than protein domains that adopt defined structures. 
+Como resultado, la identificacion de secuencias/regiones homólogas es considerablemente mas difícil.
+% As a result, identifying homologous regions is harder for IDRs and IDPs than it is for structured domains.
+% This complicates the transfer of information about function between homologues and thus the prediction of function of IDRs and IDPs.
+Estas considereaciones manifiestan la necesidad de avanzar en el desarrollo de esquemas de clasificación específicos para este nuevo conjunto de proteínas, apuntando a mejorar la predicción funcional y la anotación.
+% these considerations raise the need to devise a classification scheme specifically for disordered regions in proteins that may enhance
+% the function prediction and annotation for this important class of protein segments.
 
-Como se dijo antes, el paradigma inicial de secuencia-estructura-funcion provee una base para relacionar los conocimientos entre mediante metodos de analisis y anotaciones de secuencias estructuras y funciones 
-By contrast, proteins within the more recently class of intrinsically disordered proteins (IDPs) sample dissimilar conformations during their biological lifetime, and therefore the corresponding structural
-ensembles are heterogeneous. Given the vast number of structural states that are accessible to a disordered protein, the ensemble averaged structure for an IDP is typically not representative of any structure in 
-the ensemble itself and therefore has little utility for understanding that protein's function.
+% ESTO PODRIA PONER ALGO PERO NO HACE FALTA
+% Aun cuando las propiedades a clasificar no sean discretas sino que formen un continuo de opciones, es util para explicar y entender mejor los conceptos.
+% En secciones anteriores(mas precisamente en la seccion sobre propiedades conformacionales) se hicieron clasificaciones sobre la estructura global de la proteinas/regiones desordenadas, 
+% ademas se clasificaron los mecanismos de binding en este tipo de proteinas como conformational selection and induced folding
+% Especificamente se hablara aqui de clasificaciones sobre las funcionalidades y mecanismos funcionales provistos por estas proteinas.
 
-Given the absence of structural constraints, IDRs tend to evolve more rapidly than protein domains that adopt defined structures. 
-As a result, identifying homologous regions is harder for IDRs and IDPs than it is for structured domains.
-This complicates the transfer of information about function between homologues and thus the prediction of function of IDRs and IDPs.
-
-these considerations raise the need to devise a classification scheme specifically for disordered regions in proteins that may enhance
-the function prediction and annotation for this important class of protein segments.
-
-Aun cuando las propiedades a clasificar no sean discretas sino que formen un continuo de opciones, es util para explicar y entender mejor los conceptos.
-En secciones anteriores(mas precisamente en la seccion sobre propiedades conformacionales) se hicieron clasificaciones sobre la estructura global de la proteinas/regiones desordenadas, 
-ademas se clasificaron los mecanismos de binding en este tipo de proteinas como conformational selection and induced folding
-Especificamente se hablara aqui de clasificaciones sobre las funcionalidades y mecanismos funcionales provistos por estas proteinas.
-
-Como parte de estos avances para intentar dilucidar las funcionalidades de las IDPs y sus mecanismos asociados, se han intentado organizar y clasificar las funcionalidades provistas por estas \cite{van2014classification}.
+Como parte de estos avances se han ensayado una gran diversidad de clasificaciones\cite{van2014classification}.
+% Como parte de estos avances, para intentar dilucidar las funcionalidades de las IDPs y sus mecanismos asociados, se han intentado organizar y clasificar las funcionalidades provistas por estas 
+% Como parte de estos avances para intentar dilucidar las funcionalidades de las IDPs y sus mecanismos asociados, se han intentado organizar y clasificar las funcionalidades provistas por estas \cite{van2014classification}.
 En la figura \ref{proteinMechanisms} se ve una clasificación general bastante simplificada de los roles y mecanismos funcionales generalmente provistos por los distintos tipos de proteinas. 
 En esta clasificacion de proteinas segun su rol general, se incluyen también los dominios/proteinas plegadas que mencionamos previamente.
 La figura \ref{idpFunctions} detalla la clasificacion de funcionalidades y mecanismos funcionales específicos de IDPs/IDRs estimando las proporciones de cada funcionalidad.
+Al parecer, de estas clasificaciones se puede ver que las funcionalidades en IDRs/IDPs emergen a partir del propio desorden o mediante mecanismos de reconocimiento molecular.
+
+En el primero, el mecanismo subyacente de funcionamiento no implica adquirir estructura determinada, sino que depende directamente de la felxibilidad y plasticidad de la cadena carbonada(\textit{entropic chains}).
+En este caso, las proteínas satisfacen un conjunto de requerimientos celulares únicos en los cuales la funcion a cumplir es una consecuencia directa del desorden intrínseco que poseen. 
+Esta función, generalmente está asociada a secuencias linkers.
+
+En el segundo caso, el mecanismo implica el plegamiento para adquirir una estructura ordenada al unirse al ligando.
+% Apparent from the foregoing classification (Fig. \ref{proteinMechanisms}), IDP functions either directly stem from their disorder (((entropic chains where function involves no coupled binding and folding;
+% rather it directly depends on the flexibility and the plasticity of the backbone . Occupy a unique structural and functional niche in which function is a direct consequence of intrinsic disorder))), 
+% or from molecular recognition mechanisms , when they undergo induced folding (disorder-to-order transition) upon binding to a partner molecule. 
+%IDPs often function via molecular recognition, when they bind partner molecules in, and induced folding process. 
+Este mecanismo/estrategia de reconocimiento es básicamente diferente a la que adoptan los dominios plegados.
+Mientras que estos últimos han evolucionado para dar una gran variedad de plegamientos diferentes que proveen reconocimientos especificos, 
+en IDRs/IDPs el \textit{binding} es principalmente mediado por elementos(motivos) cortos de reconocimiento\cite{neduva2005systematic,fuxreiter2007local}.
+% característicos por su naturaleza flexible
+Este diferencia en el modo de reconocimiento les aporta una gran cantidad de ventajas\cite{gunasekaran2003extended,dyson2005intrinsically}.%REFERENCIA AL PAPER DE MECANISMOS FUNCIOMNALES DE IDPs
+% This mode of binding is thought to confer many advantages 
+
+
 
 \begin{figure}[h!,centered]
 \centering
@@ -1755,80 +1812,70 @@ La figura \ref{idpFunctions} detalla la clasificacion de funcionalidades y mecan
 \end{figure}
 
 
-Apparent from the foregoing classification (Fig. \ref{proteinMechanisms}), IDP functions either directly stem from their disorder (((entropic chains where function involves no coupled binding and folding;
-rather it directly depends on the flexibility and the plasticity of the backbone . Occupy a unique structural and functional niche in which function is a direct consequence of intrinsic disorder))), 
-or from molecular recognition mechanisms , when they undergo induced folding (disorder-to-order transition) upon binding to a partner molecule. %IDPs often function via molecular recognition, when they bind partner molecules in, and induced folding process. 
-Como se ve, las IDPs utilizan un mecanismo/estrategia de reconocimiento y partner binding que es basicamente diferente a la que adoptan los dominios plegados.
-Mientras que estos ultimos (los dominios plegados) han evolucionado para dar una gran variedad de plegamientos diferentes que proveen reconocimientos especificos, 
-el binding en IDPs is often mediated by short recognition elements (motifs)\cite{neduva2005systematic,fuxreiter2007local} de naturaleza flexible.
-This mode of binding is thought to confer many advantages \cite{gunasekaran2003extended,dyson2005intrinsically}%REFERENCIA AL PAPER DE MECANISMOS FUNCIOMNALES DE IDPs
 
 
-
-En la seccion de conformaciones, se desarrollaron conceptos relacionados con el coupled folding and binding processes.
-Ahi se describio que, generalmente, only a part of an IDP, a specific recognition element, which is a relatively short amphipathic linear motif contained within long disordered sequence, is involved in the coupled folding and binding events
+En la sección de propiedades conformacionales, se desarrollaron conceptos estructurales relacionados con elementos asociados al proceso de unión y plegamiento.
+Ahi se describio que, generalmente, involucra regiones cortas de la secuencia con características anfipáticas y que denominamos elemento de reconocimiento(RE=recognition element). 
+% only a part of an IDP, a specific recognition element, which is a relatively short amphipathic linear motif contained within long disordered sequence, is involved in the coupled folding and binding events
+Ahora sabemos que son elementos funcionales fundamentales para la actividad de una gran cantidad de IDRs/IDPs, que tienen unos 10-70 aminoacidos de largo y pueden ser caracterizados a partir de sus propiedades conformacionales, 
 % Es decir, ciertos elementos funcionales 
 % En relacion a este concepto, nuevos conceptos han nacido para describir este tipo de entidades biologicas,
-Estos elementos funcionales, con largos de unos 10-70 amino acids, caracterizados a partir de sus propiedades conformacionales,  se denominan comunmente como Molecular Recognition Features (MoRFs)
+% Estos elementos funcionales, con  se denominan comunmente como Molecular Recognition Features (MoRFs)
 \cite{mohan2006analysis,vacic2007characterization,oldfield2005coupled}.
+% MoRFs are short segments in protein, which upon binding to their ligands undergo disorder-to-order transitions
+Los REs(o MoREs por el nombre en inglés de Molecular Recognition Elements) pueden, a su vez, subclasificarse de acuerdo a las estructuras secundarias que adoptan en el complejo de unión. % bound state
 Ademas, los dos modelos descritos antes sobre coupled folding and binding process in proteins permiten clasificar aun mas estos elementos(desde el punto de vista estructural), agregando el concepto de 
-PSE\cite{fuxreiter2004preformed}. Los MoREs pueden, a su vez, subclasificarse into subtypes according to the structures they adopt in the bound state.
-PSEs are short disordered regions in IDPs, which have tendency for formation of transiently populated secondary structures, which may function as potential ligand binding sites. 
-MoRFs are short segments in protein, which upon binding to their ligands undergo disorder-to-order transitions
-Esta clasificacion, sin embargo, como se dijo cuando se trato con respecto a la estructura, no es totalmente excluyente ya que puede haber elementos que resulten de una combinacion de estos conceptos.
+elementos estructurales preformados(PSEs)\cite{fuxreiter2004preformed}. 
+Los PSEs se corresponden con el modelo de selección de conformaciones, es decir, son regiones intrínsecamente desordenadas que tienen tendencia a formar elementos estructurales transitivos, adquiriendo termporalmente estructuras secundarias.
+Estos elementos pueden tener la capacidad potencial de servir como sitios de unión y quedar estabilizados en el complejo formado.
+% PSEs are short disordered regions in IDPs, which have tendency for formation of transiently populated secondary structures, which may function as potential ligand binding sites. 
+Esta clasificación no es totalmente excluyente ya que, como se dijo previamente, puede haber elementos que resulten de una combinacion de estos conceptos.
 % Como se dijo, se definen como short, interaction-prone segments of protein disorder that undergo disorder-to-order transitions upon specific binding, 
 % representing a specific class of intrinsically disordered regions that exhibit molecular recognition and binding functions.
 
 
 % ACA CONECTO CON SLM
-Sin embargo, molecular recognition by short recognition elements (motifs) can be -and has been historically- approached from the completely different direction of short sequence patterns determining functional interactions and enzymatic modification,
-also known as LMs, ELMs, short linear motifs (SLiMs), 125 or MiniMotifs  \cite{davey2012attributes}
-Es decir, LMs son elementos funcionales que, historicamente, fueron descritos desde el punto de vista secuencial. 
-Dado que el conjunto de funcionalidaddes que proveen los LMs se corresponde con el perfil que presentan las IDPs, se analizo el perfil conformacional de los LMs \cite{fuxreiter2007local}, encontrandose que, efectivamente
-suelen encontrarse formando parte de regiones IDRs y por lo tanto se toman como elementos funcionales característicos de IDPs.
-Mas adelante, luego de ver algunos detalles sobre los LMs, se volverá sobre este concepto y la relación con los otros elementos funcionales de las IDPs.
-
-Short linear motifs (SLiMs, LMs or MiniMotifs) are regulatory protein modules characterized by their compact interaction interfaces (the affinity and specificity
-determining residues are usually encoded between 3 and 11 contiguous amino acids (1)) and their enrichment in
-natively unstructured, or disordered, regions of proteins (2). As a result of limited intermolecular contacts with their interaction partners, SLiMs bind with relatively
-ow affinity (in the low-micromolar range), an advan-
-tageous attribute for use as transient, conditional and
-tunable interactions necessary for many regulatory
-processes. 
-
-
-
-The fact that they are defined by only a handful (usually 2–4) fixed amino acids 
-tiene consecuencias significativas en la biologia de estos elementos. 
-
--makes them very likely to arise or disappear by muta-
-tions. And indeed they do often occur readily throughout a
-typical proteome.
-
--Due to the limited number of mutations
-necessary for the genesis of a novel motif, SLiMs are
-amenable to convergent evolution, functioning as a
-driver of network evolution by adding novel interaction
-interfaces, and thereby new functionality, to proteins. This
-evolutionary plasticity facilitates the rapid proliferation
-within a proteome, and as a result, motif use is ubiquitous
-in higher eukaryotes.
-
--Sus caracteristicas de longitud y estructura tiene tambien consecuencias en su estudio/experimentales ....
-Despite the availability of many thousands of sequences, the discovery of linear motifs, in contrast to domains, has remained difficult. 
-Their short length makes them difficult to detect using sequence comparison procedures that aid domain discovery. 
-They are typically discovered by difficult and time-consuming experimental procedures. 
-This usually involves first identifying a set of proteins sharing a common function (e.g., a common interaction partner or targeting within the cell), and then gradually delineating
-a short, common segment associated with this function through a variety of experimental techniques.
-
-
-En terminos de funcionalidad, the current census of SLiMs is split unequally between ligand motifs that mediate protein-protein interactions  and post-translational modification motifs, which are directly
-recognized and targeted for post-translational modification (PTM) by regulatory enzymes
+Mas allá de estas propiedades conformacionales que se estudiaron a lo largo de los años, el mecanismo subyacente a los motivos cortos de reconocimiento es, y ha sido durante mucho tiempo, estudiado desde el punto de vista 
+de los patrones secuenciales que determinan las capacidades funcionales de éstos (interacciones o modificaciones enzimáticas). Estos elementos secuenciales se conocen como motivos lineales (o por sus siglas en inglés, LMs, ELMs, SLiMs o MiniMotifs)
+\cite{davey2012attributes}. Estos motivos lineales se definen como modulos regulatorios encontrados en proteínas y que se caracterizan por presentar interfaces
+de interacción muy compactas (los residuos determinantes de la afinidad y especificidad estan contenidos generalmente en unos 3-11 AAs contiguos).
+% gulatory protein modules characterized by their compact interaction interfaces (the affinity and specificity determining residues are usually encoded between 3 and 11 contiguous amino acids (1)) 
+% Sin embargo, molecular recognition by short recognition elements (motifs) can be -and has been historically- approached from the completely different direction of short sequence patterns determining functional interactions and enzymatic modification,
+% also known as LMs, ELMs, short linear motifs (SLiMs), 125 or MiniMotifs  
+% Es decir, LMs son elementos funcionales que, historicamente, fueron descritos desde el punto de vista secuencial. 
+Como resultado de este número limitado de contactos para interacciones con ligandos, SLMs se unen con una afinidad relativa muy baja, lo que resulta en una ventaja considerable 
+para participar en interacciones transientes, condicionales y  ajustables que son propias de los procesos regulatorios
+% As a result of limited intermolecular contacts with their interaction partners, SLiMs bind with relatively low affinity (in the low-micromolar range), an advan-
+% tageous attribute for use as transient, conditional and tunable interactions necessary for many regulatory processes. 
+En términos de funcionalidad, se pueden clasificar los SLMs en dos grandes familias: los que actúan como sitios objetivo de modificaciones post-traduccionales(PTM), 
+y los que funcionan como ligandos en la formación de complejos de interacción.
+% the current census of SLiMs is split unequally between ligand motifs that mediate protein-protein interactions  and post-translational modification motifs, which are directly
+% recognized and targeted for post-translational modification (PTM) by regulatory enzymes
 % LO MISMO
 % two major families: those that act as modification sites and those that act as ligands, with each having numerous subgroups
+Dado que el conjunto de funcionalidades y propiedades estudiadas en relación a estos motivos lineales en la secuencia se corresponden en gran medida con las funcionalidades principales de IDRs/IDPs, en \cite{fuxreiter2007local} se
+analizaron los perfils conformaciónal de proteínas conteniendo instancias de éstos(no solo la conformación del segmento sino también el contexto), concluyendo que, efectivamente, 
+suelen encontrarse formando parte de regiones IDRs y por lo tanto forman parte del conjunto de elementos funcionales característicos de IDRs/IDPs.
+% Dado que el conjunto de funcionalidaddes que proveen los LMs se corresponde con el perfil que presentan las IDPs, se analizo el perfil conformacional de los LMs \cite{fuxreiter2007local}, 
+Mas adelante, luego de ver algunos detalles sobre los LMs, se volverá sobre este concepto y la relación con los otros elementos funcionales de las IDPs.
+% Short linear motifs (SLiMs, LMs or MiniMotifs) and their enrichment in
+% natively unstructured, or disordered, regions of proteins (2). 
 
 
-Las propiedades de funcionalidad altamente dinamicas y la importancia biologica que tienen estos elementos hacen esperable que esten altamente regulados en la celula.
+El hecho que esten definidos por solo un pequeño segmento de AAs tiene consecuencias relevantes en aspectos biológicos de los SLM.
+En particular, claramente resulta muy probable que estos aparezcan o desaparezcan mediante mutaciones. 
+Dado que solo se necesitan un número muy limitado de mutaciones para que surgan, estos son propensos a la evolución convergente, lo que facilita la proliferación en distintos lugares del proteoma.
+Esto resulta en una fuente de evolución para la red de interacciones ya que se generan interfaces \textit{de novo} en distintas proteínas.
+
+Estas mismas características dinámicas de la secuencia los hace mas difíciles de estudiar que elementos funcionales mas restringidos evolutivamente como los dominios globulares.
+Por lo tanto, a pesar de la disponibilidad de miles de secuencias de proteínas, el descubrimiento de motivos contenidos en estas es aún una tarea difícil.
+% Their short length makes them difficult to detect using sequence comparison procedures that aid domain discovery. 
+% They are typically discovered by difficult and time-consuming experimental procedures. 
+% This usually involves first identifying a set of proteins sharing a common function (e.g., a common interaction partner or targeting within the cell), and then gradually delineating
+% a short, common segment associated with this function through a variety of experimental techniques.
+
+% SI ENCUENTRO REFERENCIA PARA ESTO LO AGREGO !!!
+% Las propiedades de funcionalidad altamente dinamicas y la importancia biologica que tienen estos elementos hacen esperable que esten altamente regulados en la celula.
 
 
 
@@ -1838,14 +1885,18 @@ Las propiedades de funcionalidad altamente dinamicas y la importancia biologica 
 % *************************************************************
 % ******    IDD  ********************
 % ACA AGREGO OTRO ELEMENTO, LOS DOMINIOS ID, QUE PUEDEN SER OTRA CLASIFICACION
-Binding by motifs is usually weak, transient, and possibly of limited specificity , which can be made stronger and/or more specific by either cooperating with flanking regions, combining several motifs, or utilizing longer disordered domains
-
-It is to be noted, however, that binding regions within IDPs might correspond more to a domain than a motif, with their lengths exceeding 20-30 residues \cite{tompa2009close,chen2006conservation,chen2006conservationB}  
-Por lo tanto, estos pueden clasificarse como un elemento independiente que puede encontrarse dentro de IDPs (llamados intrinsically disordered domains (IDDs))
+A pesar que las interacciones mediante SLMs suelen ser débiles, transitivas y, posiblemente, tener baja especificidad, pueden originarse interfaces mas especificas y de mayor afinidad si 
+se obtiene cooperación de las regiones flanqueantes, si se combinan varios motivos cortos, o si se utilizan dominios desordenados con mayor longitud.
+% Binding by motifs is usually weak, transient, and possibly of limited specificity , which can be made stronger and/or more specific by either cooperating with flanking regions, combining several motifs, or utilizing longer disordered domains
+Es relevante decir que las regiones de unión en IDPs suelen corresponderse mas con dominios que con motivos cortos, teniendo longitudes que exceden los 20-30 residuos
+\cite{tompa2009close,chen2006conservation,chen2006conservationB}.  
+% It is to be noted, however, that binding regions within IDPs might correspond more to a domain than a motif, with their lengths exceeding 20-30 residues 
 Indeed, these regions possess typical characteristics of domains: 
 (1) they are structurally and functionally independent of the remainder of the protein molecule, 
 (2) they can be recognized by homology due to evolutionary conservation of sequences, and 
 (3) they possess at least one specific function.
+Al poder distinguir esto dominios intrínsecamente desordenados(IDDs) podemos clasificarlos, entonces, como una nueva clase de elementos funcionales independientes que pueden encontrarse dentro de IDPs.
+
 
 Potein domains with conserved disordered regions have a variety of functions, but are most commonly involved in DNA, RNA, and protein binding
 
@@ -1914,6 +1965,24 @@ defines a module as a minimal autonomous unit that, through interaction with ano
 recognition, or enzymatic function. Each of these classes has a set of defining attributes that allows them to be discriminated
 from each other, and although exceptions exist for each category, these discriminatory attributes hold true for the
 majority of instances
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2232,6 +2301,12 @@ Analyses of structures(por ej. mediante X.ray diffraction) have shown that prote
 
 Knowledge of natural linkers in multi-domain proteins is very helpful for the (rational??) design of empirical linkers in recombinant fusion proteins. 
 En la próximo sección se analizan estos
+
+
+
+
+
+
 
 
 
