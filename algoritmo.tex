@@ -202,20 +202,21 @@ En cada evaluación \textbf{se aumenta el valor si el residuo en esa posición N
 
 Un ejemplo de evaluación de la secuencia mediante dos herramientas hipotéticas A y B sería: % PONER EJEMPLO PARA QUE QUEDE CLARO
 \rule[-0.7\baselineskip]{0pt}{\baselineskip}
-\begin{tabular}{lllllllllll} 
-Secuencia: &  M & V & L & S & P & A & D & K & T & N\\ 
-Puntaje Inicial: & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+\begin{tabular}{llllllllllll} 
+Secuencia & M & V & L & S & P & A & D & K & T & N\\ 
+Puntaje Inicial & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
 Evaluación con herramienta A & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-Evaluación con herramienta B & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+Evaluación con herramienta B  & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
 Puntaje global & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+Puntaje total  & 45 \\
 \end{tabular}
 
+\vspace{0.5cm}
 
 Al terminar todas las evaluaciones de cada iteración, el puntaje resultante se utiliza para el proceso de mutación.
 % POR QUE HACEMOS UNA MUTACION DE A 1 PASO, ES DECIR 1 SOLA MUTACION POR VEZ? 
 
 
-\vspace{0.5cm}
 El proceso de mutación sigue los siguientes pasos:
 \begin{enumerate}
  \item En primer lugar se selecciona uno de los residuos de la secuencia como objetivo para realizar la mutación. 
@@ -223,8 +224,8 @@ El proceso de mutación sigue los siguientes pasos:
  Siguiendo el ejemplo anterior:
  
  \begin{tabular}{lllllllllll} 
-Secuencia: &  M & V & L & S & P & A & D & K & T & N\\ 
-Puntaje global & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+Secuencia &  M & V & L & S & P & A & D & K & T & N\\ 
+Puntaje & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
 Factor de ponderación & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
 \end{tabular}
  
@@ -239,29 +240,56 @@ Esta forma de calcular el factor de ponderación implica que nuncá se tendrán 
    En este caso simplemente se vuelve a seleccionar un sustituto hasta que el resultado sea un residuo distinto al anterior.     
     \item El tercer paso consiste en aceptar o rechazar la mutación propuesta.
     Para realizar esto, primero se vuelve a evaluar el puntaje, analizando todas las características deseadas de la secuencia pero, esta vez, sobre la secuencia que contiene la mutación propuesta.
-    Este resultado nos permite saber como se modificarán los puntajes si aceptaramos la mutación.
+    Este resultado nos permite saber como se modificarán los puntajes si aceptaramos la mutación. 
+    La decisión se toma en base al puntaje total de la secuencia, resultante de sumar los puntajes de cada posición. Si este  \underline{puntaje total disminuye}, entonces \underline{la mutación es aceptada}. Por ejemplo:
+%     PONER EJEMPLO DONDE DISMINUYA EL PUNTAJE TOTAL
+
+       \begin{tabular}{ccccccccccc}
+	Secuencia previa &  M & V & L & S & P & A & D & K & T & N\\ 
+	Puntaje & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+       Puntaje total & 47 \\ \hline \hline
+       Secuencia mutada &  M & V & L & S & P & A & D & K & T & N\\ 
+	Puntaje & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+       Puntaje total & 41 \\
+      \end{tabular}\\
+      
+%       \vspace{0.2cm}
+    En este caso, la mutación disminuye el puntaje total(41$<$47) y por lo tanto es aceptada, finalizando la iteración.
     
-    La mutación se acepta o rechaza siguiendo el método de decisión de Monte Carlo. 
-    Este método deriva una probabilidad de aceptación a partir de los puntajes globales(suma de todos los puntajes de la secuencia) evaluados antes($P_{previo}$) y después($P_{posterior}$) de la mutación propuesta.
-    La probabilidad resulta de calcular:
+    
+    Si la mutación propuesta \underline{\textbf{NO} disminuye el puntaje total} de la secuencia, entonces la mutación se acepta o rechaza \underline{siguiendo el método de decisión de Monte Carlo}. 
+    
+%     \subitem 
+    Este método deriva una probabilidad de aceptación a partir de la diferencia entre los puntajes totales resultantes de la secuencia antes($Puntaje_{previo}$) y después($Puntaje_{posterior}$) de la mutación propuesta.
+    La \underline{probabilidad de aceptación} resulta de calcular:
     
     \begin{equation}\label{monteCarlo}
-    Probabilidad =  \frac{-(P_{posterior}  - P_{previo}) } {\beta} 
+    P_{aceptar} =  \frac{(Puntaje_{previo}  - Puntaje_{posterior}) } {\beta} 
     \end{equation}
 
-    \normalsize
-    El valor del parámetro $\beta$ .........
     
-    El resultado de la ecuación \ref{monteCarlo} dará un valor de probabilidad en el rango [0,1]. 
-    Para aplicar esta probabilidad obtenemos primero un valor \textit{random} en este mismo rango, si el valor obtenido es menor que el calculado con la ecuación \ref{monteCarlo} entonces se acepta la mutación propuesta, 
+    El valor del parámetro $\beta$ es propio del método. 
+    En la sección \ref{results} se analizan en detalle los efectos globales de este parámetro sobre la herramienta.
+    Para ejemplificar el método de decisión de Monte Carlo, tomemos el siguiente caso de mutación:
+    
+    %     EJEMPLO DONDE *NO* DISMINUYE EL PUNTAJE TOTAL
+
+       \begin{tabular}{ccccccccccc}
+	Secuencia previa &  M & V & L & S & P & A & D & K & T & N\\ 
+	Puntaje & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+       Puntaje total & 47 \\ \hline \hline
+       Secuencia mutada &  M & V & L & S & P & A & D & K & T & N\\ 
+	Puntaje & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+       Puntaje total & 49 \\
+      \end{tabular}\\
+    
+    Para este caso $Puntaje_{previo}=47$ y $Puntaje_{posterior}=49$. Usando un valor de $\beta=1.5$ la ecuación \ref{monteCarlo} resulta en $P_{aceptar} = 0.26$.
+%     El resultado de la ecuación \ref{monteCarlo} dará un valor de probabilidad en el rango [0,1]. 
+    Para aplicar esta probabilidad dentro del método, obtenemos primero un valor \textit{random} en el rango [0,1], si el valor obtenido es menor que el calculado con la ecuación \ref{monteCarlo} entonces se acepta la mutación propuesta, 
     caso contrario esta no es aceptada. 
-    En caso de no aceptarse la mutación propuesta el algoritmo vuelve al paso 1.
-%     *******************************************
-%     PONER EJEMPLO DE TODO ESTO
-%    *********************************************
-    
-    
-\end{enumerate}
+    En caso de \underline{NO aceptarse} la mutación propuesta el algoritmo vuelve al paso 1, es decir, se vuelve a \underline{intentar una nueva mutación}. 
+        
+\end{enumerate} 
 
 
 
@@ -269,7 +297,7 @@ Esta forma de calcular el factor de ponderación implica que nuncá se tendrán 
 
 
 Dado que el objetivo final es obtener una secuencia que posea, con cierta probabilidad, todas las características deseadas, 
-el algoritmo finaliza cuando el puntaje resultante sea igual a cero, o cuando se cumple alguna de las condiciones de finalización \ref{condicionFin}. 
+el algoritmo finaliza cuando el puntaje resultante sea igual a cero, o cuando se cumple alguna de las condiciones especificadas de finalización \ref{condicionFin}. 
 % Esto implica que todas las evaluaciones concuerdan con los objetivos buscados en el diseño de la secuencia linker.
 
 
@@ -280,7 +308,7 @@ En la figura \ref{fig:esquema-algoritmo} se ve un esquema general del método co
 
 \begin{figure}[ht]
 \centering
-   \includegraphics[width=\textwidth]{img/diagrama-algoritmo.png}
+   \includegraphics[width=\textwidth]{img/diagrama-algoritmo-2.png}
  \caption{Esquema general del método aplicado para obtener la secuencia final}
  \label{fig:esquema-algoritmo}
 \end{figure}

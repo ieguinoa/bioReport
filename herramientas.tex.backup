@@ -9,14 +9,11 @@
 % DIVIDO LA SECCION EN 2, YA QUE, EN GENERAL HAY 2 COSAS QUE QUEREMOS SACAR, LAS PROPIEDADES ESTRUCTURALES Y LA UNION A CHAPERONAS
 % EN CADA SECCION PONGO, POR QUE LO QUEREMOS SACAR, CUALES SON LOS METODOS Y CUAL/ES VAMOS A USAR.
 
-
-
 % PROPIEDADES ESTRUCTURALES
-
 % POR QUE LO QUEREMOS SACAR
-Uno de los principales aspectos a considerar acerca de la secuencia es el grado de estructuración o desorden que puede adoptar. 
-Una de las principales propiedades que buscamos al diseñar una secuencia linker es la existencia de ésta en un ensamble conformacional 
-de estructuras desordenadas que proveen la flexibilidad necesaria para que los dominios que conecta puedan moverse libremente.
+
+Como vimos al comienzo de la sección \ref{method}, uno de los fundamentos de esta herramienta se encuentra en la restricción de elementos estructurales ordenados en la secuencia linker, 
+
 
 Para lograr esto, se analizará la secuencia con el fin de encontrar y eliminar cualquier elemento que pueda permitirle adoptar una estructura plegada
 buscando que la secuencia tenga, así, una mayor tendencia a adquirir una conformación intrínsecamente desordenada.
@@ -397,6 +394,10 @@ Ademas, no podriamos simplemente descartar las proteinas que se sabe tienen tend
 
 % CARACTERISTICAS DE LAS FIBRAS QUE PUEDEN AYUDAR A DISTINGUIR
 
+
+% 
+% ESTO DE LOS APRs YA LO PUSE EN LA INTRODUCCION !!!!!!!!!!!!!!!!!!!
+% %   REVISAR QUE PUSE !!!!!!!!!!!!!!!!!!!!!!!!
 % ESTO QUE SIGUE ESTA SACADO DE : The triple power of D-3: Protein intrinsic disorder in degenerative diseases
 It has been pointed out that the propensity of a protein to aggregate can be reliably correlated with a set of simple
 physico-chemical parameters (73-75). In fact, these specific “aggregation signatures” are concentrated in APRs, which possess a
@@ -409,6 +410,11 @@ researchers develop tools focused on pattern recognition, 3D profiles, and molec
 one should keep in mind that the presence of APR in a given protein is necessary but not sufficient condition for aggregation
 since an active APR, which can indeed promote aggregation, should have high intrinsic aggregation propensity, be surface
 exposed or become exposed upon conformational transition, and facilitate intermolecular interactions (72).
+
+
+En la introduccion se plantearon un par de propiedades fisicoquimicas simples con respecto a la composicion de secuencias con tendencia a formación de agregados amiloides,
+En particular, alta hidrofobicidad y baja carga neta, ademas de tendencia intrinseca a adoptar conformaciones de hoja-$\beta$ en su estructura primaria.
+Such physicochemical properties of amino acids are the basis of most of the algorithms that predict either the rate or propensity of aggregation of different regions of a protein .  
 
 
 Generally speaking, it is believed that aggregation occurs when protein segments with a high hydrophobicity, a good $\beta$-
@@ -438,8 +444,7 @@ $\beta$-aggregation propensity because both structure formation and aggregation 
 % METODOS DISPONIBLES PARA HACER LA DETECCION
 
 Several methods have been published recently that attempt to predict aggregation-prone or amyloidogenic regions based on various properties of proteins (TANGO, PASTA, WALTZ, SALSA, aggrescan, zyggregator).
-Some of these prediction methods try to distinguish amyloid fibril
-(ordered aggregates) prediction from amorphous aggregate prediction, providing also the relevant physical reasoning and influencing factors.
+Some of these prediction methods try to distinguish amyloid fibril(ordered aggregates) prediction from amorphous aggregate prediction, providing also the relevant physical reasoning and influencing factors.
 
 Amorphous $\beta$-sheet aggregation, however, is less position-dependent and can, in principle, be achieved by any sequence that
 can adopt an extended conformation, is sufficiently hydrophobic and has no unsatisfied hydrogens or electostatic groups 18,19 . Thus
@@ -1037,6 +1042,16 @@ Si estamos trabajando con la secuencia PSKPLRGNAMVGL , el resultado de la búsqu
 PSKPLR (posiciones 1-6), NAMVGL (posiciones 8-13), KPLRGNAMVGL(posiciones 3-13).
 Por lo tanto, el puntaje resultante de este paso es:
 
+\rule[-0.8\baselineskip]{0pt}{\baselineskip}
+\begin{tabular}{llllllllllllll} 
+Secuencia: & P & S & K & P & L & R & G & N & A & M & V & G & L\\ 
+Puntaje Inicial: & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+% Evaluación con herramienta A & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+% Evaluación con herramienta B & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+% Puntaje global & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+\end{tabular}
+
+\vspace{0.5cm}
 Secuencia global             =   PSKPLRGNAMVGL
 PSKPLR (posiciones 1-6)      =   1111110000000 
 NAMVGL (posiciones 8-13)     =   0000000111111  
@@ -1125,8 +1140,8 @@ Realizando una búsqueda optimizada se pueden recuperar secuencias similares de 
 El resultado que devuelve la búsqueda BLAST es, en caso de éxito, un conjunto de secuencias de la base de datos ordenadas por un score de alineamiento. Además de realizar el alineamiento, BLAST provee información estadística que ayuda a descifrar la significancia biológica del alineamiento, este es el valor "expect" o e-value. Para utilizar los resultados de BLAST en nuestra herramienta utilizaremos un cutoff sobre el valor de e-value que nos de cierta certeza de que la similitud secuencial es significativa y, por lo tanto, la secuencia podría tener una función similar. El valor de cutoff utilizado es de 0.01, todas las secuencias encontradas con un e-value menor que este valor serán significativamente similares. En caso de encontrarse muchas secuencias dentro del cutoff se utilizará la primera de éstas.
 Dado que el objetivo de este paso es evaluar que posiciones tienden a una similitud con alguna secuencia natural, el resultado obtenido se utilizará para identificar estas posiciones y marcarlas para una nueva ronda de mutaciones.
 
-EJEMPLO DE RESULTADO
-DESCRIBIR BIEN QUE VALORES SE OBTIENEN
+% EJEMPLO DE RESULTADO
+% DESCRIBIR BIEN QUE VALORES SE OBTIENEN
 
 Ejemplo:
 Si realizamos la búsqueda de la secuencia MVLSPADKTNVKGGWGKV, se encontrarán varias secuencias dentro del cutoff. La primer similitud es MVLSPADKTNVKAAWGKV, con un e-value de 7e-09. El alineamiento correspondiente es:

@@ -1038,16 +1038,30 @@ Para realizar la detección de los motivos no se utiliza ningún punto de corte,
 La búsqueda de motivos sobre la secuencia resulta en un conjunto de subsecuencias que representan una instancia encontrada, las cuales pueden estar solapadas. Cada una de estas subsecuencias se trata de forma individual.
 El algoritmo toma cada una de las subsecuencias resultantes y, por cada posición de éste, se suma 1 al valor de la posición en el puntaje global.
 Se puede ver ésto en un ejemplo sencillo:
-Si estamos trabajando con la secuencia PSKPLRGNAMVGL , el resultado de la búsqueda da un conjunto de 3 motivos encontrados en las subsecuencias: INCLUIR EXPRESIONES REGULARES, A SER POSIBLE TOMADAS DE ELM
-PSKPLR (posiciones 1-6), NAMVGL (posiciones 8-13), KPLRGNAMVGL(posiciones 3-13).
+Si estamos trabajando con la secuencia PSKPLRGNAMVGL, el resultado de la búsqueda da un conjunto de 3 motivos encontrados en las subsecuencias: 
+
+% INCLUIR EXPRESIONES REGULARES, A SER POSIBLE TOMADAS DE ELM
+PSKPLR (posiciones 1-6)\\
+NAMVGL (posiciones 8-13)\\
+KPLRGNAMVGL(posiciones 3-13)\\
 Por lo tanto, el puntaje resultante de este paso es:
 
-Secuencia global             =   PSKPLRGNAMVGL
-PSKPLR (posiciones 1-6)      =   1111110000000 
-NAMVGL (posiciones 8-13)     =   0000000111111  
-KPLRGNAMVGL(posiciones 3-13) =   0011111111111
- -------------
-Total                        =   1122221222222
+\rule[-0.8\baselineskip]{0pt}{\baselineskip}
+\begin{tabular}{llllllllllllll} 
+Secuencia: & P & S & K & P & L & R & G & N & A & M & V & G & L\\ 
+PSKPLR (posiciones 1-6) & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+NAMVGL (posiciones 8-13) & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+KPLRGNAMVGL(posiciones 3-13  & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+Puntaje & 1 & 1 & 2 & 2 & 2 & 2 & 1 & 2 & 2 & 2 & 2 & 2 & 2\\
+\end{tabular}
+
+\vspace{0.5cm}
+% Secuencia global             =   PSKPLRGNAMVGL
+% PSKPLR (posiciones 1-6)      =   1111110000000 
+% NAMVGL (posiciones 8-13)     =   0000000111111  
+% KPLRGNAMVGL(posiciones 3-13) =   0011111111111
+%  -------------
+% Total                        =   1122221222222
 
 
 
@@ -1130,8 +1144,8 @@ Realizando una búsqueda optimizada se pueden recuperar secuencias similares de 
 El resultado que devuelve la búsqueda BLAST es, en caso de éxito, un conjunto de secuencias de la base de datos ordenadas por un score de alineamiento. Además de realizar el alineamiento, BLAST provee información estadística que ayuda a descifrar la significancia biológica del alineamiento, este es el valor "expect" o e-value. Para utilizar los resultados de BLAST en nuestra herramienta utilizaremos un cutoff sobre el valor de e-value que nos de cierta certeza de que la similitud secuencial es significativa y, por lo tanto, la secuencia podría tener una función similar. El valor de cutoff utilizado es de 0.01, todas las secuencias encontradas con un e-value menor que este valor serán significativamente similares. En caso de encontrarse muchas secuencias dentro del cutoff se utilizará la primera de éstas.
 Dado que el objetivo de este paso es evaluar que posiciones tienden a una similitud con alguna secuencia natural, el resultado obtenido se utilizará para identificar estas posiciones y marcarlas para una nueva ronda de mutaciones.
 
-EJEMPLO DE RESULTADO
-DESCRIBIR BIEN QUE VALORES SE OBTIENEN
+% EJEMPLO DE RESULTADO
+% DESCRIBIR BIEN QUE VALORES SE OBTIENEN
 
 Ejemplo:
 Si realizamos la búsqueda de la secuencia MVLSPADKTNVKGGWGKV, se encontrarán varias secuencias dentro del cutoff. La primer similitud es MVLSPADKTNVKAAWGKV, con un e-value de 7e-09. El alineamiento correspondiente es:
