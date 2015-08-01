@@ -1854,9 +1854,13 @@ y los que funcionan como ligandos en la formación de complejos de interacción.
 % LO MISMO
 % two major families: those that act as modification sites and those that act as ligands, with each having numerous subgroups
 Dado que el conjunto de funcionalidades y propiedades estudiadas en relación a estos motivos lineales en la secuencia se corresponden en gran medida con las funcionalidades principales de IDRs/IDPs, en \cite{fuxreiter2007local} se
-analizaron los perfils conformaciónal de proteínas conteniendo instancias de éstos(no solo la conformación del segmento sino también el contexto), concluyendo que, efectivamente, 
+analizaron los perfiles conformacionales de proteínas que contienen instancias de éstos(no solo la conformación del segmento sino también el contexto), concluyendo que, efectivamente, 
 suelen encontrarse formando parte de regiones IDRs y por lo tanto forman parte del conjunto de elementos funcionales característicos de IDRs/IDPs.
 % Dado que el conjunto de funcionalidaddes que proveen los LMs se corresponde con el perfil que presentan las IDPs, se analizo el perfil conformacional de los LMs \cite{fuxreiter2007local}, 
+Sin embargo, los SLMs se diferencian de los MoREs descritos previamente en que estos últimos dependen de un patrón de desorden en la secuencia(el cual puede ser obtenido con herramientas de predicción de desorden), 
+mientras que los SLMs dependen de motivos secuenciales específicos.
+% MoRFs differ from ELMs and SLiMs in not depending on a specific sequence motif, but rather upon a pattern in a disorder prediction output. 
+
 Mas adelante, luego de ver algunos detalles sobre los LMs, se volverá sobre este concepto y la relación con los otros elementos funcionales de las IDPs.
 % Short linear motifs (SLiMs, LMs or MiniMotifs) and their enrichment in
 % natively unstructured, or disordered, regions of proteins (2). 
@@ -1887,65 +1891,53 @@ Por lo tanto, a pesar de la disponibilidad de miles de secuencias de proteínas,
 % ACA AGREGO OTRO ELEMENTO, LOS DOMINIOS ID, QUE PUEDEN SER OTRA CLASIFICACION
 A pesar que las interacciones mediante SLMs suelen ser débiles, transitivas y, posiblemente, tener baja especificidad, pueden originarse interfaces mas especificas y de mayor afinidad si 
 se obtiene cooperación de las regiones flanqueantes, si se combinan varios motivos cortos, o si se utilizan dominios desordenados con mayor longitud.
-% Binding by motifs is usually weak, transient, and possibly of limited specificity , which can be made stronger and/or more specific by either cooperating with flanking regions, combining several motifs, or utilizing longer disordered domains
 Es relevante decir que las regiones de unión en IDPs suelen corresponderse mas con dominios que con motivos cortos, teniendo longitudes que exceden los 20-30 residuos
 \cite{tompa2009close,chen2006conservation,chen2006conservationB}.  
-% It is to be noted, however, that binding regions within IDPs might correspond more to a domain than a motif, with their lengths exceeding 20-30 residues 
-Indeed, these regions possess typical characteristics of domains: 
-(1) they are structurally and functionally independent of the remainder of the protein molecule, 
-(2) they can be recognized by homology due to evolutionary conservation of sequences, and 
-(3) they possess at least one specific function.
-Al poder distinguir esto dominios intrínsecamente desordenados(IDDs) podemos clasificarlos, entonces, como una nueva clase de elementos funcionales independientes que pueden encontrarse dentro de IDPs.
-
-
-Potein domains with conserved disordered regions have a variety of functions, but are most commonly involved in DNA, RNA, and protein binding
+Además de esta longitud característica, tienen distintas propiedades que los distinguen como dominios:
+Son estructuralmente y funcionalmente independientes dentro de la proteína, pueden ser más facilmente reconocibles mediante similitud secuencial debido a que sus secuencias están conservadas, 
+y poseen al menos una función específica que los identifica.
+Al poder distinguirlos como dominios intrínsecamente desordenados(IDDs) podemos clasificarlos, entonces, como una nueva clase de elementos funcionales independientes que pueden encontrarse dentro de IDPs.
+Estos elementos tienen funciones muy diversas pero, generalmente, están involucrados en procesos de interacción con DNA, RNA u otras proteínas.
 
 
 
-
-
-
-
-
-% 
 % DIFERENCIAS Y SIMILITUDES ENTRE SLiMs, MoREs e IDD
 % 
-
-Ademas..MoRFs differ from ELMs and SLiMs in not depending on a specific sequence motif, but rather upon a pattern in a disorder prediction output. 
-
-Although there are differences in the definitions of linear
-motifs and MoRFs, they share many common features 72,163
-including a tendency to undergo disorder-to-order transition (all
-MoRFs by definition and aprox. 60\% of LMs 48 ), an enrichment in
-IDRs (MoRFs by definition and aprox. 80\% of LMs are in IDRs 48,72 ),
-and a tendency to promote complex formation.
-
-
-Yet, interestingly, recent analysis suggests that linear motifs (LMs) (thus not differentiating between ELMs and SLiMs) show high overlap with MoRFs \cite{fuxreiter2007local}
-A pesar de las diferencias que podremos encontrar entre los . Los últimos trabajos que se han hecho sobre el tema \cite{meszaros2012disordered, fuxreiter2007local} 
-parecen indicar que .....
-The overlap between linear motifs and MoRFs
-especially, but also IDDs, suggests that these functional features
-are different states in the same continuum of binding
-mechanisms involving disordered regions.
-A pesar de tener una longitud (al parecer) bastante mayor, intrinsically disordered domains (IDDs) can also have significant overlap with MoRFs and linear motifs
+A pesar que, como vimos, hay diferencias conceptuales entre motivos secuenciales y los MoREs, existen varias propiedades en común incluyendo la tendencia intrínseca al desorden 
+y ser propensos a experimentar transiciones a estructuras ordenadas(\textit{folding-and-binding}). 
+% Although there are differences in the definitions of linear motifs and MoRFs, they share many common features 72,163 including a tendency to undergo disorder-to-order transition (all
+% MoRFs by definition and aprox. 60\% of LMs 48 ), an enrichment in IDRs (MoRFs by definition and aprox. 80\% of LMs are in IDRs 48,72 ), and a tendency to promote complex formation.
+Varios estudios sugieren, entonces, que existen un gran solapamiento entre lo que normalmente definimos como motivos lineales y MoREs\cite{fuxreiter2007local,meszaros2012disordered}.
+% Yet, interestingly, recent analysis suggests that linear motifs (LMs) (thus not differentiating between ELMs and SLiMs) show high overlap with MoRFs 
+Dependiendo si la idea es definida/estudiada desde un punto de vista estructural o secuencial, entonces, un motivo lineal puede ser señalado como un MoRE o PSE.
+Más allá de esto, a pesar de tener una longitud (al parecer) bastante mayor, los IDDs también poseen un solapamiento significativo con MoREs y motivos lineales.
+% intrinsically disordered domains (IDDs) can also have significant overlap with MoRFs and linear motifs
+Estos resultados parecen indicar que estos tres elementos funcionales pertenecen a estados de un mismo continuo de mecanismos de unión que pueden encontrarse en IDRs/IDPs.
+% The overlap between linear motifs and MoRFs
+% especially, but also IDDs, suggests that these functional features
+% are different states in the same continuum of binding
+% mechanisms involving disordered regions.
 
 % Different concepts regarding short recognition elements have
 % been extensively discussed in the literature. Indeed,
-depending
-on whether the idea is approached from a structural point of view
-or defined at the sequence level, a short motif could be denoted
-as a “molecular recognition element” (MoRE)/“molecular
-recognition feature” (MoRF) , a PSE, or “linear motif” (LM),
-respectively (LM is also denoted as “eukaryotic linear motif”
-(ELM) or “short linear motif” (SLiM)).
+% depending
+% on whether the idea is approached from a structural point of view
+% or defined at the sequence level, a short motif could be denoted
+% as a “molecular recognition element” (MoRE)/“molecular
+% recognition feature” (MoRF) , a PSE, or “linear motif” (LM),
+% respectively (LM is also denoted as “eukaryotic linear motif”
+% (ELM) or “short linear motif” (SLiM)).
 
 
-Whereas LMs have been identified as short sequence motifs critical in recognition functions, primary contact sites, preformed structural elements and molecular recognition elments/features have been approached from the direction of protein disorder, emphasizing recognition segments embedded in such regions. Unity of these concepts is underlined by the key role of a few specificity determinants in all these recognition elements, and also by their local preferences for undergoing disorder-to-order transition upon molecular recognition, which might already
-be manifested prior to binding. 
-Apart from a minority of the cases when LMs are constituted of segments of ordered domains, these different concepts of short recognition elements express the same underlying physical and
-functional principles that provide a probably widespread solution to the dynamic control of protein-protein interaction networks.
-
+% ESTO ES LO MISMO, LO COMENTÉ PERO SE PUEDE RESCATAR ALGO
+% Whereas LMs have been identified as short sequence motifs critical in recognition functions, primary contact sites, preformed structural elements and molecular recognition elments/features 
+% have been approached from the direction of protein disorder, emphasizing recognition segments embedded in such regions. U
+% nity of these concepts is underlined by the key role of a few specificity determinants in all these recognition elements, and also by their local preferences 
+% for undergoing disorder-to-order transition upon molecular recognition, which might already
+% be manifested prior to binding. 
+% Apart from a minority of the cases when LMs are constituted of segments of ordered domains, these different concepts of short recognition elements express the same underlying physical and
+% functional principles that provide a probably widespread solution to the dynamic control of protein-protein interaction networks.
+% 
 
 
 
@@ -1953,18 +1945,19 @@ functional principles that provide a probably widespread solution to the dynamic
 
 % AHORA QUE VIMOS TODO  INTENTAMOS HACER UNA CLASIFICACION!!!!!!!!!!
 % 
-Como se vio hasta acá, a pesar que la diferenciacion entre dominios y motivos es bastante clara, dentro de los motivos cortos de reconocimiento las diferencias no son tan claras
-Para entender mejor las funcionalidades, intentaremos ahora hacer una clasificacion de las functional features(elementos/modulos funcionales) que pueden encontrarse dentro de IDRs/IDP.
-% A measure that is often used to distinguish the different types of disordered binding modules is length.
-No perfect discriminatory properties can unambiguously distinguish the different types of binding elements, and the various interaction interfaces are characterized by a continuum of overlapping
-binding features. 
-Though disordered interaction modules encompass a continuous range of binding interfaces, they can be approximately split into three major classes of autonomous functional interfaces: 
-A three-category classification of protein interaction modules that have distinct functional, structural, and evolutionary dynamics has
-been proposed previously: globular domains, intrinsically disordered domains (IDDs), and SLiMs.  This classification
-defines a module as a minimal autonomous unit that, through interaction with another biomolecule, performs a regulatory,
-recognition, or enzymatic function. Each of these classes has a set of defining attributes that allows them to be discriminated
-from each other, and although exceptions exist for each category, these discriminatory attributes hold true for the
-majority of instances
+% TAMBIEN ES UN POCO MAS DE LO MISMO, PERO PODRÍA SACAR ALGO
+% Como se vio hasta acá, a pesar que la diferenciacion entre dominios y motivos es bastante clara, dentro de los motivos cortos de reconocimiento las diferencias no son tan claras
+% Para entender mejor las funcionalidades, intentaremos ahora hacer una clasificacion de las functional features(elementos/modulos funcionales) que pueden encontrarse dentro de IDRs/IDP.
+% % A measure that is often used to distinguish the different types of disordered binding modules is length.
+% No perfect discriminatory properties can unambiguously distinguish the different types of binding elements, and the various interaction interfaces are characterized by a continuum of overlapping
+% binding features. 
+% Though disordered interaction modules encompass a continuous range of binding interfaces, they can be approximately split into three major classes of autonomous functional interfaces: 
+% A three-category classification of protein interaction modules that have distinct functional, structural, and evolutionary dynamics has
+% been proposed previously: globular domains, intrinsically disordered domains (IDDs), and SLiMs.  This classification
+% defines a module as a minimal autonomous unit that, through interaction with another biomolecule, performs a regulatory,
+% recognition, or enzymatic function. Each of these classes has a set of defining attributes that allows them to be discriminated
+% from each other, and although exceptions exist for each category, these discriminatory attributes hold true for the
+% majority of instances
 
 
 
@@ -2003,45 +1996,62 @@ majority of instances
 % \subsection{Proteinas modulares}
 \subsection{Naturaleza modular de las proteínas}
 
-
-Proteins are usually modular, containing discrete regions each of which performs a different sub-function. 
-The modular nature of proteins has many advantages, providing increased stability and new cooperative functions.
-Other advantages include the protection of intermediates within inter-domain clefts that may otherwise be unstable in aqueous environments and the fixed stoichiometric ratio of enzymatic activity necessary for a sequential set of reactions
-In terms of evolution, modularity increases evolvability by reducing constraints on adaptation and by allowing preexisting parts to function in new contexts for novel uses.
-
-Por todo lo visto hasta acá(en las secciones anteriores), la idea de modularidad en proteinas no es nada nuevo, ya hasta aca se entendio que las proteinas pueden estar compuestas de elementos funcionales y estructurales muy diversos.
-la idea no es agregar nuevos conceptos a la composicion de la proteina sino llevar a la idea de la proteina como un modelo mas arquitectonico, lo que facilita el estudio, principalmente de los mecanismos evolutivos y desde que se descubrieron 
-estos conceptos nos ha permitido, como veremos en la proxima seccion, reutilizar el esquema arquitectonico para diseñar proteinas combinando modulos estructurales/funcionales.
-
-
-% PROTEINAS COMPUESTAS POR MULTIPLES DOMINIOS GLOBULARES
-% A pesar  como se describio en las secciones anteriores, las proteínas estan compuestas de destintos elementos funcionales y estructurales.
-A pesar de esta gran diversidad de elementos funcionales y estructurales muy diversos.
-The most widely known(mas estudiados) modular element is the protein (globular) domain. 
-Esto se debe principalmente a que, por sus propiedade estructurales, son estudiados desde los comienzos de la proteina estrucural.
-Ademas, por el paradigma de secuencia-estructura-funcion, son mucho mas faciles de identificar y estan mas conservados.
-% Because single domain globular proteins are often, though not always, easy to crystallise, for a long time they dominated perception of typical protein structure (although fibrous proteins like collagen were of course well known).
-% Gradually, as protein sequences have accumulated, the monodomain view of protein structure has been replaced by the realisation that most proteins are multidomain, at least in higher eukaryotes.
+Por todo lo visto hasta acá(en las secciones anteriores), la idea de modularidad en proteinas no es nada nuevo ya que 
+describimos varios elementos funcionales y estructurales diversos.
+% ya hasta aca se entendio que las proteinas pueden estar compuestas de elementos funcionales y estructurales muy diversos.
+La idea de esta sección no es agregar nuevos elementos posibles en la composicion de la proteinas sino presentar la idea de una proteínas mediante un modelo mas arquitectonico lo cual no sólo facilita el entender 
+algunos mecanismos evolutivos,
+% (principalmente de los mecanismos evolutivos),
+ sino que también permite 
+% y desde que se descubrieron estos conceptos nos ha permitido, como veremos en la proxima seccion, 
+reutilizar el esquema arquitectonico para (re)diseñar proteinas, combinando módulos estructurales y/o funcionales existentes.
 
 
-Certain modules occur in a wide variety of hetero- and homomultimeric proteins:
-Suggests mechanisms to facilitate duplication and dispersal
-“Building blocks” of different types of multidomain proteins are known as mobile protein modules
-Frequency of transfer and incorporation into new protein reflects fixation probability
+Las proteínas son usualmente modulares, conteniendo regiones definidas asociadas cada una con una subfunción específica.
+% Proteins are usually modular, containing discrete regions each of which performs a different sub-function. 
+Esta naturaleza modular provee muchas ventajas, principalmente la posibilidad de desarrollar funciones que requieren cooperación de distintos módulos y un incremento en la estabilidad de la estructura global.
+% The modular nature of proteins has many advantages, providing increased stability and new cooperative functions.
+Otra ventajas incluyen la protección de los metabolitos intermedios dentro de espacios inter-dominio, aumentando la   y previniendo la liberación al medio que 
+Other advantages include the protection of intermediates within inter-domain clefts that may otherwise be unstable in aqueous environments 
+and the fixed stoichiometric ratio of enzymatic activity necessary for a sequential set of reactions
+Desde el punto de vista evolutivo, la modularidad en las proteínas incrementa la capacidad evolutiva reduciendo las restricciones necesarias para la adaptación y permitiendo que módulos preexistentes puedan funcionar en nuevos contextos para nuevos usos.
+% In terms of evolution, modularity increases evolvability by reducing constraints on adaptation and by allowing preexisting parts to function in new contexts for novel uses.
 
-Esto no ocurre tanto con otros tipos de elementos funcionales/estructurales vistos, por ej. los linear motifs.
-In the sense that they are modular, or repeated in many different contexts, linear motifs are similar to domains. 
+
+% 
+% NO SE SI PONERLO: DOMINIOS GLOBULARES
+De todos los elementos estructurales/funcionales que vimos en las secciones previas, los mas estudiados son los dominios globulares. 
+Esto se debe principalmente a que, por sus propiedades estructurales, son estudiados desde los comienzos de la proteina estructural.
+Además, como vimos, las restricciones estructurales y funcionales sobre la secuencia hacen que estén mas conservadas y sean mucho más faciles de identificar.
+
+% PONER EL MECANISMO DE DUPLICACION DE DOMINIOS GLOBULARES
+
+% Los dom
+% Certain modules occur in a wide variety of hetero- and homomultimeric proteins:
+% Suggests mechanisms to facilitate duplication and dispersal
+% “Building blocks” of different types of multidomain proteins are known as mobile protein modules
+% Frequency of transfer and incorporation into new protein reflects fixation probability
+
+% Esto no ocurre tanto con otros tipos de elementos funcionales/estructurales vistos, por ej. los linear motifs.
+
+
+In the sense that they are modular, or repeated in many different contexts, domains are similar to linear motifs. 
 However, they differ in one critical aspect: whereas domains are now accepted only to arise by gene duplication, linear motifs, because of their short length, can easily arise convergently.
-Dado que los linear motifs are very likely to arise or disappear by chance: 
-just one mutation can change an inert stretch of sequence into a functional linear motif, or cause a functional site to become inactive. 
-This gives them a certain evolutionary plasticity missing from protein domains.
+% Dado que los linear motifs are very likely to arise or disappear by chance: 
+% just one mutation can change an inert stretch of sequence into a functional linear motif, or cause a functional site to become inactive. 
+% This gives them a certain evolutionary plasticity missing from protein domains.
 Es decir, en terminos modulares, los motivos lineales pueden complementar la dinamica evolutiva de los dominios
 
-The first X-ray crystallographic structures provided a static picture of protein architecture, but multidomain structures in multiple conformations were soon discovered, where individual domains were connected by flexible linkers.
-La proteina modular tipica esta compuesta de independently folded globular domains that are separated by flexible linker regions. 
-In the absence of their targets, these modular proteins often behave as ‘beads on a flexible string’, where the function of the linker is, primarily, to enable a relatively unhindered spatial search by the attached domains
-Los dominios globulares are typically more than 30 residues in length and fold into an independent compact structure. 
-% More than 7000 domains are known(citar Pfam), performing an enormous diversity of functions from catalysis during metabolism to cell–cell recognition in the immune system. 
+
+% The first X-ray crystallographic structures provided a static picture of protein architecture, but multidomain structures in multiple conformations were soon discovered, where individual domains were connected by flexible linkers.
+
+La arquitectura modular tipica está compuesta de dominios globulares independientes unidos por regiones flexibles(linkers).
+En ausencia de interacciones, estas proteínas se comportan como  , donde la función del linker es, principalmente, permitir a los dominios unidos moverse libremente explorando el espacio conformacional.
+% In the absence of their targets, these modular proteins often behave as ‘beads on a flexible string’, where the function of the linker is, primarily, to enable a relatively unhindered spatial search by the attached domains
+% Los dominios globulares tienen tipicamente más de 30 residuos de longitud y pueden plegarse independientemente del resto de la proteína.
+% Los dominios globulares are typically more than 30 residues in length and fold into an independent compact structure. 
+Se conocen una gran cantidad de dominios(citar Pfam), 
+More than 7000 domains are known(citar Pfam), performing an enormous diversity of functions from catalysis during metabolism to cell–cell recognition in the immune system. 
 Domain duplication is now an accepted mechanism of evolution, and differences in domain architecture are often responsible for critical differences between organisms.
 Duplications are thought to be followed either by loss of one copy or the evolution of a new function by point mutations
 
@@ -2206,58 +2216,57 @@ or binding).
 \subsection{Diseño de proteínas quiméricas}
 
 
+Como producto de los avances logrados en las tecnologías asociadas al ADN recombinante, se ha desarrollado una nueva generación de proteínas compuestas por la unión de diferentes unidades estructurales/funcionales.
+Estas nuevas proteinas quiméricas(o de fusión), se sintetizan de manera rutinaria para alcanzar distintos objetivos:
 % As a product of recombinant DNA technology, fusion proteins have been developed as a class of novel biomolecules with multi-functional properties. 
-Recent advances in protein engineering have come from creating multi-functional chimeric proteins containing modules from various proteins.
+% Recent advances in protein engineering have come from creating multi-functional chimeric proteins containing modules from various proteins.
+% Recombinant chimeric fusion proteins are routinely constructed para lograr distintos objetivos: 
 
-
-Recombinant chimeric fusion proteins are routinely constructed para lograr distintos objetivos: 
 \begin{itemize}
- \item para crear nuevas proteinas que combinan funciones de distintos dominios:
-En las secciones anteriores se describio como los dominios.... are considered (one of the most)the basic modules of protein structure, evolution and function.
-Por lo tanto, se conocen una gran cantidad de dominios..
-More than 7000 domains are known(citar Pfam), performing an enormous diversity of functions from catalysis during metabolism to cell–cell recognition in the immune system. 
-La forma mas comun de crear proteinas quimericas es, entonces....
-By genetically fusing two or more protein domains together, the fusion protein product may obtain many distinct functions derived from each of their component moieties.
- 
-\item to increase the expression of soluble proteins 
-
-\item to facilitate protein purification.
-\item para realizar estudios de interaccion proteina-proteina: si la afinidad es muy baja, uniendo las dos proteinas se aumenta la probabilidad de que esten unidas, entonces se puede obtener el complejo para estudiar por tecnicas biofisicas.
-
-The characterization of protein–protein interactions is often required to gain an understanding of
-various biological processes. Yet, the study of pro-
-tein–protein interactions for many complexes is
-hampered when one or more partners of the complex
-are unfolded or unstable. Traditionally, this problem
-has been addressed by the co-expression and/or co-
-purification of both proteins. 11 However, for weakly
-interacting or unstable complexes, the co-expression
-and/or co-purification often results in a single pro-
-tein. 12 Protein engineering techniques were another
-option to address unfolded or unstable proteins,
-using a single polypeptide chain chimera to link the
-two binding partners via a flexible amino acid linker
-13
-. With these chimeric proteins, it was then possible
-to maintain both the intramolecular and intermolec-
-ular protein–protein interactions, 14 and chimeric
-proteins have been used to generate stable, soluble
-binary complexes for structural studies, as well as
-functional dimers.
-Linking binding partners using an artificial
-linker will increase the proximity between the inter-
-acting partners and preserve the natural interaction.
-In cases where the interacting partners are not
-linked, it is possible that the binding partners might
-dissociate due to their low affinity and/or due to the
-crystallization conditions.
-
-% Una de las aplicaciones mas interesantes es para ayudar al estudio estructurals de las intereacciones entre proteinas \cite{reddy2013linkers}.
+ \item Creación de proteinas que combinan funciones de distintos dominios:
+% En las secciones anteriores se describio como los dominios.... are considered (one of the most)the basic modules of protein structure, evolution and function.
+% Por lo tanto, se conocen una gran cantidad de dominios..
+Cómo se dijo en la sección anterior, se conocen una gran cantidad de dominios los cuales se encuentran anotados con una gran cantidad de funciones correspondientes.
+% More than 7000 domains are known(citar Pfam), performing an enormous diversity of functions from catalysis during metabolism to cell–cell recognition in the immune system. 
+La forma mas común de crear proteinas quimericas es, entonces, fusionar genéticamente dos o más dominios con subfunciones distintas, obteniendo una nueva funcionalidad global para la proteína.
+% By genetically fusing two or more protein domains together, the fusion protein product may obtain many distinct functions derived from each of their component moieties.
+\item Facilitar el estudio de interacciones proteina-proteina\cite{reddy2013linkers}: 
+Tradicionamlente el estudio se hace expresando conjuntamente las dos proteinas que conforman el complejo.
+Sin embargo, si la afinidad es muy baja, no es tan simple obtener el complejo formado.
+La creación de una proteína quimérica que une a los dominios/proteínas que forman el complejo permite mantenerlas unidas mediante un linker.
+La flexibilidad de esta secuencia linker debería permitir la correcta formación del complejo y, al estar unidas covalentemente, habrá una posibilidad mucho mayor de interacción.
+El aumento en la estabilidad del complejo permite realizar los estudios biofísicos necesarios sobre éste.
+% The characterization of protein–protein interactions is often required to gain an understanding of various biological processes. 
+% Yet, the study of protein–protein interactions for many complexes is hampered when one or more partners of the complex are unfolded or unstable. 
+% Traditionally, this problem has been addressed by the co-expression and/or copurification of both proteins. 
+% However, for weakly interacting or unstable complexes, the co-expression and/or co-purification often results in a single pro-
+% tein. 
+% Protein engineering techniques were another
+% option to address unfolded or unstable proteins,
+% using a single polypeptide chain chimera to link the
+% two binding partners via a flexible amino acid linker
+% 13
+% . With these chimeric proteins, it was then possible
+% to maintain both the intramolecular and intermolec-
+% ular protein–protein interactions, 14 and chimeric
+% proteins have been used to generate stable, soluble
+% binary complexes for structural studies, as well as
+% functional dimers.
+% Linking binding partners using an artificial
+% linker will increase the proximity between the inter-
+% acting partners and preserve the natural interaction.
+% In cases where the interacting partners are not
+% linked, it is possible that the binding partners might
+% dissociate due to their low affinity and/or due to the
+% crystallization conditions.
+\item La unión de fragmentos de anticuerpos a enzimas o proteínas que permitan la detección de la unión es la base de las técnicas immunoquímicas.
+% \item Incrementar la expresión de proteínas.
+\item La unión de segmentos de secuencia específica permite la purificación de proteínas a partir del lisado celular. 
+% Facilitar la purificación de proteínas.
+% Una de las aplicaciones mas interesantes es para ayudar al estudio estructurals de las intereacciones entre proteinas \cite{}.
 % -In addition to structural studies of protein–protein interactions \cite{reddy2013linkers}.,
-\item a wide range of applications in the field of biotechnology have employed these fused proteins
-\item to explore protein-based biochemistry, such as to create artificial bifunctional enzymes and as tools for FRET analysis.
-\item Other engineering approaches that link two proteins or protein domains by a peptide linker include immunoassays (e.g., using chimeras between antibody fragments and proteins ),  
-selection and production of antibodies with specialized functions, 
+% \item a wide range of applications in the field of biotechnology have employed these fused proteins
+% \item to explore protein-based biochemistry, such as to create artificial bifunctional enzymes and as tools for FRET analysis.
 \end{itemize}
 
 
@@ -2267,40 +2276,59 @@ selection and production of antibodies with specialized functions,
 % Pero además, como se vió antes, la proteina modular tipica esta compuesta de independently folded globular domains that are separated by flexible linker regions, por lo que se require obtener este linker, 
 % el cual debe conferir a los dominios la libertad suficiente para cumplir sus funciones sin restricciones.
 
-The successful construction of a recombinant fusion protein requires two indispensable elements: 
-the component domains/proteins and the linkers.
-The choice of the component domains/proteins is based on the desired functions of the fusion protein product and, in most cases, is relatively straightforward. 
-On the other hand, the selection of a suitable linker to join the protein domains together can be complicated and is often neglected in the design of fusion proteins.
-Direct fusion of functional domains without a linker may lead to many undesirable outcomes, including misfolding of the fusion proteins [17], low yield in protein production
-[18], or impaired bioactivity [19, 20]. 
-Therefore, the selection or rational design of a linker to join fusion protein domains is an important, yet underexplored, area in recombinant fusion protein technology.
+La construcción de una proteína de fusión(quimérica) requiere de dos elementos indispensables: 
+los dominios o proteínas a fusionar, y la secuencia linker que los va a unir.
+La elección de los dominios/proteínas está fuertemente ligada al producto final que se desea obtener y, normalmente, se pueden obtener de forma directa.
+% objetivo que se está buscando con la técnica experimental 
+% The successful construction of a recombinant fusion protein requires two indispensable elements: 
+% the component domains/proteins and the linkers.
+% The choice of the component domains/proteins is based on the desired functions of the fusion protein product and, in most cases, is relatively straightforward. 
+Por otro lado, la selección de un linker adecuado para unir los dominios/proteinas de acuerdo al objetivo que se busca puede ser un paso complicado y es generalmente ignorado cuando se piensa en el diseño de una proteína quimérica.
+% On the other hand, the selection of a suitable linker to join the protein domains together can be complicated and is often neglected in the design of fusion proteins.
+La unión directa de los dominios/proteínas o el uso de un linker inadecuado puede resultar en resultados indeseables, por ej. puede restringirse la capacidad de plegado de algun dominio globular, bajar el rendimiento de la proteína resultante o
+disminución en la actividad biológica de alguno de los módulos.
+La correcta selección, o mejor aún, el diseño racional de las secuencias linker para unir los módulos es un aspecto importante, aunque poco desarrollado, del diseño de proteínas quiméricas. 
+% Direct fusion of functional domains without a linker may lead to many undesirable outcomes, 
+% including misfolding of the fusion proteins [17], low yield in protein production [18], or impaired bioactivity [19, 20]. 
+% Therefore, the selection or rational design of a linker to join fusion protein domains is an important, yet underexplored, area in recombinant fusion protein technology.
 
-
-Esta falta de conocimiento se debe, quizas, a que...
-Despite many empirical surveys, very little is known about the structural factors that govern interdomain flexibility. 
-Such lack of knowledge is a limiting factor in de novo chimera design. Therefore, a number of recent studies focused on the structural principles governing the domain architecture and their assembly. 98–107.
-The emerging concepts, along with the bioinformatics tools that attempt to detect domains and their motions from sequence information alone, 108 may one day lead to a precise de novo engineering of interdomain flexibility, thereby helping
-achieve the desired functioning of synthetic chimeras.
+Esta falta de desarrollo en el tema se debe, quizás, a la falta de conocimiento sobre los factores estructurales que gobiernan la flexibilidad entre los dominios.
+Este factor limita, claramente, el diseño \textit{de-novo} de proteínas quiméricas. Los conocimientos relevantes sobre este tema pueden aparecer a partir de la gran cantidad de secuencias que se disponen actualmente, los avances en 
+la identificación de dominios y nuevas técnicas para obtener sus propiedades conformacionales a partir de la información secuncial.
+% Despite many empirical surveys, very little is known about the structural factors that govern interdomain flexibility. 
+% Such lack of knowledge is a limiting factor in de novo chimera design. Therefore, a number of recent studies focused on the structural principles governing the domain architecture and their assembly. 98–107.
+% The emerging concepts, along with the bioinformatics tools that attempt to detect domains and their motions from sequence information alone, 108 may one day lead to a precise de novo engineering of interdomain flexibility, thereby helping
+% achieve the desired functioning of synthetic chimeras.
 
 
 % DISORDER vs FLEXIBILITY:
-Disorder and flexibility are often used synonymously, but the two terms are quite distinct\cite{radivojac2004protein}. 
-With regard to an ordered protein, flexibility refers to the magnitudes of the excursions of the atoms from their equilibrium positions.
-For a disordered region, variation in flexibility refers to differences in the speed of interconversion among the various members of the structural ensemble. 
-A variety of methods have been used to investigate the flexibilities of disordered regions and proteins, including NMR.
+Para las arquitecturas mas comunes, compuestas de dominios globulares unidos por linkers, la flexibilidad de esta secuencia linker es un requerimiento escencial.
+Es relevante aclarar acá que, si bien los terminos desordenado y flexible pueden solaparse en algun punto, son términos distintos\cite{radivojac2004protein}
+% Disorder and flexibility are often used synonymously, but the two terms are quite distinct\cite{radivojac2004protein}. 
+% With regard to an ordered protein, flexibility refers to the magnitudes of the excursions of the atoms from their equilibrium positions.
+Para una region desordenada, la variación en la flexibilidad se refiere a las diferencias en las velocidades de interconversión entre los diferentes estados miembro del ensamble estructural.
+Una variedad de técnicas biofísicas, como por ej. NMR, han sido usadas para estudiar estos conceptos de flexibilidad.
+% For a disordered region, variation in flexibility refers to differences in the speed of interconversion among the various members of the structural ensemble. 
+% A variety of methods have been used to investigate the flexibilities of disordered regions and proteins, including NMR.
+Análisis de estructuras mediante estas tecnicas muestran que el movimiento en la proteína que provoca los cambios conformacionales puede ocurrir tanto a nivel de residuos como a nivel de estructura secundaria o terciaria. 
+% Analyses of structures(por ej. mediante X.ray diffraction) have shown that protein motion may occur due to conformational changes in individual 
 
-Control of structural flexibility is essential for the proper functioning of a large number of proteins and multiprotein complexes. 
-At the residue level, such flexibility occurs due to local relaxation of peptide bond angles whose cumulative effect may result in large changes in the secondary, tertiary or quaternary structures of protein molecules. 
-Such flexibility, and its absence, most often depends on the nature of interdomain linkages formed by oligopeptides.
-
-Analyses of structures(por ej. mediante X.ray diffraction) have shown that protein motion may occur due to conformational changes in individual residues or at the secondary, tertiary, or quaternary structural levels. Lactate dehydrogenase, triose-phosphate isomerase, as well as hemoglobin and related proteins are some of the earliest examples of proteins that showed conformational changes with important functional implications.
-
+% Control of structural flexibility is essential for the proper functioning of a large number of proteins and multiprotein complexes. 
+% At the residue level, such flexibility occurs due to local relaxation of peptide bond angles whose cumulative effect may result in large 
+% changes in the secondary, tertiary or quaternary structures of protein molecules. 
+% Such flexibility, and its absence, most often depends on the nature of interdomain linkages formed by oligopeptides.
 
 
+% residues or at the secondary, tertiary, or quaternary structural levels. 
+% Lactate dehydrogenase, triose-phosphate isomerase, as well as hemoglobin 
+% and related proteins are some of the earliest examples of proteins that showed conformational changes with important functional implications.
 
+% 
 
-Knowledge of natural linkers in multi-domain proteins is very helpful for the (rational??) design of empirical linkers in recombinant fusion proteins. 
-En la próximo sección se analizan estos
+Además de los analisis sobre las propiedades físicas asociadas a las arquitecturas modulares, el estudio de la diversidad de linkers encontrados en la naturaleza puede proveer información importante para entender los requerimientos
+más importantes en el diseño de estas secuencias.
+% Knowledge of natural linkers in multi-domain proteins is very helpful for the (rational??) design of empirical linkers in recombinant fusion proteins. 
+Este es el tema de la próxima sección.
 
 
 
@@ -2745,3 +2773,16 @@ Ultimately, more searching algorithms for linker databases could be developed, a
 \section{Objetivos}
 
 El objetivo principal de este trabajo es implementar un método para generar una secuencia linker flexible e inerte de novo, o a partir de una secuencia inicial provista por el usuario. 
+
+% Para entender los fundamentos del método implementado primero debemos analizar mejor los detalles del objetivo
+
+lo que queremos obtener es una   que pertenezca a un ensamble conformacional de gran tamaño, de forma que, asumiendo una velocidad de intercambio , resulte en una estructura flexible capaz de
+proveer la flexibilidad necesaria para que los dominios que conecta puedan moverse libremente.
+Como vimos a lo largo de la introducción, este tipo de conformación es adoptada por las secuencias que caracterizamos como IDRs/IDPs.
+Por lo tanto, tenemos un panorama mas claro de cuales seran las características conformacionales de la secuencia que esperamos obtener
+% objetivo conocido en términos estructurales. 
+La idea, entonces, es que la secuencia resultante tenga las características conformacionales propias de una IDR/IDP
+Sin embargo, como vimos en la sección \   la flexibilidad no es todo. Una parte relevante de esta secuencia objetivo es su inercia frente al pipeline de 
+
+Por encima de estos requerimientos se aplican las propiedades extras que son parte del objetivo y 
+
