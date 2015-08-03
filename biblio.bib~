@@ -31,6 +31,49 @@ por el apropiado "y".
   note = "[Release notes for UniProtKB/SwissProt release April 2013]"
 }
 
+
+@misc{prositeWeb,
+  author = {},
+  title = {{PROSITE web}},
+  howpublished = "\url{http://prosite.expasy.org/}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
+
+@article{de2006scanprosite,
+  title={ScanProsite: detection of PROSITE signature matches and ProRule-associated functional and structural residues in proteins},
+  author={De Castro, Edouard and Sigrist, Christian JA and Gattiker, Alexandre and Bulliard, Virginie and Langendijk-Genevaux, Petra S and Gasteiger, Elisabeth and Bairoch, Amos and Hulo, Nicolas},
+  journal={Nucleic acids research},
+  volume={34},
+  number={suppl 2},
+  pages={W362--W365},
+  year={2006},
+  publisher={Oxford Univ Press}
+}
+
+
+
+@misc{scanprositeWeb,
+  author = {},
+  title = {{ScanProsite web}},
+  howpublished = "\url{http://prosite.expasy.org/scanprosite/}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
+@article{sigrist2002prosite,
+  title={PROSITE: a documented database using patterns and profiles as motif descriptors},
+  author={Sigrist, Christian JA and Cerutti, Lorenzo and Hulo, Nicolas and Gattiker, Alexandre and Falquet, Laurent and Pagni, Marco and Bairoch, Amos and Bucher, Philipp},
+  journal={Briefings in bioinformatics},
+  volume={3},
+  number={3},
+  pages={265--274},
+  year={2002},
+  publisher={Oxford Univ Press}
+}
+
+
 ******  PARA CITAR EN LA GENERACION DE SEQ. RANDOM
 @article{krick2014amino,
   title={Amino acid metabolism conflicts with protein diversity},
@@ -76,6 +119,18 @@ por el apropiado "y".
 }
 
 
+***paradigma
+@article{wright1999intrinsically,
+  title={Intrinsically unstructured proteins: re-assessing the protein structure-function paradigm},
+  author={Wright, Peter E and Dyson, H Jane},
+  journal={Journal of molecular biology},
+  volume={293},
+  number={2},
+  pages={321--331},
+  year={1999},
+  publisher={Elsevier}
+}
+
 
 @article{dunker2001intrinsically,
   title={Intrinsically disordered protein},
@@ -102,6 +157,17 @@ por el apropiado "y".
 
 
 
+***TEORIA SOBRE EL ESPACIO 
+@article{uversky2013decade,
+  title={A decade and a half of protein intrinsic disorder: biology still waits for physics},
+  author={Uversky, Vladimir N},
+  journal={Protein Science},
+  volume={22},
+  number={6},
+  pages={693--724},
+  year={2013},
+  publisher={Wiley Online Library}
+}
 
 
 ******** FUNCIONALIDADES DE IDPs
@@ -396,6 +462,18 @@ por el apropiado "y".
   pages={884--890},
   year={2003},
   publisher={Nature Publishing Group}
+}
+
+***metaestabilidad frente a la agregación
+@article{baldwin2011metastability,
+  title={Metastability of native proteins and the phenomenon of amyloid formation},
+  author={Baldwin, Andrew J and Knowles, Tuomas PJ and Tartaglia, Gian Gaetano and Fitzpatrick, Anthony W and Devlin, Glyn L and Shammas, Sarah Lucy and Waudby, Christopher A and Mossuto, Maria F and Meehan, Sarah and Gras, Sally L and others},
+  journal={Journal of the American Chemical Society},
+  volume={133},
+  number={36},
+  pages={14160--14163},
+  year={2011},
+  publisher={ACS Publications}
 }
 
 ****ESTRUCTURA AMYLOID

@@ -12,12 +12,11 @@
 % PROPIEDADES ESTRUCTURALES
 % POR QUE LO QUEREMOS SACAR
 
-Como vimos al comienzo de la sección \ref{method}, uno de los fundamentos de esta herramienta se encuentra en la restricción de elementos estructurales ordenados en la secuencia linker, 
-
-
+Como vimos al comienzo de la sección \ref{method}, uno de los fundamentos de esta herramienta se encuentra en la restricción de elementos estructurales ordenados en la secuencia linker.
+% Es decir, queremos que adopte una conformación intrínsecamente desordenada.
 Para lograr esto, se analizará la secuencia con el fin de encontrar y eliminar cualquier elemento que pueda permitirle adoptar una estructura plegada
 buscando que la secuencia tenga, así, una mayor tendencia a adquirir una conformación intrínsecamente desordenada.
-
+% Como regla general, un mayor puntaje para un residuo indica que, dado el contexto en el que se encuentra, posee una tendencia significativa a formar estructuras ordenadas. 
 
 
 % QUE METODOS EXISTEN
@@ -101,12 +100,22 @@ Por lo tanto, esa busqueda tambien permite sesgar la busqueda hacia secuencias q
 
 
 
+% 
+% ACA EMPIEZO A HABLAR DE PERDIDAS DE FLEXIBILIDAD POR INTERACCIONES
+% FOLDING-AND-BINDING, CHAPERONAS, AGREGADOS...
+% 
+
+Hasta aca, intentamos asegurarnos que la secuencia no pueda adquirir una estructura ordenada de forma ESTABLE ESTANDO EN SU FORMA AISLADA!!!
+
+Sabemos, sin embargo, que la situacion en el entorno celular es claramente diferente.
+
+...intentaremos predecir perdidas de flexibilidad por interacciones con otras proteínas(iguales o distintas).
 
 
 % MoREs
-Dentro de segmentos desordenados igual pueden encontrarse regiones que adoptan conformaciones estructuradas transitivamente(posiblemente frente a la presencia de ligandos).
-La deteccion de estos segmentos es relevante, no solo por los aspectos estructurales que queremos evitar %esto lo tengo que explicar en los parrafo anteriores 
-sino tambien due to their functional importance. % en que otro lado menciono este solapamiento
+% Dentro de segmentos desordenados igual pueden encontrarse regiones que adoptan conformaciones estructuradas transitivamente(posiblemente frente a la presencia de ligandos).
+% La deteccion de estos segmentos es relevante, no solo por los aspectos estructurales que queremos evitar %esto lo tengo que explicar en los parrafo anteriores 
+% sino tambien due to their functional importance. % en que otro lado menciono este solapamiento
 
 % METODO DE DETECCION DE MoREs
 Although the information content of short sites is very limited, due to their enrichment in hydrophobic residues, indirect techniques have
@@ -129,18 +138,25 @@ ANCHOR permite detectar segmentos con cierta tendencia a adquirir estructuras pe
 % CHAPERONAS
 
 % POR QUE LO QUEREMOS SACAR
-En la introduccion se vieron, tambien, distintos mecanismos y elementos que intervienen en la homeostasis de las proteinas. Dentro de estos.... 
-las chaperonas son elementos fundamentales para el correcto funcionamiento y calidad de las proteinas, interviniendo en el correcto plegado, activacion, la posible translocacion, replegamiento o degradacion de proteinas incorrectamente plegadas, etc.
+En la introduccion se vieron, tambien, distintos mecanismos y elementos que intervienen en la homeostasis de las proteinas. Dentro de estos,
+las chaperonas son elementos fundamentales para el correcto funcionamiento y calidad de las proteinas, interviniendo en el correcto plegado, activacion, la posible translocacion, 
+replegamiento o degradacion de proteinas incorrectamente plegadas, etc.
 Distintas chaperonas reconocen distintos motivos secuenciales expuestos por las proteinas y esta gama de chaperonas llevara a la proteina unida a un final distinto.
-Existen distintas posibilidades reales en el proceso de ingenieria de proteinas en las cuales la secuencia diseñada artificialmente se encuentre con chaperonas en alguna situación experimental. Sin dudas la degradacion de nuestra secuencia linker es el peor final en esta situación, 
-pero todas las posibilidades tienen un impacto negativo en la funcionalidad de linker que se quiere asignar(imponer) a la secuencia. El reconocimiento por parte de la chaperona implica la unión a esta, lo cual puede interferir en la flexibilidad natural que (idealmente) ha adquirido la secuencia linker diseñada. 
-De esta forma, dado que apuntamos a abarcar todas las posibles situaciones experimentales con las que uno se puede encontrar, es necesario tener en cuenta la posibilidad de que esten presentes proteinas chaperonas en algun paso del uso experimental de la secuencia. 
- 
-Existen chaperonas cuya funcion implica unirse a proteinas que no esten totalmente plegadas para evitar la agregacion de estas. El objetivo de esto es intervenir en situaciones de shock termico donde la perdida de la estructura nativa puede llevar a uniones entre distintas proteinas dando un agregado no funcional.
-Si bien uno de los objetivos de este trabajo es lograr una tendencia reducida a la agregacion en la secuencia generada y ciertas chaperonas podrian facilitar esto, la union implica, como se menciono anteriormente una perdida de flexibilidad que es necesaria para la funcion de linker. 
+Existen distintas posibilidades reales en el proceso de ingenieria de proteinas en las cuales la secuencia diseñada artificialmente se encuentre con chaperonas en alguna situación experimental. 
+Sin dudas la degradacion de nuestra secuencia linker es el peor final en esta situación, 
+pero todas las posibilidades tienen un impacto negativo en la funcionalidad de linker que se quiere asignar(imponer) a la secuencia. 
+El reconocimiento por parte de la chaperona implica la unión a esta, lo cual puede interferir en la flexibilidad natural que (idealmente) ha adquirido la secuencia linker diseñada. 
+De esta forma, dado que apuntamos a abarcar todas las posibles situaciones experimentales con las que uno se puede encontrar, es necesario tener en cuenta 
+la posibilidad de que esten presentes proteinas chaperonas en algun paso del uso experimental de la secuencia. 
+
+Existen chaperonas cuya funcion implica unirse a proteinas que no esten totalmente plegadas para evitar la agregacion de estas. 
+El objetivo de esto es intervenir en situaciones de shock termico donde la perdida de la estructura nativa puede llevar a uniones entre distintas proteinas dando un agregado no funcional.
+Si bien uno de los objetivos de este trabajo es lograr una tendencia reducida a la agregacion en la secuencia generada y 
+ciertas chaperonas podrian facilitar esto, la union implica, como se menciono anteriormente una perdida de flexibilidad que es necesaria para la funcion de linker. 
 De esta forma buscamos evitar la agregacion mediante analisis sobre la secuencia que tienen este objetivo particular.
 
-Por otro lado, es importante este paso porque las secuencias intrinsecamente desordenadas tales como la secuencia linker que estamos diseñando suelen tener propiedades que forman targets comunes para las chaperonas (exposicion de sitios hidrofobicos???)?????????????????????????
+Por otro lado, es importante este paso porque las secuencias intrinsecamente desordenadas tales como la secuencia linker que estamos diseñando suelen 
+tener propiedades que forman targets comunes para las chaperonas (exposicion de sitios hidrofobicos???)?????????????????????????
 
 
 
@@ -376,16 +392,23 @@ Dentro de nuestro algoritmo, la herramienta ANCHOR se aplica utilizando un punto
 
 
 
-\subsection{Formación de agregados de proteínas}
+\section{Formación de agregados}
 
-
+La flexiblidad no siempre se ve limitada por la   , es decir, por interacc
+Cualquier interacción con otros elementos que implique una reducción del , o lo que es lo mismo, un aumento en las restricciones conformacionales.
 
 % POR QUE QUEREMOS/DEBEMOS PREVENIR LA FORMACION DE AGREGADOS
-En nuestro caso, la formacion de amiloides fibrilares entre los linkers 'arrastraria' a los dominios que unen y podria interferir en la funcionalidad de estos. 
+En primer lugar, la formación de agregados que involucren a las secuencias linker implicaría una clara reducción en la flexibilidad debido a la interacción con otras proteínas.
+% Sin embargo, la formación de agregados puede afectar, también a los módulos unidos por el linker.
+Sin embargo, la interacción entre las secuencias linker sería solo el principio del problema.
+Dadas las propiedades de los agregados, principalmente de la formación de fibras amiloides(caracteristica que se asume genérica de los polipeptidicos), 
+la formación de esta estructura abarcará a la secuencia completa de la proteína.
+En nuestro caso, una tendencia a formar fibrillas amiloides dentro de la secuencias linkers 'arrastraria' a los dominios que unen y interfiriendo directamente en la funcionalidad de estos. 
 La funcionalidad de cualquier dominio proteico se podria ver limitada si esta se encuentra formando algun tipo de agregado.
 
-Al ser una caracteristica generica de los polipeptidicos, es posible que ocurra este tipo de agregacion en cualquier secuencia. 
-Ademas, no podriamos simplemente descartar las proteinas que se sabe tienen tendencia a formar fibras amiloides, al ser una propiedad intrinseca de las secuencias polipeptidicas es necesario analizar todas las secuencias.
+
+% Al ser una caracteristica generica de los polipeptidicos, es posible que ocurra este tipo de agregacion en cualquier secuencia. 
+% Ademas, no podriamos simplemente descartar las proteinas que se sabe tienen tendencia a formar fibras amiloides, al ser una propiedad intrinseca de las secuencias polipeptidicas es necesario analizar todas las secuencias.
 
 
 
@@ -535,7 +558,7 @@ structure-breaking properties. Identically charged residues are also very effect
 
 
 
-\subsubsection{Tango}
+\subsection{Tango}
 
 El método se deriva a partir de aplicar la mecanica estadistica a un conjunto de datos experimentales obtenidos de los residuos dentro de proteinas que promueven el 'agregamiento ordenado' o la formacion de amyloids. 
 El algoritmo resultante permite identificar las regiones de agregacion beta dentro de una secuencia.
@@ -558,7 +581,7 @@ Para predecir la agregado beta de un segmento, Tango calcula la funcion de parti
 
 
 
-\subsubsection{Waltz}
+\subsection{Waltz}
 
 
 Otra de las herramientas que se utilizó para analisis de tendencias a formar fibras amiloides es Waltz \cite{maurer2010exploring}
@@ -719,7 +742,7 @@ gate sequences.
 
 
 
-\subsubsection{PASTA}
+\subsection{PASTA}
 
 
 Pasta asume que el mecanismo (las interacciones) que llevan a la formacion de beta-sheets en proteinas globulares es el mismo que el que lleva a la formacion de beta-sheets en estructuras cross-beta(estructura asociada a fibras amiloides).
@@ -770,7 +793,7 @@ Otra caracteristica del servidor PASTA 2.0 es que implementa un mecanismo basado
 
 
 
-\subsubsection{Determinantes secuenciales de fibras amiloides}\label{determinantesSecuenciales}
+\subsection{Determinantes secuenciales de fibras amiloides}\label{determinantesSecuenciales}
 
 El trabajo realizado en  \cite{de2004sequence} realiza un  profundidad mediante un analisis de mutagenesis a partir de un péptido amiloide diseñado \textit{de novo} en \cite{de2002novo}. 
 El ensayo consiste en reemplazar sistematicamente los residuos de este péptido(STVIIE) con todos los AAs naturales, excepto Cys.
@@ -1038,26 +1061,30 @@ Para realizar la detección de los motivos no se utiliza ningún punto de corte,
 La búsqueda de motivos sobre la secuencia resulta en un conjunto de subsecuencias que representan una instancia encontrada, las cuales pueden estar solapadas. Cada una de estas subsecuencias se trata de forma individual.
 El algoritmo toma cada una de las subsecuencias resultantes y, por cada posición de éste, se suma 1 al valor de la posición en el puntaje global.
 Se puede ver ésto en un ejemplo sencillo:
-Si estamos trabajando con la secuencia PSKPLRGNAMVGL , el resultado de la búsqueda da un conjunto de 3 motivos encontrados en las subsecuencias: INCLUIR EXPRESIONES REGULARES, A SER POSIBLE TOMADAS DE ELM
-PSKPLR (posiciones 1-6), NAMVGL (posiciones 8-13), KPLRGNAMVGL(posiciones 3-13).
+Si estamos trabajando con la secuencia PSKPLRGNAMVGL, el resultado de la búsqueda da un conjunto de 3 motivos encontrados en las subsecuencias: 
+
+% INCLUIR EXPRESIONES REGULARES, A SER POSIBLE TOMADAS DE ELM
+PSKPLR (posiciones 1-6)\\
+NAMVGL (posiciones 8-13)\\
+KPLRGNAMVGL(posiciones 3-13)\\
 Por lo tanto, el puntaje resultante de este paso es:
 
 \rule[-0.8\baselineskip]{0pt}{\baselineskip}
 \begin{tabular}{llllllllllllll} 
 Secuencia: & P & S & K & P & L & R & G & N & A & M & V & G & L\\ 
-Puntaje Inicial: & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-% Evaluación con herramienta A & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-% Evaluación con herramienta B & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-% Puntaje global & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+PSKPLR (posiciones 1-6) & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+NAMVGL (posiciones 8-13) & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+KPLRGNAMVGL(posiciones 3-13  & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+Puntaje & 1 & 1 & 2 & 2 & 2 & 2 & 1 & 2 & 2 & 2 & 2 & 2 & 2\\
 \end{tabular}
 
 \vspace{0.5cm}
-Secuencia global             =   PSKPLRGNAMVGL
-PSKPLR (posiciones 1-6)      =   1111110000000 
-NAMVGL (posiciones 8-13)     =   0000000111111  
-KPLRGNAMVGL(posiciones 3-13) =   0011111111111
- -------------
-Total                        =   1122221222222
+% Secuencia global             =   PSKPLRGNAMVGL
+% PSKPLR (posiciones 1-6)      =   1111110000000 
+% NAMVGL (posiciones 8-13)     =   0000000111111  
+% KPLRGNAMVGL(posiciones 3-13) =   0011111111111
+%  -------------
+% Total                        =   1122221222222
 
 
 
@@ -1181,54 +1208,13 @@ En este paso, a cada residuo que se alinea correctamente con el hit se le sumar�
 
 
 
-
-\section{Carga neta de la secuencia}
+\section{Otros propiedades evaluadas}
+\subsection{Carga neta de la secuencia}
 
 Otro de los motivos por las cuales se podría querer eliminar aminoácidos cargados es cuando se esta diseñando una proteína que se une a dna porque los residuos del linker podrían 
 entonces formar puentes salinos con los fosfatos del dna
 
 
-
-\section{Otras posibles herramientas}
-Homologias secuenciales mas distantes? ej mediante HMM (usando HMMer por ej.)
-
-Busqueda de dominios en BBDD: Known domains are now stored in a number of databases including Pfam [1], SMART [13], CDD [14] and InterPro [15]. % ESTAS BBDD ALMACENAN SOLO DOMINIOS GLOBULARES????????
-Particular domains and domain architectures are well conserved over the course of evolution. The sequences diverge, but the overall domain architecture remains the same.
+\subsection{Absorción UV}
 
 
-Protein interaction databases such as BIND and DIP. More informative protein interaction databases that store known instances of linear motifs (36) include MINT (37), Phosphobase (20) and ASC (38). 
-Databases of instances are not directly useful for prediction but provide valuable data-mining resources.
-
-
-
-Analisis de otras condiciones experimentales tales como pH y temperatura:
-For a number of extendedly-disordered proteins it has been shown that a decrease (or increase) in pH induces partial folding of intrinsically unordered proteins due to the minimization of
-their large net charge present at neutral pH, thereby decreasing charge/charge intramolecular repulsion and permitting hydrophobic-driven collapse to the partially-folded conformation
-
-Importantly, this high temperature and extreme pH stability of ID proteins can be used isolate them from cell extracts
-
-An increase in temperature often induces the partial folding of intrinsically unstructured
-proteins (i.e., proteins with extended disorder), rather than the unfolding that is typically
-observed for globular proteins. The effects of elevated temperature may be attributed to the
-increased strength of the hydrophobic interaction at higher temperatures, leading to a stronger
-hydrophobic driving force for partial folding
-
-
-
-
-ELM is already the largest collection of linear motifs, followed
-by PROSITE and Scansite (32). There are other sites that
-specialise on one or a few motifs for which they may provide
-better prediction quality than ELM and should be utilised
-where appropriate. Many functional sites reside in unstructured
-polypeptide regions and the GlobPlot server (http://globplot.
-embl.de/) is useful for revealing sequence segments of
-non-globular character (33), the inverse of the SMART and
-Pfam domain servers. Some useful motif servers are listed in
-Table 2 and the ELM and ExPASy servers list more. Also of
-note are protein interaction databases such as BIND (34) and
-DIP (35). More informative protein interaction databases that
-store known instances of linear motifs (36) include MINT (37),
-Phosphobase (20) and ASC (38). Databases of instances are
-not directly useful for prediction but provide valuable
-data-mining resources.
