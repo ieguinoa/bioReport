@@ -390,7 +390,7 @@ Evaluación con IUPred & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 &
  
  
  
-\subsection{ANCHOR: predicción de MoREs } \label{anchor}
+\subsection{ANCHOR: predicción de MoREs} \label{anchor}
 
 La herramienta ANCHOR\cite{meszaros2009prediction} reutiliza el modelo definido para implementar la herramienta IUPred(ver sección \ref{iupred}), en la cual se lograba estimar la energía asociada a cada posición basándose en 
 el tipo de aminoácido y la composición del contexto más próximo. Usando esta modelo, se pueden recalcular las energías de cada posición pero ``simulando'' un contexto de unión con otra proteína hipotética, lo que permite
@@ -436,7 +436,7 @@ la composición del contexto con el cual se dan las interacciones estará dado p
 Para esto se utiliza la frecuencia de aminoácidos estándar en estas proteínas.
 La diferencia resultante entre la interacción con los vecinos propios de la secuencia y este nuevo valor calculado será:
 \begin{equation}\label{score3}
-E_i{ganancia,k} = E_i^{intra,k} - E_i^{globular,k}
+E_i^{ganancia,k} = E_i^{intra,k} - E_i^{globular,k}
 \end{equation}
 
 donde $E_i^{intra,k}$ y $E_i^{globular,k}$ se calculan usando nuevamente la ecuación \ref{modelofinal}, usando las frecuencias del contexto de la posición $k$ y las frecuencias estándar, respectivamente.
@@ -453,85 +453,88 @@ Queda determinar cuál es el peso de cada uno en el valor total(coeficientes de 
 % (cantidad de vecinos) que se tienen en cuenta para hacer el promedio en el componente 1 (w1).
 % Valor de la ventana que se tiene en cuenta para evaluar cada el componente 2 (w2).
 
-Para determinar los valores óptimos de estos parámetros se utilizaron dos conjuntos de datos: un conjunto negativo compuesto por cadenas de proteínas globulares y un conjunto de resultados positivos, compuesto por complejos cortos desordenados.
-Este último conjunto de datos, compuesto por proteínas desordenadas que se unen a proteínas ordenadas formando complejos, representa una seria limitación ya que la cantidad de elementos que se conocen es muy limitada. 
-Dada esta condición, se considera que una ventaja de este método el reducido número de parámetros(5 en total) que se deben evaluar en base a este conjunto de datos.
+Para determinar los valores óptimos de estos parámetros se utilizaron dos conjuntos de datos: un conjunto negativo compuesto por cadenas de proteínas globulares y un conjunto de resultados positivos compuesto por complejos formados por segmentos desordenados unidos a proteinas globulares..
+% Este último conjunto de datos, representa una seria limitación ya que la cantidad de elementos que se conocen es muy limitada. 
+% Dada esta condición, se considera que una ventaja de este método el reducido número de parámetros(5 en total) que se deben evaluar en base a este conjunto de datos.
 Cabe destacar que no es posible entrenar el predictor utilizando un conjunto de proteínas desordenadas que se sepa que no forman uniones con proteínas globulares, 
-principalmente porque no existe método preciso para comprobar que esto NO ocurre.
+principalmente porque no existe método preciso para comprobar que esto NO ocurre. 
+A pesar de esta condición, y que la cantidad de datos del conjunto de resultados positivos es considerablemente limitada, una ventaja del método es que contiene sólo 5 parámetros para los cuales se deben evaluar sus valores óptimos. 
 
-Dado que el resultado de ANCHOR es una combinación de varios aportes, principalmente la tendencia al desorden y la sensibilidad al estar en un entorno estructurado, 
-el resultado obtenido es relativamente independiente del score obtenido únicamente con IUPred. 
-
-Como se define en \cite{dosztanyi2009anchor},las regiones que tienen un score mayor a 0.5 se puede asumir que son 
-% and pass the filtering criteria 
-% are predicted as disordered binding regions.
-Dentro de nuestro esquema de evaluación, la herramienta ANCHOR se aplica utilizando un punto de corte igual a 0.5, como se define en el servidor . 
-Los residuos de la secuencia que tengan un valor asociado mayor a éste se considerarán como posiblemente pertenecientes a segmentos desordenados de unión a proteínas.   
-
-% 
-% Los valores de n representan las frecuencias de aminoácidos i y j en la secuencia.
-% El valor de P es el parámetro a estimar, el cual se deriva a partir del modelo mencionado previamente, que evalúa la energía a partir de las interacciones que ocurren en la estructura. 
-% El ajuste se realiza minimizando la diferencia entre ambas ecuaciones.
-% De esta forma, mediante un ajuste de mínimos cuadrados se puede parametrizar el modelo a partir de datos de estructuras pertenecientes a proteínas globulares.
-% Dado que las proteínas globulares forman un gran número de interacciones entre los residuos (lo que les provee la energía estabilizante para superar la pérdida de entropía), 
-% y las proteínas IU/desordenadas tienen secuencias especiales que no poseen esta capacidad de formación de interacciones, la estimación del potencial de interacción permite diferenciar entre
-% regiones de proteínas ordenadas y desordenadas. Esto transforma el modelo de predicción en un eficiente método para diferenciar secciones desordenadas de secciones con estructura definida.
-% 
-% Como se mencionó previamente, la parametrización de este modelo se realiza a partir de estructuras contenidas en una base de datos de proteínas globulares, por lo que son datos suficientes
-% para realizar una buena parametrización, además de ser consistentes y curadas. Esto diferencia el método de otros, que se basan en adaptar un modelo a datos de estructuras correspondientes
-% a proteínas intrínsecamente desordenadas, agrupados en bases de datos chicas, con datos obtenidos usando diversas técnicas y con distintos significados del término desordenado.
-% 
-% El primer componente resulta de promediar los valores obtenidos directamente de IUPred en una ventana de tamaño w1 alrededor de cada residuo. Esto evalúa la tendencia al desorden
-% que tiene el entorno de cada residuo.
-% 
-% El segundo componente evalúa la ganancia de energía que tendrá el residuo al formar interacciones de a pares con los vecinos contenidos dentro de una ventana de tamaño w2. 
-% La ecuación asociada es idéntica a la obtenida para IUPred.
-% 
-% El tercer componente evalúa la ganancia de energía que tendrá el residuo al formar interacciones de a pares con los una proteína globular, con respecto a la formación de contactos únicamente entre los vecinos(componente 2). Para hacer esta evaluación, se reutiliza el modelo de IUPred, pero ahora, la composición del contexto con el cual se dan las interacciones estará dado por la composición de una proteína globular hipotética. Para esto se utiliza la frecuencia de AAs estándar en estas proteínas. Este valor se calcula como:
-% La diferencia resultante entre la interacción con los vecinos propios de la secuencia y este nuevo valor calculado será:
-%     
-% 
-% La ecuación resultante que combina los tres criterios es:
-% 
-%   
-%   
-% Varios de los parámetros de este nuevo modelo ya fueron determinados previamente utilizando datos conocidos de estructuras de proteínas globulares. Queda determinar:
-% Cual es la proporción de cada uno al aporte total (coeficientes de la combinación lineal) 
-% Tamaño de la ventana(cantidad de vecinos) que se tienen en cuenta para hacer el promedio en el componente 1 (w1).
-% Valor de la ventana que se tiene en cuenta para evaluar cada el componente 2 (w2).
-% 
-% Para determinar los valores óptimos de estos parámetros se utilizaron dos conjuntos de datos: un conjunto negativo compuesto por cadenas de proteínas globulares y un conjunto de resultados
-% positivos, compuesto por complejos cortos desordenados. Este último conjunto de datos, compuesto por proteínas desordenadas que se unen a proteínas ordenadas formando complejos,
-% representa una seria limitación ya que la cantidad de elementos que se conocen es muy limitada. Dada esta condición, se considera que una ventaja de este método el reducido número de 
-% parámetros(5 en total) que se deben evaluar en base a este conjunto de datos.
-% Cabe destacar que no es posible entrenar el predictor utilizando un conjunto de proteínas desordenadas que se sepa que no forman uniones con proteínas globulares, principalmente 
-% porque no existe método preciso para comprobar que esto NO ocurre.
-% 
-% Dado que el resultado de Anchor es una combinación de varios aportes, principalmente la tendencia al desorden y la sensibilidad al estar en un entorno estructurado, 
+% Dado que el resultado de ANCHOR es una combinación de varios aportes, principalmente la tendencia al desorden y la sensibilidad al estar en un entorno estructurado, 
 % el resultado obtenido es relativamente independiente del score obtenido únicamente con IUPred. 
-% 
-% Dentro de nuestro algoritmo, la herramienta ANCHOR se aplica utilizando un punto de corte igual a 0.5. Los residuos de la secuencia que tengan un valor asociado mayor a 
-% éste se considerarán como posiblemente pertenecientes a segmentos desordenados de unión a proteínas.   
-% 
-% 
-% 
-% 
+
+Como se define en \cite{dosztanyi2009anchor},las regiones que tienen un $score>0.5$ se puede tomar como potneciales segmentos de unión.
+Dentro de nuestro esquema de evaluación, los segmentos de unión representan posibles pérdidas de flexiblidad en la región linker y, por lo tanto, se toman como propiedades negativas.
+De esta forma, los residuos que posean $score>0.5$ tendrán un puntaje asociado = 1 como resultado de la evaluación.
+% la herramienta ANCHOR se aplica utilizando un punto de corte igual a 0.5, como se define en el servidor . 
+% Los residuos de la secuencia que tengan un valor asociado mayor a éste se considerarán como posiblemente pertenecientes a segmentos desordenados de unión a proteínas.   
+
+Por ejemplo, la evaluación de la secuencia \texttt{TFSLWKPENMLSPDD} con ANCHOR devuelve los valores de \textit{score} mostrados en la figura \ref{anchorResults}. 
+
+\begin{figure}[ht]
+% {\linewidth}
+\centering
+\includegraphics[width=0.5\textwidth]{img/anchorTabla.png} 
+\caption{}
+\label{anchorResults}
+\end{figure}
+
+Las posiciones 1-6 tienen asociados valores $>0.5$. Aplicando nuestro esquema de evaluación, estos resultados se traducen en la siguiente tabla de puntajes:
+
+\vspace{0.5cm}
+\noindent
+\begin{tabular}{llllllllllllllll} 
+\hline      
+Secuencia & \textbf{T} & \textbf{F} & \textbf{S} & \textbf{L} & \textbf{W} & \textbf{K} & \textbf{P} & \textbf{E} & \textbf{N} & \textbf{M} & \textbf{L} & \textbf{S} & \textbf{P} & \textbf{D} & \textbf{D} \\ \hline
+Evaluación con ANCHOR & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ \hline
+\end{tabular}
+
+
+
 
 
 \subsection{Limbo: Interacción con chaperonas} \label{limbo}
 
-% Limbo utiliza Tango(deberia explicar este antes) ?????????????
-% 
-% \cite{van2009accurate}
-% 
-% 
-% El método utiliza una combinacion de informacion secuencial y estructural para analizar el perfil de secuencias que se unen a la proteina chaperona DnaK
-% 
+El algoritmo Limbo\cite{van2009accurate} es un predictor de sitios de unión a la chaperona DnaK, representante de la extensa familia Hsp70, que se especializa en la unión de regiones hidrofóbicas expuestas, generalmente
+presentes en polipéptidos desplegados. El método se desarrolló utilizando una combinación de información secuencial y estructural para analizar el perfil de secuencias que se unen a esta chaperona.
+
+El primer paso en el desarrollo del método es crear un predictor basado exclusivamente en información secuencial.
+Para armar el set de aprendizaje que se usará para esto, se realizaron una serie de ensayos experimentales de unión a péptidos, los cuales se inmobilizaron unidos a una membrana de celulosa, 
+y luego de la incubación con DnaK se detectó la unión mediante un anticuerpo específico.
+
+Los pépetidos usados en los ensayos de unión se obtienen de 3 conjuntos distintos. Un primer set se obtiene de predicciones basadas en el uso de Tango, asumiendo que la DnaK se une a secuencias propensas a formar agregados.
+Usando los resultados obtenidos con el primer set, se desarrolla un predictor simple de unión a DnaK, utilizado para la búsqueda de sitios en el proteoma de E.coli 
+y separando las proteínas cortas con al menos dos de estos sitios de unión, las cuales conforman el set 2. El último conjunto corresponde a dos péptidos supuestamente reconocidos por la DnaK, ubicados en el factor$\sigma$ de la RNA-polimerasa.
+
+Los resultados de los ensayos fueron filtrados para separar aquellos que resultaban en señal positiva aún cuando no se realizaba el paso de incubación con DnaK (falsos positivos). 
+La señal de todo el conjunto resultante se corrigió usando esta señal de control negativo. Finalmente los resultados se dividieron, según dos valores de cutoff(alto y bajo), para dar 2 conjuntos de péptidos:
+los que son reconocidos por la DnaK y lo que no. El set de aprendizaje final se construye obteniendo primero todas las subsecuencias de 7 residuos posibles. 
+
+Del set de péptidos de no-unión todos los posibles heptapéptidos formados son seleccionados, 
+mientras que del set de péptidos de unión positiva sólo se incluyen aquellos que dan una mayor energía de unión a DnaK(evaluada mediante el campo de fuerzas de FoldX).
+A partir de los conjuntos de heptapéptidos positivos y negativos se obtienen dos matrices PSSM y una matriz final se obtiene restando los valores de score de la PSSM de no-unión a los valores encontrados en la PSSM positiva.
+
+De manera independiente se contruyó un perfil secuencial a partir de un análisis puramente estructural de unión a DnaK.
+Para esto se hizo primero un análisis de mutaciones posicionales sobre el heptapéptido unido a la DnaK utilizando la estructura de ésta(cristalizada junto con un hepapéptido) y el campo de fuerzas FoldX. 
+En primer lugar se mutaron todas las posiciones a Alanina y luego cada posición fue mutada individualmente a cada uno de los restantes 19 aminoácidos.
+Se obtuvieron asi los valores de $\Delta\Delta$G para cada residuo y cada posición. 
+The more
+negative the DDG, the better the residue fits DnaK binding. To
+convert each DDG into a PSSM score, we took the negative of
+each DDG and filled the structure-based PSSM accordingly.
+
+
+Los valores de todas las matrices son optimizados mediante un algoritmo de validación cruzada el cual permite eliminar algunos péptidos de los conjuntos de aprendizaje .
+Los perfiles resultantes, representados en las PSSMs obtenidas del análisis secuencial y del análisis estructural se combinan para dar el predictor final. 
+
+
 % Para desarrollar el algoritmo predictor, lo que se realizó fue:
 % 
 % ARMAN 3 GRUPOS DE PEPTIDOS (ver de donde salen los 3 grupos)
-% PRUEBAN TODOS LOS PEPTIDOS MEDIANTE ENSAYO DE UNION A DnaK: sintetizan los peptidos unidos a placa de celulosa, los lavan, los incuban con DnaK y los revelan con un anticuerpo anti-DnaK. (hacen ademas controles negativos de donde vuelan un par de peptidos que se unen directamente al anticuerpo, ademas restan el valor de fluorecencia que aparece cuando no ponen peptidos)
-% Del total de peptidos se dividieron en conjuntos de peptidos binders y peptidos no binders(usando dos valores de cutoff - un valor alto y un bajo). De cada uno de estos conjuntos se separo un pequeño % como conjunto de prueba(para probar luego que tal funciona el predictor que se va a hacer) y un gran % es el que luego se usa para el set de aprendizaje? (conjunto benchmark)
+% PRUEBAN TODOS LOS PEPTIDOS MEDIANTE ENSAYO DE UNION A DnaK: sintetizan los peptidos unidos a placa de celulosa, los lavan, los incuban con DnaK y los revelan con un anticuerpo anti-DnaK. 
+% (hacen ademas controles negativos de donde vuelan un par de peptidos que se unen directamente al anticuerpo, ademas restan el valor de fluorecencia que aparece cuando no ponen peptidos)
+% Del total de peptidos se dividieron en conjuntos de peptidos binders y peptidos no binders(usando dos valores de cutoff - un valor alto y un bajo). 
+% De cada uno de estos conjuntos se separo un pequeño % como conjunto de prueba(para probar luego que tal funciona el predictor que se va a hacer) y un gran % es el que luego se usa para el set de aprendizaje? (conjunto benchmark)
 % Para poder armar una matriz de score especifica de posicion(PSSM) es necesario que todos los peptidos del conjunto de aprendizaje tengan la misma longitud. El conjunto de aprendizaje en si se obtiene dividiendo los peptidos binders y los no binders en heptapéptidos. Para el conjunto de no binders se tomaron todas las posibles subsecuencias de longitud 7 como negativos(y se agregaron al conjunto negativo de aprendizaje). Para el conjunto de binders no es tan simple, entonces se utilizo el campo de fuerzas FoldX: se evaluo la energia de union para cada heptapeptido posible(subsecuencias) y se agrega al conjunto de aprendizaje el mejor heptapeptido.(tambien se agregaron aquellos que tenian una enegia de union en un rango de 0.5kcal/mol menor)
 % Construccion de la PSSM basada en datos de secuencias: inicialmente se construyeron 2 PSSMs separadas basandose en los conjuntos de aprendizaje positivos y negativos. La frecuencia observada se calculo normalizando el numero de ocurrencias de un dado residuo por el numero de secuencias totales en el conjunto de aprendizaje. La frecuencia esperada es la ocurrencia de residuos obtenida de la base de datos SwissProt. El valor que se usa en la PSSM resultante es el logaritmo de la relacion entre la frecuencia observada y la frecuencia esperada. Se generaron asi una PSSM que representa el perfil de secuencia favorable para la union a DnaK(obtenida a partir del conjunto de binders) y otra PSSM que representa el perfil desfavorable(obtenida a partir del conjunto no binder). Estos datos se integran en una misma PSSM cuyos valores estan dados por la resta de ambos valores(valor binder - valor no binder).
 % Construccion de la PSSM basada en datos estructurales: se uso como template la estructura cristalizada de DnaK, junto con la cual estaba co-cristalizado un peptido con la secuencia NRLLLTG, el cual muestra el motivo(estructural?) reconocido por la DnaK, constituido por un minimo de 7 residuos en una conformacion extendida. 
