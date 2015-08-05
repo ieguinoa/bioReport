@@ -14,21 +14,22 @@
 \section{Estructura de este trabajo}
 
 Este primer capítulo introductorio está dividido en dos secciones que presentan los aspectos necesarios para comprender el trabajo realizado, el cual se centra en el diseño de nuevas secuencias linkers con 
-propiedades conformacionales definidas, restringiendo cualquier actividad biologica y elemento estructural no deseado.
-En la primer sección (\ref{proteinLandscape}) se intenta describir el amplio panorama conformacional y funcional que pueden presentar las proteinas, 
-identificando cuales son los elementos funcionales que pueden de acuerdo a las propiedades estructurales que adquieren.
+propiedades conformacionales definidas, restringiendo cualquier actividad biológica y elemento estructural no deseado.
+En la primer sección (\ref{proteinLandscape}) se describe el amplio panorama conformacional y funcional que pueden presentar las proteinas.
+% identificando cuáles son los elementos funcionales que pueden de acuerdo a las propiedades estructurales que adquieren.
 % in-vivo, describiendo cuales son los posibles destinos de las proteinas desde que son sintetizadas en el ribosoma y a lo largo de su etapa funcional en la célula. 
 % Se desarrollan los conocimientos actuales acerce del perfil de conformaciones y funciones conocidas, y las propiedades secuenciales asociadas con estas.
 % Se intenta describir como estos conocimientos actuales sobre las propiedades conformacionales y funcionales de las proteinas se trasladan en el desarrollo 
 % de un amplio abanico de metodos y herramientas bioinformaticas que, a su vez, permiten nuevos avances en los conocimientos subyacentes.
-En la sección siguiente (\ref{proteinEngineering}) se desarrolla el tema de ingenieria de proteínas, intentando mostrar los conceptos mas relevantes del área asociados a este trabajo, 
-introduciendo el problema de diseñar nuevas secuencias linker.
+En la sección siguiente (\ref{proteinEngineering}) se desarrolla el tema de ingeniería de proteínas, intentando mostrar los conceptos más relevantes del área asociados a este trabajo, 
+introduciendo el problema de cómo y por qué diseñar nuevas secuencias linker.
 
-En el capítulo \ref{method} se detalla el método implementado para obtener secuencias linker, indicando los fundamentos, limitaciones y aspectos relevantes de su utilización.
+En el capítulo \ref{method} se describe el desarrollado para obtener secuencias linker, indicando los fundamentos y detalles de la implementación.
+% , limitaciones y aspectos relevantes de su utilización.
 
-En el capítulo \ref{tools} se detalla el conjunto de herramientas utilizadas para evaluar propiedades estructurales y funcionales de interés, describiendo el objetivo de cada evaluación y los fundamentos de cada método. 
+En el capítulo \ref{tools} se detalla los distintos recursos utilizados para evaluar las propiedades de interés sobre la secuencia, describiendo el objetivo de cada evaluación y los fundamentos de cada método. 
 
-En el capítulo \ref{manual} se documentan todos los aspectos necesarios para poder obtener y hacer uso de la herramienta.
+En el capítulo \ref{manual} se documentan todos los aspectos necesarios para poder hacer uso de la herramienta.
 
 En el capítulo \ref{results} se muestran, en primer lugar, las evaluaciones realizadas para obtener los parámetros óptimos de ejecución. 
 Además, se evalúan distintas propiedades de la herramienta resultante y su ejecución analizando, luego, las secuencias obtenidas. 
@@ -67,41 +68,39 @@ Finalmente, el capítulo \ref{conclusiones} contiene las discusiones relevantes,
 
 \section{Perfil conformacional y funcional de proteinas}\label{proteinLandscape}
 
-% HAGO UNA INTRODUCCION A TODO EL TEMA DE CONFORMACION-FUNCION-HOMEOSTASIS-ETC, Y VOY REFERENCIANDO LAS DISTINTAS SUBSECCIONES
-% PRIMERO HABLO DE LA RELACION UNA SECUENCIA-UNA ESTRUCTURA
 
 Las primeras proteínas estudiadas poseían una tendencia intrínseca a plegarse espontáneamente para dar una única estructura tridimensional.
-Los primeros estudios estructurales sobre estas proteinas indicaban que la información requerida para adoptar esta estructura estaba codificada en su secuencia primaria y que, además, se correspondia con un mínimo global sobre el
+Los estudios estructurales sobre estas proteinas indicaban que la información requerida para adoptar esta estructura única estaba codificada en su secuencia primaria y que, además, se correspondia con un mínimo global sobre el
 perfil de energía libre asociado al polipéptido.  
 % Much research has been carried out since then into the mechanism of folding, both under carefully controlled conditions in the laboratory and within cellular environments
+La secuencia de aminoácidos determina una única estructura resultante, conocida como estructura nativa, la cual debería conferirle la función propia a la proteína.
+% Comenzaron a surgir, entonces, distintos modelos para explicar cómo la estructura tridimensional confería las propiedades necesarias para  
+Por un tiempo todo pareció indicar(y la mayoría creyó) que una estructura definida, aunque dinámica, era la base del mecanismo funcional.
 
-Es decir, la secuencia de AAs determina una unica estructura resultante, conocida como estructura nativa, la cual debía conferirle la función propia a la proteína.
-Comenzaron a surgir, entonces, distintos modelos para explicar como 
-Por un tiempo todo pareció indicar(y la mayoría acordó pensar) que una estructura plegada, aunque dinámica, era la base del mecanismo funcional en las proteínas.
 
 % ACA PASO A LA IDEA DE POSIBLES DIFERENCIAS CON ESTE PARADIGMA CLASICO
-El paradigma cambió rotundamente cuando se encontró que, a pesar de no poseer una estructura plegada claramente determinada, una gran cantidad de péptidos y proteínas poseía funciones biológicas relevantes,
+El paradigma cambió rotundamente cuando se encontró que, a pesar de no poseer una estructura claramente determinada, una gran cantidad de péptidos y proteínas poseía funciones biológicas relevantes,
 principalmente cumpliendo roles de señalizacion y regulación, siendo capaces de interactuar con diversos elementos a través de distintos mecanismos.
-Los siguientes estudios afirmaron que, efectivamente, estos elementos pueblan un ensamble de conformaciones considerablemente distintas, que varían en el tiempo, entre las distintas regiones de una misma secuencia y dependiendo del contexto.
-La definición de estado nativo, cuyo criterio es identificar la capacidad de realizar una función biológica, debe aplicarse tambien sobre esta diversidad de conformaciones.
+Los estudios posteriores afirmaron que, efectivamente, estos elementos pueblan un ensamble de conformaciones considerablemente distintas, que varían en el tiempo y también pueden variar entre 
+las distintas regiones de una misma secuencia y con el contexto en el que se encuentran.
+La definición de estado nativo, cuyo criterio es identificar la capacidad de realizar una función biológica, debe aplicarse también sobre esta diversidad de conformaciones.
 
-
-
-El estudio de los perfiles de energía libre también se ve modificado. 
-Además, independientemente de su naturaleza estructural, se encontró que el estado nativo representa, probablemente, sólo un mínimo local bajo condiciones fisiológicas.
-Esto se debe a que los estados de agregación representan generalmente, estados termodinámicamente muy estables correspondientes minimos globales. 
+El estudio de los perfiles de energía libre también se ve modificado e independientemente de su naturaleza estructural se encontró que el estado nativo representa, probablemente, sólo un mínimo local bajo condiciones fisiológicas.
+Esto se debe a que distintos estados de agregación representan estados termodinámicamente muy estables correspondientes a minimos globales. 
 A partir de esto surgen nuevas preguntas acerca de cómo se mantiene en la célula la solubilidad de los estados nativos.
 La respuesta entra dentro de un concepto más amplio conocido como proteostasis(u homeostasis de las proteínas), que se desarrolla hacia el final de esta sección.
 
 % Wright and Dyson 8 suggested that the existence of proteins with intrinsic protein disorder calls for a reassessment of the protein–structure– function paradigm.
 Con el tiempo, entonces, se fue encontrando que las proteínas podían tomar caminos distintos al plegamiento espontáneo y llegan a poblar diversos estados bajo condiciones fisiológicas, 
 entre los cuales se encuentra un amplio rango de conformaciones desordenadas y parcialmente plegadas, e incluso distintos estados de agregación con características estructurales diversas.
-La idea central de esta sección es mostrar como las proteinas pueden, entonces, pueden caer en un continuo de conformaciones estructurales y cómo las funciones 
-emergen a partir de los distintos estados conformacionales y las transiciones dinamicas entre éstos.
+La idea central de esta sección es mostrar como las proteinas pueden, entonces, caer en un continuo de conformaciones estructurales y cómo las funciones 
+emergen a partir de los distintos estados conformacionales y las transiciones dinámicas entre estos.
 % from tightly folded single domains, to multidomain proteins that might have flexible or disordered regions, to compact but disordered MOLTEN GLOBULES and, finally, to highly extended, heterogeneous unstructured states.
 
-Los elementos estructurales y funcionales(y las relaciones entre estos) que permiten formar el paisaje resultante de conformaciones y actividades biológicas, 
-se muestran en la última sección como modulos individuales que proveen a la evolución la capacidad de crear nuevas proteínas compuestas, dando un punto de vista mas arquitectónico de éstas.
+
+% ESTO ES SOBRE MODULARIDAD, LO SAQUÉ DE LA SECCION, LO PUSE EN LA PARTE DE INGENIERÍA
+% Los elementos estructurales y funcionales(y las relaciones entre estos) que permiten formar el paisaje resultante de conformaciones y actividades biológicas, 
+% se muestran en la última sección como modulos individuales que proveen a la evolución la capacidad de crear nuevas proteínas compuestas, dando un punto de vista mas arquitectónico de éstas.
 % que pueden componerse para dar origen a proteinas con funcionalidades compuestas.
 % Algunos de estos módulos le brindan a la naturaleza la dinámica evolutiva necesaria para adaptar ciertas propiedades, mientras que otros permiten 
 % proveen un completo set de elementos y mecanismos funcionales a la célula. 
@@ -143,33 +142,28 @@ se muestran en la última sección como modulos individuales que proveen a la ev
 
 \subsection{Conformación de proteínas en solución} \label{conformationalLandscape}
 
-% \subsubsection{Proteinas globulares, fibrosas y de membrana}
-
-% FALTA TODO LOS DE ESTRUCTURAS PLEGADAS
-
-% ACA EMPIEZO A HABLAR DE FLUCTUACIONES EN LA CONFORMACION, Y QUE NO SON TOTALMENTE ESTÁTICAS
-
-El paradigma clásico de la biología estructural afirma que la secuencia primaria de una proteína contiene la codificación para que esta adopte una estructura ordenada definida.
+El paradigma clásico de la biología estructural afirma que la secuencia primaria de una proteína contiene la codificación para que esta adopte una estructura definida única.
 Si bien esta idea es una simplificación, dado que aún las proteínas mas estables son sistemas dinámicos con distintos grados de flexiblidad, este modelo se adapta a una gran cantidad de proteínas.
-En éstas, el ensamble conformado por los estados accesibles en condiciones fisiológicas está conformado por un conjunto de estructuras que solo difieren en leves desviaciones del promedio del ensamble.
-La dinámica de estas estructuras está dada por movimientos que varían entre fluctuaciones rápidas de pequeña amplitud(del orden de \AA) hasta cambios relativamente lentos($\mu$s - $s$) que involucran cambios estructurales relevantes(plegamiento y movimientos asociados a la función)
-Todos los movimientos son resultantes de rupturas y formaciones de interacciones provocadas por fuerzas de interacción las cuales, debido a su naturaleza débil pueden romperse por efecto de la energía térmica, aún a temperatura ambiente.
-Por lo tanto, a pesar de que estas proteínas puedan ser asociadas con estructuras estáticas definidas, las mínimas fluctuaciones térmicas de la temperatura ambiente les permite explorar distintas conformaciones como parte de su actividad biológica.
+En éstas, el ensamble conformado por los estados accesibles en condiciones fisiológicas está limitado a un conjunto de estructuras que solo difieren en leves desviaciones del promedio del ensamble.
+La dinámica de estas estructuras está dada por movimientos que van desde fluctuaciones rápidas de pequeña amplitud(del orden de \AA) hasta cambios relativamente lentos($\mu$s - $s$) que 
+involucran modificaciones estructurales relevantes(plegamiento y movimientos asociados a la función).
+
+Todos los movimientos son resultantes de rupturas y formaciones de interacciones provocadas por fuerzas de interacción las cuales, debido a su naturaleza débil, pueden romperse por efecto de la energía térmica, aún a temperatura ambiente.
+Por lo tanto, a pesar de que estas proteínas puedan ser asociadas con estructuras estáticas definidas, las más mínimas fluctuaciones térmicas de la temperatura ambiente les permite explorar distintas conformaciones como parte de su actividad biológica.
 En general, todos estos movimientos están asociados al mecanismos por el cual ejercen su función.
-El conjunto de proteínas que posee estas características estructurales son las que denominamos plegadas y, debido a estas mismas propiedades de poseer ensambles conformacionales con poca variabilidad, sus estructuras fueron las primeras que pudieron ser resueltas con precisión. 
+El conjunto de proteínas que posee estas características estructurales son las que denominamos plegadas y, debido a esta misma propiedad de poseer ensambles conformacionales con poca variabilidad, sus estructuras fueron las primeras que pudieron ser resueltas con precisión. 
 
-
-% No se puede pensar, sin embargo, que todas las proteínas tendrán esta conformación plegada.
-% Incluso entre las estructuras almacenadas en la PDB, no todas proteínas muestran una conformación definida a lo largo de toda su secuencia.
-Es así que muchas de estas proteínas contienen segmentos no determinados de sus estructuras, 
-usualmente esta falta de información es producto de regiones no definidas en el mapa de densidad electrónica que resulta del análisis de difracción por rayos X, 
+No se puede pensar, sin embargo, que todas las proteínas tendrán esta conformación plegada.
+Incluso entre las estructuras almacenadas en la PDB, no todas las proteínas muestran una conformación definida a lo largo de toda su secuencia, es así que muchas proteínas contienen segmentos no determinados de sus estructuras.
+Usualmente esta falta de información es producto de regiones no definidas en el mapa de densidad electrónica que resulta del análisis de difracción por rayos X, 
 correspondientes a ensambles de estructuras muy variables asociados a conformaciones flexibles o desordenadas. 
 % Este tipo de segmentos es bastante común ya que sólo una pequeña porción de las estructuras en la PDB se encuentra totalmente libe de regiones con densidad electrónica no definida.
-La simple pregunta sobre cuál es la conformación real que adoptan estos segmentos donde se pierde la definición en la densidad electrónica, junto con la aparición de diversas proteínas funcionales sin una estructura definida, 
-llevaron a centrar la atención en aspectos de flexibilidad estructural y, particularmente, en los detalles de conformación de proteínas que no se adaptan correctamente al modelo clásico de plegamiento.
-% further opened eyes toward flexibility and focused attention on proteins basically distinct from well-known globular proteins. 
-% En terminos biofísicos, estas y otras questions such as, “what does the missing electron density in most of the deposited structures in the PDB correspond to?”, 
-La búsqueda de respuestas a estos nuevos problemas llevo a descubir toda un area quizás más compleja (e incluso más amplia) que la determinada por el paradigma clásico de proteínas plegadas.
+La simple pregunta sobre cuál es la conformación real que adoptan estos segmentos(donde se pierde la definición en la densidad electrónica), 
+junto con la aparición de diversas proteínas funcionales sin una estructura plegada, 
+llevaron a centrar la atención en 
+segmentos/proteínas completas 
+que no se adaptan correctamente al modelo clásico de plegamiento.
+La búsqueda de respuestas a estos nuevos problemas llevo a descubir toda un area, quizás más compleja (e incluso más amplia), que la determinada por el paradigma clásico de proteínas plegadas.
 
 % “why are some proteins highly sensitive in vitro to proteolysis?”, and “why do some proteins possess a particular behavior during the purification process?” 
 
@@ -182,26 +176,24 @@ La búsqueda de respuestas a estos nuevos problemas llevo a descubir toda un are
 % IDPs SECTION
 % ******************************************
 
-% La idea inicial de proteinas que adoptaban una estructura rigida pero levemente flexible parecía muy firme en un principio, principalmente por una gran cantidad de evidencias soportando la perdida de
-% La idea de que las proteínas puedan adoptar estructuras 'desordenadas' era inaceptable inicialmente, 
-% principalmente por la gran cantidad de evidencia sobre los requerimientos de 
 Inicialmente, gran cantidad de evidencia soportaba la idea que la funcionalidad de las proteínas estaba asociada a su estructura tridimensional bien definida pero dinámica.
 Consecuentemente, la idea de que muchas proteínas o regiones no adopten una estructura definida y posean una conformación intrínsecamente desordenada se creyó inaceptable. 
-% Consequently, the notion that many proteins or regions of proteins could be not ordered, but were intrinsically disordered, was unacceptable for a long time.
-Por lo tanto, durante un largo tiempo fueron identificandose y estudiándose experimentalmente una a una, tratándolas como excepciones al modelo clásico.
-% These proteins were independently discovered one-by-one over a long period of time and therefore they were considered as rare exceptions to the general rule.
-Luego de este proceso, hace al menos una década se formalizó la idea que el estado adoptado en condiciones nativas(funcionales) de muchas regiones o proteínas enteras podía ser intrínsecamente desordenado
-(a partir de ahora intrinsically disordered region/protein = IDR/IDP).
+Por lo tanto, durante un largo tiempo fueron identificándose y estudiándose experimentalmente una a una, tratándolas como excepciones al modelo clásico.
+Luego de este proceso, hace al menos una década, se formalizó la idea que el estado adoptado en condiciones nativas(funcionales) de muchas regiones o proteínas enteras podía ser intrínsecamente desordenado
+(IDRs/IDPs = intrinsically disordered regions/proteins, a partir de ahora).
 % Only around the turn of the millennium was it eventually formally raised in several conceptual papers [1–3], among them one in TiBS [4], that many proteins or regions of proteins 
 % are intrinsically disordered (IDPs, or as originally termed, unstructured) under native, functional conditions. Although it was based on rather limited evidence, the groundwork of
 % the new field was laid and sparked an immediate rapid expansion.
 % Varios reviews en \cite{uversky2010understanding,dyson2005intrinsically}.
-Es decir, existe un conjunto cada vez mas amplio de proteinas cuya secuencia codifica conformaciones intrinsecamente desordenadas sin un plegamiento determinado.
+Es decir, existe un conjunto cada vez mas amplio de proteinas cuya secuencia no codifica un plegamiento determinado.
 % Estamos hablando de un numero considerable de proteinas cuya secuencia encodes for the intrinsically unstructured proteins without specific structure.
-These raise several compelling biophysical questions related to the structural characteristics of natively unfolded proteins. 
-How unfolded are these proteins? Are they random coils, or do they possess residual structure? If they have residual structure, how should they be classified?
+Este reconocimiento trajo consigo una gran cantidad de preguntas que quedaron a la espera de aproximaciones/conocimientos de campo de la biofísica.
+% These raise several compelling biophysical questions related to the structural characteristics of natively unfolded proteins.
+¿Que tan desordenadas/desplegadas son estas proteínas?, ¿Son realmente conformaciones aleatorias o conservan una estructura residual?
+¿Si poseen una estructura residual, cómo se clasifican sus conformaciones?
+% How unfolded are these proteins? Are they random coils, or do they possess residual structure? If they have residual structure, how should they be classified?
 % Based on the analysis of the available literature, it has been concluded that intrinsically unstructured proteins do not possess uniform structural properties, as expected for members of a single thermodynamic entity.
-Un mayor avance en este nuevo campo ocurrió porque estas propiedades podían ser estudiadas utilizando una gran cantidad de técnicas biofísicas \cite{eliezer2009biophysical}.
+Un mayor avance requería la utilización de nuevas técnicas biofísicas\cite{eliezer2009biophysical}.
 
 % Structural disorder can now be studied in great detail by several dozen experimental techniques 
 % and the most spectacular advance has been achieved through the application of multidimensional NMR. This approach is often
@@ -210,46 +202,27 @@ Un mayor avance en este nuevo campo ocurrió porque estas propiedades podían se
 % 
 
 % CONCEPTOS GENERALES !!! REESCRIBIR-REORDENAR
-En general, las IDPs no poseen un centro hidrofóbico como para plegarse espontáneamente, lo que si ocurre en proteínas plegadas(en algo similar a un colapso hidrofóbico).  
-% In general, proteins with intrinsically disordered sequences cannot bury sufficient hydrophobic core to fold spontaneously into the highly organized 3D structures that characterize the proteins that are represented in the Protein Data Bank.
+En general, las IDRs/IDPs no poseen un núcleo hidrofóbico que les permita plegarse espontáneamente, lo que si ocurre en proteínas plegadas(en algo similar a un colapso hidrofóbico).  
 En algunos casos, sin embargo, pueden formar estructuras desordenadas pero compactas, o algunos segmentos de la secuencia pueden adoptar transitivamente estructuras secundarias individuales.
-% In some cases, compact but disordered molten-globule-like states can be formed, or local regions of the sequence can have a propensity to adopt isolated and fluctuating elements of secondary structure 
 % (which is equivalent to the ‘pre-molten globule’ proposed by Uversky 2 ). 
-
-% Due to their heteropolymeric nature, proteins are never random coils and always have some residual structure.
 A pesar de esta tendencia desestructurada, debido a la naturaleza heteropolimérica de las proteínas, es probable que nunca adopten 
-conformaciones totalmente aleatorias(where only local steric interactions constrain the conformations adopted by the molecule), incluso en entornos altamente desnaturalizantes.
-Es decir, incluso los estados mas desestructurados mantienen una cierta tendencia a formar elementos estructurados locales, caracterizados por estructuras secundarias o núcleos hidrofóbicos.
+conformaciones totalmente aleatorias(donde las conformaciones solo estan restringidas por impedimentos estéricos), aún en entornos altamente desnaturalizantes donde normalmente se pierden las propiedades estructurales.
+Es decir, incluso los estados mas desestructurados mantienen una cierta tendencia a formar elementos estructurados locales, caracterizados por estructuras secundarias transitivas o núcleos hidrofóbicos.
 La existencia de estos residuos de estructura se han detectado en proteinas estructuradas sometidas a altas concentraciones de desnaturalizantes fuertes. 
-% Due to the heteropolymeric nature, it is probable that proteins rarely, if ever, behave as true random coils, especially in non-denaturing media: 
-% even in their most highly unfolded states, proteins show a propensity to form local elements of secondary structure or hydrophobic clusters
-% In fact, the existence of significant residual structure in the unfolded globular protein has been described even under the most severe denaturing conditions, such as high concentrations of strong denaturants [144-147]. 
-% Accumulated data nonambiguously show that they most likely represent the polymer coils below a critical point, even under harsh denaturing conditions.
 % Thus, coil-like ID proteins are not completely random, but are characterized by the presence of some residual (and highly flexible) structure. 
 
-% Protein random coils differ from true random coils in important respects, such as a non-random population of internal bond angles along the chain.
-% Thus, based on the exceptional structural heterogeneity of IDPs/IDPRs, IDPs are definitely much more structurally complex than random coil-like polypeptides.
-Como vamos a ver, esta leve estructura residual(latente o transitiva) es muy importante para y representan gran parte de las capacidades funcionales en IDRs/IDPs.
-% ....This fact is very important for the functioning of these proteins.
+Como vamos a ver, esta leve estructura residual(latente o transitiva) es muy importante y representa gran parte de las capacidades funcionales en IDRs/IDPs.
 Por lo tanto, se puede decir que las IDRs/IDPs poseen propiedades conformacionales mucho mas complejos que polipéptidos con estructuras totalmente aleatorias y que esta excepcional heterogeneidad estructural
 representa tambien un problema crítico a la hora de estudiarlas experimentalmente y caracterizarlas.
-% Although this structural heterogeneity is very important for protein functionality, it represents a crucial hurdle for structural characterization of IDPs
-
-% Coincidiendo con esta idea que la proteina no plegada nunca es una true random-coil, the persistence of native-like contacts in the denatured (disordered) state has been shown in NMR experiements and in high temperature molecular dynamics simulation. 
 % The existence of preferred limited proteolysis cutting sites also indicates that the native conformation prevails
 
-A partir de esta descripcion estructural se puede entender por que el termino inicial asignado a estas proteínas (proteínas desestructuradas) ha quedado obsoleto.
-% These and many other studies made the term unstructured obsolete. 
+A partir de esta descripcion estructural se puede entender por qué el término inicial asignado a estas proteínas (proteínas desestructuradas) ha quedado obsoleto.
 La única característica distintiva de las IDRs/IDPs es, entonces, su inhabilidad para plegarse en una estructura tridimensional única.
-% The distinguishing and unifying feature of these proteins,if any, is their inability to fold into a unique and stable tertiary structure.
-A pesar de esta falta de estructura única definida, como se vió, presentan una gran diversidad de propiedades estructurales y, lo que es mas importante, estas están relacionadas con sus funciones. 
-Por lo tanto, el término general para describir estas proteínas es, simplemente, 'desordenadas'.
-% They display a vast array of function-related structural organization, therefore, the field has settled on the term ‘disordered’. 
+A pesar de esta falta de estructura única definida, como se vió, presentan una 
+gran diversidad de propiedades estructurales y, lo que es mas importante, estas están relacionadas con las funciones de la proteína. 
+Por lo tanto, el término general para describir estas proteínas es, simplemente, ``desordenadas''. 
 Este término se aplica tanto a las regiones que forman parte de proteinas plegadas mas grandes, como a secuencias que carecen totalmente de estructura plegada. 
-% This term applies to both short and long regions that are part of a larger folded protein (loops and linkers) and proteins that entirely lack a folded structure. 
-% This latter category is sometimes also termed (natively) unfolded. 
-Como veremos, el mosaico estructural que ofrece la variedad de secuencias con regiones de diversas propiedades estructurales es fundamental para obtener el extenso catálogo de funcionalidades existentes.    
-% Como veremos..many proteins are hybrids of ordered and disordered domains and regions, and this mosaic structural organization is crucial for their functions.
+Como veremos, el mosaico estructural que ofrece la variedad de secuencias conformadas por regiones con propiedades estructurales diversas es fundamental para obtener el extenso catálogo de funcionalidades existentes.    
 
 
 
@@ -258,58 +231,36 @@ Como veremos, el mosaico estructural que ofrece la variedad de secuencias con re
 % PROPIEDADES ESTRUCTURALES
 % ******************************
 
-Ahora que sabemos que no estan completamente libres de restricciones estructurales, nos concentraremos en describir cuales son las características de su conformación:
+Ahora que sabemos que las IDRs/IDPs no están completamente libres de restricciones estructurales, nos concentraremos en describir cuales son las características de su conformación:
 Las IDRs/IDPs consisten en estructuras altamente dinámicas que se interconvierten en diferentes escalas de tiempo.
-% Indeed, they consist of dynamic structures that interconvert on a number of time scales.
 Estas estructuras varían desde estados completamente sin estructura(polipéptidos nativos sin plegamiento) hasta estados parcialmente plegados(sin estructuras secundarias definidas), o incluso ensambles desordenados pero con ciertas
 estructuras secundarias claramente determinadas.
-% Structurally, IDPs range from completely unstructured polypeptides (native coils, that resemble the highly unfolded states of globular proteins) 
-% to extended partially structured forms (native pre-molten globules) or even to compact disordered ensembles that may contain significant secondary structure (native molten globules)
-% ID proteins have dynamic structures that interconvert on a number of timescales and have been shown to have many similarities to non-native states of “normal” globular proteins, 
-% which(como se describio antes) may exist in at least four different conformations: native (ordered), molten globule, pre-molten globule, and coil-like.
-La distribución de estas estructuras esta cambiando continuamente en el tiempo. 
-% This distribution is constantly changing in time where a given segment of a protein molecule has different structures at different time points. 
+La distribución de estas estructuras está cambiando continuamente en el tiempo. 
 Es decir, la estructura tridimensional que podemos ver en un instante dado será diferente de la que veremos en otro momento.
-% As a result, at any given moment, an IDP has a structure which is different from a structure viewed at another moment
-
 
 A pesar de esta dinámica estructural, sin embargo, las IDRs/IDPs carecen de cualquier tipo de estructura secundiaria(o terciaria) estable bajo condiciones fisiológicas.
-% by definition, IDPs are devoid of stable!!! secondary and/or tertiary structures under physiological conditions.
 Las estructuras residuales que describimos como parte del ensamble, a pesar de ser transitorias, tienen un papel relevante en el cumplimiento de la función asociada a la proteína.
-% However, a majority of them have some residual transient secondary structures that are required for function.
-Cualquier IDP contiene una gran cantidad de este tipo de elementos estructurales, algunos con gran potencial para plegarse, otros con capacidades de plegamiento diferencial(en algún contexto determinado) y otros sin posibilidad alguna de adquirir una estructura determinada.
-% A typical IDP/IDPR contains a multitude of elements coding for potentially foldable, partially foldable, differently foldable, or not foldable at all protein segments.
-De esta última descripción se puede imaginar que, probablemente, ninguna IDP adoptará una conformación totalmente desplegada a lo largo del tiempo(aunque tampoco estará completamente plegada), por el contrario, se tendrá una gran variedad
+Cualquier IDR/IDP contiene una gran cantidad de este tipo de elementos estructurales, algunos con gran potencial para plegarse, otros con capacidades de plegamiento diferencial(en algún contexto determinado) 
+y otros sin posibilidad alguna de adquirir una estructura determinada.
+De esta última descripción se puede imaginar que, probablemente, ninguún IDR/IDP adoptará una conformación totalmente desordenada a lo largo del tiempo(aunque tampoco estará completamente plegada), por el contrario, se tendrá una gran variedad
 de posibles mosaicos con distintas proporciones y tipos de elementos estructurales.
-% Hence, it should be borne in mind that most proteins are neither fully ordered nor fully disordered but contain ordered and disordered regions at different ratios.
-Este perfil conformacional, junto con las proteinas plegadas que describimos al principio de esta sección, forma un continuo estructural que puede verse en \ref{conformationContinuum}.
+
+Este perfil conformacional, junto con las proteinas plegadas que describimos al principio de esta sección, forma un continuo estructural que puede verse en la figura \ref{conformationContinuum}.
 El extremo izquierdo representa el perfil de las proteinas completamente plegadas. 
 En \cite{gall2007intrinsic} se ve que, incluso en la PDB donde las estructuras almacenadas están sesgadas hacia el perfil de proteínas plegadas(porque son las más simples para cristalizar), las conformaciones totalmente ordenadas son 
 poco abundantes y que la mayoría de las estructuras posee al menos un segmento desordenado.
-Este y otros estudios parecen indicar que el comportamiento de las proteinas totalmente plegadas es mas bien la excepción más que la regla, y que la mayoria de las secuencias tienen regiones desordenadas.
-% De hecho, los analisis sobre las estructuras depositadas en la PDB    indicate that completely ordered proteins are not highly abundant  in  PDB  and  many  PDB  sequences  have  disordered  regions. \cite{gall2007intrinsic}
-
-% Indeed, only about 32\% of the crystal structures of the PDB are completely devoid of disorder and the degree or the depth of disorder (as it is manifested by the absence of the electron density) varies widely, 
-% suggesting that the fully ordered protein depicted in \ref{conformationContinuum}(y que habiamos visto al principio) is apparently the exception rather than the rule.
+Este y otros estudios parecen indicar que el comportamiento de las proteinas totalmente plegadas es la excepción más que la regla, y que la mayoria de las secuencias tienen regiones desordenadas.
 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=1.0\textwidth]{img/conformationContinuum.png} 
-\caption{ Continuo estructural: Los segmentos desordenados pueden comprender solo un pequeño conjunto de AAs dentro de las proteínas u ocupar grandes segmentos de la proteína, resultando en un
-perfil similar al que se ve en la figura. De izq. a derecha: estructura totalmente ordenada; extremos N y C terminales desordenados; region linker desordenada uniendo dominios globulares; loop desordenado;
+\caption{ Continuo estructural: Los segmentos desordenados pueden comprender solo un pequeño conjunto de aminoácidos dentro de las proteínas u ocupar grandes segmentos de ésta, resultando en un
+perfil similar al que se ve en la figura. De izq. a derecha: estructura totalmente ordenada; extremos N y C terminales desordenados; región linker desordenada uniendo dominios globulares; loop desordenado;
 dominio completamente desordenado; proteína desordenada con elementos estructurales residuales; proteína desordenada sin elementos estructurales definidos pero con conformación colapsada; proteína totalmente desordenada.
-% Continuum of disorder. Functional disordered segments can be as small as only a few amino acid residues, or they can occupy rather long
-% regions or ends. Different levels of order and disorder. From left to right: no disorder; disordered N- and C-termini; disordered linker; disordered loop;
-% disordered domain; disordered protein with some residual structure; wholly disordered, mostly collapsed protein; wholly disordered, extended protein.
-% Corresponding disordered regions are shown in red.
 }
 \label{conformationContinuum}
 \end{figure}
-
-
-
-
 
 
 % CLASIFICACION
@@ -353,32 +304,30 @@ Más adelante, cuando hablemos de las funcionalidades podremos esbozar algunas c
 
 
 % DIFERENCIAS EN EL PERFIL DE ENERGIA LIBRE
-Todo lo descrito previamente acerca de proteínas plegadas, sus diferencias con el perfil de las IDRs/IDPs y la estabilidad de los distintas conformaciones del ensamble, 
+Todo lo descrito previamente acerca de proteínas plegadas, sus diferencias con el perfil de las IDRs/IDPs, y la estabilidad de los distintas conformaciones del ensamble, 
 puede entenderse mejor si se analizan las superficies de energía libre asociadas. 
-En la figura \ref{idp-folded-EnergyLandscape} se ven ejemplos de estos paisajes energéticos para algunos tres ejemplos representativos de todo el continuo de conformaciones vistas.
+En la figura \ref{idp-folded-EnergyLandscape} se ven ejemplos de estos paisajes energéticos para tres ejemplos representativos de todo el continuo de conformaciones vistas.
 
-El gráfico que se ve en \textbf{(a)} muestra el perfil de energía libre frente a los cambios conformacionales asociados para una proteína plegada.
-El perfil con la forma similar a un embudo, característico de este tipo de proteínas, representa lo que se describió previamente sobre este tipo de proteínas que, a través del plegamiento alcanzan una estructura 'única' que 
-representa, además, el minimo global de energía. 
-Como se dijo, también, esta estructura única correspondiente al mínimo representa en realidad un ensamble de conformaciones con muy pocas variaciones, capaz de ser representado por una estructura promedio.
-Diversos estudios sobre el proceso de plegamiento resultaron en una gran diversidad de teorías sobre los detalles de este paisaje energético y como se relaciona con el proceso mediante el cual se llega a esta estructura.
-Sin embargo, lo mas relevante en este trabajo, es centrarnos en la forma tendrá el superficie en mínimo de energía que nos dará una idea del ensamble real en condiciones fisiológicas.
-% relevante en este trabajo es que la proteína se pliega para alcanzar una estructura ordenada 'única' que representa, además, el minimo global de energía, 
-
+El gráfico que se ve en la figura \ref{idp-folded-EnergyLandscape}\textbf{(a)} muestra el perfil de energía libre frente a los cambios conformacionales asociados para una proteína plegada.
+El perfil con la forma similar a un embudo, característico de este tipo de proteínas, representa lo que se describió previamente sobre éstas, a través del plegamiento alcanzan una estructura ``única'' que 
+representa el mínimo global de energía. 
+Como detallamos, esta estructura única representa en realidad un ensamble de conformaciones con muy pocas variaciones, capaz de ser representado por una estructura promedio.
+Diversos estudios sobre el proceso de plegamiento resultaron en una gran diversidad de teorías sobre los detalles de este paisaje energético y como se relaciona con el proceso de plegamiento.
+Sin embargo, lo mas relevante se obtiene de observar la forma en que se ubican los mínimos de energía y la amplitud de éstos, lo que nos dará una idea del ensamble real que encontraremos en condiciones fisiológicas.
 % Folded proteins have a "funnel-shaped" global free energy minimum, where the lowest energy state corresponds to the 11native structure, and the width of the unique global energy minimum
 % determines the conformational entropy of the native state.
 
-A medida que nos movemos hacia la derecha en el continuo de conformaciones posibles visto en la figura \ref{conformationContinuum}, los segmentos desordenados modifican el perfil energético aplanando la superficie en el mínimo global de energía
-(Figura \ref{idp-folded-EnergyLandscape} \textbf{(c)}). Este cambio representa la existencia de nuevas estructuras con una diferencia conformacional considerable con respecto al resto de las estructuras del ensamble, 
+A medida que nos movemos hacia la derecha en el continuo de conformaciones posibles de la figura \ref{conformationContinuum}, los segmentos desordenados 
+modifican el perfil energético aplanando la superficie en el mínimo global de energía. 
+Este cambio(graficado en la figura \ref{idp-folded-EnergyLandscape}\textbf{(c)}) representa la existencia de nuevas estructuras con una diferencia conformacional considerable con respecto al resto de las estructuras del ensamble, 
 pero que están separadas entre si por barreras energéticas pequeñas. 
 
-El perfil energético se va aplanando a medida que aumentan las regiones desordenadas de la proteína y, en la figura \ref{idp-folded-EnergyLandscape}\textbf{(b)}, se ve el perfil 
+El perfil energético continua aplanándose a medida que aumentan las regiones desordenadas de la proteína. En la figura \ref{idp-folded-EnergyLandscape}\textbf{(b)} se ve el perfil 
 correspondiente a una proteína con una conformación completamente desordenada. 
-Como se puede ver, el paisaje entero queda descrito por una superficie semiplana con múltiples conformaciones asociadas al mínimo de energía, con valores de energía aproximadamente iguales y separados por barreras energéticas muy pequeñas.
-% By contrast, disordered proteins have multiple local energy minima separated by small(low-energy) barriers, which can be described by relatively flat energy landscapes.
-Estas barreras representan las transiciones rápidas y frecuentes entre las distintas conformaciones que mencionamos previamente, y que resultan en las propiedades observadas experimentalmente
+Como se puede ver, el paisaje entero queda descrito por una superficie semiplana con múltiples conformaciones asociadas al mínimo de energía, 
+asociadas a valores de energía aproximadamente iguales y separados por barreras energéticas muy pequeñas.
+Estas barreras representan las transiciones rápidas y frecuentes entre las distintas conformaciones y que resultan en las propiedades observadas experimentalmente
 en solución: un conjunto heterogéneo de conformaciones fácilmente maleable por cambios en el medio. 
-% Transitions between the different local energy minima occur quickly and often, leading to an ensemble consisting of a vast number of structurally dissimilar states, which have approximately equal energies. 
 
 \begin{figure}[h]
 \centering
@@ -388,19 +337,18 @@ en solución: un conjunto heterogéneo de conformaciones fácilmente maleable po
 \end{figure}
 
 
-En base a esto, se ve que una desripción detallada de IDRs/IDPs requeriría conocer el ensamble de estados posibles junto con las velocidades de interconversión entre estos.
+En base a esto, se ve que una descripción detallada de IDRs/IDPs requeriría conocer el ensamble de estados posibles junto con las velocidades de interconversión entre estos.
 % Thus, a comprehensive characterization of an IDP consists of an ensemble of states and the transition rates between them.
 % Además, este perfil energético se ve modificado por distintas condiciones como modificaciones post-traduccionales, condiciones del medio, presencia de ligandos,etc.
 % Las poblaciones encontradas en los distintos estados cambian con las diferencias en estas condiciones
 % As a result, the populations of individual conformations within the ensemble change , también, under different conditions. 
 % Para estudiar experimentalmente estas proteínas, entonces, es normal utilizar técnicas experimentales que no se basan en el promedio de conformaciones.
 % and is best measured by experimental techniques that prevent conformational averaging.
-
-De todas formas, todas estas propiedades y las velocidades de las transiciones en el ensamble son difíciles de capturar experimentalmente(y computacionalmente también), aún usando técnicas experimentales que no se basan en promedios de conformaciones.
+Todas estas propiedades y las velocidades de las transiciones en el ensamble son difíciles de capturar experimentalmente(y computacionalmente también), aún usando técnicas experimentales que no se basan en promedios de conformaciones.
 Los estudios sobre este tipo de proteínas, entonces, se han enfocado en analizar los estados termodinámicamente accesibles como entidades discretas.
 % En lugar del análisis estructural clásico basado en dominios globulares, que usamos para podemos describir estos conjuntos conformacionales en términos de los promedios y desviaciones estándar
 % de la distancia entre los extremos de la secuencia, el radio hidrodinámico, el contenido en estructura secundaria y otros parámetros (20).
-Como veremos a continuación y en las proximas secciones, esta idea, si bien sabemos que es una descripción incompleta, permite modelar de forma discreta los elementos funcionales relevantes, sirviendo como base para estudios posteriores.
+Como veremos a continuación y en las próximas secciones, esta idea, si bien sabemos que es una descripción incompleta, permite modelar de forma discreta los elementos funcionales relevantes, sirviendo como base para estudios posteriores.
 Este modelo puede extenderse si se representan también las probabilidades de ocurrencia para distintas conformaciones individuales en el ensamble, obteniendo asi un modelo mas dinámico del sistema.
 % Thus, the dynamic nature of IDPs is best modeled by statistical approaches that describe the probabilities of individual conformations in the ensemble, 
 
@@ -413,14 +361,15 @@ Este modelo puede extenderse si se representan también las probabilidades de oc
 %  INDUCED FIT:
 % ****************
 % Además, este perfil energético se ve modificado por distintas condiciones como modificaciones post-traduccionales, condiciones del medio, presencia de ligandos,etc.
-Estos ensambles conformacionales, además, pueden verse modificados por distintas situaciones como cambios en las condiciones del entorno, modificaciones post-traduccionales, presencia de ligandos, etc.
-Lo que modifica no solo los estados accesibles sino también la poblaciones que se encuentran en cada uno.
-Una propiedad particular dependiente del contexto, encontrada en los ensambles conformacionales asociados a IDRs/IDPs, es la capacidad de adquirir nuevos elementos estructurales ordenados luego de la unión a ciertos ligandos
-(proceso conocido como binding \& folding)\cite{dyson2005intrinsically}. Esta propiedad es mas relevante cuando se sabe que, generalmente, está asociada a su funcionalidad biológica, y ocurre previamente o durante la realización de esta función.
+Los ensambles conformacionales, además, pueden verse modificados por distintas situaciones como cambios en las condiciones del entorno, modificaciones post-traduccionales, presencia de ligandos, etc.,
+lo que modifica no sólo los estados accesibles, sino también la distribución de poblaciones que se encuentran en cada uno.
+Una propiedad particular dependiente del contexto, encontrada en los ensambles conformacionales asociados a IDRs/IDPs, es la capacidad de adquirir nuevos elementos estructurales ordenados estables luego de la unión a ciertos ligandos
+(proceso conocido como textit{binding \& folding}\cite{dyson2005intrinsically}). 
+Esta propiedad se hace mas relevante de investigar cuando se sabe que, generalmente, está asociada a su funcionalidad biológica y ocurre previamente o durante la realización de esta función.
 % Although disordered proteins exist as dynamic structural ensembles without fixed(estable!!!) tertiary structures, there is evidence that many flexible regions of proteins undergo coupled binding and folding \cite{dyson2005intrinsically}. 
 % A large decrease in conformation entropy accompanies such disorder-to-order transitions. 
 
-Una gran cantidad de IDRs/IDPs, entonces, se ven estabilizadas termodinámicamente mediante la unión a ligandos específicos(generalmente otras proteínas, dna, membranas, etc)
+Una gran cantidad de IDRs/IDPs, entonces, se ven estabilizadas termodinámicamente mediante la unión a ligandos específicos(generalmente otras proteínas, DNA, membranas, etc)
 % In other words, intrinsically unfolded proteins in vivo are likely to be stabilized by functional binding to specific targets and ligands 
 % (such as a variety of small molecules, substrates, cofactors, other proteins, nucleic acids, membranes and so on). 
 % Many intrinsically disordered proteins undergo transitions to more ordered states or fold into stable secondary or tertiary structures on binding to their targets — that is, they undergo coupled folding and binding processes.
@@ -431,19 +380,19 @@ Esta diferencia se ve en \ref{idpBindingEnLandscape}.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.7\textwidth]{img/idp-binding-EnLandscape.png} 
-\caption{Perfil energético de los estados de una IDP. Los segmentos desordenados en estas proteínas pueden plegarse para dar estructuras ordenadas a través de interacciones con ligandos específicos.
+\includegraphics[width=0.7\textwidth]{img/idp-binding-EnLandscape2.png} 
+\caption{Perfil energético de los estados de IDRs/IDPs. Los segmentos desordenados pueden plegarse para dar estructuras ordenadas estables a través de interacciones con ligandos específicos.
 Esta situación se da cuando la formación del complejo resulta en una disminución de energía libre. 
 % Disordered segments of these proteins can gain ordered structure at the interaction with specific binding partners in a case if the free energy of such complexes is lower 
 % than the free energies of the intrinsically disordered protein and its partner. 
-Por si solo, el polipeptido presenta un paisaje energético semiplano(sección derecha). La interacción con distintos ligandos(1,2,3) resulta en nuevos estados termodinámicamente estables.
+Por si sólo, el polipéptido presenta un paisaje energético semiplano(sección derecha). La interacción con distintos ligandos(1,2,3) resulta en nuevos estados termodinámicamente estables.
 Figura extraída de \cite{turoverov2010protein}}
 \label{idpBindingEnLandscape}
 \end{figure}
 
-Las IDPs pueden adoptar esta conformación plegada si la energia del complejo formado es mejor que la energía libre correspondiente a la IDP y su ligando previo a esta interacción.
+Las IDRs/IDPs pueden adoptar esta conformación plegada si la energia del complejo formado es menor que la energía libre correspondiente al segmento desordenado y su ligando, previo a la interacción.
 % IDPs fold as a whole while interacting with their partners, if the free energy of complex is lower than the free energies of IDP and its partner before their interaction.
-En general, solo un segmento IDR con características anfipáticas es el que está involucrado en el proceso de unión y plegamiento. En este caso el segmento se denomina elemento de reconocimiento(RE=recognition element). 
+En general, sólo un segmento desordenado con características anfipáticas es el que está involucrado en el proceso de unión y plegamiento, en este caso el segmento se denomina elemento de reconocimiento(RE=recognition element). 
 % More often, however, only a part of an IDP, a specific recognition element, which is a relatively short amphipathic linear motif contained within long disordered sequence, is involved in the coupled folding and binding events
 % Induced fit interactions can also occur between structural domains and relatively large natively unstructured regions of other proteins. 
 % The natively unstructured region is then induced to form a stable structure, but only in the presence of the interacting structural domain.
@@ -452,12 +401,10 @@ Este tipo de transiciones ante la unión a ciertos ligandos, involucrando region
 
 Una pregunta que aparece naturalmente al intentar estudiar este proceso es si el elemento estructural ordenado es generado durante la unión al ligando 
 o si pertenece al conjunto de elementos estructurales encontrados transitivamente en las IDRs/IDPs y, al unirse, se hace parte de la conformación estable.
-
 % An often-raised issue with respect to IDP binding is whether folding occurs before or after binding (termed conformational selection and induced folding, respectively).
 % Detailed studies suggest that folding can occur both before and after binding in distinct cases
-Estas dos opciones se reflejan en los modelos de seleccion de conformación y el de unión y plegamiento simultáneo.
+Estas dos opciones se reflejan en los modelos de selección de conformación y el de unión y plegamiento simultáneo.
 % There are two major models describing the coupled folding and binding process in proteins, the conformational selection model and the simultaneous binding and folding model, also known as the induced folding model.
-
 % The conformational selection mechanism is based on the hypothesis that when free in solution, IDP populates the ensemble of conformations and, from this ensemble, the binding partner “chooses” or
 % “selects” a specific conformation which closely approximates that of the bound form. An illustrative example of the conformational selection mechanism in the recognition process is
 % so-called “preformed structural elements” or elements of local residual structure, which are frequently observed in IDPs and which are crucial for the IDP interactions with its specific
@@ -467,7 +414,6 @@ Estas dos opciones se reflejan en los modelos de seleccion de conformación y el
 % In molecular recognition, this model is exemplified by so-called molecular recognition elements or features, which are short (around 20 residues) structural elements which are found 
 % within the regions of disorder and which mediates certain classes of binding events of disordered regions undergoing a disorder-to-order transition into a specific structure that is stabilized by binding to its partner.
 % These recognition motifs can fold into $\alpha$-helix, $\beta$-strand, or form irregular structure on binding to a target protein
-
 Obviamente, en realidad, puede ocurrir cualquiera de estos dos mecanismos o una combinación de los dos.
 % Obviously, in reality, either one of the outlined above mechanisms, the conformational selection model or the induced folding model, or some combination of the two can be used.
 Esto se ve representado en la figura \ref{idpBinding}
@@ -476,8 +422,8 @@ Esto se ve representado en la figura \ref{idpBinding}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{img/PSE-MoRE.jpg} 
-\caption{Distintos modelos de binding \& folding para IDRs/IDPs} 
+\includegraphics[width=0.8\textwidth]{img/PSE-MoRE.jpg} 
+\caption{Distintos modelos de \textit{binding \& folding}} 
 \label{idpBinding}
 \end{figure}
 
@@ -490,13 +436,13 @@ Esto se ve representado en la figura \ref{idpBinding}
 
 A partir del estudio sobre este proceso de 'binding \& folding', basándose en los modelos previos, se encontraron algunos conceptos importantes inesperados.
 % Two unexpected and important concepts have also emerged in the binding-folding paradigm.
-En primer lugar se encontró que dos IDRs/IDPs  pueden unirse en un proceso de unión y plegado mutuo \cite{bhattacherjee2012coupled}. 
-Es decir, una IDR/IDP tambien puede funcionar como ligando y plegarse en este proceso. 
+En primer lugar se encontró que dos IDRs/IDPs pueden unirse en un proceso de unión y plegado mutuo \cite{bhattacherjee2012coupled},
+es decir, una IDR/IDP también puede funcionar como ligando y plegarse en este proceso. 
 % One is the intriguing observation that two IDPs/IDRs can bind each other in a process of mutual (synergistic) folding [47].
-Por otro lado, se encontró que que el proceso de unión y reconocimiento del ligando puede proceder aún sin necesidad de pleagamiento. 
+Por otro lado, se encontró que el proceso de unión y reconocimiento del ligando puede proceder aún sin necesidad de plegamiento. 
 % The other, even more confounding finding, is that recognition can proceed even in the lack of folding in the bound state. 
 Esto tiene implicancias importantes en los aspectos funcionales ya que, como se había predicho, la capacidad de unión a ligandos dependía de la formación de este elemento estructural.
-Gran cantidad de ejemplos de este tipo de uniones(determinados complejos 'fuzzy') extienden la idea de desorden, no sólo a proteínas en solución, sino también a complejos formados por su unión. 
+Gran cantidad de ejemplos de este tipo de uniones(determinados complejos ``fuzzy'') extienden la idea de desorden no sólo a proteínas en solución, sino también a interacciones formando complejos. 
 % The many examples of such ‘fuzzy’ interactions demand the extension of the concept of structural disorder to the bound state.
 
 
@@ -513,23 +459,24 @@ Gran cantidad de ejemplos de este tipo de uniones(determinados complejos 'fuzzy'
 
 % COMPOSICION CARACTERISTICA DE IDPs
 % Desde que se identificaron las IDRs/IDPs como entidades de interés biológico, 
-Además de todas las propiedades estructurales que se analizaron, tanto sobre las proteínas plegadas como su extensión continua formada por IDRs/IDPs,  
-muchos estudios se hicieron para intentar identificar como estan codificadas estos elementos estructurales en la secuencia de la proteína.
-
-Como se describió previamente, la secuencia primaria de una . Al identificar a las proteínas IDPs cómo entidades estructuralmente diferenciables se podría pensar que la estructura primaria de éstas determina, entonces, su falta de estructura.
+Además de todas las propiedades conformacionales que se analizaron sobre IDRs/IDPs,
+% , tanto sobre las proteínas plegadas como sobre la extensa continuación del mosaico formada por IDRs/IDPs,  
+muchos estudios se hicieron para intentar identificar cómo están codificadas estas propiedades en la secuencia de la proteína.
+Como se describió previamente, la secuencia primaria de una proteina plegada codifica el proceso de plegamiento y la estructura única final. 
+Al identificar a las IDRs/IDPs cómo entidades estructuralmente diferenciables se podría pensar que la estructura primaria de éstas determina, también, su falta de estructura tridimensional definida.
 % Identification of IDPs as unique entities belonging to a new protein tribe is directly related to the recognition that their amino acid sequences are dramatically different from those of ordered proteins.
-Esto tiene como corolario la idea que las secuencias de ambos conjuntos (proteinas ordenadas y proteínas desestructuradas) serán diferenciables entre si.
+Esto tiene como corolario la idea que las secuencias de ambos conjuntos (proteinas ordenadas y proteínas desestructuradas) deberían ser diferenciables entre si.
 % since amino acid sequence determines three-dimensional structure, amino acid sequence should also determine lack of three-dimensional structure.
 
-La ausencia de una estructura definida en IDRs/IDPs es atribuida a las características particulares de sus secuencias de aminoácidos las cuales, en general, pueden resumirse en la presencia de númerosos grupos cargados no compensados(generalmente con carga negativa),
+La ausencia de una estructura definida en IDRs/IDPs es atribuida a las características particulares de sus secuencias de aminoácidos las cuales pueden resumirse en la presencia de númerosos 
+grupos cargados no compensados(generalmente con carga negativa) y un bajo contenido de residuos hidrofóbicos.
 % the absence of regular structure in these proteins has been explained by the specific features of their amino acid sequences including the presence of numerous uncompensated charged groups (often negative); 
-y un bajo contenido de residuos hidrofóbicos.
 %  i.e., a high net charge at neutral pH, arising from the extreme pI values in such proteins , and a low content of hydrophobic amino acid residues.
 % Several ID proteins have been discovered due their unusual amino acid sequence compositions
 La relación entre esta combinación de baja hidrofobicidad y alta carga neta y la falta de una estructura definida puede explicarse desde el punto de vista físico:
 los altos valores de carga neta producen efectos de repulsión entre las cargas de los residuos, mientras que la baja hidrofobicidad previene la compactación de la estructura lineal
-(se la fuerza hidrofóbica es una de las principales fuerzas que interviene en el proceso de plegamiento).
-El resultado es una estructura con tendencia a mantener una estructura desplegada, característica de las IDRs/IDPs.
+(las interacciones hidrofóbicas son una de las principales fuerzas que interviene en el proceso de plegamiento).
+El resultado es una estructura con tendencia a mantener una conformación desplegada, característica de las IDRs/IDPs.
 
 % It has been concluded that the combination of low mean hydrophobicity and relatively high net charge represents an important prerequisite for the absence of compact structure in proteins under physiological conditions.
 % This observation was used to develop a charge-hydropathy (CH) plot method of analysis that distinguishes ordered and disordered proteins based only on their net charges and hydropathies.
@@ -570,7 +517,7 @@ El resultado es una estructura con tendencia a mantener una estructura desplegad
 
 
 % COMENTARIOS APARTE SOBRE LA REGULACION DE IDPs EN LA CELULA
-En terminos biologicos, las diferencias secuenciales entre las IDRs/IDPs y los segmentos o proteínas totalmente plegadas, además de las diferencias conformacionales antes vistas(y de las diferencias funcionales que veremos), 
+En términos biológicos las diferencias secuenciales entre las IDRs/IDPs y los segmentos o proteínas totalmente plegadas, además de las diferencias conformacionales antes vistas(y de las diferencias funcionales que veremos), 
 indican que se tratan de entidades separadas dentro del complejo perfil del proteínas naturales existentes.
 % The fact that the sequences of ordered and disordered proteins and regions are noticeably different suggested that IDPs clearly constitute a separate entity inside the protein kingdom, 
 % that these proteins can be reliably predicted using various computational tools,  and structurally, that IDPs should be very different from ordered globular proteins since peculiarities of amino acid sequence determine protein structure.
@@ -634,41 +581,42 @@ Todas estas propiedades hacen que parezca razonable que este tipo de proteínas 
 
 
 
-\subsection{Misfolding \& Aggregation}
+\subsection{Misfolding \& Agregación}
 
 
 
 % INTRODUCCION
-En el comienzo de la sección anterior describimos como algunas proteinas poseen conformaciones nativas con estructuras bien definidas.
-Este restriccion hace que, para poder funcionar correctamente deban atravesar un proceso de plegamiento, el cual ocurre, normalmente, muy rápidamente ya que
-sus secuencias han evolucionado de forma tal que son capaces de alcanzar la estructura nativa(funcional) muy eficientemente, incluso en el complejo entorno celular.
+En el comienzo de la sección anterior describimos como algunas proteínas poseen conformaciones nativas con estructuras bien definidas,
+esta restricción hace que, para poder funcionar correctamente, deban atravesar un proceso de plegamiento el cual ocurre, en condiciones normales, de manera muy rápida. 
+Esto es posible ya que sus secuencias han evolucionado de forma tal que son capaces de alcanzar la estructura nativa(funcional) muy eficientemente, incluso en el complejo entorno celular.
 % the sequences of these proteins have evolved in such a way that their unique native states can be found very efficiently even in the complex environment inside a living cell.
 Sin embargo, a medida que el tamaño de la proteína aumenta, tambien aumenta la complejidad del proceso de plegamiento y este se vuelve propenso a errores,
-lo que llevaría a estas proteínas a adoptar conformaciones incorrectas(\textit{misfolded}). 
-Los errores en este proceso de búsqueda de las interacciones 'correctas' entre los residuos pueden estar asociados a distintos factores(mutaciones, etc), no sólo al tamaño de la proteína, ya que de por si el proceso de plegamiento es complejo. 
-Si estos estados estructurales incorrectos mantienen su solubilidad pueden comenzar a acumularse en el entorno celular.
+lo que puede llevar a estas proteínas a adoptar conformaciones incorrectas(\textit{misfolded}). 
+Los errores durante este proceso en el que se buscan las interacciones ``correctas'' entre los residuos pueden estar asociados a distintos factores(principalmente mutaciones), 
+no sólo al tamaño de la proteína, ya que de por si el proceso de plegamiento es complejo. 
+Por otro lado, si estos estados estructurales incorrectos mantienen su solubilidad pueden comenzar a acumularse en el entorno celular.
 
 % as the size and complexity of proteins increase, therefore, the folding process becomes more complex,
 % thus, errors along folding may occur and drive proteins to incorrectly folded or misfolded states, which may still possess certain stability in the physiological
 % environment and, therefore, start to accumulate. 
 
-Ademas de estos estados \textit{misfolded}, algunos intermediarios en el proceso de plegamiento pueden tener tiempos de vida considerables, poblando estados alternativos al plegado final.
+Ademas de estos estados \textit{misfolded}, algunos intermediarios en el proceso de plegamiento pueden tener tiempos de vida considerables, poblando estados alternativos al plegamiento final.
 % Intermediates with only partially formed structures can be populated and have significant lifetimes. 
-Mas alla de esto, una vez alcanzado el estado plegado final, diversas condiciones del entorno pueden producir que este se pierda y se adopte un estado no-plegado(\textit{unfolded}).
-Por definición, cualquier proteína plegada que no esté en su estado nativo esta en un estado \textit{misfoled}
+Más alla de esto, una vez alcanzada la estructura final, diversas condiciones del entorno pueden producir que este se pierda y se adopte un estado no-plegado(\textit{unfolded}).
+Por definición, cualquier proteína plegada que no esté en su estado nativo está en un estado \textit{misfoled}
 % Protein misfolding is a wide-spread phenomenon. Any protein with changes in native structure which affect its normal function is misfolded. 
-Las proteinas plegadas, entonces, no siempre se encuentran en su estado nativo dentro del entorno celular. 
+Las proteinas plegadas, entonces, no siempre se encuentran en su estado nativo dentro del entorno celular y pueden ocurrir acumulaciones de estados \textit{misfolded}.
 
 % Under some conditions, then, proteins fail to fold properly or to remain correctly folded; this misfolding can lead to malfunction of proteins and the development of different pathological(cambio esta palabra??) conditions.
 % In addition, events that may be termed 'misfolding' may take place during the search for the stable native-like contacts between residues. 
 % That such complexities are seen even in the benign environment of a dilute solution of a pure protein suggests that they are even more likely to occur in the crowded environment of the cell.
-Además del efecto que tiene adoptar un estado \textit{misfolded} sobre la función de la proteína, estos estados pueden tambien llevar a la formación de agregados entre proteínas
+Además del efecto que tiene adoptar un estado \textit{misfolded} sobre la función de la proteína, estos estados pueden también llevar a la formación de agregados entre proteínas
 lo cual tiene, generalmente, un efecto muy grande en la célula/organismo.
-
-Los estados \textit{misfolded} y agregados no son equivalentes ni dependientes entre si y, 
-teniendo en cuenta el amplio rango de proteínas que no adoptan una única estructura nativa, la agregación de proteínas puede originarse a partir de distintos estados iniciales. 
+Los estados \textit{misfolded} y agregados no son equivalentes ni dependientes entre si y 
+% teniendo en cuenta el amplio rango de proteínas que no adoptan una única estructura nativa, 
+la agregación de proteínas puede originarse a partir de distintos estados iniciales. 
 % The terms 'misfolded' and 'aggregated' are not equivalent. 
-Como se verá, la habilidad de una proteina formar agregados desestructurados o fibras depende de muchos factores, entre los cuales están claramente la secuencia y el entorno en que se encuentra.
+Como se verá, la habilidad de una proteína a formar agregados desestructurados o estructuras amiloides depende de muchos factores, entre los cuales están claramente la secuencia y el entorno en que se encuentra.
 De otra forma, las proteinas que adquieran conformaciones no estructuradas o que se encuentren en estados de plegamiento intermedios semi-estables tendrían una tendencia mucho mayor a la agregación y, sin embargo, esto no es así. 
 % De hecho, sólo una pequeña fraccion de tales conformaciones tiene tendencia a formar agregados.
 
@@ -688,18 +636,20 @@ La agregación se forma, entonces, por la asociación(interacción) anormal entr
 % The abnormal association of misfolded proteins usually leads to the formation of aggregates.
 Si bien algunos agregados pequeños pueden mantener su solubilidad, en general los agregados precipitan en condiciones fisiológicas. 
 % Small aggregates can remain soluble, but large protein aggregates precipitate out of solution under physiological conditions. 
-A partir de las características morfológicas se pueden distingir escencialmente dos tipos de agregados: agregados amorfos y fibras amiloides.
+A partir de las características morfológicas se pueden distingir escencialmente dos tipos de agregados: agregados amorfos y fibrillas amiloides.
 % From the morphological point of view we can differentiate essentially two types of aggregates: amorphous aggregates and amyloid fibrils. 
 Los primeros muestran una apariencia granular y consisten principalmente de proteínas en conformacione desplegadas, 
 aunque presentan ciertas regiones con formacion de estructuras de hoja-$\beta$ generando la unión del agregado.
 % Amorphous aggregates display a granular appearance when imaged by electron microscopy and consist mostly of disordered polypeptide chains, even if they
 % display certain regions enriched in $\beta$-sheet structures, which glue the macromolecular assembly.
-Por otro lado, las fibras amiloides poseen estructuras altamente ordenadas y repetitivas donde todos los polipéptidos que la componen adoptan un plegamiento en común.
+Por otro lado, las fibrillas amiloides poseen estructuras altamente ordenadas y repetitivas donde todos los polipéptidos que la componen adoptan un plegamiento en común.
 % Amyloid fibrils are highly ordered and repetitive structures where all polypeptides adopt a common fold.
 Si bien no se van a dar detalles puntuales de la estructura, se sabe que estas diferencias que se ven en la estructura macromolecular son el reflejo de diferencias en las interacciones y estructura a nivel atómico.
-Estas diferencias a nivel biológico: los distintos tipos de agregado tienen afinidades diferentes frente al conjunto de chaperonas y, además, pueden acumularse en diferentes localizaciones celulares y ser degradados por mecanismos diferentes.
+Estas diferencias estructurales también se reflejan a nivel biológico: los distintos tipos de agregados tienen afinidades diferentes frente al conjunto de chaperonas y, además, 
+pueden acumularse en diferentes localizaciones celulares y ser degradados por mecanismos diferentes.
 % These differences in structure also reflect biological differences; amyloid and amorphous beta-sheet aggregates have different chaperone affinities, accumulate in different cellular locations and are degraded by different mechanisms.
-Por último, a diferencia de los agregados amorfos, las propiedades únicas de las fibras amiloides han sido aprovechadas por distintos sistemas biológicos y pueden encontrarse versiones funcionales de éstas en distintos organismos\cite{fowler2007functional}.
+Por último, a diferencia de los agregados amorfos, las propiedades únicas de las fibrillasas 
+amiloides han sido aprovechadas por distintos sistemas biológicos y pueden encontrarse versiones funcionales de éstas en distintos organismos\cite{fowler2007functional}.
 % Contrary to amorphous aggregates, amyloid structures can fulfill biological functions, and functional amyloids are found in organisms from prokaryotes to humans \cite{fowler2007functional}.
 
 
@@ -712,29 +662,29 @@ Por último, a diferencia de los agregados amorfos, las propiedades únicas de l
 % En la sección previa se formó la idea que un polipéptido nasciente podía adoptar un continuo de formas conformacionales diferentes, con elementos diferentes
 
 
-En la sección previa formamos la idea que un polipéptido al ser sintetizado en el ribosoma puede adoptar un continuo conformacional de estructuras natuvas las cuales, a su vez, pueden 
-Desde el comienzo de esta seccion se empezo a ver que el proceso para alcanzar estos estados nativos no es tan directo ni mucho menos simple, por lo tanto, se pueden tomar caminos alternativos 
+En la sección previa formamos la idea que un polipéptido puede adoptar un continuo conformacional de estructuras nativas las cuales, a su vez, pueden intercambiarse en el tiempo.
+Desde el comienzo de esta sección se vió que el proceso para alcanzar estos estados nativos no es tan directo ni mucho menos simple, por lo tanto, se pueden llegar a caminos alternativos. 
+Estos y otros conceptos están representadas en la figura \ref{aggregationDiagram}.
 
-Estos(y otros) conceptos están representadas en la figura \ref{aggregationDiagram}.
-El camino central representa, en una dimensión, el continuo de conformaciones resultantes de un proceso que (como indican las flechas) puede ir en distintos sentidos.
+El camino central representa, en una dimensión, el continuo de conformaciones en solución que, como indican las flechas, puede ir en distintos sentidos y representa las posibles cambios dinámicos que pueden ocurrir desde la síntesis
+de un polipéptido en el ribosoma y hasta ser degradado o perder esta conformación monomérica.
+Los elementos de este camino pueden formar interacciones transientes con diversos ligandos(entre los cuales están otras proteínas) como parte de su función. 
 
-el continuo del proceso de plegamiento/no-plegamiento guiado principalmente partir de interacciones intramoleculares, que resulta en la amplia variedad de especies monoméricas existentes.
+% el continuo del proceso de plegamiento/no-plegamiento guiado principalmente partir de interacciones intramoleculares, que resulta en la amplia variedad de especies monoméricas existentes.
 
 
-conformaciones monoméricas 
-, resultantes del proceso  este proceo. 
-distintos procesos de plegamiento. 
-En esta sección    la idea de posibles agregaciones entre distintos estados conformacionales encontrados en la célula se plantea como caminos alternativos que pueden 
+% conformaciones monoméricas 
+% , resultantes del proceso  este proceo. 
+% distintos procesos de plegamiento. 
+% En esta sección    la idea de posibles agregaciones entre distintos estados conformacionales encontrados en la célula se plantea como caminos alternativos que pueden 
 
-Es decir, el camino 
-Los elementos de este camino pueden, como vimos antes, formar interacciones transientes con diversos ligandos como parte de su función entre ellos otras proteínas. 
-hemos creado la idea que los estados monomericos no son los unicos estados estables, que es posible que se originen estados agregados y que estos se generan principalmente a partir de proteinas que no se encuentran en una conformacion correctamente plegada.
-Sin emb
-Esta nueva idea se puede ver en 
-La idea construida en las secciones previas, en la que un polipéptido podía adopar un continuo de conformaciones estructurales monoméricas y formar interacciones transitivas con ligandos,
-se le deben agregar ahora todos los posibles caminos alternativos que involucran formación de estructuras estables de agregación.
+% Es decir, el camino 
+% hemos creado la idea que los estados monomericos no son los unicos estados estables, que es posible que se originen estados agregados y que estos se generan principalmente a partir de proteinas que no se encuentran en una conformacion correctamente plegada.
+% Sin emb
+% Esta nueva idea se puede ver en 
+% La idea construida en las secciones previas, en la que un polipéptido podía adopar un continuo de conformaciones estructurales monoméricas y formar interacciones transitivas con ligandos,
 
-En la figura pueden verse, de forma gráfica, distintos estados de agregacion como caminos alternativos al camino central de plegamiento/conformación monomérica.
+% En la figura pueden verse, de forma gráfica, distintos estados de agregacion como caminos alternativos al camino central de plegamiento/conformación monomérica.
 % De la figura puede verse también, que los distintos procesos de agregación, que resultan en disintas estructuras agregadas, pueden originarse a partir de distintos estados iniciales de conformación.
 
 \begin{figure}[h!,centered]
@@ -743,14 +693,21 @@ En la figura pueden verse, de forma gráfica, distintos estados de agregacion co
 \end{figure}
 
 
-De la figura....
-One should distinguish between precipitates, in which proteins maintain the native folded conformation and aggregates, in which proteins adopt new non-native structures. 
-The first type of self-assembly is generated during random precipitation of already native protein due to an environment promoted reduction of solubility in the polypeptide chain. 
-Examples of these processes are salting out by ammonium sulfate or isoelectric precipitation, que son los procesos utilizados para obtener los cristales que se utilizaran en la resolución de estructuras por difracción de rayos X. 
-Reducing ionic force or shifting solution's pH results in immediate dissolution of these precipitates. 
-The second type of macromolecular structures exhibits, without exception, an increase in $\beta$-sheet secondary structure content relative to the native conformation and
-very high concentrations of denaturants or detergents are needed to dissolve them into mainly unfolded polypeptide chains. 
-We will focus our attention on these aggregates, which include amyloid fibrils, thermal aggregates and bacterial IBs. 
+Al camino central de conformaciones monoméricas se le deben agregar todos los posibles caminos alternativos que involucran la formación de agregados que estamos describiendo en esta sección.
+Se deben diferenciar los precipitados, en los que las proteínas mantienen la estructura nativa, y los agregados que, como mencionábamos antes, surgen a partir de nuevas estructuras no-nativas.
+% One should distinguish between precipitates, in which proteins maintain the native folded conformation and aggregates, in which proteins adopt new non-native structures. 
+El primer tipo de agregado es generado por la inducción de un entorno de solubilidad reducida, por ejemplo durante la precipitación isoeléctrica o mediante sulfato de amonio,
+% The first type of self-assembly is generated during random precipitation of already native protein due to an environment promoted reduction of solubility in the polypeptide chain. 
+% Examples of these processes are salting out by ammonium sulfate or isoelectric precipitation, 
+que son los procesos típicos para obtener los cristales que se utilizan en la resolución de estructuras por difracción de rayos X. 
+La reducción de la fuerza iónica o el cambio en el pH de la solución restituye los precipitados a la forma soluble.
+% Reducing ionic force or shifting solution's pH results in immediate dissolution of these precipitates. 
+El segundo tipo de estructuras macromoleculares muestra siempre un incremento en contenido de hojas-$\beta$ con respecto a la estructura nativa y solo es posible restituir 
+la forma soluble de los componentes mediante procedimientos extremos, obteniendo igualmente estructuras no-nativas.
+Este tipo de agregados es nuestro mayor interés ya que puede ocurrir en condiciones experimentales ``normales'', que no han sido inducidas con el fin de formarlos.
+% The second type of macromolecular structures exhibits, without exception, an increase in $\beta$-sheet secondary structure content relative to the native conformation and
+% very high concentrations of denaturants or detergents are needed to dissolve them into mainly unfolded polypeptide chains. 
+% We will focus our attention on these aggregates, which include amyloid fibrils, thermal aggregates and bacterial IBs. 
 
 
 
@@ -771,15 +728,16 @@ We will focus our attention on these aggregates, which include amyloid fibrils, 
 % *******          AMYLOIDS
 % ***********************************************************
 
-Lo que se ve al parecer en la figura \ref{aggregationDiagram} es que las fibras amiloides son simplemente uno mas de los estados de agregación posibles.
+Lo que se ve al parecer en la figura \ref{aggregationDiagram}, es que las fibrillas amiloides son simplemente uno más de los estados de agregación posibles.
 % Amyloid are just one of the types of aggregate that can be formed by proteins.
 Sin embargo, estas estructuras tienen propiedades que las hacen muy particulares.
 En primer lugar, como se mencionó antes, adoptan estructuras altamente ordenadas y compactas, similares, en parte a los estados nativos de proteinas globulares
 % ACA PONGO MUY EN GENERAL ALGUNAS PROPIEDADES DE LAS FIBRAS AMILOIDES COMO PARA EMPEZAR A HABLAR DE ESTO
 % Similar to globular native states, amyloid structures are closely packed and highly ordered
-Por otro lado, parte de las propiedades únicas de este tipo de estructuras es que, probablemente debido a su estructura de puentes de hidrogenos altamente organizada, posee una estabilidad cinetica unica.
+Por otro lado, parte de las propiedades únicas de este tipo de estructuras es que, probablemente debido a su estructura de puentes de hidrógeno altamente organizada, posee una estabilidad cinética única.
 % Although, a significant feature of this particular species is that its highly organized hydrogen-bonded structure is likely to give it unique kinetic stability. 
-Por lo tanto, una vez formados, estos agregados pueden mantenerse durante largos periodos de tiempo, funcionando como núcleo para la agregación de mas cantidades de la misma proteína, y permitiendo la formación de depósitos en la célula/tejido
+Por lo tanto, una vez formados, estos agregados pueden mantenerse durante largos períodos de tiempo, funcionando como núcleo para la agregación de más cantidades de la misma proteína, 
+y permitiendo la formación de depósitos en la célula/tejido
 % Thus, once formed, such aggregates can persist for long periods, allowing a progressive build-up of deposits in tissue, and indeed enabling seeding of the subsequent conversion of additional quantities of the same protein
 % into amyloid fibrils.
 
@@ -802,7 +760,7 @@ Estos depósitos estaban conformados generalmente de un solo tipo de proteínas,
 % perpendicularly to the fibril axis. Moreover,in solid-state magic angle spinning NMR spectroscopy studies, the typically high-resolution nature of the amyloid fibril spectra provides direct evidence for extensive regions of highly ordered molecular structures within the
 % fibrillar environment
 
-Los estudios mas avanzados de su estructura revelaron las características altamente ordenadas, compactas, estables y no-ramificadas que poseen estos agregados y que se ven reflejados en
+Los estudios más avanzados de su estructura revelaron las características altamente ordenadas, compactas, estables y no-ramificadas que poseen estos agregados y que se ven reflejados en
 la morfología fibrilar(vista en el microscopio electrónico de transmisión).
 % la cual es altamente ordenada, 
 % Amyloid aggregates are characterized by a particular fibrilar morphology 
@@ -815,7 +773,7 @@ Estas fibrillas maduras pueden, además, asociarse lateralmente entre si para fo
 % micrometers; mature fibrils can further associate laterally to form fibers.
 Todas las fibrillas amiloides comparten una arquitectura en común compuesta de una estructura suprasecundaria de unión entre hojas-$\beta$.
 % All amyloid fibrils share the a common architecture composed of cross-$beta$ supersecondary structure,
-A partir de los patrones característicos resultantes de la difracción con rayos X, se resolvió mas en detalle las características de esta arquitectura, en la cual 
+A partir de los patrones característicos resultantes de la difracción con rayos X, se resolvió más en detalle las características de esta arquitectura, en la cual 
 las hojas-$\beta$ se extienden con las caras de sus hebras enfrentadas entre si pero perpendiculares al eje de la fibrilla que forman\cite{nelson2005structure}.  
 % where parallel $beta$ -sheets extend with their strands facing to each other and perpendicular to the fibril axis; 
 % such a conformation se encontro inicialmente ya que mostraban a characteristic X-ray diffraction pattern that is indicative of the component $\beta$-strands being oriented
@@ -884,8 +842,9 @@ Por lo tanto, la tendencia a la agregación para formar fibrillas amiloides pued
 % the propensity to do so under given circumstances can vary markedly between different sequences(depends enormously on amino acid composition.).
 
 La pregunta clave es cómo influye la secuencia(o composición) de aminoácidos sobre esta tendencia a la agregación.
-La respuesta a esto es importante, no solo para entender los estados de agregación y sus mecanismos de formación, sino también para otros aspectos como la producción biotecnológica de proteínas, o el diseño racional de cadenas polipeptídicas funcionales.
-Estos conocimientos sirven luego como base para el desarrollo de herramientas bioinformaticas que permitan detectar la tendencia a formación de agregados a partir de una secuencia.
+La respuesta a esto es importante no sólo para entender los estados de agregación y sus mecanismos de formación, sino también para otros aspectos como 
+la producción biotecnológica de proteínas, o el diseño racional de cadenas polipeptídicas funcionales, donde se desea evitar la formación de agregados al (sobre)expresar las proteínas.
+Estos conocimientos sirven luego como base para el desarrollo de herramientas bioinformáticas que permitan detectar la tendencia a formación de agregados a partir de una secuencia.
 % The question of how amino acid composition influences aggregation propensity is highly relevant to protein design, as well as
 % to our understanding of protein evolution and the pathogenicity of certain amino acid substitutions.
 
@@ -896,8 +855,8 @@ Se podría esperar, entonces, que un incremento en el contenido de residuos hidr
 % expected that increased hydrophobic content in a peptide would
 % lead to increased aggregation propensity, while a net charge on
 % the peptide would impede aggregation. 
-Además de estas propiedades fisicoquimicas, dadas las propiedades de estructura/arquitectura encontradas para las fibrillas amiloides con un alto contenido de hojas-$\beta$,
-las secuencias que tienen tendencia intrínseca a adoptar conformaciones de hoja-$\beta$ en su estructura secundaria probablemente tendrán cierta tendencia a la formación de fibrillas amiloides.  
+Además de estas propiedades fisicoquimicas, dadas las características de estructura/arquitectura encontradas para las fibrillas amiloides con un alto contenido de hojas-$\beta$,
+las secuencias que tienen tendencia intrínseca a adoptar conformaciones de hoja-$\beta$ en su estructura secundaria probablemente tendrán cierta tendencia a la formación de estos agregados.  
 % Also, with the evidence
 % for common cross-b architecture among amyloid fibrils of diverse
 % proteins , a stretch of amino acids with
@@ -918,8 +877,8 @@ que la estructura primaria de un polipéptido cumple un papel muy importante en 
 % DEPENDENCIA CON SEGMENTOS DE SECUENCIA
 
 
-Los elementos hasta aqui mencionados proveen propiedades especificas de los aminoacidos que favorecen o no la agregación de proteinas
-Estos representan determinantes intrínsecos ya que provienen de propiedades individuales de los aminoacidos que componen todas las proteínas.
+Los elementos hasta aqui mencionados proveen propiedades específicas de los aminoácidos que favorecen o no la agregación de proteinas.
+Estos representan determinantes intrínsecos ya que provienen de propiedades individuales de los aminoácidos que componen todas las proteínas.
 % The intrinsic determinants described before inform us about specific properties of the amino acid side chain either favoring or disfavoring protein aggregation.
 % The aforementioned factors may be regarded as intrinsic determinants arising from individual properties of amino acids. 
 % It has been observed that the consecutive occurrence of three
@@ -933,7 +892,7 @@ Es decir, no todas las secuencias de polipéptidos con la misma composición tie
 % However, it has been observed that not all the polypeptide sequence has the same importance in defining its propensity to aggregate. 
 En \cite{ventura2004short} se demuestran la existencia de ciertos tramos cortos en la secuencia que promueven la agregación en estructuras amiloides.
 % There exist small amino acid stretches within protein sequences, which promote and guide protein aggregation into amyloid-like structures
-Estos tramos cortos, llamados generamente regiones propensas a la agregacion (o APRs) y se distinguen por tener composiciónes características de residuos.
+Estos tramos cortos, llamados generamente regiones propensas a la agregacion(o APRs) y se distinguen por tener composiciónes características de residuos.
 
 % ESTO LO PONGO????
 % These short fragments, generally referred to as aggregation-prone regions (APRs) or “hot-spots”, are characterized by an enrichment in hydrophobic, both aliphatic (Val, Leu,
@@ -943,9 +902,10 @@ Estos tramos cortos, llamados generamente regiones propensas a la agregacion (o 
 % solvent even when “attached” along the fibril.
 
 % ESTO DE LAS REGIONES PEQUEÑAS LO TENGO QUE PONER PORQUE ES LA BASE DE ALGUNOS METODOS QUE DESPUES USAMOS
-Además del analisis secuencial, existen otras evidencias a favor de la hipótesis que algunas regiones pequeñas de las proteínas son responsables principales de la formación de fibrillas amiloides. 
-Por ejemplo, la mayoria de las IDRs/IDPs no experimentan agregación \textit{in-vivo}\cite{linding2004comparative}, lo que indica que, si bien la conformación no-plegada es necesaria, no es condición suficiente para promover el proceso de agregación.
-Por lo tanto, deberían existir patrones secuenciales distinguibles que, una vez expuestos(salen del nucleo hidrofóbico de la estructura plegada), son mas propensos a la agregación que otros  
+Además del análisis secuencial, existen otras evidencias a favor de la hipótesis que algunas regiones pequeñas de las proteínas son responsables principales de la formación de fibrillas amiloides. 
+Por ejemplo, la mayoría de las IDRs/IDPs no experimentan agregación \textit{in-vivo}\cite{linding2004comparative} lo que indica que, si bien la conformación no-plegada es necesaria, no es condición suficiente 
+para promover el proceso de agregación.
+Por lo tanto, deberían existir patrones secuenciales distinguibles que, una vez expuestos(salen del núcleo hidrofóbico de la estructura plegada), son mas propensos a la agregación que otros.  
 % most of the natively unfolded proteins in vivo do not undergo aggregation (13), indicating that unfolding is necessary, but not sufficient, to promote aggregation. 
 % Hence, there must be some sequence motifs that, once they become exposed, are more prone to aggregation than others. 
 % In fact, experimental evidence is compelling in favor of the hypothesis that small regions of a protein are responsible for its amyloidogenic behavior
@@ -958,9 +918,9 @@ Por lo tanto, deberían existir patrones secuenciales distinguibles que, una vez
 % is driven by specific  protein  regions  that  contains  specific  structural  or  sequence  motifs,  so-called aggregation-prone  regions,  APRs, which contribute significantly toward the overall aggregation propensity of the protein
 % 
 
-El hecho que, en la naturaleza, las IDRs/IDPs no son necesariamente propensas a la agregación implica, entonces, que sus secuencias han evolucionado para mantener el nivel de solubilidad necesaria que es requerido para su 
-realizar correctamente las funciones asociadas. Por ejemplo, a través de extensas regiones de AAs con grupos polares y altamente cargados que desestabilizan las asociaciones intermoleculares.
-Este y otros aspectos energéticos relevantes(que se verán a continuación) resisten la formación de agregados no-funcionales en los sitemas biológicos.  
+El hecho que en la naturaleza las IDRs/IDPs no sean necesariamente propensas a la agregación implica, entonces, que sus secuencias han evolucionado para mantener el nivel de solubilidad necesaria que es requerido para 
+realizar correctamente las funciones asociadas, por ejemplo, a través de extensas regiones de aminoácidos con grupos polares y altamente cargados que desestabilizan las asociaciones intermoleculares.
+Este y otros aspectos energéticos relevantes(que se verán a continuación) resisten la formación de agregados no-funcionales en los sistemas biológicos.  
 % AdemHay que destacar, sin embargo, que existen barreras cinéticas que ayudan a los sistemas biológicos a mantener tanto las IDRs/IDPs como las proteínas plegadas en solución, evitando la formación de agregados no-funcionales.
 
 % Intrinsically disordered proteins are not necessarily prone to aggregation, as their sequences have usually evolved to maintain the level of solubility that is required for their optimal function; 
@@ -1110,27 +1070,16 @@ Este y otros aspectos energéticos relevantes(que se verán a continuación) res
 % 
 
 % EN ALGUN LADO DEBERIA PONER ASPECTOS ENERGETICOS DE LOS AMYLOIDS Y LOS AGREGADOS
-En la sección anterior vimos como la gran variedad de conformaciones nativas pueden entenderse observando el paisaje energético asociado a sus estructuras.
-Con el mismo fin, en el gráfico \ref{fullEnLandscape} se muestran los perfiles asociados con distintos estados de agregación.
+En la sección anterior vimos cómo la gran variedad de conformaciones nativas pueden entenderse observando el paisaje energético asociado a sus estructuras.
+Con el mismo fin, en el gráfico \ref{fullEnLandscape} se muestran los perfiles asociados a distintos estados de agregación.
 % En la figura \ref{fullEnLandscape}\textbf{(b)} 
-Como dijimos en la seccion previa, los complejos funcionales que se forman entre IDRs/IDPs y sus ligandos implican la formación de nuevas interacciones intermoleculares que cambian el perfil energético del ensamble,
+Los complejos funcionales que se forman entre IDRs/IDPs y sus ligandos implican la formación de nuevas interacciones intermoleculares que cambian el perfil energético del ensamble,
 creando estados de mínima energía claramente definidos con características estructurales propias.
 % functional complexes of IDPs with their partners are formed via the specific intermolecular interactions that change the energy landscape creating more defined free energy minima.
-Mediante un mecanismo similar, la interacción entre proteínas lleva a la formación de distintos estados agregados generalmente no-funcionales(oligomeros, agregados amorfos, fibrillas amiloides, etc)  
+Mediante un mecanismo similar, la interacción entre proteínas lleva a la formación de distintos estados agregados generalmente no-funcionales(oligómeros, agregados amorfos, fibrillas amiloides, etc.).  
 % A similar mechanism underlies the formation of the non-productive protein complexes (oligomers, amorphous aggregates, amyloid-like fibrils, etc.). 
-En este caso, las interacciones (que como vimos, ocurre entre estados no plegados) llevan a la formación de estados muy estables, reflejados en un profundo mínimo sobre el perfil de energía correspondiente. 
+En este caso, las interacciones(que como vimos, ocurren entre estados \textit{misfolded}) llevan a la formación de estados muy estables, reflejados en un profundo mínimo sobre el perfil de energía correspondiente. 
 % Here, interactions of the disordered parts of IDPs or interactions of the denatured proteins result in the appearance of profound free energy minima. 
-
-
-% FACTORES EXTERNOS QUE AFECTAN LA AGREGACION
-Además de las propiedades que se analizaron sobre la secuencia primaria, es importante destacar factores externos a la secuencia que pueden afectar la formación de agregados.
-The most relevant extrinsic determinants are the pH and the ionic strength of the solution, together with the temperature of the system [34].
-These variables may affect both the kinetics and thermodynamics of aggregation
-into amyloid-like structures, and can, subsequently, influence the assembly and
-the macroscopic structure of the aggregated species, thus being important deter-
-minants of the polymorphism the aggregates of a given protein sequence may
-present.
-
 
 
 \begin{figure}[ht!]
@@ -1152,6 +1101,19 @@ present.
  \caption{Full energy landscape}
  \label{fullEnLandscape}
 \end{figure}
+
+
+
+
+% FACTORES EXTERNOS QUE AFECTAN LA AGREGACION
+Además de las propiedades que se analizaron sobre la secuencia primaria, es importante destacar factores externos a la secuencia que pueden afectar la formación de agregados.
+Los determinantes extrínsecos mas relevantes son el pH y la fuerza iónica de la solución, junto con la temperatura del sistema.
+Estas variables pueden afectar tanto la cinética como las propiedades termodinámicas de los diferentes estados e intercambios entre estos.
+Estas propiedades afectan a todos los estados posibles aunque en este caso los mencionamos en el contexto de proceso de agregación.
+% The most relevant extrinsic determinants are the pH and the ionic strength of the solution, together with the temperature of the system [34].
+% These variables may affect both the kinetics and thermodynamics of aggregation into amyloid-like structures, and can, subsequently, influence the assembly and
+% the macroscopic structure of the aggregated species, thus being important determinants of the polymorphism the aggregates of a given protein sequence may present.
+
 
 
 % BARRERAS CINETICAS QUE IMPIDEN LA FORMACION DE AMYLLOIDS
@@ -1438,21 +1400,22 @@ y la activación de un amplio rango de proteínas clientes de esta maquinaria.
 
 % MECANISMOS CELULARES DE PREVENSION AGREGADOS
 
-A partir de lo que se dijo en la seccion anterior sabemos que el proceso de agregación comienza, generalmente, a partir de estados total o parcialmente desplegados. 
-Por lo tanto, la prevención de errores en el plegamiento, no solo ayuda a evitar la pérdida de funcionalidad directa de las proteínas, sino también a la exposición de regiones secuenciales que puedan aumentar la tendencia a la agregación. 
+A partir de lo que se dijo en la seccion anterior sabemos que el proceso de agregación comienza, generalmente, a partir de estados total o parcialmente desplegados,
+por lo tanto, la prevención de errores en el plegamiento no sólo ayuda a evitar la pérdida de funcionalidad directa de las proteínas, sino también a la exposición de regiones secuenciales que puedan aumentar la tendencia a la agregación. 
 La ocurrencia de un proceso de agregación de proteínas es una situación grave y existen una gran cantidad de mecanismos celulares que ayudan a prevenir la agregación.
-En \cite{gsponer2012cellular} se demuestra que, por ejemplo, las proteínas propensas a formar agregados estan controladas mediante transcripción, traducción y degradación diferencial, en comparación con proteínas no propensas, 
-que 
+En \cite{gsponer2012cellular} se demuestra que, por ejemplo, las proteínas propensas a formar agregados estan controladas mediante transcripción, traducción y degradación diferencial, en comparación con proteínas no propensas.
 % aggregation-prone proteins are subject to differential transcriptional, translational, and degradation control compared to nonaggregation-prone proteins, which leads to their decreased
 % synthesis, low abundance, and high turnover. 
 
 
-Las diferencias estructurales vistas entre los distintos estados de agregación tambien se ven reflejada en diferencias biológicas 
-Whereas misfolded and aggregated proteins are found in perinuclear locations and are generally degraded by the 
-proteasomal system, amyloids preferentially accumulate in perivacuolar inclusions, where they are degraded by the autophagosome.
+Las diferencias estructurales vistas entre los distintos estados de agregación tambien se ven reflejada en diferencias biológicas. 
 Esta segregación resulta en un tratamiento distinto por parte de los mecanismos encargados de la proteostasis.
-A reduced affinity of amyloids for the protein quality control system is probably also at the root of their higher toxicity 11 as artificial overexpression of chaperones
-usually leads to decreased toxicity and removal of amyloids from he cell.
+Mientras que las proteinas en estados \textit{misfolded} y los agregados no estructurados se acumulan en el espacio perinuclear para luego ser degradados por el sistema del proteasoma,
+los agregados amiloides preferentemente se acumulan en inclusiones perivacuolares y son degradados mediante el autofagosoma.
+% Whereas misfolded and aggregated proteins are found in perinuclear locations and are generally degraded by the 
+% proteasomal system, amyloids preferentially accumulate in perivacuolar inclusions, where they are degraded by the autophagosome.
+% A reduced affinity of amyloids for the protein quality control system is probably also at the root of their higher toxicity 11 as artificial overexpression of chaperones
+% usually leads to decreased toxicity and removal of amyloids from he cell.
 
 
 
@@ -1462,19 +1425,20 @@ Como los estados plegados pueden ser metaestables, y pueden existir estados agre
 y evitar la conversión en estados agregados no funcionales.
 % Como se vio en las secciones previas, as proteins in their functional forms can be thermodynamically and chemically metastable, mechanisms have evolved to maintain their solubility in vivo for prolonged periods of
 % time and to avoid their conversion into non-functional amyloid states.
-Es decir, además de los maquinaria dinámica que se encuentran en la celula y que, generalmente, se adaptan a las señales del entorno celular, existen propiedades evolutivas para mantener estados de proeostasis.
-
+Es decir, además de los maquinaria dinámica que se encuentran en la célula y que se adaptan a las señales de la situación celular, existen propiedades evolutivas para mantener estados de proeostasis.
 % esto esta en \cite{knowles2014amyloid}
-Por ejemplo, un análisis de diversas fibrillas amiloides  sugiere que este tipo 
-An analysis of a series of amyloid fibrils suggests that these types of structure are likely to become thermodynamically unstable relative to globular native structures, and indeed even relative to unstructured states, for
-polypeptide chains of more than ~150 residues because of the topological constraints that are associated with the
-packing of a long polypeptide chain into the fibril core \cite{baldwin2011metastability}
-Biology may have exploited this feature by evolving proteins with 300-500 residues on average to minimize the risk of amyloid formation. 
 
-Entre las diversas evidencias que apoyan esta idea, se encuentra que los depósitos amiloides encontrados en situaciones de enfermedades asociadas a éstos, 
+Por ejemplo, un análisis de diversas fibrillas amiloides sugiere que este tipo de estructuras es propenso a volverse termodinámicamente inestable con respecto a estados monoméricos nativos(e incluso con respecto a estados desestructurados)
+cuando las cadenas polipeptídicas tienen mas de aprox. 150 residuos, debido a restricciones topolígicas asociadas con el empaquetamiento de largas cadenas en el núcleo de la fibrilla\cite{baldwin2011metastability}.
+La evolución parece haber explotado esta característica al desarrollar proteínas con un promedio de 300-500 residuos para minimizar el riesgo de formación de estos agregados.
+% An analysis of a series of amyloid fibrils suggests that these types of structure are likely to become thermodynamically unstable relative to globular native structures, and indeed even relative to unstructured states, for
+% polypeptide chains of more than ~150 residues because of the topological constraints that are associated with the
+% packing of a long polypeptide chain into the fibril core 
+% Biology may have exploited this feature by evolving proteins with 300-500 residues on average to minimize the risk of amyloid formation. 
+Entre las diversas evidencias que apoyan esta idea se encuentra que los depósitos amiloides encontrados en situaciones de enfermedades 
 están formados generalmente de péptidos y proteinas de corta longitud o, como se vio en la figura \ref{aggregationDiagram}, también pueden formarse a partir de fragmentos de la proteólisis de proteinas más grandes.
 En \cite{knowles2014amyloid} se muestran otras propiedades intrínsecas de las secuencias para evitar los estados agregados. 
-Algunos de estas son:
+Algunas de estas son:
 \begin{itemize}
  \item Las regiones propensas a agregación estan localizadas generalmente en el núcleo hidrofóbico de proteínas plegadas o como parte de la superficie que une distintas proteínas adoptando una estructura cuaternaria.
  Esto impide que estas regiones se encuentren en la superficie expuesta al solvente en el medio celular, impidiendo que puedan formar contactos anormales en el estado plegado correcto. 
@@ -1490,6 +1454,12 @@ estos segmentos quedaran expuestos.
 \end{itemize}
 
 
+% 
+% As aggregation cannot be completely eliminated, because of structural constraints from the native state, aggregation is further contained by placing not only charged residues but also prolines and 
+% glycines at the flanks of aggregating sequence segments. These effectively act as gatekeeper residues, 
+% opposing aggregation and thereby promoting the native folding reaction. It has also been reported on several occasions that the introduction of charged residues, prolines or glycines in aggregation-prone sequences reduces aggregation.
+% The aggregation-opposing properties of proline and glycine originate primarily from their
+% structure-breaking properties. Identically charged residues are also very effective at opposing aggregation, because of the huge repulsive force generated upon self-assembly.
 
 
 
@@ -1610,26 +1580,26 @@ estos segmentos quedaran expuestos.
 
 
 % PARADIGMA ESTRUCTURA-FUNCION TRADICIONAL 
-El paradigma estructura-funcion original afirmaba que la función específica de una proteína está determinada por su estructura tridimensional, la cual es única y rígida. 
+El paradigma estructura-función original afirmaba que la función específica de una proteína está determinada por su estructura tridimensional, la cual es única y rígida. 
 % The structure-function paradigm claims that a specific function of a protein is determined by its unique and rigid three-dimensional (3D) structure. 
 % Thus, following its biosynthesis on the ribosome, a protein must fold to a native, defined 3D structure to be functional. 
-
 % One of the bestunderstood functions of proteins is catalysis (i.e., enzymatic activity), which attracted much attention in the early days of protein science and led to the elaboration of the “lock and key” model by Fisher. 
 % En este caso(enzimas) la proteina provee un scaffold para el sitio activo, 
 % Central to this model is the notion that the correct shape of the substrate can fit into the active site of the enzyme for enabling an efficient and specific catalysis,
-El origen de este paradigma es el modelo de llave-cerradura propuesto por Emil Fisher el 1894. El modelo nace de la necesidad por explicar la especificidad encontrada en el funcionamiento de diversas enzimas similares. 
+El origen de este paradigma es el modelo de llave-cerradura propuesto por Emil Fisher el 1894. E
+l modelo nace de la necesidad por explicar la especificidad encontrada en el funcionamiento de diversas enzimas similares por sus correspondientes sustratos. 
 % The primary origin of this structure-function paradigm is the “lock and key” hypothesis formulated in 1894 by Emil Fischer to explain the astonishing specificity of the enzymatic hydrolysis of glucoside multimers by different types
 % of similar enzymes. 
 La hipótesis utilizada para explicar esto era que la estructura de la proteína(en este caso la enzima) era perfectamente complementaria a la del sustrato correspondiente, en un sistema similar al de una llave en una cerradura.
 Este paradigma extiende los conocimientos vistos previamente acerca de que la secuencia de la proteína tiene codificada la información necesaria para plegarse espontáneamente luego de ser sintetizada en la célula,
 alcanzando esta estructura nativa asociada a la función.
-Por un largo período de tiempo, entonces, el modelo de llave-cerradura y el paradigma asociado de sequencia-estructura-función se mantuvieron como teorías aceptadas, confirmadas continuamente por la
+Por un largo período de tiempo, entonces, el modelo de llave-cerradura y el paradigma asociado de secuencia-estructura-función se mantuvieron como teorías aceptadas, confirmadas continuamente por la
 gran diversidad de estructuras que se resolvieron mediante difracción con rayos X. 
 % For a long period of time, the validity of “lock and key” model and its associated sequence-structure-function paradigm was unquestioned, especially after the crystal structures of proteins started to be solved by X-ray diffraction
 % Este paradigma se deriva de los primeros avances en el estudio de estructuras de proteinas. 
 % Over the past century evidence steadily accumulated that a well-defined structure is the prerequisite of protein function.
 % Basic biology and biochemistry textbooks that explain biological phenomena at the molecular level exquisitely rely on this notion, the ‘structure–function paradigm’.
-La capacidad de asociar una estructura unica encontrada en el cristal con la función observada de la proteína en solución reforzaba la idea de una estructura estática asociada a las proteínas
+La capacidad de asociar una estructura única, encontrada en el cristal, con la función observada de la proteína en solución reforzaba la idea de una estructura estática asociada a las proteínas
 % The explanatory power of these 3-D structures continued to reinforce the static view of protein
 
 % Throughout the 20th century, tens of thousands of structures have been solved and deposited in the Protein Data Bank (PDB), supporting again the necessity of a 3-D structure for functionality.
@@ -1638,11 +1608,11 @@ Contrario a este modelo, en 1894 Koshlan sugiere el modelo de encaje inducido, b
 ligandos con diferentes estructuras y, por lo tanto, la proteína debía poseer cierta flexibilidad que le permitiera esta función.
 % In contrast to this view, already in 1958 Koshland suggested the “induced-fit” model based on the observations that some enzymes could act on
 % differently shaped substrates and hence a degree of flexibility is inevitable in function. 
-Siguientes evidencias mostraron que esta flexibilidad era parte del  y que podía implicar cambios conformacionales que van desde variaciones en rotameros de las cadenas laterales hasta reordenamientos conformacionales mas relevantes
-(por ej. en proteínas alostéricas).
+Siguientes evidencias mostraron que esta flexibilidad era parte del mecanismo funcional y que podía implicar cambios conformacionales que van desde variaciones en rotámeros de las cadenas laterales hasta 
+reordenamientos conformacionales muy relevantes(por ej. en proteínas alostéricas).
 % A pesar de este reconocimiento de la dinamica para la funcion biologica, con 
-Estas variaciones podian aún ser interpretadas dentro del modelo establecido por el paradigma estructura-funcion, el cual fue levemente adaptado.
-El requerimiento necesario para que la proteína cumpla su función era, entonces, una estructura definida, sin embargo ésta era dinámica. 
+Estas variaciones podian aún ser interpretadas dentro del modelo establecido por el paradigma estructura-función, el cual fue levemente adaptado.
+El requerimiento necesario para que la proteína cumpla su función era, entonces, una estructura definida, aunque dinámica. 
 % A well-folded, albeit dynamic, structure was thought to be the hallmark of protein function.
 
 Como vimos en las secciones previas, las proteínas que se adaptan a esta descripción son proteínas plegadas y la estructura resultante que se observa de la cristalización es, en realidad, un promedio del ensamble de conformaciones.
@@ -1656,13 +1626,11 @@ Como este ensemble de conformaciones es relativamente pequeño, con estructuras 
 % esta estructura puede ser usada para clasificacion y para inferir la funcionalidad en nuevas proteinas.
 % Estos dominios globulares pueden ser identificados y asociados a una funcion individual o a una funcion dentro de la funcion global de la proteina.
 % PFAM, SCOP
-
 % ACA IRIA LO DE SCOP
 % Los análisis de estructuras existentes permiten la clasificación y anotación de éstas en bases de datos: ej. SCOP
-
-El paradigma secuencia-estructura-funcion permite extender este concepto a la estructura primara de la proteína.
+El paradigma secuencia-estructura-función permite extender este concepto a la estructura primaria de la proteína.
 Dado que la estructura asociada a la función debe ser mantenida evolutivamente para continuar cumpliendo la función, los requerimientos estructurales(y funcionales) imponen ciertas restricciones sobre la evolución de la secuencia.
-Por lo tanto, la similitud secuencial también permite inferir propiedades funcionales. Esto facilita la anotación de funcionalidad/elementos funcionales en secuencias nuevas, aun cuando no se conoce su estructura.
+Por lo tanto, la similitud secuencial también permite inferir propiedades funcionales. Esto facilita la anotación de elementos funcionales en secuencias nuevas, aún cuando no se conoce su estructura.
 % Incluso cuando ....The sequences diverge, but the overall domain architecture remains the same.
 % Particular domains and domain architectures are well conserved over the course of evolution. 
 
@@ -1671,8 +1639,9 @@ Por lo tanto, la similitud secuencial también permite inferir propiedades funci
 
 
 
+
+
 % ARRANCO CON IDPs
-En las secciones anteriores se demostró que las proteínas completamente ordenadas eran sólo una parte de los estados posibles y que las conformaciones nativas de las proteinas pertenecen a un continuo mosaico estructural.
 
 
 
@@ -1690,7 +1659,8 @@ En las secciones anteriores se demostró que las proteínas completamente ordena
 
 % Como se dijo en la introduccion, a little more than 10 years ago,however, such challenge to the almost dogmatic ‘structure–function paradigm’ was pure heresy due to the overwhelming evidence that structure determines function.
 
-Debido a su amplio ensamble conformacional, el cual va mas alla de una simple variación estructural, el modelo de encaje inducido no permitiría explicar su funcionamiento.
+En las secciones anteriores se demostró que las proteínas completamente ordenadas eran sólo una parte de los estados posibles y que las conformaciones nativas de las proteinas pertenecen a un continuo mosaico estructural.
+Debido a su amplio ensamble conformacional, el cual va más allá de una simple variación estructural, el modelo de encaje inducido no permitiría explicar su funcionamiento.
 El paradigma estructura-función fuertemente establecido impedia aceptar, inicialmente, la idea de una función asociada a una IDR/IDP. 
 % As it is often the case for new scientific concepts, the idea of structure-less functionality went through the stages of passive ignorance and active denial to scrupulous examination and enthusiastic acceptance
 % Como parte de estos avances, en los ultimos años se han encontrado gran cantidad de proteinas que adoptan estructuras cuyas conformaciones son total o parcialmente desordenadas(segmentos globulares), soportando esta definicion, formalizada a principios de milenio. 
@@ -1758,7 +1728,7 @@ El principal objetivo de todos los modelos y estudios estructurales en estas pro
 La pregunta mas importante, entonces, es la función fisiológica que cumplen las IDRs/IDPs y como es su mecanismo funcional.
 % The most important question of the field, therefore, is the physiological function and functional mode of IDPs/IDRs.
 El estudio de las funcionalidades provistas por IDRs y IDPs se ve dificultada por las propiedades intrínsecas de estas proteinas:
-Como se dijo antes, el paradigma inicial de secuencia-estructura-funcion provee una base para relacionar los conocimientos entre mediante metodos de analisis y anotaciones de secuencias estructuras y funciones.
+Como se dijo antes, el paradigma inicial de secuencia-estructura-función provee una base para relacionar los conocimientos entre mediante métodos de análisis y anotaciones de secuencias estructuras y funciones.
 Por el contrario, las proteínas dentro de este nuevo conjunto de IDPs se corresponden con un ensamble conformacional heterogéneo.
 Dado que, entonces, no es posible obtener una estructura promedio representativa, es díficil obtener información relevante de la funcionalidad a partir del ensamble conformacional.
 % By contrast, proteins within the more recently class of intrinsically disordered proteins (IDPs) sample dissimilar conformations during their biological lifetime, and therefore the corresponding structural
@@ -1874,7 +1844,7 @@ Sin embargo, los SLMs se diferencian de los MoREs descritos previamente en que e
 mientras que los SLMs dependen de motivos secuenciales específicos.
 % MoRFs differ from ELMs and SLiMs in not depending on a specific sequence motif, but rather upon a pattern in a disorder prediction output. 
 
-Mas adelante, luego de ver algunos detalles sobre los LMs, se volverá sobre este concepto y la relación con los otros elementos funcionales de las IDPs.
+Más adelante, luego de ver algunos detalles sobre los LMs, se volverá sobre este concepto y la relación con los otros elementos funcionales de las IDPs.
 % Short linear motifs (SLiMs, LMs or MiniMotifs) and their enrichment in
 % natively unstructured, or disordered, regions of proteins (2). 
 
@@ -2050,41 +2020,43 @@ Estos resultados parecen indicar que estos tres elementos funcionales pertenecen
 
 \section{Ingeniería de proteínas}
 \label{proteinEngineering}
-% \subsection{Proteínas modulares}
-
-
 
 
 \subsection{Diseño de proteínas quiméricas}
 
 
-Como producto de los avances logrados en las tecnologías asociadas al ADN recombinante, se ha desarrollado una nueva generación de proteínas compuestas por la unión de diferentes unidades estructurales/funcionales.
-Recent advances in protein engineering have come from creating multi-functional chimeric proteins containing modules from various proteins.
+Como producto de los avances logrados en las tecnologías asociadas al ADN recombinante, se ha desarrollado una nueva generación de proteínas compuestas por la unión de diferentes unidades estructurales y/o funcionales.
+% Recent advances in protein engineering have come from creating multi-functional chimeric proteins containing modules from various proteins.
 % As a product of recombinant DNA technology, fusion proteins have been developed as a class of novel biomolecules with multi-functional properties. 
 
 
-
-
-
 % ACA PUEDO METER LA PARTE DE MODULARIDAD DE PROTEÍNAS
-La idea de armar proteínas uniendo componentes/modulos no es algo nuevo...
+La idea de armar proteínas a partir de la unión de módulos no es algo nuevo.
 Las proteínas naturales son usualmente modulares, conteniendo regiones definidas asociadas cada una con una subfunción específica.
 % Proteins are usually modular, containing discrete regions each of which performs a different sub-function. 
 Esta naturaleza modular provee muchas ventajas, principalmente la posibilidad de desarrollar funciones que requieren cooperación de distintos módulos y un incremento en la estabilidad de la estructura global.
 % The modular nature of proteins has many advantages, providing increased stability and new cooperative functions.
-Otra ventajas incluyen la protección de los metabolitos intermedios dentro de espacios inter-dominio, aumentando la   y previniendo la liberación al medio que 
-Other advantages include the protection of intermediates within inter-domain clefts that may otherwise be unstable in aqueous environments 
-and the fixed stoichiometric ratio of enzymatic activity necessary for a sequential set of reactions
-Desde el punto de vista evolutivo, la modularidad en las proteínas incrementa la capacidad evolutiva reduciendo las restricciones necesarias para la adaptación y permitiendo que módulos preexistentes puedan funcionar en nuevos contextos para nuevos usos.
+Otra ventajas incluyen la protección de los metabolitos intermedios dentro de espacios inter-dominio, aumentando la eficiencia global y previniendo la liberación al medio de intermediarios inestables de la reacción.  
+% Other advantages include the protection of intermediates within inter-domain clefts that may otherwise be unstable in aqueous environments 
+% and the fixed stoichiometric ratio of enzymatic activity necessary for a sequential set of reactions
+Desde el punto de vista evolutivo, la modularidad en las proteínas incrementa la capacidad evolutiva reduciendo las restricciones necesarias 
+para la adaptación y permitiendo que módulos preexistentes puedan funcionar en nuevos contextos para nuevos usos.
 % In terms of evolution, modularity increases evolvability by reducing constraints on adaptation and by allowing preexisting parts to function in new contexts for novel uses.
+Estas diferencias en las propiedades da origen a diferentes definiciones del término dominio: 
+Podemos definir a un dominio como una unidad evolutiva independiente que puede formar una proteína mono-dominio o formar parte de una multi-dominio. 
+Esta unidad puede tener una función independiente o contribuir a la función global de una proteína multi-dominio coperando con el resto de las unidades.
+Esta definición de dominio como unidad evolutiva es la que se usa como mecanismo de clasificación en la base de datos SCOP(Structural Classification of Proteins)\cite{murzin1995scop}. 
+% We can define a protein domain as an independent, evolutionary unit that can form a single-domain protein or be part of one or more different multidomain proteins. The domain can either have an independent
+% function or contribute to the function of a multidomain protein in cooperation with other domains. 
+% The definition of a domain as an evolutionary unit is used in the Structural Classification of Proteins (SCOP) database \cite{murzin1995scop}
+A diferencia de esto, en CATH\cite{orengo1997cath}, los dominios se definen basándose en conceptos puramente estructurales. 
+De esta forma, los dominios pueden definirse como porciones de la secuencia de un polipéptido que pueden asumir una estructura tridimensional estable de forma independiente. 
+% domains are domains are defined on a purely structural basis.
+% De esta forma .........protein domains can be defined as segmented portions of a polypeptide sequence that assume stable three-dimensional structure.
 
-
-
-Se conoce una gran cantidad de dominios/estructurales y funcionales y gran parte del diseño de  proteínas quiméricas se basa en utilizar estos conocimientos y anotaciones de módulos 
-para crear nuevas proteínas con estructuras/funciones/propiedades combinadas.
-
-% Recombinant chimeric fusion proteins are routinely constructed para lograr distintos objetivos: 
-Estas nuevas proteinas quiméricas(o de fusión), se sintetizan de manera rutinaria para alcanzar distintos objetivos:
+Las distintas bases de datos permiten obtener, entonces, una gran cantidad de módulos estructurales y funcionales y gran 
+parte del diseño de proteínas quiméricas se basa en utilizar estos conocimientos y anotaciones para crear nuevas proteínas con estructuras/funciones/propiedades combinadas.
+Estas nuevas proteinas quiméricas(o de fusión), se utilizan de manera rutinaria para alcanzar distintos objetivos:
 
 \begin{itemize}
  \item Creación de proteinas que combinan funciones de distintos dominios:
@@ -2123,7 +2095,7 @@ El aumento en la estabilidad del complejo permite realizar los estudios biofísi
 % linked, it is possible that the binding partners might
 % dissociate due to their low affinity and/or due to the
 % crystallization conditions.
-\item La unión de fragmentos de anticuerpos a enzimas o proteínas que permitan la detección de la unión es la base de las técnicas immunoquímicas.
+\item La unión de fragmentos de anticuerpos a enzimas o proteínas que permitan la detección de la unión es la base de las técnicas inmunoquímicas.
 % \item Incrementar la expresión de proteínas.
 \item La unión de segmentos de secuencia específica permite la purificación de proteínas a partir del lisado celular. 
 % Facilitar la purificación de proteínas.
@@ -2131,11 +2103,10 @@ El aumento en la estabilidad del complejo permite realizar los estudios biofísi
 % -In addition to structural studies of protein–protein interactions \cite{reddy2013linkers}.,
 % \item a wide range of applications in the field of biotechnology have employed these fused proteins
 % \item to explore protein-based biochemistry, such as to create artificial bifunctional enzymes and as tools for FRET analysis.
-They have also been widely applied for drug targeting, since proteins such as single chain antibodies or ligands for cell surface receptors can 
-specifically target a linked functional protein (e.g. toxin or cytokine) to a specific type of cells
+
+% They have also been widely applied for drug targeting, since proteins such as single chain antibodies or ligands for cell surface receptors can 
+% specifically target a linked functional protein (e.g. toxin or cytokine) to a specific type of cells
 \end{itemize}
-
-
 
 
 
@@ -2174,7 +2145,7 @@ la identificación de dominios y nuevas técnicas para obtener sus propiedades c
 
 
 % DISORDER vs FLEXIBILITY:
-Para las arquitecturas mas comunes, compuestas de dominios globulares unidos por linkers, la flexibilidad de esta secuencia linker es un requerimiento escencial.
+Para las arquitecturas más comunes, compuestas de dominios globulares unidos por linkers, la flexibilidad de esta secuencia linker es un requerimiento escencial.
 Es relevante aclarar acá que, si bien los terminos desordenado y flexible pueden solaparse en algun punto, son términos distintos\cite{radivojac2004protein}
 % Disorder and flexibility are often used synonymously, but the two terms are quite distinct\cite{radivojac2004protein}. 
 % With regard to an ordered protein, flexibility refers to the magnitudes of the excursions of the atoms from their equilibrium positions.
@@ -2237,19 +2208,20 @@ Este es el tema de la próxima sección.
 % El 'descubrimiento' de las regiones/secuencias linkers esta ligado a las teorias de structura-funcion(desarrolladas en la parte de conformacion) que se dieron durante casi 100 años
 % En un principio se comenzo a pensar en una estructura rigida asociada a la proteina, luego se fueron revelendo propiedades dinamicas que le permitian cumplir la funcion. 
 % Todo esto esta muy asociado a las tecnicas experimentales que se fueron desarrollando.
-Como se dijo antes, la modularidad en proteínas naturales es algo muy comun y existen muchisimos ejemplos de proteinas multidominio compuestas de dos o mas dominios funcionales unidas por linkers.
-These linker peptides serve to connect the protein moieties, and also provide many other functions, such as maintaining cooperative inter-domain interactions [21] or preserving biological activity [22]. 
-
-Los primeros estudios de analisis (estructura y composicion) de secuencias linkers\cite{argos1990investigation} se comenzaron a hacer a partir del analisis estadistico de secuencias que podian ser clasificadas 
-como linkers a partir de las primeras estructuras de proteinas multidominio almacenadas en bases de datos.
-% Estos estudios estaban sesgados por todo el proceso historico de descubrimiento marcado por 
-Los resultados indicaban que la mayoria adquiría una conformación desplegada(tipo \textit{coil}) sin estructura secundaria. 
-% many studies of linker peptides in various protein families have come to the conclusion that linkers lack regular secondary structure (la mayoria se encontraba en estructuraas tipo coil), 
-% they display varying degrees of flexibility to match their particular biological purpose and are rich in Ala, Pro and charged residues
-Asi surgio la idea que los linkers eran secuencias cortas cuya unica funcion era proveer la conexion covalente, lo que estaba de acuerdo con el concepto de hinge-bending.
-Este concepto indicaba que la flexibilidad de estas regiones cortas dentro de un polipéptido permitía el suficiente movimiento a los dominios estructurales.
-% The concept of hinge-bending, whereby the relative flexibility of these short regions of the polypeptide chain allows significant movement of structural domains, gained widespread acceptance in
-% the 1980s and early 1990s, after evidence for conformational transitions in identical or homologous proteins became known.
+Como se dijo antes, la modularidad en proteínas naturales es algo muy común y existen muchisimos ejemplos de proteinas multidominio compuestas de dos o mas dominios funcionales unidas por linkers.
+Estas secuencias linker sirven, principalmente para mantener unidos los distintos dominios, pero también proveen muchas otras funciones a la proteína como intervenires en las interacciones cooperativas entre los dominios o formar parte de la actividad biológoica de la proteína.
+% These linker peptides serve to connect the protein moieties, and also provide many other functions, such as maintaining cooperative inter-domain interactions [21] or preserving biological activity [22]. 
+% 
+% Los primeros estudios de analisis (estructura y composicion) de secuencias linkers\cite{argos1990investigation} se comenzaron a hacer a partir del analisis estadistico de secuencias que podian ser clasificadas 
+% como linkers a partir de las primeras estructuras de proteinas multidominio almacenadas en bases de datos.
+% % Estos estudios estaban sesgados por todo el proceso historico de descubrimiento marcado por 
+% Los resultados indicaban que la mayoria adquiría una conformación desplegada(tipo \textit{coil}) sin estructura secundaria. 
+% % many studies of linker peptides in various protein families have come to the conclusion that linkers lack regular secondary structure (la mayoria se encontraba en estructuraas tipo coil), 
+% % they display varying degrees of flexibility to match their particular biological purpose and are rich in Ala, Pro and charged residues
+% Asi surgio la idea que los linkers eran secuencias cortas cuya unica funcion era proveer la conexion covalente, lo que estaba de acuerdo con el concepto de hinge-bending.
+% Este concepto indicaba que la flexibilidad de estas regiones cortas dentro de un polipéptido permitía el suficiente movimiento a los dominios estructurales.
+% % The concept of hinge-bending, whereby the relative flexibility of these short regions of the polypeptide chain allows significant movement of structural domains, gained widespread acceptance in
+% % the 1980s and early 1990s, after evidence for conformational transitions in identical or homologous proteins became known.
 
 % It was discovered that hinge regions are soft-linker regions of localized torsion angle changes in
 % the polypeptide chain that allow the attached rigid
@@ -2262,66 +2234,82 @@ Este concepto indicaba que la flexibilidad de estas regiones cortas dentro de un
 % 
 
 
-A lo largo de los años los conocimientos sobre la composición y propiedades de estas secuencias ha ido cambiando, 
-a medida que mayor cantidad de estructuras se resolvian y mayor conocimiento se obtenia acerca de los dominios que componen 
-las proteinas. Tambien influyeron otras cosas como tecnicas biofisicas que permiten obtener información del ensamble conformacional en solución,
-o algoritmos para automatizar la identificación de los dominios y las secuencias que actúan como linker en una proteina.
-
+% A lo largo de los años los conocimientos sobre la composición y propiedades de estas secuencias ha ido cambiando, 
+% a medida que mayor cantidad de estructuras se resolvian y mayor conocimiento se obtenia acerca de los dominios que componen 
+% las proteinas. Tambien influyeron otras cosas como tecnicas biofisicas que permiten obtener información del ensamble conformacional en solución,
+% o algoritmos para automatizar la identificación de los dominios y las secuencias que actúan como linker en una proteina.
+% 
 
 % Although the role of linker sequences is likely to be primarily topological, allowing distant parts of the polypeptide chain to interact with diverse partner sequences that might be far apart or close together, 
 % linkers and unstructured tail sequences play quite specific roles in a number of systems.
 
-Hoy en día solo se puede decir que, a pesar que la funcionalidad topológica(actuan como espaciadores entre los dominios de una proteina) es probablemente la más importante,
-% Hoy en dia, solo se puede decir que los linkers naturales son secuencias que actuan como espaciadores entre los dominios de una proteina, de manera que se prevengan interacciones unfavourable between folding domains. 
-% Esto solo se puede decir acerca de su definicion, ya que 
-por encima de esto, existen distintas propiedades estructurales/funcionales que dependen de la función global de la proteína.
-
-En cada proteina, la secuencia linker puede tener una estructura y una funcion que haya sido seleccionada para el mecanismo/localización/funcion/etc de la proteina como un todo, 
-y esta función del linker puede no ser solamente la union covalente de dos dominios para proveer increased stability and new cooperative functions.
-Algunos linkers can play an essential role in maintaining cooperative inter-domain interactions
-De esta forma, es dificil hacer un analisis y una clasificacion concreta de todos los linkers. Si se pueden agrupar algunos segun distintas caracteristicas funcionales, estructurales, etc.
+% Hoy en día solo se puede decir que, a pesar que la funcionalidad topológica(actuan como espaciadores entre los dominios de una proteina) es probablemente la más importante,
+% % Hoy en dia, solo se puede decir que los linkers naturales son secuencias que actuan como espaciadores entre los dominios de una proteina, de manera que se prevengan interacciones unfavourable between folding domains. 
+% % Esto solo se puede decir acerca de su definicion, ya que 
+% por encima de esto, existen distintas propiedades estructurales/funcionales que dependen de la función global de la proteína.
 
 
+En \cite{argos1990investigation,george2002analysis} se encuentran los análisis mas detallados donde se estudian las propiedades generales de secuencias linkers naturales
+En \cite{chen2013fusion} se revisan los resultados obtenidos en ambos con respecto a diversas propiedades como son longitud, hidrofobicidad, enriquecimiento de ciertos aminoacidos y estructura secundaria adoptada.
+% properties of the natural linkers, such as length, hydrophobicity, amino acid residues, and secondary structure were compared and the results are summarized in
+En cada proteina, la secuencia linker puede tener una estructura y una función que haya sido seleccionada para el mecanismo/localización/función de la proteina como un todo, 
+y esta función del linker puede no ser solamente la unión covalente de dos dominios. 
+% para proveer increased stability and new cooperative functions.
+% Por ejemplo, algunos linkers can play an essential role in maintaining cooperative inter-domain interactions
+De esta forma, es dificil hacer un analisis y una clasificación exhaustiva de todos los linkers.
+% Si se pueden agrupar algunos segun distintas caracteristicas funcionales, estructurales, etc.
+% En \cite{george2002analysis} se esboza una clasificación de los linkers de acuerdo al análisis de su estructura secundaria.
+% Se dividen, así, en dos categorías: helicoidales y no helicoidales.
+% Los linkers con estructuras de $\alpha$-hélice pueden tener funciones como, por ejemplo, actuar como espaciadores rígidos impidiendo interacciones no funcionales entre los dominios.
+% Aunque no sea exhaustiva, esta clasificación permite ver diferencias en los linkers también a nivel de estructura que adquieren, existiendo linkers que, a través de una mayor rigidez, impiden . 
 
-
-
-
-En \cite{george2002analysis} se encuentra el análisis mas recientes realizados sobre secuencias linker naturales.
-Based on From George and
-Heringa’s secondary structure analysis, linkers were grouped into two categories: helical and
-non-helical. The $\alpha$-helix was a rigid and stable structure, with intra-segment hydrogen bonds
-and a closely packed backbone [28]. Some $\alpha$-helical conformations form rapidly during
-folding [28], allowing the correct folding of connecting protein domains without non-native
-interactions with the linker. Linkers in an $\alpha$-helix structure might also serve as rigid spacers
-to effectively separate protein domains, and to reduce their unfavorable interactions.
-Therefore, this conformation was commonly adopted by many natural and empirical linkers
-(to be discussed later). On the other hand, without an inherent rigid structure, the non-helical
-linkers tended to be rich in Pro, which could increase the stiffness of the linker as mentioned
-previously [25]. As a result, non-helical linkers with Pro-rich sequence could exhibit
-relatively rigid structures and serve to reduce inter-domain interference.
-Overall, natural linkers mainly adopted extended conformations, and had independent
-structures that did not interact with the adjacent protein domains. Taken together, their
-length, composition, hydrophobicity, and secondary structure were all important to achieve
-
-
-
-Both flexible and relatively rigid peptide linkers are found in many multidomain proteins. 
-Linkers are thought to control favorable and unfavorable interactions between adjacent domains by means of variable softness
-furnished by their primary sequence. Large-scale structural heterogeneity of multidomain proteins
-and their complexes, facilitated by soft peptide linkers, is now seen as the norm rather than the
-exception. Biophysical discoveries as well as computational algorithms and databases have
-reshaped our understanding of the often spectacular biomolecular dynamics enabled by soft linkers.
-Absence of such motion, as in so-called molecular rulers, also has desirable functional effects in
-protein architecture.
-
-
+En general, se encontro que los linkers naturales adoptaban principalmente conformaciones desplegadas y tenían estructuras independientes sin interacciones con los dominios adyacentes.
+Todas las propiedades analizadas(longitud, composición, hidrofobicidad y estructura secundaria.) resultaron importantes para alcanzar las funciones deseadas.
+% Overall, natural linkers mainly adopted extended conformations, and had independent structures that did not interact with the adjacent protein domains. 
+% Taken together, their length, composition, hydrophobicity, and secondary structure were all important to achieve the desirable functions.
+En términos de estructura, por ejemplo, se encontraron tanto linkers flexibles como relativamente rígidos en muchas proteínas.
+A través de una mayor rigidez, ciertos linkers pueden ayudar a reducir interacciones no funcionales entre los dominios que unen. 
+Por otro lado, una estructura más flexible, como es usual para conformaciones extendidas, provee una mayor flexibilidad y libertad de movimiento a los dominios.
+% Both flexible and relatively rigid peptide linkers are found in many multidomain proteins. 
 
 
 
 % A FUTURO
-With the rapid increase of the number of protein structures deposited in the PDB database, an updated study of natural linkers could be conducted. 
-In addition to the properties analyzed in previous studies (e.g., amino acid composition, structure classification), 
-it would be interesting to categorize the multi-domain proteins by their functions and structures, and identify the relationship between them and the linker properties
+Con el incremento del número de estructuras almacenadas en la PDB que ocurrió en los últimos años, sería posible realizar un estudio actualizado de las propiedades de los linkers naturales.
+Además, sería interesante extender el número de propiedades analizadas agregando categorías asociadas a función y estructura de la proteína, e identificando la relación entre estas y las propiedades del linker.
+% With the rapid increase of the number of protein structures deposited in the PDB database, an updated study of natural linkers could be conducted. 
+% In addition to the properties analyzed in previous studies (e.g., amino acid composition, structure classification), 
+% it would be interesting to categorize the multi-domain proteins by their functions and structures, and identify the relationship between them and the linker properties
+
+
+% 
+% 
+% Based on From George and
+% Heringa’s secondary structure analysis, linkers were grouped into two categories: helical and
+% non-helical. The $\alpha$-helix was a rigid and stable structure, with intra-segment hydrogen bonds
+% and a closely packed backbone [28]. Some $\alpha$-helical conformations form rapidly during
+% folding [28], allowing the correct folding of connecting protein domains without non-native
+% interactions with the linker. Linkers in an $\alpha$-helix structure might also serve as rigid spacers
+% to effectively separate protein domains, and to reduce their unfavorable interactions.
+% Therefore, this conformation was commonly adopted by many natural and empirical linkers
+% (to be discussed later). On the other hand, without an inherent rigid structure, the non-helical
+% linkers tended to be rich in Pro, which could increase the stiffness of the linker as mentioned
+% previously [25]. As a result, non-helical linkers with Pro-rich sequence could exhibit
+% relatively rigid structures and serve to reduce inter-domain interference.
+% 
+% 
+% 
+% Both flexible and relatively rigid peptide linkers are found in many multidomain proteins. 
+% Linkers are thought to control favorable and unfavorable interactions between adjacent domains by means of variable softness
+% furnished by their primary sequence. Large-scale structural heterogeneity of multidomain proteins
+% and their complexes, facilitated by soft peptide linkers, is now seen as the norm rather than the
+% exception. Biophysical discoveries as well as computational algorithms and databases have
+% reshaped our understanding of the often spectacular biomolecular dynamics enabled by soft linkers.
+% Absence of such motion, as in so-called molecular rulers, also has desirable functional effects in
+% protein architecture.
+
+
+
 
 
 
@@ -2425,123 +2413,121 @@ it would be interesting to categorize the multi-domain proteins by their functio
   
 \subsection{Diseño de linkers}
 \label{linkerDesign}
-A la hora de obtener un linker 
-Las propiedades estructurales suelen ser las más criticas, generalmente cuando se diseñan linkers se busca que sean flexible, keeping domains apart while allowing them to move as part of their (catalytic?) function. 
-Sin embargo la flexibilidad no es todo. 
-Por ej. una opción evidente seria usar linkers de solo Gly.
-Why not use an all-glycine linker? 
+A la hora de obtener un linker las propiedades estructurales suelen ser las más criticas.
+La arquitectura típica creada, representada por dominios globulares unidos por secuencias linkers, se busca que éstos permitan 
+mantener los dominios separados a la vez que se les da suficiente capacidad para moverse libremente como parte de su funcionalidad. 
+Por lo tanto, la flexibilidad es el requerimiento mas importante.
+% keeping domains apart while allowing them to move as part of their (catalytic?) function. 
+
+Sin embargo, la flexibilidad no es todo. 
+Por ej. una opción evidente seria usar linkers de solo Glicina ¿Por qué no usar siempre un linker puramente poli-G, adaptando solamente su longitud?
 Desde los primeros estudios sobre linkers naturales \cite{argos1990investigation} se encontró que las proteinas naturales no usan(seleccionan) este tipo de secuencias.
-Si bien esto no es concluyente sobre por que no se deben usar, puede darnos un motivo para pensarlo dos veces.
-A nucleotide stretch at least two-thirds in guanine, which occupies the first and second codon positions for glycine, may be difficult to express in a host.
-Evidence also shows Gly-Gly-X, where X is often an amino acid residue with a hydrophobic side chain, to be a proteolytic processing site.
-An all-Gly peptide may be too flexible and unstable and thus could act as an energetic, structural, or catalysis-interfering nuisance to the
-domains or molecules fused, especially if it were long or longer than structurally necessary to connect the two molecules.
-Como se ve, entonces, existen otros aspectos a considerar que exigen distintos requerimientos además de las propiedades conformacionales.
-Por ejemplo, es importante que los Linkers should be invulnerable to host proteases, as they are often the targets for degradation. 
+Si bien esto no es concluyente para que no se usen, puede darnos un motivo para pensarlo dos veces.
+En primer lugar, un péptido poli-G sería extremadamente inestable y por lo tanto podría actuar como una carga energética, estructural o interferir en procesos de catálisis de los dominios que une, 
+especialmente si tiene una longitud excesiva.
+% An all-Gly peptide may be too flexible and unstable and thus could act as an energetic, structural, or catalysis-interfering nuisance to the
+% domains or molecules fused, especially if it were long or longer than structurally necessary to connect the two molecules.
+Se conoce además que el patrón Gly-Gly-X, donde X es un residuo con cadena lateral hidrofóbica, es un sitio target de actividad proteolítica. 
+% Evidence also shows Gly-Gly-X, where X is often an amino acid residue with a hydrophobic side chain, to be a proteolytic processing site.
+Por otro lado, una secuencia nucleotídica con alto contenido de Guanina(el codón que codifica para Glicina contiene Guanina en 2 de las 3 posiciones) puede ser difícil de manejar experimentalmente y de expresar para el huésped.
+% A nucleotide stretch at least two-thirds in guanine, which occupies the first and second codon positions for glycine, may be difficult to express in a host.
+Como se ve, entonces, existe una gran variedad de aspectos a considerar que exigen distintos requerimientos además de las propiedades conformacionales.
+Por ejemplo, es importante que los linkers should be invulnerable to host proteases, as they are often the targets for degradation. 
 
-Como vimos en secciones anteriores, distintos elementos funcionales(que actuan principalmente mediante mecanismos de reconocimiento) pueden encontrarse en regiones con estructura flexible. 
-La existencia de estos elementos debe tenerse en cuenta cuando se esta usando la secuencia linker elegida, y/o su eliminación debe formar parte de la etapa de diseño del linker.
-El problema del diseño del diseño racional es, entonces, un proceso complicado.
-The general properties of linkers derived from naturally-occurring multi-domain proteins(que se vieron en la seccion anterior) can be considered as the foundation in linker design. 
 
-The stable linkage between functional domains provides many advantages such as a prolonged plasma half-life (e.g. albumin or Fc-fusions). 
-However, it also has several potential drawbacks including steric hindrance between functional domains, decreased bioactivity, and altered biodistribution and metabolism of the protein moieties due to the interference between domains 
-In other systems, however, linker regions can affect the stability, solubility, oligomeric state, and proteolytic resistance of the fused proteins
-Thus, it is important that the length and amino acid composition of a potential linker is optimized in order to preserve the biological activity of the individual proteins in the fused complex.
-The loop length created by the linker can have a profound effect on the action of the linker in the fused complex. \cite{nagi1997inverse}
+El linker poli-G es sólo un ejemplo. 
+Como vimos en secciones anteriores, distintos elementos funcionales(que actuan principalmente mediante mecanismos de reconocimiento) pueden encontrarse en regiones con distintas propiedades conformacionales. 
+La existencia de estos elementos debe tenerse en cuenta cuando se esta usando la secuencia linker diseñada, y/o su eliminación debe formar parte de la etapa de diseño del linker.
+La longitud del \textit{loop} creado por el linker puede tener un profundo efecto sobre la actividad del linker en una proteína quimérica\cite{nagi1997inverse}.
+Además del ejemplo simple de resistencia proteolítica, las regiones linker también pueden afectar la estabilidad, solubilidad, formación de complejos.
 linker regions can affect the stability, solubility, oligomeric state, and proteolytic resistance ofthe fused protein
-Como se muestra en \cite{robinson1998optimizing}, in some cases, the stability can be improved by altering the linker length and amino acid composition. 
-
-En base a esto, otras caracteristicas deseables pueden estar relacionadas con la longitud y la composición. 
-
+Como se muestra en \cite{robinson1998optimizing}, en algunos casos se tienen efectos importantes variando la longitud y composición de la secuencia
+En base a esto, es esperable que se tengan requerimientos específicos relacionadas con la longitud y la composición. 
+% The stable linkage between functional domains provides many advantages such as a prolonged plasma half-life (e.g. albumin or Fc-fusions). 
+% However, it also has several potential drawbacks including steric hindrance between functional domains, decreased bioactivity, and altered biodistribution and metabolism of the protein moieties due to the interference between domains 
+% In other systems, however, linker regions can affect the stability, solubility, oligomeric state, and proteolytic resistance of the fused proteins
+% Thus, it is important that the length and amino acid composition of a potential linker is optimized in order to preserve the biological activity of the individual proteins in the fused complex.
 
 
 Por lo tanto, con tantos requerimientos posibles y tan distintos, el problema del diseño de linkers puede llegar a ser un tema complejo.
-
-
-
-
-
-
+El problema del diseño del diseño racional es, entonces, un proceso complicado.
+Las propiedades generales de los linkers naturales encontrados en proteínas multi-dominio pueden considerarse como un primer paso hacia el proceso de diseño.
+% The general properties of linkers derived from naturally-occurring multi-domain proteins(que se vieron en la seccion anterior) can be considered as the foundation in linker design. 
 % USO DE LINKERS NATURALES
-Una de las principales opciones que se ha usado historicamente es utilizar linkers extraidos de secuencias naturales conocidas.
+% Una de las principales opciones que se ha usado historicamente es utilizar linkers extraidos de secuencias naturales conocidas.
+% 
+% Dentro del panorama de linkers naturales, algunos muy comunes son los linkers ricos en gly, que se caracterizan por su gran flexibilidad.
+% Estos linkers, quizas hayan sido los primeros que se han utilizado historicamente.
+% Sin embargo...
+% Naturally occurring Gly-rich linkers exist in many proteins and, aside from linking domains, they are known to have a functional role in the protein. 
+% Si se usan este tipo de linkers en proteinas artificiales se corre el riesgo q tengan estas funcionalidades naturalmente
+% Ejemplos: 
+% -Crystal structure analysis of the human PAX6 PD-DNA complex revealed that the extended linker makes minor groove contacts with the DNA. 
+% -In transmembrane glycoproteins (TMs) of retroviruses, important functional roles are also carried out by the linkers, which mediate membrane fusion through an N-terminal
+% fusion peptide. The fusion peptide is linked to the central coiled-coil core through Gly-rich linkers.
 
-Dentro del panorama de linkers naturales, algunos muy comunes son los linkers ricos en gly, que se caracterizan por su gran flexibilidad.
-Estos linkers, quizas hayan sido los primeros que se han utilizado historicamente.
-Sin embargo...
-Naturally occurring Gly-rich linkers exist in many proteins and, aside from linking domains, they are known to have a functional role in the protein. 
-Si se usan este tipo de linkers en proteinas artificiales se corre el riesgo q tengan estas funcionalidades naturalmente
-Ejemplos: 
--Crystal structure analysis of the human PAX6 PD-DNA complex revealed that the extended linker makes minor groove contacts with the DNA. 
--In transmembrane glycoproteins (TMs) of retroviruses, important functional roles are also carried out by the linkers, which mediate membrane fusion through an N-terminal
-fusion peptide. The fusion peptide is linked to the central coiled-coil core through Gly-rich linkers.
+Los estudios realizados sobre linkers naturales(mencionados en la sección anterior) abrieron la posibilidad de crear bases de datos conteniendo las secuencias encontradas y sus propiedades asociadas.
+Asociados a estas bases de datos, se han desarrollado distintos métodos que permiten extraer  ,  que simula un mecanismo de diseño.
+% The extensive studies about linkers in natural multi-domain proteins and recombinant fusion proteins fostered the idea of building databases and coming up with linker (designing??) tools 
+% to aid the (rational???) design of linkers based on the desired characteristics of fusion proteins.
+% Es decir, actualmente la metodologia esta centrada en crear bases de datos de linkers y hacer consultas sobre esta en base a las propiedades que se buscan.
 
+Los resultados del estudio desarrollado en \cite{george2002analysis} son el primer ejemplo de este tipo de metodologías.
+% An example of this type of tools was developed during the analysis of a protein dataset to obtain information about linker sequences 
+En este trabajo se estudian diversos aspectos asociados a los linkers y se desarrolla una base de datos asociada a un algoritmo de búsqueda que puede ser utilizado mediante un servidor web\cite{linkerdbIBIVU}.
+El algoritmo implementado acepta distintos parámetros de búsqueda tales como longitud del linker, accesibilidad del solvente, estructura secundaria adoptada, similitud secuencial con una secuencia input, etc.
+% The search algorithm accepts several query types (eg, PDB code, PDB header, linker length, C-alpha extent, solvent accessibility, secondary structure or sequence). 
+El programa devuelve las secuencias linker que contienen los criterios solicitados y, además, provee información del contexto en el que se encuentra el linker, con información del ID en PDB, descripciones de la proteína, etc. 
+de forma que el usuario pueda inferir otras propiedades del linker que no pueden ser extraídas automáticamente.
+% The program can provide the linkers sequences meeting the searching criteria, and also provide other information such as the PDB code and a brief description of the source protein, 
+% linker’s position within the source protein, linker length, solvent accessibility, and secondary structure. 
+% Users can search for sequences with desired properties, and obtain candidate sequences from natural multi-domain proteins.
 
-The extensive studies about linkers in natural multi-domain proteins and recombinant fusion proteins fostered the idea of building databases and coming up with linker (designing??) tools 
-to aid the (rational???) design of linkers based on the desired characteristics of fusion proteins.
-Es decir, actualmente la metodologia esta centrada en crear bases de datos de linkers y hacer consultas sobre esta en base a las propiedades que se buscan.
+Un ejemplo más reciene de este tipo de aproximación mediante bases de datos da origen a la herramienta LINKER \cite{crasto2000linker,xue2004linker}.
+% A more recent example of this type of tool is a program called LINKER 
+Al margen de la falta de creatividad en el nombre de la aplicación, esta posee un método de búsqueda que brinda una gran cantidad de opciones al usuario incluyendo aspectos experimentales como la sensibilidad a la actividad de proteasas.
+% which searches its database of linker sequences with user-specified inputs (e.g., linker length, protease sensitive sequences to be avoided), and generates an output of several linker sequences that fit the criteria.
 
-An example of this type of tools was developed during the analysis of a protein dataset to obtain information about linker sequences \cite{george2002analysis}
-En este paper se estudian muchos aspectos de los linkers y se termina desarrollando una base de datos. La interfaz web es: http://www.ibi.vu.nl/programs/linkerdbwww/
-The search algorithm accepts several query types (eg, PDB code, PDB header, linker length, C-alpha extent, solvent accessibility, secondary structure or sequence). 
-The program can provide the linkers sequences meeting the searching criteria, and also provide other
-information such as the PDB code and a brief description of the source protein, linker’s
-position within the source protein, linker length, solvent accessibility, and secondary
-structure. Users can search for sequences with desired properties, and obtain candidate
-sequences from natural multi-domain proteins.
-
-
-
-A more recent example of this type of tool is a program called LINKER \cite{crasto2000linker,xue2004linker}, which searches its database of linker sequences with user-specified inputs (e.g., linker length, protease sensitive sequences to be avoided), and generates an output of several linker sequences that fit the criteria.
-A pesar que las BBDD no suelen ser la solucion total al problema, building an empirical
-linker database could help summarize the knowledge and facilitate the future linker design.
-The extensive studies on the structures of empirical linkers have provided us with useful
-information for optimal linker design. Ultimately, more searching algorithms for linker
-databases could be developed, and provide more linker candidates for protein fusion based
-on user specifications.
+A pesar que las bases de datos no proveen una solución total al problema de diseño, la construcción de estas y los métodos de búsqueda asociados 
+ayuda a la utilización de los conocimientos adquiridos a partir de estudios sobre secuencias naturales.
+% building an empirical linker database could help summarize the knowledge and facilitate the future linker design.
+% The extensive studies on the structures of empirical linkers have provided us with useful information for optimal linker design. 
+El desarrollo de métodos de búsqueda más abarcativos junto con nuevos estudios para encontrar secuencias linker naturales podría generar un avance en este tipo de metodologías.
+% Ultimately, more searching algorithms for linker databases could be developed, and provide more linker candidates for protein fusion based on user specifications.
 % Lo bueno de las BBDD es que los elementos que contienen suelen haber sido probados experimentalmente, lo cual es fundamental.
 
 
 
 
 % REUTILIZACION DE LINKERS EMPIRICOS
-
-Hoy en día una opción común es reutilizar linkers ya utilizados empíricamente, buscando el que mas se adapte a nuestros requerimientos 
-
-Muchos de estos linkers son linkers naturales y otros han sido modificados especificamente en cada caso por procesos de ingeniria.
-Linker engineering, with the aim to control the distance, orientation, and relative motion of two functional domains, will increase in importance with increasing emphasis on the de novo design of multi-domain proteins.
-
-En \cite{chen2013fusion} se hace un análisis de los linkers empiricos mas usados para creación de proteínas quiméricas y que pueden encontrarse en literatura.
-A partir de esta recopilación se intenta hacer una clasificacion 
-Esta clasificación general resulta en 3 categorias:
-flexible linkers, rigid linkers, and in vivo cleavable linkers. 
-Como se puede ver, esta clasificacion esta basada, principalmente, en propiedades estructurales/conformacionales. 
-Para obtener secuencias que posean otras propiedades de interes deberán analizarse cada uno de los linkers que se 
+% Además de la utilización de linkers naturales, una opción común es reutilizar linkers ya utilizados empíricamente, 
+La opciones actuales del diseño de linkers se basan, generalmente,  en reutilizar secuencias ya evaluadas empíricamente, buscando la que más se adapte a nuestros requerimientos. 
+Muchas de estas secuencias son linkers naturales y otros han sido modificados especificamente en cada caso por procesos de ingeniria.
+% Linker engineering, with the aim to control the distance, orientation, and relative motion of two functional domains, will increase in importance with increasing emphasis on the de novo design of multi-domain proteins.
+En \cite{chen2013fusion} se hace un análisis de los linkers empíricos más usados para creación de proteínas quiméricas y que pueden encontrarse en literatura.
+A partir de esta recopilación se intenta hacer una clasificación general que resulta en 3 categorias:
+linkers flexibles, linkers rígidos, y linkers que pueden experimentar clivaje \textit{in-vivo}. 
+Como se puede ver, esta clasificación esta basada, principalmente, en propiedades estructurales/conformacionales. 
+Para obtener secuencias que posean otras propiedades de interés deberán analizarse cada uno de los linkers que se detallan en este trabajo.
 
 
 
-
-
-
-
-
-Although many examples of various types of linkers have been developed in the past, the rational design of linkers for the construction of fusion proteins is still in its infancy. 
+El diseño racional de linkers, sin embargo, está aún en los principios del desarrollo. 
+% Although many examples of various types of linkers have been developed in the past, the rational design of linkers for the construction of fusion proteins is still in its infancy. 
 Existen pocos ejemplos concretos donde se haya utilizado una aproximación racional para el diseño de linkers \cite{arai2001design,arai2004conformations}.
-Systematic, strategic scientific endeavors are in demand to greatly advance the science of linker design and application.
-Many technology platforms may be investigated in more depth towards understanding the
-connection between linker composition and structure, and ultimately tie them to linker
-function.
-The study of linker composition and structure, and the investigation of linker function
-should go hand in hand when designing a novel linker.
-
-
-The establishment of more databases and searching programs for linkers would be another fruitful direction. 
-As discussed earlier, only two studies have been performed to analyze the characteristics of the linkers in natural multi-domain proteins.
+Los estudios detallados de la composición, estructura y función de linkers naturales son un claro punto de inicio.
+Con el rápido incremento de los conocimientos sobre la secuencia y estructuras de proteínas, nuevos estudios podrían aportar conocimientos relevantes en esta dirección.
+Sin embargo no hay indicios sobre posibles desarrollos orientados a obtener un método sistemático para el diseño racional.  
+% Systematic, strategic scientific endeavors are in demand to greatly advance the science of linker design and application.
+% Many technology platforms may be investigated in more depth towards understanding the connection between linker composition and structure, and ultimately tie them to linker function.
+% The study of linker composition and structure, and the investigation of linker function should go hand in hand when designing a novel linker.
+% With the rapid increase of the number of protein structures deposited in the PDB database, an updated study of natural linkers could be conducted.
+% The establishment of more databases and searching programs for linkers would be another fruitful direction. 
+% As discussed earlier, only two studies have been performed to analyze the characteristics of the linkers in natural multi-domain proteins.
 % ESTO ESTA CASI IGUAL EN LA SECCION ANTERIOR
-With the rapid increase of the number of protein structures deposited in the PDB database, an updated study of natural linkers could be conducted.
 
-The extensive studies on the structures of empirical linkers have provided us with useful information for optimal linker design. 
-Ultimately, more searching algorithms for linker databases could be developed, and provide more linker candidates for protein fusion based on user specifications.
+% The extensive studies on the structures of empirical linkers have provided us with useful information for optimal linker design. 
+% Ultimately, more searching algorithms for linker databases could be developed, and provide more linker candidates for protein fusion based on user specifications.
 
 
 % %  ***************   RESUMEN DE LO QUE VIENE **********

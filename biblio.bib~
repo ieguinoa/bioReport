@@ -32,14 +32,15 @@ por el apropiado "y".
 }
 
 
-@misc{prositeWeb,
+
+
+@misc{scanprositeWeb,
   author = {},
-  title = {{PROSITE web}},
-  howpublished = "\url{http://prosite.expasy.org/}",
+  title = {{ScanProsite web}},
+  howpublished = "\url{http://prosite.expasy.org/scanprosite/}",
   year = {}, 
   note = "[Online; accessed 19-July-2015]"
 }
-
 
 @article{de2006scanprosite,
   title={ScanProsite: detection of PROSITE signature matches and ProRule-associated functional and structural residues in proteins},
@@ -53,14 +54,14 @@ por el apropiado "y".
 }
 
 
-
-@misc{scanprositeWeb,
+@misc{prositeWeb,
   author = {},
-  title = {{ScanProsite web}},
-  howpublished = "\url{http://prosite.expasy.org/scanprosite/}",
+  title = {{PROSITE web}},
+  howpublished = "\url{http://prosite.expasy.org/}",
   year = {}, 
   note = "[Online; accessed 19-July-2015]"
 }
+
 
 @article{sigrist2002prosite,
   title={PROSITE: a documented database using patterns and profiles as motif descriptors},
