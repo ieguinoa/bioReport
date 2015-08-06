@@ -33,6 +33,24 @@ por el apropiado "y".
 
 
 
+@misc{regex,
+  author = {},
+  title = {{ELM WebServer)}},
+  howpublished = "\url{http://elm.eu.org/}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
+
+@misc{regex,
+  author = {},
+  title = {{Expresiones regulares(web)}},
+  howpublished = "\url{http://www.regular-expressions.info/}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
+
 
 @misc{scanprositeWeb,
   author = {},

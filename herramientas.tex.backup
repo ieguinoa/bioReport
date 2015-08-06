@@ -1,8 +1,14 @@
 \chapter{Análisis de las secuencias}
 \label{tools}
 
-
-
+% hipotesis subyacente 
+% como se verá, un aspecto que se 
+% algunas herramientas estan solapadas en cuento a las caracteristicas que buscan o, mejor dicho, a los resultados que se obtienen.
+% 
+% Esto podria traer 2 problemas, 1 extender el tiempo de ejecucion, no solo para agregar el tiempo de ejecucion de nuevas evaluaciones, sino tambien porque se reduce el espacio de soluciones.
+% El segundo problema, tampoco relevante en nuestro caso, es que podria modificar la búsqueda, ya que aquellas posiciones 
+% para las cuales exista mas de 1 evaluacion que los pueda detectar tendran un mayor puntaje y, por lo tanto, seran mas propensas a ser mutadas
+% 
 
 \section{Propiedades conformacionales} \label{propiedadesConformacionales}
 
@@ -396,11 +402,11 @@ La herramienta ANCHOR\cite{meszaros2009prediction} reutiliza el modelo definido 
 el tipo de aminoácido y la composición del contexto más próximo. Usando esta modelo, se pueden recalcular las energías de cada posición pero ``simulando'' un contexto de unión con otra proteína hipotética, lo que permite
 identificar cuales son las posiciones que experimentan cambios relevantes en su energía. 
 
-The goal of the present work was to recognize a special class of
-disordered segments from the amino acid sequence, namely those
-that are capable of undergoing a disorder-to-order transition upon
-binding to a globular protein partner
-Dado que el método busca identificar una clase especial de segmentos desordenados que son capaces de experimentar un proceso de   , 
+% The goal of the present work was to recognize a special class of
+% disordered segments from the amino acid sequence, namely those
+% that are capable of undergoing a disorder-to-order transition upon
+% binding to a globular protein partner
+Dado que el método busca identificar una clase especial de segmentos desordenados que son capaces de experimentar un proceso de \textit{binding \& folding}   , 
 se identifican las siguientes propiedades que los segmentos buscados deben cumplir:
 % Para esto se plantea, en primer lugar, un conjunto de propiedades que debe cumplir el segmento a identificar:
 \begin{enumerate}
@@ -526,6 +532,32 @@ each DDG and filled the structure-based PSSM accordingly.
 
 Los valores de todas las matrices son optimizados mediante un algoritmo de validación cruzada el cual permite eliminar algunos péptidos de los conjuntos de aprendizaje .
 Los perfiles resultantes, representados en las PSSMs obtenidas del análisis secuencial y del análisis estructural se combinan para dar el predictor final. 
+
+La versión final de la matriz y un script implementado en Python para realizar el análisis fue provisto por los desarrolladores del método.
+El valor de \textit{threshold} utilizado es 11.08(valor por default). Para utilizar el método de manera local se corre el script provisto y se pasa por parámetro el archivo conteniendo las secuencias a analizar en formato fasta.
+El resultado contiene una lista de heptapéptidos cuyo score calculado supera el valor del \textit{threshold}.
+Por ejemplo, analizando la secuencia \texttt{DLWKLLPENNVLSP}, el resultado obtenido es:
+
+\noindent
+\texttt{1 DLWKLLP 11.7190683353}   \\
+\texttt{3 WKLLPEN 23.0607028837} 
+
+Este resultado indica que los heptapéptidos DLWKLLP y el WKLLPEN, poseen valores de score superior al \textit{threshold}(11.7190683353 y 23.0607028837, respectivamente).
+Utilizando nuestro sistema de evaluación, se aumenta en 1 el puntaje de todas las posiciones asociadas a cada (tener en cuenta que algunas posiciones pueden sumar mas de 1 ya que los heptapéptidos pueden estar solapados).
+A partir de los resultados anteriores, el puntaje de la evaluación es:
+
+\vspace{0.5cm}
+\noindent
+\begin{tabular}{llllllllllllllll} 
+\hline      		
+Secuencia & \textbf{D} & \textbf{L} & \textbf{W} & \textbf{K} & \textbf{L} & \textbf{L} & \textbf{P} & \textbf{E} & \textbf{N} & \textbf{N} & \textbf{V} & \textbf{L} & \textbf{S} & \textbf{P} \\ \hline
+Evaluación con ANCHOR & 1 & 1 & 2 & 2 & 2 & 2 & 2 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
+\end{tabular}
+
+
+
+
+
 
 
 % Para desarrollar el algoritmo predictor, lo que se realizó fue:
@@ -1182,123 +1214,133 @@ Sin embargo, como ya se describió previamente, esto no es una desventaja.
 
 
 \subsection{ELM}\label{elm}
-% 
-% El recurso de motivos lineales eucariotas(ELM) \cite{puntervoll2003elm,dinkel2013eukaryotic} fue establecido con la misión de recolectar, anotar y clasificar motivos lineales cortos. 
-% Provides the biological community with a comprehensive database of known experimentally validated motifs, and an exploratory tool to discover putative linear motifs in user-submitted protein sequences.
-% Es relevante destacar que todos los datos anotados son curados manualmente a partir de la literatura y están a disposición de la comunidad científica.
-% La base de datos se organiza jerárquicamente: en el nivel superior se tiene un conjunto de tipos (actualmente hay un total de 6 tipos diferentes), que agrupan clases de motivos. 
-% % los tipos son: 
-% % 	Proteolytic cleavage sites (CLV)
-% % 	general ligand binding sites (LIG),
-% % 	sites for post-translational modification (MOD)
-% % 	sub-cellular targeting sites (TRG)
-% % 	Ligand binding classes describing docking sites (DOC): can be described as motifs that recruit a modifying enzyme using a site that is distinct from the active site
-% % 	destruction motifs (DEG) is a specific region of a protein sequence that directs protein polyubiquitylation and targets the protein to the proteasome for degradation
-% %  ESTOS ULTIMOS 2 TIPOS FUERON AGREGADOS EN EL ULTIMO TIEMPO: 
-% %           Technically, all docking sites and destruction motifs belong to the ‘ligand binding sites (LIG)’ type; however, grouping together motif classes of similar function adds an additional level of discrimination.
-% 
-% Cada clase define la especificación de un dominio o familia de dominios de péptidos, los cuales se describen generalmente mediante una expresión regular sobre la secuencia que los compone.
-% Cada clase contiene al menos una instancia, donde cada instancia representa una secuencia encontrada experimentalmente que se ajusta a la expresión definida para la clase del motivo.
-% El énfasis está puesto en la validación experimental que ha sido realizada sobre estas secuencias, logrando un proceso de curación manual con las instancias que son ingresadas en la base de datos. 
-% 
-% 
+
+El recurso de motivos lineales eucariotas(ELM) \cite{puntervoll2003elm,dinkel2013eukaryotic} fue establecido con la misión de recolectar, anotar y clasificar motivos lineales cortos
+(detallados en el capítulo 1 como LMs, ELMs, SLiMs o MiniMotifs). 
 % The aim(del recurso) is to cover the set of functional sites that can be defined by the local peptide sequence, operating essentially independently of protein tertiary structure. 
+Este recurso provee actualmente una completa base de datos con motivos conocidos validados experimentalmente, además de una herramienta 
+para descubrir segmentos posiblemente correspondientes a motivos lineales sobre secuencias provistas por el usuario. 
+Es relevante destacar que todos los datos anotados son curados manualmente a partir de la literatura y están a disposición de la comunidad científica.
+
+La base de datos se organiza jerárquicamente: en el nivel superior se tiene un conjunto de tipos (actualmente hay un total de 6 tipos diferentes). 
+% los tipos son: 
+% 	Proteolytic cleavage sites (CLV)
+% 	general ligand binding sites (LIG),
+% 	sites for post-translational modification (MOD)
+% 	sub-cellular targeting sites (TRG)
+% 	Ligand binding classes describing docking sites (DOC): can be described as motifs that recruit a modifying enzyme using a site that is distinct from the active site
+% 	destruction motifs (DEG) is a specific region of a protein sequence that directs protein polyubiquitylation and targets the protein to the proteasome for degradation
+%  ESTOS ULTIMOS 2 TIPOS FUERON AGREGADOS EN EL ULTIMO TIEMPO: 
+%           Technically, all docking sites and destruction motifs belong to the ‘ligand binding sites (LIG)’ type; however, grouping together motif classes of similar function adds an additional level of discrimination.
+
+Cada tipo agrupa un conjunto de clases, y cada clase define la especificación de un dominio o familia de dominios de péptidos, 
+los cuales se describen mediante una expresión regular(cadena de carácteres para describir un patrón secuencial\cite{regex}) sobre la secuencia que los compone.
+Cada clase contiene al menos una instancia anotada, donde cada instancia representa una secuencia determinada experimentalmente que se ajusta a la expresión definida para la clase.
+El énfasis está puesto en la validación experimental que ha sido realizada sobre estas secuencias, logrando un proceso de curación manual con las instancias que son ingresadas en la base de datos.
+
+Dado que los motivos suelen tener solo un pequeño número de posiciones fijas, es normal que las búsquedas resulen en una gran cantidad de falsos positivos.  
+Es por esto que el recurso también provee opciones para filtrar los resultados según la especie, el compartimento en el cual se va a encontrar la secuencia, etc. 
+De todas formas, la validación final de la funcionalidad del motivo debe ser siempre realizada experimentalmente.
+
 % The resource suffers from the overprediction problem inherent to small protein motifs, but we are developing context filters such as cell compartment, taxonomy and globular domain clash that can partly reduce the severity
-% of the problem. In this resource, we use the term ELM to denote our bioinformatical representation of a functional site including the sequence motif and its context.
+% of the problem. 
+% In this resource, we use the term ELM to denote our bioinformatical representation of a functional site including the sequence motif and its context.
 % For any such analysis, the user should be aware that many matches to ELM regular expressions are false positives. 
 % Before conducting experiments based on ELM results, it is strongly advisable to check if a motif match is conserved, exposed in a cell compartment in which the motif is known to be functional. 
 % The ELM resource applies several filters to provide the user with such information that should ideally also be supported by the experimental evidence.
-% % ACA PODRIA DECIR QUE LA CANTIDAD DE FALSOS POSITIVOS(OVERPREDICTION) NO ES UN PROBLEMA PARA EL USO QUE LE VAMOS A DAR YA QUE ASUMIMOS INICIALMENTE Q EL ESPACIO DE SOLUCIONES ES SUFICIENTEMENTE GRANDE, Y CON EL METODO DE BUSQUEDA
-% % QUE UTILIZAREMOS, ESTA CONDICION PODRA, COMO MUCHO, DISMINUIR UN POCO ESTE ESPACIO DE SOLUCIONES RETRASANDO MINIMAMENTE LA OBTENCION DE UN RESULTADO
+
+
+Para poder utilizar este recurso es posible hacerlo directamente a traves de la herramienta web\cite{elmweb}. 
+Esta herramienta permite encontrar en una secuencia ingresada por el usuario, instancias de los motivos contenidos en la base de datos.
+Otra forma de realizar esto es haciendo una búsqueda local. Para ésto es necesario descargar las expresiones correspondientes a todas las clases de la base de datos. 
+A partir de estos datos, sólo queda realizar la búsqueda de la expresión regular sobre la secuencia con la que estamos trabajando.
+Esta última forma es la que utilizaremos para nuestra evaluación, para lo cual utilizamos el modulo re de Python que permite buscar instancias de una expresión regular sobre una secuencia.
+La base de datos utilizada corresponde a la versión 1-3-2015 obtenida de \cite{elmweb}.
+% ya que nos permite independizarnos de la disponibilidad de la herramienta en el momento en que la requerimos.
+
+La búsqueda de motivos sobre la secuencia resulta en un conjunto de subsecuencias correspondientes a cada instancia encontrada las cuales pueden estar solapadas, es decir, cada posición de la secuencia puede contener 0,1 o más instancias encontradas. 
+Cada una de estas subsecuencias se trata de forma individual.
+El algoritmo toma cada una de las subsecuencias resultantes y, por cada posición de éste, se suma 1 al puntaje asociado.
+Se puede ver ésto en un ejemplo sencillo:
+Si estamos trabajando con la secuencia PSKPLRGNAMVGL, el resultado de la búsqueda da un conjunto de 3 motivos encontrados en las subsecuencias:
+% INCLUIR EXPRESIONES REGULARES, A SER POSIBLE TOMADAS DE ELM
 % 
-% 
-% Para poder utilizar este recurso es posible hacerlo directamente a traves de la herramienta web que se provee en http://elm.eu.org/. Esta herramienta permite encontrar en una secuencia ingresada por el usuario, instancias de los motivos contenidos en la base de datos.
-% Otra forma de realizar esto es haciendo una búsqueda local. Para ésto es necesario descargar las expresiones correspondientes a todas las clases de la base de datos. 
-% A partir de estos datos,sólo queda realizar la búsqueda de la expresión regular sobre la secuencia con la que estamos trabajando.
-% En la BBDD de ELM, the motif patterns are currently represented as POSIX regular expressions (usable in the Python and Perl languages), analogous to PROSITE, but with a different syntax.
-% Esta última forma es la que utilizamos en nuestra herramienta, ya que nos permite independizarnos de la disponibilidad de la herramienta en el momento en que la requerimos.
-% Para realizar la detección de los motivos no se utiliza ningún punto de corte, todos los motivos se tienen en cuenta, independientemente de la probabilidad de ocurrencia por azar que tengan (en la herramienta online es posible restringir la búsqueda usando un valor de corte límite).
-% % DEBERIA ACLARAR QUE TAMPOCO SE UTILIZA NINGUN FILTRO: LOS MOTIVOS ENCONTRADOS NO SE FILTRAN SEGUN LA UBICACION CELULAR EN LA QUE SUPUESTAMENTE ESTAN(USANDO GO), NI PARA UNA ESPECIE EN PARTICULAR,..
-% 
-% La búsqueda de motivos sobre la secuencia resulta en un conjunto de subsecuencias que representan una instancia encontrada, las cuales pueden estar solapadas. Cada una de estas subsecuencias se trata de forma individual.
-% El algoritmo toma cada una de las subsecuencias resultantes y, por cada posición de éste, se suma 1 al valor de la posición en el puntaje global.
-% Se puede ver ésto en un ejemplo sencillo:
-% Si estamos trabajando con la secuencia PSKPLRGNAMVGL, el resultado de la búsqueda da un conjunto de 3 motivos encontrados en las subsecuencias: 
-% 
-% % INCLUIR EXPRESIONES REGULARES, A SER POSIBLE TOMADAS DE ELM
-% PSKPLR (posiciones 1-6)\\
-% NAMVGL (posiciones 8-13)\\
-% KPLRGNAMVGL(posiciones 3-13)\\
-% Por lo tanto, el puntaje resultante de este paso es:
-% 
+% % \vspace{0.2cm}
+
 % \rule[-0.8\baselineskip]{0pt}{\baselineskip}
-% \begin{tabular}{llllllllllllll} 
-% Secuencia: & P & S & K & P & L & R & G & N & A & M & V & G & L\\ 
-% PSKPLR (posiciones 1-6) & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-% NAMVGL (posiciones 8-13) & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\
-% KPLRGNAMVGL(posiciones 3-13  & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
-% Puntaje & 1 & 1 & 2 & 2 & 2 & 2 & 1 & 2 & 2 & 2 & 2 & 2 & 2\\
+\noindent 
+\begin{tabular}{c|c|c} 
+% \hline
+\textbf{Clase ELM} & \textbf{Expresión regular} & \textbf{Instancia(ubicación)}\\ \hline
+LIG\_SH3\_2 & P..P.[KR] & PSKPLR (1-6)\\ 
+LIG\_PDZ\_Class\_2 & ...[VLIFY].[ACVILF]\$ & NAMVGL (8-13)  \\
+DOC\_MAPK\_1 MAPK  & [KR]\{0,2\}[KR].\{0,2\}[KR].\{2,4\}[ILVM].[ILVF] & KPLRGNAMVGL(3-13)
+\end{tabular}
+
+
+% \noindent 
+% \begin{tabular}{lll} 
+% \hline
+% Clase ELM & Instancia & Descripción \\ \hline
+% LIG\_SH3\_2 & PSKPLR (posiciones 1-6) &  This is the motif recognized by class II SH3 domains\\ 
+% LIG\_PDZ\_Class\_2 & NAMVGL (posiciones 8-13) & The C-terminal class 2 PDZ-binding motif \\
+% DOC\_MAPK\_1 MAPK  & KPLRGNAMVGL(posiciones 3-13) &interacting molecules (e.g. MAPKKs, substrates, phosphatases) carry docking motif that help to regulate specific interaction in the MAPK cascade. \\
 % \end{tabular}
-% 
+% The classic motif approximates (R/K)xxxx#x# where # is a hydrophobic residue.\\
+% \vspace{0.4cm}
+Cada instancia encontrada implica una posible funcionalidad mediada por un motivo lineal, por lo tanto, se aumenta en 1 el valor del puntaje a las posiciones involucradas \underline{para cada instancia} por separado.
+El puntaje resultante de este paso es:
+
+
+% \rule[-0.8\baselineskip]{0pt}{\baselineskip}
+\begin{tabular}{llllllllllllll} 
+\hline
+Secuencia & \textbf{P} & \textbf{S} & \textbf{K} & \textbf{P} & \textbf{L} & \textbf{R} & \textbf{G} & \textbf{N} & \textbf{A} & \textbf{M} & \textbf{V} & \textbf{G} & \textbf{L} \\ \hline
+LIG\_SH3\_2 (1-6) & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ \hline
+LIG\_PDZ\_Class\_2 (8-13) & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+DOC\_MAPK\_1 MAPK (3-13)  & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+Evaluación global ELM & 1 & 1 & 2 & 2 & 2 & 2 & 1 & 2 & 2 & 2 & 2 & 2 & 2\\ \hline
+\end{tabular}
+
 % \vspace{0.5cm}
-% % Secuencia global             =   PSKPLRGNAMVGL
-% % PSKPLR (posiciones 1-6)      =   1111110000000 
-% % NAMVGL (posiciones 8-13)     =   0000000111111  
-% % KPLRGNAMVGL(posiciones 3-13) =   0011111111111
-% %  -------------
-% % Total                        =   1122221222222
-% 
-
-
-
-
-
-
-
-
-
 
 
 \subsection{Prosite}
-% 
-% PROSITE\cite{sigrist2002prosite,prositeWeb} es un recurso que agrupa una gran cantidad de motivos secuenciales de diversas características, lo cual permite anotar e identificar regiones conservadas en secuencias de proteínas.
-% De forma resumida, se puede definir como una colección anotada de motivos biológicamente significativos, dedicada a la identificación de familias y dominios de proteínas.
-% Este tipo de bases de datos contiene información derivada de alineamiento de múltiples secuencias homólogas. 
-% Los motivos resultantes se describen usando dos métodos distintos, cada uno con sus ventajas y desventajas que definen la utilidad que tendrán:
-% 
-% La primera forma de describir los motivos es a través de patrones (expresiones regulares) en los cuales se tiene en cuenta solo la información de los residuos más significativos, descartando el resto. La búsqueda de un patrón en una secuencia da un resultado cualitativo: hay una coincidencia o no la hay. Si hay una sustitución en alguna de las posiciones de la secuencia el patrón no coincide, independientemente del tipo de sustitución que ocurrió.
-% 
-% Otra forma de describir los motivos es mediante perfiles (o matrices de pesos). Estos pesos proveen valores numéricos para cada posible coincidencia o sustitución cuando se busca el motivo en una secuencia. De esta forma, al utilizarlos en la búsqueda de un motivo, funcionan como descriptores cualitativos que consideran la similitud global en toda la longitud secuencial de un dominio o proteína. Un motivo puede ser encontrado en una secuencia que posee una sustitución en una posición conservada si el resto de la secuencia tiene un nivel de similitud suficientemente alto.
-% Estas propiedades dan una mayor sensibilidad a los perfiles con respecto a los patrones, permitiendo encontrar dominios o familias con alta divergencia que solo tienen unas pocas posiciones muy conservadas.
-% 
-% 
-% Se pueden realizar búsquedas relacionadas con motivos secuenciales a través de la herramienta ScanProsite\cite{de2006scanprosite,scanprositeWeb}, la cual permite escanear secuencias para buscar ocurrencias de los motivos, buscar motivos en una base de datos entera de secuencias, o buscar motivos propios del usuario en una secuencia
-% 
-% Esta misma herramienta se encuentra disponible para descargar, junto con la base de datos completa de motivos secuenciales, lo que permite realizar la búsqueda de forma local.
-% El objetivo de nuestra herramienta es poder encontrar cualquier ocurrencia de motivos en la secuencia sobre la que estamos trabajando. Para esto es posible escanearla utilizando patrones y/o perfiles, y variar también los límites usados en la detección de los perfiles. En nuestro caso solo utilizaremos patrones para realizar la búsqueda por considerar que la sensibilidad provista por estos es suficiente para los fines buscados.
-% 
-% PONER UN EJEMPLO!!! especificar que usamos patrones por la lentitud de los perfiles (justificar con números), pero sin excluir el uso a futuro de perfiles
-% 
+
+PROSITE\cite{sigrist2002prosite,prositeWeb} es un recurso que agrupa una gran cantidad de motivos secuenciales de diversas características,
+lo cual permite anotar e identificar regiones conservadas en secuencias de proteínas.
+De forma resumida, se puede definir como una colección anotada de motivos biológicamente significativos, dedicada a la identificación de familias y dominios de proteínas.
+Esta base de datos contiene información derivada de alineamientos de múltiples secuencias homólogas. 
+Los motivos resultantes se describen usando dos métodos distintos, cada uno con sus ventajas y desventajas que definen la utilidad que tendrán:
+
+La primera forma de describir los motivos es a través de patrones secuenciales(utilizando expresiones regulares como se mostró para ELM),
+en los cuales se tiene en cuenta solo la información de los residuos más significativos, descartando el resto. 
+La búsqueda de un patrón en una secuencia da un resultado cualitativo: hay una coincidencia o no la hay. 
+Si hay una sustitución en alguna de las posiciones de la secuencia el patrón no coincide, independientemente del tipo de sustitución que ocurrió.
+
+Otra forma de describir los motivos es mediante perfiles(o matrices de pesos). Estos pesos proveen valores numéricos para cada posible coincidencia o sustitución cuando se busca el motivo en una secuencia. 
+De esta forma, al utilizarlos en la búsqueda de un motivo, funcionan como descriptores cualitativos que consideran la similitud global en toda la longitud secuencial de un dominio o proteína. 
+Un motivo puede ser encontrado en una secuencia que posee una sustitución en una posición conservada si el resto de la secuencia tiene un nivel de similitud suficientemente alto.
+Estas propiedades dan una mayor sensibilidad a los perfiles con respecto a los patrones, permitiendo encontrar dominios o familias con alta divergencia que solo tienen unas pocas posiciones muy conservadas.
+
+Un aspecto relevante de la base de datos es que, si bien se ha orientado hacia la anotación de dominios globulares por sobre motivos lineales, existen anotaciones que representan motivos lineales cortos, lo cual trae dos consecuencias. 
+En primer lugar una gran cantidad de falsos positivos debido a las propiedades intrínsecas de estos y, en segundo lugar, que puede haber un solapamiento con los resultados obtenidos utilizando la herramienta ELM.
+
+Se pueden realizar búsquedas relacionadas con motivos secuenciales a través de la herramienta ScanProsite\cite{de2006scanprosite,scanprositeWeb}, 
+la cual permite escanear secuencias para buscar ocurrencias de los motivos, buscar motivos en una base de datos entera de secuencias, o buscar motivos propios del usuario en una secuencia.
+Esta herramienta se encuentra disponible para descargar, junto con la base de datos completa de motivos secuenciales, lo que permite realizar la búsqueda de forma local.
+El objetivo de nuestra herramienta es poder encontrar cualquier ocurrencia de motivos en la secuencia sobre la que estamos trabajando. 
+Para esto es posible escanearla utilizando patrones y/o perfiles, y variar también los límites usados en la detección de los perfiles. 
+
+En nuestro caso utilizaremos patrones para realizar la búsqueda, principalmente porque el tiempo de búsqueda utilizando perfiles es de aproximadamente 10 veces el que demora la búsqueda mediante patrones 
+y, si bien esta diferencia es despreciable cuando se hacen búsquedas sobre una sola secuencia, al realizar evaluaciones en una gran cantidad de iteraciones la diferencia se vuelve significativa.
+En segundo lugar, consideramos que la sensibilidad provista por los patrones es suficiente para los fines buscados en nuestra herramienta, al menos inicialmente.
+De todas formas, es uno de los aspectos a evaluar con mayor profundidad a futuro, por lo que no se descarta extender la búsqueda para poder utilizar perfiles, al menos de forma opcional para el usuario. 
 % describir si hay superposición entre elm y prosite. Se justifica usar los dos? qué hipótesis subyacente estamos usando?
-% 
-% 
-% % 
-% % PROSITE patterns have been very useful, but
-% % also suffer from severe overprediction problems and more
-% % recently the database has emphasised globular domain
-% % annotation at the expense of linear motifs. However, the
-% % number of known categories of functional sites has burgeoned
-% % dramatically in the last few years and it is clear that there are
-% % more to be discovered. One only has to think of the huge
-% % current research activity into specific methylation and acetyla-
-% % tion of histones and chromatin proteins, which erupted after
-% % decades of more indirect analyses (13,14). There has been a
-% % growing gap in the bioinformatics resources available to
-% % researchers for dealing with small functional sites. Indeed, it is
-% % impossible for a researcher to find a list of currently known
-% % motifs, while going through the literature to retrieve them is
-% % impractical without foreknowledge in more areas than any one
-% % person will have.
+
+
+VKTCLALGVDINTCDR
+
 
 
 
