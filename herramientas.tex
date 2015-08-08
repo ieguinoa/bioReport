@@ -1,14 +1,36 @@
 \chapter{Análisis de las secuencias}
 \label{tools}
 
+En este capítulo se describen las evaluaciones que esta implementación permite realizar sobre las secuencias. 
+Se explica cual es el objetivo de aplicar cada uno de los métodos y los fundamentos en los que se basan.
+Se detalla como se integran los distintos recursos en el contexto de nuestra aplicación, representando sus resultados en el esquema de puntajes propio de nuestro método.
+
+En conjunto de evaluaciones que se describen corresponde a esta primera versión de nuestra herramienta, por lo tanto no representa un conjunto exhaustivo ni definitivo, 
+sino una primera etapa que deberá ser analizado y modificado de forma iterativa en función de los resultados obtenidos.
 % hipotesis subyacente 
-% como se verá, un aspecto que se 
-% algunas herramientas estan solapadas en cuento a las caracteristicas que buscan o, mejor dicho, a los resultados que se obtienen.
-% 
-% Esto podria traer 2 problemas, 1 extender el tiempo de ejecucion, no solo para agregar el tiempo de ejecucion de nuevas evaluaciones, sino tambien porque se reduce el espacio de soluciones.
+Como principio general para definir este conjunto, se tuvo en cuenta la hipótesis general utilizada para desarrollar el método, vista en la sección \ref{fundamentos} . 
+De esta forma, dado que el espacio de soluciones buscadas se asume como considerablemente grande con respecto al espacio total de posibles secuencias, al hacer   
+% una evaluacion sobrerestrictiva con respecto a las caracteristicas buscadas no se impediría alcanzar un resultado.
+Por lo tanto, un aspecto que se repite es el solapamiento entre las caracteristicas que buscan(o los resultados que realmente se obtienen) los distintos recursos utilizados con el fin de hacer mas exhaustiva la detección, 
+además de políticas considerablemente permisivas en cuanto a los métodos, con el fin de asegurar una mayor cobertura de las propiedades buscadas.
+
+% Esto podria traer 2 problemas con respecto a la ejecución:
+% En primer lugar 1 extender el tiempo de ejecucion, no solo para agregar el tiempo de ejecucion de nuevas evaluaciones, sino tambien porque la aparición de falsos positivos reduce el espacio real de soluciones.
 % El segundo problema, tampoco relevante en nuestro caso, es que podria modificar la búsqueda, ya que aquellas posiciones 
 % para las cuales exista mas de 1 evaluacion que los pueda detectar tendran un mayor puntaje y, por lo tanto, seran mas propensas a ser mutadas
 % 
+
+(en concordancia con../Siguiendo con... esta idea de mantener un conjunto amplio y diverso de caracteristicas buscadas y metodos asociados que se se aplican sobre la secuencia ... o de expandir el conjunto de , el conjunto de 
+Parte del trabajo realizado durante el de la herramienta consistió en implementar un código versátil que permita expandir/modificar el conjunto de propiedades evaluadas de manera simple.
+La implementación está centrada en el esquema de mutaciones(visto en el capitulo previo) y es posible añadir herramientas de forma modularizada.
+Para esto, se debe agregar en la implementación una función independiente que tome como parámetro la secuencia correspondiente a evaluar y devuelva el puntaje asociado a cada posición. 
+Cualquier herramienta que pueda ser adaptada a este esquema podrá ser agregada a la implementación.
+
+
+Como complemento a esta idea de tener un amplio conjunto de propiedades/métodos a evaluar, se provee al usuario la posibilidad de seleccionar al momento de la ejecución 
+permite parametrizar la definición de las evaluaciones realizadas(\ref{evaluacion}). 
+Es decir, en cada ejecución, el usuario puede redefinir mediante parámentros el conjunto de evaluaciones realizadas seleccionando un subconjunto del total disponible, de acuerdo a sus propios objetivos específicos.
+
 
 \section{Propiedades conformacionales} \label{propiedadesConformacionales}
 
@@ -631,11 +653,15 @@ En \cite{hamodrakas2011protein,redler2014computational,agrawal2011aggregation} s
 Cada método hace sus propias hipótesis e implementa predictores independientes, los cuales varían desde análisis muy simples (por ej. análisis de la composición secuencial) a métodos específicos más complejos.
 La capacidad para formar hojas-$beta$ es una característica central de las evaluaciones ya que es un denominador común de la formación de agregados.
 
+
+
+
 En primer lugar evaluaremos la tendencia a formar agregados utilizando TANGO(ver sección \ref{tango}). 
 Este método se basa en el uso de principios fisicoquímicos que gobiernan la formacion de hojas-$\beta$
 % extended by the assumption that the core regions of an aggregate are fully buried
 , de manera que el método no es específico para la formación de agregados amorfos o amiloides.
 % Like all algorithms that use averaged physicochemical properties to detect aggregation hot spots, TANGO is not specific for amyloid formation or amorphous beta-aggregation. 
+
 
 
 % En cuanto a los agregados amiloides específicamente, 
@@ -655,14 +681,18 @@ suficiente información como para distinguir los distintos tipos de agregados.
 % They generally also have rather poor predictive capabilities toward amyloid sequences from yeast prions and functional amyloids. 
 Por otro lado, los métodos que se basan en conceptos estructurales obtenidos por homología pueden, en principio, proveer predicciones más específicas aunque también están limitados por la cantidad de estructuras determinadas disponibles.
 
+Para evaluar específicamente la formación de fibrillas amiloides utilizaremos, en primer lugar, Waltz (descrito en la sección \ref{waltz}),
+el cual combina información secuencial, parámetros fisicoquímicos y aspectos estructurales que, como se dijo, pueden no funcionar muy bien de forma aislada pero permitir una predicción eficiente si se combinan.
+
+
 % PASTA
-Para evaluar específicamente la formación de fibrillas amiloides utilizaremos, en primer lugar, PASTA y Waltz (descritos en las secciones \ref{pasta} y \ref{waltz} respectivamente).
+PASTA es otra de las herramienta que utilizamos para evaluar la tendencia a formación de agregados amiloides. 
+PASTA obtiene potenciales estadisticos para la formación de estructuras de hojas-plegadas-$\beta$ a partir de proteinas globulares y los utiliza para
+predecir cuales son los segmentos de una secuencia que le proveen a la proteína la capacidad de estabilizar la estructura supramolecular cross-$\beta$ característica de las fibrillas amiloides.
+% predicts which interacting portions of a given protein are stabilizing the cross-beta structure by using an energy function. 
+% r las energias asociadas a distintos emparejamientos entre secuencias formando una estructura tipo fibrilla amiloide. 
 
-PASTA obtiene potenciales estadisticos para la formación de estructuras de hojas plegadas beta y los utiliza 
-para evaluar las energias asociadas a distintos emparejamientos entre secuencias formando una estructura tipo fibrilla amiloide. 
-Por su parte, Waltz busca combinar información secuencial, parámetros fisicoquímicos y aspectos estructurales que, como se dijo, pueden no funcionar muy bien de forma aislada pero permitir una predicción eficiente si se combinan.
-
-Por último, en la introducción se dejo planteada la idea sobre la existencia de subsecuencias que podrían promover y guiar la agregación para dar estructuras amiloides.
+Por último, en el capítulo 1 se dejó planteada la idea sobre la existencia de subsecuencias que podrían promover y guiar la agregación para dar estructuras amiloides.
 En el trabajo realizado en \cite{de2004sequence} se analiza esta idea y en \ref{determinantesSecuenciales} explicamos los resultados obtenidos y como los utilizamos para la detección 
 de la tendencia a formar este tipo de agregados dentro de nuestro método.
 
@@ -737,51 +767,117 @@ de la tendencia a formar este tipo de agregados dentro de nuestro método.
 
 \subsubsection{PASTA}\label{pasta}
 
-% 
-% Pasta asume que el mecanismo (las interacciones) que llevan a la formacion de beta-sheets en proteinas globulares es el mismo que el que lleva a la formacion de beta-sheets en estructuras
-% cross-beta(estructura asociada a fibras amiloides).
+
+PASTA\cite{trovato2006insight} es una herramienta que permite, principalmente, predecir cuales son las regiones de un polipéptido que permiten estabilizar la estructura conocida para las fibrillas amiloides.
+Para esto, realiza un calculo de las energias de interaccion entre los distintos segmentos, asumiendo que las interacciones entre aminoácidos que llevan a la formación 
+de láminas-$\beta$ en proteínas globulares es el mismo que lleva a la formación de apilamientos de hebras-$\beta$ en estructuras cross-$\beta$.
+% (estructura asociada a fibras amiloides).
+
 % En primer lugar, Pasta deriva una funcion energetica a partir de un conjunto de datos de estructuras globulares (potenciales estadisticos).
-% Para derivar la funcion, lo que hace es ver cual es la probabilidad de encontrar cierto par de residuos dentro de una hoja beta, enfrentados en hebras vecinas. 
-% Esto resulta en una matriz con un valor asociado para cada par de residuos posibles.
-% El metodo asume que la forma soluble es nativamente desestructurada, por lo que hay que tener cuidado cuando se lo usa para predecir proteinas que nativamente adquieren una estructura globular.
-% Ademas, se asume que las moleculas involucradas en la formacion de pares de interaccion adoptaran la forma en la que el emparejamiento tenga la menor energia.
-% el valor de este potencial estadistico para cada clase(paralela,antiparalela, etc) se calcula segun la relacion entre la frecuencia observada y la frecuencia esperada:
+PASTA deriva un potencial estadístico para cada par de residuos, extraído de una base de datos de proteínas globulares(selección de proteínas no-redundantes y con estructuras resuletas con alta definición)
+
+Para cada posible par de residuos $a-b$ se dividen las instancias encontradas en 4 categorias según los residuos estén interaccionando formando una hoja plegada-$\beta$ en forma paralela($n_{ab}^p$) o antiparalela($n_{ab}^p$), 
+o si no están participando de una estructura $\beta$ y sus carbonos-$\alpha$ están a menos de $6.5$\AA ($n_{ab}^c$ contactos genéricos), o a más de $6.5$\AA ($n_{ab}^d$ , pares desordenados sin contacto). 
+
+A partir de estos valores se pueden asignar valores de energía a las interacciones de a pares formando una estructura $\beta$ (paralela o antiparalela) asumiendo que la base de datos analizada es un sistema en equilibrio termodinámico 
+a temperatura constante para todas las proteínas.
+Por lo tanto, la tendencia de cada para ab a encontrarse en un estado $x$ se puedo obtener a partir del factor de Boltzman $p_{ab}(x)= e^{-E_{ab}^x}$. 
+Aproximando $p_{ab}(x)$ se puede despejar el valor de la energía de interacción.
+Las tendencia se define como la relación entre la frecuencia observada y la esperada en el estado de referencia. Esta probabilidad esperada se puede aproximar como la frecuencia observada para todos los pares.
+Utilizando los valores definidos previamente, se despeja el valor de $E_{ab}^x$ que corresponde a la diferencia en energía entre un estado $x$ y el estado que se toma como referencia.
+% El método asume que la forma soluble(estado de referencia) es nativamente desestructurada, por lo que hay que tener cuidado cuando se lo usa para predecir proteinas que nativamente adquieren una estructura globular.
+El valor de energía resultante para cada estado x es:
+
+\begin{equation}
+{E_{ab}^x = -log\Bigg(\dfrac{\dfrac{n_{ab}^x}{n_{ab}}} {\dfrac{\sum\limits_{ab} n_{ab}^x}{\sum\limits_{ab} n_{ab}}}\Bigg)}
+\end{equation}
+
+
+% Para derivar este valor, lo que hace es ver cual es 
+% la probabilidad de encontrar cierto par de residuos enfrentados en hebras vecinas dentro de una lámina-$\beta$. 
+% Se extraen valores de potencial según estén interaccionando en sentido paralelo o antiparalelo.
+% El valor de este potencial estadistico para cada clase(paralela,antiparalela, etc) se calcula según la relación entre la frecuencia observada y la frecuencia esperada:
+% La frecuencia esperada se aproxima como: el número de pares ab (para cualquiera ab) que está en una clase dada / el número de pares ab (para cualquier ab) que hay.
 % la frecuencia observada es el numero de pares ab que estan en esa clase / el total de pares ab encontrados.
-% La frecuencia esperada se aproxima como: el numero de pares ab (para cualquiera ab) que esta en una clase dada / el numero de pares ab (para cualquier ab) que hay.
-% 
-% Se extraen valores de potencial segun esten interaccionando en sentido paralelo o antiparalelo.
-% 
-% Durante el analisis se usan estos conjuntos para asignar un score a cada emparejamiento especifico entre subsecuencias de la misma longitud (PERTENECIENTES A MOLECULAS DISTINTAS CON LA MISMA SECUENCIA). 
-% Durante la evaluacion se prueban todos los emparejamientos posibles (todas las subsecuencias posibles, pero siempre las subsecuencias de ambas moleculas son de la misma longitud).
+% los cuales pueden ser usados 
+% para calcular el valor energético para cualquier emparejamiento de dos secuencias con la misma longitud(sumando los scores de cada par que interaccione) 
+El cálculo de los valores de E resulta en una matriz con un valor asociado(score) para cada par $a-b$ de residuos posibles.
+Usando estos datos es posible asignar un score a cada emparejamiento especifico entre subsecuencias de la misma longitud. 
+El método permite analizar subsecuencias correspondientes a una misma o proteína o a distintas. 
+Durante la evaluación se prueban todos los emparejamientos posibles en sentido paralelo y anteiparalelo y, para cada uno, se calcula la energía asociada resultante de sumar todos los potenciales de interacción de a pares involucrados.
+% todas las subsecuencias posibles, pero siempre las subsecuencias de ambas moleculas son de la misma longitud).
 % Para cada posible subsecuencia se analiza tanto la posibilidad de que esten emparejados paralelamente o de forma antiparalela (tienen distinta tendencia por lo que el score final es distinto)
-% 
-% Entonces: dada una longitud L , un par de indices i,j (correspondientes al inicio de la subsequencia de interaccion en las moleculas 1 y 2), se puede deducir un score para el emparejamiento beta paralelo y otro para el antiparalelo. Estos scores se calculan como la suma de todos los potenciales estadisticos asociados a los residuos que se estan emparejando en la conformacion, mas un valor de diferencia en la entropia que corresponde a la perdida de entropia por el emparejamiento de estos L residuos. Esta diferencia se calcula como L*deltaS, donde deltaS es la perdida de entropia promedio por residuo.
-% 
-% 
-% Estos scores energeticos permiten saber cual de todos los emparejamientos posibles tendra una menor energia, y por lo tanto(segun lo asumido previamente) sera el que adoptaran las secuencias EN CASO QUE HAYA UNA AGREGACION FORMANDO FIBRAS AMILOIDES.
-% 
-% 
-% 
-% Para conocer mejor cual es la dependencia que tiene la secuencia con la tendencia a formar agregados, es posible calcular un valor de propensity(tendencia) a formar un agregado amiloide que tiene cada residuo de la secuencia. Para esto se usa una aproximacion de mecanica estadistica, que relaciona el peso de la enegia asociada a todos los emparejamientos en lss que participa cierto residuo(usando una distribucion de boltzman) con respecto al peso total de todos los emparejamientos posibles de una conformacion de agregado amiloide. 
-% ESTE VALOR DA LA TENDENCIA QUE TIENE CADA RESIDUO A FORMAR PARTE DEL EMPAREJAMIENTO EN CASO QUE LA SECUENCIA ADQUIERA UNA CONFORMACION DE AMILOIDE, NO RELACIONA EL VALOR ESTADISTICO DE LA ENERGIA CONFORMACIONAL CON RESPECTO A CUALQUIER OTRA CONFORMACION (ESTRUCTURA GLOBULAR, ALFA-HELICE, ETC)
-% 
-% El valor de propensity es util para saber, en caso de formar agregados amiloides, cuales serian los segmentos que formaran las uniones.
-% El valor de la tendencia por residuo es un valor relativo de la tendencia que tiene cada residuo a formar conformaciones amiloides estables, con respecto a la tendencia que tienen los demas residuos. La suma total de los valores de toda la secuencia da 1?? de esta forma, el valor de la tendencia serviria para saber, en caso de formar una fibra amiloide, cuales son los residuos involucrados.
-% 
-% 
-% Lo que nosotros queremos conocer son los residuos que podrian formar conformaciones de fibra amiloide(interacciones beta) con una energia potencial(score) suficientemente chico, es decir, conformaciones suficientemente estables como para que esta estructura se adopte realmente en un % considerable.
-% Para lograr esto debemos obviamente definir un valor de cutoff ya que el termino "suficientemente chica" es algo relativo. De esta forma, todos los residuos que tengan un valor de perfil energetico (masomenos este valor es la suma de score de todas las conformaciones en las que esta involucrado el residuo) menor que el valor de cut-off, seran considerados como los posibles estabilizadores de la estructura y por lo tanto se marcan como targets para la mutacion en nuestro algoritmo.
-% El valor de cutoff se debera elegir de forma tal que se balancee la sensibilidad y la especificidad en la deteccion.
-% 
-% 
-% In this version of the server we included methods for secondary structure and intrinsic disorder, which provide additional reinforcement to the fibril assignment. Briefly, a new machine learning algorithm was constructed to detect secondary structure while our previously developed disorder predictor was also included.
-% 
-% 
-% Basicamente, lo que dicen es que para formar las fibras amiloides, la secuencia tiene que tener tendencia a interaccionar estando en una estructura beta. Si analizamos cuales son los pares de residuos que mas interaccionan(estadisticamente) entre diferentes hebras dentro de una hoja plegada beta, entonces podemos predecir la tendencia que tendra una secuencia, analizando solamente su composicion.
-% 
-% 
-% 
-% Otra caracteristica del servidor PASTA 2.0 es que implementa un mecanismo basado en redes neuronales(ESpritz: accurate and fast prediction of protein disorder) para predecir la tendencia a formar estructuras secundarias o a permanecer en una conformacion desordenada. 
+% Para obtener el emparejamiento correcto, se asume que las distintas moléculas involucradas en la extensión de la fibrilla van a adoptar entre 
+% si el emparejamiento-$\beta$ que tenga la menor energia, para estabilizar el núcleo de la estructura cross-$\beta$.
+
+% Ademas, se asume que las moléculas involucradas en la formacion de pares de interaccion adoptaran la forma en la que el emparejamiento tenga la menor energia.
+
+
+% Entonces: dada una longitud L , un par de indices i,j (correspondientes al inicio de la subsequencia de interaccion en las moleculas 1 y 2), se puede deducir un score 
+% para el emparejamiento beta paralelo y otro para el antiparalelo.
+% Estos scores se calculan como la suma de todos los potenciales estadisticos asociados a los residuos que se estan emparejando en la conformacion, 
+% Esta diferencia se calcula como L*deltaS, donde deltaS es la perdida de entropia promedio por residuo.
+% mas un valor de diferencia en la entropia que corresponde a la perdida de entropia por el emparejamiento de estos L residuos. 
+
+
+% Se desarrolla una función de partición, en función de las energías asociadas a todas las posibles estructuras de beta en las que puede estar involucrada cada posición.
+% Esto permite desarrollar un valor de probabilidad 
+
+% Estos scores energeticos permiten saber cual de todos los emparejamientos posibles tendra una menor energia, y por lo tanto(segun lo asumido previamente) sera el que adoptaran
+% las secuencias EN CASO QUE HAYA UNA AGREGACION FORMANDO FIBRAS AMILOIDES.
+
+% Pairing aggregation scores are then com-
+% bined together to compute aggregation probability profiles
+% and aggregation free energy profiles, as a function of residue
+% position along the protein chain. We also compute pairing
+% probabilities and pairing free energies, as a function of the
+% sequence positions of the paired residues
+
+
+Lo que nosotros queremos conocer son los residuos que podrian formar conformaciones de fibra amiloide(interacciones beta) con una energia potencial(score) 
+suficientemente chico, es decir, conformaciones suficientemente estables como para que esta estructura se adopte realmente en un \% considerable.
+Para lograr esto debemos obviamente definir un valor de cutoff ya que el termino "suficientemente chica" es algo relativo. 
+De esta forma, todos los residuos que tengan un valor de perfil energetico (masomenos este valor es la suma de score de todas las conformaciones en las que esta involucrado el residuo)
+menor que el valor de cut-off, seran considerados como los posibles estabilizadores de la estructura y por lo tanto se marcan como targets para la mutacion en nuestro algoritmo.
+El valor de cutoff se debera elegir de forma tal que se balancee la sensibilidad y la especificidad en la deteccion.
+
+
+% In this version of the server we included methods for secondary structure and intrinsic disorder, which provide additional reinforcement to the fibril assignment. 
+% Briefly, a new machine learning algorithm was constructed to detect secondary structure while our previously developed disorder predictor was also included.
+
+
+The server predicts aggregation in energy units where 1 PASTA Energy Unit (PEU) is equivalent to 2 KBT at room temperature, that is 1.192 Kcal/mol (see Supplementary Material). 
+The selection of an energy cut-off allows the user to alter the sensitivity and specificity of the server modificando el cutoff en energía y el número de emparejamientos máximos que se tienen en cuenta.
+Si bien la herramienta permite definir estos valores libremente, en \cite{walsh2014pasta} se defininen(recomiendan) los valores para tres clases de predicción....
+
+En nuestro caso utilizamos el esquema mas especifico con un valor de cutoff de -5 y solo teniendo en cuenta el , 
+En cuanto al numero de emparejamientos que se tienen en cuenta, solo usamos el primero porque al implementar un esquema iterativo, si los emparejamientos que se encuentran por sobre el valor de cutoff persisten, se incrementan o se modifican,
+igualmente los tendremos en cuenta a todos 
+otra forma de implementar esto podria ser 'mergeando' una mayor cantidad de hits que entran dentro del rango de cutoff, de forma que en cada iteración se apunte a mutar dentro de un conjunto mas amplio de segmentos. 
+El próximo valor de cutoff que se recomienda en \cite{walsh2014pasta} es de -2.8. Cuando se agregó incorporó PASTA en la implementación de nuestra herramienta se utilizó primero este valor, el cual, en 
+un principio pareció incorporar demasiadas restricciones a la busqueda porque....... 
+Sin embargo, esto puede haberse modificado cuando se incorporaron el resto de las herramientas de evaluación. 
+El cutoff utilizado puede ser poco restrictivo(muy especifico) pero es el punto de inicio, es uno de los parámetros que quizas sea mejor optimizar, buscando un valor acorde, probablemente mas cercano a -2.8. 
+
+
+Por otro lado, si bien la mayoria de las veces los emparejamientos de menor energía se corresponden con emparejamientos en forma paralela e in-register (PIRA), es decir, que involucre el mismo segmento en ambas moléculas que interactúan,
+en el caso que esto no sea así
+Para ejemplificar el proceso de evaluación, se muestra el resultado del evaluar la secuencia \texttt{VTNVGGAVVTGVTAV}.
+
+La ejecución de PASTA sobre esta secuencia devuelve: \\
+\noindent
+\texttt{pairing 0  PASTA energy -5.735704  length 13  between segments 1-13 and 1-13  parallel}
+
+Este resultado indica que existe un emparejamiento con un score de $-5.735704$ entre dos segmentos correspondientes a la subsecuencia \texttt{VTNVGGAVVTGVT} (posiciones 1-13). 
+El puntaje resultante, por lo tanto, es:
+
+\vspace{0.5cm}
+\noindent
+\begin{tabular}{lllllllllllllllll} 
+\hline    
+Secuencia & \textbf{V} & \textbf{T} & \textbf{N} & \textbf{V} & \textbf{G} & \textbf{G} & \textbf{A} & \textbf{V} & \textbf{V} &\textbf{T} & \textbf{G} & \textbf{V} & \textbf{T} & \textbf{A} & \textbf{V} \\ \hline
+Evaluación con PASTA & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 \\ \hline
+\end{tabular}
 
 
 
