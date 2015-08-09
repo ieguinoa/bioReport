@@ -776,108 +776,65 @@ de láminas-$\beta$ en proteínas globulares es el mismo que lleva a la formaci�
 % En primer lugar, Pasta deriva una funcion energetica a partir de un conjunto de datos de estructuras globulares (potenciales estadisticos).
 PASTA deriva un potencial estadístico para cada par de residuos, extraído de una base de datos de proteínas globulares(selección de proteínas no-redundantes y con estructuras resuletas con alta definición)
 
-Para cada posible par de residuos $a-b$ se dividen las instancias encontradas en 4 categorias según los residuos estén interaccionando formando una hoja plegada-$\beta$ en forma paralela($n_{ab}^p$) o antiparalela($n_{ab}^p$), 
+Para cada posible par de residuos $a$-$b$ se dividen las instancias encontradas en 4 categorias según los residuos estén interaccionando formando una hoja plegada-$\beta$ en forma paralela($n_{ab}^p$) o antiparalela($n_{ab}^p$), 
 o si no están participando de una estructura $\beta$ y sus carbonos-$\alpha$ están a menos de $6.5$\AA ($n_{ab}^c$ contactos genéricos), o a más de $6.5$\AA ($n_{ab}^d$ , pares desordenados sin contacto). 
 
-A partir de estos valores se pueden asignar valores de energía a las interacciones de a pares formando una estructura $\beta$ (paralela o antiparalela) asumiendo que la base de datos analizada es un sistema en equilibrio termodinámico 
+A partir de las frecuencias obtenidos se pueden derivar valores de energía asociados a las interacciones de a pares formando de los distintos estados, asumiendo que la base de datos analizada es un sistema en equilibrio termodinámico 
 a temperatura constante para todas las proteínas.
-Por lo tanto, la tendencia de cada para ab a encontrarse en un estado $x$ se puedo obtener a partir del factor de Boltzman $p_{ab}(x)= e^{-E_{ab}^x}$. 
-Aproximando $p_{ab}(x)$ se puede despejar el valor de la energía de interacción.
-Lsa tendencia se define como la relación entre la frecuencia observada y la esperada en el estado de referencia. Esta probabilidad esperada se puede aproximar como la frecuencia observada para todos los pares.
-% Propensities are defined as the ratio of the observed frequency
-% over the expected probability in the reference state, which is in turn
-% estimated as the frequency observed over all pairs.
+De esta forma, la tendencia de cada par $a$-$b$ a encontrarse en un estado $x$ se relaciona con el valor de la energía mediante el factor de Boltzman $p_{ab}(x)= e^{-E_{ab}^x}$. 
+Aproximando $p_{ab}(x)$ se puede despejar el obtener una estimación de la energía asociada.
+Las tendencia se define como la relación entre la frecuencia observada y la esperada en el estado de referencia. Esta probabilidad esperada se puede aproximar como la frecuencia observada para todos los pares.
+Utilizando los valores definidos previamente, se despeja el valor de $E_{ab}^x$ que corresponde a la diferencia en energía entre un estado $x$ y el estado que se toma como referencia.
+% El método asume que la forma soluble(estado de referencia) es nativamente desestructurada, por lo que hay que tener cuidado cuando se lo usa para predecir proteinas que nativamente adquieren una estructura globular.
+El valor de energía resultante para cada estado $x$ queda definido por:
 
-
-
+\begin{equation}
+{E_{ab}^x = -log\left(\dfrac{\dfrac{n_{ab}^x}{n_{ab}}} {\dfrac{\sum\limits_{ab} n_{ab}^x}{\sum\limits_{ab} n_{ab}}}\right)}
+\end{equation}
 
 
 % Para derivar este valor, lo que hace es ver cual es 
 % la probabilidad de encontrar cierto par de residuos enfrentados en hebras vecinas dentro de una lámina-$\beta$. 
-Se extraen valores de potencial según estén interaccionando en sentido paralelo o antiparalelo.
-El valor de este potencial estadistico para cada clase(paralela,antiparalela, etc) se calcula según la relación entre la frecuencia observada y la frecuencia esperada:
-La frecuencia esperada se aproxima como: el número de pares ab (para cualquiera ab) que está en una clase dada / el número de pares ab (para cualquier ab) que hay.
-la frecuencia observada es el numero de pares ab que estan en esa clase / el total de pares ab encontrados.
-Esto resulta en una matriz con un valor asociado(score) para cada par de residuos posibles.
+% Se extraen valores de potencial según estén interaccionando en sentido paralelo o antiparalelo.
+% El valor de este potencial estadistico para cada clase(paralela,antiparalela, etc) se calcula según la relación entre la frecuencia observada y la frecuencia esperada:
+% La frecuencia esperada se aproxima como: el número de pares ab (para cualquiera ab) que está en una clase dada / el número de pares ab (para cualquier ab) que hay.
+% la frecuencia observada es el numero de pares ab que estan en esa clase / el total de pares ab encontrados.
 % los cuales pueden ser usados 
 % para calcular el valor energético para cualquier emparejamiento de dos secuencias con la misma longitud(sumando los scores de cada par que interaccione) 
+El cálculo de los valores de $E_{ab}$ para los estados paralelos y antiparalelos, resulta en un par de matrices con un valor asociado(score) para cada par $a$-$b$ de residuos posibles.
+Usando estos datos es posible asignar una energía total a cada emparejamiento especifico entre subsecuencias de la misma longitud, sumando los potenciales de interaccion de a pares involucrados. 
+El método permite evaluar emparejamientos entre subsecuencias correspondientes a una misma o proteína o a distintas. 
 
-Durante el analisis se usan estos conjuntos para asignar un score a cada emparejamiento especifico entre subsecuencias de la misma longitud (PERTENECIENTES A MOLECULAS DISTINTAS CON LA MISMA SECUENCIA). 
-Durante la evaluacion se prueban todos los emparejamientos posibles (todas las subsecuencias posibles, pero siempre las subsecuencias de ambas moleculas son de la misma longitud).
-Para cada posible subsecuencia se analiza tanto la posibilidad de que esten emparejados paralelamente o de forma antiparalela (tienen distinta tendencia por lo que el score final es distinto)
-Para obtener el emparejamiento correcto, se asume que las distintas moléculas involucradas en la extensión de la fibrilla van a adoptar entre 
-si el emparejamiento-$\beta$ que tenga la menor energia, para estabilizar el núcleo de la estructura cross-$\beta$.
+Para predecir los segmentos que pueden estar involucrados en la agregación de una proteína
+se prueban todos los emparejamientos posibles entre subsecuencias de ésta, en sentido paralelo y antiparalelo, y para cada uno 
+se calcula la energía asociada, resultante de sumar todos los potenciales de interacción de a pares involucrados.
+El método devuelve los valores predecidos en unidades PEU (PASTA Energy Units), donde 1 PEU es equivalente a aprox. 1,192 Kcal/mol 
+% The server predicts aggregation in energy units where 1 PASTA Energy Unit (PEU) is equivalent to 2 KBT at room temperature, that is 1.192 Kcal/mol (see Supplementary Material). 
 
-El método asume que la forma soluble es nativamente desestructurada, por lo que hay que tener cuidado cuando se lo usa para predecir proteinas que nativamente adquieren una estructura globular.
-% Ademas, se asume que las moléculas involucradas en la formacion de pares de interaccion adoptaran la forma en la que el emparejamiento tenga la menor energia.
+Lo que nosotros queremos conocer son los residuos que podrian formar conformaciones de fibra amiloide(interacciones beta) con una energia asociada
+suficientemente baja, es decir, conformaciones suficientemente estables como para que esta estructura se adopte realmente en un \% considerable.
+Para lograr esto debemos obviamente definir un valor de \textit{cut-off} ya que el termino ``suficientemente bajo'' es algo totalmente subjetivo. 
+% El valor de cutoff se debera elegir de forma tal que se balancee la sensibilidad y la especificidad en la deteccion.
+Para balancear la sensibilidad y la especificidad el método permite, entonces, modificar dos paráemtros en el análisis. En primer lugar el valor de \textit{cut-off} que se utilizará y en segundo lugar el número de emparejamientos que 
+se tendrán en cuenta dentro de ese \textit{cut-off}.
 
+Si bien la herramienta permite definir estos valores libremente, para aplicarla nos basamos en las recomendaciones analizadas en \cite{walsh2014pasta}.
+En nuestro caso utilizamos el esquema de valores que se describe como más específico, utilzando un valor de \textit{cut-off}$=-5$ y teniendo en cuenta sólo el emparejamiento de menor energía aún cuando existan otros con valores menores al \textit{cut-off}. , 
+Sólo usamos el primero de los emparejamientos porque, al implementar un esquema iterativo, si los emparejamientos que se encuentran por debajo  del valor de \textit{cut-off} persisten, se incrementan o se modifican,
+igualmente los tendremos en cuenta a todos en las próximas iteraciones. Otra forma de implementarlo sería ``uniendo'' todos los segmentos que entran en el rango de \textit{cut-off}.
+% , de forma que en cada iteración se apunte a mutar dentro de un conjunto mas amplio de segmentos. 
+% En cuanto al valor definido de \textit{cut-off}, 
+% e se recomienda en \cite{walsh2014pasta} es de -2.8. Cuando se agregó incorporó PASTA en la implementación de nuestra herramienta se utilizó primero este valor, el cual, en 
+% un principio pareció incorporar demasiadas restricciones a la busqueda porque....... 
+% Sin embargo, esto puede haberse modificado cuando se incorporaron el resto de las herramientas de evaluación. 
+El \textit{cut-off} utilizado puede ser muy específico pero es sólo el punto de inicio para la incorporación de PASTA en nuestra herramienta y es uno de los parámetros que quizás sea mejor optimizar, 
+buscando un valor acorde probablemente más cercano a $-2.8$ que es el próximo valor analizado en \cite{walsh2014pasta}, para tener una mayor sensibilidad. 
 
-Entonces: dada una longitud L , un par de indices i,j (correspondientes al inicio de la subsequencia de interaccion en las moleculas 1 y 2), se puede deducir un score 
-para el emparejamiento beta paralelo y otro para el antiparalelo.
-Estos scores se calculan como la suma de todos los potenciales estadisticos asociados a los residuos que se estan emparejando en la conformacion, 
-Esta diferencia se calcula como L*deltaS, donde deltaS es la perdida de entropia promedio por residuo.
-mas un valor de diferencia en la entropia que corresponde a la perdida de entropia por el emparejamiento de estos L residuos. 
+Una vez que se obtiene el segmento que será tenido en cuenta, simplemente se asigna un puntaje de 1 a cada posición en nuestro esquema de puntajes.
+Hay que tener en cuenta que, si bien la mayoria de las veces los emparejamientos de menor energía se corresponden con emparejamientos en forma paralela e \textit{in-register} (PIRA), es decir, 
+que involucre el mismo segmento en ambas moléculas que interactúan, en el caso que esto no sea así se asigna el puntaje 1 a las posiciones de ambas regiones. 
 
-
-Se desarrolla una función de partición, en función de las energías asociadas a todas las posibles estructuras de beta en las que puede estar involucrada cada posición.
-Esto permite desarrollar un valor de probabilidad 
-
-Estos scores energeticos permiten saber cual de todos los emparejamientos posibles tendra una menor energia, y por lo tanto(segun lo asumido previamente) sera el que adoptaran
-las secuencias EN CASO QUE HAYA UNA AGREGACION FORMANDO FIBRAS AMILOIDES.
-
-% Pairing aggregation scores are then com-
-% bined together to compute aggregation probability profiles
-% and aggregation free energy profiles, as a function of residue
-% position along the protein chain. We also compute pairing
-% probabilities and pairing free energies, as a function of the
-% sequence positions of the paired residues
-
-Para conocer mejor cual es la dependencia que tiene la secuencia con la tendencia a formar agregados, es posible calcular un valor de propensity(tendencia) 
-a formar un agregado amiloide que tiene cada residuo de la secuencia. Para esto se usa una aproximacion de mecanica estadistica, que 
-relaciona el peso de la enegia asociada a todos los emparejamientos en lss que participa cierto residuo(usando una distribucion de boltzman) con respecto al peso total de todos 
-los emparejamientos posibles de una conformacion de agregado amiloide. 
-ESTE VALOR DA LA TENDENCIA QUE TIENE CADA RESIDUO A FORMAR PARTE DEL EMPAREJAMIENTO EN CASO QUE LA SECUENCIA ADQUIERA UNA CONFORMACION DE AMILOIDE, 
-NO RELACIONA EL VALOR ESTADISTICO DE LA ENERGIA CONFORMACIONAL CON RESPECTO A CUALQUIER OTRA CONFORMACION (ESTRUCTURA GLOBULAR, ALFA-HELICE, ETC)
-
-El valor de propensity es util para saber, en caso de formar agregados amiloides, cuales serian los segmentos que formaran las uniones.
-El valor de la tendencia por residuo es un valor relativo de la tendencia que tiene cada residuo a formar conformaciones amiloides estables, 
-con respecto a la tendencia que tienen los demas residuos. La suma total de los valores de toda la secuencia da 1?? de esta forma, el valor de la tendencia 
-serviria para saber, en caso de formar una fibra amiloide, cuales son los residuos involucrados.
-
-
-Lo que nosotros queremos conocer son los residuos que podrian formar conformaciones de fibra amiloide(interacciones beta) con una energia potencial(score) 
-suficientemente chico, es decir, conformaciones suficientemente estables como para que esta estructura se adopte realmente en un \% considerable.
-Para lograr esto debemos obviamente definir un valor de cutoff ya que el termino "suficientemente chica" es algo relativo. 
-De esta forma, todos los residuos que tengan un valor de perfil energetico (masomenos este valor es la suma de score de todas las conformaciones en las que esta involucrado el residuo)
-menor que el valor de cut-off, seran considerados como los posibles estabilizadores de la estructura y por lo tanto se marcan como targets para la mutacion en nuestro algoritmo.
-El valor de cutoff se debera elegir de forma tal que se balancee la sensibilidad y la especificidad en la deteccion.
-
-
-% In this version of the server we included methods for secondary structure and intrinsic disorder, which provide additional reinforcement to the fibril assignment. 
-% Briefly, a new machine learning algorithm was constructed to detect secondary structure while our previously developed disorder predictor was also included.
-
-
-Basicamente, lo que dicen es que para formar las fibras amiloides, la secuencia tiene que tener tendencia a interaccionar estando en una estructura beta. 
-Si analizamos cuales son los pares de residuos que mas interaccionan(estadisticamente) entre diferentes hebras dentro de una hoja plegada beta, 
-entonces podemos predecir la tendencia que tendra una secuencia, analizando solamente su composicion.
-
-
-The server predicts aggregation in energy units where 1 PASTA Energy Unit (PEU) is equivalent to 2 KBT at room temperature, that is 1.192 Kcal/mol (see Supplementary Material). 
-The selection of an energy cut-off allows the user to alter the sensitivity and specificity of the server modificando el cutoff en energía y el número de emparejamientos máximos que se tienen en cuenta.
-Si bien la herramienta permite definir estos valores libremente, en \cite{walsh2014pasta} se defininen(recomiendan) los valores para tres clases de predicción....
-
-En nuestro caso utilizamos el esquema mas especifico con un valor de cutoff de -5 y solo teniendo en cuenta el , 
-En cuanto al numero de emparejamientos que se tienen en cuenta, solo usamos el primero porque al implementar un esquema iterativo, si los emparejamientos que se encuentran por sobre el valor de cutoff persisten, se incrementan o se modifican,
-igualmente los tendremos en cuenta a todos 
-otra forma de implementar esto podria ser 'mergeando' una mayor cantidad de hits que entran dentro del rango de cutoff, de forma que en cada iteración se apunte a mutar dentro de un conjunto mas amplio de segmentos. 
-El próximo valor de cutoff que se recomienda en \cite{walsh2014pasta} es de -2.8. Cuando se agregó incorporó PASTA en la implementación de nuestra herramienta se utilizó primero este valor, el cual, en 
-un principio pareció incorporar demasiadas restricciones a la busqueda porque....... 
-Sin embargo, esto puede haberse modificado cuando se incorporaron el resto de las herramientas de evaluación. 
-El cutoff utilizado puede ser poco restrictivo(muy especifico) pero es el punto de inicio, es uno de los parámetros que quizas sea mejor optimizar, buscando un valor acorde, probablemente mas cercano a -2.8. 
-
-
-Por otro lado, si bien la mayoria de las veces los emparejamientos de menor energía se corresponden con emparejamientos en forma paralela e in-register (PIRA), es decir, que involucre el mismo segmento en ambas moléculas que interactúan,
-en el caso que esto no sea así
+El método PASTA es ejecutado de forma local mediante un script escrito en lenguaje Perl, obtenido de sus creadores junto con las matrices de datos(energías).
 Para ejemplificar el proceso de evaluación, se muestra el resultado del evaluar la secuencia \texttt{VTNVGGAVVTGVTAV}.
 
 La ejecución de PASTA sobre esta secuencia devuelve: \\
@@ -904,18 +861,40 @@ Evaluación con PASTA & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 
 Waltz \cite{maurer2010exploring} combina información secuencial, fisicoquímica y estructural para generar una matriz específica de posición(PSSM),
 en función de la cual se evalúan las secuencias para predecir la tendencia a formar agregados amiloides.
 
+we explored the sequence diversity of amyloid hexa-
+peptides by inspecting more than 200 peptides using various
+structural and biophysical methods,
+and used the derived data to build Waltz, a
+web-based tool that uses a position-specific scoring matrix to
+determine amyloid-forming sequences. Waltz allows users to
+identify and better distinguish between amyloid sequences
+and amorphous -sheet aggregates
+
+ Using these data we trained
+a web-based tool called Waltz, which allows users to explore the
+sequence space of amyloids.
+
 El score para cada posición tiene, entonces, tres componentes: un componente derivado de información secuencial, un componente derivado de un conjunto de 19 propiedades fisicoquímicas, 
 y un componente resultante de evaluar distintos residuos sobre un modelo estructural de la cadena carbonada de fibras amiloides.
 
-El primer componente se obtiene a partir del análisis secuencial de una bases de datos...
+El primer componente se obtiene a partir del análisis secuencial de una bases de datos de hexapéptidos generadores de fibrillas amiloides que han sido evaluados experimentalmente(AmylHex).
+Esta base de datos y el estudio realizado están basados en hexapéptidos porque la mayoría de las secuencias amiloides disponibles hasta el momento tienen esta longitud.
+De esta forma, se ha tomado como una longitud representativa del núcleo que genera la formación de amiloides, de manera que
+la inserción de estos segmentos es suficiente para inducir la conversión de todo el dominio de la proteína. 
+
+La base de datos utilizada, sin embargo, posee una alta redundancia secuencial ya que tiene una gran cantidad de entradas correspondientes a mutaciones puntuales del péptido \texttt{STVIIE}.
+De esta forma, el conjunto inicial de la base de datos se utiliza para obtener una PSSM inicial e identificar nuevas instancias de hexapéptidos, los cuales fueron evaluados experimentalmente para el desarrollo de la herramienta.
+A partir de este conjunto expandido de datos se realiza un alineamiento y se usa para generar una nueva PSSM, utilizando el método de puntuación por log-probabilidades(log-odd score).
+Este es el primer componente de la función de scoring de Waltz.
 
 
-%  ESTE SCORE TIENE 3 COMPONENTES:
-% -UN COMPONENTE ES DERIVADO DE INFORMACION SECUENCIAL: A PARTIR DE UNA BASE DE DATOS DE HEAXPEPTIDOS POSITIVOS Y NEGATIVOS PARA FORMACION DE AMYLOID (VER COMO SE REFINO ESTE CONJUNTO DE DATOS) 
-% SE HIZO UN ALINEAMIENTO Y SE SACO UNA PSSM CON LAS PROBABILIDADES PARA CADA AA Y CADA POSICION.
-% -OTRA PARTE DEL SCORE ESTA DADA POR UN CONJUNTO DE 19 PROPIEDADES FISICAS 
-% -The final component of the scoring function is the position-specific pseudoenergy matrix from structural modeling using amyloid backbone structures
-% ************************************************
+El segundo componente se deriva de analizar un conjunto de propiedades físicas sobre el conjunto de secuencias alineadas.
+Estas 19 propiedades se incluyen en la función como un score que se deriva de sumar, para cada posición y cada aminoácido, el producto entre la frecuencia de ese residuo
+y el valor normalizado de la cada propiedad. De esta forma, se obtiene un perfil de las propiedades físicas para cada posición.
+
+
+The final component of the scoring function is the position-specific pseudoenergy matrix from structural modeling using amyloid backbone structures
+
 
  
 % % ****************** RESUMEN SACADO DEL REVIEW
@@ -931,17 +910,7 @@ El primer componente se obtiene a partir del análisis secuencial de una bases d
 % % combining specific sequence information with physico-
 % % chemical as well as structural information.
 
-% % The PSSM for amyloid propensity of waltz, was
-% % constructed from an experimentally defined training set
-% % comprising 116 ‘positive’ (amyloid-forming) hexapeptides and 162 ‘negative’ (non-forming) hexapeptides
-% % (http://waltz.switchlab.org/).
-% % The position-specific score for
-% % an amino acid was calculated as a standard log-odd
-% % score in a position-specific scoring matrix (the value
-% % for each amino acid at each position is the logarithm
-% % of the ratio of its frequency in the training set and the
-% % background database).
-% % 
+
 % % As the analysis of the hexapeptide experimental data
 % % sets (positive and negative) may impose sequence bias
 % % specific to the available data, the authors of waltz
@@ -962,69 +931,11 @@ El primer componente se obtiene a partir del análisis secuencial de una bases d
 % % acids at other positions [39]. 
 % 
 % 
+
 % 
-% To better understand the sequence determinants of amyloid structure, we explored the sequence diversity of amyloid hexapeptides by inspecting more than 200 peptides using various
-% structural and biophysical methods.
-% Our analysis highlighted the strong
-% position-specific tendencies of the different amino acids for form-
-% ing amyloid structures observed both in disease-related as well as
-% in functional amyloids.
-% 
-% Como se vio hasta ahora, most of the experimentally characterized amyloid sequences available to this date are hexapeptides.
-% Community generated, experimentally
-% verified amyloidogenic hexapeptides are avaailable in the AmylHex 
-% database consisting of 67 positive and 91 
-% negative examples that have been used to benchmark new methods.
-% Although there is no doubt that amyloid nucleating sequences in full- ength proteins are often longer than six resi-
-% dues 29 and that the full-length protein context can considerably
-% modulate amyloid propensity 30 , this length of six residues has
-% been found to represent a minimalistic amyloid nucleating core,
-% which as an insertion is sufficient to induce amyloid conversion
-% of an entire protein domain 2 . The use of short peptides therefore
-% minimizes the risk of alignment errors, whereas for longer amy-
-% loid sequences it is often not clear whether all residues participate
-% in the $\beta$-sheet or are just tolerated dangling ends.
-% 
-% The AmylHex database, however, has a high sequence redun-
-% dancy, as it has a strong overrepresentation (51\%) of point muta-
-% tions of the amyloidogenic hexapeptide STVIIE 15 . To unbias
-% this dataset to more generally reflect amyloidogenic 
-% properties in naturally ocurring peptides, we used the AmylHex set as a
-% starting point to construct a first position scoring matrix, which
-% we used to select increasingly divergent hexapeptides (Online
-% Methods). In this manner, we identified and experimentally
-% validated 49 new amyloid hexapeptide sequences as well as
-% 71 negative (non-amyloid-forming) hexapeptide sequences
-% (Supplementary Table 1).
-% To unequivocally distinguish amyloid
-% fibrils from nonfibrillar $\beta$-aggregates, we relied on a combination
-% of electron microscopy (Fig. 1a and Supplementary Fig. 1), cir-
-% cular dichroism and Fourier transform infrared (FTIR) spectroscopy. 
-% For selected cases, we also collected X-ray diffraction data
-% (Fig. 1a), which revealed oriented diffraction patterns, all showing
-% the characteristic diffraction signals for cross–$\beta$-amyloid fibrils 16 .
-% 
-% When we added the 49 new sequences we identified to the exist-
-% ing 67 AmylHex peptides, our training set of amyloid forming hexapeptides was comprised of 116 positive and 103 negative
-% sequence example. 
-% This increases the amount of learning examples
-% compared to the AmylHex database by 70%. More importantly,
-% we increased the number of nonredundant positive sequences
-% by 370\%, allowing for a better mapping of the position-specific
-% sequence propensities of amyloidogenic hexapeptides.
-% 
-% 
-% 
-% We developed the Waltz algorithm by combining the position-
-% specific sequence information described above with physicochemical as well as structural information described in Online
-% Methods and Supplementary Notes 1 and 2. A sequence score
-% S profile was calculated from the log-odd based position-specific
-% coring matrix (PSSM) (Online Methods). Nineteen selected
-% physical properties, which best describe amyloid propensity enter
-% the scoring function as a physical property term S physprop consist-
-% ing of the sum of the products of the amino acid frequency with
-% the normalized property value of the respective amino acid for
-% each position (Supplementary Fig. 2). The final component of
+
+
+% The final component of
 % the scoring function is the position-specific pseudoenergy matrix
 % from structural modeling using amyloid backbone structures
 % (S struct ). Relative weightings a of individual terms was introduced
