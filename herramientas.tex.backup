@@ -861,18 +861,15 @@ Evaluación con PASTA & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 
 Waltz \cite{maurer2010exploring} combina información secuencial, fisicoquímica y estructural para generar una matriz específica de posición(PSSM),
 en función de la cual se evalúan las secuencias para predecir la tendencia a formar agregados amiloides.
 
-we explored the sequence diversity of amyloid hexa-
-peptides by inspecting more than 200 peptides using various
-structural and biophysical methods,
-and used the derived data to build Waltz, a
-web-based tool that uses a position-specific scoring matrix to
-determine amyloid-forming sequences. Waltz allows users to
-identify and better distinguish between amyloid sequences
-and amorphous -sheet aggregates
+% we explored the sequence diversity of amyloid hexa-
+% peptides by inspecting more than 200 peptides using various
+% structural and biophysical methods,
+% and used the derived data to build Waltz, a
+% web-based tool that uses a position-specific scoring matrix to
+% determine amyloid-forming sequences. Waltz allows users to
+% identify and better distinguish between amyloid sequences
+% and amorphous beta-sheet aggregates
 
- Using these data we trained
-a web-based tool called Waltz, which allows users to explore the
-sequence space of amyloids.
 
 El score para cada posición tiene, entonces, tres componentes: un componente derivado de información secuencial, un componente derivado de un conjunto de 19 propiedades fisicoquímicas, 
 y un componente resultante de evaluar distintos residuos sobre un modelo estructural de la cadena carbonada de fibras amiloides.
@@ -887,30 +884,13 @@ De esta forma, el conjunto inicial de la base de datos se utiliza para obtener u
 A partir de este conjunto expandido de datos se realiza un alineamiento y se usa para generar una nueva PSSM, utilizando el método de puntuación por log-probabilidades(log-odd score).
 Este es el primer componente de la función de scoring de Waltz.
 
-
 El segundo componente se deriva de analizar un conjunto de propiedades físicas sobre el conjunto de secuencias alineadas.
 Estas 19 propiedades se incluyen en la función como un score que se deriva de sumar, para cada posición y cada aminoácido, el producto entre la frecuencia de ese residuo
 y el valor normalizado de la cada propiedad. De esta forma, se obtiene un perfil de las propiedades físicas para cada posición.
 
 
+
 The final component of the scoring function is the position-specific pseudoenergy matrix from structural modeling using amyloid backbone structures
-
-
- 
-% % ****************** RESUMEN SACADO DEL REVIEW
-% % 
-%  The PSSM was built
-% % based on the experimental exploration of the sequence
-% % space of amyloid hexapeptides. According to its
-% % authors, waltz allows for identification and better dis-
-% % tinction between amyloid sequences and amorphous
-% % b-sheet aggregates, and also allows for identification of
-% % amyloid-forming regions in functional amyloids. In
-% % more detail, the waltz algorithm was developed by
-% % combining specific sequence information with physico-
-% % chemical as well as structural information.
-
-
 % % As the analysis of the hexapeptide experimental data
 % % sets (positive and negative) may impose sequence bias
 % % specific to the available data, the authors of waltz
@@ -930,47 +910,29 @@ The final component of the scoring function is the position-specific pseudoenerg
 % % at a certain position in combination with all amino
 % % acids at other positions [39]. 
 % 
-% 
+%
 
-% 
-
-
-% The final component of
-% the scoring function is the position-specific pseudoenergy matrix
-% from structural modeling using amyloid backbone structures
-% (S struct ). Relative weightings a of individual terms was introduced
-% for a balanced scoring function
-% S total = a profile S profile + a physprop S physprop + a struct S stru c t (1)
-% 
-% To test the sensitivity of Waltz, we searched the UniProt data-
-% base for amyloid-forming hexapeptide sequences and experi-
-% mentally validated predictions by transmission electron
-% microscopy (TEM) and spectroscopic techniques.
-% 
-% 
-% 
-% 
-% Given
-% the low abundance and diversity of experimentally validated
-% amyloid-forming sequence sets, we did not have sufficient infor-
-% mation to develop a reliable method to differentiate the specific
-% amyloid morphology from amorphous $\beta$-sheet aggregates.
-% To address this issue, we expanded the existing AmylHex hexa-
-% peptide set to include increasingly diverging amyloid sequences,
-% increasing the sequence diversity of the existing dataset by almost
-% 400\%. Waltz is unique in that it is, to our knowledge, the first
-% position-specific amyloid sequence prediction tool that can be
-% used to distinguish between amyloid and amorphous aggre-
-% gate sequences.
-% 
-% 
-% 
+La función de scoring final es:
 
 
 
+Aplicando esta función, es posible obtener los valores de score asociados a un hexapéptido(la PSSM se deriva del análisis posicional de cada una de las 6 posiciones de un hexapéptido).
+Para obtener los resultados de este análisis es posible utilizar un servidor web(\url{http://waltz.switchlab.org/}), el cual permite detectar todas las posiciones de una secuencia que forman parte de algun polipéptido que supera cierto
+valor de \textit{cut-off}. Este valor puede ser definido por el usuario o seleccionar alguno de las opciones estándar (alta especificidad o alta sensibilidad, con valores de 97 y 79 respectivamente ).
+
+En nuestro caso obtuvimos una versión de la PSSM correspondiente al método, junto con un script en lenguaje Perl que permite detectar las posiciones que superen el \textit{cut-off} indicado.
+Ejecutando el script sobre la secuencia en cada evaluación, usando un valor de \textit{cut-off} = 79 (alta sensibilidad), asignamos un puntaje igual a 1 en todas las posiciones detectadas.
+Por ejemplo, ejecutando Waltz sobre la secuencia \texttt{VTNVGGAVVTGVT}, se obtiene que el segmento 6-13 forma parte de hexapéptidos con score mayor al \textit{cut-off}. Por lo tanto, el puntaje de la evaluación será:
 
 
-
+\vspace{0.5cm}
+\noindent
+\centering
+\begin{tabular}{lllllllllllllll} 
+\hline    
+Secuencia & \textbf{V} & \textbf{T} & \textbf{N} & \textbf{V} & \textbf{G} & \textbf{G} & \textbf{A} & \textbf{V} & \textbf{V} &\textbf{T} & \textbf{G} & \textbf{V} & \textbf{T}  \\ \hline
+Evaluación con Waltz & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+\end{tabular}
 
 
 

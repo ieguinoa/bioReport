@@ -861,18 +861,15 @@ Evaluación con PASTA & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 
 Waltz \cite{maurer2010exploring} combina información secuencial, fisicoquímica y estructural para generar una matriz específica de posición(PSSM),
 en función de la cual se evalúan las secuencias para predecir la tendencia a formar agregados amiloides.
 
-we explored the sequence diversity of amyloid hexa-
-peptides by inspecting more than 200 peptides using various
-structural and biophysical methods,
-and used the derived data to build Waltz, a
-web-based tool that uses a position-specific scoring matrix to
-determine amyloid-forming sequences. Waltz allows users to
-identify and better distinguish between amyloid sequences
-and amorphous beta-sheet aggregates
+% we explored the sequence diversity of amyloid hexa-
+% peptides by inspecting more than 200 peptides using various
+% structural and biophysical methods,
+% and used the derived data to build Waltz, a
+% web-based tool that uses a position-specific scoring matrix to
+% determine amyloid-forming sequences. Waltz allows users to
+% identify and better distinguish between amyloid sequences
+% and amorphous beta-sheet aggregates
 
- Using these data we trained
-a web-based tool called Waltz, which allows users to explore the
-sequence space of amyloids.
 
 El score para cada posición tiene, entonces, tres componentes: un componente derivado de información secuencial, un componente derivado de un conjunto de 19 propiedades fisicoquímicas, 
 y un componente resultante de evaluar distintos residuos sobre un modelo estructural de la cadena carbonada de fibras amiloides.
@@ -887,36 +884,47 @@ De esta forma, el conjunto inicial de la base de datos se utiliza para obtener u
 A partir de este conjunto expandido de datos se realiza un alineamiento y se usa para generar una nueva PSSM, utilizando el método de puntuación por log-probabilidades(log-odd score).
 Este es el primer componente de la función de scoring de Waltz.
 
-
 El segundo componente se deriva de analizar un conjunto de propiedades físicas sobre el conjunto de secuencias alineadas.
 Estas 19 propiedades se incluyen en la función como un score que se deriva de sumar, para cada posición y cada aminoácido, el producto entre la frecuencia de ese residuo
 y el valor normalizado de la cada propiedad. De esta forma, se obtiene un perfil de las propiedades físicas para cada posición.
 
 
-
-The final component of the scoring function is the position-specific pseudoenergy matrix from structural modeling using amyloid backbone structures
-% % As the analysis of the hexapeptide experimental data
-% % sets (positive and negative) may impose sequence bias
-% % specific to the available data, the authors of waltz
-% % estimated the preference or non-preference of amino
-% % acids at the hexapeptide motif positions on a structural
-% % basis using the atomic force field foldx. The fibril
-% % crystal structure of the GNNQQNY peptide from
-% % Sup35 (PDB 1YJP) was first simplified to polyalanine.
-% % Then, all possible pair combinations of all 20 natural
-% % amino acids at all positions were generated and
-% % energy-optimized using foldx [40]. Energy estimates
-% % were calculated with foldx as the DG difference
-% % (DDG) to the reference polyalanine. To retrieve a posi-
-% % tion-specific pseudoenergy matrix for the prediction
-% % scoring function (and calculate S struct ), they averaged
-% % for each amino acid the energies for all its occurrences
-% % at a certain position in combination with all amino
-% % acids at other positions [39]. 
-% 
-%
+El último componente de la función de scoring es una PSSM derivada del modelado estructural. 
+Para obtener esta matriz se utiliza el campo de fuerzas FoldX y el péptido \texttt{GNNQQNY} (proveniente de Sup35).
+En primer lugar se mutan todas las posiciones a Alanina calculando el valor de $\Delta$G para obtener finalmente el hexapéptido poli-A.
+Sobre este se comienzan a realizar todas las combinaciones posibles de mutaciones utilizando los 20 aminoácidos naturales, calculando ahora el valor de $\Delta$G con respecto a este hexapéptido poli-A de referencia y 
+el $\Delta\Delta$G con respecto al péptido original. 
+El valor del score específico para cada posición y cada aminoácido se obtiene de promediar los valores de energía fijando este aminoácido a la posición y combinando todos los demás aminoácidos posibles en el resto de las posiciones.
 
 
+La función de scoring final es la combinación lineal de los tres scores detallados:
+
+{
+\large
+% \centering
+\begin{equation}
+S_{total}= \alpha S_{secuencial} + \beta S_{propiedadesFisicas} + \gamma S_{estructural}
+\end{equation}
+}
+
+Aplicando esta función, es posible obtener los valores de score asociados a un hexapéptido(la PSSM se deriva del análisis posicional de cada una de las 6 posiciones de un hexapéptido).
+Para obtener los resultados de este análisis es posible utilizar un servidor web(\url{http://waltz.switchlab.org/}), el cual permite detectar todas las posiciones de una secuencia que forman parte de algun polipéptido que supera cierto
+valor de \textit{cut-off}. Este valor puede ser definido por el usuario o seleccionar alguno de las opciones estándar (alta especificidad o alta sensibilidad, con valores de 97 y 79 respectivamente).
+
+En nuestro caso obtuvimos una versión de la PSSM correspondiente al método, junto con un script en lenguaje Perl que permite detectar las posiciones que superen el \textit{cut-off} indicado.
+Ejecutando el script sobre la secuencia en cada evaluación, usando un valor de \textit{cut-off} = 79 (alta sensibilidad), asignamos un puntaje igual a 1 en todas las posiciones detectadas.
+Por ejemplo, ejecutando Waltz sobre la secuencia \texttt{VTNVGGAVVTGVT}, se obtiene que el segmento 6-13 forma parte de hexapéptidos con score mayor al \textit{cut-off}. Por lo tanto, el puntaje de la evaluación será:
+
+
+\vspace{0.5cm}
+\noindent
+\begin{center}
+\begin{tabular}{lllllllllllllll} 
+\hline    
+Secuencia & \textbf{V} & \textbf{T} & \textbf{N} & \textbf{V} & \textbf{G} & \textbf{G} & \textbf{A} & \textbf{V} & \textbf{V} &\textbf{T} & \textbf{G} & \textbf{V} & \textbf{T}  \\ \hline
+Evaluación con Waltz & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+\end{tabular}
+\end{center}
 
 
 
@@ -925,53 +933,53 @@ The final component of the scoring function is the position-specific pseudoenerg
 
 
 \subsubsection{Determinantes secuenciales de fibras amiloides}\label{determinantesSecuenciales}
+
+El trabajo realizado en  \cite{de2004sequence} realiza un análisis secuencial en  profundidad mediante un experimento de mutagenesis a partir de un péptido amiloide diseñado \textit{de novo} en \cite{de2002novo}. 
+El ensayo consiste en reemplazar sistematicamente los residuos de este péptido(STVIIE) con todos los AAs naturales, excepto Cys.
+
+Este estudio sigue la linea de utilizar péptidos cortos para investigar elementos de la secuencia que favorecen la agregación, 
+basándose en la idea que este proceso(agregación) es conducido(generado?) por fragmentos cortos de proteinas mal plegadas.
+
+El trabajo implica la evaluación experimental de los péptidos resultantes de la mutación
+El análisis revela una dependencia posicional con la formación de este tipo de estructuras de agregación, existiendo posiciones muy tolearantes y muy restrictivas a las mutaciones.
+Como parte de tal trabajo, se deriva a partir de los resultados de esta mutación sistematica, un patrón secuencial que permitiría identificar tramos de secuencias formadores de fibras amiloides.
+
+El patrón resultante es:
+
+$\{P\}_1 -\{PKRHW\}_2 -[VLS(C)WFNQ]_3 -[ILTYWFN]_4 -[FIY]_5- \{PKRH\}_6 $
+
+% Because the sequence space explored in this work is very small, we are conscious that many dangerous motifs cannot be detected unless a more complete pattern is provided. 
+% Therefore, similar experiments on unrelated amyloid sequences would be very
+% useful to refine this amyloid fingerprint.
 % 
-% El trabajo realizado en  \cite{de2004sequence} realiza un análisis secuencial en  profundidad mediante un experimento de mutagenesis a partir de un péptido amiloide diseñado \textit{de novo} en \cite{de2002novo}. 
-% El ensayo consiste en reemplazar sistematicamente los residuos de este péptido(STVIIE) con todos los AAs naturales, excepto Cys.
-% 
-% Este estudio sigue la linea de utilizar péptidos cortos para investigar elementos de la secuencia que favorecen la agregación, 
-% basándose en la idea que este proceso(agregación) es conducido(generado?) por fragmentos cortos de proteinas mal plegadas.
-% 
-% El trabajo implica la evaluación experimental de los péptidos resultantes de la mutación
-% El análisis revela una dependencia posicional con la formación de este tipo de estructuras de agregación, existiendo posiciones muy tolearantes y muy restrictivas a las mutaciones.
-% Como parte de tal trabajo, se deriva a partir de los resultados de esta mutación sistematica, un patrón secuencial que permitiría identificar tramos de secuencias formadores de fibras amiloides.
-% 
-% El patrón resultante es:
-% 
-% $\{P\}_1 -\{PKRHW\}_2 -[VLS(C)WFNQ]_3 -[ILTYWFN]_4 -[FIY]_5- \{PKRH\}_6 $
-% 
-% % Because the sequence space explored in this work is very small, we are conscious that many dangerous motifs cannot be detected unless a more complete pattern is provided. 
-% % Therefore, similar experiments on unrelated amyloid sequences would be very
-% % useful to refine this amyloid fingerprint.
-% % 
-% % DISCUSION DEL PATRON ENCONTRADO
-% % In the light of the knowledge acquired in this study, we believe that, in same way that it has been shown for globular proteins, there are general rules governing the amyloidogenicity of a polypeptide chain.
-% % Because a good resolution structural model of the fibrils formed by these peptides is still lacking, any discussion about the thermodynamic origin of the effect of mutation on amyloid formation would be difficult and rather speculative. Therefore, we
-% % have provided only a descriptive analysis of the sequential dependence found.
-% 
-% % EL ESTUDIO EXPERIMENTAL SE BASA EN MEDICIONES A DISTINTOS TIEMPOS(ENTRE T=0 TIEMPO=T=1mes). EN BASE A ESTO SE OBTIENE CUALES SON LAS MUTACIONES QUE MAS ACELERAN LA FORMACION DE ESTE TIPO DE FIBRAS, Y TAMBIEN CUALES MUTACIONES 
-% % SON LAS QUE DAN LA MAYOR FORMACION DE FIBRAS FINAL (A TIEMPO=t), LO QUE SE ENCUENTRA ES QUE ESTOS 2 EFECTOS NO SIEMPRE COINCIDEN EN LA MISMA MUTACION
-% % At the most tolerant positions (1, 2, and 6), one can find many substitutions that accelerate beta-sheet polymerization dramatically
-% % Interestingly, the more restrictive the position is, the less the number of amino acid that are capable of accelerating the process. At position 5, no substitution accelerates the process at all.
-% % Amino acid replacements producing abundant amyloid products are not always the substitutions that allow for a faster beta-sheet polymerization
-% % *************
-% 
-% 
-% Para validar experimentalmente el patrón, se seleccionarion algunas combinaciones de mutaciones que, de forma individual, daban altas capacidades de formación de fibras amiloides. 
-% % VER COMO SE HACE LA EVALUACION EXPERIMENTAL 
-% 
-% Este patrón fue también validado \textit{in silico}. En este análisis, se encontró que las secuencias de una base de datos que matcheaban el patron eran menos frecuentes en proteinas que las combinaciones innocuas y que, en caso de encontrarse, estaban rodeadas de aminoácidos que 
-% rompen esta capacidad de agregación(conocidos como amyloid breakers).
-% 
-% 
-% % *************
-% 
-% En nuestra aplicación, implementamos la búsqueda de este patrón como parte del conjunto de evaluaciones que se hacen sobre la secuencia.
-% El resultado de buscar la expresión regular asociada a este patron secuencial podría aportar subsecuencias que generen una tendencia a formar este tipo de fibras amiloides.
-% 
-% Para buscarlo lo que se hace es utilizar 
-% 
-% 
+% DISCUSION DEL PATRON ENCONTRADO
+% In the light of the knowledge acquired in this study, we believe that, in same way that it has been shown for globular proteins, there are general rules governing the amyloidogenicity of a polypeptide chain.
+% Because a good resolution structural model of the fibrils formed by these peptides is still lacking, any discussion about the thermodynamic origin of the effect of mutation on amyloid formation would be difficult and rather speculative. Therefore, we
+% have provided only a descriptive analysis of the sequential dependence found.
+
+% EL ESTUDIO EXPERIMENTAL SE BASA EN MEDICIONES A DISTINTOS TIEMPOS(ENTRE T=0 TIEMPO=T=1mes). EN BASE A ESTO SE OBTIENE CUALES SON LAS MUTACIONES QUE MAS ACELERAN LA FORMACION DE ESTE TIPO DE FIBRAS, Y TAMBIEN CUALES MUTACIONES 
+% SON LAS QUE DAN LA MAYOR FORMACION DE FIBRAS FINAL (A TIEMPO=t), LO QUE SE ENCUENTRA ES QUE ESTOS 2 EFECTOS NO SIEMPRE COINCIDEN EN LA MISMA MUTACION
+% At the most tolerant positions (1, 2, and 6), one can find many substitutions that accelerate beta-sheet polymerization dramatically
+% Interestingly, the more restrictive the position is, the less the number of amino acid that are capable of accelerating the process. At position 5, no substitution accelerates the process at all.
+% Amino acid replacements producing abundant amyloid products are not always the substitutions that allow for a faster beta-sheet polymerization
+% *************
+
+
+Para validar experimentalmente el patrón, se seleccionarion algunas combinaciones de mutaciones que, de forma individual, daban altas capacidades de formación de fibras amiloides. 
+% VER COMO SE HACE LA EVALUACION EXPERIMENTAL 
+
+Este patrón fue también validado \textit{in silico}. En este análisis, se encontró que las secuencias de una base de datos que matcheaban el patron eran menos frecuentes en proteinas que las combinaciones innocuas y que, en caso de encontrarse, estaban rodeadas de aminoácidos que 
+rompen esta capacidad de agregación(conocidos como amyloid breakers).
+
+
+% *************
+
+En nuestra aplicación, implementamos la búsqueda de este patrón como parte del conjunto de evaluaciones que se hacen sobre la secuencia.
+El resultado de buscar la expresión regular asociada a este patron secuencial podría aportar subsecuencias que generen una tendencia a formar este tipo de fibras amiloides.
+
+Para buscarlo lo que se hace es utilizar 
+
+
 
 
 
