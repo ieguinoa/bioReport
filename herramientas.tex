@@ -304,7 +304,7 @@ Por lo tanto, en nuestro método, los residuos que posean un \textit{score} resu
 Por ejemplo, la evaluación de la secuencia \texttt{VLKQTKGVGASGSFR} con IUPred devuelve los valores de score que se ven en la figura \ref{iupredResults}
 % PONER RESULTADOS DE IUPred EN GRAFICO O TABLA
 
-\begin{figure}[ht]
+\begin{figure}[h!]
 % {\linewidth}
 \centering
 \includegraphics[width=0.5\textwidth]{img/iupredTabla.png} 
@@ -409,12 +409,56 @@ Evaluación con IUPred & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 &
   
   
 \subsection{TMHMM: Secuencias transmembrana} \label{tmhmm}
-% \cite{sonnhammer1998hidden}
-% \cite{krogh2001predicting}
+TMHMM\cite{krogh2001predicting} es un método para detección de proteínas transmembrana, utilizando una aproximación mediante modelos ocultos de Markov (Hidden Markov Models, o HMM).
+Un HMM representa un modelo de Markov con estados no visibles. Es decir, el sistema es descrito por un modelo estocástico representado por estados y transiciones entre estos, las cuales están determinadas únicamente por el estado actual.
+
+Describiendo el modelo de Markov que represente a la arquitectura de una proteína transmembrana se puede conocer si una secuencia desconocida pertenece a esta clase, evaluando si se adapta a este modelo.
+Para poder describir una proteína mediante un HMM se debe definir un conjunto de estados, cada uno correspondiente a una región o sitio específico de la proteína que se está modelando.
+Cada estado tendrá un valor de probabilidad asociado a cada uno de los 20 aminoácidos posibles. Además, se deben definir las transiciones posibles(y las probabilidades asociadas) entre los estados según la arquitecura que se está describiendo, por ejemplo si a partir 
+de un estado pueden ocurrir nuevas instancias de este o si debe pasarse a un nuevo estado determinado.
+La distribución de probabilidades de los aminoácidos en cada estado y la probabilidad de transición se derivan a partir de frecuencias observadas en un conjunto de proteínas conocidas que se adaptan al modelo
+
+El modelo utilizado para describir la arquitectura de las proteínas en el método TMHMM (proteínas transmembrana) es cíclico y está compuesto por 7 estados distintos que representan: el núcleo de la hélice transmembrana, los dos extremos de ésta, 
+el loop que se encuentra en el lado citoplasmático, dos loops en el lado no-citoplasmático, y un dominio globular en el medio de estos. En la figura \ref{tmhmmModel} se ve la descripción gráfica de este.
+En \cite{sonnhammer1998hidden} se describe como se procede al entrenamiento del HMM para poder obtener todos los parámetros asociados.
+
+
+\begin{figure}[h!,centered]
+\centering
+\includegraphics[width=0.7\textwidth]{img/tmhmmModel.png} 
+\caption{\textbf{A:} esquema general de la arquitectura asociada al modelo. En \textbf{B} y \textbf{C} se muestran en detalle algunos de los estados y cómo las
+transiciones entre estos permite definir los limites en las longitudes de las distintas regiones y sus propiedades. Figura extraida de \cite{sonnhammer1998hidden}}
+\label{tmhmmModel}
+\end{figure}
+
+ 
+ 
+Para evaluar secuencias se utiliza el algoritmo de Viterbi, el cual permite calcular cual es el camino más probable del modelo que adopta la secuencia a evaluar. Es decir, cual es la secuencia mas probable de estados del HMM 
+(entre todas las posibles ), que produce la secuencia de estados observados(aminoácidos de la secuencia).
+El resultado de la ejecución muestra cómo los residuos de la secuencia se ajustan a los diferentes estados del modelo de acuerdo a este recorrido más probable, clasificándolos según pertenezcan a regiones intracelulares, hélices transmembrana, 
+o regiones extracelulares. 
+
+Nuestro interés está en detectar las regiones que forman las hélices transmembrana, por lo tanto, el puntaje resultante será igual a 1 para aquellas posiciones que pertenezcan a estos segmentos y 0 para el resto. 
+Por ejemplo, la ejecución de TMHMM a partir de la secuencia \texttt{NFVLIGSFVAFFVITYFLE} devuelve los siguientes resultados: 
+
+% \noindent
+\texttt{inside         1-1}\\
+\indent \texttt{TMhelix   2-18}\\
+\indent \texttt{outside	    19-19}\\
+
+Por lo tanto, el puntaje resultante de la evaluación es:
+
+\vspace{0.5cm}
+\noindent
+\begin{tabular}{lllllllllllllllllllll} 
+\hline 
+Secuencia & \textbf{N} & \textbf{F} & \textbf{V} & \textbf{L} & \textbf{I} & \textbf{G} & \textbf{S} & \textbf{F} & \textbf{V} & \textbf{A} & \textbf{F} & \textbf{F} & \textbf{V} & \textbf{I} & \textbf{T} & \textbf{Y} & \textbf{F} & \textbf{L} & \textbf{E}  \\ \hline
+Puntaje TMHMM & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0\\ \hline
+\end{tabular}
 
 
 
-
+ 
  
  
  
@@ -657,9 +701,11 @@ La capacidad para formar hojas-$beta$ es una característica central de las eval
 
 
 En primer lugar evaluaremos la tendencia a formar agregados utilizando TANGO(ver sección \ref{tango}). 
-Este método se basa en el uso de principios fisicoquímicos que gobiernan la formacion de hojas-$\beta$
+El método utilizado por TANGO, centrado en calcular la función de partición para distintos estados conformacionales, nos permite también evaluar la tendencia a adoptar estructuras nativas como hélices-$\alpha$ y $\beta$-turn,
+además de la tendencia a la formación de agregados. 
+% Este método se basa en el uso de principios fisicoquímicos que gobiernan la formacion de hojas-$\beta$
 % extended by the assumption that the core regions of an aggregate are fully buried
-, de manera que el método no es específico para la formación de agregados amorfos o amiloides.
+% , de manera que el método no es específico para la formación de agregados amorfos o amiloides.
 % Like all algorithms that use averaged physicochemical properties to detect aggregation hot spots, TANGO is not specific for amyloid formation or amorphous beta-aggregation. 
 
 
@@ -725,43 +771,96 @@ de la tendencia a formar este tipo de agregados dentro de nuestro método.
 
 
 \subsubsection{Tango}\label{tango}
+
+
+TANGO\cite{fernandez2004prediction} es un método para predecir regiones de agregación $\beta$, desarrollado a partir de un modelo de mecánica estadística con
+un espacio de fases que incluye, además de estos agregados, conformaciones de $\beta$-turn, hélices-$\alpha$ y hebras-$\beta$.
+% el estado nativo de la proteína??.
+De acuerdo con este modelo, cada segmento de un péptido/proteína puede encontrarse en alguno de estos estados de acuerdo a una distribución de Boltzmann. 
+Es decir, la frecuencia con la que se encuentra en cada estado posible es relativa a la energía asociada a este, que se deriva de consideraciones empíricas y estadísticas para cada conformación posible
+(todas las consideraciones y evaluaciones se hacen con respecto al estado desplegado).
+De esta forma, el método consiste de un algoritmo que simplemente calcula la función de partición y en base a eso predice las regiones con tendencia a agregación $\beta$
+
+Para calcular la energía asociada a la conformación de hélice-alfa, los parámetros que se tienen en cuenta son los evaluados previamente en el desarrollo del método AGADIR\cite{lacroix1998elucidating}.
+
+Para calcular la energía asociada a las conformaciones $\beta$ se tiene en cuenta la energía de interacción entre las cadenas laterales.
+Para evaluar esta energía entre 
+% Para calcular la energía de interacción entre las cadenas laterales de 
+cualquier par de aminoácidos en conformación de $\beta$-strands, se calcula un potencial estadístico a partir de la relación 
+entre la frecuencia observada y la frecuencia esperada para los pares encontrados dentro de una base de datos(identificados en conformación $\beta$ de acuerdo a sus ángulos phi y psi).
+Asumiendo que la base de datos representa un sistema termodinámico en equilibrio, la frecuencias observadas y esperadas se relacionan con la energía de interacción de acuerdo a la siguiente ecuación:
+
+\begin{equation}
+\large
+ \Delta G_{interacc-cadenas}=-RTln(\frac{f_{observada}}{f_{esperada}})
+\end{equation}
+
+Para el caso en que la conformación sea de $\beta$-turn, dado que los residuos no están fijos sino que pueden adoptar diferentes conformaciones, por lo tanto se agrega una penalización por el aumento de entropía.
+Este valor empírico es de 0.3 Kcal/mol
+
+Para el caso de agregados $\beta$ se asume que los residuos que adoptan esta conformación se encuentran completamente insertos en el núcleo y pagan el costo energético correspondiente. 
+En este caso se calculan los diferentes parámetros energéticos, de hidrofobicidad, de solvatación, las interacciones electrostáticas y las interacciones por formación de puentes de hidrógeno.
+
+A partir de las energías de estas cuatro conformaciones se calcula la función de partición resultante que permite definir las tendencias de cada residuo a poblar los estados conformacionales evaluados.
+La salida que muestra TANGO se compone de un archivo con las siguientes columnas:
+Número de posición, residuo en esa posición, porcentaje en conformación hebra-$\beta$, porcentaje en conformación $\beta$-turn, porcentaje en conformación hélice-$\alpha$, porcentaje de agregados $\beta$ y
+porcentaje en agregación de hélices-$\alpha$.
+Esta última columna no forma parte del modelo inicial que describimos y se calcula aparte, no representa un resultado confiable.
+% , por lo tanto la suma total puede dar mayor a 1.
+
+En \cite{fernandez2004prediction} se definen dos intervalos de confianza para la predicción de regiones de agregación: segmentos con residuos que posean más de 5\% de tendencia agregación $\beta$(resultando en una alta certeza de predicción),
+y segmentos con residuos entre 0.2\% y 5\%. En nuestro caso utilizamos 1\% como valor de \textit{threshold} en esta primera implementación de la herramienta.
+
+Si bien el objetivo principal de TANGO, y de la aplicación de este en nuestra herramienta, es buscar segmentos con potencial de agregación, estamos interesados en eliminar cualquier región estructurada y, dado que TANGO incorpora como parte
+de la función de partición a distintos estados conformacionales nativos, el puntaje reflejará también todas estas tendencias en la secuencia. Durante el desarrollo de TANGO no se evaluaron las predicciones asociadas a 
+otros estados conformacionales, a modo de prueba utilizamos el mismo porcentaje de \textit{threshold} que para la prediccón de agregados $\beta$. 
+Por lo tanto, el puntaje será igual a 1 cuando el residuo tenga una tendencia superior a cierto valor de \textit{threshold} para la formación de agregados, hélices-$\alpha$, hebras-$\beta$ o $\beta$-turns, 
+y un puntaje igual a 0 en caso contrario.
+Por ejemplo, si evaluamos usando TANGO la secuencia \texttt{AMAPVLYLQDKSS}, obtenemos la siguiente tabla de valores:
+
+\vspace{0.3cm}
+\begin{tabular}{ccccccc}
+Pos & Residuo & Beta & Turn & 	Hélice & Beta Aggregation & Helical Aggregation\\
+01 &          A & 0.2 & 0.0 &  0.000  & 0.000 &  0.000\\
+02 &          M  &     0.2 &    0.0 &  0.000 &  0.000 &  0.000\\
+03 &          A &      0.2  &      0.0 &  0.000 &  0.000  & 0.000\\
+04  &         P &      0.0   &     0.0 &  0.000 &  0.544  & 0.544\\
+05  &         V &      1.6   &     0.0 &  0.000 &  10.620 & 10.620\\
+06   &        L &      2.3   &     0.0 &  0.000 &  10.620 & 10.620\\
+07      &     Y &      3.1   &     0.0 &  0.000 &  10.620 & 10.620\\
+08        &   L &      1.7   &     0.2 &  0.000 &  10.620 & 10.620\\
+09         &  Q &      1.0   &     0.2 &  0.000 &  10.203 & 10.203\\
+10   &        D &      0.3    &    1.8 &  0.000 &  0.000 &  0.000\\
+11  &         K &      0.3   &     1.8 &  0.000 &  0.000 &  0.000\\
+12  &         S &      0.2   &     1.6 &  0.000 &  0.000 &  0.000\\
+13  &         S  &     0.2  &      1.6 &  0.000 &  0.000 &  0.000\\
+\end{tabular}
+
+\vspace{0.5cm}
+El segmento en las posiciones 5-9 supera el porcentaje de agregación que utilizamos como threshold, mientras que el segmento 10-13 supera este valor para el porcentaje de $\beta$-turn.
+Por lo tanto, el puntaje resultante de la evaluación es:
+
+\vspace{0.5cm}
+\noindent
+\begin{tabular}{llllllllllllll} 
+\hline      		
+Secuencia & \textbf{A} & \textbf{M} & \textbf{A} & \textbf{P} & \textbf{V} & \textbf{L} & \textbf{Y} & \textbf{L} & \textbf{Q} & \textbf{D} & \textbf{K} & \textbf{S} & \textbf{S} \\ \hline
+Evaluación con TANGO & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+\end{tabular}
+
+
+
+
+
 % 
-% El método se deriva a partir de aplicar la mecanica estadistica a un conjunto de datos experimentales obtenidos de los residuos dentro de proteinas que promueven el 'agregamiento ordenado' o la formacion de amyloids. 
-% El algoritmo resultante permite identificar las regiones de agregacion beta dentro de una secuencia.
-% El algoritmo tiene en cuenta un conjunto de estados(conformaciones) posibles: alfa helice, hojas beta, beta-turns, estado plegado(nativo??*****ver abajo) y agregado de hojas beta.
-% Ademas, se asume incialmente que la region en el estado de agregado de hojas beta esta totalmente internalizada y tiende a satisfacer el potencial de puentes de hidrogeno. 
-% El metodo TANGO tiene tambien en cuenta la estabilidad de la proteinas y los parametros fisicoquimicos tales como el pH, la concentracion, la fuerza ionica y la concentracion de trifluoroetanol.
-% 
-% Cada segmento de una proteina puede estar en alguno de los estados conformacionales de acuerdo con una distribucion de Boltzman. 
-% Es decir, la frecuencia con la que ese segmento adopta un estado en una poblacion es relativa a su energia, la cual se deriva de consideraciones estadisticas a partir de datos empiricos.  
-% Para predecir la agregado beta de un segmento, Tango calcula la funcion de particion del espacio de fases conformacionales.
-% 
-% 
-% ****la inclusion del estado plegado dentro de la funcion de particion tiene como objetivo ayudar a predecir efectos de agregacion debido a mutaciones puntuales en proteinas que naturalmente adquiren un estado plegado. La inclusion de este estado permite ver la competencia entre este estado natural de plegado y otros estados estructurales incluidos en la particion. De esta forma se puede predecir la tendencia a la agregacion del estado desnaturalizado y tambien las mutaciones que aumentan la tendencia a la agregacion de la proteina desestabilizando el estado plegado.
-% 
-% 
-% 
-% 
-% Generally speaking, it is believed that aggregation occurs when protein segments with a high hydrophobicity, a good $\beta$-
-% sheet propensity and a low net charge are solvent-exposed so that they can associate, act as nuclei for $\beta$-aggregation, and
-% therefore initiate the formation of an intermolecular $\beta$-sheet (21, 78-82). In the folded state, such aggregation-prone segments are
-% buried, not exposed to the solvent, and therefore protein does not aggregate. On the other hand, aggregation of many globular
-% proteins occurs during refolding or under conditions in which denatured or partially folded states are significantly populated, i.e.
-% at high concentration or as a result of destabilizing conditions or mutations (5, 14). Based on these findings, the algorithm
-% TANGO was developed to predict $\beta$-aggregating stretches in proteins, based on a statistical mechanics algorithm that considers
-% the physico-chemical parameters described above and also takes into account competition between different structural
-% conformations: $\beta$-trn, $\alpha$-helix, $\beta$-sheet aggregates and the folded state (83).
-% This algorithm accurately predicted the aggregation
-% propensity of ~250 peptides, including those derived from human disease-related proteins, such as prion protein, lysozyme and
-% beta 2-microglobulin. It was even able to correctly predict pathogenic as well as protective mutations of the A$\beta$, human lysozyme
-% and transthyretin, and discriminates between $\beta$-sheet propensity and aggregation. Therefore, these data clearly confirmed the
-% model of intermolecular $\beta$-sheet formation as a widespread underlying mechanism of protein aggregation (83). Importantly, the
-% application of TANGO also showed that the $\beta$-aggregation propensity of all-$\alpha$, all-$\beta$ and mixed $\alpha\beta$ globular proteins as well as
-% membrane-associated proteins was fairly similar, suggesting that $\beta$-aggregation was not determined by hydrophobicity and $\beta$-
-% sheet propensity alone (82). Importantly, it has been established that globular proteins contained almost three times as much
-% aggregation nucleating regions as IDPs and that the formation of highly structured globular proteins comes at the cost of a higher
-% $\beta$-aggregation propensity because both structure formation and aggregation follow very similar physico-chemical rules (82).
-% 
+% ****la inclusion del estado plegado dentro de la funcion de particion tiene como objetivo ayudar a predecir efectos de agregacion debido a mutaciones puntuales en proteinas que naturalmente adquiren un estado plegado. 
+% La inclusion de este estado permite ver la competencia entre este estado natural de plegado y otros estados estructurales incluidos en la particion. 
+% De esta forma se puede predecir la tendencia a la agregacion del estado desnaturalizado y tambien las mutaciones que aumentan la tendencia a la agregacion de la proteina desestabilizando el estado plegado.
+
+
+
+
+
 
 
 
@@ -934,23 +1033,27 @@ Evaluación con Waltz & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hl
 
 \subsubsection{Determinantes secuenciales de fibras amiloides}\label{determinantesSecuenciales}
 
-El trabajo realizado en  \cite{de2004sequence} realiza un análisis secuencial en  profundidad mediante un experimento de mutagenesis a partir de un péptido amiloide diseñado \textit{de novo} en \cite{de2002novo}. 
-El ensayo consiste en reemplazar sistematicamente los residuos de este péptido(STVIIE) con todos los AAs naturales, excepto Cys.
+El trabajo realizado en \cite{de2004sequence} realiza un análisis secuencial en  profundidad mediante un experimento de mutagénesis a partir de un péptido formador de fibrillas amiloides diseñado \textit{de novo} en \cite{de2002novo}. 
+El ensayo consiste en reemplazar sistemáticamente los residuos de este péptido(STVIIE) por todos los aminoácidos naturales, excepto Cisteína el cual no fue utilizado bajo la suposición que, por su similitud con Serina, las restricciones 
+secuenciales para ambas serían similares.
 
-Este estudio sigue la linea de utilizar péptidos cortos para investigar elementos de la secuencia que favorecen la agregación, 
-basándose en la idea que este proceso(agregación) es conducido(generado?) por fragmentos cortos de proteinas mal plegadas.
+% Este estudio sigue la linea de utilizar péptidos cortos para investigar elementos de la secuencia que favorecen la agregación, 
+% basándose en la idea que este proceso es conducido por fragmentos cortos de proteinas mal(o parcialmente) plegadas.
 
-El trabajo implica la evaluación experimental de los péptidos resultantes de la mutación
-El análisis revela una dependencia posicional con la formación de este tipo de estructuras de agregación, existiendo posiciones muy tolearantes y muy restrictivas a las mutaciones.
-Como parte de tal trabajo, se deriva a partir de los resultados de esta mutación sistematica, un patrón secuencial que permitiría identificar tramos de secuencias formadores de fibras amiloides.
+El trabajo implica la evaluación experimental de los péptidos resultantes, para lo cual se monitorea la polimerización de hojas-$\beta$ utilizando la técnica de dicroísmo circular (CD) y la detección de las fibrillas formadas mediante 
+microcopía electrónica. Un análisis descriptivo se provee\cite{de2004sequence}, encontrándose una dependencia posicional con la formación de este tipo de estructuras de agregación, existiendo tanto posiciones muy tolearantes como 
+restrictivas a las mutaciones.
+Como parte de tal trabajo se deriva un patrón secuencial a partir de los resultados cuali/cuantitativos experimentales, el cual que permitiría identificar tramos de secuencias formadores de fibrillas amiloides.
+Dado que existen diferencias en los resultados experimentales según el estado de ionización de algunos residuos, se obtienen dos patrones distintos según el pH en el que se encuentran los péptidos.
+Los patrones resultantes son:
+\vspace{0.2cm}
 
-El patrón resultante es:
+\noindent \textbf{A pH ácido:} $\{P\}_1 -\{PKRHW\}_2 -[VLS(C)WFNQE]_3 -[ILTYWFNE]_4 -[FIY]_5- \{PKRH\}_6 $\\
+\noindent \textbf{A pH neutro:}  $\{P\}_1 -\{PKRHW\}_2 -[VLS(C)WFNQ]_3 -[ILTYWFN]_4 -[FIY]_5- \{PKRH\}_6 $\\
+\textit{\noindent Donde los \{\} indican residuos ``prohibidos'' en esa posición, y los} [ ] \textit{representan aquellos que son ``aceptados'', con respecto a la formación de amiloides.
+Los subíndices indican las posiciones correspondientes en el hexapéptido.}
 
-$\{P\}_1 -\{PKRHW\}_2 -[VLS(C)WFNQ]_3 -[ILTYWFN]_4 -[FIY]_5- \{PKRH\}_6 $
-
-% Because the sequence space explored in this work is very small, we are conscious that many dangerous motifs cannot be detected unless a more complete pattern is provided. 
-% Therefore, similar experiments on unrelated amyloid sequences would be very
-% useful to refine this amyloid fingerprint.
+\vspace{0.2cm}
 % 
 % DISCUSION DEL PATRON ENCONTRADO
 % In the light of the knowledge acquired in this study, we believe that, in same way that it has been shown for globular proteins, there are general rules governing the amyloidogenicity of a polypeptide chain.
@@ -965,24 +1068,35 @@ $\{P\}_1 -\{PKRHW\}_2 -[VLS(C)WFNQ]_3 -[ILTYWFN]_4 -[FIY]_5- \{PKRH\}_6 $
 % *************
 
 
-Para validar experimentalmente el patrón, se seleccionarion algunas combinaciones de mutaciones que, de forma individual, daban altas capacidades de formación de fibras amiloides. 
+% Para validar experimentalmente el patrón, se seleccionarion algunas combinaciones de mutaciones que, de forma individual, daban altas capacidades de formación de fibras amiloides. 
 % VER COMO SE HACE LA EVALUACION EXPERIMENTAL 
 
-Este patrón fue también validado \textit{in silico}. En este análisis, se encontró que las secuencias de una base de datos que matcheaban el patron eran menos frecuentes en proteinas que las combinaciones innocuas y que, en caso de encontrarse, estaban rodeadas de aminoácidos que 
-rompen esta capacidad de agregación(conocidos como amyloid breakers).
+% Este patrón fue también validado \textit{in silico}. En este análisis, se encontró que las secuencias de una base de datos que matcheaban el patron eran menos frecuentes en proteinas que las combinaciones innocuas y que, en caso de encontrarse, estaban rodeadas de aminoácidos que 
+% rompen esta capacidad de agregación(conocidos como amyloid breakers).
 
 
 % *************
 
-En nuestra aplicación, implementamos la búsqueda de este patrón como parte del conjunto de evaluaciones que se hacen sobre la secuencia.
-El resultado de buscar la expresión regular asociada a este patron secuencial podría aportar subsecuencias que generen una tendencia a formar este tipo de fibras amiloides.
+% En nuestra aplicación, implementamos la búsqueda de este patrón como parte del conjunto de evaluaciones que se hacen sobre la secuencia.
+El patrón secuencial resultante no será capaz de detectar, por si sólo, todos los motivos asociados con la generación de fibrillas amiloides, ya que es el resultado de un análisis sobre un espacio muy reducido de secuencias.
+En nuestro caso, sin embargo, es un elemento útil ya que es aplicado en conjunto con una serie de recursos adicionales dentro de un análisis secuencial exhaustivo.
 
-Para buscarlo lo que se hace es utilizar 
+Utilizaremos el patrón correspondiente a pH ácido por ser el más general de los dos.
+Para implementar la evaluación de la secuencia usando este patrón, se buscan instancias de la expresión regular asociada a éste dentro de la secuencia..
+% El resultado de buscar la expresión regular asociada a este patron secuencial podría aportar subsecuencias que generen una tendencia a formar este tipo de fibras amiloides.
+Para buscarlas se utiliza el módulo re de Python que permite, justamente, buscar instancias de una expresión regular sobre una secuencia. 
+Todas las posiciones que pertenecen a instancias de este patrón tendrán un puntaje igual a 1.
+Por ejemplo, al evaluar la secuencia \texttt{HPALFTIWHP} se encuentra una instancia del patrón buscado en la subsecuencia \texttt{ALFTIW}, por lo tanto el puntaje correspondiente es:
 
-
-
-
-
+\vspace{0.5cm}
+\noindent
+\begin{center}
+\begin{tabular}{llllllllllll} 
+\hline    
+Secuencia & \textbf{H} & \textbf{P} & \textbf{A} & \textbf{L} & \textbf{F} & \textbf{T} & \textbf{I} & \textbf{W} & \textbf{H} &\textbf{P}  \\ \hline
+Evaluación en busca de patrón secuencial & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 \\ \hline
+\end{tabular}
+\end{center}
 
 
 
@@ -1071,13 +1185,15 @@ Para buscarlo lo que se hace es utilizar
 El objetivo de este trabajo es lograr una herramienta que provea una secuencia capaz ser utilizada experimentalmente como linker en el proceso de ingeniería de proteínas. 
 Esto implica no sólo probar con cierta certeza que tendrá la funcionalidad deseada, sino también evaluar el comportamiento en todos los pasos del proceso de ingeniería. 
 Es necesario saber que las propiedades de la secuencia no afectarán este proceso de ninguna forma.
-De forma general, se debe apuntar a tener una secuencia que no tenga ninguna interacción ni funcionalidad, evitando así cualquier interferencia con la expresión y utilización del producto 
-de ingeniería. Esto implica que no tenga regiones target para clivaje (fosforilación, glicosilación,etc.), regiones de unión a otras proteínas, etc.
+De forma general, esto se traduce en tener una secuencia que posea interacción ni funcionalidad alguna, evitando así cualquier interferencia con la expresión, utilización y actividad biológica del producto de ingeniería.
+Esto implica que no tenga regiones target para clivaje,fosforilación, glicosilación, regiones de unión a otras proteínas, etc.
 Si bien es posible reducir este análisis conociendo más detalladamente las condiciones experimentales con las que se trabajará, el objetivo de esta herramienta es que se pueda obtener 
-un resultado que cumpla con el objetivo en cualquier contexto experimental. 
+un resultado genérico, que cumpla con este principio de permanecer inerte en cualquier contexto experimental. 
 
-En este algoritmo utilizamos distintas herramientas para evaluar la estructura que adopta la secuencia, con el fin de poder llevarla hacia una composición que provea la flexibilidad
-necesaria para la función de linker. 
+Durante el capítulo 1(sección \ref{functionalLandscape}) describimos una gran cantidad de elementos funcionales que integran las proteína naturales. 
+Siguiendo estos conocimientos, en esta etapa de la evaluación secuencial describiremos un conjunto de recursos para poder detectar la presencia de estas funcionalidades en nuestra secuencia, 
+con el objetivo de eliminarlas mediante mutaciones.
+
 
 
 % There are many methods, such as SMART (Simple Modular
@@ -1102,37 +1218,35 @@ necesaria para la función de linker.
 
 % Búsqueda de secuencias homólogas
 % Como se desarrollo en la introducción,
-las secuencias de proteinas que estan asociadas a una misma funcion tienen ciertas restricciones en su evolución, 
-asociadas con funcionalidad que deben proveer y con propiedades estructurales, lo cual se da, 
-principalmente, en secuencias que codifican proteinas globulares, cuyos requerimientos estructurales son mas estrictos. 
-Esta restriccion en la evolucion de la secuencia resulta en una similitud secuencial entre secuencias homólogas.
-Una forma de evaluar la funcionalidad asociada a una proteina, entonces, es buscando la existencia de secuencias secuencias proteicas similares en la naturaleza, que hayan sido detectadas y que se encuentren anotadas en una base de datos
+En particular, al principio de dicha sección vimos cómo las secuencias de proteinas pueden tener ciertas restricciones en su evolución, principalmente asociadas 
+con la funcionalidad que deben proveer y que pueden ser más estrictas(o aplicarse a un mayor porcentaje de la secuencia) si la función está fuertemente asociada a una estructura.
+% principalmente, en secuencias que codifican proteinas globulares, cuyos requerimientos estructurales son mas estrictos. 
+Estos requerimientos funcionales y estructurales en la evolución resultan en una similitud secuencial entre las diversas proteínas homólogas.
+Una forma de evaluar la posible funcionalidad asociada a una proteína, entonces, es buscando la existencia de secuencias proteicas similares en la naturaleza, que hayan sido detectadas y se encuentren anotadas en una base de datos.
 
-Domains are now readily detectable with sequence searching programs (e.g., Blast [9] or HMMer [10]) and readily alignable by standard methods (e.g., ClustalW [11] or MUS-
-CLE [12]). Known domains are now stored in a number of databases including Pfam [1], SMART [13], CDD [14] and
-InterPro [15] and remain a critical component of genome annotation procedures. 
+El descubrimiento de una nueva proteína con gran similitud frente a alguna secuencia conocida, permite presumir que se trata de secuencias homólogas y por lo tanto muy probablemente tendrán la misma función o una función similar. 
+En el contexto de la herramienta que estamos desarrollando, las secuencias pueden no pertenecer a proteínas naturales y por lo tanto, no representan casos de homología, sin embargo la similitud secuencial podría dar indicios de elementos funcionales emergentes de nuestra secuencia. La información resultante de la búsqueda sirve como indicador de qué posiciones puntuales son las que conforman esta similitud secuencial, las cuales , por lo tanto, podrían inducir la función. 
 
-El descubrimiento de una secuencia con gran similitid y que, por lo tanto, se presume homóloga provee un primer indicio acerca de la función que está puede cumplir. 
-En el contexto de la herramienta que estamos desarrollando, la información resultante de la búsqueda sirve como indicador de que posiciones puntuales son las que conforman esta similitud secuencial y que, por lo tanto, podrían inducir la función. 
+% Domains are now readily detectable with sequence searching programs (e.g., Blast [9] or HMMer [10]) and readily alignable by standard methods (e.g., ClustalW [11] or MUSCLE [12]). 
+% Known domains are now stored in a number of databases including Pfam [1], SMART [13], CDD [14] and
+% InterPro [15] and remain a critical component of genome annotation procedures. 
 
-Para realizar la búsqueda de similitud secuencial utilizaremos, en principio, dos herramientas:  
-la herramienta BLAST (usando la base de datos SwissProt) y la herramienta PROSITE
-BLAST permite hacer un overall sequence alignment frente a una base de datos de proteinas anotadas(en nuestro caso SwissProt), y por lo tanto se encontraran secuencias 
-
-Algunas funcionalidades en las proteinas no imponen restricciones homogeneamente a lo largo de toda la secuencia y por lo tanto quizas no puedan ser detectadas por este mecanismo.
-Sin embargo las secuencias asociadas a una funcion pueden tener regiones limitadas en tamaño sobre las cuales existen(se imponen) restricciones (evolutivas) muy fuertas, ya que contienen determinantes secuenciales y/o funcionales importantes.
-La herramienta PROSITE contiene extracciones de estos cluster of residue types which is variously known as a pattern, motif, signature, or fingerprint. 
-Usando esta herramienta se pueden buscar estos motivos en la secuencia. 
-
-Estos motivos pueden representar funcionalidades simples que, normalmente, no representan la funcionalidad global de la proteína natural.
-Sin embargo, en nuestro caso, donde estamos trabajando con secuencias artificiales, o que han sido iterativamente mutadas, 
-esta herramienta nos permite detectar(principalmente en los pasos finales???) la aparición(o la existencia/que no se haya eliminado) de elementos funcionales que igualmente queremos eliminar.  
+Para realizar la búsqueda de similitud secuencial utilizaremos, en primer lugar, la herramienta BLAST. 
+Esta herramienta permite hacer un alineamiento secuencial general frente a una base de datos de proteinas anotadas(en nuestro caso SwissProt).
+% , y por lo tanto se encontraran secuencias 
+Sin embargo, algunas funcionalidades en las proteinas no imponen suficientes restricciones, o no lo hacen homogéneamente a lo largo de toda la secuencia y, por lo tanto, 
+la similitud global entre dos secuencias puede no ser suficientemente considerable, aunque efectivamente tengan una similitud funcional. 
+Estos casos quizás no puedan ser detectados por una búsqueda BLAST. 
 
 
-
-
-
-
+En muchos caso en que las proteínas(o resgiones de estas) cumplen una misma función, aún cuando no existan restricciones impuestas homogéneamente a lo largo de la secuencia, puede haber regiones de tamaño limitado sobre 
+las cuales se imponen restricciones evolutivas muy fuertes, ya que contienen determinantes secuenciales y/o funcionales importantes.
+El recurso PROSITE contiene extracciones de estas agrupaciones de residuos, conocidos como patrones, motivos, marcas o huellas.
+Usando esta herramienta se pueden buscar distintos motivos en la secuencia, permitiendo detectar nuevas regiones con propiedades funcionales. 
+Estos motivos pueden representar funcionalidades simples que en la naturaleza no suelen componer una proteína por sí solos, sino que la funcionalidad global de las proteínas emerge de la unión de distintos elementos en forma modular,
+tal como se vió en el capítulo 1. En nuestro caso, es fundamental poder detectar estos elementos modulares individuales.
+% Sin embargo, en nuestro caso, donde estamos trabajando con secuencias artificiales, o que han sido iterativamente mutadas, 
+% esta herramienta nos permite detectar(principalmente en los pasos finales???) la aparición(o la existencia/que no se haya eliminado) de elementos funcionales que igualmente queremos eliminar.  
 
 
 
@@ -1148,36 +1262,33 @@ esta herramienta nos permite detectar(principalmente en los pasos finales???) la
 
 
 
-Estas busqueda de similitud secuencial(BLAST y PROSITE) será importante en detectar dominios funcionales de distintas longitudes. 
-Sin embargo, como se vio en la sección \ref{functionalLandscape}, las   
-Los principales modulos funcionales encontrados en las regiones intrínsecamente desordenadas son los motivos lineales cortos (short linear motifs, o SLiMs), que se refieren a una clase de modulos de interacción compactos, 
-degenerados y evolutivamente convergentes.
-
-
-Encontrar los elementos funcionales conocidos en la naturaleza dentro de nuestra secuencia es, entonces, una tarea más dificil.
- 
-Dado que nuestro algoritmo guiara la búsqueda hacia conformaciones desordenadas, y que una propiedad característica de los LMs es su relación con un contexto de estructura desordenada\cite{fuxreiter2007local}.
-será relevante para nuestro trabajo buscar este tipo de elementos con mayor detenimiento. Más aún, teniendo en cuenta las caracteristicas secuenciales de este tipo de motivos, que le 
-podía esperarse que, luego de ser detectados y mutados puedan resurgir facilmente dentro de una misma ejecución, con un comportamiento similar al que ocurre en la naturaleza.
-
-
-
-
-% COMO VAMOS A DETECTARLOS
-Para detectar LMs se utilizará principalmente el recurso ELM, cuya aplicación en el método se describe en \ref{elm}
+Estas búsquedas de similitud secuencial serán importantes en la detección de elementos funcionales de distintas longitudes. 
+Más allá de estos, en la sección \ref{functionalLandscape} descubrimos la existencia de elementos modulares de interacción con algunas propiedades particulares,  
+distinguibles por su ubicación característica, frecuentemente insertos en regiones desordenadas, y por estar representados por unos pocos residuos contiguos.  
+Estos motivos lineales cortos (short linear motifs, o SLiMs) representan, entonces, una clase de módulos de interacción compactos, degenerados y evolutivamente convergentes.
+Por lo tanto, dado que nuestro algoritmo guiará la búsqueda hacia conformaciones desordenadas, y teniendo en cuenta que el proceso de mutaciones iterativas podría fácilmente hacer (re)surgir este tipo de elementos de forma similar 
+a como lo hacen en la naturaleza, es necesario analizar la existencia de estos elementos en la secuencia con mayor detalle.
+% Dado que nuestro algoritmo guiara la búsqueda hacia conformaciones desordenadas, y que una propiedad característica de los LMs es su relación con un contexto de estructura desordenada\cite{fuxreiter2007local}.
+% será relevante para nuestro trabajo buscar este tipo de elementos con mayor detenimiento. Más aún, teniendo en cuenta las caracteristicas secuenciales de este tipo de motivos, que le 
+% podía esperarse que, luego de ser detectados y mutados puedan resurgir facilmente dentro de una misma ejecución, con un comportamiento similar al que ocurre en la naturaleza.
+%  COMO VAMOS A DETECTARLOS
+Para detectar SLMs se utilizará principalmente el recurso ELM, cuya aplicación en nuestro método se describe en \ref{elm}
 % DIFERENCIAS CON PROSITE
-The PROSITE database has collected a number of linear protein motifs, representing them as regular expression patterns. 
-PROSITE patterns have been very useful, but also suffer from severe overprediction problems and more recently the database has emphasised globular domain annotation at the expense of linear motifs.
+La base de datos de PROSITE probablemente tenga representados entre sus patrones un número considerable de SLMs, de esta forma, podremos encontrar cierto solapamiento en los resultados de ambos(PROSITE y ELM). 
+% Encontrar los elementos funcionales conocidos en la naturaleza dentro de nuestra secuencia es, entonces, una tarea más dificil.
+
+% The PROSITE database has collected a number of linear protein motifs, representing them as regular expression patterns. 
+% PROSITE patterns have been very useful, but also suffer from severe overprediction problems and more recently the database has emphasised globular domain annotation at the expense of linear motifs.
 
 
-
-
-Además de los motivos lineales, en la introducción se describieron otros modulos funcionales que pueden estar contenidos en IDRs/IDPs.
-Utilizando la herramienta ANCHOR(ver \ref{anchor}) se pueden detectar motivos de reconocimiento a partir de sus propiedades estructurales lo cual, como se menciona en \ref{propiedadesConformacionales}, es importante para restringir las 
-caracteristicas estructurales del peptido resultante. Sin embargo, dada su functional importance, predicting recognition elements (motifs) from sequence is of great interest, tambien para evitar la ocurrencia de funcionalidades no deseadas.
-Además, el método de busqueda secuencial BLAST puede detectar, también, dominios que son fully or largely disordered or contain conserved disordered regions es decir, intrinsically disordered domains (IDDs).
-Teniendo en cuenta la hipotesis desarrollada en la introduccion acerca del solapamiento entre los MoREs y SLMs, e incluso con los dominios desordenados, las herramientas utilizadas para detectar estos tres pueden proveer resultados que se solapen.
-Sin embargo, como ya se describió previamente, esto no es una desventaja.
+% SOLAPAMIENTOS ANCHOR, BLAST, SLMs
+Además de los motivos lineales, en la introducción se describieron otros módulos funcionales que pueden estar contenidos en IDRs/IDPs.
+Utilizando la herramienta ANCHOR(ver \ref{anchor}) se pueden detectar motivos de reconocimiento a partir de sus propiedades estructurales(MoREs), lo cual, como se menciona en la sección \ref{propiedadesConformacionales}, 
+es importante para restringir las caracteristicas estructurales del linker resultante. Sin embargo, dado que estos elementos son muy importantes para la funcionalidad de reconocimiento en IDRs/IDPs, la detección y 
+eliminación de estos con objetivos estructurales también persiguie implícitamente objetivos funcionales, evitando la ourrencia de funcionalidades no deseadas en el linker resultante.
+Además, el método de busqueda secuencial BLAST puede detectar dominios que son total o parcialmente desordenados, y teniendo en cuenta la hipótesis desarrollada en la introduccion acerca 
+del solapamiento entre los MoREs y SLMs, e incluso con los dominios intrínsecamente desordenados, las herramientas utilizadas para detectar estos tres pueden también solaparse en los resultados que proveen.. 
+Sin embargo, como ya se describió previamente, esto no representa una desventaja.
 
 
 % Ademas, most protein domains that are identified using sequence-based approaches(como el utilizado en \ref{blast}) are structured, but some can be fully or largely disordered or contain conserved disordered regions,
@@ -1412,6 +1523,8 @@ Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 &
 
 
 \section{Otros propiedades evaluadas}
+
+Como parte de 
 \subsection{Carga neta de la secuencia}
 
 % Otro de los motivos por las cuales se podría querer eliminar aminoácidos cargados es cuando se esta diseñando una proteína que se une a dna porque los residuos del linker podrían 
