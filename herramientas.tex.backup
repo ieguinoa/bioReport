@@ -1185,13 +1185,15 @@ Evaluación en busca de patrón secuencial & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 &
 El objetivo de este trabajo es lograr una herramienta que provea una secuencia capaz ser utilizada experimentalmente como linker en el proceso de ingeniería de proteínas. 
 Esto implica no sólo probar con cierta certeza que tendrá la funcionalidad deseada, sino también evaluar el comportamiento en todos los pasos del proceso de ingeniería. 
 Es necesario saber que las propiedades de la secuencia no afectarán este proceso de ninguna forma.
-De forma general, se debe apuntar a tener una secuencia que no tenga ninguna interacción ni funcionalidad, evitando así cualquier interferencia con la expresión y utilización del producto 
-de ingeniería. Esto implica que no tenga regiones target para clivaje,fosforilación, glicosilación,etc., regiones de unión a otras proteínas, etc.
+De forma general, esto se traduce en tener una secuencia que posea interacción ni funcionalidad alguna, evitando así cualquier interferencia con la expresión, utilización y actividad biológica del producto de ingeniería.
+Esto implica que no tenga regiones target para clivaje,fosforilación, glicosilación, regiones de unión a otras proteínas, etc.
 Si bien es posible reducir este análisis conociendo más detalladamente las condiciones experimentales con las que se trabajará, el objetivo de esta herramienta es que se pueda obtener 
-un resultado que cumpla con el objetivo en cualquier contexto experimental. 
+un resultado genérico, que cumpla con este principio de permanecer inerte en cualquier contexto experimental. 
 
-En este algoritmo utilizamos distintas herramientas para evaluar la estructura que adopta la secuencia, con el fin de poder llevarla hacia una composición que provea la flexibilidad
-necesaria para la función de linker. 
+Durante el capítulo 1(sección \ref{functionalLandscape}) describimos una gran cantidad de elementos funcionales que integran las proteína naturales. 
+Siguiendo estos conocimientos, en esta etapa de la evaluación secuencial describiremos un conjunto de recursos para poder detectar la presencia de estas funcionalidades en nuestra secuencia, 
+con el objetivo de eliminarlas mediante mutaciones.
+
 
 
 % There are many methods, such as SMART (Simple Modular
@@ -1216,15 +1218,14 @@ necesaria para la función de linker.
 
 % Búsqueda de secuencias homólogas
 % Como se desarrollo en la introducción,
-las secuencias de proteinas que estan asociadas a una misma funcion tienen ciertas restricciones en su evolución, principalmente asociadas 
+En particular, al principio de dicha sección vimos cómo las secuencias de proteinas pueden tener ciertas restricciones en su evolución, principalmente asociadas 
 con la funcionalidad que deben proveer y que pueden ser más estrictas(o aplicarse a un mayor porcentaje de la secuencia) si la función está fuertemente asociada a una estructura.
 % principalmente, en secuencias que codifican proteinas globulares, cuyos requerimientos estructurales son mas estrictos. 
-Estos requerimientos funcionales y estructurales en la evolución de la secuencia resultan en una similitud secuencial entre las diversas secuencias homólogas.
+Estos requerimientos funcionales y estructurales en la evolución resultan en una similitud secuencial entre las diversas proteínas homólogas.
 Una forma de evaluar la posible funcionalidad asociada a una proteína, entonces, es buscando la existencia de secuencias proteicas similares en la naturaleza, que hayan sido detectadas y se encuentren anotadas en una base de datos.
 
 El descubrimiento de una nueva proteína con gran similitud frente a alguna secuencia conocida, permite presumir que se trata de secuencias homólogas y por lo tanto muy probablemente tendrán la misma función o una función similar. 
-En el contexto de la herramienta que estamos desarrollando, las secuencias pueden no pertenecer a proteínas naturales y por lo tanto, una secuencia similar , sin embargo la similitud secuencial podría indicar dar indicios de elementos funcionales
-emergentes de nuestra secuencia. La información resultante de la búsqueda sirve como indicador de que posiciones puntuales son las que conforman esta similitud secuencial y que, por lo tanto, podrían inducir la función. 
+En el contexto de la herramienta que estamos desarrollando, las secuencias pueden no pertenecer a proteínas naturales y por lo tanto, no representan casos de homología, sin embargo la similitud secuencial podría dar indicios de elementos funcionales emergentes de nuestra secuencia. La información resultante de la búsqueda sirve como indicador de qué posiciones puntuales son las que conforman esta similitud secuencial, las cuales , por lo tanto, podrían inducir la función. 
 
 % Domains are now readily detectable with sequence searching programs (e.g., Blast [9] or HMMer [10]) and readily alignable by standard methods (e.g., ClustalW [11] or MUSCLE [12]). 
 % Known domains are now stored in a number of databases including Pfam [1], SMART [13], CDD [14] and
@@ -1237,12 +1238,13 @@ Sin embargo, algunas funcionalidades en las proteinas no imponen suficientes res
 la similitud global entre dos secuencias puede no ser suficientemente considerable, aunque efectivamente tengan una similitud funcional. 
 Estos casos quizás no puedan ser detectados por una búsqueda BLAST. 
 
-Sin embargo, aún cuando no existan restricciones impuestas homogéneamente a lo largo de la secuencia, las secuencias asociadas a una función pueden tener regiones limitadas en tamaño sobre 
+
+En muchos caso en que las proteínas(o resgiones de estas) cumplen una misma función, aún cuando no existan restricciones impuestas homogéneamente a lo largo de la secuencia, puede haber regiones de tamaño limitado sobre 
 las cuales se imponen restricciones evolutivas muy fuertes, ya que contienen determinantes secuenciales y/o funcionales importantes.
 El recurso PROSITE contiene extracciones de estas agrupaciones de residuos, conocidos como patrones, motivos, marcas o huellas.
 Usando esta herramienta se pueden buscar distintos motivos en la secuencia, permitiendo detectar nuevas regiones con propiedades funcionales. 
 Estos motivos pueden representar funcionalidades simples que en la naturaleza no suelen componer una proteína por sí solos, sino que la funcionalidad global de las proteínas emerge de la unión de distintos elementos en forma modular,
-tal como se vió en el capítulo 1. En nuestro caso, como se mencionó, es fundamental poder detectar estos elementos modulares individuales.
+tal como se vió en el capítulo 1. En nuestro caso, es fundamental poder detectar estos elementos modulares individuales.
 % Sin embargo, en nuestro caso, donde estamos trabajando con secuencias artificiales, o que han sido iterativamente mutadas, 
 % esta herramienta nos permite detectar(principalmente en los pasos finales???) la aparición(o la existencia/que no se haya eliminado) de elementos funcionales que igualmente queremos eliminar.  
 
@@ -1263,33 +1265,29 @@ tal como se vió en el capítulo 1. En nuestro caso, como se mencionó, es funda
 Estas búsquedas de similitud secuencial serán importantes en la detección de elementos funcionales de distintas longitudes. 
 Más allá de estos, en la sección \ref{functionalLandscape} descubrimos la existencia de elementos modulares de interacción con algunas propiedades particulares,  
 distinguibles por su ubicación característica, frecuentemente insertos en regiones desordenadas, y por estar representados por unos pocos residuos contiguos.  
-Los principales modulos funcionales encontrados en las regiones intrínsecamente desordenadas son los motivos lineales cortos (short linear motifs, o SLiMs), que se refieren a una clase de modulos de interacción compactos, 
-degenerados y evolutivamente convergentes.
-
-
-Encontrar los elementos funcionales conocidos en la naturaleza dentro de nuestra secuencia es, entonces, una tarea más dificil.
- 
-Dado que nuestro algoritmo guiara la búsqueda hacia conformaciones desordenadas, y que una propiedad característica de los LMs es su relación con un contexto de estructura desordenada\cite{fuxreiter2007local}.
-será relevante para nuestro trabajo buscar este tipo de elementos con mayor detenimiento. Más aún, teniendo en cuenta las caracteristicas secuenciales de este tipo de motivos, que le 
-podía esperarse que, luego de ser detectados y mutados puedan resurgir facilmente dentro de una misma ejecución, con un comportamiento similar al que ocurre en la naturaleza.
-
-
-
-
-% COMO VAMOS A DETECTARLOS
-Para detectar LMs se utilizará principalmente el recurso ELM, cuya aplicación en el método se describe en \ref{elm}
-
+Estos motivos lineales cortos (short linear motifs, o SLiMs) representan, entonces, una clase de módulos de interacción compactos, degenerados y evolutivamente convergentes.
+Por lo tanto, dado que nuestro algoritmo guiará la búsqueda hacia conformaciones desordenadas, y teniendo en cuenta que el proceso de mutaciones iterativas podría fácilmente hacer (re)surgir este tipo de elementos de forma similar 
+a como lo hacen en la naturaleza, es necesario analizar la existencia de estos elementos en la secuencia con mayor detalle.
+% Dado que nuestro algoritmo guiara la búsqueda hacia conformaciones desordenadas, y que una propiedad característica de los LMs es su relación con un contexto de estructura desordenada\cite{fuxreiter2007local}.
+% será relevante para nuestro trabajo buscar este tipo de elementos con mayor detenimiento. Más aún, teniendo en cuenta las caracteristicas secuenciales de este tipo de motivos, que le 
+% podía esperarse que, luego de ser detectados y mutados puedan resurgir facilmente dentro de una misma ejecución, con un comportamiento similar al que ocurre en la naturaleza.
+%  COMO VAMOS A DETECTARLOS
+Para detectar SLMs se utilizará principalmente el recurso ELM, cuya aplicación en nuestro método se describe en \ref{elm}
 % DIFERENCIAS CON PROSITE
-The PROSITE database has collected a number of linear protein motifs, representing them as regular expression patterns. 
-PROSITE patterns have been very useful, but also suffer from severe overprediction problems and more recently the database has emphasised globular domain annotation at the expense of linear motifs.
+La base de datos de PROSITE probablemente tenga representados entre sus patrones un número considerable de SLMs, de esta forma, podremos encontrar cierto solapamiento en los resultados de ambos(PROSITE y ELM). 
+% Encontrar los elementos funcionales conocidos en la naturaleza dentro de nuestra secuencia es, entonces, una tarea más dificil.
+
+% The PROSITE database has collected a number of linear protein motifs, representing them as regular expression patterns. 
+% PROSITE patterns have been very useful, but also suffer from severe overprediction problems and more recently the database has emphasised globular domain annotation at the expense of linear motifs.
 
 
-
-Además de los motivos lineales, en la introducción se describieron otros modulos funcionales que pueden estar contenidos en IDRs/IDPs.
-Utilizando la herramienta ANCHOR(ver \ref{anchor}) se pueden detectar motivos de reconocimiento a partir de sus propiedades estructurales lo cual, como se menciona en \ref{propiedadesConformacionales}, es importante para restringir las 
-caracteristicas estructurales del peptido resultante. Sin embargo, dada su functional importance, predicting recognition elements (motifs) from sequence is of great interest, tambien para evitar la ocurrencia de funcionalidades no deseadas.
-Además, el método de busqueda secuencial BLAST puede detectar, también, dominios que son fully or largely disordered or contain conserved disordered regions es decir, intrinsically disordered domains (IDDs).
-Teniendo en cuenta la hipótesis desarrollada en la introduccion acerca del solapamiento entre los MoREs y SLMs, e incluso con los dominios desordenados, las herramientas utilizadas para detectar estos tres pueden proveer resultados que se solapen.
+% SOLAPAMIENTOS ANCHOR, BLAST, SLMs
+Además de los motivos lineales, en la introducción se describieron otros módulos funcionales que pueden estar contenidos en IDRs/IDPs.
+Utilizando la herramienta ANCHOR(ver \ref{anchor}) se pueden detectar motivos de reconocimiento a partir de sus propiedades estructurales(MoREs), lo cual, como se menciona en la sección \ref{propiedadesConformacionales}, 
+es importante para restringir las caracteristicas estructurales del linker resultante. Sin embargo, dado que estos elementos son muy importantes para la funcionalidad de reconocimiento en IDRs/IDPs, la detección y 
+eliminación de estos con objetivos estructurales también persiguie implícitamente objetivos funcionales, evitando la ourrencia de funcionalidades no deseadas en el linker resultante.
+Además, el método de busqueda secuencial BLAST puede detectar dominios que son total o parcialmente desordenados, y teniendo en cuenta la hipótesis desarrollada en la introduccion acerca 
+del solapamiento entre los MoREs y SLMs, e incluso con los dominios intrínsecamente desordenados, las herramientas utilizadas para detectar estos tres pueden también solaparse en los resultados que proveen.. 
 Sin embargo, como ya se describió previamente, esto no representa una desventaja.
 
 
@@ -1525,10 +1523,67 @@ Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 &
 
 
 \section{Otros propiedades evaluadas}
+
+Como parte de la herramienta se provee la opción de realizar evaluaciones adicionales sobre la secuencia que permiten restringir la búsqueda más allá de las propiedades intrínsecas que debe poseer una secuencia linker.
+Las distintas características ``extras'' que se permite definir sobre la secuencia complementan el objetivo principal de la herramienta que es proveer secuencias que puedan ser utilizadas 
+en el contexto de desarrollos experimentales de biología molecular.
+% distintas propiedades de la secuencia que, si bien no hacen directamente a su funcionalidad como linker, 
+% complementan las características de la herramienta y 
+% el objetivo de las secuencias resultantes como productos que serán utilizados 
+
+Estas opciones, al no formar parte del conjunto de propiedades evaluadas de forma estándar, se debe indica su aplicación mediante parámetros al iniciar la ejecución, tal como se indica en la sección \ref{evaluacion} del manual.
+
 \subsection{Carga neta de la secuencia}
 
 % Otro de los motivos por las cuales se podría querer eliminar aminoácidos cargados es cuando se esta diseñando una proteína que se une a dna porque los residuos del linker podrían 
 % entonces formar puentes salinos con los fosfatos del dna
+
+Para evaluar una secuencia con respecto a la carga neta se tienen en cuenta tres categorias de aminoácidos: con carga positiva(K,R,H), carga negativa(E,D) y neutros.
+Al evaluar una secuencia, primero se evalua la carga neta de esta lo que puede dar 3 casos:
+
+\begin{itemize}
+  \item Si la carga neta objetivo y la actual son iguales, todos los puntajes serán 0.
+ 
+\item Si la carga neta a la que se está apuntando es más positiva que la actual, los puntajes resultantes son: 
+  \begin{itemize}
+   \item   aminoácidos con carga negativa = 2
+  \item aminoácidos con carga positiva = 0
+  \item aminoácidos neutros = 1
+  \end{itemize}
+Por ejemplo, si se está evaluando la secuencia \texttt{} (carga neta=)el usuario indicó como requerimiento una carga neta objetivo igual a +2, 
+   
+ 
+ \vspace{0.5cm}
+\begin{tabular}{llllllllllllllll} 
+\hline
+\centering
+Secuencia & \textbf{V} & \textbf{K} & \textbf{T} & \textbf{C} & \textbf{L} & \textbf{A} & \textbf{L} & \textbf{G} & \textbf{V} & \textbf{D} & \textbf{I} \\ \hline
+Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1  \\ \hline
+\end{tabular}
+
+ 
+ \item Si la carga neta a la que se apunta es más negativa que la actual, los puntajes resultantes son:
+  \begin{itemize}
+   \item  aminoácidos con carga negativa = 0
+  \item aminoácidos con carga positiva = 2
+  \item aminoácidos neutros = 1
+  \end{itemize}
+
+   Por ejemplo, si se está evaluando la secuencia \texttt{} (carga neta=)el usuario indicó como requerimiento una carga neta objetivo igual a -2, 
+   
+   \vspace{0.5cm}
+
+   \begin{center}
+\begin{tabular}{llllllllllllllll} 
+\hline
+Secuencia & \textbf{V} & \textbf{K} & \textbf{T} & \textbf{C} & \textbf{L} & \textbf{A} & \textbf{L} & \textbf{G} & \textbf{V} & \textbf{D} & \textbf{I} & \textbf{N}\\ \hline
+Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1  \\ \hline
+\end{tabular}
+
+   \end{center}
+   
+\end{itemize}
+
 
 
 \subsection{Absorción UV}

@@ -1,2 +1,29 @@
 \chapter{Evaluaciones y análisis de resultados}
 \label{results}
+
+% PRIMERO EXPLICAR COMO DEPENDE LA EJECUCION CON EL PARÁMETRO BETA
+% PARA VALORES MAS CHICOS ...
+% PARA VALORES MAS GRANDES...
+% DAR UNA IDEA DEL RANGO DE VALORES BETA DE ACUERDO A LA ECUACION, PARA DIFERENCIAS DE SCORE = 1
+% MOSTRAR GRAFICO/S DE RELACION ENTRE 
+% POR LO TANTO, UN PARAMETRO QUE TIENE EN CUENTA ESTOS ASPECTOS, QUE PODRIA EVALUAR CORRECTAMENTE LA EJECUCION EN FUNCION DE BETA , Y QUE ADEMAS ES EL DATO MAS IMPORTANTE EN LA EJECUCION ES EL TIEMPO DE EJECUCION
+En una búsqueda estocástica cómo la que 
+El valor(o el rango) óptimo para este parámetro, por lo tanto, depende de la forma que tiene la función sobre la cual estamos realizando la búsqueda.
+Una superficie de búsqueda con más cantidad de mínimos locales(y más profundos) requerirá un valor de Beta mayor para poder sobrepasar fácilmente estos durante la búsqueda, 
+mientras que una superficie mas lisa con un mínimo global más marcado, probablemente aprovechará la explotación local que puede proveer un valor de Beta más chico. 
+Dadas las características estocásticas de la búsqueda, la definición de valores/rangos óptimos se refiere al promedio del tiempo de búsqueda y no a la comparación entre dos ejecuciones puntuales.
+
+En nuestro caso, las propiedades de la superficie de búsqueda están dadas por la función que relaciona el espacio de secuencias y el puntaje resultante del conjunto de evaluaciones detallado previamente.
+Esta función, y por lo tanto la superficie resultante, no sólo no se conocen sino que, además, variarán al modificar el subconjunto de herramientas que se utilizan durante las evaluaciones y/o al cambiar los parámetros de éstas.
+% En primer lugar, entonces, se debe hacer una estimación del rango óptimo de 
+
+El valor de beta, como se describió en las secciones previas, relaciona el porcentaje de aceptacion con una diferencia en el score evaluado.
+Para una misma diferencia
+Por ejemplo, para una diferencia de 1 en el puntaje, el porcentaje de aceptacion ....varia entre .....
+
+El valor de beta, entonces, permite balancear entre el número de iteraciones(es decir, las mutaciones aceptadas) y el número de intentos de mutación.  
+
+Para evaluar correctamente cómo la ejecución global depende del valor de beta se utiliza el tiempo total de ejecución. 
+El correcto balance entre mutaciones evaluadas y aceptadas dara un menor número total de secuencias evaluadas hasta llegar al mínimo y, por lo tanto, un menor tiempo de ejecución 
+% Como variable para evaluar la relación entre los diferentes valores de Beta se analiza el tiempo de ejecución. 
+% Este valor es proporcional al total de evaluaciones que se realizaron sobre la secuencia

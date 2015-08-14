@@ -1524,13 +1524,75 @@ Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 &
 
 \section{Otros propiedades evaluadas}
 
-Como parte de 
+Como parte de la herramienta se provee la opción de realizar evaluaciones adicionales sobre la secuencia que permiten restringir la búsqueda más allá de las propiedades intrínsecas que debe poseer una secuencia linker.
+Las distintas características ``extras'' que se permite definir sobre la secuencia complementan el objetivo principal de la herramienta que es proveer secuencias que puedan ser utilizadas 
+en el contexto de desarrollos experimentales de biología molecular.
+% distintas propiedades de la secuencia que, si bien no hacen directamente a su funcionalidad como linker, 
+% complementan las características de la herramienta y 
+% el objetivo de las secuencias resultantes como productos que serán utilizados 
+
+Estas opciones, al no formar parte del conjunto de propiedades evaluadas de forma estándar, se debe indica su aplicación mediante parámetros al iniciar la ejecución, tal como se indica en la sección \ref{evaluacion} del manual.
+
 \subsection{Carga neta de la secuencia}
 
 % Otro de los motivos por las cuales se podría querer eliminar aminoácidos cargados es cuando se esta diseñando una proteína que se une a dna porque los residuos del linker podrían 
 % entonces formar puentes salinos con los fosfatos del dna
 
+Para evaluar una secuencia con respecto a la carga neta se tienen en cuenta tres categorias de aminoácidos: con carga positiva(K,R,H), carga negativa(E,D) y neutros.
+Al evaluar una secuencia, primero se evalua la carga neta de esta lo que puede dar 3 casos:
+
+\begin{itemize}
+  \item Si la carga neta objetivo y la actual son iguales, todos los puntajes serán 0.
+ 
+\item Si la carga neta a la que se está apuntando es más positiva que la actual, los puntajes resultantes son: 
+  \begin{itemize}
+   \item  aminoácidos con carga negativa = 2
+  \item aminoácidos con carga positiva = 0
+  \item aminoácidos neutros = 1
+  \end{itemize}
+Por ejemplo, si se está evaluando la secuencia \texttt{VKTLALGVDI} (carga neta=0), y el usuario indicó como requerimiento una carga neta objetivo igual a +2, 
+   
+ 
+ \vspace{0.5cm}
+\begin{center}
+  \begin{tabular}{llllllllllllllll} 
+\hline
+
+Secuencia & \textbf{V} & \textbf{K} & \textbf{T} & \textbf{C} & \textbf{L} & \textbf{A} & \textbf{L} & \textbf{G} & \textbf{V} & \textbf{D} & \textbf{I} \\ \hline
+Evaluación carga neta & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 2 & 1  \\ \hline
+\end{tabular}
+\end{center}
+
+ 
+ \item Si la carga neta a la que se apunta es más negativa que la actual, los puntajes resultantes son:
+  \begin{itemize}
+   \item  aminoácidos con carga negativa = 0
+  \item aminoácidos con carga positiva = 2
+  \item aminoácidos neutros = 1
+  \end{itemize}
+
+   Por ejemplo, si se está evaluando la secuencia \texttt{VKTLALGVDI} (carga neta=0), y el usuario indicó como requerimiento una carga neta objetivo igual a -2, 
+   
+   \vspace{0.5cm}
+
+   \begin{center}
+\begin{tabular}{llllllllllllllll} 
+\hline
+Secuencia & \textbf{V} & \textbf{K} & \textbf{T} & \textbf{C} & \textbf{L} & \textbf{A} & \textbf{L} & \textbf{G} & \textbf{V} & \textbf{D} & \textbf{I}\\ \hline
+Evaluación carga neta & 1 & 2 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 1  \\ \hline
+\end{tabular}
+
+   \end{center}
+   
+\end{itemize}
+
+
+
+
 
 \subsection{Absorción UV}
 
-
+El objetivo de esta opción es que la secuencia resultante no posea ningún aminoácido que absorva en el rango del UV (T,Y,F).
+En este caso, ya que se espera que el resultado final NO posea ninguno de estos residuos, directamente se eliminan de la composición de aminoácidos que se utiliza para reemplazar las posiciones mutadas. 
+% Es decir, al momento de hacer las mutaciones, los residuos T,Y,F poseerán una frecuencia de s
+Para eliminar los residuos que se encuentran en la secuencia, se 

@@ -26,12 +26,46 @@ En caso de especificarse una secuencia inicial no es necesario definir longitud 
 
 \subsection{Composición de la secuencia} \label{composicion}
 
+\subsubsection{Composición estándar}
 % Existen dos opciones para definir la composición usada durante la ejecución del método.
 Si no se define ningún parametro al respecto, la composición \textit{default} que se usa es la composición estándar obtenida de SwissProt \cite{compositionAA}.  
 
-Es posible también definir una composición a medida
+En caso que se haya seleccionado la opcion de secuencia silente en UV (ver sección \ref{uvsilent}) la composición es igual a la estándar pero los residuos Y, T y F tendrán una frecuencia igual a 0.
+
+\subsubsection{Composición definida por el usuario}
+Es posible también definir una composición a medida, para esto se deben definir las frecuencias de los residuos
+
+En caso que se haya seleccionado la opcion de secuencia silente en UV (ver sección \ref{uvsilent}) se debe seleccionar una frecuencia igual a 0 para los residuos Y, T y F. 
+
+
+\subsection{Modificación del parámetro Beta}
+
 
 \subsection{Evaluación de la secuencia}\label{evaluacion}
+
+
+\subsubsection{Selección del set de herramientas a utilizar}
+% seleccion de herramientas a evaluar
+
+
+\subsubsection{Evaluación de carga neta}
+% evaluacion de la carga neta
+
+La carga neta deseada para la secuencia resultante puede ser definida mediante la opción \texttt{netcharge} de la forma: \\
+\indent \texttt{--netcharge [carga neta deseada]} 
+\\Por ejemplo: \\
+\indent \texttt{--netcharge +3} \hspace{0.5cm} La secuencia resultante tendrá carga neta = +3
+
+El valor absoluto de la carga buscada debe ser menor o igual que la longitud de la secuencia, de otra forma no podría alcanzarse nunca la carga neta objetivo.
+Esta condición se evalúa al inicio de la ejecución y se informa si no es posible continuar
+
+
+\subsubsection{Evaluación de silente en UV}\label{uvsilent}
+
+Es posible restringir el conjunto de secuencias resultantes a aquellas que no absorban en el rango de UV, es decir, que no posean residuos Y, T o F.
+La forma de indicar esto es mediante la opción \texttt{--uvsilent}(sin parámetros)
+
+
 
 \subsection{Condición de finalización} \label{condicionFin}
 
