@@ -1,0 +1,530 @@
+%     1.3.1. Ingeniería de proteínas
+%         1.3.1.1. Ingeniería de proteínas modulares (a.k.a. quiméricas) (Qué es, 1 página)
+%         1.3.1.2. Ejemplos (1 página y 1 figura)
+%     1.3.2. Ingeniería de linkers.
+%         1.3.2.1. Diseño positivo (propiedades deseadas, 1 página, 1 figura)
+%             1.3.2.1.1. Propiedades conformacionales
+%             1.3.2.1.2. Carga
+%         1.3.2.2. Diseño negativo (propiedades no deseadas, 2 páginas y 1 figura)
+%             1.3.2.1.1. Propiedades conformacionales
+%             1.3.2.1.2. Propiedades espectroscópicas
+%             1.3.2.1.3. Actividades biológicas
+%             1.3.2.1.4. Carga metabólica
+%         1.3.2.3. Linkers naturales
+%             1.3.2.3.1 Características (1 página y 1 figura)
+%             1.3.2.3.2 Uso en ingeniería de proteínas (ventajas y desventajas, 1 página)
+%         1.3.2.4. Diseño racional
+%             1.3.2.4.1 Diseños y conceptos comunes (1 página y 1 figura)
+%             1.3.2.4.2 Algoritmos existentes (cómo funcionan, ventajas y desventajas, 2 páginas y 2 figuras)
+%             
+       
+\section{Ingeniería de proteínas}\label{proteinEngineering}
+\subsection{Ingeniería de proteínas modulares}    
+
+
+Como producto de los avances logrados en las tecnologías asociadas al ADN recombinante, se ha desarrollado una nueva generación de proteínas compuestas por la unión de diferentes unidades estructurales y/o funcionales.
+% Recent advances in protein engineering have come from creating multi-functional chimeric proteins containing modules from various proteins.
+% As a product of recombinant DNA technology, fusion proteins have been developed as a class of novel biomolecules with multi-functional properties. 
+
+
+% ACA PUEDO METER LA PARTE DE MODULARIDAD DE PROTEÍNAS
+La idea de armar proteínas a partir de la unión de módulos no es algo nuevo, sigue la lógica presentada previamente de que las proteínas naturales son usualmente modulares.
+
+
+Las distintas bases de datos permiten obtener, entonces, una gran cantidad de módulos estructurales y funcionales y gran 
+parte del diseño de proteínas quiméricas se basa en utilizar estos conocimientos y anotaciones para crear nuevas proteínas con estructuras/funciones/propiedades combinadas.
+Estas nuevas proteinas quiméricas(o de fusión), se utilizan de manera rutinaria para alcanzar distintos objetivos:
+
+\begin{itemize}
+ \item Creación de proteinas que combinan funciones de distintos dominios:
+% En las secciones anteriores se describio como los dominios.... are considered (one of the most)the basic modules of protein structure, evolution and function.
+% Por lo tanto, se conocen una gran cantidad de dominios..
+Cómo se dijo en la sección anterior, se conocen una gran cantidad de dominios los cuales se encuentran anotados con una gran cantidad de funciones correspondientes.
+% More than 7000 domains are known(citar Pfam), performing an enormous diversity of functions from catalysis during metabolism to cell–cell recognition in the immune system. 
+La forma mas común de crear proteinas quimericas es, entonces, fusionar genéticamente dos o más dominios con subfunciones distintas, obteniendo una nueva funcionalidad global para la proteína.
+% By genetically fusing two or more protein domains together, the fusion protein product may obtain many distinct functions derived from each of their component moieties.
+\item Facilitar el estudio de interacciones proteina-proteina\cite{reddy2013linkers}: 
+Tradicionamlente el estudio se hace expresando conjuntamente las dos proteinas que conforman el complejo.
+Sin embargo, si la afinidad es muy baja, no es tan simple obtener el complejo formado.
+La creación de una proteína quimérica que une a los dominios/proteínas que forman el complejo permite mantenerlas unidas mediante un linker.
+La flexibilidad de esta secuencia linker debería permitir la correcta formación del complejo y, al estar unidas covalentemente, habrá una posibilidad mucho mayor de interacción.
+El aumento en la estabilidad del complejo permite realizar los estudios biofísicos necesarios sobre éste.
+% The characterization of protein–protein interactions is often required to gain an understanding of various biological processes. 
+% Yet, the study of protein–protein interactions for many complexes is hampered when one or more partners of the complex are unfolded or unstable. 
+% Traditionally, this problem has been addressed by the co-expression and/or copurification of both proteins. 
+% However, for weakly interacting or unstable complexes, the co-expression and/or co-purification often results in a single pro-
+% tein. 
+% Protein engineering techniques were another
+% option to address unfolded or unstable proteins,
+% using a single polypeptide chain chimera to link the
+% two binding partners via a flexible amino acid linker
+% 13
+% . With these chimeric proteins, it was then possible
+% to maintain both the intramolecular and intermolec-
+% ular protein–protein interactions, 14 and chimeric
+% proteins have been used to generate stable, soluble
+% binary complexes for structural studies, as well as
+% functional dimers.
+% Linking binding partners using an artificial
+% linker will increase the proximity between the inter-
+% acting partners and preserve the natural interaction.
+% In cases where the interacting partners are not
+% linked, it is possible that the binding partners might
+% dissociate due to their low affinity and/or due to the
+% crystallization conditions.
+\item La unión de fragmentos de anticuerpos a enzimas o proteínas que permitan la detección de la unión es la base de las técnicas inmunoquímicas.
+% \item Incrementar la expresión de proteínas.
+\item La unión de segmentos de secuencia específica permite la purificación de proteínas a partir del lisado celular. 
+% Facilitar la purificación de proteínas.
+% Una de las aplicaciones mas interesantes es para ayudar al estudio estructurals de las intereacciones entre proteinas \cite{}.
+% -In addition to structural studies of protein–protein interactions \cite{reddy2013linkers}.,
+% \item a wide range of applications in the field of biotechnology have employed these fused proteins
+% \item to explore protein-based biochemistry, such as to create artificial bifunctional enzymes and as tools for FRET analysis.
+
+% They have also been widely applied for drug targeting, since proteins such as single chain antibodies or ligands for cell surface receptors can 
+% specifically target a linked functional protein (e.g. toxin or cytokine) to a specific type of cells
+\end{itemize}
+
+
+
+
+% El diseño de nuevas proteinas quimericas requiere, obbviamente, de dominios a conjugar, los cuales normalmente se conocen ya que forman parte del experimento(o pueden buscarse mediante funcion en bases de datos como Pfam).
+% Pero además, como se vió antes, la proteina modular tipica esta compuesta de independently folded globular domains that are separated by flexible linker regions, por lo que se require obtener este linker, 
+% el cual debe conferir a los dominios la libertad suficiente para cumplir sus funciones sin restricciones.
+
+La construcción de una proteína de fusión(quimérica) requiere de dos elementos indispensables: 
+los dominios o proteínas a fusionar, y la secuencia linker que los va a unir.
+La elección de los dominios/proteínas está fuertemente ligada al producto final que se desea obtener y, normalmente, se pueden obtener de forma directa.
+% objetivo que se está buscando con la técnica experimental 
+% The successful construction of a recombinant fusion protein requires two indispensable elements: 
+% the component domains/proteins and the linkers.
+% The choice of the component domains/proteins is based on the desired functions of the fusion protein product and, in most cases, is relatively straightforward. 
+Por otro lado, la selección de un linker adecuado para unir los dominios/proteinas de acuerdo al objetivo que se busca puede ser un paso complicado y es generalmente ignorado cuando se piensa en el diseño de una proteína quimérica.
+% On the other hand, the selection of a suitable linker to join the protein domains together can be complicated and is often neglected in the design of fusion proteins.
+La unión directa de los dominios/proteínas o el uso de un linker inadecuado puede resultar en resultados indeseables, por ej. puede restringirse la capacidad de plegado de algun dominio globular, bajar el rendimiento de la proteína resultante o
+disminución en la actividad biológica de alguno de los módulos.
+La correcta selección, o mejor aún, el diseño racional de las secuencias linker para unir los módulos es un aspecto importante, aunque poco desarrollado, del diseño de proteínas quiméricas. 
+% Direct fusion of functional domains without a linker may lead to many undesirable outcomes, 
+% including misfolding of the fusion proteins [17], low yield in protein production [18], or impaired bioactivity [19, 20]. 
+% Therefore, the selection or rational design of a linker to join fusion protein domains is an important, yet underexplored, area in recombinant fusion protein technology.
+
+Esta falta de desarrollo en el tema se debe, quizás, a la falta de conocimiento sobre los factores estructurales que gobiernan la flexibilidad entre los dominios.
+Este factor limita, claramente, el diseño \textit{de-novo} de proteínas quiméricas. Los conocimientos relevantes sobre este tema pueden aparecer a partir de la gran cantidad de secuencias que se disponen actualmente, los avances en 
+la identificación de dominios y nuevas técnicas para obtener sus propiedades conformacionales a partir de la información secuncial.
+% Despite many empirical surveys, very little is known about the structural factors that govern interdomain flexibility. 
+% Such lack of knowledge is a limiting factor in de novo chimera design. Therefore, a number of recent studies focused on the structural principles governing the domain architecture and their assembly. 98–107.
+% The emerging concepts, along with the bioinformatics tools that attempt to detect domains and their motions from sequence information alone, 108 may one day lead to a precise de novo engineering of interdomain flexibility, thereby helping
+% achieve the desired functioning of synthetic chimeras.
+
+
+% DISORDER vs FLEXIBILITY:
+Para las arquitecturas más comunes, compuestas de dominios globulares unidos por linkers, la flexibilidad de esta secuencia linker es un requerimiento escencial.
+Es relevante aclarar acá que, si bien los terminos desordenado y flexible pueden solaparse en algun punto, son términos distintos\cite{radivojac2004protein}
+% Disorder and flexibility are often used synonymously, but the two terms are quite distinct\cite{radivojac2004protein}. 
+% With regard to an ordered protein, flexibility refers to the magnitudes of the excursions of the atoms from their equilibrium positions.
+Para una region desordenada, la variación en la flexibilidad se refiere a las diferencias en las velocidades de interconversión entre los diferentes estados miembro del ensamble estructural.
+Una variedad de técnicas biofísicas, como por ej. NMR, han sido usadas para estudiar estos conceptos de flexibilidad.
+% For a disordered region, variation in flexibility refers to differences in the speed of interconversion among the various members of the structural ensemble. 
+% A variety of methods have been used to investigate the flexibilities of disordered regions and proteins, including NMR.
+Análisis de estructuras mediante estas tecnicas muestran que el movimiento en la proteína que provoca los cambios conformacionales puede ocurrir tanto a nivel de residuos como a nivel de estructura secundaria o terciaria. 
+% Analyses of structures(por ej. mediante X.ray diffraction) have shown that protein motion may occur due to conformational changes in individual 
+
+% Control of structural flexibility is essential for the proper functioning of a large number of proteins and multiprotein complexes. 
+% At the residue level, such flexibility occurs due to local relaxation of peptide bond angles whose cumulative effect may result in large 
+% changes in the secondary, tertiary or quaternary structures of protein molecules. 
+% Such flexibility, and its absence, most often depends on the nature of interdomain linkages formed by oligopeptides.
+
+
+% residues or at the secondary, tertiary, or quaternary structural levels. 
+% Lactate dehydrogenase, triose-phosphate isomerase, as well as hemoglobin 
+% and related proteins are some of the earliest examples of proteins that showed conformational changes with important functional implications.
+
+% 
+
+Además de los analisis sobre las propiedades físicas asociadas a las arquitecturas modulares, el estudio de la diversidad de linkers encontrados en la naturaleza puede proveer información importante para entender los requerimientos
+más importantes en el diseño de estas secuencias.
+% Knowledge of natural linkers in multi-domain proteins is very helpful for the (rational??) design of empirical linkers in recombinant fusion proteins. 
+Este es el tema de la próxima sección.
+
+
+
+
+
+
+
+
+
+
+
+% EJEMPLOS
+
+\subsection{Ingeniería de secuencias linker}
+\subsubsection{Diseño positivo}
+
+A la hora de obtener un linker las propiedades estructurales suelen ser las más criticas.
+La arquitectura típica creada, representada por dominios globulares unidos por secuencias linkers, se busca que éstos permitan 
+mantener los dominios separados a la vez que se les da suficiente capacidad para moverse libremente como parte de su funcionalidad. 
+Por lo tanto, la flexibilidad es el requerimiento mas importante.
+% keeping domains apart while allowing them to move as part of their (catalytic?) function. 
+
+Sin embargo, la flexibilidad no es todo. 
+Por ej. una opción evidente seria usar linkers de solo Glicina ¿Por qué no usar siempre un linker puramente poli-G, adaptando solamente su longitud?
+Desde los primeros estudios sobre linkers naturales \cite{argos1990investigation} se encontró que las proteinas naturales no usan(seleccionan) este tipo de secuencias.
+Si bien esto no es concluyente para que no se usen, puede darnos un motivo para pensarlo dos veces.
+En primer lugar, un péptido poli-G sería extremadamente inestable y por lo tanto podría actuar como una carga energética, estructural o interferir en procesos de catálisis de los dominios que une, 
+especialmente si tiene una longitud excesiva.
+% An all-Gly peptide may be too flexible and unstable and thus could act as an energetic, structural, or catalysis-interfering nuisance to the
+% domains or molecules fused, especially if it were long or longer than structurally necessary to connect the two molecules.
+Se conoce además que el patrón Gly-Gly-X, donde X es un residuo con cadena lateral hidrofóbica, es un sitio target de actividad proteolítica. 
+% Evidence also shows Gly-Gly-X, where X is often an amino acid residue with a hydrophobic side chain, to be a proteolytic processing site.
+Por otro lado, una secuencia nucleotídica con alto contenido de Guanina(el codón que codifica para Glicina contiene Guanina en 2 de las 3 posiciones) puede ser difícil de manejar experimentalmente y de expresar para el huésped.
+% A nucleotide stretch at least two-thirds in guanine, which occupies the first and second codon positions for glycine, may be difficult to express in a host.
+Como se ve, entonces, existe una gran variedad de aspectos a considerar que exigen distintos requerimientos además de las propiedades conformacionales.
+Por ejemplo, es importante que los linkers should be invulnerable to host proteases, as they are often the targets for degradation. 
+
+
+El linker poli-G es sólo un ejemplo. 
+Como vimos en secciones anteriores, distintos elementos funcionales(que actuan principalmente mediante mecanismos de reconocimiento) pueden encontrarse en regiones con distintas propiedades conformacionales. 
+La existencia de estos elementos debe tenerse en cuenta cuando se esta usando la secuencia linker diseñada, y/o su eliminación debe formar parte de la etapa de diseño del linker.
+La longitud del \textit{loop} creado por el linker puede tener un profundo efecto sobre la actividad del linker en una proteína quimérica\cite{nagi1997inverse}.
+Además del ejemplo simple de resistencia proteolítica, las regiones linker también pueden afectar la estabilidad, solubilidad, formación de complejos.
+linker regions can affect the stability, solubility, oligomeric state, and proteolytic resistance ofthe fused protein
+Como se muestra en \cite{robinson1998optimizing}, en algunos casos se tienen efectos importantes variando la longitud y composición de la secuencia
+En base a esto, es esperable que se tengan requerimientos específicos relacionadas con la longitud y la composición. 
+% The stable linkage between functional domains provides many advantages such as a prolonged plasma half-life (e.g. albumin or Fc-fusions). 
+% However, it also has several potential drawbacks including steric hindrance between functional domains, decreased bioactivity, and altered biodistribution and metabolism of the protein moieties due to the interference between domains 
+% In other systems, however, linker regions can affect the stability, solubility, oligomeric state, and proteolytic resistance of the fused proteins
+% Thus, it is important that the length and amino acid composition of a potential linker is optimized in order to preserve the biological activity of the individual proteins in the fused complex.
+
+\subsubsection{Diseño negativo}
+\subsubsection{Linkers naturales}
+
+% El 'descubrimiento' de las regiones/secuencias linkers esta ligado a las teorias de structura-funcion(desarrolladas en la parte de conformacion) que se dieron durante casi 100 años
+% En un principio se comenzo a pensar en una estructura rigida asociada a la proteina, luego se fueron revelendo propiedades dinamicas que le permitian cumplir la funcion. 
+% Todo esto esta muy asociado a las tecnicas experimentales que se fueron desarrollando.
+Como se dijo antes, la modularidad en proteínas naturales es algo muy común y existen muchisimos ejemplos de proteinas multidominio compuestas de dos o mas dominios funcionales unidas por linkers.
+Estas secuencias linker sirven, principalmente para mantener unidos los distintos dominios, pero también proveen muchas otras funciones a la proteína como intervenires en las interacciones cooperativas entre los dominios o formar parte de la actividad biológoica de la proteína.
+% These linker peptides serve to connect the protein moieties, and also provide many other functions, such as maintaining cooperative inter-domain interactions [21] or preserving biological activity [22]. 
+% 
+% Los primeros estudios de analisis (estructura y composicion) de secuencias linkers\cite{argos1990investigation} se comenzaron a hacer a partir del analisis estadistico de secuencias que podian ser clasificadas 
+% como linkers a partir de las primeras estructuras de proteinas multidominio almacenadas en bases de datos.
+% % Estos estudios estaban sesgados por todo el proceso historico de descubrimiento marcado por 
+% Los resultados indicaban que la mayoria adquiría una conformación desplegada(tipo \textit{coil}) sin estructura secundaria. 
+% % many studies of linker peptides in various protein families have come to the conclusion that linkers lack regular secondary structure (la mayoria se encontraba en estructuraas tipo coil), 
+% % they display varying degrees of flexibility to match their particular biological purpose and are rich in Ala, Pro and charged residues
+% Asi surgio la idea que los linkers eran secuencias cortas cuya unica funcion era proveer la conexion covalente, lo que estaba de acuerdo con el concepto de hinge-bending.
+% Este concepto indicaba que la flexibilidad de estas regiones cortas dentro de un polipéptido permitía el suficiente movimiento a los dominios estructurales.
+% % The concept of hinge-bending, whereby the relative flexibility of these short regions of the polypeptide chain allows significant movement of structural domains, gained widespread acceptance in
+% % the 1980s and early 1990s, after evidence for conformational transitions in identical or homologous proteins became known.
+
+% It was discovered that hinge regions are soft-linker regions of localized torsion angle changes in
+% the polypeptide chain that allow the attached rigid
+% domains to pivot. The rotation axes of these torsion
+% angle changes are nearly parallel to the overall axis of
+% rotation, so the local motion in the hinges can be
+% directly related to the overall motion. A crucial feature
+% of the hinge residues is that they have very few packing
+% constraints on their main chain atoms.
+% 
+
+
+% A lo largo de los años los conocimientos sobre la composición y propiedades de estas secuencias ha ido cambiando, 
+% a medida que mayor cantidad de estructuras se resolvian y mayor conocimiento se obtenia acerca de los dominios que componen 
+% las proteinas. Tambien influyeron otras cosas como tecnicas biofisicas que permiten obtener información del ensamble conformacional en solución,
+% o algoritmos para automatizar la identificación de los dominios y las secuencias que actúan como linker en una proteina.
+% 
+
+% Although the role of linker sequences is likely to be primarily topological, allowing distant parts of the polypeptide chain to interact with diverse partner sequences that might be far apart or close together, 
+% linkers and unstructured tail sequences play quite specific roles in a number of systems.
+
+% Hoy en día solo se puede decir que, a pesar que la funcionalidad topológica(actuan como espaciadores entre los dominios de una proteina) es probablemente la más importante,
+% % Hoy en dia, solo se puede decir que los linkers naturales son secuencias que actuan como espaciadores entre los dominios de una proteina, de manera que se prevengan interacciones unfavourable between folding domains. 
+% % Esto solo se puede decir acerca de su definicion, ya que 
+% por encima de esto, existen distintas propiedades estructurales/funcionales que dependen de la función global de la proteína.
+
+
+En \cite{argos1990investigation,george2002analysis} se encuentran los análisis mas detallados donde se estudian las propiedades generales de secuencias linkers naturales
+En \cite{chen2013fusion} se revisan los resultados obtenidos en ambos con respecto a diversas propiedades como son longitud, hidrofobicidad, enriquecimiento de ciertos aminoacidos y estructura secundaria adoptada.
+% properties of the natural linkers, such as length, hydrophobicity, amino acid residues, and secondary structure were compared and the results are summarized in
+En cada proteina, la secuencia linker puede tener una estructura y una función que haya sido seleccionada para el mecanismo/localización/función de la proteina como un todo, 
+y esta función del linker puede no ser solamente la unión covalente de dos dominios. 
+% para proveer increased stability and new cooperative functions.
+% Por ejemplo, algunos linkers can play an essential role in maintaining cooperative inter-domain interactions
+De esta forma, es dificil hacer un analisis y una clasificación exhaustiva de todos los linkers.
+% Si se pueden agrupar algunos segun distintas caracteristicas funcionales, estructurales, etc.
+% En \cite{george2002analysis} se esboza una clasificación de los linkers de acuerdo al análisis de su estructura secundaria.
+% Se dividen, así, en dos categorías: helicoidales y no helicoidales.
+% Los linkers con estructuras de $\alpha$-hélice pueden tener funciones como, por ejemplo, actuar como espaciadores rígidos impidiendo interacciones no funcionales entre los dominios.
+% Aunque no sea exhaustiva, esta clasificación permite ver diferencias en los linkers también a nivel de estructura que adquieren, existiendo linkers que, a través de una mayor rigidez, impiden . 
+
+En general, se encontro que los linkers naturales adoptaban principalmente conformaciones desplegadas y tenían estructuras independientes sin interacciones con los dominios adyacentes.
+Todas las propiedades analizadas(longitud, composición, hidrofobicidad y estructura secundaria.) resultaron importantes para alcanzar las funciones deseadas.
+% Overall, natural linkers mainly adopted extended conformations, and had independent structures that did not interact with the adjacent protein domains. 
+% Taken together, their length, composition, hydrophobicity, and secondary structure were all important to achieve the desirable functions.
+En términos de estructura, por ejemplo, se encontraron tanto linkers flexibles como relativamente rígidos en muchas proteínas.
+A través de una mayor rigidez, ciertos linkers pueden ayudar a reducir interacciones no funcionales entre los dominios que unen. 
+Por otro lado, una estructura más flexible, como es usual para conformaciones extendidas, provee una mayor flexibilidad y libertad de movimiento a los dominios.
+% Both flexible and relatively rigid peptide linkers are found in many multidomain proteins. 
+
+
+
+% A FUTURO
+Con el incremento del número de estructuras almacenadas en la PDB que ocurrió en los últimos años, sería posible realizar un estudio actualizado de las propiedades de los linkers naturales.
+Además, sería interesante extender el número de propiedades analizadas agregando categorías asociadas a función y estructura de la proteína, e identificando la relación entre estas y las propiedades del linker.
+% With the rapid increase of the number of protein structures deposited in the PDB database, an updated study of natural linkers could be conducted. 
+% In addition to the properties analyzed in previous studies (e.g., amino acid composition, structure classification), 
+% it would be interesting to categorize the multi-domain proteins by their functions and structures, and identify the relationship between them and the linker properties
+
+
+% 
+% 
+% Based on From George and
+% Heringa’s secondary structure analysis, linkers were grouped into two categories: helical and
+% non-helical. The $\alpha$-helix was a rigid and stable structure, with intra-segment hydrogen bonds
+% and a closely packed backbone [28]. Some $\alpha$-helical conformations form rapidly during
+% folding [28], allowing the correct folding of connecting protein domains without non-native
+% interactions with the linker. Linkers in an $\alpha$-helix structure might also serve as rigid spacers
+% to effectively separate protein domains, and to reduce their unfavorable interactions.
+% Therefore, this conformation was commonly adopted by many natural and empirical linkers
+% (to be discussed later). On the other hand, without an inherent rigid structure, the non-helical
+% linkers tended to be rich in Pro, which could increase the stiffness of the linker as mentioned
+% previously [25]. As a result, non-helical linkers with Pro-rich sequence could exhibit
+% relatively rigid structures and serve to reduce inter-domain interference.
+% 
+% 
+% 
+% Both flexible and relatively rigid peptide linkers are found in many multidomain proteins. 
+% Linkers are thought to control favorable and unfavorable interactions between adjacent domains by means of variable softness
+% furnished by their primary sequence. Large-scale structural heterogeneity of multidomain proteins
+% and their complexes, facilitated by soft peptide linkers, is now seen as the norm rather than the
+% exception. Biophysical discoveries as well as computational algorithms and databases have
+% reshaped our understanding of the often spectacular biomolecular dynamics enabled by soft linkers.
+% Absence of such motion, as in so-called molecular rulers, also has desirable functional effects in
+% protein architecture.
+
+
+
+
+
+
+
+% 
+% 
+% \subsubsection{Molecular rulers}
+% These linkers are more defined by their ability to reliably predict and maintain end-to-end distances between attached domains. 
+% Such structurally rigid peptides have been conjugated to molecules to serve a metric function.
+% These linkers are rich in Proline. 
+% Proline is common to many naturally derived interdomain linkers, and structural studies indicate that proline-rich sequences form relatively rigid extended structures to prevent unfavorable interactions between the domains.
+% The probable reason why proline is favored over other residues in linking different domains is the inability of proline to donate hydrogen bonds or participate comfortably in any regular secondary structure conformation. This ensures a relatively rigid separation of the domains, thereby preventing unfavorable contacts between them.
+% 
+% Although short stretches of hard linker sequences are located between functionally relevant regions of protein structure, mutations within such sequences may have no effect on the function.  
+% Such linkers are therefore necessary to keep the other amino acid interactions in register, but the nature of the side chain is often unimportant.
+% 
+% The observed natural tendency to form rigid linkers might also
+% be related to avoiding proteolytic cleavage, as linkers are likely
+% targets for protease degradation
+% 
+% Linker
+% sequences vary greatly in length and composition, but
+% many are rich in polar, uncharged amino acids (such as
+% Ser, Thr, Gln and Asn), in the small residues Ala and Gly,
+% and in Pro residues. Many of these residues tend to bias
+% the polypeptide chain towards the polyproline-II region
+% of the RAMACHANDRAN PLOT 27,28 .This means that such
+% linkers, although flexible, have a propensity to be highly
+% extended. Compositionally biased linker sequences of
+% significant length are found mainly in eukaryotic pro-
+% teins 1,29 , but short linker sequences of similar composi-
+% tion, known as Q-linkers, are also found in a number of
+% bacterial regulatory proteins 30 .
+% In the absence of their targets, modular proteins
+% often behave as ‘beads on a flexible string’, where the
+% function of the linker is, primarily, to enable a relatively
+% unhindered spatial search by the attached domains 31 .
+% However, binding can induce structure formation in
+% linkers, which can have significant functional conse-
+% quences. For example, the sequence-specific binding of
+% CYS HIS ZINC-FINGER PROTEINS to DNA causes the linker to
+% fold, cap and thereby stabilize the preceding helix in the
+% protein, and to orientate the next zinc finger correctly
+% for binding in the major groove of DNA
+% 
+% 
+% 
+% %ESTUDIOS DE COMPOSICION, ETC....
+% 
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Diseño racional}
+
+
+Por lo tanto, con tantos requerimientos posibles y tan distintos, el problema del diseño de linkers puede llegar a ser un tema complejo.
+El problema del diseño del diseño racional es, entonces, un proceso complicado.
+Las propiedades generales de los linkers naturales encontrados en proteínas multi-dominio pueden considerarse como un primer paso hacia el proceso de diseño.
+% The general properties of linkers derived from naturally-occurring multi-domain proteins(que se vieron en la seccion anterior) can be considered as the foundation in linker design. 
+% USO DE LINKERS NATURALES
+% Una de las principales opciones que se ha usado historicamente es utilizar linkers extraidos de secuencias naturales conocidas.
+% 
+% Dentro del panorama de linkers naturales, algunos muy comunes son los linkers ricos en gly, que se caracterizan por su gran flexibilidad.
+% Estos linkers, quizas hayan sido los primeros que se han utilizado historicamente.
+% Sin embargo...
+% Naturally occurring Gly-rich linkers exist in many proteins and, aside from linking domains, they are known to have a functional role in the protein. 
+% Si se usan este tipo de linkers en proteinas artificiales se corre el riesgo q tengan estas funcionalidades naturalmente
+% Ejemplos: 
+% -Crystal structure analysis of the human PAX6 PD-DNA complex revealed that the extended linker makes minor groove contacts with the DNA. 
+% -In transmembrane glycoproteins (TMs) of retroviruses, important functional roles are also carried out by the linkers, which mediate membrane fusion through an N-terminal
+% fusion peptide. The fusion peptide is linked to the central coiled-coil core through Gly-rich linkers.
+
+Los estudios realizados sobre linkers naturales(mencionados en la sección anterior) abrieron la posibilidad de crear bases de datos conteniendo las secuencias encontradas y sus propiedades asociadas.
+Asociados a estas bases de datos, se han desarrollado distintos métodos que permiten extraer  ,  que simula un mecanismo de diseño.
+% The extensive studies about linkers in natural multi-domain proteins and recombinant fusion proteins fostered the idea of building databases and coming up with linker (designing??) tools 
+% to aid the (rational???) design of linkers based on the desired characteristics of fusion proteins.
+% Es decir, actualmente la metodologia esta centrada en crear bases de datos de linkers y hacer consultas sobre esta en base a las propiedades que se buscan.
+
+Los resultados del estudio desarrollado en \cite{george2002analysis} son el primer ejemplo de este tipo de metodologías.
+% An example of this type of tools was developed during the analysis of a protein dataset to obtain information about linker sequences 
+En este trabajo se estudian diversos aspectos asociados a los linkers y se desarrolla una base de datos asociada a un algoritmo de búsqueda que puede ser utilizado mediante un servidor web\cite{linkerdbIBIVU}.
+El algoritmo implementado acepta distintos parámetros de búsqueda tales como longitud del linker, accesibilidad del solvente, estructura secundaria adoptada, similitud secuencial con una secuencia input, etc.
+% The search algorithm accepts several query types (eg, PDB code, PDB header, linker length, C-alpha extent, solvent accessibility, secondary structure or sequence). 
+El programa devuelve las secuencias linker que contienen los criterios solicitados y, además, provee información del contexto en el que se encuentra el linker, con información del ID en PDB, descripciones de la proteína, etc. 
+de forma que el usuario pueda inferir otras propiedades del linker que no pueden ser extraídas automáticamente.
+% The program can provide the linkers sequences meeting the searching criteria, and also provide other information such as the PDB code and a brief description of the source protein, 
+% linker’s position within the source protein, linker length, solvent accessibility, and secondary structure. 
+% Users can search for sequences with desired properties, and obtain candidate sequences from natural multi-domain proteins.
+
+Un ejemplo más reciene de este tipo de aproximación mediante bases de datos da origen a la herramienta LINKER \cite{crasto2000linker,xue2004linker}.
+% A more recent example of this type of tool is a program called LINKER 
+Al margen de la falta de creatividad en el nombre de la aplicación, esta posee un método de búsqueda que brinda una gran cantidad de opciones al usuario incluyendo aspectos experimentales como la sensibilidad a la actividad de proteasas.
+% which searches its database of linker sequences with user-specified inputs (e.g., linker length, protease sensitive sequences to be avoided), and generates an output of several linker sequences that fit the criteria.
+
+A pesar que las bases de datos no proveen una solución total al problema de diseño, la construcción de estas y los métodos de búsqueda asociados 
+ayuda a la utilización de los conocimientos adquiridos a partir de estudios sobre secuencias naturales.
+% building an empirical linker database could help summarize the knowledge and facilitate the future linker design.
+% The extensive studies on the structures of empirical linkers have provided us with useful information for optimal linker design. 
+El desarrollo de métodos de búsqueda más abarcativos junto con nuevos estudios para encontrar secuencias linker naturales podría generar un avance en este tipo de metodologías.
+% Ultimately, more searching algorithms for linker databases could be developed, and provide more linker candidates for protein fusion based on user specifications.
+% Lo bueno de las BBDD es que los elementos que contienen suelen haber sido probados experimentalmente, lo cual es fundamental.
+
+
+
+
+% REUTILIZACION DE LINKERS EMPIRICOS
+% Además de la utilización de linkers naturales, una opción común es reutilizar linkers ya utilizados empíricamente, 
+La opciones actuales del diseño de linkers se basan, generalmente,  en reutilizar secuencias ya evaluadas empíricamente, buscando la que más se adapte a nuestros requerimientos. 
+Muchas de estas secuencias son linkers naturales y otros han sido modificados especificamente en cada caso por procesos de ingeniria.
+% Linker engineering, with the aim to control the distance, orientation, and relative motion of two functional domains, will increase in importance with increasing emphasis on the de novo design of multi-domain proteins.
+En \cite{chen2013fusion} se hace un análisis de los linkers empíricos más usados para creación de proteínas quiméricas y que pueden encontrarse en literatura.
+A partir de esta recopilación se intenta hacer una clasificación general que resulta en 3 categorias:
+linkers flexibles, linkers rígidos, y linkers que pueden experimentar clivaje \textit{in-vivo}. 
+Como se puede ver, esta clasificación esta basada, principalmente, en propiedades estructurales/conformacionales. 
+Para obtener secuencias que posean otras propiedades de interés deberán analizarse cada uno de los linkers que se detallan en este trabajo.
+
+
+
+El diseño racional de linkers, sin embargo, está aún en los principios del desarrollo. 
+% Although many examples of various types of linkers have been developed in the past, the rational design of linkers for the construction of fusion proteins is still in its infancy. 
+Existen pocos ejemplos concretos donde se haya utilizado una aproximación racional para el diseño de linkers \cite{arai2001design,arai2004conformations}.
+Los estudios detallados de la composición, estructura y función de linkers naturales son un claro punto de inicio.
+Con el rápido incremento de los conocimientos sobre la secuencia y estructuras de proteínas, nuevos estudios podrían aportar conocimientos relevantes en esta dirección.
+Sin embargo no hay indicios sobre posibles desarrollos orientados a obtener un método sistemático para el diseño racional.  
+% Systematic, strategic scientific endeavors are in demand to greatly advance the science of linker design and application.
+% Many technology platforms may be investigated in more depth towards understanding the connection between linker composition and structure, and ultimately tie them to linker function.
+% The study of linker composition and structure, and the investigation of linker function should go hand in hand when designing a novel linker.
+% With the rapid increase of the number of protein structures deposited in the PDB database, an updated study of natural linkers could be conducted.
+% The establishment of more databases and searching programs for linkers would be another fruitful direction. 
+% As discussed earlier, only two studies have been performed to analyze the characteristics of the linkers in natural multi-domain proteins.
+% ESTO ESTA CASI IGUAL EN LA SECCION ANTERIOR
+
+% The extensive studies on the structures of empirical linkers have provided us with useful information for optimal linker design. 
+% Ultimately, more searching algorithms for linker databases could be developed, and provide more linker candidates for protein fusion based on user specifications.
+
+
+% %  ***************   RESUMEN DE LO QUE VIENE **********
+% In summary, linkers can adopt various structures and exert diverse functions to fulfill the  application of fusion proteins (Table 2). The flexible linkers are often rich in small or hydrophilic amino acids such as Gly or Ser to provide the structural flexibility and have  been applied to connect functional domains that favor interdomain interactions or
+% movements. In cases where sufficient separation of protein domains is required, rigid linkers may be preferable. By adopting α-helical structures or incorporating Pro, the rigid linkers can efficiently keep protein moieties at a distance. Both flexible and rigid linkers are stable in vivo, and do not allow the separation of joined proteins. Cleavable linkers, on the other
+% hand, permit the release of free functional domain in vivo via reduction or proteolytic cleavage. They can be utilized to improve the bioactivity of chimeric proteins, or to  specifically deliver prodrugs to target sites where the linkers are processed to activate bioactivity. The rational choice of linkers should be based on the properties of the linkers
+% and the desired fusion proteins.
+
+% 
+% % FLEXIBLE LINKERS
+% Flexible linkers are usually applied when the joined domains require a certain degree of movement or interaction. They are generally composed of small, non-polar (e.g. Gly) or polar (e.g. Ser or Thr) amino acids
+% Este tipo de polipeptidos do not affect the function of the individual proteins to which they attach. 
+% 
+% The small size of these amino acids provides flexibility, and allows for mobility of the connecting functional domains. 
+% The incorporation of Ser or Thr can maintain the stability of the linker in aqueous solutions by forming hydrogen bonds with the water molecules, and therefore reduces the unfavorable interaction between the linker and the protein moieties.
+% The most commonly used flexible linkers have sequences consisting primarily of stretches of Gly and Ser residues (“GS” linker). 
+% By adjusting the copy number “n”, the length of this GS linker can be optimized to achieve appropriate separation of the functional domains, or to maintain necessary inter-domain interactions.
+% The loop length created by the linker can have a profound effect on the action of the linker in the fused complex
+% 
+% Many other flexible linkers have been designed for recombinant fusion proteins. As suggested by Argos [23], these flexible linkers are also rich in small or polar amino acids such as Gly and Ser, but can contain additional amino acids such as Thr and Ala to maintain flexibility, as
+% well as polar amino acids such as Lys and Glu to improve solubility.
+% 
+% 
+% 
+% % LINKERS RIGIDOS (MOLECULAR RULERS)
+% While flexible linkers have the advantage to connect the functional domains passively and
+% permitting certain degree of movements, the lack of rigidity of these linkers can be a
+% limitation. There are several examples in the literature where the use of flexible linkers
+% resulted in poor expression yields or loss of biological activity.
+% 
+% The ineffectiveness of flexible linkers in these
+% instances was attributed to an inefficient separation of the protein domains or insufficient
+% reduction of their interference with each other. Under these situations, rigid linkers have
+% been successfully applied to keep a fixed distance between the domains and to maintain their
+% independent functions
+% 
+% The major concern in the design of a molecular ruler is the possibility of softening and structural failure that arises when the ruler is unable to provide a predictable separation distance between its bound
+% moieties. An adequate cushion distance is often required when designing the linkers.
+% 
+% Alpha helix-forming linkers with the sequence of (EAAAK) n have been applied to the
+% construction of many recombinant fusion proteins [18, 20]. As suggested by George and
+% Heringa [24], many natural linkers exhibited $\alpha$-helical structures. The $\alpha$-helical structure
+% was rigid and stable, with intra-segment hydrogen bonds and a closely packed backbone
+% [28]. Therefore, the stiff $\alpha$-helical linkers may act as rigid spacers between protein domains.
+% 
+% 
+% Another type of rigid linkers has a Pro-rich sequence, (XP) n , with X designating any amino
+% acid, preferably Ala, Lys, or Glu. As suggested by George and Heringa [24], the presence of
+% Pro in non-helical linkers can increase the stiffness, and allows for effective separation of
+% the protein domains. The structure of proline-rich sequences was extensively investigated by
+% several groups
+% 
+% Un ejemplo interesante, relacionado con la aplicacion que motivó este trabajo(FRET) se puede ver en (ref Design of the linkers which effectively separate domains of a bifunctional fusion protein - Ryoichi Arai,): 
+% En este trabajo.....
+% An empirical rigid linker with the sequence of A(EAAAK) n A (n = 2-5) was first designed.
+% The linker displayed  $\alpha$-helical conformation, which was stabilized by
+% the Glu Lys salt bridges within segments. To test whether they could effectively separate
+% the protein domains, these helical linkers were inserted between enhanced blue fluorescent
+% protein (EBFP) and enhanced green fluorescent protein (EGFP), and the fluorescent
+% resonance energy transfer (FRET) efficiency between EBFP and EGFP was measured [34].
+% The FRET efficiency decreased as the length of helical peptides increased, indicating that
+% helical linkers can control the distance between domains by changing repetitions of the
+% EAAAK motif. Compared to flexible linkers with the same length, the helical linkers
+% induced much less FRET efficiency when inserted into EBFP-EGFP fusion proteins,
+% suggesting that helical linkers can separate functional domains more effectively.
+% 
+% 
+% % IN-VIVO CLEAVABLE LINKERS
+% Under these circumstances, cleavable linkers are introduced to release free functional
+% domains in vivo . The design of in vivo cleavable linker in recombinant fusion proteins is
+% quite challenging. Unlike the versatility of crosslinking agents available for chemical
+% conjugation methods, linkers in recombinant fusion proteins are required to be
+% oligopeptides. The linkers introduced in this section take advantage of the unique in vivo
+% processes, and are cleaved under specific conditions such as the presence of reducing
+% reagents or proteases. This type of linker may reduce steric hindrance, improve bioactivity,
+% or achieve independent actions/metabolism of individual domains of recombinant fusion
+% proteins after linker cleavage
+% 
+
+
+
