@@ -58,6 +58,9 @@ Finalmente, el capítulo \ref{conclusiones} contiene las discusiones relevantes,
 
 \subsection{Definición inicial de una proteína}
 
+A pesar que todas las proteínas en la célula se originan de la misma forma en el momento de la síntesis en el ribosoma, debido a los diferentes caminos que puede tomar en el contexto celular,
+una proteína puede llegar a encontrarse en situaciones muy distintas en la celula y cumpliendo roles muy diversos.
+Para definir una proteína en términos biológicos se debe describir, entonces, las diferentes estados que puede poblar en la célula los cuales, además, pueden variar con el tiempo y el contexto celular.
 
 En la sección previa formamos la idea que un polipéptido puede adoptar un continuo conformacional de estructuras nativas las cuales, a su vez, pueden intercambiarse en el tiempo.
 Desde el comienzo de esta sección se vió que el proceso para alcanzar estos estados nativos no es tan directo ni mucho menos simple, por lo tanto, se pueden llegar a caminos alternativos. 
@@ -118,93 +121,132 @@ Se identifican otro tipo de módulos, por ejemplo motivos que pueden estar en cu
 \end{figure}
 
 
+
+
+
+
+
+
+
+
+
+
 \subsection{Módulos proteicos}
 \subsubsection{Proteínas globulares}
-% ESTRUCTURA
 
-Las primeras proteínas estudiadas poseían una tendencia intrínseca a plegarse espontáneamente para dar una única estructura tridimensional.
-Los estudios estructurales sobre estas proteinas indicaban que la información requerida para adoptar esta estructura única estaba codificada en su secuencia primaria y que, además, se correspondia con un mínimo global sobre el
-perfil de energía libre asociado al polipéptido.  
-% Much research has been carried out since then into the mechanism of folding, both under carefully controlled conditions in the laboratory and within cellular environments
-La secuencia de aminoácidos determina una única estructura resultante, conocida como estructura nativa, la cual debería conferirle la función propia a la proteína.
-% Comenzaron a surgir, entonces, distintos modelos para explicar cómo la estructura tridimensional confería las propiedades necesarias para  
+% ESTRUCTURA
+Las proteínas globulares son los compuestos proteicos más estudiados. En términos generales, estas proteínas se caracterizan por adoptar en condiciones nativas una conformación plegada compacta, 
+dándole un aspecto globular y haciéndola soluble en el medio acuoso de la célula.
+
+El hecho que sean, probablemente, las proteínas más estudiadas tiene que ver con todas estas propiedades estructurales básicas, 
+al ser solubles y con una estructura determinada y relativamente estable, fueron las primeras que pudieron ser cristalizadas.
+La anotación de las estructuras que se resolvían permitió conocer mas sobre las propiedades estructurales las cuales muestran, en términos generales, que la secuencia adopta una gran cantidad de estructuras secundarias junto con regiones
+que, al parecer, no tienen una estructura determinada.
+Las estructuras secundarias se unen mediante interacciones hidrofóbicas entre las cadenas laterales apolares, por puentes de hidrógeno y a través de interacciones iónicas entre aminoácidos cargados, dando lugar
+a la estructura compacta del plegamiento globular. Por lo tanto, el plegamiento adoptado por las estructuras secundarias(estructura terciaria) está intimamente asociado a las propiedades fisicoquímicas de la secuencia, 
+donde los aminoácidos más hidrofóbicos quedan alojados principalmente en el interior del plegamiento, formando un núcleo hidrofóbico, y la superficie globular tiene mayoría de residuos polares, 
+lo que le da la solubilidad característica en el entorno celular. 
+
+La estructura globular puede estar conformada por más de una cadena polipeptídica. En este caso, las diferentes subunidades se unen mediante las mismas interacciones que generan el plegamiento en una cadena, así, 
+el plegamiento individual de una cadena puede contener aminoácidos con cadena lateral apolar en alguna región de su superficie, pero esta se complementa con la superficie hidrofóbica de otra cadena cuya interacción mantiene la estructura 
+global del complejo.
+
+
+% ASPECTOS ENERGÉTICOS, TERMODINAMICA Y PROCESO DE PLEGAMIENTO
+Todas estas propiedades secuenciales diferenciales a lo largo de la estructura se asocian con el paradigma clásico de la biología estructural, el cual afirma que la secuencia primaria de una proteína 
+contiene la codificación para que esta se pliegue adoptando una estructura tridimensional determinada y que, además, la conformación final se corresponde con un mínimo global sobre el perfil de energía libre asociado al polipéptido.  
+Esta paradigma se deriva directamente al encontrar que al menos las proteínas pequeñas poseen una tendencia intrínseca a plegarse espontáneamente para dar una única estructura tridimensional.
+Los detalles de este proceso de plegamiento, es decir, la forma en que el polipéptido sintetizado por el ribosoma recorre la superficie energética para alcanzar el estado plegado, ha inspirado una gran cantidad de estudios 
+aunque aún hoy no se conoce en detalle el mecanismo subyacente.
+
+% AGREGAR FIGURA DE SUPERFICIE ENERGÉTICA DEL PLEGAMIENTO
+
+
+
+% PARADIGMA ESTRUCTURA FUNCION
+El paradigma estructura-función original afirmaba que la función específica de una proteína está determinada por su estructura tridimensional, la cual es única y rígida. 
+El origen de este paradigma es el modelo de llave-cerradura propuesto por Emil Fisher el 1894. 
+El modelo nace de la necesidad por explicar la especificidad encontrada en el funcionamiento de diversas enzimas similares por sus correspondientes sustratos. 
+La hipótesis utilizada para explicar esto era que la estructura de la proteína(en este caso la enzima) era perfectamente complementaria a la del sustrato correspondiente, en un sistema similar al de una llave en una cerradura.
+Este paradigma extiende los conocimientos vistos previamente acerca de que la secuencia de la proteína tiene codificada la información necesaria para plegarse espontáneamente luego de ser sintetizada en la célula,
+alcanzando esta estructura nativa asociada a la función.
+Por un largo período de tiempo, entonces, el modelo de llave-cerradura y el paradigma asociado de secuencia-estructura-función se mantuvieron como teorías aceptadas, confirmadas continuamente por la
+gran diversidad de estructuras que se resolvieron mediante difracción con rayos X. 
+La capacidad de asociar una estructura única, encontrada en el cristal, con la función observada de la proteína en solución reforzaba la idea de una estructura estática asociada a las proteínas
+
+Contrario a este modelo, en 1894 Koshlan sugiere el modelo de encaje inducido, basado en observaciones de enzimas que podían aceptar 
+ligandos con diferentes estructuras y, por lo tanto, la proteína debía poseer cierta flexibilidad que le permitiera esta función.
+Siguientes evidencias mostraron que esta flexibilidad era parte del mecanismo funcional y que podía implicar cambios conformacionales que van desde variaciones en rotámeros de las cadenas laterales hasta 
+reordenamientos conformacionales muy relevantes(por ej. en proteínas alostéricas).
+Estas variaciones podian aún ser interpretadas dentro del modelo establecido por el paradigma estructura-función, el cual fue levemente adaptado.
+El requerimiento necesario para que la proteína cumpla su función era, entonces, una estructura definida, aunque dinámica. 
+
 Por un tiempo todo pareció indicar(y la mayoría creyó) que una estructura definida, aunque dinámica, era la base del mecanismo funcional.
 
-El paradigma clásico de la biología estructural afirma que la secuencia primaria de una proteína contiene la codificación para que esta adopte una estructura definida única.
+% Comenzaron a surgir, entonces, distintos modelos para explicar cómo la estructura tridimensional confería las propiedades necesarias para  
 Si bien esta idea es una simplificación, dado que aún las proteínas mas estables son sistemas dinámicos con distintos grados de flexiblidad, este modelo se adapta a una gran cantidad de proteínas.
 En éstas, el ensamble conformado por los estados accesibles en condiciones fisiológicas está limitado a un conjunto de estructuras que solo difieren en leves desviaciones del promedio del ensamble.
 La dinámica de estas estructuras está dada por movimientos que van desde fluctuaciones rápidas de pequeña amplitud(del orden de \AA) hasta cambios relativamente lentos($\mu$s - $s$) que 
 involucran modificaciones estructurales relevantes(plegamiento y movimientos asociados a la función).
 
 Todos los movimientos son resultantes de rupturas y formaciones de interacciones provocadas por fuerzas de interacción las cuales, debido a su naturaleza débil, pueden romperse por efecto de la energía térmica, aún a temperatura ambiente.
-Por lo tanto, a pesar de que estas proteínas puedan ser asociadas con estructuras estáticas definidas, las más mínimas fluctuaciones térmicas de la temperatura ambiente les permite explorar distintas conformaciones como parte de su actividad biológica.
+Por lo tanto, a pesar de que estas proteínas puedan ser asociadas con estructuras estáticas definidas, las más mínimas fluctuaciones térmicas de la temperatura ambiente les permite 
+explorar distintas conformaciones como parte de su actividad biológica.
 En general, todos estos movimientos están asociados al mecanismos por el cual ejercen su función.
-El conjunto de proteínas que posee estas características estructurales son las que denominamos plegadas y, debido a esta misma propiedad de poseer ensambles conformacionales con poca variabilidad, sus estructuras fueron las primeras que pudieron ser resueltas con precisión. 
 
-
-% PROPIEDADES SECUENCIALES
-
-
-% PARADIGMA ESTRUCTURA-FUNCION TRADICIONAL 
-El paradigma estructura-función original afirmaba que la función específica de una proteína está determinada por su estructura tridimensional, la cual es única y rígida. 
-% The structure-function paradigm claims that a specific function of a protein is determined by its unique and rigid three-dimensional (3D) structure. 
-% Thus, following its biosynthesis on the ribosome, a protein must fold to a native, defined 3D structure to be functional. 
-% One of the bestunderstood functions of proteins is catalysis (i.e., enzymatic activity), which attracted much attention in the early days of protein science and led to the elaboration of the “lock and key” model by Fisher. 
-% En este caso(enzimas) la proteina provee un scaffold para el sitio activo, 
-% Central to this model is the notion that the correct shape of the substrate can fit into the active site of the enzyme for enabling an efficient and specific catalysis,
-El origen de este paradigma es el modelo de llave-cerradura propuesto por Emil Fisher el 1894. E
-l modelo nace de la necesidad por explicar la especificidad encontrada en el funcionamiento de diversas enzimas similares por sus correspondientes sustratos. 
-% The primary origin of this structure-function paradigm is the “lock and key” hypothesis formulated in 1894 by Emil Fischer to explain the astonishing specificity of the enzymatic hydrolysis of glucoside multimers by different types
-% of similar enzymes. 
-La hipótesis utilizada para explicar esto era que la estructura de la proteína(en este caso la enzima) era perfectamente complementaria a la del sustrato correspondiente, en un sistema similar al de una llave en una cerradura.
-Este paradigma extiende los conocimientos vistos previamente acerca de que la secuencia de la proteína tiene codificada la información necesaria para plegarse espontáneamente luego de ser sintetizada en la célula,
-alcanzando esta estructura nativa asociada a la función.
-Por un largo período de tiempo, entonces, el modelo de llave-cerradura y el paradigma asociado de secuencia-estructura-función se mantuvieron como teorías aceptadas, confirmadas continuamente por la
-gran diversidad de estructuras que se resolvieron mediante difracción con rayos X. 
-% For a long period of time, the validity of “lock and key” model and its associated sequence-structure-function paradigm was unquestioned, especially after the crystal structures of proteins started to be solved by X-ray diffraction
-% Este paradigma se deriva de los primeros avances en el estudio de estructuras de proteinas. 
-% Over the past century evidence steadily accumulated that a well-defined structure is the prerequisite of protein function.
-% Basic biology and biochemistry textbooks that explain biological phenomena at the molecular level exquisitely rely on this notion, the ‘structure–function paradigm’.
-La capacidad de asociar una estructura única, encontrada en el cristal, con la función observada de la proteína en solución reforzaba la idea de una estructura estática asociada a las proteínas
-% The explanatory power of these 3-D structures continued to reinforce the static view of protein
-
-% Throughout the 20th century, tens of thousands of structures have been solved and deposited in the Protein Data Bank (PDB), supporting again the necessity of a 3-D structure for functionality.
-% that remained unquestioned.
-Contrario a este modelo, en 1894 Koshlan sugiere el modelo de encaje inducido, basado en observaciones de enzimas que podían aceptar 
-ligandos con diferentes estructuras y, por lo tanto, la proteína debía poseer cierta flexibilidad que le permitiera esta función.
-% In contrast to this view, already in 1958 Koshland suggested the “induced-fit” model based on the observations that some enzymes could act on
-% differently shaped substrates and hence a degree of flexibility is inevitable in function. 
-Siguientes evidencias mostraron que esta flexibilidad era parte del mecanismo funcional y que podía implicar cambios conformacionales que van desde variaciones en rotámeros de las cadenas laterales hasta 
-reordenamientos conformacionales muy relevantes(por ej. en proteínas alostéricas).
-% A pesar de este reconocimiento de la dinamica para la funcion biologica, con 
-Estas variaciones podian aún ser interpretadas dentro del modelo establecido por el paradigma estructura-función, el cual fue levemente adaptado.
-El requerimiento necesario para que la proteína cumpla su función era, entonces, una estructura definida, aunque dinámica. 
-% A well-folded, albeit dynamic, structure was thought to be the hallmark of protein function.
-
-Como vimos en las secciones previas, las proteínas que se adaptan a esta descripción son proteínas plegadas y la estructura resultante que se observa de la cristalización es, en realidad, un promedio del ensamble de conformaciones.
-% In general, such proteins are categorized as being "folded", and for these proteins(como se vio al inicio de la seccion de conformaciones), 
-% structures determined by experimental methods such as X-ray crystallography correspond to the ensemble-averaged structures.
+La estructura resultante que se observa de la cristalización es, en realidad, un promedio del ensamble de conformaciones.
 Como este ensemble de conformaciones es relativamente pequeño, con estructuras que varían poco respecto al promedio observado, es posible inferir información funcional a partir de la estructura promedio observada en la cristalización.
-% Since the folded ensemble contains structures that have only small deviations from the ensemble average structure, 
-% the ensemble average itself captures many important features of the protein's structure, and many insights into a protein's function can be garnered from this
-% ensemble average structure
-% Es decir, dado que en dominios globulares la estructura esta definida(podemos obtener un ensemble avarage) y esta asociada a la funcion que desarrolla la proteina, 
-% esta estructura puede ser usada para clasificacion y para inferir la funcionalidad en nuevas proteinas.
+Es decir, dado que en dominios globulares la estructura esta definida(podemos obtener un promedio del ensemble) y esta asociada a la función/actividad que desarrolla la proteina, 
+esta estructura puede ser usada para clasificación y para inferir la funcionalidad en nuevas proteinas.
 % Estos dominios globulares pueden ser identificados y asociados a una funcion individual o a una funcion dentro de la funcion global de la proteina.
-% PFAM, SCOP
-% ACA IRIA LO DE SCOP
-% Los análisis de estructuras existentes permiten la clasificación y anotación de éstas en bases de datos: ej. SCOP
-El paradigma secuencia-estructura-función permite extender este concepto a la estructura primaria de la proteína.
-Dado que la estructura asociada a la función debe ser mantenida evolutivamente para continuar cumpliendo la función, los requerimientos estructurales(y funcionales) imponen ciertas restricciones sobre la evolución de la secuencia.
-Por lo tanto, la similitud secuencial también permite inferir propiedades funcionales. Esto facilita la anotación de elementos funcionales en secuencias nuevas, aún cuando no se conoce su estructura.
+
+% CONCEPTOS EVOLUTIVOS DE LA ESTRUCTURA / SECUENCIA
+Los análisis de estructuras existentes asociadas a proteínas globulares permitieron encontrar que casi todas las proteínas presentaban similitudes estructurales 
+Las combinaciones de estructuras secundarias que daban lugar al plegamiento podían agruparse, entonces, en conjuntos de arquitecturas globales de la proteína que permite
+clasificar y anotar las proteínas de acuerdo a estas arquitecturas resultantes.
+El resultado de esto es, por ejemplo, las base de datos
+SCOP y CATH, las cuales se basan en la topología emergente de la combinación de estructuras secundarias propia de la proteína para armar clasificaciones jerárquicas de la arquitectura.
+
+En el nivel más bajo de la clasificación se encuentran estructuras con gran similitud entre si, indicativo de un ancestro en común y agrupadas generalmente por funciones idénticas o similares.
+Esta agrupación en ``familias'' con alta  es posible porque, aún cuando la secuencia pueda sufrir mutaciones, la estructura debe conservarse para mantener la funcionalidad.
+% El paradigma secuencia-estructura-función permite extender este concepto a la estructura primaria de la proteína.
+Dado que la estructura asociada a la función debe ser mantenida evolutivamente para continuar cumpliendo la función, 
+tanto la estructura como el proceso de plegamiento que requiere ésta, imponen un conjunto de restricciones sobre la evolución de la secuencia. 
+Por lo tanto, la similitud secuencial también permite inferir propiedades funcionales. 
+Esto facilita la anotación de elementos funcionales en secuencias nuevas, aún cuando no se conoce su estructura.
 % Incluso cuando ....The sequences diverge, but the overall domain architecture remains the same.
 % Particular domains and domain architectures are well conserved over the course of evolution. 
 
-% HASTA ACA DEBERIA HABER DEFINIDO TODOS LO QUE RESPECTA A ESTRUCTURA-FUNCION EN DOMINIOS GLOBULARES
+
+
 
 
 
 % ACTIVIDADES
+La funcionalidad de las proteínas globulares depende directamente de la estrucura tridimensional dinámica
+– Flexibilidad
+• No son estructuras rígidas
+• Su flexibilidad depende de un gran número de enlaces débiles
+– Cambios conformacionales
+• Son pequeñas variaciones de su estructura terciaria
+• Sirven para regular su actividad
+– Interacciones
+• Unión reversible de ligandos
+• Interacciones reversibles proteína-proteína
+• Se llevan a cabo mediante enlaces débile
+
+En general, las funciones más estudiadas están asociadas con actividades enzimáticas.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -219,7 +261,7 @@ pero se mantienen en constante interacción con la membrana mediante distintos m
 Algunas interaccionan indirectamente mediante la unión a proteinas integrales de membrana, otras lo hacen a través de la interacción con los grupos polares que componen las cabezas de los fosfolípidos en la membrana. 
 Otro conjunto de proteína periféricas atraviesan procesos de modificaciones post-traduccionales que las unen covalentemente a cadenas carbonadas, las cuales pueden insertarse en el núcleo hidrofóbico y
 asi mantener a la proteína en constante interacción con la membrana.
-
+En general, esta clase de proteínas tiene actividades biológicas asociadas a la unión a la membrana, por ejemplo transducción de señales extracelulares, están involucradas en la cadena de transporte de electrones, etc.
 
 % ESTRUCTURA
 El otro conjunto de proteínas de membrana son las proteínas integrales(o intrínsecas) tienen uno o mas segmentos insertos en la bicapa lipídica.
@@ -227,58 +269,86 @@ En la mayoria, la región insertada atraviesa la membrana (proteínas transmembr
 A partir de estos conceptos generales se puede deducir que esta clase de proteínas tendrá una arquitectura/topología particular, donde 
 
 Los segmentos que atraviesan permiten hacer una nueva clasificación por si mismos, así, las proteínas transmembrana se pueden agrupar en dos conjuntos según la estructura que les permite atravesar el núcleo hidrofóbico.
-Un primer conjunto de proteínas, las porinas, contienen una estructura característica compuesta por henras-$\beta$ en una conformación característica con forma de barril que atraviesa la membrana, formando una expansión similar a un poro.
+Un primer conjunto de proteínas, las porinas, contienen una estructura característica compuesta por hebras-$\beta$ en una conformación característica con forma de barril que atraviesa la membrana, formando una expansión similar a un poro.
 Los aminoácidos de la secuencia son generalmente polares pero, a diferencia de las proteínas globulares típicas, los grupos laterales que están en contacto con la cara externa del barril son hidrofóbicos, y son los que están en contacto con 
 los grupos lipídicos, mientras que las cadenas laterales hidrofílicas se encuentran mirando hacia el interior del poro.
 La actividad biológica de estas proteínas se deriva directamente de esta estructura, las porinas forman canales en la membrana a través de los cuales distintos metabolitos solubles en agua pueden atravesarla. 
 
-El otro conjunto está dado por aquellas proteínas que contienen hélices-$\alpha$ atravesando la membrana. 
+El otro conjunto está dado por aquellas proteínas que contienen hélices-$\alpha$ atravesando una o mas veces la membrana. 
+Esta estructura secundaria es la más común entre los segmentos transmembrana ya que permite permite satisfacer todos los puentes de hidrógeno caracterísicos de la estructura carbonada de
+the helical structure can satisfy all backbone hydrogen-bonds internally, 
+sin dejar grupos polares expuestos hacia fuera de la hélice, y por lo tanto, en contacto con el núcleo hidrofóbico de la membrana
+
+Estos dominios transmembrana tienen, por lo tanto, propiedades secuenciales particulares caracterizadas por aminoácidos con cadenas laterales hidrofóbicas que les permiten interaccionar con el núcleo de la membrana.
+% y, generalmente, también con los grupos polares en las superficies de ésta.
+Un ejemplo común de este tipo de proteínas es la glicoforina, que contiene un segmento con estructura de hélice-$\alpha$ compuesto totalmente de residuos hidrifóbicos. 
+Esta hélice hidrofóbica está, además, rodeada por segmentos flanqueantes conteniendo aminoácidos cargados que interaccionan con las cabezas polares de los fosfolípidos y previenen que la proteína se deslice,
+manteniéndola inserta en la membrana.
+% Las propiedades hidrofóbicas de su superficie, la flexibilidad que poseen en sus estructuras de forma aislada(no insertadas en la membrana) y los bajos niveles de expresión hacen que sean difíciles de cristalizar.
+% Por lo tanto, el estudio de sus estructuras siempre estuvo retrasado con respecto al de las proteínas globulares.
+Dentro de este último conjunto existe una gran cantidad de proteínas que contienen múltiples hélices-$\alpha$ transmembrana. Estás proteínas generalmente están conformadas de 2 hélices(formando una estructura tipo coiled-coil)
+o 7 hélices(en un arreglo característico de proteínas como la rodopsina).
+
+Estas particularidades en la secuencia permiten distinguirlas fácilmente de, por ejemplo, las proteínas globulares. 
+Además, a partir de estos módulos transmembrana y extra/intra celulares se pueden clasificar estas proteínas según la arquitectura o topología global, de acuerdo al número y tipo de segmentos transmembrana, etc.
 
 
-Las propiedades hidrofóbicas de su superficie, la flexibilidad que poseen en sus estructuras de forma aislada(no insertadas en la membrana) y los bajos niveles de expresión hacen que sean difíciles de cristalizar.
-Por lo tanto, el estudio de sus estructuras siempre estuvo retrasado con respecto al de las proteínas globulares.
 
 
-% PROPIEDADES SECUENCIALES
 
 
-% ACTIVIDADES
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsubsection{Proteínas intrínsecamente desordenadas}
-% ESTRUCTURA
-
-No se puede pensar, sin embargo, que todas las proteínas tendrán esta conformación plegada.
-Incluso entre las estructuras almacenadas en la PDB, no todas las proteínas muestran una conformación definida a lo largo de toda su secuencia, es así que muchas proteínas contienen segmentos no determinados de sus estructuras.
-Usualmente esta falta de información es producto de regiones no definidas en el mapa de densidad electrónica que resulta del análisis de difracción por rayos X, 
-correspondientes a ensambles de estructuras muy variables asociados a conformaciones flexibles o desordenadas. 
-% Este tipo de segmentos es bastante común ya que sólo una pequeña porción de las estructuras en la PDB se encuentra totalmente libe de regiones con densidad electrónica no definida.
-La simple pregunta sobre cuál es la conformación real que adoptan estos segmentos(donde se pierde la definición en la densidad electrónica), 
-junto con la aparición de diversas proteínas funcionales sin una estructura plegada, 
-llevaron a centrar la atención en 
-segmentos/proteínas completas 
-que no se adaptan correctamente al modelo clásico de plegamiento.
-La búsqueda de respuestas a estos nuevos problemas llevo a descubir toda un area, quizás más compleja (e incluso más amplia), que la determinada por el paradigma clásico de proteínas plegadas.
 
 
-Inicialmente, gran cantidad de evidencia soportaba la idea que la funcionalidad de las proteínas estaba asociada a su estructura tridimensional bien definida pero dinámica.
+%  CONCEPTOS GENERALES, SIMPLEMENTE PARA INDICAR QUE NO TIENEN UNA ESTRUCTURA TRIDIMENSIONAL DEFINIDA
+% ******************************
+Los conocimientos acerca del proceso de plegamiento y la estructura resultante derivados de proteinas globulares formaron, durante un largo tiempo, ideas que se creían aplicables a todas las proteínas existentes.
+Con el tiempo se encontraron proteínas que, al parecer, no se adaptaban a las características de plegamiento 
+
+% No se puede pensar, sin embargo, que todas las proteínas tendrán esta conformación plegada.
+% Incluso entre las estructuras almacenadas en la PDB, no todas las proteínas muestran una conformación definida a lo largo de toda su secuencia, es así que muchas proteínas contienen segmentos no determinados de sus estructuras.
+% Usualmente esta falta de información es producto de regiones no definidas en el mapa de densidad electrónica que resulta del análisis de difracción por rayos X, 
+% correspondientes a ensambles de estructuras muy variables asociados a conformaciones flexibles o desordenadas. 
+% % Este tipo de segmentos es bastante común ya que sólo una pequeña porción de las estructuras en la PDB se encuentra totalmente libe de regiones con densidad electrónica no definida.
+% La simple pregunta sobre cuál es la conformación real que adoptan estos segmentos(donde se pierde la definición en la densidad electrónica), 
+% junto con la aparición de diversas proteínas funcionales sin una estructura plegada, llevaron a centrar la atención en 
+% segmentos/proteínas completas que no se adaptan correctamente al modelo clásico de plegamiento.
+% La búsqueda de respuestas a estos nuevos problemas llevo a descubir toda un area, quizás más compleja (e incluso más amplia), que la determinada por el paradigma clásico de proteínas plegadas.
+
+
+% Inicialmente, gran cantidad de evidencia soportaba la idea que la funcionalidad de las proteínas estaba asociada a su estructura tridimensional bien definida pero dinámica.
+Al no tener una estructura tridimensional determinada, el paradigma reinante que implicaba la necesidad de ésta para poder cumplir alguna función biológica no permitía incluirlas como parte del proteoma.
 Consecuentemente, la idea de que muchas proteínas o regiones no adopten una estructura definida y posean una conformación intrínsecamente desordenada se creyó inaceptable. 
 Por lo tanto, durante un largo tiempo fueron identificándose y estudiándose experimentalmente una a una, tratándolas como excepciones al modelo clásico.
 Luego de este proceso, hace al menos una década, se formalizó la idea que el estado adoptado en condiciones nativas(funcionales) de muchas regiones o proteínas enteras podía ser intrínsecamente desordenado
 (IDRs/IDPs = intrinsically disordered regions/proteins, a partir de ahora).
-% Only around the turn of the millennium was it eventually formally raised in several conceptual papers [1–3], among them one in TiBS [4], that many proteins or regions of proteins 
-% are intrinsically disordered (IDPs, or as originally termed, unstructured) under native, functional conditions. Although it was based on rather limited evidence, the groundwork of
-% the new field was laid and sparked an immediate rapid expansion.
-% Varios reviews en \cite{uversky2010understanding,dyson2005intrinsically}.
 Es decir, existe un conjunto cada vez mas amplio de proteinas cuya secuencia no codifica un plegamiento determinado.
 % Estamos hablando de un numero considerable de proteinas cuya secuencia encodes for the intrinsically unstructured proteins without specific structure.
-Este reconocimiento trajo consigo una gran cantidad de preguntas que quedaron a la espera de aproximaciones/conocimientos de campo de la biofísica.
-% These raise several compelling biophysical questions related to the structural characteristics of natively unfolded proteins.
+Este reconocimiento trajo consigo una gran cantidad de preguntas, relacionadas con las características estructurales de éstas:
 ¿Que tan desordenadas/desplegadas son estas proteínas?, ¿Son realmente conformaciones aleatorias o conservan una estructura residual?
 ¿Si poseen una estructura residual, cómo se clasifican sus conformaciones?
-% How unfolded are these proteins? Are they random coils, or do they possess residual structure? If they have residual structure, how should they be classified?
-% Based on the analysis of the available literature, it has been concluded that intrinsically unstructured proteins do not possess uniform structural properties, as expected for members of a single thermodynamic entity.
-Un mayor avance requería la utilización de nuevas técnicas biofísicas\cite{eliezer2009biophysical}.
+Los avances sobre estas preguntas iban mas allá de las técnicas de resolución estructural conocidas que estaban basadas en el promedio del ensamble, quedando, entonces,
+a la espera de aproximaciones/conocimientos provenientes de nuevas técnicas del campo de la biofísica\cite{eliezer2009biophysical}.
 
 
+
+
+% ******************************
+% PROPIEDADES ESTRUCTURALES
+% ******************************
 
 % CONCEPTOS GENERALES !!! REESCRIBIR-REORDENAR
 En general, las IDRs/IDPs no poseen un núcleo hidrofóbico que les permita plegarse espontáneamente, lo que si ocurre en proteínas plegadas(en algo similar a un colapso hidrofóbico).  
@@ -293,12 +363,10 @@ La existencia de estos residuos de estructura se han detectado en proteinas estr
 Como vamos a ver, esta leve estructura residual(latente o transitiva) es muy importante y representa gran parte de las capacidades funcionales en IDRs/IDPs.
 Por lo tanto, se puede decir que las IDRs/IDPs poseen propiedades conformacionales mucho mas complejos que polipéptidos con estructuras totalmente aleatorias y que esta excepcional heterogeneidad estructural
 representa tambien un problema crítico a la hora de estudiarlas experimentalmente y caracterizarlas.
-% The existence of preferred limited proteolysis cutting sites also indicates that the native conformation prevails
+% A partir de esta descripcion estructural se puede entender por qué el término inicial asignado a estas proteínas (proteínas desestructuradas) ha quedado obsoleto.
 
-A partir de esta descripcion estructural se puede entender por qué el término inicial asignado a estas proteínas (proteínas desestructuradas) ha quedado obsoleto.
 La única característica distintiva de las IDRs/IDPs es, entonces, su inhabilidad para plegarse en una estructura tridimensional única.
-A pesar de esta falta de estructura única definida, como se vió, presentan una 
-gran diversidad de propiedades estructurales y, lo que es mas importante, estas están relacionadas con las funciones de la proteína. 
+A pesar de esta falta de estructura única definida, como se vió, presentan una gran diversidad de propiedades estructurales y, lo que es mas importante, estas están relacionadas con las funciones de la proteína. 
 Por lo tanto, el término general para describir estas proteínas es, simplemente, ``desordenadas''. 
 Este término se aplica tanto a las regiones que forman parte de proteinas plegadas mas grandes, como a secuencias que carecen totalmente de estructura plegada. 
 Como veremos, el mosaico estructural que ofrece la variedad de secuencias conformadas por regiones con propiedades estructurales diversas es fundamental para obtener el extenso catálogo de funcionalidades existentes.    
@@ -306,9 +374,6 @@ Como veremos, el mosaico estructural que ofrece la variedad de secuencias confor
 
 
 
-% ******************************
-% PROPIEDADES ESTRUCTURALES
-% ******************************
 
 Ahora que sabemos que las IDRs/IDPs no están completamente libres de restricciones estructurales, nos concentraremos en describir cuales son las características de su conformación:
 Las IDRs/IDPs consisten en estructuras altamente dinámicas que se interconvierten en diferentes escalas de tiempo.
@@ -491,24 +556,14 @@ Gran cantidad de ejemplos de este tipo de uniones(determinados complejos ``fuzzy
 
 % PROPIEDADES SECUENCIALES
 
-
-
-% COMPOSICION CARACTERISTICA DE IDPs
-% Desde que se identificaron las IDRs/IDPs como entidades de interés biológico, 
-Además de todas las propiedades conformacionales que se analizaron sobre IDRs/IDPs,
-% , tanto sobre las proteínas plegadas como sobre la extensa continuación del mosaico formada por IDRs/IDPs,  
-muchos estudios se hicieron para intentar identificar cómo están codificadas estas propiedades en la secuencia de la proteína.
-Como se describió previamente, la secuencia primaria de una proteina plegada codifica el proceso de plegamiento y la estructura única final. 
-Al identificar a las IDRs/IDPs cómo entidades estructuralmente diferenciables se podría pensar que la estructura primaria de éstas determina, también, su falta de estructura tridimensional definida.
-% Identification of IDPs as unique entities belonging to a new protein tribe is directly related to the recognition that their amino acid sequences are dramatically different from those of ordered proteins.
-Esto tiene como corolario la idea que las secuencias de ambos conjuntos (proteinas ordenadas y proteínas desestructuradas) deberían ser diferenciables entre si.
-% since amino acid sequence determines three-dimensional structure, amino acid sequence should also determine lack of three-dimensional structure.
+Muchos estudios se hicieron para intentar identificar cómo las características  estructurales tan particulares de las IDPs están codificadas en la secuencia de la proteína.
+Como se describió previamente, la secuencia primaria de una proteina globular codifica el proceso de plegamiento y la estructura única final. 
+De forma similar, al identificar la IDPs cómo entidades estructuralmente diferenciables, se podría pensar que la estructura primaria de éstas determina, también, su falta de estructura tridimensional definida.
+Esto tiene como corolario la idea que las secuencias de ambos conjuntos (proteinas ordenadas y proteínas desordenadas) deberían ser diferenciables entre si.
 
 La ausencia de una estructura definida en IDRs/IDPs es atribuida a las características particulares de sus secuencias de aminoácidos las cuales pueden resumirse en la presencia de númerosos 
-grupos cargados no compensados(generalmente con carga negativa) y un bajo contenido de residuos hidrofóbicos.
-% the absence of regular structure in these proteins has been explained by the specific features of their amino acid sequences including the presence of numerous uncompensated charged groups (often negative); 
-%  i.e., a high net charge at neutral pH, arising from the extreme pI values in such proteins , and a low content of hydrophobic amino acid residues.
-% Several ID proteins have been discovered due their unusual amino acid sequence compositions
+grupos cargados no compensados(generalmente con carga negativa) y un bajo contenido de residuos hidrofóbicos. 
+Durante el proceso de descubrimiento del conjunto IDPs, muchas proteínas fueron identificadas inicialmente debido a estas simples diferencias en la secuencia.
 La relación entre esta combinación de baja hidrofobicidad y alta carga neta y la falta de una estructura definida puede explicarse desde el punto de vista físico:
 los altos valores de carga neta producen efectos de repulsión entre las cargas de los residuos, mientras que la baja hidrofobicidad previene la compactación de la estructura lineal
 (las interacciones hidrofóbicas son una de las principales fuerzas que interviene en el proceso de plegamiento).
@@ -551,36 +606,21 @@ El resultado es una estructura con tendencia a mantener una conformación desple
 
 
 
+
+
+
 % ACTIVIDADES
 
-
-En las secciones anteriores se demostró que las proteínas completamente ordenadas eran sólo una parte de los estados posibles y que las conformaciones nativas de las proteinas pertenecen a un continuo mosaico estructural.
-Debido a su amplio ensamble conformacional, el cual va más allá de una simple variación estructural, el modelo de encaje inducido no permitiría explicar su funcionamiento.
-El paradigma estructura-función fuertemente establecido impedia aceptar, inicialmente, la idea de una función asociada a una IDR/IDP. 
-% As it is often the case for new scientific concepts, the idea of structure-less functionality went through the stages of passive ignorance and active denial to scrupulous examination and enthusiastic acceptance
-% Como parte de estos avances, en los ultimos años se han encontrado gran cantidad de proteinas que adoptan estructuras cuyas conformaciones son total o parcialmente desordenadas(segmentos globulares), soportando esta definicion, formalizada a principios de milenio. 
-% the transition in paradigm was enforced by scattered experimental observations of disorder in a few dozen proteins. 
-% Evidence added to that obtained by other techniques [mostly NMR and circular dichroism (CD)]..... and the evidence seems overwhelming now that structural disorder also exists in vivo and it is truly the native, 
-% functional state of these proteins.
-% Varios años de progresos en el área vencieron la sugestion y hoy en día la existencia de una gran variedad de funciones dependientes de IDRs/IDPs es parte del modelo actual de estructura-función.
-% A decade of steady progress turned skepticism around and the suggestion that the native state of many proteins is intrinsically disordered (or, as originally termed, unstructured)
-% is now integral to our general view of protein structure and function.
-% una de las dudas que se tenia era si este estado conformacional existia solo in vitro y en realidad in-vivo lo que ocurria era que el crowding generaba el plegamiento
-
-Como vimos antes, diversos estudios estructurales mostraron que este tipo de conformaciones existe realmente \textit{in-vivo} y representa el estado funcional de estas proteínas y,
+Como vimos antes, diversos estudios estructurales mostraron que este tipo de conformaciones no solamente existe realmente \textit{in-vivo}, sino que representa el estado funcional de estas proteínas y,
 dado que la habilidad para realizar su función biológica es lo que distingue al estado nativo, este conjunto de proteínas parcial o totalmente desordenadas debe ser considerada como entidades nativas. 
-% As the main criterion of a native protein is its ability to perform a biological function, these partially or completely disordered proteins must be regarded as native entities.
-% These proteins challenge(o mejor dicho destruyen) the “one sequence—one structure—one function” concept by demonstrating that the lack of stable tertiary and/or secondary structure
-% does not preclude proteins from being biologically active
-% Esta idea de proteínas desordenadas cumpliendo funciones biológicas desafía el paradigma(casi dogmático) de estructura-función.
-Esto significa que el paradigma estructura-función previo, que implica la indispensable existencia de una estructura ordenada como requisito para una función efectiva, debe ser redefinido para incluir ese nuevo conjunto de entidades
+Debido a su amplio ensamble conformacional, el cual va más allá de una simple variación/dinámica estructural, el modelo de encaje inducido al cual se adaptan correctamente las proteínas globulares no permitiría explicar el funcionamiento
+de las proteínas intrínsecamente desordenadas.
+Por lo tanto, estas proteínas desafían el paradigma casi dogmático de estructura-función, fuertemente establecido hasta el momento.
+ Esto significa que el paradigma estructura-función previo, que implica la indispensable existencia de una estructura ordenada como requisito para una función efectiva, debe ser redefinido para incluir ese nuevo conjunto de entidades
 \cite{wright1999intrinsically}.
-% This means that the structure-function paradigm, which emphasizes that ordered 3D structures represent an indispensable prerequisite to effective protein functioning, should be redefined to include intrinsically unstructured proteins. 
 De acuerdo a este nuevo paradigma, las proteínas nativas(o sus regiones funcionales) pueden existir en cualquiera de los estados conformacionales conocidos que se desarrollaron en las secciones previas.
-% According to this redefined paradigm(disorder funcio),  native proteins (or their functional regions) can exist in any of the known conformational states.
 En la figura \ref{stuctured-idp-functions} se muestra el paralelismo entre los paradigmas descritos y el proteoma resultante.
-% El proteoma funcional esta compuesto, entonces, de un continuo de conformaciones que fall onto a structural continuum, from tightly folded single domains, to multidomain proteins that might have flexible or disordered regions, 
-% to compact but disordered MOLTEN GLOBULES and, finally, to highly extended, heterogeneous unstructured states 
+
 
 \begin{figure}[h!,centered]
 \centering
@@ -591,39 +631,19 @@ En la figura \ref{stuctured-idp-functions} se muestra el paralelismo entre los p
 
 
 
-
 El principal objetivo de todos los modelos y estudios estructurales en estas proteínas busca elucidar los tipos y modos funcionales subyacentes.
-% The ultimate goal of the structural description of IDPs is to elucidate and rationalize the types and modes of functions they play.
-La pregunta mas importante, entonces, es la función fisiológica que cumplen las IDRs/IDPs y como es su mecanismo funcional.
-% The most important question of the field, therefore, is the physiological function and functional mode of IDPs/IDRs.
-El estudio de las funcionalidades provistas por IDRs y IDPs se ve dificultada por las propiedades intrínsecas de estas proteinas:
+La pregunta mas importante, entonces, es la función fisiológica que cumplen las IDPs y como es su mecanismo funcional.
+El estudio de las funcionalidades provistas por IDPs se ve dificultada por las propiedades intrínsecas de estas proteinas:
 Como se dijo antes, el paradigma inicial de secuencia-estructura-función provee una base para relacionar los conocimientos entre mediante métodos de análisis y anotaciones de secuencias estructuras y funciones.
 Por el contrario, las proteínas dentro de este nuevo conjunto de IDPs se corresponden con un ensamble conformacional heterogéneo.
 Dado que, entonces, no es posible obtener una estructura promedio representativa, es díficil obtener información relevante de la funcionalidad a partir del ensamble conformacional.
-% By contrast, proteins within the more recently class of intrinsically disordered proteins (IDPs) sample dissimilar conformations during their biological lifetime, and therefore the corresponding structural
-% ensembles are heterogeneous. 
-% Given the vast number of structural states that are accessible to a disordered protein, the ensemble averaged structure for an IDP is typically not representative of any structure in 
-% the ensemble itself and therefore has little utility for understanding that protein's function.
 Lo que es más, dada la ausencia de restricciones estructurales, las secuencias de estas proteínas tienden a evolucionar más rapidamente que sus pares ordenados.
-% Given the absence of structural constraints, IDRs tend to evolve more rapidly than protein domains that adopt defined structures. 
 Como resultado, la identificacion de secuencias/regiones homólogas es considerablemente mas difícil.
-% As a result, identifying homologous regions is harder for IDRs and IDPs than it is for structured domains.
-% This complicates the transfer of information about function between homologues and thus the prediction of function of IDRs and IDPs.
-Estas considereaciones manifiestan la necesidad de avanzar en el desarrollo de esquemas de clasificación específicos para este nuevo conjunto de proteínas, apuntando a mejorar la predicción funcional y la anotación.
-% these considerations raise the need to devise a classification scheme specifically for disordered regions in proteins that may enhance
-% the function prediction and annotation for this important class of protein segments.
-
-% ESTO PODRIA PONER ALGO PERO NO HACE FALTA
-% Aun cuando las propiedades a clasificar no sean discretas sino que formen un continuo de opciones, es util para explicar y entender mejor los conceptos.
-% En secciones anteriores(mas precisamente en la seccion sobre propiedades conformacionales) se hicieron clasificaciones sobre la estructura global de la proteinas/regiones desordenadas, 
-% ademas se clasificaron los mecanismos de binding en este tipo de proteinas como conformational selection and induced folding
-% Especificamente se hablara aqui de clasificaciones sobre las funcionalidades y mecanismos funcionales provistos por estas proteinas.
+Estas consideraciones manifiestan la necesidad de avanzar en el desarrollo de esquemas de clasificación específicos para este nuevo conjunto de proteínas, apuntando a mejorar la predicción funcional y la anotación.
 
 Como parte de estos avances se han ensayado una gran diversidad de clasificaciones\cite{van2014classification}.
-% Como parte de estos avances, para intentar dilucidar las funcionalidades de las IDPs y sus mecanismos asociados, se han intentado organizar y clasificar las funcionalidades provistas por estas 
-% Como parte de estos avances para intentar dilucidar las funcionalidades de las IDPs y sus mecanismos asociados, se han intentado organizar y clasificar las funcionalidades provistas por estas \cite{van2014classification}.
 En la figura \ref{proteinMechanisms} se ve una clasificación general bastante simplificada de los roles y mecanismos funcionales generalmente provistos por los distintos tipos de proteinas. 
-En esta clasificacion de proteinas segun su rol general, se incluyen también los dominios/proteinas plegadas que mencionamos previamente.
+En esta clasificacion de proteinas segun su rol general, se incluyen también las proteínas globulares y de membrana que mencionamos previamente(asociadas a actividades enzimáticas, transporte, etc), agrupadas como proteínas plegadas.
 La figura \ref{idpFunctions} detalla la clasificacion de funcionalidades y mecanismos funcionales específicos de IDPs/IDRs estimando las proporciones de cada funcionalidad.
 Al parecer, de estas clasificaciones se puede ver que las funcionalidades en IDRs/IDPs emergen a partir del propio desorden o mediante mecanismos de reconocimiento molecular.
 
@@ -636,12 +656,11 @@ En el segundo caso, el mecanismo implica el plegamiento para adquirir una estruc
 % rather it directly depends on the flexibility and the plasticity of the backbone . Occupy a unique structural and functional niche in which function is a direct consequence of intrinsic disorder))), 
 % or from molecular recognition mechanisms , when they undergo induced folding (disorder-to-order transition) upon binding to a partner molecule. 
 %IDPs often function via molecular recognition, when they bind partner molecules in, and induced folding process. 
-Este mecanismo/estrategia de reconocimiento es básicamente diferente a la que adoptan los dominios plegados.
+Este mecanismo/estrategia de reconocimiento es básicamente diferente a la que adoptan los dominios globulares.
 Mientras que estos últimos han evolucionado para dar una gran variedad de plegamientos diferentes que proveen reconocimientos especificos, 
-en IDRs/IDPs el \textit{binding} es principalmente mediado por elementos(motivos) cortos de reconocimiento\cite{neduva2005systematic,fuxreiter2007local}.
-% característicos por su naturaleza flexible
-Este diferencia en el modo de reconocimiento les aporta una gran cantidad de ventajas\cite{gunasekaran2003extended,dyson2005intrinsically}.%REFERENCIA AL PAPER DE MECANISMOS FUNCIOMNALES DE IDPs
-% This mode of binding is thought to confer many advantages 
+en IDPs el \textit{binding} es principalmente mediado por elementos(motivos) cortos de reconocimiento\cite{neduva2005systematic,fuxreiter2007local}, caracterizados por su naturaleza flexible, lo que 
+les aporta una gran cantidad de ventajas\cite{gunasekaran2003extended,dyson2005intrinsically}.%REFERENCIA AL PAPER DE MECANISMOS FUNCIOMNALES DE IDPs
+
 
 
 
@@ -851,176 +870,84 @@ Todas estas propiedades hacen que parezca razonable que este tipo de proteínas 
 
 
 \subsubsection{Agregados proteicos}
-% ESTRUCTURA
 
 
-% INTRODUCCION
-En el comienzo de la sección anterior describimos como algunas proteínas poseen conformaciones nativas con estructuras bien definidas,
-esta restricción hace que, para poder funcionar correctamente, deban atravesar un proceso de plegamiento el cual ocurre, en condiciones normales, de manera muy rápida. 
+% CONCEPTOS GENERALES 
+
+Las proteínas plegadas, como las proteínas globulares vistas previamente dependen de la estructura  para poder funcionar correctamente, deban atravesar un proceso de plegamiento el cual ocurre, en condiciones normales, de manera muy rápida. 
+Para que los dominios globulares adquieran 
 Esto es posible ya que sus secuencias han evolucionado de forma tal que son capaces de alcanzar la estructura nativa(funcional) muy eficientemente, incluso en el complejo entorno celular.
-% the sequences of these proteins have evolved in such a way that their unique native states can be found very efficiently even in the complex environment inside a living cell.
 Sin embargo, a medida que el tamaño de la proteína aumenta, tambien aumenta la complejidad del proceso de plegamiento y este se vuelve propenso a errores,
 lo que puede llevar a estas proteínas a adoptar conformaciones incorrectas(\textit{misfolded}). 
 Los errores durante este proceso en el que se buscan las interacciones ``correctas'' entre los residuos pueden estar asociados a distintos factores(principalmente mutaciones), 
 no sólo al tamaño de la proteína, ya que de por si el proceso de plegamiento es complejo. 
 Por otro lado, si estos estados estructurales incorrectos mantienen su solubilidad pueden comenzar a acumularse en el entorno celular.
 
-% as the size and complexity of proteins increase, therefore, the folding process becomes more complex,
-% thus, errors along folding may occur and drive proteins to incorrectly folded or misfolded states, which may still possess certain stability in the physiological
-% environment and, therefore, start to accumulate. 
-
 Ademas de estos estados \textit{misfolded}, algunos intermediarios en el proceso de plegamiento pueden tener tiempos de vida considerables, poblando estados alternativos al plegamiento final.
-% Intermediates with only partially formed structures can be populated and have significant lifetimes. 
 Más alla de esto, una vez alcanzada la estructura final, diversas condiciones del entorno pueden producir que este se pierda y se adopte un estado no-plegado(\textit{unfolded}).
-Por definición, cualquier proteína plegada que no esté en su estado nativo está en un estado \textit{misfoled}
-% Protein misfolding is a wide-spread phenomenon. Any protein with changes in native structure which affect its normal function is misfolded. 
-Las proteinas plegadas, entonces, no siempre se encuentran en su estado nativo dentro del entorno celular y pueden ocurrir acumulaciones de estados \textit{misfolded}.
+Las proteinas plegadas, entonces, no siempre se encuentran en su estado nativo dentro del entorno celular y pueden ocurrir acumulaciones de estados \textit{misfolded} los cuales, por definición, 
+abarcan a cualquier proteína que no esté en su estado nativo.
 
-% Under some conditions, then, proteins fail to fold properly or to remain correctly folded; this misfolding can lead to malfunction of proteins and the development of different pathological(cambio esta palabra??) conditions.
-% In addition, events that may be termed 'misfolding' may take place during the search for the stable native-like contacts between residues. 
-% That such complexities are seen even in the benign environment of a dilute solution of a pure protein suggests that they are even more likely to occur in the crowded environment of the cell.
 Además del efecto que tiene adoptar un estado \textit{misfolded} sobre la función de la proteína, estos estados pueden también llevar a la formación de agregados entre proteínas
-lo cual tiene, generalmente, un efecto muy grande en la célula/organismo.
-Los estados \textit{misfolded} y agregados no son equivalentes ni dependientes entre si y 
-% teniendo en cuenta el amplio rango de proteínas que no adoptan una única estructura nativa, 
-la agregación de proteínas puede originarse a partir de distintos estados iniciales. 
-% The terms 'misfolded' and 'aggregated' are not equivalent. 
-Como se verá, la habilidad de una proteína a formar agregados desestructurados o estructuras amiloides depende de muchos factores, entre los cuales están claramente la secuencia y el entorno en que se encuentra.
-De otra forma, las proteinas que adquieran conformaciones no estructuradas o que se encuentren en estados de plegamiento intermedios semi-estables tendrían una tendencia mucho mayor a la agregación y, sin embargo, esto no es así. 
-% De hecho, sólo una pequeña fraccion de tales conformaciones tiene tendencia a formar agregados.
+lo cual tiene, generalmente, un efecto devastador en la célula/organismo.
+A pesar que hemos utilizado el concepto de \textit{misfolding} para introducir la problemática de agregación, estos dos procesos no son necesariamente dependientes entre si, y los agregados representan componentes proteicos mucho 
+mas complejos que la simple acumulación de estados no-nativos, pudiendose originar a partir de diversos estados iniciales mediante procesos que aún hoy son sujeto de estudios, resultando en conformaciones estructurales muy diversas.
+Como se verá, la habilidad de una proteína a formar distintos tipos de agregados depende de muchos factores, entre los cuales están claramente la secuencia y el entorno en que se encuentra,
+de otra forma, las proteinas que adquieran conformaciones no estructuradas o que se encuentren en estados de plegamiento intermedios semi-estables tendrían una tendencia mucho mayor a la agregación y, sin embargo, esto no es así. 
 
-% But the idea that proteins can misfold, or fold to intermediates that may undergo undesirable reactions such as aggregation, provides insight into potential problems that can arise during folding even in the best designed environments.
-% Folding and unfolding are also now known to be coupled to many of the key events in the functioning of a biological system, including translocation of proteins across membranes, protein trafficking, 
-% secretion of extracellular proteins, and the control and regulation of the cell cycle.
-% Thus, the failure of proteins to fold or to remain folded under physiological conditions is likely to cause malfunctions and hence disease
-
-
-
-
-
-
-
-% **************** CONCEPTOS GENERALES DE AGGREGATION
-La agregación se forma, entonces, por la asociación(interacción) anormal entre proteínas.
-% The abnormal association of misfolded proteins usually leads to the formation of aggregates.
-Si bien algunos agregados pequeños pueden mantener su solubilidad, en general los agregados precipitan en condiciones fisiológicas. 
-% Small aggregates can remain soluble, but large protein aggregates precipitate out of solution under physiological conditions. 
-A partir de las características morfológicas se pueden distingir escencialmente dos tipos de agregados: agregados amorfos y fibrillas amiloides.
-% From the morphological point of view we can differentiate essentially two types of aggregates: amorphous aggregates and amyloid fibrils. 
-Los primeros muestran una apariencia granular y consisten principalmente de proteínas en conformacione desplegadas, 
-aunque presentan ciertas regiones con formacion de estructuras de hoja-$\beta$ generando la unión del agregado.
-% Amorphous aggregates display a granular appearance when imaged by electron microscopy and consist mostly of disordered polypeptide chains, even if they
-% display certain regions enriched in $\beta$-sheet structures, which glue the macromolecular assembly.
+En términos generales, los agregados proteicos se forman por la asociación(interacción) anormal entre proteínas, dando complejos con distintas propiedades y que pueden acumular una gran cantidad de proteínas.
+Si bien algunos agregados pequeños pueden mantenerse en solución, en general terminan formando precipitados en condiciones fisiológicas. 
+A partir de las características morfológicas de estos, se pueden distingir escencialmente dos tipos: agregados amorfos y fibrillas amiloides.
+Los primeros muestran una apariencia granular y consisten principalmente de proteínas en conformaciones desplegadas, aunque presentan ciertas regiones con formación de de hoja-$\beta$
+permitiendo que las proteínas se mantenga unidas formando el agregado.
 Por otro lado, las fibrillas amiloides poseen estructuras altamente ordenadas y repetitivas donde todos los polipéptidos que la componen adoptan un plegamiento en común.
-% Amyloid fibrils are highly ordered and repetitive structures where all polypeptides adopt a common fold.
-Si bien no se van a dar detalles puntuales de la estructura, se sabe que estas diferencias que se ven en la estructura macromolecular son el reflejo de diferencias en las interacciones y estructura a nivel atómico.
-Estas diferencias estructurales también se reflejan a nivel biológico: los distintos tipos de agregados tienen afinidades diferentes frente al conjunto de chaperonas y, además, 
+Si bien no nos vamos a enfocar en los detalles puntuales de la estructura, se sabe que estas diferencias que se ven en la conformación macromolecular son el reflejo de diferencias en las interacciones y arquitectura a nivel atómico.
+Por otro lado, estas diferencias estructurales también se reflejan a nivel biológico: los distintos tipos de agregados tienen afinidades diferentes frente al conjunto de chaperonas y, además, 
 pueden acumularse en diferentes localizaciones celulares y ser degradados por mecanismos diferentes.
-% These differences in structure also reflect biological differences; amyloid and amorphous beta-sheet aggregates have different chaperone affinities, accumulate in different cellular locations and are degraded by different mechanisms.
-Por último, a diferencia de los agregados amorfos, las propiedades únicas de las fibrillasas 
-amiloides han sido aprovechadas por distintos sistemas biológicos y pueden encontrarse versiones funcionales de éstas en distintos organismos\cite{fowler2007functional}.
-% Contrary to amorphous aggregates, amyloid structures can fulfill biological functions, and functional amyloids are found in organisms from prokaryotes to humans \cite{fowler2007functional}.
+Por último, a diferencia de los agregados amorfos, las propiedades únicas de las fibrillasas amiloides han sido aprovechadas por 
+distintos sistemas biológicos y pueden encontrarse versiones funcionales de éstas en distintos organismos\cite{fowler2007functional}.
 
-
-
-% 
-% Proteins might aggregate utilizing relatively short sequence stretches, usually organized in b-sheet-like assemblies. 
-
-% La idea construida en las secciones previas, en la que un polipéptido nasciente podía adopar un continuo de conformaciones estructurales monoméricas y solo formar interacciones transitivas para cumplir si función, 
-% debe extenderse ahora para incluir este conjunto de posibles estados de agregación. 
-% En la sección previa se formó la idea que un polipéptido nasciente podía adoptar un continuo de formas conformacionales diferentes, con elementos diferentes
-
-
-% ACA IBA LA IMAGEN QUE PASE A LA INTRODUCCION, A LA DEFINICION DE PROTEINAS
-Al camino central de conformaciones monoméricas se le deben agregar todos los posibles caminos alternativos que involucran la formación de agregados que estamos describiendo en esta sección.
-Se deben diferenciar los precipitados, en los que las proteínas mantienen la estructura nativa, y los agregados que, como mencionábamos antes, surgen a partir de nuevas estructuras no-nativas.
-% One should distinguish between precipitates, in which proteins maintain the native folded conformation and aggregates, in which proteins adopt new non-native structures. 
+A pesar que podría parecer obvio, es importante diferenciar los precipitados en los que las proteínas mantienen su estructura nativa de estos agregados que surgen a partir de nuevas estructuras no-nativas.
 El primer tipo de agregado es generado por la inducción de un entorno de solubilidad reducida, por ejemplo durante la precipitación isoeléctrica o mediante sulfato de amonio,
-% The first type of self-assembly is generated during random precipitation of already native protein due to an environment promoted reduction of solubility in the polypeptide chain. 
-% Examples of these processes are salting out by ammonium sulfate or isoelectric precipitation, 
 que son los procesos típicos para obtener los cristales que se utilizan en la resolución de estructuras por difracción de rayos X. 
-La reducción de la fuerza iónica o el cambio en el pH de la solución restituye los precipitados a la forma soluble.
-% Reducing ionic force or shifting solution's pH results in immediate dissolution of these precipitates. 
+En estos casos, la reducción de la fuerza iónica o el cambio en el pH de la solución restituye los precipitados a la forma soluble.
 El segundo tipo de estructuras macromoleculares muestra siempre un incremento en contenido de hojas-$\beta$ con respecto a la estructura nativa y solo es posible restituir 
 la forma soluble de los componentes mediante procedimientos extremos, obteniendo igualmente estructuras no-nativas.
-Este tipo de agregados es nuestro mayor interés ya que puede ocurrir en condiciones experimentales ``normales'', que no han sido inducidas con el fin de formarlos.
-% The second type of macromolecular structures exhibits, without exception, an increase in $\beta$-sheet secondary structure content relative to the native conformation and
-% very high concentrations of denaturants or detergents are needed to dissolve them into mainly unfolded polypeptide chains. 
-% We will focus our attention on these aggregates, which include amyloid fibrils, thermal aggregates and bacterial IBs. 
+Este tipo de agregados es de nuestro mayor interés en el trabajo ya que puede ocurrir en condiciones experimentales ``normales'', que no han sido inducidas con el fin de formarlos.
 
 
 
-Lo que se ve al parecer en la figura \ref{aggregationDiagram}, es que las fibrillas amiloides son simplemente uno más de los estados de agregación posibles.
-% Amyloid are just one of the types of aggregate that can be formed by proteins.
-Sin embargo, estas estructuras tienen propiedades que las hacen muy particulares.
+% ESTRUCTURA
+De los dos tipos de agregados presentados más interesante, probablemente, es el que resulta de la formación de fibrillas amiloides, ya que tienen propiedades que las hacen muy particulares.
 En primer lugar, como se mencionó antes, adoptan estructuras altamente ordenadas y compactas, similares, en parte a los estados nativos de proteinas globulares
-% ACA PONGO MUY EN GENERAL ALGUNAS PROPIEDADES DE LAS FIBRAS AMILOIDES COMO PARA EMPEZAR A HABLAR DE ESTO
-% Similar to globular native states, amyloid structures are closely packed and highly ordered
 Por otro lado, parte de las propiedades únicas de este tipo de estructuras es que, probablemente debido a su estructura de puentes de hidrógeno altamente organizada, posee una estabilidad cinética única.
-% Although, a significant feature of this particular species is that its highly organized hydrogen-bonded structure is likely to give it unique kinetic stability. 
 Por lo tanto, una vez formados, estos agregados pueden mantenerse durante largos períodos de tiempo, funcionando como núcleo para la agregación de más cantidades de la misma proteína, 
 y permitiendo la formación de depósitos en la célula/tejido
-% Thus, once formed, such aggregates can persist for long periods, allowing a progressive build-up of deposits in tissue, and indeed enabling seeding of the subsequent conversion of additional quantities of the same protein
-% into amyloid fibrils.
 
-
-
-% CONCEPTOS GENERALES DE LA ESTRUCTURA
 La formación de agregados amiloides fue observada por primera vez en el contexto de la amiloidosis sistémica hace mas de 150 años y, de hecho, obtuvo su nombre en este descubrimiento cuando se encontró que 
 los depósitos observados respondían a la tinción con iodo, el colorante usado para la deteccion de almidón. 
-% The amyloid state was first observed in the context of systemic amylodidosis more than 150 years ago, and indeed the name ‘amyloid’ means ‘starch-like’, 
-% as the deposits observed in the tissues and organs of patients who died from these conditions contained deposits that stained
-% with iodine, which is used to detect starch. 
 Desde entonces, se encontró que los depósitos de proteínas encontrados en distintas enfermedades provocadas por \textit{misfolding} de proteínas poseían estas características amiloides.
-% Since then, it has been found that the proteinaceous deposits extracted from tissues in misfolding diseases
-% typically have amyloid characteristics. 
 Estos depósitos estaban conformados generalmente de un solo tipo de proteínas, aunque se encontraban \textit{in-vivo} asociados a distintas moléculas.
-% Such deposits are usually primarily composed of one protein, although they are typically associated in vivo with various other molecules.
-% Remarkably, there is no evident similarity in the sequences, native structures or functions of the group of disease-associated proteins. 
-% Despite such differences, the corresponding amyloid fibrils all contain a common cross-$\beta$ pattern in X-ray fibre diffraction studies that is indicative of the component $\beta$-strands being oriented
-% perpendicularly to the fibril axis. Moreover,in solid-state magic angle spinning NMR spectroscopy studies, the typically high-resolution nature of the amyloid fibril spectra provides direct evidence for extensive regions of highly ordered molecular structures within the
-% fibrillar environment
-
 Los estudios más avanzados de su estructura revelaron las características altamente ordenadas, compactas, estables y no-ramificadas que poseen estos agregados y que se ven reflejados en
-la morfología fibrilar(vista en el microscopio electrónico de transmisión).
-% la cual es altamente ordenada, 
-% Amyloid aggregates are characterized by a particular fibrilar morphology 
-% under transmission electron microscopy (TEM), 
-% which is highly ordered, compact, stable
-% and unbranched. 
+la morfología fibrilar que puede apreciarse al verlos mediante el microscopio electrónico de transmisión.
 El diámetro de estas estructuras fibrilares(fibrillas) se encuentra en el rango de los 10 \textit{nm} y su longitud puede alcanzar varios micrómetros. 
 Estas fibrillas maduras pueden, además, asociarse lateralmente entre si para formar fibras.
-% This type of structures are denominated amyloid fibrils, their diameters range within tens of nanometers and their longitude can reach several
-% micrometers; mature fibrils can further associate laterally to form fibers.
+
 Todas las fibrillas amiloides comparten una arquitectura en común compuesta de una estructura suprasecundaria de unión entre hojas-$\beta$.
-% All amyloid fibrils share the a common architecture composed of cross-$beta$ supersecondary structure,
-A partir de los patrones característicos resultantes de la difracción con rayos X, se resolvió más en detalle las características de esta arquitectura, en la cual 
+Los detalles de esta arquitectura, obtenidos mediante difracción con rayos X, revelan que 
 las hojas-$\beta$ se extienden con las caras de sus hebras enfrentadas entre si pero perpendiculares al eje de la fibrilla que forman\cite{nelson2005structure}.  
-% where parallel $beta$ -sheets extend with their strands facing to each other and perpendicular to the fibril axis; 
-% such a conformation se encontro inicialmente ya que mostraban a characteristic X-ray diffraction pattern that is indicative of the component $\beta$-strands being oriented
-% perpendicularly to the fibril axis. 
-Esta arquitectura de hojas-$\beta$ cruzadas permite, como se mencionó antes, la formación de un continuo de puentes de hidrógeno que proveen de gran estabilidad a las fibrillas 
-% The cross-$/beta$ architecture provides very great stability to the fibrils, as it allows the formation of a continuous array of hydrogen bonds
-
-
+Esta arquitectura de hojas-$\beta$ cruzadas permite, como se mencionó antes, la formación de un continuo de puentes de hidrógeno que provee a estas componentes de gran estabilidad. 
 
 
 
 % ******************************************
 % ENERGY LANDSCAPE
 % 
-
-% EN ALGUN LADO DEBERIA PONER ASPECTOS ENERGETICOS DE LOS AMYLOIDS Y LOS AGREGADOS
-En la sección anterior vimos cómo la gran variedad de conformaciones nativas pueden entenderse observando el paisaje energético asociado a sus estructuras.
-Con el mismo fin, en el gráfico \ref{fullEnLandscape} se muestran los perfiles asociados a distintos estados de agregación.
-% En la figura \ref{fullEnLandscape}\textbf{(b)} 
+En la figura \ref{fullEnLandscape} se muestra la representación gráfica de la estabilidad termodinámica resultante, junto a otras estructuras posibles.
 Los complejos funcionales que se forman entre IDRs/IDPs y sus ligandos implican la formación de nuevas interacciones intermoleculares que cambian el perfil energético del ensamble,
 creando estados de mínima energía claramente definidos con características estructurales propias.
-% functional complexes of IDPs with their partners are formed via the specific intermolecular interactions that change the energy landscape creating more defined free energy minima.
 Mediante un mecanismo similar, la interacción entre proteínas lleva a la formación de distintos estados agregados generalmente no-funcionales(oligómeros, agregados amorfos, fibrillas amiloides, etc.).  
-% A similar mechanism underlies the formation of the non-productive protein complexes (oligomers, amorphous aggregates, amyloid-like fibrils, etc.). 
-En este caso, las interacciones(que como vimos, ocurren entre estados \textit{misfolded}) llevan a la formación de estados muy estables, reflejados en un profundo mínimo sobre el perfil de energía correspondiente. 
-% Here, interactions of the disordered parts of IDPs or interactions of the denatured proteins result in the appearance of profound free energy minima. 
+En este caso, las interacciones llevan a la formación de estados muy estables, reflejados en un profundo mínimo sobre el perfil de energía correspondiente. 
 
 
 \begin{figure}[ht!]
@@ -1046,33 +973,13 @@ En este caso, las interacciones(que como vimos, ocurren entre estados \textit{mi
 
 
 
-% FACTORES EXTERNOS QUE AFECTAN LA AGREGACION
-Además de las propiedades que se analizaron sobre la secuencia primaria, es importante destacar factores externos a la secuencia que pueden afectar la formación de agregados.
-Los determinantes extrínsecos mas relevantes son el pH y la fuerza iónica de la solución, junto con la temperatura del sistema.
-Estas variables pueden afectar tanto la cinética como las propiedades termodinámicas de los diferentes estados e intercambios entre estos.
-Estas propiedades afectan a todos los estados posibles aunque en este caso los mencionamos en el contexto de proceso de agregación.
-% The most relevant extrinsic determinants are the pH and the ionic strength of the solution, together with the temperature of the system [34].
-% These variables may affect both the kinetics and thermodynamics of aggregation into amyloid-like structures, and can, subsequently, influence the assembly and
-% the macroscopic structure of the aggregated species, thus being important determinants of the polymorphism the aggregates of a given protein sequence may present.
-
-
-
-% BARRERAS CINETICAS QUE IMPIDEN LA FORMACION DE AMYLLOIDS
-% Importantly, the cooperative nature of protein structures
-% means that virtually none of the polypeptide chain in individual molecules is locally unfolded, 
-% and that virtually no
-% molecules in an ensemble are globally unfolded, even
-% though native proteins are only marginally stable relative
-% to denatured ones under normal physiological conditions
 Como se ve en la fig.\ref{fullEnLandscape}\textbf{(a)}, en condiciones normales, donde los proteínas se mantienen en sus estados plegados, 
 la estabilidad de estos estados los mantiene separados mediante barreras cinéticas relativamente altas de la formación de agregados(que se muestran considerablemente mas estables).
-% Provided that the native state is maintained under conditions where it remains folded, aggregation to amyloid fibrils will be resisted by
-% the kinetic barrier associated with unfolding, even if the aggregated state is thermodynamically more stable.
 Esto no es tan determinante para intermediarios del plegamiento(estados 1 y 2 en fig. \ref{fullEnLandscape}\textbf{(a)}) y para las conformaciones desplegadas(fig. \ref{fullEnLandscape}\textbf{(b)}), 
 donde las barreras energéticas pueden no ser determinantes en el mantenimiento de los estados nativos en solución.
-Teniendo en cuenta que, como vimos antes, existe una gran diversidad de estados conformacionales en la célula,que el estado totalmente ordenado es, quizás, solo una excepción, y además se sabe que los agregados pueden provocar un gran daño biológico,
+Teniendo en cuenta que, como vimos antes, existe una gran diversidad de estados conformacionales en la célula,que el estado totalmente ordenado es, quizás, solo una excepción, 
+y además se sabe que los agregados pueden provocar un gran daño biológico,
 es esperable que los sistemas biológicos hayan evolucionado distintos mecanismos para mantener la homeostasis de los estados nativos monoméricos.
-Este es el tema central que se desarrolla en la próxima sección.
 
 
 
@@ -1082,122 +989,55 @@ Este es el tema central que se desarrolla en la próxima sección.
 
 
 % PROPIEDADES SECUENCIALES
-
-A diferencia de esta similitud encontrada en la arquitectura, las proteínas que forman estos agregados son muy diversas, con muy poca similitud entre sus secuencias y sus conformaciones monoméricas en solución.
-% ..Amyloidogenic proteins are quite diverse, with little similarity in sequence and native three-dimensional structure.
-Lo que es más relevante, estudios con diversos péptidos y proteínas (no relacionados con aquellos encontrados como causantes de la amiloidosis sistemica) pueden formar, bajo las condiciones apropiadas, agregados con las 
+A pesar de esta arquitectura claramente definida de las fibrillas amiloides, las proteínas que forman estos agregados son muy diversas, con muy poca similitud entre sus secuencias y sus conformaciones monoméricas en solución.
+Lo que es más relevante, estudios con diversos péptidos y proteínas (no relacionados con aquellos encontrados como causantes de la amiloidosis sistemica) muestran que todo pueden formar, bajo las condiciones apropiadas, agregados con las 
 características de las fibrillas amiloides.
-% Several observations muestran que ordinary peptides and proteins( not related to amyloidoses) can convert under appropriate laboratory conditions into aggregates with all the characteristics of the amyloid fibrils).
 Estos estudios experimentales, junto con una gran variedad de analisis computacionales, llevan a pensar que la estrutura amiloide puede ser adoptada por cualquier cadena polipeptídica y, por lo tanto, 
-esta habilidad para reordenar la conformación monomérica y agregarse en una arquitectura definida característica puede ser una propiedad intrínseca de las proteínas
-% Together with a wide variety of biophysical and computational studies, 
-% led to the suggestion that the amyloid structure can in principle be adopted by any polypeptide chain and that this ability for structural rearrangement and aggregation may be inherent to proteins.
-% CITAR LOS PAPERS QUE HACEN ESTAS CONCLUSIONES
-\cite{fandrich2002behaviour}.
+esta habilidad para reordenar la conformación monomérica y agregarse en una arquitectura definida característica puede ser una propiedad intrínseca de las proteínas\cite{fandrich2002behaviour}.
 
-El estado estructural amiloide es un estado generico de las proteinas, ya que es accesible por cadenas polipeptídicas muy diversas y, a diferencia de la conformación nativa, no esta codificado en la secuencia de aminoácidos.
-% The amyloid state of a protein is therefore generic, as it is accessible to many different polypeptide chains, and, unlike the native state, its essential architecture is not encoded by the amino acid sequence,
-Sin embargo, la tendencia a formar este tipo de fibrillas amiloides, si es un proceso que depende específicamente de la secuencia y algunos detalles estructurales a nivel atómico, así como la estabilidad relativa del estado amiloide, 
-pueden ser tambien características fuertemenete dependientes de la secuencia.  
-% However, amyloid formation(la tendencia) is also a sequence-specific process and the details of its structure and stability can be markedly sequence-dependent, as we discuss below.
-Por lo tanto, la tendencia a la agregación para formar fibrillas amiloides puede variar ampliamente entre distintas proteínas. 
-% the propensity to do so under given circumstances can vary markedly between different sequences.
-% Under physiological conditions, most peptide sequences derived from proteins will remain soluble even at high concentrations, whereas most hydrophobic sequences will invariably aggregate as amorphous aggregates.
-
-
-
-
-% ***********************************************
-% DEPENDENCIA DE LA AGREGACION CON LA SECUENCIA
-% ***********************************************
-% Even though the ability to form amyloid fibrils seems to be generic(is a general property of the polypeptide backbone), 
-% the propensity to do so under given circumstances can vary markedly between different sequences(depends enormously on amino acid composition.).
-
-La pregunta clave es cómo influye la secuencia(o composición) de aminoácidos sobre esta tendencia a la agregación.
+El estado estructural amiloide parece ser, entonces, un estado generico de las proteinas, sin  embargo, la tendencia a formar este tipo de fibrillas amiloides si es un proceso que depende específicamente de la 
+secuencia y algunos detalles estructurales a nivel atómico, así como la estabilidad relativa del estado amiloide, pueden ser tambien características fuertemenete dependientes de la secuencia.  
+Por lo tanto, la tendencia a la agregación para formar fibrillas amiloides puede variar ampliamente entre distintas proteínas.
+La pregunta clave es cómo influye la secuencia(o composición) de aminoácidos sobre esta tendencia.
 La respuesta a esto es importante no sólo para entender los estados de agregación y sus mecanismos de formación, sino también para otros aspectos como 
 la producción biotecnológica de proteínas, o el diseño racional de cadenas polipeptídicas funcionales, donde se desea evitar la formación de agregados al (sobre)expresar las proteínas.
 Estos conocimientos sirven luego como base para el desarrollo de herramientas bioinformáticas que permitan detectar la tendencia a formación de agregados a partir de una secuencia.
-% The question of how amino acid composition influences aggregation propensity is highly relevant to protein design, as well as
-% to our understanding of protein evolution and the pathogenicity of certain amino acid substitutions.
 
 % DEPENDENCIA CON LA COMPOSICION
-Como se describió en la sección anterior, cuando se desarrollaron las propiedades secuenciales de IDRs/IDPs, las interacciones hidrofóbicas son escenciales para la compactación de la estructura lineal de un polipéptido.
-% Given the fact that hydrophobic interactions are a major driving force of protein self-assembly, it is
+Se sabe que las interacciones hidrofóbicas son escenciales para la compactación de la estructura lineal de un polipéptido.
 Se podría esperar, entonces, que un incremento en el contenido de residuos hidrofóbicos pueda aumentar la tendencia a la agregación de una secuencia, mientras que un incremento en la carga neta impida esta agregación. 
-% expected that increased hydrophobic content in a peptide would
-% lead to increased aggregation propensity, while a net charge on
-% the peptide would impede aggregation. 
 Además de estas propiedades fisicoquimicas, dadas las características de estructura/arquitectura encontradas para las fibrillas amiloides con un alto contenido de hojas-$\beta$,
 las secuencias que tienen tendencia intrínseca a adoptar conformaciones de hoja-$\beta$ en su estructura secundaria probablemente tendrán cierta tendencia a la formación de estos agregados.  
-% Also, with the evidence
-% for common cross-b architecture among amyloid fibrils of diverse
-% proteins , a stretch of amino acids with
-% enhanced propensity to adopt b-strand secondary structure
-% would be expected to promote formation of fibrils. 
-% AGREGO ESTO??? 
-% Such physicochemical properties of amino acids are the basis of most of the algorithms that predict either the rate or propensity of aggregation of different regions of a protein .  %****ESTO SE CONTINUA EN LA SECCION HERRAMIENTAS 
 En \cite{chiti2003rationalization} se estudian todas estas propiedades secuenciales mediante mutaciones sistemáticas sobre polipéptidos, concluyendo 
 que la estructura primaria de un polipéptido cumple un papel muy importante en la tendencia a formar depósitos insolubles.
 
-% La relacion entre estas propiedades(hidrofobicidad, carga neta, tendencia a formar $\beta$) se analiza en  \cite{chiti2003rationalization} utilizando mutaciones sistematicas sobre polipeptidos,
-% encontrándose que ... the propensity of a  given  polypeptide  chain  to  aggregate  under  specific  conditions varies  dramatically  with  its  composition  and  sequence.
-% These results show how the primary structure of proteins plays an extremely relevant role in determining the tendency of polypeptides to form insoluble deposits;
-% this would arise from the impact over such propensity of inherent physical-chemical properties of amino acids such as hydrophobicity, the
-% structural suitability to adopt $\beta$-conformation or its mean charge
-
 
 % DEPENDENCIA CON SEGMENTOS DE SECUENCIA
-
-
-Los elementos hasta aqui mencionados proveen propiedades específicas de los aminoácidos que favorecen o no la agregación de proteinas.
-Estos representan determinantes intrínsecos ya que provienen de propiedades individuales de los aminoácidos que componen todas las proteínas.
-% The intrinsic determinants described before inform us about specific properties of the amino acid side chain either favoring or disfavoring protein aggregation.
-% The aforementioned factors may be regarded as intrinsic determinants arising from individual properties of amino acids. 
-% It has been observed that the consecutive occurrence of three
-% or more hydrophobic residues is clearly disfavored in nature [29]. In a similar way,
-% the combinatorial design of amyloidogenic proteins has shown how polypeptidic
-% patterns alternating apolar and polar aminoacids favor amyloid formation [30].
-Sin embargo, la combinación lineal de estas propiedades a lo largo de la estructura primaria puede tener un impacto mayor sobre la tendencia a la argegación.
-% Nonetheless, the linear combination of their properties along the primary structure has a cooperative impact over the aggregation propensity. 
-% The linear combination of such properties within the primary structure plays a major role in protein aggregation.
-Es decir, no todas las secuencias de polipéptidos con la misma composición tienen la misma tendencia a la agregación.
-% However, it has been observed that not all the polypeptide sequence has the same importance in defining its propensity to aggregate. 
+La composición secuencial parece tener un papel importante en la tendencia a la agregación, sin embargo, la combinación lineal de estas propiedades a lo largo de la estructura
+primaria puede tener un impacto aún mayor, es decir, no todas las secuencias de polipéptidos con la misma composición tienen la misma tendencia a la agregación.
 En \cite{ventura2004short} se demuestran la existencia de ciertos tramos cortos en la secuencia que promueven la agregación en estructuras amiloides.
-% There exist small amino acid stretches within protein sequences, which promote and guide protein aggregation into amyloid-like structures
-Estos tramos cortos, llamados generamente regiones propensas a la agregacion(o APRs) y se distinguen por tener composiciónes características de residuos.
-
-% ESTO LO PONGO????
-% These short fragments, generally referred to as aggregation-prone regions (APRs) or “hot-spots”, are characterized by an enrichment in hydrophobic, both aliphatic (Val, Leu,
-% Ile) and aromatic (Phe, Trp, Tyr), residues.
+Estos tramos cortos, llamados generamente regiones propensas a la agregacion(o APRs) se distinguen por tener composiciónes características de residuos, ricas en residuos hidrofóbicos.
 % The analysis of the structural models for some amyloids also allow to rationalize the reason why APRs direct the formation of amyloid-like structures, since the cross-$\beta$ arrangement in the core of
 % amyloid fibrils does only strictly require the minimum participation of a single $\beta$-strand per molecule, and the rest of the polypeptide may remain exposed to the
 % solvent even when “attached” along the fibril.
 
 % ESTO DE LAS REGIONES PEQUEÑAS LO TENGO QUE PONER PORQUE ES LA BASE DE ALGUNOS METODOS QUE DESPUES USAMOS
 Además del análisis secuencial, existen otras evidencias a favor de la hipótesis que algunas regiones pequeñas de las proteínas son responsables principales de la formación de fibrillas amiloides. 
-Por ejemplo, la mayoría de las IDRs/IDPs no experimentan agregación \textit{in-vivo}\cite{linding2004comparative} lo que indica que, si bien la conformación no-plegada es necesaria, no es condición suficiente 
+Por ejemplo, la mayoría de las IDPs no experimentan agregación \textit{in-vivo}\cite{linding2004comparative} lo que indica que, si bien la conformación no-plegada es necesaria, no es condición suficiente 
 para promover el proceso de agregación.
 Por lo tanto, deberían existir patrones secuenciales distinguibles que, una vez expuestos(salen del núcleo hidrofóbico de la estructura plegada), son mas propensos a la agregación que otros.  
-% most of the natively unfolded proteins in vivo do not undergo aggregation (13), indicating that unfolding is necessary, but not sufficient, to promote aggregation. 
-% Hence, there must be some sequence motifs that, once they become exposed, are more prone to aggregation than others. 
-% In fact, experimental evidence is compelling in favor of the hypothesis that small regions of a protein are responsible for its amyloidogenic behavior
-
-
-% Although all proteins can form amyloid fibrils under the appropriate conditions, the list of currently known trouble 
-% makers  (i.e.,  proteins  aggregation  of  which  is  directly  responsible  for  the  development  of  various  pathologies)  is  rather  short, including 30-40 proteins and protein fragments.
-% Why  do some proteins form fibrils under the  physiological conditions, whereas others do not? 
-% It is clear now that frequently not entire protein is responsible for aggregation and rather aggregation 
-% is driven by specific  protein  regions  that  contains  specific  structural  or  sequence  motifs,  so-called aggregation-prone  regions,  APRs, which contribute significantly toward the overall aggregation propensity of the protein
-% 
 
 El hecho que en la naturaleza las IDRs/IDPs no sean necesariamente propensas a la agregación implica, entonces, que sus secuencias han evolucionado para mantener el nivel de solubilidad necesaria que es requerido para 
 realizar correctamente las funciones asociadas, por ejemplo, a través de extensas regiones de aminoácidos con grupos polares y altamente cargados que desestabilizan las asociaciones intermoleculares.
-Este y otros aspectos energéticos relevantes(que se verán a continuación) resisten la formación de agregados no-funcionales en los sistemas biológicos.  
-% AdemHay que destacar, sin embargo, que existen barreras cinéticas que ayudan a los sistemas biológicos a mantener tanto las IDRs/IDPs como las proteínas plegadas en solución, evitando la formación de agregados no-funcionales.
+Hay que destacar, sin embargo, que existen barreras cinéticas que ayudan a los sistemas biológicos a mantener tanto las IDRs/IDPs como las proteínas plegadas en solución, evitando la formación de agregados no-funcionales 
+y manteniendo la homeostasis de los estados proteícos.
 
-% Intrinsically disordered proteins are not necessarily prone to aggregation, as their sequences have usually evolved to maintain the level of solubility that is required for their optimal function; 
-% for example, through the existence of extensive regions that are highly abundant in charged and polar groups that disfavour intermolecular association from a thermodynamic point of view. 
-% Moreover, as is discussed below, kinetic barriers to aggregation are crucial in enabling both globular and disordered proteins to maintain their soluble and functional states.
+% FACTORES EXTERNOS QUE AFECTAN LA AGREGACION
+Además de las propiedades que se analizaron sobre la secuencia primaria, es importante destacar factores externos a la secuencia que pueden afectar la formación de agregados.
+Los determinantes extrínsecos mas relevantes son el pH y la fuerza iónica de la solución, junto con la temperatura del sistema.
+Estas variables pueden afectar tanto la cinética como las propiedades termodinámicas de los diferentes estados e intercambios entre estos.
+Estas propiedades afectan a todos los estados posibles aunque en este caso los mencionamos en el contexto de proceso de agregación.
+
 
 
 
