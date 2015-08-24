@@ -4,18 +4,18 @@
 
 \section{Estructura de este trabajo}
 
-Este primer capítulo introductorio está dividido en dos secciones que presentan los aspectos necesarios para comprender el trabajo realizado, el cual se centra en el diseño de nuevas secuencias linkers con 
-propiedades conformacionales definidas, restringiendo cualquier actividad biológica y elemento estructural no deseado.
-En la primer sección (\ref{proteinLandscape}) se describe el amplio panorama conformacional y funcional que pueden presentar las proteinas.
+Este primer capítulo introductorio está dividido en dos secciones que presentan los aspectos necesarios para comprender el trabajo realizado, el cual se centra en el diseño de nuevas secuencias linkers 
+siguiendo los requerimientos de diseño que se 
+% con propiedades conformacionales definidas, restringiendo cualquier actividad biológica y elemento estructural no deseado.
+En la primer sección (\ref{proteinLandscape}) se describe el amplio panorama conformacional y funcional que pueden presentar las proteinas, lo que da una idea de cuales son las elementos proteicos que pueden encontrarse.
 % identificando cuáles son los elementos funcionales que pueden de acuerdo a las propiedades estructurales que adquieren.
 % in-vivo, describiendo cuales son los posibles destinos de las proteinas desde que son sintetizadas en el ribosoma y a lo largo de su etapa funcional en la célula. 
 % Se desarrollan los conocimientos actuales acerce del perfil de conformaciones y funciones conocidas, y las propiedades secuenciales asociadas con estas.
 % Se intenta describir como estos conocimientos actuales sobre las propiedades conformacionales y funcionales de las proteinas se trasladan en el desarrollo 
 % de un amplio abanico de metodos y herramientas bioinformaticas que, a su vez, permiten nuevos avances en los conocimientos subyacentes.
-En la sección siguiente (\ref{proteinEngineering}) se desarrolla el tema de ingeniería de proteínas, intentando mostrar los conceptos más relevantes del área asociados a este trabajo, 
-introduciendo el problema de cómo y por qué diseñar nuevas secuencias linker.
+En la sección siguiente (\ref{proteinEngineering}) se desarrolla el tema de ingeniería de proteínas quiméricas, introduciendo el problema de cómo y por qué diseñar nuevas secuencias linker.
 
-En el capítulo \ref{method} se describe el desarrollado para obtener secuencias linker, indicando los fundamentos y detalles de la implementación.
+En el capítulo \ref{method} se describe la implementación desarrollada para el diseño de secuencias linker, indicando los fundamentos y detalles del método.
 % , limitaciones y aspectos relevantes de su utilización.
 
 En el capítulo \ref{tools} se detalla los distintos recursos utilizados para evaluar las propiedades de interés sobre la secuencia, describiendo el objetivo de cada evaluación y los fundamentos de cada método. 
@@ -57,39 +57,50 @@ Finalmente, el capítulo \ref{conclusiones} contiene las discusiones relevantes,
 % 
 
 \subsection{Definición inicial de una proteína}
+Las proteínas son polímeros de aminoácidos.
+La secuencia específica que compone una proteína define las propiedades conformacionales resultantes y las posibles funciones asociadas a esta.
+% y las posibles funciones que puede desarrollar la proteína.
 
-A pesar que todas las proteínas en la célula se originan de la misma forma en el momento de la síntesis en el ribosoma, debido a los diferentes caminos que puede tomar en el contexto celular,
-una proteína puede llegar a encontrarse en situaciones muy distintas en la celula y cumpliendo roles muy diversos.
-Para definir una proteína en términos biológicos se debe describir, entonces, las diferentes estados que puede poblar en la célula los cuales, además, pueden variar con el tiempo y el contexto celular.
+Por definición, las proteínas están compuestas por cadenas lineales formadas por cualquier combinación de aminoácidos.
+Sin embargo, las proteínas se originan en la naturaleza como producto de los sistemas biológicos, por lo tanto, 
+la ocurrencia de las proteínas naturales no se origina por cadenas peptídicas generadas al azar. 
+Por el contrario, la ocurrencia de proteínas está ajustada a los requerimientos del sistema y al mecanismo evolutivo subyacente. 
+Por lo tanto, el resultado es conjunto de proteínas con un perfil complejo donde cada una tendrá características únicas que determinan su actividad biológica dentro del sistema.
+Basándose en estas condiciones, las proteínas naturales quedan mejor definidas si se describen las propiedades secuenciales, estructurales y las actividades biológicas asociadas. 
 
-En la sección previa formamos la idea que un polipéptido puede adoptar un continuo conformacional de estructuras nativas las cuales, a su vez, pueden intercambiarse en el tiempo.
-Desde el comienzo de esta sección se vió que el proceso para alcanzar estos estados nativos no es tan directo ni mucho menos simple, por lo tanto, se pueden llegar a caminos alternativos. 
-Estos y otros conceptos están representadas en la figura \ref{aggregationDiagram}.
+Cada proteína, entonces, quedará definida por el conjunto de propiedades que la describen, no sólo como polímero(secuencia de aminoácidos) 
+sino también como módulo del sistema biológico (perfil de conformaciones en el contexto celular/sistémico, funcionalidades, interacciones, adaptaciones a cambios en el entorno, etc). 
 
-El camino central representa, en una dimensión, el continuo de conformaciones en solución que, como indican las flechas, puede ir en distintos sentidos y representa las posibles cambios dinámicos que pueden ocurrir desde la síntesis
-de un polipéptido en el ribosoma y hasta ser degradado o perder esta conformación monomérica.
-Los elementos de este camino pueden formar interacciones transientes con diversos ligandos(entre los cuales están otras proteínas) como parte de su función. 
+Si bien cada proteína tendrá algunas propiedades individuales únicas(por ejemplo la secuencia de AAs), 
+% el perfil de actividades realizadas por las proteínas no es tan complejo y 
+el conjunto de proteínas naturales puede clasificarse 
+agrupándolas de acuerdo a propiedades secuenciales y conformacionales, donde cada clase está asociada a cierto perfil de actividades biológicas que se derivan de estas propiedades.
+En las próximas secciones de este capítulo, cuando se describan alguno de los elementos proteícos naturales, 
+se detallarán las propiedades secuenciales y conformacionales asociadas y el perfil de actividades biológicas que realizan.
+% Por ejemplo, en la figura se muestra el perfil resultante en base a las propiedades conformacionales de las proteínas.
+%   
+% Como ejemplo de esto podemos ver, en el gráfico \ref{aggregationDiagram}, un esquema de las propiedades conformacionales de las proteínas naturales. 
+% Las proteínas adoptan una gran diversidad de estructuras y las propiedades conformacionales de éstas(flexibilidad, )
+% 
+% 
+% \begin{figure}[h!,centered]
+% \includegraphics[width=\textwidth]{img/aggregationDiagram.png} 
+% \caption{} \label{aggregationDiagram}
+% \end{figure}
 
-En la figura se ve 
-la sintesis en el ribosoma dentro de una célula es lo que diferencia la idea de un polipéptido como un polímero químico de la idea biológica de la proteína, cuya secuencia no es trivial(ni mucho menos al azar), su actividad está marcada,
-y el contexto en el que se encuentra es claramente particular.
 
-Asi, las proteínas como entidades biológicas son parte de un sistema 
 
-\begin{figure}[h!,centered]
-\includegraphics[width=\textwidth]{img/aggregationDiagram.png} 
-\caption{Equilibrio de los estados de agregación} \label{aggregationDiagram}
-\end{figure}
 
-Las ideas presentadas 
-Por lo tanto, un segmento de una proteína, una proteína completa, o un grupo de proteínas pueden tener propiedades secuenciales, conformacionales y funcionales distintas entre si.
-Estas propiedades claramente distinguibles entre las diferentes entidades proteícas pueden también multiplexarse en el tiempo, 
+
+
+
+
 
 
 \subsection{Estructura modular de las proteínas}
 
 Las proteínas naturales son usualmente modulares, conteniendo regiones definidas asociadas cada una con una subfunción específica.
-Esta naturaleza modular provee muchas ventajas, principalmente la posibilidad de desarrollar funciones que requieren cooperación de distintos módulos y un incremento en la estabilidad de la estructura global.
+Esta naturaleza modular provee muchas ventajas, principalmente la posibilidad de desarrollar funciones que requieren cooperación de distintos módulos, y un incremento en la estabilidad de la estructura global.
 Otra ventajas incluyen la protección de los metabolitos intermedios dentro de espacios inter-dominio, aumentando la eficiencia global y previniendo la liberación al medio de intermediarios inestables de la reacción.  
 Desde el punto de vista evolutivo, la modularidad en las proteínas incrementa la capacidad evolutiva reduciendo las restricciones necesarias 
 para la adaptación y permitiendo que módulos preexistentes puedan funcionar en nuevos contextos para nuevos usos.
@@ -102,12 +113,13 @@ Esta definición de dominio como unidad evolutiva es la que se usa como mecanism
 A diferencia de esto, en CATH\cite{orengo1997cath}, los dominios se definen basándose en conceptos puramente estructurales. 
 De esta forma, los dominios pueden definirse como porciones de la secuencia de un polipéptido que pueden asumir una estructura tridimensional estable de forma independiente. 
 
-La idea de dominio como unidad componente de las proteínas, que se origina en los primeros estudios que se hicieron sobre las proteínas.
-otras unidades pueden estar limitadas a regiones más cortas, distinguibles por sus , limitarse simples motivos secuenciales compuestos de unos pocos residuos contiguos.
-Cada unidad unidades tendrán sus propiedads evolutivas, funcionales y conformacionales unicas.
+% La idea de dominio como unidad componente de las proteínas, que se origina en los primeros estudios que se hicieron sobre las proteínas.
+Los dominios, si bien son los componentes mas estudiados de la proteínas, no son los únicos componentes, existiendo otras unidades que pueden estar 
+limitadas por regiones más cortas e incluso limitarse a simples motivos secuenciales compuestos de unos pocos residuos contiguos.
+Cada tipo de módulo tendrá sus propiedades distinguibles.
 
-La arquitectura de las proteínas, entonces, estará dada por combinaciones de distintos módulos distinguibles por propiedades secuenciales, estructurales o actividades biológicas características, 
-posiblemente unido por regiones secuenciales que pueden no tener una función de forma individual pero que en conjunto hacen a la actividad biológica global de la proteína.
+La arquitectura de las proteínas, entonces, estará dada por la combinación de distintos módulos identificables por sus propiedades secuenciales, estructurales o actividades biológicas características, 
+posiblemente unidos por regiones secuenciales que pueden no tener una función de forma individual pero que en conjunto hacen a la actividad biológica global de la proteína.
 
 En la figura \ref{arquitectura} se muestra esta composición modular en un conjunto de proteínas efectoras de bacterias.
 La representación gráfica de dominios y motivos con colores permite identificar módulos individuales que pueden repetirse en distintas proteínas.
@@ -128,9 +140,6 @@ Se identifican otro tipo de módulos, por ejemplo motivos que pueden estar en cu
 
 
 
-
-
-
 \subsection{Módulos proteicos}
 \subsubsection{Proteínas globulares}
 
@@ -139,17 +148,19 @@ Las proteínas globulares son los compuestos proteicos más estudiados. En térm
 dándole un aspecto globular y haciéndola soluble en el medio acuoso de la célula.
 
 El hecho que sean, probablemente, las proteínas más estudiadas tiene que ver con todas estas propiedades estructurales básicas, 
-al ser solubles y con una estructura determinada y relativamente estable, fueron las primeras que pudieron ser cristalizadas.
-La anotación de las estructuras que se resolvían permitió conocer mas sobre las propiedades estructurales las cuales muestran, en términos generales, que la secuencia adopta una gran cantidad de estructuras secundarias junto con regiones
-que, al parecer, no tienen una estructura determinada.
-Las estructuras secundarias se unen mediante interacciones hidrofóbicas entre las cadenas laterales apolares, por puentes de hidrógeno y a través de interacciones iónicas entre aminoácidos cargados, dando lugar
-a la estructura compacta del plegamiento globular. Por lo tanto, el plegamiento adoptado por las estructuras secundarias(estructura terciaria) está intimamente asociado a las propiedades fisicoquímicas de la secuencia, 
-donde los aminoácidos más hidrofóbicos quedan alojados principalmente en el interior del plegamiento, formando un núcleo hidrofóbico, y la superficie globular tiene mayoría de residuos polares, 
-lo que le da la solubilidad característica en el entorno celular. 
+al ser solubles y con una estructura determinada y relativamente estable, fueron las primeras que pudieron ser cristalizadas para luego resolver su estructura mediante difracción de rayos X.
+La anotación de las estructuras que se resolvían permitió conocer mas sobre las propiedades estructurales mostrando que las proteínas globulares poseen una gran cantidad de estructuras secundarias interaccionando entre si, 
+unidas por regiones de la secuencia con estructura flexible no determinada.
+
+Las distintas estructuras secundarias se unen entre si mediante interacciones hidrofóbicas que involucran las cadenas laterales apolares, y por puentes de hidrógeno y a través de interacciones iónicas entre aminoácidos cargados, dando lugar
+a la estructura compacta del plegamiento globular. Por lo tanto, el plegamiento adoptado por las estructuras secundarias(estructura terciaria) está intimamente asociado a las propiedades fisicoquímicas de la secuencia. 
+En este plegamiento compacto, los aminoácidos más hidrofóbicos quedan alojados principalmente en el interior de la estructura, formando un núcleo hidrofóbico, 
+y la superficie globular tiene mayoría de residuos polares, los cuales tienen la capacidad de interaccionar favorablemente con el solvente, lo que lo que le provee la solubilidad característica en el entorno celular. 
 
 La estructura globular puede estar conformada por más de una cadena polipeptídica. En este caso, las diferentes subunidades se unen mediante las mismas interacciones que generan el plegamiento en una cadena, así, 
 el plegamiento individual de una cadena puede contener aminoácidos con cadena lateral apolar en alguna región de su superficie, pero esta se complementa con la superficie hidrofóbica de otra cadena cuya interacción mantiene la estructura 
 global del complejo.
+
 
 
 % ASPECTOS ENERGÉTICOS, TERMODINAMICA Y PROCESO DE PLEGAMIENTO
@@ -158,21 +169,25 @@ contiene la codificación para que esta se pliegue adoptando una estructura trid
 Esta paradigma se deriva directamente al encontrar que al menos las proteínas pequeñas poseen una tendencia intrínseca a plegarse espontáneamente para dar una única estructura tridimensional.
 Los detalles de este proceso de plegamiento, es decir, la forma en que el polipéptido sintetizado por el ribosoma recorre la superficie energética para alcanzar el estado plegado, ha inspirado una gran cantidad de estudios 
 aunque aún hoy no se conoce en detalle el mecanismo subyacente.
-
 % AGREGAR FIGURA DE SUPERFICIE ENERGÉTICA DEL PLEGAMIENTO
 
+Teniendo en cuenta que adoptar una estructura determinada en un polipéptido implica un gran costo entrópico, y que las interacciones que describimos como estabilizadoras de este plegamiento son principalmente débiles, 
+es de esperar que una característica de las proteínas globulares sea la capacidad intrínseca de su secuencia para formar gran cantidad de interacciones que permitan estabilizar la estructura plegada.
 
 
-% PARADIGMA ESTRUCTURA FUNCION
+
+
+
+% PARADIGMA ESTRUCTURA FUNCION - PROPIEDADES DINÁMICAS DE LA ESTRUCTURA
 El paradigma estructura-función original afirmaba que la función específica de una proteína está determinada por su estructura tridimensional, la cual es única y rígida. 
-El origen de este paradigma es el modelo de llave-cerradura propuesto por Emil Fisher el 1894. 
-El modelo nace de la necesidad por explicar la especificidad encontrada en el funcionamiento de diversas enzimas similares por sus correspondientes sustratos. 
+El origen de este paradigma es el modelo de llave-cerradura propuesto por Emil Fisher el 1894, 
+que nace de la necesidad por por explicar la especificidad encontrada en el funcionamiento de diversas enzimas similares por sus correspondientes sustratos. 
 La hipótesis utilizada para explicar esto era que la estructura de la proteína(en este caso la enzima) era perfectamente complementaria a la del sustrato correspondiente, en un sistema similar al de una llave en una cerradura.
-Este paradigma extiende los conocimientos vistos previamente acerca de que la secuencia de la proteína tiene codificada la información necesaria para plegarse espontáneamente luego de ser sintetizada en la célula,
-alcanzando esta estructura nativa asociada a la función.
-Por un largo período de tiempo, entonces, el modelo de llave-cerradura y el paradigma asociado de secuencia-estructura-función se mantuvieron como teorías aceptadas, confirmadas continuamente por la
+% Este paradigma extiende los conocimientos vistos previamente acerca de que la secuencia de la proteína tiene codificada la información necesaria para plegarse espontáneamente luego de ser sintetizada en la célula,
+% alcanzando esta estructura nativa asociada a la función.
+Por un largo período de tiempo, entonces, el modelo de llave-cerradura y el paradigma asociado de estructura-función se mantuvieron como teorías aceptadas, confirmadas continuamente por la
 gran diversidad de estructuras que se resolvieron mediante difracción con rayos X. 
-La capacidad de asociar una estructura única, encontrada en el cristal, con la función observada de la proteína en solución reforzaba la idea de una estructura estática asociada a las proteínas
+% La capacidad de asociar una estructura única, encontrada en el cristal, con la función observada de la proteína en solución reforzaba la idea de una estructura estática asociada a las proteínas
 
 Contrario a este modelo, en 1894 Koshlan sugiere el modelo de encaje inducido, basado en observaciones de enzimas que podían aceptar 
 ligandos con diferentes estructuras y, por lo tanto, la proteína debía poseer cierta flexibilidad que le permitiera esta función.
@@ -180,42 +195,53 @@ Siguientes evidencias mostraron que esta flexibilidad era parte del mecanismo fu
 reordenamientos conformacionales muy relevantes(por ej. en proteínas alostéricas).
 Estas variaciones podian aún ser interpretadas dentro del modelo establecido por el paradigma estructura-función, el cual fue levemente adaptado.
 El requerimiento necesario para que la proteína cumpla su función era, entonces, una estructura definida, aunque dinámica. 
-
 Por un tiempo todo pareció indicar(y la mayoría creyó) que una estructura definida, aunque dinámica, era la base del mecanismo funcional.
 
+Si bien esta idea es una simplificación, dado que aún las proteínas mas estables son sistemas dinámicos con distintos grados de flexiblidad, este modelo se adapta a las funciones asociadas a proteínas globulares.
 % Comenzaron a surgir, entonces, distintos modelos para explicar cómo la estructura tridimensional confería las propiedades necesarias para  
-Si bien esta idea es una simplificación, dado que aún las proteínas mas estables son sistemas dinámicos con distintos grados de flexiblidad, este modelo se adapta a una gran cantidad de proteínas.
+% Si bien esta idea es una simplificación, dado que aún las proteínas mas estables son sistemas dinámicos con distintos grados de flexiblidad, este modelo se adapta a una gran cantidad de proteínas.
 En éstas, el ensamble conformado por los estados accesibles en condiciones fisiológicas está limitado a un conjunto de estructuras que solo difieren en leves desviaciones del promedio del ensamble.
+La estructura resultante que se observa de la cristalización es, en realidad, un promedio del ensamble de conformaciones.
+
 La dinámica de estas estructuras está dada por movimientos que van desde fluctuaciones rápidas de pequeña amplitud(del orden de \AA) hasta cambios relativamente lentos($\mu$s - $s$) que 
 involucran modificaciones estructurales relevantes(plegamiento y movimientos asociados a la función).
+Todos los movimientos son resultantes de rupturas y formaciones de interacciones provocadas por fuerzas de interacción las cuales, debido a su naturaleza débil, pueden romperse 
+por efecto de la energía térmica, aún a temperatura ambiente. En general, todos estos movimientos están asociados al mecanismos por el cual ejercen su función.
+% Por lo tanto, a pesar de que estas proteínas puedan ser asociadas con estructuras estáticas definidas, las más minimas fluctuaciones térmicas en condiciones normales les permiten
+% explorar un conjunto relevante de conformaciones como parte de su actividad biológica.
 
-Todos los movimientos son resultantes de rupturas y formaciones de interacciones provocadas por fuerzas de interacción las cuales, debido a su naturaleza débil, pueden romperse por efecto de la energía térmica, aún a temperatura ambiente.
-Por lo tanto, a pesar de que estas proteínas puedan ser asociadas con estructuras estáticas definidas, las más mínimas fluctuaciones térmicas de la temperatura ambiente les permite 
-explorar distintas conformaciones como parte de su actividad biológica.
-En general, todos estos movimientos están asociados al mecanismos por el cual ejercen su función.
 
-La estructura resultante que se observa de la cristalización es, en realidad, un promedio del ensamble de conformaciones.
-Como este ensemble de conformaciones es relativamente pequeño, con estructuras que varían poco respecto al promedio observado, es posible inferir información funcional a partir de la estructura promedio observada en la cristalización.
-Es decir, dado que en dominios globulares la estructura esta definida(podemos obtener un promedio del ensemble) y esta asociada a la función/actividad que desarrolla la proteina, 
-esta estructura puede ser usada para clasificación y para inferir la funcionalidad en nuevas proteinas.
-% Estos dominios globulares pueden ser identificados y asociados a una funcion individual o a una funcion dentro de la funcion global de la proteina.
 
-% CONCEPTOS EVOLUTIVOS DE LA ESTRUCTURA / SECUENCIA
-Los análisis de estructuras existentes asociadas a proteínas globulares permitieron encontrar que casi todas las proteínas presentaban similitudes estructurales 
-Las combinaciones de estructuras secundarias que daban lugar al plegamiento podían agruparse, entonces, en conjuntos de arquitecturas globales de la proteína que permite
-clasificar y anotar las proteínas de acuerdo a estas arquitecturas resultantes.
-El resultado de esto es, por ejemplo, las base de datos
-SCOP y CATH, las cuales se basan en la topología emergente de la combinación de estructuras secundarias propia de la proteína para armar clasificaciones jerárquicas de la arquitectura.
 
-En el nivel más bajo de la clasificación se encuentran estructuras con gran similitud entre si, indicativo de un ancestro en común y agrupadas generalmente por funciones idénticas o similares.
-Esta agrupación en ``familias'' con alta  es posible porque, aún cuando la secuencia pueda sufrir mutaciones, la estructura debe conservarse para mantener la funcionalidad.
-% El paradigma secuencia-estructura-función permite extender este concepto a la estructura primaria de la proteína.
-Dado que la estructura asociada a la función debe ser mantenida evolutivamente para continuar cumpliendo la función, 
-tanto la estructura como el proceso de plegamiento que requiere ésta, imponen un conjunto de restricciones sobre la evolución de la secuencia. 
-Por lo tanto, la similitud secuencial también permite inferir propiedades funcionales. 
-Esto facilita la anotación de elementos funcionales en secuencias nuevas, aún cuando no se conoce su estructura.
-% Incluso cuando ....The sequences diverge, but the overall domain architecture remains the same.
-% Particular domains and domain architectures are well conserved over the course of evolution. 
+
+
+% % CONCEPTOS EVOLUTIVOS DE LA ESTRUCTURA / SECUENCIA
+Sabemos ahora que la funcionalidad emergente de los dominios globulares depende no solo de la estructura promedio del ensamble sino también de los aspectos dinámicos de ésta.
+Todas estas características imponen requerimientos al mecanismo evolutivo ya que, para mantener la funcionalidad intrínseca de la proteína, se deben mantener los determinantes secuenciales y estructurales asociados al mecanismo funcional.
+Esto impone ciertos requerimientos secuenciales y/o estructurales para la evolución de la proteína, que resulta en una similitud secuencial y estructural entre proteínas homólogas.
+
+Estos conceptos han sido(y son) de gran ayuda en el estudio y clasificación de nuevas proteínas. 
+Conociendo la estructura asociada a una proteína se puede inferir la funcion que desarrolla a partir de la búsqueda de proteínas con estructuras similares cuya función sea conocida.
+Este mismo método se puede aplicar sobre dominios individuales ya que, como vimos, actúan como unidades estructurales y evolutivas individuales, mostrando funcionalidades independientes.
+
+Incluso cuando no se conoce la estructura, los requerimientos estructurales imponen indirectamente restricciones sobre la secuencia (ya que la estructura es resultado directo de esta).
+Estas, junto con ciertos determinantes secuenciales asociados directamente a la funcionalidad, forman un conjunto de restricciones impuesto sobre la evolución secuencial.
+De esta forma, el mecanismo de comparación para inferir la funcionalidad puede ser utilizado de forma similar si se comparan las secuencia de una nueva proteína con la de otras cuya función es conocida.
+Por lo tanto, la similitud secuencial también permite inferir propiedades funcionales, lo que facilita la anotación de elementos funcionales en secuencias nuevas, aún cuando no se conoce su estructura.
+
+Dado que la secuencia está directamente ligada a la estructura resultante, la similitud secuencial entre proteínas es también un indicio de similitud estructural.
+Estos conceptos asociados de propiedes secuenciales, estructurales y funcionales, unidos por el mecanismo evolutivo son las base de gran parte del conocimiento actual sobre proteínas globulares.
+
+% Más alla de esto, los análisis de estructuras existentes asociadas a proteínas globulares permitieron encontrar que hay una gran conservación en los diseños de arquitectura.
+% Las combinaciones de estructuras secundarias que daban lugar al plegamiento podían agruparse, entonces, en conjuntos de arquitecturas globales de la proteína que permite
+% clasificar y anotar las proteínas de acuerdo a estas arquitecturas resultantes.
+% Como resultado de estos analisis estructurales se desarrollaron diversas clasificaciones y bases de datos asociadas. 
+% Ejemplo de estas son SCOP y CATH, las cuales se basan en la topología emergente de la combinación de estructuras secundarias propia de la proteína para armar clasificaciones jerárquicas de la arquitectura.
+% En el nivel más bajo de la clasificación se encuentran estructuras con gran similitud entre si, indicativo de un ancestro en común y agrupadas generalmente por funciones idénticas o similares.
+% % Esta agrupación en ``familias'' con alta  es posible porque, aún cuando la secuencia pueda sufrir mutaciones, la estructura debe conservarse para mantener la funcionalidad.
+% 
+% % Incluso cuando ....The sequences diverge, but the overall domain architecture remains the same.
+% % Particular domains and domain architectures are well conserved over the course of evolution. 
 
 
 
@@ -223,19 +249,31 @@ Esto facilita la anotación de elementos funcionales en secuencias nuevas, aún 
 
 
 % ACTIVIDADES
-La funcionalidad de las proteínas globulares depende directamente de la estrucura tridimensional dinámica
-– Flexibilidad
-• No son estructuras rígidas
-• Su flexibilidad depende de un gran número de enlaces débiles
-– Cambios conformacionales
-• Son pequeñas variaciones de su estructura terciaria
-• Sirven para regular su actividad
-– Interacciones
-• Unión reversible de ligandos
-• Interacciones reversibles proteína-proteína
-• Se llevan a cabo mediante enlaces débile
+Como se menciono previamente el perfil de actividades biológicas asociadas a las proteínas globulares está directamente relacionado con las propiedades conformacionales de estas.
+En general, las funciones más estudiadas están asociadas con actividades enzimáticas, donde las proteínas se encuentran generalmente solubles en el medio acuoso de la célula.
+La estructura tridimensional definida y gran tamaño que pueden alcanzar estas proteínas también les permite intervenir en actividades que requieren interacciones específicas y estables con otras moléculas, 
+ejemplo de esto son los anticuerpos y las proteínas que intervienen en la replicación y reparación del ADN.
+El gran tamaño y la solubilidad le permiten actuar como transportadores de otras moléculas con baja solubilidad en medio acuoso.
 
-En general, las funciones más estudiadas están asociadas con actividades enzimáticas.
+Las flexibilidad estructural permite que se experimenten cambios conformacionales considerables en la estructura terciaria. 
+Dado que las propiedades conformacionales están intimamente ligadas a la funcionalidad, estos cambios, 
+que pueden ocurrir como producto de la unión de ligandos o modificaciones sobre químicas dinámicas sin alterar la secuencia, permiten ejercer efectos regulatorios sobre la actividad de la proteína.
+
+
+
+
+
+
+% 
+% – Flexibilidad
+% • No son estructuras rígidas
+% • Su flexibilidad depende de un gran número de enlaces débiles
+% 
+% – Interacciones
+% • Unión reversible de ligandos
+% • Interacciones reversibles proteína-proteína
+% • Se llevan a cabo mediante enlaces débile
+% 
 
 
 
@@ -316,26 +354,18 @@ Además, a partir de estos módulos transmembrana y extra/intra celulares se pue
 %  CONCEPTOS GENERALES, SIMPLEMENTE PARA INDICAR QUE NO TIENEN UNA ESTRUCTURA TRIDIMENSIONAL DEFINIDA
 % ******************************
 Los conocimientos acerca del proceso de plegamiento y la estructura resultante derivados de proteinas globulares formaron, durante un largo tiempo, ideas que se creían aplicables a todas las proteínas existentes.
-Con el tiempo se encontraron proteínas que, al parecer, no se adaptaban a las características de plegamiento 
+Con el tiempo se encontraron proteínas que, al parecer, ejercían su función sin tener una estructura tridimensional determinada. 
+Estas ideas no se adaptaban a las características de plegamiento y al paradigma estructura-función reinante, por lo tanto, fueron identificándose 
+y estudiándose experimentalmente una a una, tratándolas como excepciones al modelo clásico.
+Luego de este proceso, hace al menos una década, se formalizó la idea que el estado adoptado en condiciones nativas(funcionales) de muchas regiones o proteínas enteras podía ser intrínsecamente desordenado
+(IDRs/IDPs = intrinsically disordered regions/proteins, a partir de ahora). 
+% Es decir, existe un conjunto cada vez mas amplio de proteinas cuya secuencia no codifica un plegamiento determinado.
 
-% No se puede pensar, sin embargo, que todas las proteínas tendrán esta conformación plegada.
-% Incluso entre las estructuras almacenadas en la PDB, no todas las proteínas muestran una conformación definida a lo largo de toda su secuencia, es así que muchas proteínas contienen segmentos no determinados de sus estructuras.
-% Usualmente esta falta de información es producto de regiones no definidas en el mapa de densidad electrónica que resulta del análisis de difracción por rayos X, 
-% correspondientes a ensambles de estructuras muy variables asociados a conformaciones flexibles o desordenadas. 
-% % Este tipo de segmentos es bastante común ya que sólo una pequeña porción de las estructuras en la PDB se encuentra totalmente libe de regiones con densidad electrónica no definida.
-% La simple pregunta sobre cuál es la conformación real que adoptan estos segmentos(donde se pierde la definición en la densidad electrónica), 
-% junto con la aparición de diversas proteínas funcionales sin una estructura plegada, llevaron a centrar la atención en 
-% segmentos/proteínas completas que no se adaptan correctamente al modelo clásico de plegamiento.
-% La búsqueda de respuestas a estos nuevos problemas llevo a descubir toda un area, quizás más compleja (e incluso más amplia), que la determinada por el paradigma clásico de proteínas plegadas.
 
 
 % Inicialmente, gran cantidad de evidencia soportaba la idea que la funcionalidad de las proteínas estaba asociada a su estructura tridimensional bien definida pero dinámica.
-Al no tener una estructura tridimensional determinada, el paradigma reinante que implicaba la necesidad de ésta para poder cumplir alguna función biológica no permitía incluirlas como parte del proteoma.
-Consecuentemente, la idea de que muchas proteínas o regiones no adopten una estructura definida y posean una conformación intrínsecamente desordenada se creyó inaceptable. 
-Por lo tanto, durante un largo tiempo fueron identificándose y estudiándose experimentalmente una a una, tratándolas como excepciones al modelo clásico.
-Luego de este proceso, hace al menos una década, se formalizó la idea que el estado adoptado en condiciones nativas(funcionales) de muchas regiones o proteínas enteras podía ser intrínsecamente desordenado
-(IDRs/IDPs = intrinsically disordered regions/proteins, a partir de ahora).
-Es decir, existe un conjunto cada vez mas amplio de proteinas cuya secuencia no codifica un plegamiento determinado.
+% Al no tener una estructura tridimensional determinada, el paradigma reinante que implicaba la necesidad de ésta para poder cumplir alguna función biológica no permitía incluirlas como parte del proteoma.
+% Consecuentemente, la idea de que muchas proteínas o regiones no adopten una estructura definida y posean una conformación intrínsecamente desordenada se creyó inaceptable. 
 % Estamos hablando de un numero considerable de proteinas cuya secuencia encodes for the intrinsically unstructured proteins without specific structure.
 Este reconocimiento trajo consigo una gran cantidad de preguntas, relacionadas con las características estructurales de éstas:
 ¿Que tan desordenadas/desplegadas son estas proteínas?, ¿Son realmente conformaciones aleatorias o conservan una estructura residual?
@@ -351,20 +381,23 @@ a la espera de aproximaciones/conocimientos provenientes de nuevas técnicas del
 % ******************************
 
 % CONCEPTOS GENERALES !!! REESCRIBIR-REORDENAR
-En general, las IDRs/IDPs no poseen un núcleo hidrofóbico que les permita plegarse espontáneamente, lo que si ocurre en proteínas plegadas(en algo similar a un colapso hidrofóbico).  
-En algunos casos, sin embargo, pueden formar estructuras desordenadas pero compactas, o algunos segmentos de la secuencia pueden adoptar transitivamente estructuras secundarias individuales.
-% (which is equivalent to the ‘pre-molten globule’ proposed by Uversky 2 ). 
-A pesar de esta tendencia desestructurada, debido a la naturaleza heteropolimérica de las proteínas, es probable que nunca adopten 
-conformaciones totalmente aleatorias(donde las conformaciones solo estan restringidas por impedimentos estéricos), aún en entornos altamente desnaturalizantes donde normalmente se pierden las propiedades estructurales.
-Es decir, incluso los estados mas desestructurados mantienen una cierta tendencia a formar elementos estructurados locales, caracterizados por estructuras secundarias transitivas o núcleos hidrofóbicos.
-La existencia de estos residuos de estructura se han detectado en proteinas estructuradas sometidas a altas concentraciones de desnaturalizantes fuertes. 
+
+Este conjunto de proteínas desordenadas se caracteriza la tendencia a adoptar conformaciones extendidas con bajo contenido de estructura secundarias.
+La principal característica distintiva de las IDPs es, entonces, su inhabilidad para plegarse en una estructura tridimensional única.
+En algunos casos, sin embargo, pueden formar estructuras desordenadas pero compactas, y algunos segmentos de la secuencia pueden adoptar transitivamente estructuras secundarias individuales.
+Como vamos a ver, esta leve estructura residual(latente o transitiva) es muy importante y representa gran parte de las capacidades funcionales en IDRs/IDPs.
+A pesar de esta tendencia desordenada, debido a la naturaleza heteropolimérica de las proteínas, es probable que las IDPS adopten conformaciones totalmente aleatorias(donde las conformaciones solo estan restringidas por impedimentos estéricos),
+aún en entornos altamente desnaturalizantes donde normalmente se pierden las propiedades estructurales.
+Por lo tanto, se puede ver que las IDPs poseen propiedades conformacionales complejas, y que esta 
+excepcional heterogeneidad estructural representa tambien un problema crítico a la hora de estudiarlas experimentalmente y caracterizarlas.
+% Por lo tanto, se puede decir que las IDPs poseen propiedades conformacionales mucho mas complejos que polipéptidos con estructuras totalmente aleatorias y que esta 
+
+
+
+
 % Thus, coil-like ID proteins are not completely random, but are characterized by the presence of some residual (and highly flexible) structure. 
 
-Como vamos a ver, esta leve estructura residual(latente o transitiva) es muy importante y representa gran parte de las capacidades funcionales en IDRs/IDPs.
-Por lo tanto, se puede decir que las IDRs/IDPs poseen propiedades conformacionales mucho mas complejos que polipéptidos con estructuras totalmente aleatorias y que esta excepcional heterogeneidad estructural
-representa tambien un problema crítico a la hora de estudiarlas experimentalmente y caracterizarlas.
 % A partir de esta descripcion estructural se puede entender por qué el término inicial asignado a estas proteínas (proteínas desestructuradas) ha quedado obsoleto.
-La única característica distintiva de las IDRs/IDPs es, entonces, su inhabilidad para plegarse en una estructura tridimensional única.
 
 % A pesar de esta falta de estructura única definida, como se vió, presentan una gran diversidad de propiedades estructurales y, lo que es mas importante, estas están relacionadas con las funciones de la proteína. 
 % Por lo tanto, el término general para describir estas proteínas es, simplemente, ``desordenadas''. 
@@ -374,29 +407,29 @@ La única característica distintiva de las IDRs/IDPs es, entonces, su inhabilid
 
 
 % Ahora que sabemos que las IDRs/IDPs no están completamente libres de restricciones estructurales, nos concentraremos en describir cuales son las características de su conformación:
-Las IDRs/IDPs consisten en estructuras altamente dinámicas que se interconvierten en diferentes escalas de tiempo.
+Una característica resultante de estas propiedades es que las IDPs poseen conformaciones altamente dinámicas con estructuras que se interconvierten en diferentes escalas de tiempo. 
 Estas estructuras varían desde estados completamente sin estructura(polipéptidos nativos sin plegamiento) hasta estados parcialmente plegados(sin estructuras secundarias definidas), o incluso ensambles desordenados pero con ciertas
 estructuras secundarias claramente determinadas.
 La distribución de estas estructuras está cambiando continuamente en el tiempo, es decir, la estructura tridimensional que podemos ver en un instante dado será diferente de la que veremos en otro momento.
 
-A pesar de esta dinámica estructural, sin embargo, las IDRs/IDPs carecen de cualquier tipo de estructura secundiaria(o terciaria) estable bajo condiciones fisiológicas.
-Las estructuras residuales que describimos como parte del ensamble, a pesar de ser transitorias, tienen un papel relevante en el cumplimiento de la función asociada a la proteína.
-Cualquier IDR/IDP contiene una gran cantidad de este tipo de elementos estructurales, algunos con gran potencial para plegarse, otros con capacidades de plegamiento diferencial(en algún contexto determinado) 
-y otros sin posibilidad alguna de adquirir una estructura determinada.
-De esta última descripción se puede imaginar que, probablemente, ningún IDR/IDP adoptará una conformación totalmente desordenada a lo largo del tiempo(aunque tampoco estará completamente plegada), por el contrario, se tendrá una gran variedad
-de posibles mosaicos con distintas proporciones y tipos de elementos estructurales.
+% A pesar de esta dinámica estructural, sin embargo, las IDRs/IDPs carecen de cualquier tipo de estructura secundiaria(o terciaria) estable bajo condiciones fisiológicas.
+% Las estructuras residuales que describimos como parte del ensamble, a pesar de ser transitorias, tienen un papel relevante en el cumplimiento de la función asociada a la proteína.
+% Cualquier IDR/IDP contiene una gran cantidad de este tipo de elementos estructurales, algunos con gran potencial para plegarse, otros con capacidades de plegamiento diferencial(en algún contexto determinado) 
+% y otros sin posibilidad alguna de adquirir una estructura determinada.
+% De esta última descripción se puede imaginar que, probablemente, ningún IDR/IDP adoptará una conformación totalmente desordenada a lo largo del tiempo(aunque tampoco estará completamente plegada), por el contrario, se tendrá una gran variedad
+% de posibles mosaicos con distintas proporciones y tipos de elementos estructurales.
 
 
-
-En la parte derecha de la figura \ref{idpBindingEnLandscape} se representa gráficamente el perfil energético asociado a estas propiedades conformacionales.
-Como se puede ver, el paisaje entero queda descrito por una superficie semiplana con múltiples conformaciones asociadas al mínimo de energía, 
+Estas propiedades dinámicas se pueden entender fácilmente a partir del perfil energético característicamente asociado a estas proteínas.
+% En la parte derecha de la figura \ref{idpBindingEnLandscape} se representa gráficamente el perfil energético asociado a estas propiedades conformacionales.
+Como se puede ver en la figura \ref{idpBindingEnLandscape}, el paisaje entero queda descrito por una superficie semiplana con múltiples conformaciones asociadas al mínimo de energía, 
 con valores de energía aproximadamente iguales y separados por barreras energéticas muy pequeñas.
 Estas barreras representan las transiciones rápidas y frecuentes entre las distintas conformaciones que resultan en las propiedades observadas experimentalmente
 en solución: un conjunto heterogéneo de conformaciones fácilmente maleable por cambios en el medio. 
-En base a esto, se ve que una descripción detallada de IDRs/IDPs requeriría conocer el ensamble de estados posibles junto con las velocidades de interconversión entre estos.
+En base a esto, se ve que una descripción detallada de IDPs requeriría conocer el ensamble de estados posibles junto con las velocidades de interconversión entre estos.
 Todas estas propiedades y las velocidades de las transiciones en el ensamble son difíciles de capturar experimentalmente(y computacionalmente también), aún usando técnicas experimentales que no se basan en promedios de conformaciones.
 Los estudios sobre este tipo de proteínas, entonces, se han enfocado en analizar los estados termodinámicamente accesibles como entidades discretas.
-Como veremos a continuación y en las próximas secciones, esta idea, si bien sabemos que es una descripción incompleta, permite modelar de forma discreta los elementos funcionales relevantes, sirviendo como base para estudios posteriores.
+Esta idea, si bien sabemos que es una descripción incompleta, permite modelar de forma discreta los elementos funcionales relevantes, sirviendo como base para estudios posteriores.
 Este modelo puede extenderse si se representan también las probabilidades de ocurrencia para distintas conformaciones individuales en el ensamble, obteniendo asi un modelo mas dinámico del sistema.
 
 
@@ -405,15 +438,15 @@ Este modelo puede extenderse si se representan también las probabilidades de oc
 %  INDUCED FIT:
 % ****************
 % Además, este perfil energético se ve modificado por distintas condiciones como modificaciones post-traduccionales, condiciones del medio, presencia de ligandos,etc.
-Los ensambles conformacionales, además, pueden verse modificados por distintas situaciones como cambios en las condiciones del entorno, modificaciones post-traduccionales, presencia de ligandos, etc.,
+Además, estos ensambles conformacionales dinámicos pueden verse modificados por distintas situaciones como cambios en las condiciones del entorno, modificaciones post-traduccionales, presencia de ligandos, etc.,
 lo que modifica no sólo los estados accesibles, sino también la distribución de poblaciones que se encuentran en cada uno.
-Una propiedad particular dependiente del contexto, encontrada en los ensambles conformacionales asociados a IDRs/IDPs, es la capacidad de adquirir nuevos elementos estructurales ordenados estables luego de la unión a ciertos ligandos
+Una propiedad particular dependiente del contexto, encontrada en los ensambles conformacionales asociados a IDPs, es la capacidad de adquirir nuevos elementos estructurales ordenados estables luego de la unión a ciertos ligandos
 (proceso conocido como textit{binding \& folding}\cite{dyson2005intrinsically}). 
 Esta propiedad se hace mas relevante de investigar cuando se sabe que, generalmente, está asociada a su funcionalidad biológica y ocurre previamente o durante la realización de esta función.
 % Although disordered proteins exist as dynamic structural ensembles without fixed(estable!!!) tertiary structures, there is evidence that many flexible regions of proteins undergo coupled binding and folding \cite{dyson2005intrinsically}. 
 % A large decrease in conformation entropy accompanies such disorder-to-order transitions. 
 
-Una gran cantidad de IDRs/IDPs, entonces, se ven estabilizadas termodinámicamente mediante la unión a ligandos específicos(generalmente otras proteínas, DNA, membranas, etc)
+Una gran cantidad de IDPs, entonces, se ven estabilizadas termodinámicamente mediante la unión a ligandos específicos(generalmente otras proteínas, DNA, membranas, etc)
 % In other words, intrinsically unfolded proteins in vivo are likely to be stabilized by functional binding to specific targets and ligands 
 % (such as a variety of small molecules, substrates, cofactors, other proteins, nucleic acids, membranes and so on). 
 % Many intrinsically disordered proteins undergo transitions to more ordered states or fold into stable secondary or tertiary structures on binding to their targets — that is, they undergo coupled folding and binding processes.
@@ -433,7 +466,7 @@ Figura extraída de \cite{turoverov2010protein}}
 \label{idpBindingEnLandscape}
 \end{figure}
 
-Las IDRs/IDPs pueden adoptar esta conformación plegada si la energia del complejo formado es menor que la energía libre correspondiente al segmento desordenado y su ligando, previo a la interacción.
+Las IDPs pueden adoptar esta conformación plegada si la energia del complejo formado es menor que la energía libre correspondiente al segmento desordenado y su ligando, previo a la interacción.
 % IDPs fold as a whole while interacting with their partners, if the free energy of complex is lower than the free energies of IDP and its partner before their interaction.
 En general, sólo un segmento desordenado con características anfipáticas es el que está involucrado en el proceso de unión y plegamiento, en este caso el segmento se denomina elemento de reconocimiento(RE=recognition element). 
 % More often, however, only a part of an IDP, a specific recognition element, which is a relatively short amphipathic linear motif contained within long disordered sequence, is involved in the coupled folding and binding events
@@ -447,7 +480,7 @@ o si pertenece al conjunto de elementos estructurales encontrados transitivament
 % An often-raised issue with respect to IDP binding is whether folding occurs before or after binding (termed conformational selection and induced folding, respectively).
 % Detailed studies suggest that folding can occur both before and after binding in distinct cases
 Estas dos opciones se reflejan en los modelos de selección de conformación y el de unión y plegamiento simultáneo.
-Obviamente, en realidad, puede ocurrir cualquiera de estos dos mecanismos o una combinación de los dos.
+Obviamente, en la realidad puede ocurrir cualquiera de estos dos mecanismos o una combinación de los dos.
 Esto se ve representado en la figura \ref{idpBinding}
 
 
@@ -478,29 +511,26 @@ Gran cantidad de ejemplos de este tipo de uniones(determinados complejos ``fuzzy
 
 
 
-% PROPIEDADES SECUENCIALES
 
+
+% PROPIEDADES SECUENCIALES
 Muchos estudios se hicieron para intentar identificar cómo las características  estructurales tan particulares de las IDPs están codificadas en la secuencia de la proteína.
-Como se describió previamente, la secuencia primaria de una proteina globular codifica el proceso de plegamiento y la estructura única final. 
-De forma similar, al identificar la IDPs cómo entidades estructuralmente diferenciables, se podría pensar que la estructura primaria de éstas determina, también, su falta de estructura tridimensional definida.
+En el caso de las proteína globulares, la secuencia primaria codifica el proceso de plegamiento y, a través de este, la estructura única final. 
+De forma similar, al identificar la IDPs cómo entidades estructuralmente diferenciables, se podría pensar que la estructura primaria de estas determina, también, su falta de estructura tridimensional definida.
 Esto tiene como corolario la idea que las secuencias de ambos conjuntos (proteinas ordenadas y proteínas desordenadas) deberían ser diferenciables entre si.
 
-La ausencia de una estructura definida en IDRs/IDPs es atribuida a las características particulares de sus secuencias de aminoácidos las cuales pueden resumirse en la presencia de númerosos 
+La ausencia de una estructura definida en IDPs es atribuida a las características particulares de sus secuencias de aminoácidos las cuales pueden resumirse en la presencia de númerosos 
 grupos cargados no compensados(generalmente con carga negativa) y un bajo contenido de residuos hidrofóbicos. 
 % Durante el proceso de descubrimiento del conjunto IDPs, muchas proteínas fueron identificadas inicialmente debido a estas simples diferencias en la secuencia.
 La relación entre esta combinación de baja hidrofobicidad y alta carga neta y la falta de una estructura definida puede explicarse desde el punto de vista físico:
 los altos valores de carga neta producen efectos de repulsión entre las cargas de los residuos, mientras que la baja hidrofobicidad previene la compactación de la estructura lineal
 (las interacciones hidrofóbicas son una de las principales fuerzas que interviene en el proceso de plegamiento).
-El resultado es una estructura con tendencia a mantener una conformación desplegada, característica de las IDRs/IDPs.
+De esta forma, las IDPs no poseen las propiedades secuenciales que le permitan formar suficientes interacciones para estabilizar una estructura compacta con un núcleo hidrofóbico, característica de las proteínas globulares.
+% Estas propiedades no solo son necesarias para estabilizar la estructura compacta final sino que también se cree son importantes en el proceso de plegamiento para adquirir esta estructura.
+% en un proceso similar a un colapso hidrofóbico. 
+El resultado es una estructura con tendencia a mantener una conformación desplegada, característica de las IDPs.
 
-% It has been concluded that the combination of low mean hydrophobicity and relatively high net charge represents an important prerequisite for the absence of compact structure in proteins under physiological conditions.
-% This observation was used to develop a charge-hydropathy (CH) plot method of analysis that distinguishes ordered and disordered proteins based only on their net charges and hydropathies.
-% From the physical viewpoint, such a combination of low hydrophobicity with high net charge as a prerequisite for intrinsic unfoldedness makes perfect sense: high net charge leads to charge-
-% charge repulsion, and low hydrophobicity means less driving force for protein compaction. In other words, these features are characteristic for ID proteins with the coil-like (or close to coil-
-% like) structures.
-
-% 
-% 
+ 
 % ****SI HACE FALTA PUEDO AGREGAR ESTE PARRAFO SOBRE ALGUNAS CARACTERISTICAS EXTRA DE LAS SECUENCIAS, O REFERENCIAR ALGO, 
 % 
 % The disordered proteins are significantly depleted in bulky hydrophobic (Ile, Leu, and Val) and aromatic amino acid residues (Trp, Tyr, and Phe), which would normally form the hydrophobic core of a folded globular protein, 
@@ -533,30 +563,34 @@ El resultado es una estructura con tendencia a mantener una conformación desple
 
 
 
+
+
+
+
+
 % ACTIVIDADES
+% 
+% % Como vimos antes, diversos estudios estructurales mostraron que este tipo de conformaciones no solamente existe realmente \textit{in-vivo}, sino que representa el estado funcional de estas proteínas y,
+% % dado que la habilidad para realizar su función biológica es lo que distingue al estado nativo, este conjunto de proteínas parcial o totalmente desordenadas debe ser considerada como entidades nativas. 
+% Debido a su amplio ensamble conformacional, el cual va más allá de una simple variación/dinámica estructural, el modelo de encaje inducido al cual se adaptan correctamente las proteínas globulares no permitiría explicar el funcionamiento
+% de las proteínas intrínsecamente desordenadas.
+% Por lo tanto, estas proteínas desafían el paradigma casi dogmático de estructura-función, fuertemente establecido hasta el momento.
+% Esto significa que el paradigma estructura-función previo, que implica la indispensable existencia de una estructura ordenada como requisito para una función efectiva, debe ser redefinido para incluir ese nuevo conjunto de entidades
+% \cite{wright1999intrinsically}.
+% De acuerdo a este nuevo paradigma, las proteínas nativas(o sus regiones funcionales) pueden existir en cualquiera de los estados conformacionales conocidos que se desarrollaron en las secciones previas.
+% En la figura \ref{stuctured-idp-functions} se muestra el paralelismo entre los paradigmas descritos y el proteoma resultante.
+% 
+% 
+% \begin{figure}[h!,centered]
+% \centering
+% \includegraphics[width=0.9\textwidth]{img/structure-idp-function.jpeg} 
+% \caption{Paralelismo entre funcionalidad emergente de dominios plegados y de proteinas/regiones intrínsecamente desordenadas. Figura extraida de \cite{van2014classification}}
+% \label{stuctured-idp-functions}
+% \end{figure}
 
-% Como vimos antes, diversos estudios estructurales mostraron que este tipo de conformaciones no solamente existe realmente \textit{in-vivo}, sino que representa el estado funcional de estas proteínas y,
-% dado que la habilidad para realizar su función biológica es lo que distingue al estado nativo, este conjunto de proteínas parcial o totalmente desordenadas debe ser considerada como entidades nativas. 
-Debido a su amplio ensamble conformacional, el cual va más allá de una simple variación/dinámica estructural, el modelo de encaje inducido al cual se adaptan correctamente las proteínas globulares no permitiría explicar el funcionamiento
-de las proteínas intrínsecamente desordenadas.
-Por lo tanto, estas proteínas desafían el paradigma casi dogmático de estructura-función, fuertemente establecido hasta el momento.
-Esto significa que el paradigma estructura-función previo, que implica la indispensable existencia de una estructura ordenada como requisito para una función efectiva, debe ser redefinido para incluir ese nuevo conjunto de entidades
-\cite{wright1999intrinsically}.
-De acuerdo a este nuevo paradigma, las proteínas nativas(o sus regiones funcionales) pueden existir en cualquiera de los estados conformacionales conocidos que se desarrollaron en las secciones previas.
-En la figura \ref{stuctured-idp-functions} se muestra el paralelismo entre los paradigmas descritos y el proteoma resultante.
 
-
-\begin{figure}[h!,centered]
-\centering
-\includegraphics[width=0.9\textwidth]{img/structure-idp-function.jpeg} 
-\caption{Paralelismo entre funcionalidad emergente de dominios plegados y de proteinas/regiones intrínsecamente desordenadas. Figura extraida de \cite{van2014classification}}
-\label{stuctured-idp-functions}
-\end{figure}
-
-
-
-El principal objetivo de todos los modelos y estudios estructurales en estas proteínas busca elucidar los tipos y modos funcionales subyacentes.
-La pregunta mas importante, entonces, es la función fisiológica que cumplen las IDPs y como es su mecanismo funcional.
+El principal objetivo de todos los modelos y estudios estructurales en estas proteínas es poder elucidar los tipos y modos funcionales subyacentes.
+La pregunta mas importante, entonces, es cuales son las funciones fisiológica que cumplen las IDPs y como es su mecanismo funcional.
 % El estudio de las funcionalidades provistas por IDPs se ve dificultada por las propiedades intrínsecas de estas proteinas:
 % Como se dijo antes, el paradigma inicial de secuencia-estructura-función provee una base para relacionar los conocimientos entre mediante métodos de análisis y anotaciones de secuencias estructuras y funciones.
 % Por el contrario, las proteínas dentro de este nuevo conjunto de IDPs se corresponden con un ensamble conformacional heterogéneo.
@@ -564,33 +598,34 @@ La pregunta mas importante, entonces, es la función fisiológica que cumplen la
 % Lo que es más, dada la ausencia de restricciones estructurales, las secuencias de estas proteínas tienden a evolucionar más rapidamente que sus pares ordenados.
 % Como resultado, la identificacion de secuencias/regiones homólogas es considerablemente mas difícil.
 % Estas consideraciones manifiestan la necesidad de avanzar en el desarrollo de esquemas de clasificación específicos para este nuevo conjunto de proteínas, apuntando a mejorar la predicción funcional y la anotación.
-Como parte de estos avances se han ensayado una gran diversidad de clasificaciones\cite{van2014classification}.
-En la figura \ref{proteinMechanisms} se ve una clasificación general bastante simplificada de los roles y mecanismos funcionales generalmente provistos por los distintos tipos de proteinas. 
-En esta clasificacion de proteinas segun su rol general, se incluyen también las proteínas globulares y de membrana que mencionamos previamente(asociadas a actividades enzimáticas, transporte, etc), agrupadas como proteínas plegadas.
-La figura \ref{idpFunctions} detalla la clasificacion de funcionalidades y mecanismos funcionales específicos de IDPs/IDRs estimando las proporciones de cada funcionalidad.
-Al parecer, de estas clasificaciones se puede ver que las funcionalidades en IDRs/IDPs emergen a partir del propio desorden o mediante mecanismos de reconocimiento molecular.
+Un paso importante en para entender esto es la clasificación de las IDPs conocidas de acuerdo a sus funcionalidades\cite{van2014classification}.
+% Como parte de estos avances se han ensayado una gran diversidad de clasificaciones\cite{van2014classification}.
+La figura \ref{idpFunctions} detalla la clasificacion de funcionalidades y mecanismos asociados a IDPs junto con las proporciones de instancias encontradas para cada uno.
+De esta clasificacion se puede ver que las funcionalidades en IDRs/IDPs emergen a partir del propio desorden intrínseco o mediante mecanismos de reconocimiento molecular(interacciones transitivas o permanentes).
+% En la figura \ref{proteinMechanisms} se ve una clasificación general bastante simplificada de los roles y mecanismos funcionales generalmente provistos por los distintos tipos de proteinas. 
+% En esta clasificacion de proteinas segun su rol general, se incluyen también las proteínas globulares y de membrana que mencionamos previamente(asociadas a actividades enzimáticas, transporte, etc), agrupadas como proteínas plegadas.
 
-En el primero, el mecanismo subyacente de funcionamiento no implica adquirir estructura determinada, sino que depende directamente de la felxibilidad y plasticidad de la cadena carbonada(\textit{entropic chains}).
-En este caso, las proteínas satisfacen un conjunto de requerimientos celulares únicos en los cuales la funcion a cumplir es una consecuencia directa del desorden intrínseco que poseen. 
-Esta función, generalmente está asociada a secuencias linkers.
+En el primero caso, el mecanismo subyacente de funcionamiento no implica ninguna interacción sino que depende directamente de la flexibilidad y plasticidad de la cadena carbonada(\textit{entropic chains}).
+En este caso, las proteínas satisfacen un conjunto de requerimientos celulares únicos en los cuales la funcion a cumplir es una consecuencia directa de las propiedades conformacionales que poseen. 
+Esta función, generalmente está asociada a secuencias linkers, cuyo objetivo es unir distintos unidades componentes de las proteínas.
 
-En el segundo caso, el mecanismo implica el plegamiento para adquirir una estructura ordenada al unirse al ligando.
-Este mecanismo/estrategia de reconocimiento es básicamente diferente a la que adoptan los dominios globulares.
+En el segundo caso, el mecanismo generalmente implica el plegamiento para adquirir una estructura ordenada al interaccionar con el ligando.
+Esta estrategia de reconocimiento es básicamente diferente a la que adoptan los dominios globulares. 
 Mientras que estos últimos han evolucionado para dar una gran variedad de plegamientos diferentes que proveen reconocimientos especificos, 
-en IDPs el \textit{binding} es principalmente mediado por elementos(motivos) cortos de reconocimiento\cite{neduva2005systematic,fuxreiter2007local}, caracterizados por su naturaleza flexible, lo que 
+en IDPs el mecanismo de unión \textit{binding} es principalmente mediado por elementos(motivos) cortos de reconocimiento\cite{neduva2005systematic,fuxreiter2007local}, caracterizados por su naturaleza flexible, lo que 
 les aporta una gran cantidad de ventajas\cite{gunasekaran2003extended,dyson2005intrinsically}.%REFERENCIA AL PAPER DE MECANISMOS FUNCIOMNALES DE IDPs
 
 
 
-
-\begin{figure}[h!,centered]
-\centering
-\includegraphics[width=0.9\textwidth]{img/proteinFunctionMechanisms.png} 
-\caption{Distinctive properties of proteins: diversity and functional role. Figura extraida de \cite{habchi2014introducing} }
-\label{proteinMechanisms}
-\end{figure}
-
-
+% 
+% \begin{figure}[h!,centered]
+% \centering
+% \includegraphics[width=0.9\textwidth]{img/proteinFunctionMechanisms.png} 
+% \caption{Distinctive properties of proteins: diversity and functional role. Figura extraida de \cite{habchi2014introducing} }
+% \label{proteinMechanisms}
+% \end{figure}
+% 
+% 
 
 
 
@@ -684,9 +719,26 @@ Estos elementos tienen funciones muy diversas pero, generalmente, están involuc
 
 
 
-
-
-
+% ACTIVIDADES BIOLOGICAS
+% 
+% Certain biological functions, such as enzyme cat-
+% alysis, immunological recognition, or molecular
+% discrimination by receptors, absolutely demand
+% exquisite control of three-dimensional structure. In
+% contrast, functions such as signaling can be
+% achieved by linear sequences, simple sequence pat-
+% terns, or by isolated secondary structural motifs.
+% Intrinsically unstructured proteins, which are
+% induced to fold by interactions with other mol-
+% ecules, offer several important advantages in sys-
+% tems involved in cellular signaling and regulation.
+% Unstructured proteins are inherently  ̄exible and
+% both their local and global structures can easily be
+% shaped by their environment. Such intrinsic plas-
+% ticity could allow a single protein to recognize a
+% large number of biological targets without sacri®-
+% cing speci®city.
+% 
 
 
 
@@ -957,8 +1009,30 @@ Estas propiedades afectan a todos los estados posibles aunque en este caso los m
 
 
 
-
-
+% 
+% The prion protein, for example, is
+% thought to undergo a conformational transition
+% from a normal cellular form containing a prepon-
+% derance of helical secondary structure to a plaque-
+% forming conformer containing a greater proportion
+% of b-sheet (Pan et al., 1993). Structure determination
+% of fragments of the prion protein (Riek et al., 1996;
+% James et al., 1997) revealed that  aprox.100 residues at
+% the C terminus are folded into a largely helical
+% domain. Somewhat surprisingly, NMR studies of
+% the full-length protein (aprox200 residues) indicated
+% that the N-terminal half of the protein is completely
+% unfolded under normal solution conditions (Donne
+% et al., 1997). Partial folding of a local region contain-
+% ing four octapeptide repeats occurs in the presence
+% of Cu(II) ions (Viles et al., 1999) and may give a clue
+% as to the overall physiological function of the prion
+% protein, which is at present unknown. If this protein
+% functions as a copper storage or transport protein,
+% the extreme  ̄flexibility of the N terminus is probably
+% of functional signi®cance, as the membrane-
+% anchored protein picks up copper ions from the
+% extracellular fluid.
 
 
 
