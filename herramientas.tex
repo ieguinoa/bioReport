@@ -1481,6 +1481,11 @@ Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 &
 % El resultado que devuelve la búsqueda BLAST es, en caso de éxito, un conjunto de secuencias de la base de datos ordenadas por un score de alineamiento. Además de realizar el alineamiento, BLAST provee información estadística que ayuda a descifrar la significancia biológica del alineamiento, este es el valor "expect" o e-value. Para utilizar los resultados de BLAST en nuestra herramienta utilizaremos un cutoff sobre el valor de e-value que nos de cierta certeza de que la similitud secuencial es significativa y, por lo tanto, la secuencia podría tener una función similar. El valor de cutoff utilizado es de 0.01, todas las secuencias encontradas con un e-value menor que este valor serán significativamente similares. En caso de encontrarse muchas secuencias dentro del cutoff se utilizará la primera de éstas.
 % Dado que el objetivo de este paso es evaluar que posiciones tienden a una similitud con alguna secuencia natural, el resultado obtenido se utilizará para identificar estas posiciones y marcarlas para una nueva ronda de mutaciones.
 % 
+
+BLAST utiliza un método heuristico no exhaustivo llamado word method  o método de k-tupls
+para hallar alineamientos locales, los cuales son extendidos usando una matriz de sustituciónn (blosum62). 
+Consiste en armar una tabla de look-up con subsecuencias y luego realizar búsquedas a gran escala en diversas bases de datos
+
 % % EJEMPLO DE RESULTADO
 % % DESCRIBIR BIEN QUE VALORES SE OBTIENEN
 % 

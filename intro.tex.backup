@@ -60,6 +60,9 @@ Finalmente, el capítulo \ref{conclusiones} contiene las discusiones relevantes,
 Las proteínas son polímeros de aminoácidos.
 La secuencia específica que compone una proteína define las propiedades conformacionales resultantes y las posibles funciones asociadas a esta.
 % y las posibles funciones que puede desarrollar la proteína.
+La cadena polipeptídica puede formar interacciones que involucren a la estructura intrínseca del polipeptido(cadena carbonada y función amino) 
+e interacciones que involucren a la cadena lateral de los distintos aminoácidos, 
+La diversidad de aminoácidos existentes resulta en un gran perfil de propiedades conformacionales y funcionales.
 
 Por definición, las proteínas están compuestas por cadenas lineales formadas por cualquier combinación de aminoácidos.
 Sin embargo, las proteínas se originan en la naturaleza como producto de los sistemas biológicos, por lo tanto, 
@@ -77,17 +80,6 @@ el conjunto de proteínas naturales puede clasificarse
 agrupándolas de acuerdo a propiedades secuenciales y conformacionales, donde cada clase está asociada a cierto perfil de actividades biológicas que se derivan de estas propiedades.
 En las próximas secciones de este capítulo, cuando se describan alguno de los elementos proteícos naturales, 
 se detallarán las propiedades secuenciales y conformacionales asociadas y el perfil de actividades biológicas que realizan.
-% Por ejemplo, en la figura se muestra el perfil resultante en base a las propiedades conformacionales de las proteínas.
-%   
-% Como ejemplo de esto podemos ver, en el gráfico \ref{aggregationDiagram}, un esquema de las propiedades conformacionales de las proteínas naturales. 
-% Las proteínas adoptan una gran diversidad de estructuras y las propiedades conformacionales de éstas(flexibilidad, )
-% 
-% 
-% \begin{figure}[h!,centered]
-% \includegraphics[width=\textwidth]{img/aggregationDiagram.png} 
-% \caption{} \label{aggregationDiagram}
-% \end{figure}
-
 
 
 
@@ -388,7 +380,7 @@ En algunos casos, sin embargo, pueden formar estructuras desordenadas pero compa
 Como vamos a ver, esta leve estructura residual(latente o transitiva) es muy importante y representa gran parte de las capacidades funcionales en IDRs/IDPs.
 A pesar de esta tendencia desordenada, debido a la naturaleza heteropolimérica de las proteínas, es probable que las IDPS adopten conformaciones totalmente aleatorias(donde las conformaciones solo estan restringidas por impedimentos estéricos),
 aún en entornos altamente desnaturalizantes donde normalmente se pierden las propiedades estructurales.
-Por lo tanto, se puede ver que las IDPs poseen propiedade conformacionales complejas, y que esta 
+Por lo tanto, se puede ver que las IDPs poseen propiedades conformacionales complejas, y que esta 
 excepcional heterogeneidad estructural representa tambien un problema crítico a la hora de estudiarlas experimentalmente y caracterizarlas.
 % Por lo tanto, se puede decir que las IDPs poseen propiedades conformacionales mucho mas complejos que polipéptidos con estructuras totalmente aleatorias y que esta 
 
@@ -407,7 +399,7 @@ excepcional heterogeneidad estructural representa tambien un problema crítico a
 
 
 % Ahora que sabemos que las IDRs/IDPs no están completamente libres de restricciones estructurales, nos concentraremos en describir cuales son las características de su conformación:
-Las IDPs  poseen estructuras altamente dinámicas que se interconvierten en diferentes escalas de tiempo. 
+Una característica resultante de estas propiedades es que las IDPs poseen conformaciones altamente dinámicas con estructuras que se interconvierten en diferentes escalas de tiempo. 
 Estas estructuras varían desde estados completamente sin estructura(polipéptidos nativos sin plegamiento) hasta estados parcialmente plegados(sin estructuras secundarias definidas), o incluso ensambles desordenados pero con ciertas
 estructuras secundarias claramente determinadas.
 La distribución de estas estructuras está cambiando continuamente en el tiempo, es decir, la estructura tridimensional que podemos ver en un instante dado será diferente de la que veremos en otro momento.
@@ -420,16 +412,16 @@ La distribución de estas estructuras está cambiando continuamente en el tiempo
 % de posibles mosaicos con distintas proporciones y tipos de elementos estructurales.
 
 
-
-En la parte derecha de la figura \ref{idpBindingEnLandscape} se representa gráficamente el perfil energético asociado a estas propiedades conformacionales.
-Como se puede ver, el paisaje entero queda descrito por una superficie semiplana con múltiples conformaciones asociadas al mínimo de energía, 
+Estas propiedades dinámicas se pueden entender fácilmente a partir del perfil energético característicamente asociado a estas proteínas.
+% En la parte derecha de la figura \ref{idpBindingEnLandscape} se representa gráficamente el perfil energético asociado a estas propiedades conformacionales.
+Como se puede ver en la figura \ref{idpBindingEnLandscape}, el paisaje entero queda descrito por una superficie semiplana con múltiples conformaciones asociadas al mínimo de energía, 
 con valores de energía aproximadamente iguales y separados por barreras energéticas muy pequeñas.
 Estas barreras representan las transiciones rápidas y frecuentes entre las distintas conformaciones que resultan en las propiedades observadas experimentalmente
 en solución: un conjunto heterogéneo de conformaciones fácilmente maleable por cambios en el medio. 
-En base a esto, se ve que una descripción detallada de IDRs/IDPs requeriría conocer el ensamble de estados posibles junto con las velocidades de interconversión entre estos.
+En base a esto, se ve que una descripción detallada de IDPs requeriría conocer el ensamble de estados posibles junto con las velocidades de interconversión entre estos.
 Todas estas propiedades y las velocidades de las transiciones en el ensamble son difíciles de capturar experimentalmente(y computacionalmente también), aún usando técnicas experimentales que no se basan en promedios de conformaciones.
 Los estudios sobre este tipo de proteínas, entonces, se han enfocado en analizar los estados termodinámicamente accesibles como entidades discretas.
-Como veremos a continuación y en las próximas secciones, esta idea, si bien sabemos que es una descripción incompleta, permite modelar de forma discreta los elementos funcionales relevantes, sirviendo como base para estudios posteriores.
+Esta idea, si bien sabemos que es una descripción incompleta, permite modelar de forma discreta los elementos funcionales relevantes, sirviendo como base para estudios posteriores.
 Este modelo puede extenderse si se representan también las probabilidades de ocurrencia para distintas conformaciones individuales en el ensamble, obteniendo asi un modelo mas dinámico del sistema.
 
 
@@ -438,15 +430,15 @@ Este modelo puede extenderse si se representan también las probabilidades de oc
 %  INDUCED FIT:
 % ****************
 % Además, este perfil energético se ve modificado por distintas condiciones como modificaciones post-traduccionales, condiciones del medio, presencia de ligandos,etc.
-Los ensambles conformacionales, además, pueden verse modificados por distintas situaciones como cambios en las condiciones del entorno, modificaciones post-traduccionales, presencia de ligandos, etc.,
+Además, estos ensambles conformacionales dinámicos pueden verse modificados por distintas situaciones como cambios en las condiciones del entorno, modificaciones post-traduccionales, presencia de ligandos, etc.,
 lo que modifica no sólo los estados accesibles, sino también la distribución de poblaciones que se encuentran en cada uno.
-Una propiedad particular dependiente del contexto, encontrada en los ensambles conformacionales asociados a IDRs/IDPs, es la capacidad de adquirir nuevos elementos estructurales ordenados estables luego de la unión a ciertos ligandos
+Una propiedad particular dependiente del contexto, encontrada en los ensambles conformacionales asociados a IDPs, es la capacidad de adquirir nuevos elementos estructurales ordenados estables luego de la unión a ciertos ligandos
 (proceso conocido como textit{binding \& folding}\cite{dyson2005intrinsically}). 
 Esta propiedad se hace mas relevante de investigar cuando se sabe que, generalmente, está asociada a su funcionalidad biológica y ocurre previamente o durante la realización de esta función.
 % Although disordered proteins exist as dynamic structural ensembles without fixed(estable!!!) tertiary structures, there is evidence that many flexible regions of proteins undergo coupled binding and folding \cite{dyson2005intrinsically}. 
 % A large decrease in conformation entropy accompanies such disorder-to-order transitions. 
 
-Una gran cantidad de IDRs/IDPs, entonces, se ven estabilizadas termodinámicamente mediante la unión a ligandos específicos(generalmente otras proteínas, DNA, membranas, etc)
+Una gran cantidad de IDPs, entonces, se ven estabilizadas termodinámicamente mediante la unión a ligandos específicos(generalmente otras proteínas, DNA, membranas, etc)
 % In other words, intrinsically unfolded proteins in vivo are likely to be stabilized by functional binding to specific targets and ligands 
 % (such as a variety of small molecules, substrates, cofactors, other proteins, nucleic acids, membranes and so on). 
 % Many intrinsically disordered proteins undergo transitions to more ordered states or fold into stable secondary or tertiary structures on binding to their targets — that is, they undergo coupled folding and binding processes.
@@ -466,7 +458,7 @@ Figura extraída de \cite{turoverov2010protein}}
 \label{idpBindingEnLandscape}
 \end{figure}
 
-Las IDRs/IDPs pueden adoptar esta conformación plegada si la energia del complejo formado es menor que la energía libre correspondiente al segmento desordenado y su ligando, previo a la interacción.
+Las IDPs pueden adoptar esta conformación plegada si la energia del complejo formado es menor que la energía libre correspondiente al segmento desordenado y su ligando, previo a la interacción.
 % IDPs fold as a whole while interacting with their partners, if the free energy of complex is lower than the free energies of IDP and its partner before their interaction.
 En general, sólo un segmento desordenado con características anfipáticas es el que está involucrado en el proceso de unión y plegamiento, en este caso el segmento se denomina elemento de reconocimiento(RE=recognition element). 
 % More often, however, only a part of an IDP, a specific recognition element, which is a relatively short amphipathic linear motif contained within long disordered sequence, is involved in the coupled folding and binding events
@@ -480,7 +472,7 @@ o si pertenece al conjunto de elementos estructurales encontrados transitivament
 % An often-raised issue with respect to IDP binding is whether folding occurs before or after binding (termed conformational selection and induced folding, respectively).
 % Detailed studies suggest that folding can occur both before and after binding in distinct cases
 Estas dos opciones se reflejan en los modelos de selección de conformación y el de unión y plegamiento simultáneo.
-Obviamente, en realidad, puede ocurrir cualquiera de estos dos mecanismos o una combinación de los dos.
+Obviamente, en la realidad puede ocurrir cualquiera de estos dos mecanismos o una combinación de los dos.
 Esto se ve representado en la figura \ref{idpBinding}
 
 
@@ -511,33 +503,26 @@ Gran cantidad de ejemplos de este tipo de uniones(determinados complejos ``fuzzy
 
 
 
+
+
 % PROPIEDADES SECUENCIALES
-
-
 Muchos estudios se hicieron para intentar identificar cómo las características  estructurales tan particulares de las IDPs están codificadas en la secuencia de la proteína.
 En el caso de las proteína globulares, la secuencia primaria codifica el proceso de plegamiento y, a través de este, la estructura única final. 
-De forma similar, al identificar la IDPs cómo entidades estructuralmente diferenciables, se podría pensar que la estructura primaria de éstas determina, también, su falta de estructura tridimensional definida.
+De forma similar, al identificar la IDPs cómo entidades estructuralmente diferenciables, se podría pensar que la estructura primaria de estas determina, también, su falta de estructura tridimensional definida.
 Esto tiene como corolario la idea que las secuencias de ambos conjuntos (proteinas ordenadas y proteínas desordenadas) deberían ser diferenciables entre si.
 
-En general, las IDRs/IDPs no poseen las propiedades secuenciales que le permitan formar una estructura con un núcleo hidrofóbico.
-Estas propiedades no solo son necesarias para estabilizar una estructura compacta(como vimos para las proteínas globulares) sino que también se cree son importantes en el proceso de plegamiento para adquirir esta estructura
-(en algo similar a un colapso hidrofóbico). 
-La ausencia de una estructura definida en IDRs/IDPs es atribuida a las características particulares de sus secuencias de aminoácidos las cuales pueden resumirse en la presencia de númerosos 
+La ausencia de una estructura definida en IDPs es atribuida a las características particulares de sus secuencias de aminoácidos las cuales pueden resumirse en la presencia de númerosos 
 grupos cargados no compensados(generalmente con carga negativa) y un bajo contenido de residuos hidrofóbicos. 
 % Durante el proceso de descubrimiento del conjunto IDPs, muchas proteínas fueron identificadas inicialmente debido a estas simples diferencias en la secuencia.
 La relación entre esta combinación de baja hidrofobicidad y alta carga neta y la falta de una estructura definida puede explicarse desde el punto de vista físico:
 los altos valores de carga neta producen efectos de repulsión entre las cargas de los residuos, mientras que la baja hidrofobicidad previene la compactación de la estructura lineal
 (las interacciones hidrofóbicas son una de las principales fuerzas que interviene en el proceso de plegamiento).
-El resultado es una estructura con tendencia a mantener una conformación desplegada, característica de las IDRs/IDPs.
+De esta forma, las IDPs no poseen las propiedades secuenciales que le permitan formar suficientes interacciones para estabilizar una estructura compacta con un núcleo hidrofóbico, característica de las proteínas globulares.
+% Estas propiedades no solo son necesarias para estabilizar la estructura compacta final sino que también se cree son importantes en el proceso de plegamiento para adquirir esta estructura.
+% en un proceso similar a un colapso hidrofóbico. 
+El resultado es una estructura con tendencia a mantener una conformación desplegada, característica de las IDPs.
 
-% It has been concluded that the combination of low mean hydrophobicity and relatively high net charge represents an important prerequisite for the absence of compact structure in proteins under physiological conditions.
-% This observation was used to develop a charge-hydropathy (CH) plot method of analysis that distinguishes ordered and disordered proteins based only on their net charges and hydropathies.
-% From the physical viewpoint, such a combination of low hydrophobicity with high net charge as a prerequisite for intrinsic unfoldedness makes perfect sense: high net charge leads to charge-
-% charge repulsion, and low hydrophobicity means less driving force for protein compaction. In other words, these features are characteristic for ID proteins with the coil-like (or close to coil-
-% like) structures.
-
-% 
-% 
+ 
 % ****SI HACE FALTA PUEDO AGREGAR ESTE PARRAFO SOBRE ALGUNAS CARACTERISTICAS EXTRA DE LAS SECUENCIAS, O REFERENCIAR ALGO, 
 % 
 % The disordered proteins are significantly depleted in bulky hydrophobic (Ile, Leu, and Val) and aromatic amino acid residues (Trp, Tyr, and Phe), which would normally form the hydrophobic core of a folded globular protein, 
@@ -570,30 +555,34 @@ El resultado es una estructura con tendencia a mantener una conformación desple
 
 
 
+
+
+
+
+
 % ACTIVIDADES
+% 
+% % Como vimos antes, diversos estudios estructurales mostraron que este tipo de conformaciones no solamente existe realmente \textit{in-vivo}, sino que representa el estado funcional de estas proteínas y,
+% % dado que la habilidad para realizar su función biológica es lo que distingue al estado nativo, este conjunto de proteínas parcial o totalmente desordenadas debe ser considerada como entidades nativas. 
+% Debido a su amplio ensamble conformacional, el cual va más allá de una simple variación/dinámica estructural, el modelo de encaje inducido al cual se adaptan correctamente las proteínas globulares no permitiría explicar el funcionamiento
+% de las proteínas intrínsecamente desordenadas.
+% Por lo tanto, estas proteínas desafían el paradigma casi dogmático de estructura-función, fuertemente establecido hasta el momento.
+% Esto significa que el paradigma estructura-función previo, que implica la indispensable existencia de una estructura ordenada como requisito para una función efectiva, debe ser redefinido para incluir ese nuevo conjunto de entidades
+% \cite{wright1999intrinsically}.
+% De acuerdo a este nuevo paradigma, las proteínas nativas(o sus regiones funcionales) pueden existir en cualquiera de los estados conformacionales conocidos que se desarrollaron en las secciones previas.
+% En la figura \ref{stuctured-idp-functions} se muestra el paralelismo entre los paradigmas descritos y el proteoma resultante.
+% 
+% 
+% \begin{figure}[h!,centered]
+% \centering
+% \includegraphics[width=0.9\textwidth]{img/structure-idp-function.jpeg} 
+% \caption{Paralelismo entre funcionalidad emergente de dominios plegados y de proteinas/regiones intrínsecamente desordenadas. Figura extraida de \cite{van2014classification}}
+% \label{stuctured-idp-functions}
+% \end{figure}
 
-% Como vimos antes, diversos estudios estructurales mostraron que este tipo de conformaciones no solamente existe realmente \textit{in-vivo}, sino que representa el estado funcional de estas proteínas y,
-% dado que la habilidad para realizar su función biológica es lo que distingue al estado nativo, este conjunto de proteínas parcial o totalmente desordenadas debe ser considerada como entidades nativas. 
-Debido a su amplio ensamble conformacional, el cual va más allá de una simple variación/dinámica estructural, el modelo de encaje inducido al cual se adaptan correctamente las proteínas globulares no permitiría explicar el funcionamiento
-de las proteínas intrínsecamente desordenadas.
-Por lo tanto, estas proteínas desafían el paradigma casi dogmático de estructura-función, fuertemente establecido hasta el momento.
-Esto significa que el paradigma estructura-función previo, que implica la indispensable existencia de una estructura ordenada como requisito para una función efectiva, debe ser redefinido para incluir ese nuevo conjunto de entidades
-\cite{wright1999intrinsically}.
-De acuerdo a este nuevo paradigma, las proteínas nativas(o sus regiones funcionales) pueden existir en cualquiera de los estados conformacionales conocidos que se desarrollaron en las secciones previas.
-En la figura \ref{stuctured-idp-functions} se muestra el paralelismo entre los paradigmas descritos y el proteoma resultante.
 
-
-\begin{figure}[h!,centered]
-\centering
-\includegraphics[width=0.9\textwidth]{img/structure-idp-function.jpeg} 
-\caption{Paralelismo entre funcionalidad emergente de dominios plegados y de proteinas/regiones intrínsecamente desordenadas. Figura extraida de \cite{van2014classification}}
-\label{stuctured-idp-functions}
-\end{figure}
-
-
-
-El principal objetivo de todos los modelos y estudios estructurales en estas proteínas busca elucidar los tipos y modos funcionales subyacentes.
-La pregunta mas importante, entonces, es la función fisiológica que cumplen las IDPs y como es su mecanismo funcional.
+% El principal objetivo de todos los modelos y estudios estructurales en estas proteínas es poder elucidar los tipos y modos funcionales subyacentes.
+Una pregunta importante que surge de las propiedades estructurales es como estas desarrollan las funcionalidades asociadas y cuales son las funciones fisiológica que cumplen las IDPs.
 % El estudio de las funcionalidades provistas por IDPs se ve dificultada por las propiedades intrínsecas de estas proteinas:
 % Como se dijo antes, el paradigma inicial de secuencia-estructura-función provee una base para relacionar los conocimientos entre mediante métodos de análisis y anotaciones de secuencias estructuras y funciones.
 % Por el contrario, las proteínas dentro de este nuevo conjunto de IDPs se corresponden con un ensamble conformacional heterogéneo.
@@ -601,33 +590,34 @@ La pregunta mas importante, entonces, es la función fisiológica que cumplen la
 % Lo que es más, dada la ausencia de restricciones estructurales, las secuencias de estas proteínas tienden a evolucionar más rapidamente que sus pares ordenados.
 % Como resultado, la identificacion de secuencias/regiones homólogas es considerablemente mas difícil.
 % Estas consideraciones manifiestan la necesidad de avanzar en el desarrollo de esquemas de clasificación específicos para este nuevo conjunto de proteínas, apuntando a mejorar la predicción funcional y la anotación.
-Como parte de estos avances se han ensayado una gran diversidad de clasificaciones\cite{van2014classification}.
-En la figura \ref{proteinMechanisms} se ve una clasificación general bastante simplificada de los roles y mecanismos funcionales generalmente provistos por los distintos tipos de proteinas. 
-En esta clasificacion de proteinas segun su rol general, se incluyen también las proteínas globulares y de membrana que mencionamos previamente(asociadas a actividades enzimáticas, transporte, etc), agrupadas como proteínas plegadas.
-La figura \ref{idpFunctions} detalla la clasificacion de funcionalidades y mecanismos funcionales específicos de IDPs/IDRs estimando las proporciones de cada funcionalidad.
-Al parecer, de estas clasificaciones se puede ver que las funcionalidades en IDRs/IDPs emergen a partir del propio desorden o mediante mecanismos de reconocimiento molecular.
+Un paso importante para entender esto es la clasificación de las IDPs conocidas de acuerdo a sus funcionalidades\cite{van2014classification}.
+% Como parte de estos avances se han ensayado una gran diversidad de clasificaciones\cite{van2014classification}.
+La figura \ref{idpFunctions} detalla la clasificacion de funcionalidades y mecanismos asociados a IDPs junto con las proporciones de instancias encontradas para cada uno.
+De esta clasificacion se puede ver que las funcionalidades en las IDPs emergen a partir del propio desorden intrínseco o mediante mecanismos de reconocimiento molecular(interacciones transitivas o permanentes).
+% En la figura \ref{proteinMechanisms} se ve una clasificación general bastante simplificada de los roles y mecanismos funcionales generalmente provistos por los distintos tipos de proteinas. 
+% En esta clasificacion de proteinas segun su rol general, se incluyen también las proteínas globulares y de membrana que mencionamos previamente(asociadas a actividades enzimáticas, transporte, etc), agrupadas como proteínas plegadas.
 
-En el primero, el mecanismo subyacente de funcionamiento no implica adquirir estructura determinada, sino que depende directamente de la felxibilidad y plasticidad de la cadena carbonada(\textit{entropic chains}).
-En este caso, las proteínas satisfacen un conjunto de requerimientos celulares únicos en los cuales la funcion a cumplir es una consecuencia directa del desorden intrínseco que poseen. 
-Esta función, generalmente está asociada a secuencias linkers.
+En el primero caso, el mecanismo subyacente de funcionamiento no implica ninguna interacción sino que depende directamente de la flexibilidad y plasticidad de la cadena carbonada(\textit{entropic chains}).
+En este caso, las proteínas satisfacen un conjunto de requerimientos celulares únicos en los cuales la funcion a cumplir es una consecuencia directa de las propiedades conformacionales que poseen. 
+Esta función, generalmente está asociada a secuencias linkers, cuyo objetivo es unir distintos unidades componentes de las proteínas.
 
-En el segundo caso, el mecanismo implica el plegamiento para adquirir una estructura ordenada al unirse al ligando.
-Este mecanismo/estrategia de reconocimiento es básicamente diferente a la que adoptan los dominios globulares.
+En el segundo caso, el amplio perfil de interacciones posibles permite que las IDPs participen en funcionalidades muy diversas, entre estas están la función de chaperonas, la modulación de actividades de otras moléculas(generalmente proteínas) 
+y la neutralización de pequeños ligandos uniéndose a ellos.
+% El mecanismo asociado a estos generalmente implica el plegamiento para adquirir una estructura ordenada al interaccionar con el ligando.
+El mecanismo de reconocimiento e interacción es básicamente diferente a la que adoptan los dominios globulares. 
 Mientras que estos últimos han evolucionado para dar una gran variedad de plegamientos diferentes que proveen reconocimientos especificos, 
-en IDPs el \textit{binding} es principalmente mediado por elementos(motivos) cortos de reconocimiento\cite{neduva2005systematic,fuxreiter2007local}, caracterizados por su naturaleza flexible, lo que 
+en IDPs el mecanismo de unión \textit{binding} es principalmente mediado por segmentos cortos de reconocimiento\cite{neduva2005systematic,fuxreiter2007local}, caracterizados por su naturaleza flexible, lo que 
 les aporta una gran cantidad de ventajas\cite{gunasekaran2003extended,dyson2005intrinsically}.%REFERENCIA AL PAPER DE MECANISMOS FUNCIOMNALES DE IDPs
 
-
-
-
-\begin{figure}[h!,centered]
-\centering
-\includegraphics[width=0.9\textwidth]{img/proteinFunctionMechanisms.png} 
-\caption{Distinctive properties of proteins: diversity and functional role. Figura extraida de \cite{habchi2014introducing} }
-\label{proteinMechanisms}
-\end{figure}
-
-
+% 
+% \begin{figure}[h!,centered]
+% \centering
+% \includegraphics[width=0.9\textwidth]{img/proteinFunctionMechanisms.png} 
+% \caption{Distinctive properties of proteins: diversity and functional role. Figura extraida de \cite{habchi2014introducing} }
+% \label{proteinMechanisms}
+% \end{figure}
+% 
+% 
 
 
 
@@ -639,39 +629,36 @@ les aporta una gran cantidad de ventajas\cite{gunasekaran2003extended,dyson2005i
 \end{figure}
 
 
-Para el caso de las proteínas globulares, los dominios son los principales módulos estructurales y funcionales.
-A diferencia de esto, la identificación de las regiones/elementos funcionales dentro de IDPs es un area que todavía está en desarrollo y no es fácil realizar una identificación clara ni mucho menos exhaustiva de éstos. 
+% Para el caso de las proteínas globulares, los dominios son los principales módulos estructurales y funcionales.
+% A diferencia de esto, la identificación de las regiones/elementos funcionales dentro de IDPs es un area que todavía está en desarrollo y no es fácil realizar una identificación clara ni mucho menos exhaustiva de éstos. 
 
-
-Los elementos asociados al proceso de unión y plegamiento forman el primer conjunto de elementos funcionales 
-Estos segmentos, que denominamos elemento de reconocimiento(RE=recognition element), pueden ser identificados desde sus propiedades conformacionales, involucran regiones cortas(10-70 aminoácidos de largo) con características anfipáticas,
-y son fundamentales para la actividad de una gran cantidad de IDPs\cite{mohan2006analysis,vacic2007characterization,oldfield2005coupled}.
-Los REs(o MoREs por el nombre en inglés de Molecular Recognition Elements) pueden, a su vez, subclasificarse de acuerdo a las estructuras secundarias que adoptan en el complejo de unión. % bound state
-Además, los dos modelos descritos antes para el proceso de unión y plegamiento (selección de conformación y unión y plegamiento simultáneo) permiten subclasificar aún más estos elementos desde el punto de vista estructural, agregando el concepto de 
-elementos estructurales preformados(PSEs)\cite{fuxreiter2004preformed}. 
-Estos PSEs se corresponden con el modelo de selección de conformaciones, es decir, son regiones intrínsecamente desordenadas que tienen tendencia a formar elementos estructurales transitivos, adquiriendo termporalmente estructuras secundarias.
-Estos elementos pueden tener la capacidad potencial de servir como sitios de unión y quedar estabilizados en el complejo formado.
-Como primeros elementos funcionales identificados a partir de sus propiedades conformacionales dentro de IDPs tenemos, entonces, a los MoREs y PSEs. 
-Esta clasificación no es totalmente excluyente ya que, como se dijo previamente, puede haber elementos que resulten de una combinacion de estos conceptos.
-
+% Los elementos asociados al proceso de unión y plegamiento forman el primer conjunto de elementos funcionales 
+Dentro de estos segmentos podemos identificar a los elemento de reconocimiento(RE=recognition element)\cite{mohan2006analysis,vacic2007characterization,oldfield2005coupled}, los cuales involucran regiones cortas(10-70 aminoácidos de largo) 
+con propiedades generalmente anfipáticas, y se caracterízan porque pueden experimentar un proceso plegado y unión(descrito previamente) que permite la interacción con ligandos.  
+% Estos REs(o MoREs por el nombre en inglés de Molecular Recognition Elements) pueden, a su vez, subclasificarse de acuerdo a las estructuras secundarias que adoptan en el complejo de unión. % bound state
+% Los dos modelos descritos previamente para el proceso de unión y plegamiento (selección de conformación y unión y plegamiento simultáneo) permiten subclasificar aún más estos elementos desde el punto de vista estructural, 
+% agregando el concepto de elementos estructurales preformados(PSEs)\cite{fuxreiter2004preformed}. 
+% Estos PSEs se corresponden con el modelo de selección de conformaciones, es decir, son regiones intrínsecamente desordenadas que tienen tendencia a formar elementos estructurales transitivos, adquiriendo temporalmente estructuras secundarias.
+% Estos elementos pueden tener la capacidad potencial de servir como sitios de unión y quedar estabilizados en el complejo formado.
+% Como primeros elementos funcionales identificados a partir de sus propiedades conformacionales dentro de IDPs tenemos, entonces, a los MoREs y PSEs. 
+% Esta clasificación no es totalmente excluyente ya que, como se dijo previamente, puede haber elementos que resulten de una combinacion de estos conceptos.
+% 
 
 % ACA CONECTO CON SLM
-Más alla de esta posibiliad de identificar regiones funcionales desde el punto de vista estructural, el mecanismo de reconocimiento ha sido estudiado desde el punto de vista
-de los patrones secuenciales que determinan las capacidades funcionales de éstos (interacciones o modificaciones enzimáticas). 
-Estos elementos secuenciales se conocen como motivos lineales (o por sus siglas en inglés, LMs, ELMs, SLiMs o MiniMotifs)\cite{davey2012attributes}. 
-Los motivos lineales se definen como módulos regulatorios encontrados en proteínas y que se caracterizan por presentar interfaces
+Más allá de estos elementos que fueron descubiertos a partir de análisis estructurales, el mecanismo de reconocimiento ha sido estudiado desde el punto de vista de los patrones secuenciales que los determinan, 
+encontrandose elementos en la secuencia caracterizados por presentar interfaces
 de interacción muy compactas (los residuos determinantes de la afinidad y especificidad estan contenidos generalmente en unos 3-11 AAs contiguos).
-Como resultado de este número limitado de contactos para interacciones con ligandos, los SLMs se unen con una afinidad relativa muy baja lo que resulta en una ventaja considerable 
-para participar en interacciones transientes, condicionales, y  ajustables, que son propias de los procesos regulatorios.
+Estos elementos se conocen como motivos lineales o por sus siglas en inglés, LMs, ELMs, SLiMs o MiniMotifs\cite{davey2012attributes}. 
+Como resultado del número limitado de contactos para interacciones con ligandos, los SLMs se unen con una afinidad relativa muy baja lo que resulta en una ventaja considerable 
+para participar en interacciones transientes, condicionales y  ajustables, que son propias de los procesos regulatorios.
 
 En términos de funcionalidad, se pueden clasificar los SLMs en dos grandes familias: los que actúan como sitios objetivo de modificaciones post-traduccionales(PTM), 
 y los que funcionan como ligandos en la formación de complejos de interacción.
-Dado que el conjunto de funcionalidades y propiedades estudiadas en relación a estos motivos lineales en la secuencia se corresponden en gran medida con las funcionalidades principales de IDRs/IDPs, en \cite{fuxreiter2007local} se
-analizaron los perfiles conformacionales de proteínas que contienen instancias de éstos(no solo la conformación del segmento sino también el contexto), concluyendo que, efectivamente, 
-suelen encontrarse formando parte de regiones IDRs y por lo tanto forman parte del conjunto de elementos funcionales característicos de IDRs/IDPs.
+% Dado que el conjunto de funcionalidades y propiedades estudiadas en relación a estos motivos lineales en la secuencia se corresponden en gran medida con las funcionalidades principales de IDRs/IDPs, 
+En \cite{fuxreiter2007local} se analizaron los perfiles conformacionales de proteínas que contienen instancias de éstos(no solo la conformación del segmento sino también el contexto), concluyendo que, efectivamente, 
+suelen encontrarse formando parte de regiones IDRs y por lo tanto forman parte del conjunto de elementos funcionales característicos de IDPs.
 Sin embargo, los SLMs se diferencian de los MoREs descritos previamente en que estos últimos dependen de un patrón de desorden en la secuencia(el cual puede ser obtenido con herramientas de predicción de desorden), 
 mientras que los SLMs dependen de motivos secuenciales específicos.
-
 
 El hecho que esten definidos por solo un pequeño segmento de AAs tiene consecuencias relevantes en aspectos biológicos de los SLM.
 En particular, claramente resulta muy probable que estos aparezcan o desaparezcan mediante mutaciones. 
@@ -754,60 +741,90 @@ Estos elementos tienen funciones muy diversas pero, generalmente, están involuc
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsubsection{Agregados proteicos}
 
 
 % CONCEPTOS GENERALES 
 
-Las proteínas plegadas, como las proteínas globulares vistas previamente dependen de la estructura  para poder funcionar correctamente, deban atravesar un proceso de plegamiento el cual ocurre, en condiciones normales, de manera muy rápida. 
-Para que los dominios globulares adquieran 
-Esto es posible ya que sus secuencias han evolucionado de forma tal que son capaces de alcanzar la estructura nativa(funcional) muy eficientemente, incluso en el complejo entorno celular.
-Sin embargo, a medida que el tamaño de la proteína aumenta, tambien aumenta la complejidad del proceso de plegamiento y este se vuelve propenso a errores,
-lo que puede llevar a estas proteínas a adoptar conformaciones incorrectas(\textit{misfolded}). 
-Los errores durante este proceso en el que se buscan las interacciones ``correctas'' entre los residuos pueden estar asociados a distintos factores(principalmente mutaciones), 
-no sólo al tamaño de la proteína, ya que de por si el proceso de plegamiento es complejo. 
-Por otro lado, si estos estados estructurales incorrectos mantienen su solubilidad pueden comenzar a acumularse en el entorno celular.
-
-Ademas de estos estados \textit{misfolded}, algunos intermediarios en el proceso de plegamiento pueden tener tiempos de vida considerables, poblando estados alternativos al plegamiento final.
-Más alla de esto, una vez alcanzada la estructura final, diversas condiciones del entorno pueden producir que este se pierda y se adopte un estado no-plegado(\textit{unfolded}).
-Las proteinas plegadas, entonces, no siempre se encuentran en su estado nativo dentro del entorno celular y pueden ocurrir acumulaciones de estados \textit{misfolded} los cuales, por definición, 
-abarcan a cualquier proteína que no esté en su estado nativo.
-
-Además del efecto que tiene adoptar un estado \textit{misfolded} sobre la función de la proteína, estos estados pueden también llevar a la formación de agregados entre proteínas
-lo cual tiene, generalmente, un efecto devastador en la célula/organismo.
-A pesar que hemos utilizado el concepto de \textit{misfolding} para introducir la problemática de agregación, estos dos procesos no son necesariamente dependientes entre si, y los agregados representan componentes proteicos mucho 
-mas complejos que la simple acumulación de estados no-nativos, pudiendose originar a partir de diversos estados iniciales mediante procesos que aún hoy son sujeto de estudios, resultando en conformaciones estructurales muy diversas.
-Como se verá, la habilidad de una proteína a formar distintos tipos de agregados depende de muchos factores, entre los cuales están claramente la secuencia y el entorno en que se encuentra,
-de otra forma, las proteinas que adquieran conformaciones no estructuradas o que se encuentren en estados de plegamiento intermedios semi-estables tendrían una tendencia mucho mayor a la agregación y, sin embargo, esto no es así. 
+% Las proteínas plegadas, como las proteínas globulares vistas previamente dependen de la estructura  para poder funcionar correctamente, deban atravesar un proceso de plegamiento el cual ocurre, en condiciones normales, de manera muy rápida. 
+% Para que los dominios globulares adquieran 
+% Esto es posible ya que sus secuencias han evolucionado de forma tal que son capaces de alcanzar la estructura nativa(funcional) muy eficientemente, incluso en el complejo entorno celular.
+% Sin embargo, a medida que el tamaño de la proteína aumenta, tambien aumenta la complejidad del proceso de plegamiento y este se vuelve propenso a errores,
+% lo que puede llevar a estas proteínas a adoptar conformaciones incorrectas(\textit{misfolded}). 
+% Los errores durante este proceso en el que se buscan las interacciones ``correctas'' entre los residuos pueden estar asociados a distintos factores(principalmente mutaciones), 
+% no sólo al tamaño de la proteína, ya que de por si el proceso de plegamiento es complejo. 
+% Por otro lado, si estos estados estructurales incorrectos mantienen su solubilidad pueden comenzar a acumularse en el entorno celular.
+% 
+% Ademas de estos estados \textit{misfolded}, algunos intermediarios en el proceso de plegamiento pueden tener tiempos de vida considerables, poblando estados alternativos al plegamiento final.
+% Más alla de esto, una vez alcanzada la estructura final, diversas condiciones del entorno pueden producir que este se pierda y se adopte un estado no-plegado(\textit{unfolded}).
+% Las proteinas plegadas, entonces, no siempre se encuentran en su estado nativo dentro del entorno celular y pueden ocurrir acumulaciones de estados \textit{misfolded} los cuales, por definición, 
+% abarcan a cualquier proteína que no esté en su estado nativo.
+% 
+% Además del efecto que tiene adoptar un estado \textit{misfolded} sobre la función de la proteína, estos estados pueden también llevar a la formación de agregados entre proteínas
+% lo cual tiene, generalmente, un efecto devastador en la célula/organismo.
+% A pesar que hemos utilizado el concepto de \textit{misfolding} para introducir la problemática de agregación, estos dos procesos no son necesariamente dependientes entre si, y los agregados representan componentes proteicos mucho 
+% mas complejos que la simple acumulación de estados no-nativos, pudiendose originar a partir de diversos estados iniciales mediante procesos que aún hoy son sujeto de estudios, resultando en conformaciones estructurales muy diversas.
+% Como se verá, la habilidad de una proteína a formar distintos tipos de agregados depende de muchos factores, entre los cuales están claramente la secuencia y el entorno en que se encuentra,
+% de otra forma, las proteinas que adquieran conformaciones no estructuradas o que se encuentren en estados de plegamiento intermedios semi-estables tendrían una tendencia mucho mayor a la agregación y, sin embargo, esto no es así. 
 
 En términos generales, los agregados proteicos se forman por la asociación(interacción) anormal entre proteínas, dando complejos con distintas propiedades y que pueden acumular una gran cantidad de proteínas.
 Si bien algunos agregados pequeños pueden mantenerse en solución, en general terminan formando precipitados en condiciones fisiológicas. 
+
 A partir de las características morfológicas de estos, se pueden distingir escencialmente dos tipos: agregados amorfos y fibrillas amiloides.
-Los primeros muestran una apariencia granular y consisten principalmente de proteínas en conformaciones desplegadas, aunque presentan ciertas regiones con formación de de hoja-$\beta$
-permitiendo que las proteínas se mantenga unidas formando el agregado.
+Los primeros muestran una apariencia granular y consisten principalmente de proteínas en conformaciones desplegadas, aunque presentan ciertas regiones cierto enriquecimiento de estructuras de hoja-$\beta$ plegada, las cuales
+mantiene las proteínas unidas formando el agregado.
 Por otro lado, las fibrillas amiloides poseen estructuras altamente ordenadas y repetitivas donde todos los polipéptidos que la componen adoptan un plegamiento en común.
-Si bien no nos vamos a enfocar en los detalles puntuales de la estructura, se sabe que estas diferencias que se ven en la conformación macromolecular son el reflejo de diferencias en las interacciones y arquitectura a nivel atómico.
-Por otro lado, estas diferencias estructurales también se reflejan a nivel biológico: los distintos tipos de agregados tienen afinidades diferentes frente al conjunto de chaperonas y, además, 
+% Si bien no nos vamos a enfocar en los detalles puntuales de la estructura, se sabe que 
+Estas diferencias que se ven en la conformación macromolecular son el reflejo de diferencias en las interacciones y arquitectura a nivel atómico.
+Por otro lado, las diferencias estructurales también se reflejan a nivel biológico: los distintos tipos de agregados tienen afinidades diferentes frente al conjunto de chaperonas y, además, 
 pueden acumularse en diferentes localizaciones celulares y ser degradados por mecanismos diferentes.
-Por último, a diferencia de los agregados amorfos, las propiedades únicas de las fibrillasas amiloides han sido aprovechadas por 
-distintos sistemas biológicos y pueden encontrarse versiones funcionales de éstas en distintos organismos\cite{fowler2007functional}.
+% Por último, a diferencia de los agregados amorfos, las propiedades únicas de las fibrillasas amiloides han sido aprovechadas por 
+% distintos sistemas biológicos y pueden encontrarse versiones funcionales de éstas en distintos organismos\cite{fowler2007functional}.
 
 A pesar que podría parecer obvio, es importante diferenciar los precipitados en los que las proteínas mantienen su estructura nativa de estos agregados que surgen a partir de nuevas estructuras no-nativas.
-El primer tipo de agregado es generado por la inducción de un entorno de solubilidad reducida, por ejemplo durante la precipitación isoeléctrica o mediante sulfato de amonio,
-que son los procesos típicos para obtener los cristales que se utilizan en la resolución de estructuras por difracción de rayos X. 
+La precipitación es generada por la inducción de un entorno de solubilidad reducida, por ejemplo durante la precipitación isoeléctrica o mediante sulfato de amonio,
+que son los procesos típicos para obtener los cristales utilizados en la resolución de estructuras por difracción de rayos X. 
 En estos casos, la reducción de la fuerza iónica o el cambio en el pH de la solución restituye los precipitados a la forma soluble.
-El segundo tipo de estructuras macromoleculares muestra siempre un incremento en contenido de hojas-$\beta$ con respecto a la estructura nativa y solo es posible restituir 
-la forma soluble de los componentes mediante procedimientos extremos, obteniendo igualmente estructuras no-nativas.
+El segundo tipo de estructuras macromoleculares representa la formación de interacciones entre proteínas(principalmente formando hojas-$\beta$) que llevan a la formación de estados muy estables, 
+reflejados en un profundo mínimo sobre el perfil de energía correspondiente. 
+Esto hace que solo sea posible restituir la forma soluble de los componentes mediante procedimientos extremos aunque, igualmente, es dificil que las proteínas vuelvan a adoptar sus conformaciones nativas.
+% permanenciendo en solución aconformaciones mal plegadas.
 Este tipo de agregados es de nuestro mayor interés en el trabajo ya que puede ocurrir en condiciones experimentales ``normales'', que no han sido inducidas con el fin de formarlos.
+
+
+En el gráfico \ref{aggregationDiagram} se muestran distontos agregados proteícos, integrados dentro del perfil conformacional de las proteínas, mostrando los distintos tipos de estructuras de agregación, 
+los intermediarios a partir de los cuales se originan, y los equilibrios y mecanismos para desintegrarlos. 
+
+
+\begin{figure}[h!,centered]
+\includegraphics[width=\textwidth]{img/aggregationDiagram.png} 
+\caption{} \label{aggregationDiagram}
+\end{figure}
 
 
 
 % ESTRUCTURA
-De los dos tipos de agregados presentados más interesante, probablemente, es el que resulta de la formación de fibrillas amiloides, ya que tienen propiedades que las hacen muy particulares.
-En primer lugar, como se mencionó antes, adoptan estructuras altamente ordenadas y compactas, similares, en parte a los estados nativos de proteinas globulares
+Las fibrillas amiloides son, probablemente, el tipo de agregado más interesante y el más estudiado, ya que tiene propiedades que las hacen muy particulares.
+En primer lugar, como se mencionó antes, adoptan estructuras altamente ordenadas y compactas, similares en parte a los estados nativos de proteinas globulares.
 Por otro lado, parte de las propiedades únicas de este tipo de estructuras es que, probablemente debido a su estructura de puentes de hidrógeno altamente organizada, posee una estabilidad cinética única.
-Por lo tanto, una vez formados, estos agregados pueden mantenerse durante largos períodos de tiempo, funcionando como núcleo para la agregación de más cantidades de la misma proteína, 
-y permitiendo la formación de depósitos en la célula/tejido
+Por lo tanto, una vez formados estos agregados pueden mantenerse durante largos períodos de tiempo, funcionando como núcleo para la agregación de más cantidades de la misma proteína 
+y permitiendo la formación de depósitos en la célula/tejido.
 
 La formación de agregados amiloides fue observada por primera vez en el contexto de la amiloidosis sistémica hace mas de 150 años y, de hecho, obtuvo su nombre en este descubrimiento cuando se encontró que 
 los depósitos observados respondían a la tinción con iodo, el colorante usado para la deteccion de almidón. 
@@ -822,50 +839,61 @@ Todas las fibrillas amiloides comparten una arquitectura en común compuesta de 
 Los detalles de esta arquitectura, obtenidos mediante difracción con rayos X, revelan que 
 las hojas-$\beta$ se extienden con las caras de sus hebras enfrentadas entre si pero perpendiculares al eje de la fibrilla que forman\cite{nelson2005structure}.  
 Esta arquitectura de hojas-$\beta$ cruzadas permite, como se mencionó antes, la formación de un continuo de puentes de hidrógeno que provee a estas componentes de gran estabilidad. 
+En la figura \ref{amyloidStructure} se ve una representación gráfica detallada de esta estructura.
 
 
 
-% ******************************************
-% ENERGY LANDSCAPE
-% 
-En la figura \ref{fullEnLandscape} se muestra la representación gráfica de la estabilidad termodinámica resultante, junto a otras estructuras posibles.
-Los complejos funcionales que se forman entre IDRs/IDPs y sus ligandos implican la formación de nuevas interacciones intermoleculares que cambian el perfil energético del ensamble,
-creando estados de mínima energía claramente definidos con características estructurales propias.
-Mediante un mecanismo similar, la interacción entre proteínas lleva a la formación de distintos estados agregados generalmente no-funcionales(oligómeros, agregados amorfos, fibrillas amiloides, etc.).  
-En este caso, las interacciones llevan a la formación de estados muy estables, reflejados en un profundo mínimo sobre el perfil de energía correspondiente. 
-
-
-\begin{figure}[ht!]
+\begin{figure}[ht]
 \centering
-\begin{subfigure}[ht]{\linewidth}
-\includegraphics[width=0.7\textwidth]{img/globularEnLandscape.png} 
-\centering
-% \includegraphics[width=0.7\textwidth]{img/globularEnLandscape.png} 
-\caption{Perfil energetico de los estados de un polipeptido con estructura nativa globular. Figura extraida de \cite{turoverov2010protein}}
-\label{globularFullEnLandscape}
-\end{subfigure}
-
-\begin{subfigure}[ht]{\linewidth}
-\centering
-\includegraphics[width=0.7\textwidth]{img/idpEnLandscape.png} 
-\caption{Perfil energetico de los estados de un polipeptido con estructura nativa desordenada. Figura extraida de \cite{turoverov2010protein}}
-\label{idpFullEnLandscape}
-\end{subfigure}
- \caption{Full energy landscape}
- \label{fullEnLandscape}
+\includegraphics[width=0.9\textwidth]{img/amyloidStructure.jpg} 
+\caption{Estructura de fibrillas amiloides. Figura extraída de \cite{luhrs20053d}}
+\label{amyloidStructure}
 \end{figure}
 
 
 
-
-Como se ve en la fig.\ref{fullEnLandscape}\textbf{(a)}, en condiciones normales, donde los proteínas se mantienen en sus estados plegados, 
-la estabilidad de estos estados los mantiene separados mediante barreras cinéticas relativamente altas de la formación de agregados(que se muestran considerablemente mas estables).
-Esto no es tan determinante para intermediarios del plegamiento(estados 1 y 2 en fig. \ref{fullEnLandscape}\textbf{(a)}) y para las conformaciones desplegadas(fig. \ref{fullEnLandscape}\textbf{(b)}), 
-donde las barreras energéticas pueden no ser determinantes en el mantenimiento de los estados nativos en solución.
-Teniendo en cuenta que, como vimos antes, existe una gran diversidad de estados conformacionales en la célula,que el estado totalmente ordenado es, quizás, solo una excepción, 
-y además se sabe que los agregados pueden provocar un gran daño biológico,
-es esperable que los sistemas biológicos hayan evolucionado distintos mecanismos para mantener la homeostasis de los estados nativos monoméricos.
-
+% SACO TODA LA PARTE DEL PERFIL ENERGETICO
+% ******************************************
+% ENERGY LANDSCAPE
+% 
+% En la figura \ref{fullEnLandscape} se muestra la representación gráfica de la estabilidad termodinámica resultante, junto a otras estructuras posibles.
+% Los complejos funcionales que se forman entre IDRs/IDPs y sus ligandos implican la formación de nuevas interacciones intermoleculares que cambian el perfil energético del ensamble,
+% creando estados de mínima energía claramente definidos con características estructurales propias.
+% Mediante un mecanismo similar, la interacción entre proteínas lleva a la formación de distintos estados agregados generalmente no-funcionales(oligómeros, agregados amorfos, fibrillas amiloides, etc.).  
+% En este caso, las interacciones llevan a la formación de estados muy estables, reflejados en un profundo mínimo sobre el perfil de energía correspondiente. 
+% 
+% 
+% \begin{figure}[ht!]
+% \centering
+% \begin{subfigure}[ht]{\linewidth}
+% \includegraphics[width=0.7\textwidth]{img/globularEnLandscape.png} 
+% \centering
+% % \includegraphics[width=0.7\textwidth]{img/globularEnLandscape.png} 
+% \caption{Perfil energetico de los estados de un polipeptido con estructura nativa globular. Figura extraida de \cite{turoverov2010protein}}
+% \label{globularFullEnLandscape}
+% \end{subfigure}
+% 
+% \begin{subfigure}[ht]{\linewidth}
+% \centering
+% \includegraphics[width=0.7\textwidth]{img/idpEnLandscape.png} 
+% \caption{Perfil energetico de los estados de un polipeptido con estructura nativa desordenada. Figura extraida de \cite{turoverov2010protein}}
+% \label{idpFullEnLandscape}
+% \end{subfigure}
+%  \caption{Full energy landscape}
+%  \label{fullEnLandscape}
+% \end{figure}
+% 
+% 
+% 
+% 
+% Como se ve en la fig.\ref{fullEnLandscape}\textbf{(a)}, en condiciones normales, donde los proteínas se mantienen en sus estados plegados, 
+% la estabilidad de estos estados los mantiene separados mediante barreras cinéticas relativamente altas de la formación de agregados(que se muestran considerablemente mas estables).
+% Esto no es tan determinante para intermediarios del plegamiento(estados 1 y 2 en fig. \ref{fullEnLandscape}\textbf{(a)}) y para las conformaciones desplegadas(fig. \ref{fullEnLandscape}\textbf{(b)}), 
+% donde las barreras energéticas pueden no ser determinantes en el mantenimiento de los estados nativos en solución.
+% Teniendo en cuenta que, como vimos antes, existe una gran diversidad de estados conformacionales en la célula,que el estado totalmente ordenado es, quizás, solo una excepción, 
+% y además se sabe que los agregados pueden provocar un gran daño biológico,
+% es esperable que los sistemas biológicos hayan evolucionado distintos mecanismos para mantener la homeostasis de los estados nativos monoméricos.
+% 
 
 
 
@@ -874,27 +902,28 @@ es esperable que los sistemas biológicos hayan evolucionado distintos mecanismo
 
 
 % PROPIEDADES SECUENCIALES
-A pesar de esta arquitectura claramente definida de las fibrillas amiloides, las proteínas que forman estos agregados son muy diversas, con muy poca similitud entre sus secuencias y sus conformaciones monoméricas en solución.
-Lo que es más relevante, estudios con diversos péptidos y proteínas (no relacionados con aquellos encontrados como causantes de la amiloidosis sistemica) muestran que todo pueden formar, bajo las condiciones apropiadas, agregados con las 
-características de las fibrillas amiloides.
-Estos estudios experimentales, junto con una gran variedad de analisis computacionales, llevan a pensar que la estrutura amiloide puede ser adoptada por cualquier cadena polipeptídica y, por lo tanto, 
-esta habilidad para reordenar la conformación monomérica y agregarse en una arquitectura definida característica puede ser una propiedad intrínseca de las proteínas\cite{fandrich2002behaviour}.
+A pesar de esta arquitectura claramente definida de las fibrillas amiloides, las proteínas que forman estos agregados son muy diversas, con muy poca similitud entre sus secuencias.
+% o sus conformaciones monoméricas en solución.
+Lo que es más relevante, estudios con diversos péptidos y proteínas (no relacionados con aquellos encontrados como causantes de la amiloidosis sistémica) muestran que todos son capaces de formar, 
+bajo las condiciones apropiadas, agregados con las características de las fibrillas amiloides.
+Estos estudios experimentales, junto con una gran variedad de analisis computacionales, llevan a pensar que la estructura amiloide puede ser adoptada por cualquier cadena polipeptídica y, por lo tanto, 
+esta habilidad para reordenar la conformación monomérica y agregarse para formar la estructura amiloide característica puede ser una propiedad intrínseca de las proteínas\cite{fandrich2002behaviour}.
+El estado estructural amiloide parece ser, entonces, un estado generico de las proteinas.
 
-El estado estructural amiloide parece ser, entonces, un estado generico de las proteinas, sin  embargo, la tendencia a formar este tipo de fibrillas amiloides si es un proceso que depende específicamente de la 
-secuencia y algunos detalles estructurales a nivel atómico, así como la estabilidad relativa del estado amiloide, pueden ser tambien características fuertemenete dependientes de la secuencia.  
-Por lo tanto, la tendencia a la agregación para formar fibrillas amiloides puede variar ampliamente entre distintas proteínas.
-La pregunta clave es cómo influye la secuencia(o composición) de aminoácidos sobre esta tendencia.
+Sin  embargo, la tendencia a formar este tipo de fibrillas amiloides si es un proceso que depende específicamente de la secuencia, y algunos detalles estructurales a nivel atómico, 
+así como la estabilidad relativa del estado amiloide, pueden ser también características fuertemente dependientes de la secuencia. %REFERENCIAS????  
+Por lo tanto, la tendencia a formar estos estados agregados puede variar ampliamente entre distintas proteínas, la pregunta clave es ¿cómo influye la secuencia(o composición) de aminoácidos sobre esta tendencia?
 La respuesta a esto es importante no sólo para entender los estados de agregación y sus mecanismos de formación, sino también para otros aspectos como 
 la producción biotecnológica de proteínas, o el diseño racional de cadenas polipeptídicas funcionales, donde se desea evitar la formación de agregados al (sobre)expresar las proteínas.
-Estos conocimientos sirven luego como base para el desarrollo de herramientas bioinformáticas que permitan detectar la tendencia a formación de agregados a partir de una secuencia.
+Estos conocimientos sirven también como base para el desarrollo de herramientas bioinformáticas que permitan detectar la tendencia a formación de agregados a partir de una secuencia.
 
 % DEPENDENCIA CON LA COMPOSICION
-Se sabe que las interacciones hidrofóbicas son escenciales para la compactación de la estructura lineal de un polipéptido.
+Se sabe que las interacciones hidrofóbicas son esenciales para la compactación de la estructura lineal de un polipéptido.
 Se podría esperar, entonces, que un incremento en el contenido de residuos hidrofóbicos pueda aumentar la tendencia a la agregación de una secuencia, mientras que un incremento en la carga neta impida esta agregación. 
-Además de estas propiedades fisicoquimicas, dadas las características de estructura/arquitectura encontradas para las fibrillas amiloides con un alto contenido de hojas-$\beta$,
-las secuencias que tienen tendencia intrínseca a adoptar conformaciones de hoja-$\beta$ en su estructura secundaria probablemente tendrán cierta tendencia a la formación de estos agregados.  
-En \cite{chiti2003rationalization} se estudian todas estas propiedades secuenciales mediante mutaciones sistemáticas sobre polipéptidos, concluyendo 
-que la estructura primaria de un polipéptido cumple un papel muy importante en la tendencia a formar depósitos insolubles.
+Además de estas propiedades fisicoquimicas, dadas las características estructurales recién descritas para las fibrillas amiloides, con un alto contenido de hojas-$\beta$, 
+es razonable pensar que las secuencias que tienen una tendencia intrínseca a adoptar conformaciones de hoja-$\beta$ en su estructura secundaria probablemente tendrán, también, cierta tendencia a la formación de estos agregados.  
+% En \cite{chiti2003rationalization} se estudian todas estas propiedades secuenciales mediante mutaciones sistemáticas sobre polipéptidos, concluyendo 
+% que la estructura primaria de un polipéptido cumple un papel muy importante en la tendencia a formar depósitos insolubles.
 
 
 % DEPENDENCIA CON SEGMENTOS DE SECUENCIA
@@ -927,13 +956,17 @@ Estas propiedades afectan a todos los estados posibles aunque en este caso los m
 
 
 
-
 % ACTIVIDADES
+Los agregados proteícos estan generalmente asociados con condiciones anormales donde se pierde la capacidad de mantener las proteínas en sus estados nativos correspondientes(pérdida de homeostasis proteica) y, por lo tanto, 
+se pierda la capacidad de estas para realizar sus actividades biológicas(al menos de forma correcta) con las obvias consecuencias negativas para el sistema. 
+En particular las fibrillas amiloides fueron descubiertas en el contexto de una enfermedad sistémica y se cree que están asociadas a una gran cantidad de enfermedades, sin embargo,
+han sido aprovechadas por distintos sistemas biológicos y pueden encontrarse versiones funcionales de estos agregados en distintos organismos\cite{fowler2007functional}.
+
+
+
 
 
 % % FUNCTIONAL AMYLOIDS
-% Contrary to amorphous aggregates, amyloid structures can fulfill biological functions, and functional amyloids are found in organisms from prokaryotes to humans \cite{fowler2007functional}.
-% % 
 % Amyloids are not only associated with disease-related proteins.
 % Nature also exploits the structural and mechanical properties
 % of amyloids to regulate biological functions 13 . For example, in
@@ -1039,6 +1072,31 @@ Estas propiedades afectan a todos los estados posibles aunque en este caso los m
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsubsection{Continuo resultante de estructuras, secuencias y actividades}
 
 
@@ -1064,37 +1122,37 @@ dominio completamente desordenado; proteína desordenada con elementos estructur
 
 
 
-
-
+% SACO TODA LA PARTE DE PERFIL ENERGETICO
+% 
 % DIFERENCIAS EN EL PERFIL DE ENERGIA LIBRE
-Todo lo descrito previamente acerca de proteínas plegadas, sus diferencias con el perfil de las IDRs/IDPs, y la estabilidad de los distintas conformaciones del ensamble, 
-puede entenderse mejor si se analizan las superficies de energía libre asociadas. 
-En la figura \ref{idp-folded-EnergyLandscape} se ven ejemplos de estos paisajes energéticos para tres ejemplos representativos de todo el continuo de conformaciones vistas.
-
-El gráfico que se ve en la figura \ref{idp-folded-EnergyLandscape}\textbf{(a)} muestra el perfil de energía libre frente a los cambios conformacionales asociados para una proteína plegada.
-El perfil con la forma similar a un embudo, característico de este tipo de proteínas, representa lo que se describió previamente sobre éstas, a través del plegamiento alcanzan una estructura ``única'' que 
-representa el mínimo global de energía. 
-Como detallamos, esta estructura única representa en realidad un ensamble de conformaciones con muy pocas variaciones, capaz de ser representado por una estructura promedio.
-Diversos estudios sobre el proceso de plegamiento resultaron en una gran diversidad de teorías sobre los detalles de este paisaje energético y como se relaciona con el proceso de plegamiento.
-Sin embargo, lo mas relevante se obtiene de observar la forma en que se ubican los mínimos de energía y la amplitud de éstos, lo que nos dará una idea del ensamble real que encontraremos en condiciones fisiológicas.
-% Folded proteins have a "funnel-shaped" global free energy minimum, where the lowest energy state corresponds to the 11native structure, and the width of the unique global energy minimum
-% determines the conformational entropy of the native state.
-
-A medida que nos movemos hacia la derecha en el continuo de conformaciones posibles de la figura \ref{conformationContinuum}, los segmentos desordenados 
-modifican el perfil energético aplanando la superficie en el mínimo global de energía. 
-Este cambio(graficado en la figura \ref{idp-folded-EnergyLandscape}\textbf{(c)}) representa la existencia de nuevas estructuras con una diferencia conformacional considerable con respecto al resto de las estructuras del ensamble, 
-pero que están separadas entre si por barreras energéticas pequeñas. 
-
-El perfil energético continua aplanándose a medida que aumentan las regiones desordenadas de la proteína.
-En la figura \ref{idp-folded-EnergyLandscape}\textbf{(b)} se ve el perfil 
-correspondiente a una proteína con una conformación completamente desordenada. 
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.7\textwidth]{img/idp-folded-EnLandscape.png} 
-\caption{Diferencias en el paisaje energético entre polipéptidos que adquiren estructuras plegadas, IDRs e IDPs }
-\label{idp-folded-EnergyLandscape}
-\end{figure}
+% Todo lo descrito previamente acerca de proteínas plegadas, sus diferencias con el perfil de las IDRs/IDPs, y la estabilidad de los distintas conformaciones del ensamble, 
+% puede entenderse mejor si se analizan las superficies de energía libre asociadas. 
+% En la figura \ref{idp-folded-EnergyLandscape} se ven ejemplos de estos paisajes energéticos para tres ejemplos representativos de todo el continuo de conformaciones vistas.
+% 
+% El gráfico que se ve en la figura \ref{idp-folded-EnergyLandscape}\textbf{(a)} muestra el perfil de energía libre frente a los cambios conformacionales asociados para una proteína plegada.
+% El perfil con la forma similar a un embudo, característico de este tipo de proteínas, representa lo que se describió previamente sobre éstas, a través del plegamiento alcanzan una estructura ``única'' que 
+% representa el mínimo global de energía. 
+% Como detallamos, esta estructura única representa en realidad un ensamble de conformaciones con muy pocas variaciones, capaz de ser representado por una estructura promedio.
+% Diversos estudios sobre el proceso de plegamiento resultaron en una gran diversidad de teorías sobre los detalles de este paisaje energético y como se relaciona con el proceso de plegamiento.
+% Sin embargo, lo mas relevante se obtiene de observar la forma en que se ubican los mínimos de energía y la amplitud de éstos, lo que nos dará una idea del ensamble real que encontraremos en condiciones fisiológicas.
+% % Folded proteins have a "funnel-shaped" global free energy minimum, where the lowest energy state corresponds to the 11native structure, and the width of the unique global energy minimum
+% % determines the conformational entropy of the native state.
+% 
+% A medida que nos movemos hacia la derecha en el continuo de conformaciones posibles de la figura \ref{conformationContinuum}, los segmentos desordenados 
+% modifican el perfil energético aplanando la superficie en el mínimo global de energía. 
+% Este cambio(graficado en la figura \ref{idp-folded-EnergyLandscape}\textbf{(c)}) representa la existencia de nuevas estructuras con una diferencia conformacional considerable con respecto al resto de las estructuras del ensamble, 
+% pero que están separadas entre si por barreras energéticas pequeñas. 
+% 
+% El perfil energético continua aplanándose a medida que aumentan las regiones desordenadas de la proteína.
+% En la figura \ref{idp-folded-EnergyLandscape}\textbf{(b)} se ve el perfil 
+% correspondiente a una proteína con una conformación completamente desordenada. 
+% 
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=0.7\textwidth]{img/idp-folded-EnLandscape.png} 
+% \caption{Diferencias en el paisaje energético entre polipéptidos que adquiren estructuras plegadas, IDRs e IDPs }
+% \label{idp-folded-EnergyLandscape}
+% \end{figure}
 
 
 
@@ -1107,6 +1165,7 @@ correspondiente a una proteína con una conformación completamente desordenada.
 
 % DIFERENCIAS Y SIMILITUDES ENTRE SLiMs, MoREs e IDD
 % 
+Algo similar ocurre, entonces, con las propiedades funcionales asociadas a 
 A pesar que, como vimos, hay diferencias conceptuales entre motivos secuenciales y los MoREs, existen varias propiedades en común incluyendo la tendencia intrínseca al desorden 
 y ser propensos a experimentar transiciones a estructuras ordenadas(\textit{folding-and-binding}). 
 % Although there are differences in the definitions of linear motifs and MoRFs, they share many common features 72,163 including a tendency to undergo disorder-to-order transition (all
