@@ -24,11 +24,11 @@
 Como producto de los avances logrados en las tecnologías asociadas al ADN recombinante, se ha desarrollado una nueva generación de proteínas compuestas por la integración
 de diferentes módulos secuenciales.
 
-La idea de armar proteínas a partir de la unión de módulos no es algo nuevo, sino que sigue la lógica presentada previamente de que las proteínas naturales son usualmente modulares. 
+La idea de armar proteínas a partir de la unión de módulos no es algo nuevo sino que sigue la lógica presentada previamente de que las proteínas naturales son usualmente modulares. 
 Es decir, se está simulando el proceso evolutivo natural que desarrolla nuevas proteínas mediante la combinación de dominios preexistentes.
 
 La utilización de la técnica de ADN recombinante para construir nuevas proteínas abre toda una gama de posibilidades que van desde inserción de pequeñas secuencias en extremos de proteína naturales, 
-con el fin de poder identificarlas o separarlas, hasta el diseño de construcciones proteicas que buscan obtener nuevas funcionalidades o propiedades diferentes.
+con el fin de poder identificarlas o separarlas, hasta el diseño de construcciones proteicas que buscan obtener proteínas con nuevas funcionalidades o propiedades diferentes.
 % construidas mediante la combinación de distintos dominios.
 % En los casos más simples el proceso puede ser ...
 % En el caso de nuevos diseños, donde se busca combinar módulos para dar nuevas funcionalidades o hacerlas más eficientes, el proceso experimental puede ser mas complejo.
@@ -41,12 +41,11 @@ con el fin de poder identificarlas o separarlas, hasta el diseño de construccio
 
 % Las distintas bases de datos permiten obtener, entonces, una gran cantidad de módulos estructurales y funcionales y gran parte del diseño de proteínas quiméricas 
 % se basa en utilizar estos conocimientos y anotaciones para crear nuevas proteínas con estructuras/funciones/propiedades combinadas.
-
-En estos últimos casos, la implementación del proceso experimental suele ser más complejo, requiriendo varios aspectos de diseño a considerar, los 
-los cuales no siempre son totalmente independientes entre si. 
+En los primeros casos el proceso experimental suele ser bastante directo y basta con fusionar un segmento en el extremo deseado de la proteína. 
+En los últimos casos de uso, la implementación del proceso experimental tiende a ser más complejo, requiriendo una aproximación de ingeniería. 
+En ésta se pueden distinguire varios aspectos de diseño a considerar, los cuales no siempre son totalmente independientes entre si:
 % requiriendo un diseño   o un proceso iterativo.
-Por un lado está el proceso de diseño/construcción de la nueva proteína.
-Por otro están los aspectos asociados con la técnica de ADN recombinante y expresión de proteinas heterólogas. 
+por un lado está el proceso de diseño de la nueva proteína, por otro lado están los aspectos asociados con la técnica experimental de ADN recombinante y expresión de proteinas heterólogas. 
 En el gráfico \ref{esquemaProcesoFusion} se representan los pasos generales que pueden formar parte de este proceso.
 
 \begin{figure}[htbp]
@@ -56,17 +55,17 @@ En el gráfico \ref{esquemaProcesoFusion} se representan los pasos generales que
 \label{esquemaProcesoFusion}
 \end{figure}
 
-La construcción de la proteína de fusión(quimérica) requiere, por su parte, de dos elementos indispensables: 
+El diseño de la proteína de fusión(quimérica) requiere de dos elementos indispensables:
 los dominios o proteínas a fusionar, y la secuencia linker que los va a unir.
 La elección de los dominios/proteínas está fuertemente ligada al producto final que se desea obtener y, normalmente, es una decisión directa alrededor de la cual se diseña el resto del experimento.
 Por otro lado, la selección de un linker adecuado para unir los dominios/proteinas de acuerdo al objetivo que se busca puede ser un paso complicado y es generalmente ignorado cuando se piensa en el diseño de una proteína quimérica.
 La unión directa de los dominios/proteínas o el uso de un linker inadecuado puede resultar en resultados indeseables, por ej. puede restringirse la capacidad de plegado de algun dominio globular, 
-bajar el rendimiento de la proteína resultante o disminuir en la actividad biológica de alguno de los módulos.
+disminuir el rendimiento de la proteína resultante o la actividad biológica de alguno de los módulos.
 La correcta selección, o mejor aún, el diseño racional de las secuencias linker para unir los módulos es un aspecto importante, aunque poco desarrollado, del diseño de proteínas quiméricas. 
-Esta falta de desarrollo en el tema se debe, quizás, a la falta de conocimiento sobre los factores estructurales que gobiernan la flexibilidad entre los dominios, y es un factor claramente 
+Esta falta de desarrollo en el tema se debe quizás a la falta de conocimiento sobre los factores estructurales que gobiernan la flexibilidad entre los dominios, y resulta ser un factor claramente 
 limitante en el diseño \textit{de-novo} de proteínas quiméricas. 
-Los conocimientos relevantes sobre este tema pueden aparecer a partir de la gran cantidad de secuencias que se disponen actualmente, los avances en 
-la identificación de dominios y nuevas técnicas para obtener sus propiedades conformacionales a partir de la información secuencial.
+Los conocimientos relevantes sobre estos aspectos estructurales de las secuencias linker tema pueden estar disponibles actualmente a partir de la gran cantidad de secuencias que se disponen, los avances en 
+la identificación automática de dominios y las nuevas técnicas para predecir propiedades conformacionales a partir de la información secuencial.
 
 
 
@@ -84,20 +83,24 @@ la identificación de dominios y nuevas técnicas para obtener sus propiedades c
 % domains (8, 9),
 
 
-
-
+La gran cantidad de posibilidades de aplicación que tiene ingeniería de proteínas quiméricas alienta a seguir investigando 
+los aspectos básicos de las proteínas asociados a este proceso y a desarrollar técnicas que ayuden en el prceso de diseño.
+Algunos ejemplos de aplicación son: 
 
 % AGREGAR ALGO DE TECNICAS FRET
 \begin{itemize}
- \item Creación de proteinas que combinan funciones de distintos dominios:
-Cómo se dijo en la sección anterior, se poseen cada vez mas dominios anotados con una gran cantidad de funciones correspondientes.
-La forma mas común de crear proteinas quiméricas es, entonces, fusionar genéticamente dos o más dominios con subfunciones distintas, obteniendo una nueva funcionalidad global para la proteína.
+ \item Creación de enzimas multifuncionales\cite{ljungcrantz1989construction,fan2009engineering}:
+% Cómo se dijo en la sección anterior, se poseen cada vez mas dominios anotados con una gran cantidad de funciones correspondientes.
+La forma mas común de crear proteinas quiméricas es fusionar genéticamente dos o más dominios con funcionalidades distintas, obteniendo una nueva funcion global para la proteína, resultante de la suma de éstas.
+En el caso de enzimas el objetivo generalmente es que una misma construcción pueda tener afinidad por distintos sustratos, o que las distintas enzimas formen una cadena metabólica, donde el producto de una sea a la vez el sustrato de otra.
+Es importante que el linker que una a estas distintas enzimas permita la correcta actividad de cada una por separado.
+
 \item Facilitar el estudio de interacciones proteina-proteina\cite{reddy2013linkers}: 
-Tradicionamlente el estudio se hace expresando conjuntamente las dos proteinas que conforman el complejo.
-Sin embargo, si la afinidad es muy baja, no es tan simple obtener el complejo formado.
-La creación de una proteína quimérica que une a los dominios/proteínas que forman el complejo permite mantenerlas unidas mediante un linker.
-La flexibilidad de esta secuencia linker debería permitir la correcta formación del complejo y, al estar unidas covalentemente, habrá una posibilidad mucho mayor de interacción.
-El aumento en la estabilidad del complejo permite realizar los estudios biofísicos necesarios sobre éste.
+Tradicionamlente, la forma más simple para estudiar la interacción entre dos proteinas es expresarlas conjuntamente para obtener el complejo formado.
+Sin embargo, si la afinidad es muy baja, no es tan simple que este complejo se forme de manera estable.
+La creación de una proteína quimérica que une a los dominios/proteínas que forman el complejo permite mantenerlas unidas covalentemente mediante una secuencia linker.
+La flexibilidad de esta secuencia debería permitir la interacción libre entre los componentes generando la formación del complejo. Al estar unidas covalentemente, habrá una posibilidad mucho mayor de interacción y aumentará la cinética de 
+formación, permitiendo realizar los estudios biofísicos necesarios sobre éste.
 % The characterization of protein–protein interactions is often required to gain an understanding of various biological processes. 
 % Yet, the study of protein–protein interactions for many complexes is hampered when one or more partners of the complex are unfolded or unstable. 
 % Traditionally, this problem has been addressed by the co-expression and/or copurification of both proteins. 
@@ -121,18 +124,39 @@ El aumento en la estabilidad del complejo permite realizar los estudios biofísi
 % linked, it is possible that the binding partners might
 % dissociate due to their low affinity and/or due to the
 % crystallization conditions.
-\item La unión de fragmentos de anticuerpos a enzimas o proteínas que permitan la detección de la unión es la base de las técnicas inmunoquímicas.
-% \item Incrementar la expresión de proteínas.
-\item La unión de segmentos de secuencia específica permite la purificación de proteínas a partir del lisado celular. 
-% Facilitar la purificación de proteínas.
-% Una de las aplicaciones mas interesantes es para ayudar al estudio estructurals de las intereacciones entre proteinas \cite{}.
-% -In addition to structural studies of protein–protein interactions \cite{reddy2013linkers}.,
-% \item a wide range of applications in the field of biotechnology have employed these fused proteins
-% \item to explore protein-based biochemistry, such as to create artificial bifunctional enzymes and as tools for FRET analysis.
+\item Construcción de sensores FRET:
+La técnica FRET se basa en utilizar el efecto de transferencia de energia entre dos cromóforos(un donor y un aceptor).
+Dado que la eficiencia en la transferencia, y por lo tanto de la señal de salida, depende de la distancia, este efecto puede ser utilizado en la técnica para evaluar la distancia entre dos 
+cromóforos cuya distancia depende de algun proceso molecular de interés. \\
+La construcción del sensor generalmente implica utilizar un par de dominios de unión cuya interacción estable depende de algun evento molecular de interés(ej. unión de algún elementos o la ocurrencia de algún proceso).
+Cada dominio de unión es unido por separado a uno de los cromóforos(donor o aceptor) y estas construcciones se unen entre si por linkers flexibles que les permiten interaccionar libremente.
+En su forma libre, esta construcción permite a los cromóforos moverse de manera independiente por lo tanto no ocurrirá una transferencia significativa de energía. 
+Cuando los dominios fusionados a cada cromóforo se unén (lo cual depende de la ocurrencia del evento de interés), la distancia quedará fijada y esto cambiará el perfil de transferencia de energía.
+Este esquema se muestra gráficamente en la imagen \ref{fretSensor}
 
-% They have also been widely applied for drug targeting, since proteins such as single chain antibodies or ligands for cell surface receptors can 
-% specifically target a linked functional protein (e.g. toxin or cytokine) to a specific type of cells
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{img/fret.png} 
+\caption{Figura obtenida de \cite{crone2013gfp}}
+\label{fretSensor}
+\end{figure}
+
+Esta técnica es muy versátil y por lo tanto existen una gran cantidad de ejemplos y modificaciones.\cite{vinkenborg2009genetically,qiao2006zinc} %REFERENCIAS
+En muchos casos la dependencia del proceso molecular con la distancia esta directamente relacionada con la secuencia linker, 
+por ejemplo si esta secuencia contiene elementos target de modificaciones post-traduccionales que pueden cambiar las propiedades conformacionales del linker e, indirectamente, el perfil de distancias entre los extremos. 
+En otros casos la conformación en la que los dominios están unidos fija una distancia importante entre los cromóforos, entonces el sensor mide la disminución en la transferencia de energía como evento resultado del evento de interés.
+En todos los casos es importante el proceso de ingenieria aplicado sobre el linker para obtener el correcto funcionamiento del sensor.
+
+\item Diseño de métodos de detección para técnicas inmunoquímicas \cite{arai1998construction,arai2000fluorolabeling,suzuki1999open}:
+% La unión de fragmentos de anticuerpos a enzimas o proteínas que permitan la detección de la unión es la base de las técnicas inmunoquímicas
+Los anticuerpos poseen la capacidad de unirse a proteínas que tengan expuestos epítopes específicos. 
+Esta especificidad permite que se usen para identificar la presencia de proteínas de interés en el contexto de diversos métodos experimentales.
+% Para poder revelar esta proceso de unión específica es necesario fusionar el anticuerpo con algun elemento que permita la detección, generalmente de forma visual.  
+Este proceso, entonces, requiere la utilización de ingeniería de proteínas quiméricas para fusionar el anticuerpo con un dominio cromóforo, una enzima específica, u otro elemento que permita revelar la unión, generalmente de forma visual.
+
+
 \end{itemize}
+
 
 
 
@@ -147,23 +171,26 @@ El aumento en la estabilidad del complejo permite realizar los estudios biofísi
 
 \subsection{Ingeniería de secuencias linker}
 
+\subsubsection{Aspectos de diseño}
 % EN ESTA  SECCION PONER LA LISTA COMPLETA DE LOS REQUERIMIENTOS POSITIVOS Y NEGATIVOS DE UN LINKER:
 % LONGITUD, COMPOSICION, CONFORMACION DESORDENADA INTRINSECA, AUSENCIA DE ESTRUCTURA SECUNDARIA, AUSENCIA DE ELEMENTOS FUNCIONALES
 
 % \subsubsection{Diseño positivo}
 
-
-A la hora de obtener un linker las propiedades estructurales suelen ser las más criticas. 
-Mantener los dominios unidos a la vez que estos actúan como unidades independientes(manteniendo su funcionalidad), permitiendo que se muevan libremente y la posibilidad de cualquier interacción entre ellos.
-Esto depende directamente de la longitud y conformación adoptada por la secuencia linker. 
-La longitud no suele ser una propiedad determinante, permitiendo un amplio rango de longitudes efectivas siempre que se eviten las secuencias muy cortas que no permiten una separación suficiente, 
-o las secuencias extremadamente largas que harían casi inperceptible la unión de los dominios.
+La función de la secuencia linker es mantener los dominios unidos a la vez que estos actúan como unidades independientes(manteniendo su funcionalidad), 
+permitiendo que se muevan e interaccionen libremente libremente. 
+Esta funcionalidad depende directamente de la longitud y conformación adoptada por la secuencia linker, por lo tanto, son los primeros aspectos a tener en cuenta en en diseño.
+A pesar de ser un factor directo de la eficiencia\cite{robinson1998optimizing} la longitud no suele ser una propiedad determinante, permitiendo un amplio rango de longitudes efectivas siempre 
+que se eviten las secuencias muy cortas que no permiten una separación suficiente, o las secuencias extremadamente largas que haría que los dominios funcionen de forma totalmente independiente entre si.
 % harían muy ineficaz la interacción entre proteínas.
 
-Los requerimientos conformacionales son un poco mas estrictos y pequeños cambios en la estructura pueden limitar la funcionalidad del nuevo diseño.
-En primer lugar buscamos que la secuencia adopte una conformación intrínsecamente desordenada, la cual evita que       manteniendo la
-Esta conformación intrínsecamente desordenada provee, además, la flexibilidad necesaria para que los dominios se muevan libremente explorando distintas conformaciones globales.
+Los requerimientos conformacionales suelen ser más estrictos y pequeños cambios en la estructura pueden limitar la funcionalidad del diseño.
+En primer lugar buscamos que la secuencia adopte una conformación extendida, es decir, que no se pliege formando una estructura compacta con los dominios que une. 
+Además, las propiedades conformacionales de la secuencia deben proveer la flexibilidad necesaria para que las interacciones puedan ocurrir sin ninguna restricción estructural.
 Para las arquitecturas más comunes, compuestas de dominios globulares unidos por linkers, esta flexibilidad es el requerimiento mas importante ya que permite a los distintos dominios interaccionar libremente.
+Además de esta conformación extendida, es importante controlar 
+It is also unfavorable to have a linker sequence with a high propensity for forming alfa-helical or beta-strand structures, because these would limit the flexibility of the fusion protein and consequently affect its functional activity.
+Estas propiedades conformacionales tienen una gran correspondencia con las características vistas para las proteínas intrínsecamente desordenadas. 
 
 En la figura \ref{conformacionLinker} se muestran como influyen estos requerimientos en la construcción de una proteína quimérica que une dos dominios EBFP y EGFP. 
 Los gráficos A,B y E muestran conformaciones globales de la proteína que son posibles gracias a la flexibilidad del linker intrínsecamente desordenado y con una longitud apropiada. 
@@ -179,122 +206,98 @@ hace que las conformaciones globales sean mucho más limitadas.
 \end{figure}
 
 
-% como vimos antes, el proceso experimental asociado a obtener una proteína quimérica tiene varios pasos, y es importante que la etapa de diseño no se piense en la funcionalidad de la construccion(proteina) 
-% de forma aislada sino que se tengan en cuenta las distintas técnicas que pueden/deben utilizarse durante el proceso y en los diferentes contextos donde la proteína se encontrará y donde deberá mantener sus propiedades.
 
-El objetivo de la proteína es poder expresarla en un sistema biológico donde cumplira la función para la cual fue diseñada, por lo tanto es importante que las
-propiedades conformacionales del linker se mantengan ante la presencia de otras proteínas o cualquier tipo de ligando.
+Las características conformacionales buscadas no sólo serán resultado de interacciones intramoleculares sino que dependen del contexto en el cual la proteína diseñada se encuentre. 
+Como parte del proceso que describimos en la sección anterior, la construcción se expresa en un sistema biológico determinado, a partir del cual puede ser luego aislada y purificada para estudiar. 
+Esto impone ciertos requerimientos al diseño del linker ya que las interacciones estables con otros componentes del sistema pueden limitar seriamente la flexibilidad intrínseca de este.
 % MOREs  y Agregacion
 
+Uno de los procesos que pueden afectar más severamente la actividad es la formación de agregados proteicos durante la producción de la proteína\cite{lebendiker2014production}.
+En este caso la unión a otras proteínas no solo limita la flexibilidad de la secuencia linker sino también arrastra a la proteína completa inhibiendo completamente la actividad de esta.
+Además, la agregación no es sólo un problema de la expresión en el sistema biológico, donde la proteína debe mantenerse en solución,
+sino que también puede ocurrir durante las etapas posteriores de separación y purificación.
+
+Otro ejemplo es la uníón a ligandos mediante el proceso de plegado y unión(\textit{binding \& folding}), un proceso mediante el cual se estabilizan estructuras secundarias que de otra modo sólo ocurren en forma transitiva.  
+Esta es una propiedad que describimos como característica de las proteínas intrínsecamente desordenadas.
+Es importante que el diseño del linker tenga en cuenta estos aspectos(y otros similares), evitando que la secuencia posea tendencias a formar uniones estables con otros componentes del sistema.
 
 
 
 % Actividad biologica
-La idea del diseño uniendo distintos módulos es que la funcionalidad global se origine exclusivamente a partir de la unión de éstos, por lo tanto la secuencia que los une no debe proveer ninguna funcionalidad adicional, es decir,
-debe permanecer inerte ante el entorno en el cual la nueva proteína desarrolla su actividad. 
-Las actividades biológicas pueden ser muy variadas pero   
-Dado que las propiedades conformacionales  
-Entre las actividades biológicas asociadas a estos segmentos están las modificaciones post-traduccionales, unión a ligandos, sitios de clivaje, etc.
-Por lo tanto, es importante que la secuencia linker este libre de cualquier funcionalidad asociada a patrones secuenciales lineales. 
+Las interacciones desfavorables durante el proceso de ingeniería no se limitan a estas uniones estables.
+Como vimos previamente, las proteínas IDPs pueden poseer actividades biológicas, principalmente a través de módulos de interacción en la secuencia. 
+Al no adoptar una estructura plegada, estos elementos quedan expuestos al entorno y permiten mediar diferentes interacciones funcionales.
+La gama de actividades que involucra a estos módulos es muy diversa y por lo tanto pueden tener diferentes implicancias sobre el linker en particular y la proteína quimérica en general.
+% Entre las actividades biológicas asociadas a estos segmentos están las modificaciones post-traduccionales, unión a ligandos, sitios de clivaje, etc.
+Ejemplo de esto son los sitios target de clivaje, cuya ocurrencia dentro de la secuencia linker tendría consecuencias obvias que afectarían directamente a la unión covalente que genera el linker.
+Otros ejemplos son las modificaciones post-traduccionales sobre la secuencia, las cuales pueden modificar las características de esta(por ejemplo la carga neta) impactando directamente en las propiedades conformacionales asociadas.
+% si el linker es target de PTM puede sufrir cambios que afecten la carga de esta secuencia, y como la carga esta directamente relacionada con las propiedades conformacionales, estas modificaciones pueden afectar la flexibilidad
+Por lo tanto, es importante que la secuencia linker este libre de cualquier elemento funcional en su secuencia. 
+
+% La idea del diseño uniendo distintos módulos es que la funcionalidad global se origine exclusivamente a partir de la unión de éstos, por lo tanto la secuencia que los une no debe proveer ninguna funcionalidad adicional, es decir,
+% debe permanecer inerte ante el entorno en el cual la nueva proteína desarrolla su actividad. 
 
 
-
-
-
-
-% 
-% Los requerimientos en el linker no están limitados a la función o actividad de la proteína resultante. 
-% Como se vió en la sección anterior, el proceso de 
-% 
 
 
 % COMPOSICION DE AMINOACIDOS: Carga metabolica y propiedades espectroscópicas
-% Existen aspectos importantes a la hora de diseñar un linker que podrían parecer obvios, la composición y la longitud del linker son los primeros aspectos a considerar\cite{robinson1998optimizing}.
+Los requerimientos impuestos sobre la secuencia pueden originarse en otros pasos del proceso de producción, no solo en el diseño funcional de la consutrucción 
+% por el proceso para producir la proteína quimérica no están limitados a aquellos que apuntan a mantener las propiedades deseadas de la construcción, 
+% sino que pueden estar asociados a otros aspectos del proceso.
+Como parte de este proceso se requiere que el sistema exprese la construcción diseñada, lo cual, al ser una proteína foránea, estará directamente ligado a la carga
+metabólica que la secuencia impone sobre el sistema\cite{glick1995metabolic}. Esta carga metabólica es el resultado de la utilización de recursos propios de la célula para la expresión de esta nueva proteína y dependen, entre otros aspectos, 
+de la secuencia que define la proteína. 
+Diferentes aminoácidos representan diferentes requerimientos metabólicos, por lo tanto, un aspecto relevante de la secuencia es que esta tenga una composición que imponga mínimos requerimientos metabólicos al sistema. 
+La composición raramente puede ser modificada en los módulos que se están fusionando, pero si es posible tener esto en cuenta al diseñar la secuencia linker el cual deberá imponer, idealmente, la mínima carga posible al sistema de expresión.
+La importancia de este requerimientos depende del usuario que diseña el experimento, de acuerdo al sistema que se va a usar, el nivel de expresión requerida, etc.
+
+En otros casos, el proceso puede contener requerimientos provenientes de los pasos posteriores a la expresión.
+Por ejemplo, dado que las dado que las técnicas espectroscópicas se usan de forma rutinaria en el trabajo con proteínas, es posible que el usuario 
+quiera realizar la construcción utilizando un linker cuya composición específica no posea aminoácidos con absorbancia en el rango del UV, 
+de forma que se elimine cualquier interferencia de la secuencia en este tipo de técnicas.
+
+Todas estas situaciones están asociadas a requerimientos en la composición del linker diseñado. 
+La composición ideal de esta secuencia linker dependerá, entonces, no sólo de las propiedades secuenciales asociadas a la funcionalidad de éste dentro de la construcción, sino también de aquellos aspectos 
+que el usuario considere relevantes como parte del proceso experimental.
 
 
 
-Por otro lado, la carga de la secuencia puede mediar interacciones en el entorno celular, por ejemplo, al construir proteínas cuya función requiera unirse al DNA es 
-requerir que la secuencia linker no tenga residos carga ya que 
-
-Otros requerimientos pueden no aparecer a partir de patrones secuenciales sino de propiedades intrínsecas de cada aminoácido. 
-De esta forma, algunos requerimientos están relacionados con la composición secuencial. 
-% CARGA METABOLICA
-Un ejemplo claro de esto está en poder regular la carga metabólica asociada a la expresión de la secuencia linker. 
-Dado que la proteína diseñada deberá ser, finalmente, expresada en algún sistema biológico, y que los distintos aminoácidos que conforman las proteínas tienen distintos costos metabólicos asociados, 
-poder controlar la composición(imponiendo una menor frecuencia a aquellos aminoácidos con mas costo metabólico) permitiría incrementar el nivel expresión de la construcción creada.
-
-% propiedades espectroscópicas
-En otros casos, el requerimiento está asociado con propiedades fisicoquímicas de algunos aminoácidos. 
-Por ejemplo, dado que las dado que las técnicas espectroscópicas se usan de forma rutinaria en el trabajo con proteínas, es deseable que el linker resultante tenga una composición específica tal que no posea aminoácidos que absorban en rango 
-del UV, de forma que se elimine cualquier interferencia de la secuencia en este tipo de técnicas.
-
-Otro ejemplo que afecta a la composición está asociada con interacciones iónicas no deseadas. 
-Por ejemplo al construir una proteína cuya funcionalidad esté asociada a la unión a DNA, será deseable que la composición final no contenga aminoácidos que puedan encontrarse en estados con carga positiva, debido a que 
-la formación de interacciones con la estructura de fosfatos propia del DNA podría interferir en la función de la proteína.
-
-Teniendo en cuenta estos aspectos, una ventaja importante del proceso de diseño es poder definir la composición de la secuencia resultante.
-
-
-% carga neta
-% RESIDUOS CARGADOS
-% Una ventaja importante del proceso de diseño es que se pueda definir la carga neta que tendrá la secuencia linker. 
-% Este requerimiento puede tener varios fundamentos, principalmente 
-Distintas técnicas de laboratorio para identificación y purificación de proteínas se basan en la carga neta de la secuencia.
-
-
-
-
-% Esto se traduce en dos propiedades de la secuencia: que adopte una conformación extendida evitando que los dominios se compacten en el sitio de unión a través del linker, y que no posea una tendencia a adoptar estructuras secundarias, 
-% ya que estas podrían reducir el número y tipo de interacciones posibles entre los dominios.
-
-
-% Es relevante aclarar acá que, si bien los terminos desordenado y flexible pueden solaparse en algun punto, son términos distintos\cite{radivojac2004protein}
-% Para una proteína plegada, la flexibilidad refiere a la desviación de las posiciones atómicas con respecto a la estructura promedio en equilibrio.
-% Para una region desordenada, la variación en la flexibilidad se refiere a las diferencias en las velocidades de interconversión entre los diferentes estados miembro del ensamble estructural.
-% Una variedad de técnicas biofísicas, como por ej. NMR, han sido usadas para estudiar estos conceptos de flexibilidad.
-
-% Análisis de estructuras mediante estas tecnicas muestran que el movimiento en la proteína que provoca los cambios conformacionales puede ocurrir tanto a nivel de residuos como a nivel de estructura secundaria o terciaria. 
-
-
-% Control of structural flexibility is essential for the proper functioning of a large number of proteins and multiprotein complexes. 
-% At the residue level, such flexibility occurs due to local relaxation of peptide bond angles whose cumulative effect may result in large 
-% changes in the secondary, tertiary or quaternary structures of protein molecules. 
-% Such flexibility, and its absence, most often depends on the nature of interdomain linkages formed by oligopeptides.
-
-
-% residues or at the secondary, tertiary, or quaternary structural levels. 
-% Lactate dehydrogenase, triose-phosphate isomerase, as well as hemoglobin 
-% and related proteins are some of the earliest examples of proteins that showed conformational changes with important functional implications.
-
-% 
 
 
 
 % 
 % 
 % 
+% % carga neta
+% % RESIDUOS CARGADOS
+% % Una ventaja importante del proceso de diseño es que se pueda definir la carga neta que tendrá la secuencia linker. 
+% % Este requerimiento puede tener varios fundamentos, principalmente 
+% Distintas técnicas de laboratorio para identificación y purificación de proteínas se basan en la carga neta de la secuencia.
 % 
-% La arquitectura típica creada, representada por dominios globulares unidos por secuencias linkers, busca que éstos permitan 
-% mantener los dominios separados a la vez que se les da suficiente capacidad para moverse libremente como parte de su funcionalidad. 
-% Por lo tanto, la flexibilidad es el requerimiento mas importante, y es deseable que un linker tenga tendencia intrínseca a adoptar una conformación extendida.
-% Es importante que, como parte del diseño de la secuencia linker, se asegure que codifique una conformación intrínsecamente desordenada que no posea las características de una estructura colapsada propia de proteínas globulares.
-% La conformación extendida le provee la flexibilidad global necesaria, a partir de la rápida interconversión entre la gran cantidad de conformaciones del ensamble con valores de energía similares.
+% 
+% Por otro lado, la carga de la secuencia puede mediar interacciones en el entorno celular, por ejemplo, al construir proteínas cuya función requiera unirse al DNA es 
+% requerir que la secuencia linker no tenga residos carga ya que 
+% 
+% Otro ejemplo que afecta a la composición está asociada con interacciones iónicas no deseadas. 
+% Por ejemplo al construir una proteína cuya funcionalidad esté asociada a la unión a DNA, será deseable que la composición final no contenga aminoácidos que puedan encontrarse en estados con carga positiva, debido a que 
+% la formación de interacciones con la estructura de fosfatos propia del DNA podría interferir en la función de la proteína.
 % 
 % 
-% Un requerimiento asociado 
-% Asociado a esto está la idea que una propiedad altamente desfavorable para el linker es que tenga cierta tendencia a adoptar estructuras de hojas-$\beta$ o helice-$\alpha$, ya que los angulos de torsion están limitados al rango
-% impuesto por esta estructura, lo que podría también limitar la flexibilidad.
-% Como vimos en las secciones previas, 
-% aún cuando estas no se encuentren en una conformación plegada compacta típica de proteínas globulares.
+% 
 % 
 
 
 
-% SIGO CON EL EJEMPLO DE FRET QUE HAY MUCHA INFORMACION Y GRAFICOS INTERESANTES
-% el ejemplo de FRET permite ejemplificar los requerimientos conformacionales, principalmente de flexibilidad. 
-% En este caso, 
-% Dado que, la funcionalidad resultante de la proteína quimérica creada depende completamente de la capacidad que 
-% 
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -358,8 +361,8 @@ Distintas técnicas de laboratorio para identificación y purificación de prote
 % Todo esto esta muy asociado a las tecnicas experimentales que se fueron desarrollando.
 
 Como se dijo antes, la modularidad en proteínas naturales es algo muy común y existen muchisimos ejemplos de proteinas multidominio compuestas de dos o mas dominios funcionales unidas por linkers.
-Estas secuencias linker sirven, principalmente para mantener unidos los distintos dominios, pero también proveen muchas otras funciones a la proteína como intervenir en las interacciones cooperativas 
-entre los dominios o formar parte de la actividad biológoica de la proteína.
+Estas secuencias linker sirven, principalmente para mantener unidos los distintos dominios, pero también proveen muchas otras funciones que forman parte de la actividad biológica de la proteína como 
+intervenir en las interacciones cooperativas entre los dominios, contener elementos secuenciales que median interacciones con otras proteínas o ligandos, 
 
 El primer estudio realizado sobre secuencias linkers \cite{argos1990investigation} registra la preferencia intrínseca por las conformaciones desplegadas.   
 Sin embargo este estudio está bastante desactualizado y los resultados no son representativos ya que se realizó sobre un total de 51 linkers detectados manualmente a partir de 32 proteínas.
