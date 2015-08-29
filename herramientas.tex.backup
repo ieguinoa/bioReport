@@ -8,7 +8,7 @@ Se detalla como se integran los distintos recursos en el contexto de nuestra apl
 En conjunto de evaluaciones que se describen corresponde a esta primera versión de nuestra herramienta, por lo tanto no representa un conjunto exhaustivo ni definitivo, 
 sino una primera etapa que deberá ser analizado y modificado de forma iterativa en función de los resultados obtenidos.
 % hipotesis subyacente 
-Como principio general para definir este conjunto, se tuvo en cuenta la hipótesis general utilizada para desarrollar el método, vista en la sección \ref{fundamentos} . 
+Como principio general para definir este conjunto, se tuvo en cuenta la hipótesis general sobre el espacio de secuencias buscadas, vista en la sección \ref{espacioSecuencial} . 
 De esta forma, dado que el espacio de soluciones buscadas se asume como considerablemente grande con respecto al espacio total de posibles secuencias, al hacer   
 % una evaluacion sobrerestrictiva con respecto a las caracteristicas buscadas no se impediría alcanzar un resultado.
 Por lo tanto, un aspecto que se repite es el solapamiento entre las caracteristicas que buscan(o los resultados que realmente se obtienen) los distintos recursos utilizados con el fin de hacer mas exhaustiva la detección, 
@@ -1481,6 +1481,11 @@ Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 &
 % El resultado que devuelve la búsqueda BLAST es, en caso de éxito, un conjunto de secuencias de la base de datos ordenadas por un score de alineamiento. Además de realizar el alineamiento, BLAST provee información estadística que ayuda a descifrar la significancia biológica del alineamiento, este es el valor "expect" o e-value. Para utilizar los resultados de BLAST en nuestra herramienta utilizaremos un cutoff sobre el valor de e-value que nos de cierta certeza de que la similitud secuencial es significativa y, por lo tanto, la secuencia podría tener una función similar. El valor de cutoff utilizado es de 0.01, todas las secuencias encontradas con un e-value menor que este valor serán significativamente similares. En caso de encontrarse muchas secuencias dentro del cutoff se utilizará la primera de éstas.
 % Dado que el objetivo de este paso es evaluar que posiciones tienden a una similitud con alguna secuencia natural, el resultado obtenido se utilizará para identificar estas posiciones y marcarlas para una nueva ronda de mutaciones.
 % 
+
+BLAST utiliza un método heuristico no exhaustivo llamado word method  o método de k-tupls
+para hallar alineamientos locales, los cuales son extendidos usando una matriz de sustituciónn (blosum62). 
+Consiste en armar una tabla de look-up con subsecuencias y luego realizar búsquedas a gran escala en diversas bases de datos
+
 % % EJEMPLO DE RESULTADO
 % % DESCRIBIR BIEN QUE VALORES SE OBTIENEN
 % 
@@ -1546,20 +1551,22 @@ Al evaluar una secuencia, primero se evalua la carga neta de esta lo que puede d
  
 \item Si la carga neta a la que se está apuntando es más positiva que la actual, los puntajes resultantes son: 
   \begin{itemize}
-   \item   aminoácidos con carga negativa = 2
+   \item  aminoácidos con carga negativa = 2
   \item aminoácidos con carga positiva = 0
   \item aminoácidos neutros = 1
   \end{itemize}
-Por ejemplo, si se está evaluando la secuencia \texttt{} (carga neta=)el usuario indicó como requerimiento una carga neta objetivo igual a +2, 
+Por ejemplo, si se está evaluando la secuencia \texttt{VKTLALGVDI} (carga neta=0), y el usuario indicó como requerimiento una carga neta objetivo igual a +2, 
    
  
  \vspace{0.5cm}
-\begin{tabular}{llllllllllllllll} 
+\begin{center}
+  \begin{tabular}{llllllllllllllll} 
 \hline
-\centering
+
 Secuencia & \textbf{V} & \textbf{K} & \textbf{T} & \textbf{C} & \textbf{L} & \textbf{A} & \textbf{L} & \textbf{G} & \textbf{V} & \textbf{D} & \textbf{I} \\ \hline
-Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1  \\ \hline
+Evaluación carga neta & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 2 & 1  \\ \hline
 \end{tabular}
+\end{center}
 
  
  \item Si la carga neta a la que se apunta es más negativa que la actual, los puntajes resultantes son:
@@ -1569,15 +1576,15 @@ Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1  \\ \hline
   \item aminoácidos neutros = 1
   \end{itemize}
 
-   Por ejemplo, si se está evaluando la secuencia \texttt{} (carga neta=)el usuario indicó como requerimiento una carga neta objetivo igual a -2, 
+   Por ejemplo, si se está evaluando la secuencia \texttt{VKTLALGVDI} (carga neta=0), y el usuario indicó como requerimiento una carga neta objetivo igual a -2, 
    
    \vspace{0.5cm}
 
    \begin{center}
 \begin{tabular}{llllllllllllllll} 
 \hline
-Secuencia & \textbf{V} & \textbf{K} & \textbf{T} & \textbf{C} & \textbf{L} & \textbf{A} & \textbf{L} & \textbf{G} & \textbf{V} & \textbf{D} & \textbf{I} & \textbf{N}\\ \hline
-Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1  \\ \hline
+Secuencia & \textbf{V} & \textbf{K} & \textbf{T} & \textbf{C} & \textbf{L} & \textbf{A} & \textbf{L} & \textbf{G} & \textbf{V} & \textbf{D} & \textbf{I}\\ \hline
+Evaluación carga neta & 1 & 2 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 1  \\ \hline
 \end{tabular}
 
    \end{center}
@@ -1586,6 +1593,11 @@ Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1  \\ \hlin
 
 
 
+
+
 \subsection{Absorción UV}
 
-
+El objetivo de esta opción es que la secuencia resultante no posea ningún aminoácido que absorva en el rango del UV (T,Y,F).
+En este caso, ya que se espera que el resultado final NO posea ninguno de estos residuos, directamente se eliminan de la composición de aminoácidos que se utiliza para reemplazar las posiciones mutadas. 
+% Es decir, al momento de hacer las mutaciones, los residuos T,Y,F poseerán una frecuencia de s
+Para eliminar los residuos que se encuentran en la secuencia, se 

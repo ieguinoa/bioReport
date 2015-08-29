@@ -57,13 +57,14 @@ Finalmente, el capítulo \ref{conclusiones} contiene las discusiones relevantes,
 % 
 
 \subsection{Definición inicial de una proteína}
-Las proteínas son polímeros de aminoácidos.
-La proteina queda definida por esta secuencia especifica la cual define las posibles interacciones, entre los residuos de la cadena o con el contexto en el que se encuentra. 
-De esta forma, la secuencia específica que compone una proteína define las propiedades conformacionales resultantes y las posibles funciones asociadas a esta.
+Las proteínas son polímeros de aminoácidos y como tales, sus propiedades conformaciones y funcionales estan asociadas a la secuencia especifica que la define, 
+Es decir, las diferentes combinaciones de aminoacidos les asignan distintas capacidades de interacción intramoleculares y con el contexto en el que se encuentra.
+% La proteina queda definida por esta secuencia especifica la cual define las posibles interacciones, entre los residuos de la cadena o con el contexto en el que se encuentra. 
+% De esta forma, la secuencia específica que compone una proteína define las propiedades conformacionales resultantes y las posibles funciones asociadas a esta.
 % y las posibles funciones que puede desarrollar la proteína.
 % La cadena polipeptídica puede formar interacciones que involucren a la estructura intrínseca del polipeptido(cadena carbonada y función amino) 
 % e interacciones que involucren a la cadena lateral de los distintos aminoácidos, 
-La diversidad de aminoácidos existentes resulta en un gran perfil de propiedades conformacionales y funcionales.
+La diversidad de aminoácidos existentes permite una gran cantidad de combinaciones, lo que resulta en un perfil de propiedades conformacionales y funcionales muy amplio.
 
 Por definición, una proteína puede estar compuesta por cadenas lineales formadas por cualquier combinación de aminoácidos.
 Sin embargo, las proteínas se originan en la naturaleza como producto de los sistemas biológicos, por lo tanto, 
@@ -133,7 +134,7 @@ Se identifican otro tipo de módulos, por ejemplo motivos que pueden estar en cu
 
 
 
-\subsection{Módulos proteicos}
+\subsection{Módulos proteicos} \label{modulosProteicos}
 \subsubsection{Proteínas globulares}
 
 % ESTRUCTURA
@@ -1227,10 +1228,25 @@ Estos resultados parecen indicar que estos elementos funcionales que identificam
        
 \section{Objetivos}
 
+El objetivo principal de este trabajo es implementar un método para generar una secuencia linker \textit{de novo} a partir de los requerimientos descritos, o adaptando una secuencia inicial provista por el usuario a estos requerimientos. 
+Como requerimientos fundamentales de la secuencia resultantes deberán cumplirse que la misma provea la flexibilidad necesaria para cumplir su función como linker en la creación de nuevas proteínas quiméricas.
+Además, esta debe mantenerse inerte frente a cualquier actividad que pueda interferir durante el proceso experimental asociado o en el correcto funcionamiento del diseño final.
+% La herramienta buscará proveer, además, diversas utilidades que servirán para que el resultado obtenido sea lo mas adecuado posible para su uso experimental. 	
 
-El objetivo principal de este trabajo es implementar un método para generar una secuencia linker \textit{de novo}, o a partir de una secuencia inicial provista por el usuario. 
-Como requerimientos fundamentales de la secuencia resultantes deberán cumplirse que la misma provea la flexibilidad necesaria para cumplir su función como linker en la creación de nuevas proteínas quiméricas, 
-y que ésta se mantenga inerte frente a cualquier actividad que pueda interferir durante el proceso experimental asociado o en el correcto funcionamiento del producto final.
-La herramienta buscará proveer, además, diversas utilidades que servirán para que el resultado obtenido sea lo mas adecuado posible para su uso experimental. 
+%     (esquema muy simplificado del input/output del algoritmo)
+% HACER GRAFICO          INPUT --- PROCESO ---->> OUTPUT    
+%            INPUT: preferencias del usuario(longitud o secuencia inicial, composicion, carga neta, silente en UV)  ------->>   
+%            PROCESO OCULTO AL USUARIO: a partir de la secuencia inicial o una secuencia random con la longitud iniciada se eliminan las propiedades
+% 					conformacionales y funcionales no deseadas, llevando a una secuencia final con propiedades flexible, sin elementos funcionales y acorde a los requerimientos indicados por el usuario   -------->>>   
+%             SALIDA: secuencia acorde a los requerimientos del usuario y propiedades de un linker flexible
 
+El esquema de la herramienta resultante se muestra, de forma simplificada, en la figura \ref{diagram}
+
+% https://www.draw.io/
+\begin{figure}[h!]
+\centering
+   \includegraphics[width=\textwidth]{img/diagram.png}
+ \caption{Esquema general de la herramienta implementada}
+ \label{diagram}
+\end{figure}
 

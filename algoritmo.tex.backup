@@ -5,42 +5,69 @@
 
 
 \section{Fundamentos del método utilizado}
+\label{fundamentos}
+
+\subsection{Detección de propiedades a partir del análisis secuencial}
 
 % Mapeo de los objetivos con existencia de herramientas disponibles.
 
 % PRIMERO QUE BUSCAMOS EN REALIDAD
-Para entender los fundamentos del método implementado primero debemos analizar mejor los detalles del objetivo.
-El requerimiento fundamental de la secuencia linker resultante es que esta posea la flexibilidad necesaria para que los dominios que conecta se muevan libremente.
-Para poder lograr esto, tal como se puede deducir de los conceptos visto sobre flexibilidad, la secuencia
-debe adoptar \textit{in-vivo} las características de un amplio ensamble conformacional, donde las diferentes conformaciones desordenadas se intercambian rápidamente de manera continua.
-Como vimos a lo largo de la introducción, este tipo de conformación es adoptada por las secuencias que caracterizamos como IDRs/IDPs.
-% La adopcion de una conformacion intrinsecamente desordenada por parte de la secuencia linker proveerá, entonces, la flexibilidad necesaria por su correcto funcionamiento.
-Por lo tanto, tenemos un panorama mas claro acerca de cuales serán las características conformacionales de la secuencia que esperamos obtener.
+% Para entender los fundamentos del método implementado primero debemos analizar mejor los detalles del objetivo.
+% El requerimiento fundamental de la secuencia linker resultante es que esta posea la flexibilidad necesaria para que los dominios que conecta se muevan libremente.
+% Para poder lograr esto la secuencia debe adoptar y mantener \textit{in-vivo} las características de un amplio ensamble conformacional que no restrinja la estructura, 
+% lo cual está asociado a las propiedades conformacionales de las proteínas intrínsecamente desordenadas. 
+% % donde las diferentes conformaciones desordenadas se intercambian rápidamente de manera continua 
+% % Por lo tanto, tenemos un panorama mas claro acerca de cuales serán las características conformacionales de la secuencia que esperamos obtener.
+% Como se detalló en la introducción,  han permitido comprender cuales son las características que distinguen a estos elementos proteicos. 
+% Las propiedades estudiadas sirven para implementar una gran cantidad de herramientas bioinformáticas capaces de distinguir es
 
 
-% Como vimos en la sección \ref{linkerDesign} la flexibilidad no es todo y, por eso, 
-Otra parte fundamental del objetivo es que el linker obtenido se mantenga inerte frente a cualquier actividad biológica que pueda 
-interferir en el proceso se expresión o en la correcto funcionamiento de la proteína resultante del diseño.
-% Una parte relevante de esta secuencia objetivo es su inercia frente al pipeline de 
-En la sección \ref{functionalLandscape} se describieron distintos elementos funcionales que pueden estar presentes en una secuencia.
-Clasificando, aislando y analizando estos elementos hemos podido comprender mejor cuales son sus propiedades. 
-Lo que lo objetivo requiere, entonces, es que la secuencia resultante este libre de cualquiera de estos elementos permaneciendo, preferentemente, inerte ante cualquier actividad o interacción posible \textit{in-vivo}.
 
-% Teniendo en claro los objetivos en términos de los posibles elementos estructurales y funcionales, lo que el método requiere es, entonces, obtener una secuencia que adopte ,que esté limpia de elementos estructurales 
-A lo largo del capítulo 1, hemos presentado una gran cantidad de conocimientos obtenidos acerca de las propiedades secuenciales y su relación con la conformación y función resultante.
-Los avances mostrados en este campo se trasladan a una gran cantidad(y variedad) de métodos que permiten predecir la ocurrencia de estas propiedades sobre cualquier secuencia polipeptídica.
-% De forma abstracta, estas herramientas permiten predecir el mapeo entre la secuencia y el perfil de propiedades resultantes. 
-% Diferentes herramientas bioinformáticas resultan de trasladar estos conocimientos a
-% Estos avances, además, dieron paso al desarrollo de una gran cantidad(y variedad) de herramientas bioinformáticas que permiten predecir éstas propiedades a partir de la secuencia .
-% La disponibilidad de estas herramientas permite tener una idea más clara del comportamiento que tendrá una proteína en un contexto experimental dado, solamente conociendo su secuencia y utilizando las herramientas adecuadas. 
 % 
-Conociendo en detalle los requerimientos que esperamos para la secuencia resultante
-y haciendo uso de este amplio set de herramientas, podemos analizar cualquier secuencia y estimar si estos se cumplen.
-Lo que queda saber, entonces, es cómo se llegará a una secuencia que cumpla estas características.
+% 
+% % Como vimos en la sección \ref{linkerDesign} la flexibilidad no es todo y, por eso, 
+% Otra parte fundamental del objetivo es que el linker obtenido se mantenga inerte frente a cualquier actividad biológica que pueda 
+% interferir en el proceso se expresión o en la correcto funcionamiento de la proteína resultante del diseño.
+% % Una parte relevante de esta secuencia objetivo es su inercia frente al pipeline de 
+% En la sección \ref{functionalLandscape} se describieron distintos elementos funcionales que pueden estar presentes en una secuencia.
+% Clasificando, aislando y analizando estos elementos hemos podido comprender mejor cuales son sus propiedades. 
+% Lo que lo objetivo requiere, entonces, es que la secuencia resultante este libre de cualquiera de estos elementos permaneciendo, preferentemente, inerte ante cualquier actividad o interacción posible \textit{in-vivo}.
+% 
+% % Teniendo en claro los objetivos en términos de los posibles elementos estructurales y funcionales, lo que el método requiere es, entonces, obtener una secuencia que adopte ,que esté limpia de elementos estructurales 
+% A lo largo del capítulo 1, hemos presentado una gran cantidad de conocimientos obtenidos acerca de las propiedades secuenciales y su relación con la conformación y función resultante.
+% Los avances mostrados en este campo se trasladan a una gran cantidad(y variedad) de métodos que permiten predecir la ocurrencia de estas propiedades sobre cualquier secuencia polipeptídica.
 
 
-%  ESTO DEBERIA IR EN ALGUN LADO, NO SE DONDE PONERLO
-% Por encima de estos requerimientos se aplican las propiedades extras que son parte de las utilidad extra que ayudan a la utilización experimental de las secuencias resultantes.
+
+
+
+En la sección \ref{aspectosDiseno} se desarrollaron distintos aspectos estucturales y funcionales que se deben tener en cuenta en el diseño de un linker.
+A partir de esta descripción podemos distinguir claramente diferentes características que afectan positiva y negativamente a la funcionalidad del diseño resultante.
+Esto permite definir una secuencia linker como aquella que posea todas las característica positivas y no posea ninguna de las característica negativas buscadas.
+Es importante recordar que, como se describió previamente, algunas de las características están en función de consideraciones hechas por el usuario experimental.
+
+
+
+El estudio de estos módulos generalmente incluye, no sólo modelizar sus propiedades asociadas (macanismos funcionales, estructuras, propiedades secuenciales asociadas, etc.), 
+sino también trasladar los conocimientos a herramientas bioinformáticas de predicción.
+Los mecanismos para
+
+% Como vimos en la sección \ref{modulosProteicos} estas características están asociadas a distintos elementos proteicos estudiados a partir de su ocurrencia en proteínas naturales.
+% Los elementos estructurales y funcionales y su  
+% Todas estas características estructurales y funcionales han sido estudiadas en el contexto de los módulos proteicos encontrados en proteinas naturales.
+% los cuales se muestran en las primeras secciones de este capitulo.
+% Como vimos en la sección \ref{modulosProteicos}, los distintos elementos conocimientos obtenidos permiten comprender los aspectos      y cómo 
+% Los conocimientos obtenidos(desarrollados en la sección \ref{modulosProteicos}) permiten, no sólo entender estas propiedades, sino también desarrollar 
+% diferentes herramientas bioinformáticas utilizadas luego para predecir la ocurrencia de estas propiedades a partir de la secuencia polipeptídica.
+% Los estudios han resultado en un amplio conocimiento de las propiedades secuenciales y 
+% Los avances en este campo se trasladan a una gran cantidad de métodos que, a través de diferentes aproximaciones, permiten predecir estas propiedades a partir de la secuencia polipeptídica.
+
+Una parte fundamental del método implementado en este trabajo es que actualmente podemos predecir, con cierta probabilidad, 
+la ocurrencia de los distintos aspectos positivos y negativos asociados a un linker conociendo solamente la secuencia de aminoácidos de una proteína.
+% Esto tiene como corolario que podremos decir si una secuencia resultará o no en un buen candidato para funcionar como linker, usando estas Usando la definición de linker que recien vimos parametrizadas con las características que , 
+Lo que es más, las predicciones pueden ser mapeadas a posiciones puntuales que actúan favoreciendo a las distintas características dentro de la secuencia. 
+Por ejemplo, podemos mapear dentro de la secuencia cuales serán las posiciones 
+que favoreceran la adopción de una conformación intrínsecamente desordenada, lo cual es una característica deseable para el diseño de un linker.
 
 
 
@@ -48,7 +75,7 @@ Lo que queda saber, entonces, es cómo se llegará a una secuencia que cumpla es
 
 
 
-
+\subsection{Espacio de secuencias buscadas}
 
 % Hipótesis asumida respecto del espacio de soluciones, dependencia de la superficie de búsqueda con las propiedades a evaluar.
 % *****************PROPIEDADES DEL ESPACIO DE BUSQUEDA 
@@ -64,11 +91,15 @@ Esto parece indicar que el espacio de secuencias comprendido por éstas debe ser
 % However, the reality is more complex than conventional wisdom might suggest, and the sequence space attainable by simple IDPs/IDPRs 
 % is more diversified than that of the structurally more sophisticated ordered proteins.
 
-Sin embargo, la complejidad es mucho mayor de lo que parece. En \cite{uversky2013decade} se realiza un análisis más detallado de la esta `simple complejidad' del espacio secuencial asociado a las IDRs/IDPs.
-Lo más relevante para nuestra aplicación es que, basandose en los requerimientos estructurales que existen en las regiones/proteinas que adoptan estructuras ordenadas, el espacio de secuencias asociado a éstas es
-mucho menor que el correspondiente a las IDRs/IDPs
+Sin embargo, la complejidad es mucho mayor de lo que parece. 
+% En \cite{uversky2013decade} se realiza un análisis más detallado de la esta `simple complejidad' del espacio secuencial asociado a las IDRs/IDPs.
+Lo más relevante para nuestra aplicación es que, basándose en los requerimientos estructurales que existen en las regiones/proteinas que adoptan estructuras ordenadas, el espacio de secuencias asociado a éstas es
+mucho menor que el correspondiente a las IDRs/IDPs. La falta total o parcial de una estructura ``codificada'' en la secuencia, como se analiza en \cite{uversky2013decade}, 
+indica que el tamaño del espacio secuencial que ocupan las IDRs/IDPs(al menos aquellas que nunca logran plegarse, las que estamos buscando) es considerablemente mayor que el 
+espacio plegable(aquel que ocupan las secuencias que traen codificada la información necesaria para experimentar plegamiento).
 
-Es decir, el espacio abarcado por las secuencias que buscamos, no es tan 
+Es decir, el espacio abarcado por las secuencias que poseen las propiedades conformacionales que buscamos, no es tan restringido como se podría pensar y, de hecho,
+puede tener un tamaño considerable con respecto al espacio total de posibles soluciones.
 % Un polipéptido de unos 100 residuos de longitud con una distribución al azar de AAs abarca un espacio total compuesto por unas $20^{100}$ (aprox. $10^{130}$) secuencias.   
 % Obviamente, no todas las secuencias al azar se pliegan para dar una estructura unica y, por lo tanto, no cualquier secuencia pertenecerá al conjunto que denominamos como plegadas.
 % Lo que se encuentra es que el espacio ocupado por secuencias plegadas es significativamente menor que el espacio total de secuencias\cite{dill1999polymer}.
@@ -151,7 +182,8 @@ De esta forma, la secuencia de mutaciones aceptadas para una determinada secuenc
 la búsqueda será guiada por el análisis realizado sobre las secuencias pero no quedará completamente determinada por éste. 
 
 En la figura \ref{fig:esquema-algoritmo} se ve un esquema general del método completo. 
-En la secciones \ref{seqInicial} y \ref{evalYmutacion} se detalla como se obtiene la secuencia inicial y se describen y ejemplifican los pasos para obtener una mutación puntual en cada iteración.
+En la seccion \ref{seqInicial} se detalla como se obtiene la secuencia inicial y luego en las secciones \ref{evaluacion} y \ref{mutacion} se describen y ejemplifican los pasos para evaluar la secuencia y obtener una mutación puntual 
+en cada iteración.
 
 
 \begin{figure}[h!]
@@ -219,7 +251,7 @@ y que limitarán la producción de la proteína final.
 
 
 
-\subsection{Evaluación y Mutación}\label{evalYmutacion}
+\subsection{Evaluación}\label{evaluacion}
 
 % TENIENDO EN CUENTA ESTAS CONSIDERACIONES, EL ESQUEMA QUE USAMOS NOS PERMITE REALIZAR UN NUMERO REDUCIDO DE MUTACIONES YA QUE SE APUNTA A LAS POSICIONES CON MAS CONFLICTO, 
 % ADEMAS EL PARAMETRO BETA PERMITE ADAPTAR LA BUSQEUDA A DISTINTAS FORMAS DE LA SUPERFICIE DEL ESPACIO DE SOLUCIONES, LAS CUAL DEPENDE DE LAS CONDICIONES DE LOS PARAMETROS QUE USAMOS(COMPOSICION, THRESHOLDS, HERRAMIENTAS).
@@ -253,9 +285,15 @@ Puntaje total  & 35 \\ \hline
 
 \vspace{0.5cm}
 
+% La secuencia linker es solo una parte de la construccion final correspondiente a la proteína quimérica. 
+% De esta forma, y dado que muchos aspectos relevantes del diseño dependen del contexto, el algoritmo permite 
+
+
+\subsection{Mutación}\label{mutacion}
 
 Al terminar todas las evaluaciones sobre la secuencia, el puntaje resultante se utiliza para el proceso de mutación.
 % POR QUE HACEMOS UNA MUTACION DE A 1 PASO, ES DECIR 1 SOLA MUTACION POR VEZ? 
+
 
 
 El proceso de mutación sigue los siguientes pasos:

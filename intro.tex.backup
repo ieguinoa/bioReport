@@ -58,13 +58,16 @@ Finalmente, el capítulo \ref{conclusiones} contiene las discusiones relevantes,
 
 \subsection{Definición inicial de una proteína}
 Las proteínas son polímeros de aminoácidos.
-La secuencia específica que compone una proteína define las propiedades conformacionales resultantes y las posibles funciones asociadas a esta.
+% como tales, sus propiedades conformaciones y funcionales estan asociadas a la secuencia especifica que la define.
+% 
+La proteina queda definida por esta secuencia especifica la cual define las posibles interacciones, entre los residuos de la cadena o con el contexto en el que se encuentra. 
+De esta forma, la secuencia específica que compone una proteína define las propiedades conformacionales resultantes y las posibles funciones asociadas a esta.
 % y las posibles funciones que puede desarrollar la proteína.
-La cadena polipeptídica puede formar interacciones que involucren a la estructura intrínseca del polipeptido(cadena carbonada y función amino) 
-e interacciones que involucren a la cadena lateral de los distintos aminoácidos, 
+% La cadena polipeptídica puede formar interacciones que involucren a la estructura intrínseca del polipeptido(cadena carbonada y función amino) 
+% e interacciones que involucren a la cadena lateral de los distintos aminoácidos, 
 La diversidad de aminoácidos existentes resulta en un gran perfil de propiedades conformacionales y funcionales.
 
-Por definición, las proteínas están compuestas por cadenas lineales formadas por cualquier combinación de aminoácidos.
+Por definición, una proteína puede estar compuesta por cadenas lineales formadas por cualquier combinación de aminoácidos.
 Sin embargo, las proteínas se originan en la naturaleza como producto de los sistemas biológicos, por lo tanto, 
 la ocurrencia de las proteínas naturales no se origina por cadenas peptídicas generadas al azar. 
 Por el contrario, la ocurrencia de proteínas está ajustada a los requerimientos del sistema y al mecanismo evolutivo subyacente. 
@@ -510,9 +513,9 @@ Muchos estudios se hicieron para intentar identificar cómo las características
 En el caso de las proteína globulares, la secuencia primaria codifica el proceso de plegamiento y, a través de este, la estructura única final. 
 De forma similar, al identificar la IDPs cómo entidades estructuralmente diferenciables, se podría pensar que la estructura primaria de estas determina, también, su falta de estructura tridimensional definida.
 Esto tiene como corolario la idea que las secuencias de ambos conjuntos (proteinas ordenadas y proteínas desordenadas) deberían ser diferenciables entre si.
-
-La ausencia de una estructura definida en IDPs es atribuida a las características particulares de sus secuencias de aminoácidos las cuales pueden resumirse en la presencia de númerosos 
-grupos cargados no compensados(generalmente con carga negativa) y un bajo contenido de residuos hidrofóbicos. 
+La ausencia de una estructura definida en IDPs es atribuida a las características particulares de sus secuencias de aminoácidos las cuales se describen como secuencias de baja complejidad, enriquecidas en aminoácidos 
+cargados y polares, junto con Glicina y Prolina, y un bajo contenido de residuos hidrofóbicos. 
+La secuencia suele tener una alta carga neta(positiva o negativa) resultante, o tener segmentos separados de residuos cada uno cargas positivas o negativas.
 % Durante el proceso de descubrimiento del conjunto IDPs, muchas proteínas fueron identificadas inicialmente debido a estas simples diferencias en la secuencia.
 La relación entre esta combinación de baja hidrofobicidad y alta carga neta y la falta de una estructura definida puede explicarse desde el punto de vista físico:
 los altos valores de carga neta producen efectos de repulsión entre las cargas de los residuos, mientras que la baja hidrofobicidad previene la compactación de la estructura lineal
@@ -1099,12 +1102,19 @@ han sido aprovechadas por distintos sistemas biológicos y pueden encontrarse ve
 
 \subsubsection{Continuo resultante de estructuras, secuencias y actividades}
 
+Al estudiar las propiedades conformacionales de las proteínas intentamos clasificar los conocimientos en distintos elementos estructurales(proteínas globulares, intrínsecamente desordenadas, etc), esto sirve como modelo para
+entender y predecir las propiedades de interé(conformacionales y funcionales principalmente).
+La realidad es que, como se dijo en la primera sección de este capítulo, la ocurrencia de proteínas está ajustada a los requerimientos del sistema y al mecanismo evolutivo subyacente, por lo tanto, 
+incluso si tratamos de agruparlas en clases distintas, el perfil de muchas propiedades asociadas a las proteínas muestran un perfil que es mejor descrito mediante un continuo de posibilidades.
 
-Este perfil conformacional, junto con las proteinas plegadas que describimos al principio de esta sección, forma un continuo estructural que puede verse en la figura \ref{conformationContinuum}.
+Ejemplo de esto es el perfil de propiedades conformacionales encontrados en las proteínas. 
+A pesar que intentamos distinguir perfiles conformacionales con estructuras tridimensionales definidas(y propiedades dinámicas reducidas), de aquellas que no adoptaban una estructura ordenada, 
+el perfil conformacional real que se observa en el proteoma forma un continuo estructural similar al que se ve en la figura \ref{conformationContinuum}.
 El extremo izquierdo representa el perfil de las proteinas completamente plegadas. 
 En \cite{gall2007intrinsic} se ve que, incluso en la PDB donde las estructuras almacenadas están sesgadas hacia el perfil de proteínas plegadas(porque son las más simples para cristalizar), las conformaciones totalmente ordenadas son 
 poco abundantes y que la mayoría de las estructuras posee al menos un segmento desordenado.
-Este y otros estudios parecen indicar que el comportamiento de las proteinas totalmente plegadas es la excepción más que la regla, y que la mayoria de las secuencias tienen regiones desordenadas.
+Este y otros estudios parecen indicar que el comportamiento de las proteinas totalmente plegadas es la excepción más que la regla, y que la mayoria de las secuencias tienen regiones desordenadas, por lo tanto las estructuras encontradas 
+en el proteoma se expanden hacia la derecha del gráfico hasta llegar a un perfil conformacional que no muestra nivel de ordenación estructural a lo largo de su secuencia.
 
 
 \begin{figure}[htbp]
@@ -1165,17 +1175,18 @@ dominio completamente desordenado; proteína desordenada con elementos estructur
 
 % DIFERENCIAS Y SIMILITUDES ENTRE SLiMs, MoREs e IDD
 % 
-Algo similar ocurre, entonces, con las propiedades funcionales asociadas a 
-A pesar que, como vimos, hay diferencias conceptuales entre motivos secuenciales y los MoREs, existen varias propiedades en común incluyendo la tendencia intrínseca al desorden 
-y ser propensos a experimentar transiciones a estructuras ordenadas(\textit{folding-and-binding}). 
+Algo similar ocurre con los elementos funcionales emergentes de la secuencia.
+% A lo largo de las secciones previas vimos diferentes elementos funcionales que, mediante clasificaciones, 
+Por ejemplo, como vimos, hay diferencias conceptuales entre los elementos definidos como motivos secuenciales y los MoREs. 
+Sin embargo, también existen varias propiedades en común incluyendo la tendencia intrínseca al desorden, ser propensos a experimentar transiciones a estructuras ordenadas y a promover la formación de complejos. 
 % Although there are differences in the definitions of linear motifs and MoRFs, they share many common features 72,163 including a tendency to undergo disorder-to-order transition (all
 % MoRFs by definition and aprox. 60\% of LMs 48 ), an enrichment in IDRs (MoRFs by definition and aprox. 80\% of LMs are in IDRs 48,72 ), and a tendency to promote complex formation.
 Varios estudios sugieren, entonces, que existen un gran solapamiento entre lo que normalmente definimos como motivos lineales y MoREs\cite{fuxreiter2007local,meszaros2012disordered}.
 % Yet, interestingly, recent analysis suggests that linear motifs (LMs) (thus not differentiating between ELMs and SLiMs) show high overlap with MoRFs 
-Dependiendo si la idea es definida/estudiada desde un punto de vista estructural o secuencial, entonces, un motivo lineal puede ser señalado como un MoRE o PSE.
+Dependiendo si la idea es definida/estudiada desde un punto de vista estructural o secuencial, entonces, un motivo lineal puede ser también identificado como un MoRE o PSE.
 Más allá de esto, a pesar de tener una longitud (al parecer) bastante mayor, los IDDs también poseen un solapamiento significativo con MoREs y motivos lineales.
 % intrinsically disordered domains (IDDs) can also have significant overlap with MoRFs and linear motifs
-Estos resultados parecen indicar que estos tres elementos funcionales pertenecen a estados de un mismo continuo de mecanismos de unión que pueden encontrarse en IDRs/IDPs.
+Estos resultados parecen indicar que estos elementos funcionales que identificamos con propiedades diferentes pertenecen a estados de un mismo continuo de mecanismos de unión que pueden encontrarse en IDPs.
 % The overlap between linear motifs and MoRFs
 % especially, but also IDDs, suggests that these functional features
 % are different states in the same continuum of binding
