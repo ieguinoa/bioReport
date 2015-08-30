@@ -1,7 +1,7 @@
 \chapter{Análisis de las secuencias}
 \label{tools}
 
-En este capítulo se describen las evaluaciones que esta implementación permite realizar sobre las secuencias. 
+En este capítulo se describen las evaluaciones que esta implementación permite realizar sobre las secuencias para detectar las características deseadas y no deseadas dentro de la secuencia durante el proceso iterativo de diseño. 
 Se explica cual es el objetivo de aplicar cada uno de los métodos y los fundamentos en los que se basan.
 Se detalla como se integran los distintos recursos en el contexto de nuestra aplicación, representando sus resultados en el esquema de puntajes propio de nuestro método.
 
@@ -9,11 +9,11 @@ En conjunto de evaluaciones que se describen corresponde a esta primera versión
 sino una primera etapa que deberá ser analizado y modificado de forma iterativa en función de los resultados obtenidos.
 % hipotesis subyacente 
 
-El conjunto de herramientas utilizadas está directamente asociado a los fundamentos vistos en ...
+El conjunto de herramientas utilizadas está directamente asociado a los fundamentos del método vistos en la sección \ref{fundamentos}.
 Por un lado, se tiene en cuenta la hipótesis general sobre el espacio de secuencias buscadas, que nos permite asumir que este espacio es relativamente grande con respecto al conjunto total de posibles soluciones.
-Por otro lado tenemos un conjunto de herramientas bioinformáticas que utilizan mecanismos y aproximaciones muy distintas y cuyos resultados tienen 
-Esto nos permite pensar que un aumento de falsos positivos en la deteccion de las caracteristicas de interes puede dar mejores diseños(con mayores probabilidades de tener las características deseadas), sin 
-tener un aumento considerable en el tiempo de busqueda.
+Por otro lado tenemos un conjunto de herramientas bioinformáticas que utilizan mecanismos y aproximaciones muy distintas y cuyos resultados pueden complementarse. 
+Esto nos permite pensar que la utilización de diferentes herramientas para la deteccion de las caracteristicas de interés, aún cuando los resultados de estas puedan solaparse,
+puede dar mejores diseños(con mayores probabilidades de tener las características deseadas), sin tener un aumento considerable en el tiempo de búsqueda.
 % Como principio general para definir este conjunto, se tuvo en cuenta la hipótesis general sobre el espacio de secuencias buscadas, vista en la sección \ref{espacioSecuencial} . 
 % De esta forma, dado que el espacio de soluciones buscadas se asume como considerablemente grande con respecto al espacio total de posibles secuencias, al hacer   
 % una evaluacion sobrerestrictiva con respecto a las caracteristicas buscadas no se impediría alcanzar un resultado.
@@ -27,16 +27,14 @@ además de políticas considerablemente permisivas en cuanto a los métodos, con
 % para las cuales exista mas de 1 evaluacion que los pueda detectar tendran un mayor puntaje y, por lo tanto, seran mas propensas a ser mutadas
 % 
 
-(en concordancia con../Siguiendo con... esta idea de mantener un conjunto amplio y diverso de caracteristicas buscadas y metodos asociados que se se aplican sobre la secuencia ... o de expandir el conjunto de , el conjunto de 
-Parte del trabajo realizado durante el de la herramienta consistió en implementar un código versátil que permita expandir/modificar el conjunto de propiedades evaluadas de manera simple.
+Siguiendo esta política, parte del trabajo realizado durante el desarrollo de la herramienta consistió en implementar un código versátil que permita expandir/modificar el conjunto de propiedades evaluadas de manera simple.
 La implementación está centrada en el esquema de mutaciones(visto en el capitulo previo) y es posible añadir herramientas de forma modularizada.
 Para esto, se debe agregar en la implementación una función independiente que tome como parámetro la secuencia correspondiente a evaluar y devuelva el puntaje asociado a cada posición. 
 Cualquier herramienta que pueda ser adaptada a este esquema podrá ser agregada a la implementación.
 
-
-Como complemento a esta idea de tener un amplio conjunto de propiedades/métodos a evaluar, se provee al usuario la posibilidad de seleccionar al momento de la ejecución 
-permite parametrizar la definición de las evaluaciones realizadas(\ref{evaluacion}). 
-Es decir, en cada ejecución, el usuario puede redefinir mediante parámentros el conjunto de evaluaciones realizadas seleccionando un subconjunto del total disponible, de acuerdo a sus propios objetivos específicos.
+% Como complemento a esta idea de tener un amplio conjunto de propiedades/métodos a evaluar, se provee al usuario la posibilidad de seleccionar al momento de la ejecución 
+% permite parametrizar la definición de las evaluaciones realizadas(\ref{evaluacion}). 
+% Es decir, en cada ejecución, el usuario puede redefinir mediante parámentros el conjunto de evaluaciones realizadas seleccionando un subconjunto del total disponible, de acuerdo a sus propios objetivos específicos.
 
 
 \section{Propiedades conformacionales} \label{propiedadesConformacionales}
