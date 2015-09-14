@@ -158,7 +158,10 @@ en cada iteración.
  \label{fig:esquema-algoritmo}
 \end{figure}
 
-
+El resultado principal de la ejecución es una secuencia que cumple con todas las características positivas que se indicaron y no posee ninguno de los aspectos negativos.
+En un archivo asociado se refleja el proceso de mutación indicando, para cada paso, cual es la posición mutada y la secuencia resultante.
+Otras opciones de salida son posibles, en la sección \ref{output} del manual se describen opciones que permiten, entre otras cosas, realizar una ejecución paso o a paso con detalles de cada evaluación realizada, 
+o limitar la salida mostrando unicamente la secuencia resultante.
 
 \subsection{Secuencia inicial}\label{seqInicial}
 
@@ -320,11 +323,13 @@ Esta forma de calcular el factor de ponderación implica que nuncá se tendrán 
 %     \subitem 
     Este método deriva una probabilidad de aceptación($P_{aceptar}$) a partir de la diferencia entre los puntajes totales resultantes de la secuencia antes($Puntaje_{previo}$) y después($Puntaje_{posterior}$) de la mutación propuesta.
     La \underline{probabilidad de aceptación} resulta de calcular:
-    
+  
+ {
     \begin{equation}\label{monteCarlo}
-    P_{aceptar} =  \frac{(Puntaje_{previo}  - Puntaje_{posterior}) } {\beta} 
-    \end{equation}
-
+    \Large
+    P_{aceptar} =  e^{\Big(\frac{Puntaje_{previo}  - Puntaje_{posterior} } {\beta}\Big)} 
+   \end{equation}
+  }
     
     El valor del parámetro $\beta$ es propio del método y permite ajustar la probabilidad de aceptación según el perfil de evaluaciones realizadas. 
     En el capítulo \ref{results} se analizan en detalle los efectos globales de este parámetro sobre la herramienta y se evalúan los valores óptimos en función del conjunto de herramientas aplicadas(detalladas en el capítulo \ref{tools}).
