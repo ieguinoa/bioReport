@@ -86,12 +86,12 @@ What we need:
 
 
 
-
-\begin{frame}[plain]
-\begin{center}
-\includegraphics[width=140px]{../img/esquemaProcesoFusion.jpg}
-\end{center}
-\end{frame}
+% 
+% \begin{frame}[plain]
+% \begin{center}
+% \includegraphics[width=140px]{../img/esquemaProcesoFusion.jpg}
+% \end{center}
+% \end{frame}
 
 
 
@@ -103,14 +103,15 @@ What we need:
 \begin{itemize}
 %   BASED ON PREVOUSLY DEFINED FUNCTION
   \item Length
-  \item Not structured
+  \item Extended conformation
+%   Lack of structure
 % ya vimos que la estructura puede restringir los movimientos
 %   \item Intrinsically disordered
-    \begin{itemize}
-    \item Extended conformation
-    \item Dynamic interchange
-    \end{itemize}
-  \item Biologically inert
+%     \begin{itemize}
+%     \item Extended conformation
+%     \item Flexibility
+%     \end{itemize}
+  \item Biologically inert  %lack of functional features
   \item Other experimental aspects
     \begin{itemize}
      \item Aggregation, AAs frequencies, UV silent, net charge
@@ -205,8 +206,8 @@ No method can provide a clean design\\ % a design clean of unwanted properties
 If we have a candidate linker sequence...
 \pause
 \begin{itemize}
-\item Structural aspects $\rightarrow$ IUPred, ANCHOR \pause
-\item Functional aspects $\rightarrow$ BLAST, LMs, PROSITE  \pause
+\item Structural aspects $\rightarrow$ IUPred \pause
+\item Functional aspects $\rightarrow$ BLAST, LMs, PROSITE, ANCHOR  \pause
 \item Aggregation propensity $\rightarrow$ TANGO, PASTA  
 \end{itemize}
 
@@ -292,7 +293,7 @@ Global Score  & 40 \\ \hline
 \begin{itemize}
  \item Aiming at sequence with Global score = 0.
  \pause
- \item We have information for each position and for the whole sequence
+ \item We have information for each position and the whole sequence
 %  \item We have information of quality(score) at sequence level (detalied for each position).
 \pause
 \end{itemize}
@@ -313,13 +314,17 @@ Global Score  & 40 \\ \hline
 %  we will get back to this later
       \begin{itemize}
       \item If score decreases $\rightarrow$ incorporate mutation to design.
-      \item If NOT $\rightarrow$ heuristic decision (Score diff $A_{rate}$).
+      \item If NOT $\rightarrow$ heuristic decision (Score difference $\rightarrow$  $A_{rate}$).
      \end{itemize}
  \item Repeat step 2 until score=0
 \end{enumerate}
 
 \pause
-The search(design) problem is now an optimization problem.
+Random sequences can work too! (\textit{de novo} design)\\
+\pause
+Obtaining a design is now an optimization problem
+
+
 % and we are trying to apply an heuristic search method
 
 % SOLVING AN OPTIMIZATION PROBLEM MIGHT HAVE DIFFERENT SOLUTIONS
@@ -449,6 +454,16 @@ Fixed starting sequence $\rightarrow$ 74 designs \\
 \end{frame}
 
 
+\begin{frame}
+\centering
+Fixed starting sequence $\rightarrow$ 74 designs - Beta 0.5 , 0.1\\
 
+\begin{adjustwidth}{-1.5em}{-2.5em}
+\includegraphics[width=340px,height=80px]{../img/logo.png}\\ 
+\includegraphics[width=345px,height=80px]{../img/logoBeta0-1.png}\\ 
+\vspace{5px}
+\hspace{18px}\includegraphics[width=324px,height=15px]{../img/sequence.png}
+\end{adjustwidth}
+\end{frame}
 
 \end{document}
