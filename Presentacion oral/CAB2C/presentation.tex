@@ -6,11 +6,17 @@
 \usepackage{changepage}
 \usepackage{enumerate}
 % \setlist{align=left}
-\usetheme{Antibes}
+% \usetheme{Antibes}
+\usetheme{Warsaw}
 \geometry{paper=a4}
+\def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
 
 \title{PATENA: an algorithm for the design of protein linker sequences}
-% \date{5 Junio - 2015}
+\date{}
+
+\author{Ignacio Eguinoa, Ignacio Enrique Sánchez}
+\institute[VFU] % (optional)
+{ Protein Physiology Laboratory, Departamento de Química Biológica, Facultad de Ciencias Exactas y Naturales and IQUIBICEN-CONICET, Universidad de Buenos Aires, Buenos Aires, Argentina}
 
 \begin{document}
 
@@ -21,7 +27,23 @@
 \section{Intro}
 
 \begin{frame}{Chimeric proteins}
-% Very simple idea, very wide range of applications
+\Put(160,0){\includegraphics[width=150px]{../img/fusionEnzymes.png}}
+\begin{itemize}
+% use of protein engineering process to covalently join 2+ proteins/domains
+ \item Join 2+ proteins/domains  
+ \vspace{20px}
+ \pause
+ \item Function arising from linked subunits
+ \pause
+ \vspace{20px}
+% \Put(0,0){\includegraphics[width=120px]{../img/gfp.png}}
+\makebox(0,0){\put(0,-170){\includegraphics[width=140px]{../img/gfp.png}}}
+\item Wide range of applications
+\end{itemize}
+\vspace{30px}
+\Put(0,10){\includegraphics[width=170px]{../img/fret.png}}
+% \hspace{150px}
+
 
 % QUE SON
 % ejemplos:
@@ -31,8 +53,6 @@
 % proceso de sintesis:
 % 	-unir los dominios de interes
 %       -clone into expression system
-
-\includegraphics[width=200px]{../img/fusionEnzymes.png}
 \end{frame}
 
 
@@ -41,14 +61,14 @@
 \begin{frame}{Chimeric proteins}
 What we need:
 \begin{itemize}
- \item 2+ Globular domains
+ \item 2+ proteins/domains
  \item Linker sequence
 %  por que es necesario???
 % The construction of a multifunctional enzyme by simple head-to-tail fusion of parental  enzymes  often  results  in  non-functional  enzymes
 % because of either incorrect folding or restrained ability to interact with other protein subunits (Hua et al., 2004)
  \begin{itemize}
     \pause
-    \item Allows domains to fold correctly, move and interact freely
+    \item Allows domains to fold independently, move and interact freely
 %  \subitem Keep domains together so they work as a unit
 \end{itemize}
 \end{itemize}
@@ -57,6 +77,7 @@ What we need:
 \vspace{20px}
 % \includegraphics[width=10px]{../img/xMark.png}
 \pause
+\hspace{20px}
 \includegraphics[width=100px]{../img/linkerOk-sign.png}
 \hspace{40px}
 \pause
@@ -64,6 +85,13 @@ What we need:
 \end{frame}
 
 
+
+
+\begin{frame}[plain]
+\begin{center}
+\includegraphics[width=140px]{../img/esquemaProcesoFusion.jpg}
+\end{center}
+\end{frame}
 
 
 
@@ -75,15 +103,18 @@ What we need:
 \begin{itemize}
 %   BASED ON PREVOUSLY DEFINED FUNCTION
   \item Length
-  \item Intrinsically disordered
+  \item Not structured
+% ya vimos que la estructura puede restringir los movimientos
+%   \item Intrinsically disordered
     \begin{itemize}
     \item Extended conformation
     \item Dynamic interchange
     \end{itemize}
   \item Biologically inert
-  \item Composition
+  \item Other experimental aspects
     \begin{itemize}
-     \item AAs frequencies, UV silent, net charge
+     \item Aggregation, AAs frequencies, UV silent, net charge
+%   Composition
     \end{itemize}
 \end{itemize}
 \pause
@@ -103,7 +134,7 @@ What we need:
 % SI QUEDA MUY GRANDE ESTA DIAPO LA PUEDO DIVIDIR EN 3 PARTES....!!!
 % \pause
 \begin{itemize}
- \item Use natural linkers
+ \item Use linkers from natural multi-domain proteins
  \pause
  \begin{itemize}
   \item structure?
@@ -117,9 +148,9 @@ What we need:
  \pause
  \begin{itemize}
   \item Reuse from literature or propose novel sequence. 
-  \item Usually G/S/P-rich 
+  \item Usually (G/S/P)-rich 
   \begin{itemize}
-   \item  i.e $(GGGS)_n$) 
+   \item  i.e $(GGGS)_n$ 
   \end{itemize}
   \item Very limited set of sequences and composition
   \end{itemize}
@@ -130,29 +161,30 @@ What we need:
 \end{frame}
 
 
-\begin{frame}{Pseudo-Rational design}
+\begin{frame}{Linker design}
 %  \item Pseudo-Rational design
 %   \pause 
 
-%   \begin{itemize}
- DB (natural + literature linkers)
-%  \makebox[0pt][l]{%
-%   \raisebox{-\totalheight}[0pt][0pt]{%
- \hspace{10px}
-\includegraphics[width=130px]{../img/synLinkerLogo.png} 
-%     \includegraphics[width=4in]{book}
-% }}%
- %  gives an idea of 'design', instead it is just a parametrized search. 
-%  \item We cannot always get a solution %a suitable solution
+  \begin{itemize}
+    \item Pseudo-Rational design (LINKER, Linkerdb, SynLinker)
+    \vspace{6px}
+    \item DB (natural/previously used designs)
+%     these include from different collections obtained in different projects	
 \pause
+    \Put(20,10){\includegraphics[width=100px]{../img/synLinkerLogo.png}}
+ \end{itemize}
+
+%  \item We cannot always get a solution %a suitable solution
 % \end{itemize}
 
- \vspace{10px}
- \centering
-  \includegraphics[width=300px]{../img/synLinker.png} 
-\begin{itemize}
- \item Always applicable?
-\end{itemize}
+%  \vspace{10px}
+%  \centering
+\begin{adjustwidth}{-1em}{-2.5em}
+\includegraphics[width=330px]{../img/synLinker.png}
+\end{adjustwidth}
+% \begin{itemize}
+%  \item Always applicable?
+% \end{itemize}
 
 \end{frame}
 
@@ -167,18 +199,28 @@ What we need:
 \section{Method}
 
 \begin{frame}{Rational approach}
-No design method can fulfill all properties
+No method can provide a clean design\\ % a design clean of unwanted properties
+\vspace{5px}
+\pause
+If we have a candidate linker sequence...
+\pause
+\begin{itemize}
+\item Structural aspects $\rightarrow$ IUPred, ANCHOR \pause
+\item Functional aspects $\rightarrow$ BLAST, LMs, PROSITE  \pause
+\item Aggregation propensity $\rightarrow$ TANGO, PASTA  
+\end{itemize}
 
-If we have a candidate linker sequence...\\
-% We can predict all wanted/unwanted properties.
-% HERE I DESCRIBE THE EVALUATION OF
-Disorder $\rightarrow$  IUPred \\
-Inert $\rightarrow$ BLAST search, linear motifs, recognition elements\\
-Aggregation propensity $\rightarrow$ TANGO\\
 
-We can evaluate (get an idea, get an estimation of) how good or how bad(quality) is a sequence to work as a linker.
-% ademas, podemos hacerlo at residue level
-% es decir, para cada posicion 
+% all apsects associated with linker properties can be assses by means of different bioinformatic tools available, that can analyze the sequence
+% a pesar que los requerimientos no son muuchos, es decir, podemos asumir que gran cantidad de secuencias podrian funcionar como linkers
+
+% We can evaluate (get an idea, get an estimation of) how good or how bad(quality) is a sequence to work as a linker.
+% We can predict all unwanted properties.
+
+\vspace{10px}
+\pause 
+\Large{Use this information to aid in linker design process}
+
 
 
 % ESTO ES BASICAMENTE EL FUNDAMENTO DEL MÉTODO
@@ -198,23 +240,44 @@ We can evaluate (get an idea, get an estimation of) how good or how bad(quality)
 
 
 % ACA EXPLICO EL PUNTO 1 - CUANTIFICACION DE LA CALIDAD 
-\begin{frame}{Evaluation}
+\begin{frame}{Linker evaluation}
+\begin{itemize}
+
 %  Turn the evaluation schema into a function $f(sequence) -> score$
-Turn the estimation into a scoring function...\\
-Quantify how good(or bad) is a sequence
+% quantify using discrete values
+ \item Turn the estimation into a scoring function by calculating the undesired features\\
+% Penalize unwanted properties\\
+% Quantify how good(or bad) is a sequence
+
 % quantify de quality of the sequence
 % es decir...if we define a function f(face)
-\pause
-\begin{itemize}
-  \item Higher score $\rightarrow$ unwanted properties $\rightarrow$ worse linker
-  \item Score $\geqslant 0$ 
+%  \pause
+%   \item Higher score $\rightarrow$ unwanted properties $\rightarrow$ worse linker
+ \pause
+ \item Score $\geqslant 0$ (Higher score $\rightarrow$ bad linker)
 % we dont really care how high or low is the score, we want a linker with score = 0
 \end{itemize}
 
-% ********************
-% PONER EJEMPLO DE EVALUACION, DETALLAR UN POCO MAS COMO SE HACE !!!
-% EN ESTE FRAME O EN OTRO
-% **************************
+% ES IMPORTANTE DESTACAR QUE EL PROCESO DE EVALUACIÓN CAN BE ADAPTED TO ANY RELEVANT ASPECT THAT WANT TO BE ASSESED
+% IF YOU THINK THAT ITS GONNA BE RELEVANT THAT ASSES 
+% \vspace{0.3cm}
+% \begin{adjustwidth}{-1.5em}{-2.5em}
+\pause
+\begin{tabular}{llllllllllllll} 
+\hline
+Sequence & \textbf{M} & \textbf{V} & \textbf{L} & \textbf{S} & \textbf{P} & \textbf{A} & \textbf{D} & \textbf{K} & \textbf{T} & \textbf{N} & \textbf{P} & \textbf{D} \\ \hline \hline
+\pause
+% Puntaje Inicial & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ \hline
+IUPred                 & 0 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0 & 0\\ \hline \pause
+TANGO 		       & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ \hline \pause
+Linear motifs          & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\ \hline \pause
+....                   & 2 & 1 & 1 & 1 & 1 & 0 & 3 & 2 & 5 & 4 & 1 & 0\\ \hline \hline
+\pause
+Position score         & 4 & 4 & 4 & 4 & 2 & 0 & 4 & 3 & 6 & 6 & 2 & 1\\ \hline
+\pause
+Global Score  & 40 \\ \hline
+\end{tabular}
+% \end{adjustwidth}
 \end{frame}
 
 
@@ -222,32 +285,37 @@ Quantify how good(or bad) is a sequence
 
 
 
-% ACA EXPLICO EL SEGUNDO PUNTO
-\begin{frame}{Search method}
+% dijimos que queriamos usar esta informacion (el score) to aid in linker design
+\begin{frame}{Linker design}
 % the second thing we need is 
 % ahora que definimos un score
-
-We are looking for a sequence with score = 0.
+\begin{itemize}
+ \item Aiming at sequence with Global score = 0.
+ \pause
+ \item We have information for each position and for the whole sequence
+%  \item We have information of quality(score) at sequence level (detalied for each position).
 \pause
+\end{itemize}
 
 %  TENEMOS INFORMACION SOBRE DETALLADA A NIVEL DE RESIDUO(NO SOLO EL SCORE GLOBAL)
-We have information of quality(score) at sequence level and residue level.
 % we can use this information to guide the search
 
-\pause
 % so, we propose a search method 
-We propose a search method: 
+% We propose a search method: 
 % to search for (optimal) sequence 
 \begin{enumerate}
- \item Define a starting sequence 
+ \item Propose tentative linker as starting sequence 
+%     \begin{itemize}
+%     \item Random sequence works too! (\textit{de novo} design)
+%     \end{itemize}
+  \pause
  \item Propose point mutations to high scoring positions
 %  we will get back to this later
       \begin{itemize}
       \item If score decreases $\rightarrow$ incorporate mutation to design.
-      \item If it does NOT decrease score $\rightarrow$ heuristic decision.
+      \item If NOT $\rightarrow$ heuristic decision (Score diff $A_{rate}$).
      \end{itemize}
- \item Repeat step 2 until 
-
+ \item Repeat step 2 until score=0
 \end{enumerate}
 
 \pause
@@ -267,7 +335,7 @@ The search(design) problem is now an optimization problem.
 \vspace{-0.5\baselineskip}
 \begin{adjustwidth}{-1.5em}{-2.5em}
 % \begin{adjustheight}{-1.5em}{-1.5em}
-\includegraphics[width=340px,height=220px]{../img/patena2.png} 
+\includegraphics[width=340px,height=220px]{../img/patenaFixed.png} 
 % \end{adjustheight}
 \end{adjustwidth}
 % \vspace{-\baselineskip}
@@ -276,218 +344,111 @@ The search(design) problem is now an optimization problem.
 
 
 
-% 
-% \begin{frame}{Linkers naturales}
-% No tan simples de definir/describir/clasificar
-%  \begin{itemize}
-%   \item Hay flexibles y rígidos    %VER MOLECULAR RULERS
-%   \item Función extra: mutaciones/deleciones pueden suprimir la actividad    %FORMAN PARTE DE LA FUNCIÓN DE LA PROTEINA O SE MANTIENEN INERTES? QUIZAS NO ESTÉN EN EL DOMINIO PERO PUEDEN AYUDAR A LA ESTRUCTURA, A UNIR LIGANDOS?? A QUE MAS??
-% %   PUEDE MOSTRAR UNA FUNCION EN UN CIERTO CONTEXTO EXPERIMENTAL DISTINTO AL NATURAL !!!!  
-%   \end{itemize}
-%  
-% \end{frame}
-% 
+
+\section{Results}
+
+\begin{frame}
+% \vspace{-0.5\baselineskip}
+\begin{adjustwidth}{-1.5em}{-2.5em}
+\centering
+% \begin{Verbatim}
+How many mutations are required?  - \hspace{5px} Length = 30   
+% Length = 30 residues \hspace{5px} - \hspace{5px}   Effect of $\beta$  
+% \end{Verbatim}
+\includegraphics[width=330px,height=210px]{../img/scoreVsMutation-individual.png} 
+
+\end{adjustwidth}
+% \vspace{-\baselineskip}
+\end{frame}
+
+
+\begin{frame}
+\centering
+% Optimal $\beta$ range  
+[Length = 50] - [Random (n=3) and Natural (n=3) seq. / each $\beta$] \\
+\begin{adjustwidth}{-1.5em}{-2.5em}
+\includegraphics[width=330px,height=210px]{../img/betaVsTime.png} 
+\end{adjustwidth}
+\end{frame}
+
+
+\begin{frame}
+\centering
+% Optimal $\beta$ range  
+% [Length = 30] - [Random (n=3) and Natural (n=3) seq. / each $\beta$] \\
+\begin{adjustwidth}{-1.5em}{-2.5em}
+\includegraphics[width=330px,height=210px]{../img/lengthVsTime.png} 
+\end{adjustwidth}
+\end{frame}
 
 
 
-% \end{frame}
-% \begin{frame}{Herramientas disponibles para elegir linkers}
-
-% \begin{frame}{Fundamentos}
-%  \begin{itemize}
-%   \item Existen diversas herramientas disponibles para evaluar propiedades estructurales y funcionales a partir de la secuencia.
-%   \item Existe un valor target para estas herramientas 
-%   \item El número de secuencias favorables es considerablemente 'amplio' con respecto al espacio de posibles soluciones.
-%  \end{itemize}
-% %  La solución es una secuencia tal que las herramientas de evaluación predigan propiedades inertes y no estructuradas.
-% \end{frame}
+\begin{frame}
+\centering
+Fixed starting sequence $\rightarrow$ 74 designs\\
+\begin{adjustwidth}{-1.5em}{-2.5em}
+\includegraphics[width=340px,height=150px]{../img/logo.png}\\ 
+\vspace{10px}
+\hspace{18px}\includegraphics[width=325px,height=15px]{../img/sequence.png}
+\end{adjustwidth}
+\end{frame}
 
 
 
-
-% ACLARAR QUE TODAS LAS HERRAMIENTAS SE BASAN EN LA BÚSQUEDA DE PROPIEDADES EXLUSIVAMENTE A PARTIR DE LA SECUENCIA DE AAs
-
-% \section{Esquema para buscar una solución}
-% 
-% \begin{frame}{Solución planteada}
-% \begin{itemize}
-%  \item Iniciamos la búsqueda mediante una secuencia random o definida por el usuario. Es solo un punto de partida!
-%  \item Definimos un mecanismo de score por posición en función del resultado de las herramientas:
-%     Menor score = mejor solución  
-%  \item Mutamos y reevaluamos iterativamente la secuencia inicial, en búsqueda de score mínimo(0). 
-%  \item Las mutacione son aceptadas heurísticamente siguiendo un método de Monte Carlo, guiado por el score global (suma de puntajes de todas posiciones de la secuencia).
-% \end{itemize}
-% \end{frame}
-
-% \begin{frame}
-%  \includegraphics[width=\textwidth,height=\textheight]{esquemaGeneral.png}
-% \end{frame}
-% 
+\begin{frame}
+\begin{adjustwidth}{-1.5em}{-2.5em}
+\includegraphics[width=340px,height=150px]{../img/logo.png}\\ 
+% \vspace{10px}
+\hspace{18px}\includegraphics[width=325px,height=25px]{../img/sequence2.png}
+\end{adjustwidth}
+\end{frame}
 
 
-% \section{Herramientas de evaluación}
-
-% % \subsection
-% \begin{frame}{Herramientas ya implementadas}
-% %  ESTAN SON LAS QUE YA EXPLIQUE LA VEZ PASADA
-% \begin{description}[]
-% %   \begin{itemize}
-%    \item[IUPred:] Predicción de conformación definida 
-%    \item[ANCHOR:] Predicción de proteinas que adoptan estructuras al unirse a otras. 
-%    \item[BLAST:] Funcionalidad mediante homología secuencial  
-%    \item[ELM:] Principales módulos funcionales encontrados en regiones intrínsecamente desordenadas.
-%    \item[Prosite:] Motivos lineales que podrían estar asociados a funciones.
-% %    \end{itemize}
-% \end{description}
-% 
-% \end{frame}
+\begin{frame}{Concluding remarks}
+\begin{itemize}
+ \item PATENA can find suitable protein linkers in a short execution time.
+ \item The set of designs that can be obtained from the same sequence shows high diversity. 
+ \item We interpret that the space of suitable linker sequences is a large fraction of the whole sequence space.
+\end{itemize}
+\end{frame}
 
 
-% \subsection{Nuevas herramientas incorporadas}
-% 
-% \begin{frame}{Tango}
-% El método se deriva a partir de aplicar la mecánica estadística a un conjunto de datos 
-% experimentales obtenidos de los residuos en de proteinas que promueven la formacion de amyloids. 
-% 
-% Resulta en una probabilidad de cada residuo a adoptar cierta conformación:
-% \\[2ex]
-% \begin{tabular}[h]{c| c| c| c| c| c| c}
-% res & aa & Beta &Turn &	Helix	& Aggregation &	Conc-Stab\_Aggregation \\
-% 01 &	L	&3.5&	 0.0&	0.000&	0.000 &	0.000\\ 
-% 
-% \end{tabular}
-% \end{frame}
 
 
-% \begin{frame}{Waltz}  
-%   \begin{itemize}
-%    \item Determinantes secuenciales de la formación de amyloids
-%    \item Utiliza una PSSM derivada de información secuencial y propiedades fisicoquímicas y estructurales. 
-%   \end{itemize}
-% 
-% \end{frame}
-% 
-% \begin{frame}{Limbo}  
-%   \begin{itemize}
-%    \item Predice sitios de unión a chaperonas (heptapéptidos) 
-%    \item Información de estudios secuenciales(ensayos de binding)
-%    \item Parámetros estructurales obtenidos de modelado por homología. Structural parameters from homology modelling
-%    \item Evaluación = aplicar una matriz de scores. 
-%    \item Resultado=scores por posición. Importancia del threshold
-%   \end{itemize}
-% 
-% \end{frame}
 
-% \begin{frame}{Determinantes secuenciales para formación de Amyloids}  
-%  Determinados a partir de un conjunto de péptidos cortos sintetizados y evaluados experimentalmente.
-%  
-%  A pH Neutral:
-%  
-%  ${P}_1 - {PKRHW}_2 -[VLS(C)WFNQ]_3 -[ILTYWFN]_4 - [FIY]_5- {PKRH}_6$
-% \end{frame}
-% 
-% \begin{frame}{Secuencias transmembrana}
-%  \begin{itemize}
-%   \item TMHMM Server v. 2.0
-%   \item Usado como clasificador binario: transmembana o no
-%  \end{itemize}
-% 
-% \end{frame}
-
-% 
-% \begin{frame}{Pasta}
-% Predicción de agregación amiloide
-% \begin{itemize}
-%  \item Asume que las interacciones en la formación de estructuras cross-beta(estructura asociada a fibras amiloides) es el mismo que ocurre en las estructuras de hoja plegada beta.
-%  \item Utiliza un conjunto de datos de estructuras conocidas para derivar un potencial estadístico de interacción entre cada par posible de AAs en este tipo de estructura.
-%  \item Durante la evaluación, el algoritmo utiliza este potencial para evaluar todos los posibles emparejamientos de la secuencia input con si misma, tanto paralela como antiparalelamente.
-%  \item El emparejamiento que tenga menor energia asignada se predice como el que se adopará en caso que se forme el agregado de tipo amiloide.
-% \end{itemize}
-% 
-%  
-% \end{frame}
-% % 
-% \begin{frame}{Pasta}	
-%  \includegraphics[width=\textwidth,height=0.9\textheight]{pastaExample.pdf}
-% \end{frame}
-
-% \begin{frame}{Pasta}	
-% 
-% *************************************
-% Starting PASTA evaluation
-% Threshold: 0.1
-% Hit:
-% Positions:    1-4
-% RESULTS:
-% M|V|L|S|P|A|D|K|T|N|V|K|A|A|W|G|K|V|G|A|H|A|G|E|Y|G|A|E
-% 1|1|1|1|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-% Hit enter to continue with next evaluation
-% 
-% \end{frame}
-
-% \subsection
-% \begin{frame}{Otras funcionalidades}
-%  \begin{itemize}
-%   \item Carga neta de la secuencia
-%   \item Secuencias flanqueantes estáticas
-%   \item Distintas opciones de ejecución: full verbose,silent, limite de iteraciones, deshabilitar herramientas puntuales
-%  \end{itemize}
-% \end{frame}
-% 
-% \section{Ejemplo}
-% \begin{frame}{Evaluación}
-%  \includegraphics[width=1.7\textwidth,height=2.2\textheight]{blastExample.png}
-% \end{frame}
-% 
-% \begin{frame}{Propuesta de mutación}
-%  \includegraphics[width=2.4\textwidth,height=1.9\textheight]{mutAttempt.png}
-% \end{frame}
-% 
-% \begin{frame}{Decisión}
-%  \includegraphics[width=2.4\textwidth,height=1.9\textheight]{decision.png}
-% \end{frame}
+% EXTRA
 
 
-% \section{Resultados}
-% \begin{frame}{Tests}
- 
-% \end{frame}
-% 
-% \begin{frame}{Tiempo de ejecución - Beta = 1.0}
-% \includegraphics[width=\textwidth,height=0.8\textheight]{largo-beta.png}
-% \end{frame}
-% 
-% 
-% \begin{frame}{Tiempo de ejecución - Seq = 30}
-% \includegraphics[width=\textwidth,height=0.85\textheight]{beta-time.png}
-% \end{frame}
-% 
-% \begin{frame}{Intentos de mutación - Seq = 30}
-% \includegraphics[width=\textwidth,height=0.85\textheight]{mutAttempts.png}
-% \end{frame}
-% 
-% \begin{frame}{Intentos de mutación - Corridas individuales - Seq = 30}
-% \includegraphics[width=\textwidth,height=0.85\textheight]{mutAttemptsRuns.png}
-% \end{frame}
-% 
-% \begin{frame}{Intentos de mutación - Corridas individuales - Seq = 30}
-% \includegraphics[width=\textwidth,height=0.85\textheight]{scoreVsIterMean.png}
-% \end{frame}
-% 
-% 
-% \begin{frame}{Secuencia inicial constante - Divergencia de las ejecuciones}
-% \includegraphics[width=1.5\textwidth,height=1.1\textheight]{divergencia.png}
-% \end{frame}
+% Mutation attempts Vs Iter
+\begin{frame}
+\begin{adjustwidth}{-1.5em}{-2.5em}
+\includegraphics[width=340px,height=210px]{../img/mutAttemptsVsMutation.png} 
+\end{adjustwidth}
+\end{frame}
 
-% \section{A futuro}
-% 
-% \begin{frame}{Queda por hacer}
-% \begin{itemize}
-% \item Agregar/actualizar herramientas de evaluación, refinar los parámetros de éstas. 
-% \item Incorporar las secuencias generadas a una base de datos. 
-% %DE ESTA FORMA, DESPUES SE PUEDE ARMAAR UNA FUNCIONALIDAD QUE 
-% % ADEMAS, UNA VEZ QUE SE TIENE UNA BD CON UNA CANTIDAD CONSIDERABLE DE SECUENCIAS SE PUEDE  USAR COMO BASE PARA DIFERENTES ESTUDIOS 
-% \end{itemize}
-% \end{frame}
+\begin{frame}
+\begin{adjustwidth}{-1.5em}{-2.5em}
+Fixed starting sequence $\rightarrow$ 74 designs\\
+\vspace{15px}
+\hspace{10px} Identity between resulting designs  \hspace{15px}   Identity against starting seq.
+\includegraphics[width=175px,height=145px]{../img/againstAll.png}
+\includegraphics[width=160px,height=135px]{../img/againstStartSeq.png}
+\end{adjustwidth}
+\end{frame}
+
+
+
+\begin{frame}
+\centering
+Fixed starting sequence $\rightarrow$ 74 designs \\
+\begin{adjustwidth}{-1.5em}{-2.5em}
+\includegraphics[width=340px,height=150px]{../img/mutationsPerPosition.png}\\ 
+% \vspace{10px}
+\hspace{25px}\includegraphics[width=310px,height=10px]{../img/sequence.png}
+\end{adjustwidth}
+\end{frame}
+
+
+
 
 \end{document}
