@@ -6,10 +6,13 @@
 \usepackage{changepage}
 \usepackage{enumerate}
 % \setlist{align=left}
-% \usetheme{Antibes}
 \usetheme{Warsaw}
+\usecolortheme{beaver}
+% \usetheme{Antibes}
 \geometry{paper=a4}
 \def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
+\setbeamertemplate{navigation symbols}{}   
+\setbeamertemplate{footline}{}   
 
 \title{PATENA: an algorithm for the design of protein linker sequences}
 \date{}
@@ -20,11 +23,42 @@
 
 \begin{document}
 
+
+
+
+
+
+
+
+
+% *********************************************
+%      EJEMPLO DE EVALUACION DE SCORE
+% *********************************************
 \begin{frame}
  \titlepage
+% \includegraphics[width=70px]{../img/logofcen.pdf} 
+\hspace{4px}
+\includegraphics[width=55px,height=50px]{../img/logouba.png}
+\hspace{50.7px}
+% \centering
+\includegraphics[width=70px,height=50px]{../img/logoCONICET.jpg} 
+\hspace{15px}
+\includegraphics[width=100px,height=50px]{../img/logoLFP.jpeg}
 \end{frame}
 
-\section{Intro}
+
+
+
+
+
+
+
+
+
+
+
+
+% \section{Intro}
 
 \begin{frame}{Chimeric proteins}
 \Put(160,0){\includegraphics[width=150px]{../img/fusionEnzymes.png}}
@@ -32,9 +66,9 @@
 % use of protein engineering process to covalently join 2+ proteins/domains
  \item Join 2+ proteins/domains  
  \vspace{20px}
- \pause
+  
  \item Function arising from linked subunits
- \pause
+  
  \vspace{20px}
 % \Put(0,0){\includegraphics[width=120px]{../img/gfp.png}}
 \makebox(0,0){\put(0,-170){\includegraphics[width=140px]{../img/gfp.png}}}
@@ -58,52 +92,23 @@
 
 
 
-\begin{frame}{Chimeric proteins}
-What we need:
-\begin{itemize}
- \item 2+ proteins/domains
- \item Linker sequence
+\begin{frame}{Relevant linker properties}
+
+Allows domains to fold independently, move and interact freely
 %  por que es necesario???
 % The construction of a multifunctional enzyme by simple head-to-tail fusion of parental  enzymes  often  results  in  non-functional  enzymes
 % because of either incorrect folding or restrained ability to interact with other protein subunits (Hua et al., 2004)
- \begin{itemize}
-    \pause
-    \item Allows domains to fold independently, move and interact freely
-%  \subitem Keep domains together so they work as a unit
-\end{itemize}
-\end{itemize}
-% \includegraphics[width=10px]{../img/okMark.png}
-% \hspace*{100px}
-\vspace{20px}
-% \includegraphics[width=10px]{../img/xMark.png}
-\pause
-\hspace{20px}
-\includegraphics[width=100px]{../img/linkerOk-sign.png}
-\hspace{40px}
-\pause
-\includegraphics[width=120px]{../img/linkerBad-sign.png}
-\end{frame}
+% \end{itemize}
 
-
-
-% 
-% \begin{frame}[plain]
-% \begin{center}
-% \includegraphics[width=140px]{../img/esquemaProcesoFusion.jpg}
-% \end{center}
-% \end{frame}
-
-
-
-
-
-
-\begin{frame}{Relevant linker properties}
 % Based on engineering process and linker function we can extract some properties
 \begin{itemize}
-%   BASED ON PREVOUSLY DEFINED FUNCTION
   \item Length
-  \item Extended conformation
+  \item Remain in a flexible conformation  %incluye prevencion de aggregation
+    \begin{itemize}
+     \item Secondary structure, Aggregation, ...
+    \end{itemize}
+
+  
 %   Lack of structure
 % ya vimos que la estructura puede restringir los movimientos
 %   \item Intrinsically disordered
@@ -114,80 +119,55 @@ What we need:
   \item Biologically inert  %lack of functional features
   \item Other experimental aspects
     \begin{itemize}
-     \item Aggregation, AAs frequencies, UV silent, net charge
+     \item AAs frequencies, UV silent, net charge
 %   Composition
     \end{itemize}
 \end{itemize}
-\pause
-\vspace{15px}
-%  Y CON TANTOS REQUERIMIENTOS..........
-\Large{....linker design is not a trivial problem}
-% \pause
-% \\
-% \vspace{10px}
-% \huge{...one solution does \textbf{NOT} fits all.}
-% we need to
+
+% \Large{....linker design is not a trivial problem}
+
 \end{frame}
 
 
 
-\begin{frame}{Linker design}
-% SI QUEDA MUY GRANDE ESTA DIAPO LA PUEDO DIVIDIR EN 3 PARTES....!!!
-% \pause
+
+
+
+
+
+\begin{frame}{Current approaches to linker design}
+
+
 \begin{itemize}
- \item Use linkers from natural multi-domain proteins
- \pause
+
+\item Use linkers from natural multi-domain proteins
  \begin{itemize}
   \item structure?
   \item inert?
-%  INCLUIR FIGURA!!!!
-
- \pause 
  \end{itemize}
- \item Intuitive design
+
+\item Intuitive design
 %  there are lots of chimeric constructions that were experimentally tested....reuse. may involve small engineering process to adapt the sequence(lenght, composition, etc)
- \pause
  \begin{itemize}
   \item Reuse from literature or propose novel sequence. 
   \item Usually (G/S/P)-rich 
   \begin{itemize}
    \item  i.e $(GGGS)_n$ 
   \end{itemize}
-  \item Very limited set of sequences and composition
-  \end{itemize}
-%  \pause
-%  \subitem Requires experimental test (prueba y error) 
+    \end{itemize}
 
+ \item Pseudo-Rational design (LINKER, Linkerdb, SynLinker)
+%      DB (natural/previously used designs)
+%     these include from different collections obtained in different projects	
+
+
+
+%   \item Very limited set of sequences and composition
+%  \subitem Requires experimental test (prueba y error) 
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Linker design}
-%  \item Pseudo-Rational design
-%   \pause 
-
-  \begin{itemize}
-    \item Pseudo-Rational design (LINKER, Linkerdb, SynLinker)
-    \vspace{6px}
-    \item DB (natural/previously used designs)
-%     these include from different collections obtained in different projects	
-\pause
-    \Put(20,10){\includegraphics[width=100px]{../img/synLinkerLogo.png}}
- \end{itemize}
-
-%  \item We cannot always get a solution %a suitable solution
-% \end{itemize}
-
-%  \vspace{10px}
-%  \centering
-\begin{adjustwidth}{-1em}{-2.5em}
-\includegraphics[width=330px]{../img/synLinker.png}
-\end{adjustwidth}
-% \begin{itemize}
-%  \item Always applicable?
-% \end{itemize}
-
-\end{frame}
 
 
 
@@ -197,19 +177,33 @@ What we need:
 
 
 
-\section{Method}
+% \section{Method}
 
 \begin{frame}{Rational approach}
-No method can provide a clean design\\ % a design clean of unwanted properties
-\vspace{5px}
-\pause
+% No method can provide a clean design\\ % a design clean of unwanted properties
+ 
 If we have a candidate linker sequence...
-\pause
-\begin{itemize}
-\item Structural aspects $\rightarrow$ IUPred \pause
-\item Functional aspects $\rightarrow$ BLAST, LMs, PROSITE, ANCHOR  \pause
-\item Aggregation propensity $\rightarrow$ TANGO, PASTA  
-\end{itemize}
+ 
+\vspace{5px}
+\begin{tabular}{c|c}
+Undesired feature & Prediction method \\ \hline
+Structural aspects & IUPred  \\
+Functional aspects & BLAST, ELM, PROSITE, ANCHOR \\  
+Aggregation propensity & TANGO, PASTA   \\
+UV Slient(OPTIONAL) & Identification of residues \\
+Net charge(OPTIONAL)& Identification of residues\\
+\end{tabular}
+ 
+ 
+% DECIR QUE TODOS LOS MÉTODOS DAN INFORMACION A NIVEL DE POSICION DENTRO DE LA SECUENCIA
+
+Scoring function for each position 
+ 
+% \begin{itemize}
+% \item Structural aspects $\rightarrow$ IUPred  
+% \item Functional aspects $\rightarrow$ BLAST, LMs, PROSITE, ANCHOR   
+% \item Aggregation propensity $\rightarrow$ TANGO, PASTA  
+% \end{itemize}
 
 
 % all apsects associated with linker properties can be assses by means of different bioinformatic tools available, that can analyze the sequence
@@ -218,10 +212,13 @@ If we have a candidate linker sequence...
 % We can evaluate (get an idea, get an estimation of) how good or how bad(quality) is a sequence to work as a linker.
 % We can predict all unwanted properties.
 
-\vspace{10px}
-\pause 
-\Large{Use this information to aid in linker design process}
+% \vspace{10px}
+  
+% \Large{Use this information to aid in linker design process}
 
+
+
+\end{frame}
 
 
 % ESTO ES BASICAMENTE EL FUNDAMENTO DEL MÉTODO
@@ -236,7 +233,6 @@ If we have a candidate linker sequence...
 % if we can find these 2 things we will have a design method
 % 
 % what is more, in our application these 2 aspects are connected !!!
-\end{frame}
 
 
 
@@ -252,9 +248,9 @@ If we have a candidate linker sequence...
 
 % quantify de quality of the sequence
 % es decir...if we define a function f(face)
-%  \pause
+%   
 %   \item Higher score $\rightarrow$ unwanted properties $\rightarrow$ worse linker
- \pause
+  
  \item Score $\geqslant 0$ (Higher score $\rightarrow$ bad linker)
 % we dont really care how high or low is the score, we want a linker with score = 0
 \end{itemize}
@@ -263,21 +259,8 @@ If we have a candidate linker sequence...
 % IF YOU THINK THAT ITS GONNA BE RELEVANT THAT ASSES 
 % \vspace{0.3cm}
 % \begin{adjustwidth}{-1.5em}{-2.5em}
-\pause
-\begin{tabular}{llllllllllllll} 
-\hline
-Sequence & \textbf{M} & \textbf{V} & \textbf{L} & \textbf{S} & \textbf{P} & \textbf{A} & \textbf{D} & \textbf{K} & \textbf{T} & \textbf{N} & \textbf{P} & \textbf{D} \\ \hline \hline
-\pause
-% Puntaje Inicial & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ \hline
-IUPred                 & 0 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0 & 0\\ \hline \pause
-TANGO 		       & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ \hline \pause
-Linear motifs          & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\ \hline \pause
-....                   & 2 & 1 & 1 & 1 & 1 & 0 & 3 & 2 & 5 & 4 & 1 & 0\\ \hline \hline
-\pause
-Position score         & 4 & 4 & 4 & 4 & 2 & 0 & 4 & 3 & 6 & 6 & 2 & 1\\ \hline
-\pause
-Global Score  & 40 \\ \hline
-\end{tabular}
+ 
+
 % \end{adjustwidth}
 \end{frame}
 
@@ -292,10 +275,10 @@ Global Score  & 40 \\ \hline
 % ahora que definimos un score
 \begin{itemize}
  \item Aiming at sequence with Global score = 0.
- \pause
+  
  \item We have information for each position and the whole sequence
 %  \item We have information of quality(score) at sequence level (detalied for each position).
-\pause
+ 
 \end{itemize}
 
 %  TENEMOS INFORMACION SOBRE DETALLADA A NIVEL DE RESIDUO(NO SOLO EL SCORE GLOBAL)
@@ -309,21 +292,21 @@ Global Score  & 40 \\ \hline
 %     \begin{itemize}
 %     \item Random sequence works too! (\textit{de novo} design)
 %     \end{itemize}
-  \pause
+   
  \item Propose point mutations to high scoring positions
 %  we will get back to this later
       \begin{itemize}
-      \item If score decreases $\rightarrow$ incorporate mutation to design. \pause
-      \item If NOT $\rightarrow$ heuristic decision (Score difference $\rightarrow$  $A_{rate}$). \pause
+      \item If score decreases $\rightarrow$ incorporate mutation to design.  
+      \item If NOT $\rightarrow$ heuristic decision (Score difference $\rightarrow$  $A_{rate}$).  
      \end{itemize}
-     \pause
+      
  \item Repeat step 2 until score=0
 \end{enumerate}
 
-\pause
+ 
 \Large{Random sequences can work too! (\textit{de novo} design)}\\
 \vspace{7px}
-\pause
+ 
 \Large{Obtaining a design is now an optimization problem}
 
 
@@ -338,11 +321,15 @@ Global Score  & 40 \\ \hline
 
 
 
-\begin{frame}
+
+% *********************************************
+%      ESQUEMA GRAFICO DE PATENA
+% *********************************************
+\begin{frame}[plain]
 \vspace{-0.5\baselineskip}
-\begin{adjustwidth}{-1.5em}{-2.5em}
+\begin{adjustwidth}{-2.5em}{-2.5em}
 % \begin{adjustheight}{-1.5em}{-1.5em}
-\includegraphics[width=340px,height=220px]{../img/patenaFixed.png} 
+\includegraphics[width=350px,height=250px]{../img/patenaReduced.png} 
 % \end{adjustheight}
 \end{adjustwidth}
 % \vspace{-\baselineskip}
@@ -352,24 +339,46 @@ Global Score  & 40 \\ \hline
 
 
 
-\section{Results}
+
+
+
+
+
+
+
+% *********************************************
+%      EJEMPLO DE EVALUACION DE SCORE
+% *********************************************
 
 \begin{frame}
-% \vspace{-0.5\baselineskip}
-\begin{adjustwidth}{-1.5em}{-2.5em}
-\centering
-% \begin{Verbatim}
-How many mutations are required?  - \hspace{5px} Length = 30   
-% Length = 30 residues \hspace{5px} - \hspace{5px}   Effect of $\beta$  
-% \end{Verbatim}
-\includegraphics[width=330px,height=210px]{../img/scoreVsMutation-individual.png} 
-
-\end{adjustwidth}
-% \vspace{-\baselineskip}
+ \begin{tabular}{llllllllllllll} 
+\hline
+Sequence & \textbf{M} & \textbf{V} & \textbf{L} & \textbf{S} & \textbf{P} & \textbf{A} & \textbf{D} & \textbf{K} & \textbf{T} & \textbf{N} & \textbf{P} & \textbf{D} \\ \hline \hline
+ 
+% Puntaje Inicial & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ \hline
+IUPred                 & 0 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0 & 0\\ \hline  
+TANGO 		       & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ \hline  
+Linear motifs          & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\ \hline  
+....                   & 2 & 1 & 1 & 1 & 1 & 0 & 3 & 2 & 5 & 4 & 1 & 0\\ \hline \hline
+ 
+Position score         & 4 & 4 & 4 & 4 & 2 & 0 & 4 & 3 & 6 & 6 & 2 & 1\\ \hline
+ 
+Global Score  & 40 \\ \hline
+\end{tabular}
 \end{frame}
 
 
-\begin{frame}
+
+
+
+
+
+
+
+% *********************************************
+%      BETA vs TIME
+% *********************************************
+\begin{frame}[plain]{Effective $\beta$ range: (0.1 - 2.0)}
 \centering
 % Optimal $\beta$ range  
 [Length = 50] - [Random (n=3) and Natural (n=3) seq. / each $\beta$] \\
@@ -379,7 +388,38 @@ How many mutations are required?  - \hspace{5px} Length = 30
 \end{frame}
 
 
-\begin{frame}
+
+
+
+% ***************************************************************
+%      SCORE vs MUTACION  PARA 1 SOLA EJECUCION USANDO BETA=1.0
+% ****************************************************************
+\begin{frame}[plain]{Sample execution profile using defined $\beta$ (1.0)}
+% \vspace{-0.5\baselineskip}
+\begin{adjustwidth}{-1.5em}{-2.5em}
+\centering
+% \begin{Verbatim}
+% How many mutations are required?  - \hspace{5px} Length = 30   
+% Length = 30 residues \hspace{5px} - \hspace{5px}   Effect of $\beta$  
+% \end{Verbatim}
+
+\includegraphics[width=330px,height=210px]{../img/iterationVsScore-individualBeta1-EXAMPLE.png}
+% \includegraphics[width=330px,height=210px]{../img/scoreVsMutation-individual.png} 
+
+\end{adjustwidth}
+% \vspace{-\baselineskip}
+\end{frame}
+
+
+
+
+
+
+
+% *********************************************
+%      TIEMPO EJECUCION vs LENGTH SECUENCIA
+% *********************************************
+\begin{frame}[plain]{Aproximate linear dependence against length}
 \centering
 % Optimal $\beta$ range  
 % [Length = 30] - [Random (n=3) and Natural (n=3) seq. / each $\beta$] \\
@@ -387,6 +427,56 @@ How many mutations are required?  - \hspace{5px} Length = 30
 \includegraphics[width=330px,height=210px]{../img/lengthVsTime.png} 
 \end{adjustwidth}
 \end{frame}
+
+
+
+
+
+% *********************************************
+%      DIVERGENCIA
+% *********************************************
+\begin{frame}[plain]{Nondeterministic algorithm: same input $\rightarrow$ different results}
+\centering
+Fixed starting sequence $\rightarrow$ 74 designs\\
+\vspace{15px}
+\begin{adjustwidth}{-2.5em}{-2.5em}
+% \hspace{10px} Identity between resulting designs  \hspace{15px}   Identity against starting seq.
+\includegraphics[width=175px,height=145px]{../img/againstAll-random.png}
+\includegraphics[width=175px,height=145px]{../img/againstInitial-random.png}
+\end{adjustwidth}
+\end{frame}
+
+
+
+\begin{frame}{Conclusion}
+\begin{itemize}
+ \item PATENA can find suitable protein linkers in a short execution time.
+ \item The set of designs that can be obtained from the same sequence shows high diversity. 
+ \item Allows for development of server
+%  \item We interpret that the space of suitable linker sequences is a large fraction of the whole sequence space.
+\end{itemize}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -402,6 +492,9 @@ Fixed starting sequence $\rightarrow$ 74 designs\\
 
 
 
+
+
+
 \begin{frame}
 \begin{adjustwidth}{-1.5em}{-2.5em}
 \includegraphics[width=340px,height=150px]{../img/logo.png}\\ 
@@ -411,13 +504,37 @@ Fixed starting sequence $\rightarrow$ 74 designs\\
 \end{frame}
 
 
-\begin{frame}{Concluding remarks}
-\begin{itemize}
- \item PATENA can find suitable protein linkers in a short execution time.
- \item The set of designs that can be obtained from the same sequence shows high diversity. 
- \item We interpret that the space of suitable linker sequences is a large fraction of the whole sequence space.
-\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}
+% {Standard composition deviation}
+\centering
+Standard composition
+% Fixed starting sequence $\rightarrow$ 74 designs\\
+\begin{adjustwidth}{-1.5em}{-2.5em}
+\includegraphics[width=340px,height=250px]{../img/frequenciesComparison.png}\\ 
+\end{adjustwidth}
 \end{frame}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -433,15 +550,7 @@ Fixed starting sequence $\rightarrow$ 74 designs\\
 \end{adjustwidth}
 \end{frame}
 
-\begin{frame}
-\begin{adjustwidth}{-1.5em}{-2.5em}
-Fixed starting sequence $\rightarrow$ 74 designs\\
-\vspace{15px}
-\hspace{10px} Identity between resulting designs  \hspace{15px}   Identity against starting seq.
-\includegraphics[width=175px,height=145px]{../img/againstAll.png}
-\includegraphics[width=160px,height=135px]{../img/againstStartSeq.png}
-\end{adjustwidth}
-\end{frame}
+
 
 
 

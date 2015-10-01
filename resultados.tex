@@ -67,13 +67,15 @@ De todas formas, no podemos decir nada sobre las características de este recorr
 \begin{figure}[htbp]
 \advance\leftskip-1.5cm
   \begin{subfigure}[b]{\textwidth}
-    \includegraphics[width=1.15\textwidth]{img/resultados/individuales-scoreVsiter-hasta150.png}
+%     \includegraphics[width=1.15\textwidth]{img/resultados/individuales-scoreVsiter-hasta150.png}
+ \includegraphics[width=1.1\textwidth]{img/resultados/iterationVsScore-individual.png}
     \caption{Ejecuciones individuales}
     \label{fig:scoreVsiter-a}
   \end{subfigure}
 %   \hspace{20px}
   \begin{subfigure}[b]{\textwidth}
-    \includegraphics[width=1.15\textwidth]{img/resultados/scoreVsiter-cada1-hasta2270.png}
+%     \includegraphics[width=1.15\textwidth]{img/resultados/scoreVsiter-cada1-hasta2270.png}
+     \includegraphics[width=1.1\textwidth]{img/resultados/iterationVsScore-mean.png}
     \caption{Valores medios y desviaciones}
   \label{fig:scoreVsiter-b}
   \end{subfigure}
@@ -102,13 +104,15 @@ Esta condición se incrementa en las iteraciones cercanas al fín de la ejecuci�
 \begin{figure}[htbp]
 \advance\leftskip-1.5cm
   \begin{subfigure}[b]{\textwidth}
-    \includegraphics[width=1.15\textwidth]{img/resultados/individuales-mutAt-vs-iter-hasta200.png}
+%     \includegraphics[width=1.15\textwidth]{img/resultados/individuales-mutAt-vs-iter-hasta200.png}
+    \includegraphics[width=1.1\textwidth]{img/resultados/iterationVsMutAttempts-individual.png}
     \caption{Ejecuciones individuales}
     \label{fig:mutAttemptsVsite-a}
   \end{subfigure}
 %   \hspace{20px}
   \begin{subfigure}[b]{\textwidth}
-    \includegraphics[width=1.15\textwidth]{img/resultados/mutAttemptsVsite-cada1-hasta2270.png}
+%     \includegraphics[width=1.15\textwidth]{img/resultados/mutAttemptsVsite-cada1-hasta2270.png}
+      \includegraphics[width=1.1\textwidth]{img/resultados/iterationVsMutAttempts-mean.png}
     \caption{Valores medios y desviaciones}
   \label{fig:mutAttemptsVsite-b}
   \end{subfigure}
@@ -138,7 +142,8 @@ Aunque el rango completo 0.1-2.0 es aceptable, tomamos un valor de $\beta=1.0$, 
 
 \begin{figure}[htbp]
 \advance\leftskip-1.2cm
-\includegraphics[width=1.1\textwidth]{img/resultados/beta-vs-time-length50-rate.png}
+% \includegraphics[width=1.1\textwidth]{img/resultados/beta-vs-time-length50-rate.png}
+\includegraphics[width=1.1\textwidth]{img/resultados/beta-vs-time-length50-300dpi.png}
 \caption{Largo de secuencia = 50}
 \label{fig:beta-vs-time}
 \end{figure}
@@ -160,7 +165,8 @@ saber que la solución es aplicable a secuencias en el rango esperado de utiliza
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.8\textwidth]{img/resultados/time-vs-length-beta1.png}
+% \includegraphics[width=0.8\textwidth]{img/resultados/time-vs-length-beta1.png}
+\includegraphics[width=0.8\textwidth]{img/resultados/lengthVsTime.png}
 \caption{}
 \label{fig:time-vs-length}
 \end{figure}
@@ -211,12 +217,13 @@ Luego se analizaron las características secuenciales de este conjunto de result
 % \advance\leftskip-1.2cm
   \begin{subfigure}[b]{200px}
 %     \caption{}
-    \includegraphics[width=240px]{img/resultados/againstStartSeq-74.png}
+%     \includegraphics[width=240px]{img/resultados/againstStartSeq-74.png}
+  \includegraphics[width=240px,height=185px]{img/resultados/againstInitial-random.png}
     \label{fig:identity-a}
   \end{subfigure}
   \hspace{30px}
   \begin{subfigure}[b]{200px}
-    \includegraphics[width=240px,height=185px]{img/resultados/againstAll-74-borrado.png}
+    \includegraphics[width=240px,height=185px]{img/resultados/againstAll-random.png}
     \label{fig:identity-b}
 %     \caption{Identidad entre cada par posible de secuencias resultantes(74*74)}
   \end{subfigure}
@@ -250,7 +257,7 @@ Si revisamos los resultados del análisis de mutaciones para cada posición(figu
 son justamente estas posiciones las que tienen menores porcentajes medio de mutación.
 Por otro lado, el resto de las posiciones mantienen una gran diversidad en cuanto a aminoácidos, cómo se ve en la figura \ref{fig:logo},
 por lo tanto, la similitud en estas posiciones parece ser producto de la falta de mutaciones.
-Al parecer, estas mantienen un valor de puntaje bajo a lo largo de la ejecució y pueden, en algunos casos, finalizar la ejecución sin sufrir ninguna mutación, manteniendo los residuos iniciales intactos en el diseño final.
+Al parecer, estas mantienen un valor de puntaje bajo a lo largo de la ejecución y pueden, en algunos casos, finalizar la ejecución sin sufrir ninguna mutación, manteniendo los residuos iniciales intactos en el diseño final.
 % y por lo tanto que los residuos iniciales se mantienen intactos.
 % Sin embargo, no hay una diferencia significativa en el porcentaje de mutaciones promedio que se aplican en estas posiciones, por lo que es posible que esta similitud puntual se deba que la
 % La menor cantidad de mutaciones en estas posiciones se ve reflejada en la similitud secuencial entre los diseños resultantes.
