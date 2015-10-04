@@ -20,7 +20,7 @@
        
 \section{Ingeniería de proteínas}\label{proteinEngineering}
 \subsection{Ingeniería de proteínas modulares}    
-
+\subsubsection{Conceptos generales}
 Como producto de los avances logrados en las tecnologías asociadas al ADN recombinante, se ha desarrollado una nueva generación de proteínas compuestas por la integración
 de diferentes módulos secuenciales.
 
@@ -69,7 +69,7 @@ la identificación automática de dominios y las nuevas técnicas para predecir 
 
 
 
-
+\subsubsection{Ejemplos}
 
 % EJEMPLOS
 
@@ -172,6 +172,16 @@ Este proceso, entonces, requiere la utilización de ingeniería de proteínas qu
 \subsection{Ingeniería de secuencias linker}
 
 \subsubsection{Aspectos de diseño}\label{aspectosDiseno}
+% 
+% *******************************************************************
+% *******************************************************************% 
+%  		DIVIDIR ESTA SECCION IGUAL QUE EL CAPITULO 3 :   PROPIEDADES CONFORMACIONALES , ELEMENTOS BIOLOGICAMENTE FUNCIONALES,  OTRAS PROPIEDADES
+% % *******************************************************************
+% *******************************************************************
+% 
+% 
+
+
 % EN ESTA  SECCION PONER LA LISTA COMPLETA DE LOS REQUERIMIENTOS POSITIVOS Y NEGATIVOS DE UN LINKER:
 % LONGITUD, COMPOSICION, CONFORMACION DESORDENADA INTRINSECA, AUSENCIA DE ESTRUCTURA SECUNDARIA, AUSENCIA DE ELEMENTOS FUNCIONALES
 
@@ -186,6 +196,9 @@ que se eviten las secuencias muy cortas que no logran obtener una separación su
 % harían muy ineficaz la interacción entre proteínas.
 
 Por su parte, los requerimientos conformacionales suelen ser más estrictos e incluso pequeños cambios en la estructura pueden limitar la funcionalidad del diseño.
+
+\paragraph{Propiedades conformacionales} \hspace{0pt} \\
+
 En primer lugar buscamos que la secuencia linker adopte una conformación extendida, es decir, que no se pliege formando una estructura compacta con los dominios que une. 
 Además, las conformación adoptada debe proveer la flexibilidad necesaria para que las interacciones puedan ocurrir sin ninguna restricción estructural.
 % Para las arquitecturas más comunes, compuestas de dominios globulares unidos por linkers, esta flexibilidad es el requerimiento mas importante ya que permite a los distintos dominios interaccionar libremente.
@@ -222,10 +235,10 @@ Esta es una propiedad que describimos como característica de las proteínas int
 Es importante que el diseño del linker tenga en cuenta estos aspectos(y otros similares), evitando que la secuencia posea tendencias a formar uniones estables con otros componentes del sistema.
 
 
-
+\paragraph{Elementos biológicamente funcionales} \hspace{0pt} \\
 % Actividad biologica
 % Sin embargo los aspectos de flexibilidad no son los únicos relevantes
-Las interacciones desfavorables durante el proceso de ingeniería no se limitan a estas uniones estables, omo vimos previamente las IDPs pueden poseer actividades biológicas, 
+Las interacciones desfavorables durante el proceso de ingeniería no se limitan a estas uniones estables, como vimos previamente las IDPs pueden poseer actividades biológicas, 
 principalmente a través de módulos de interacción en la secuencia. 
 Al no adoptar una estructura plegada, estos elementos quedan expuestos al entorno y permiten mediar diferentes interacciones funcionales.
 La gama de actividades que involucra a estos módulos es muy diversa y por lo tanto pueden tener diferentes implicancias sobre el linker en particular y la proteína quimérica en general.
@@ -240,6 +253,7 @@ Por lo tanto, es importante que la secuencia linker este libre de cualquier elem
 
 
 
+\paragraph{Otras propiedades} \hspace{0pt} \\
 
 % COMPOSICION DE AMINOACIDOS: Carga metabolica y propiedades espectroscópicas
 Los requerimientos para la secuencia linker pueden originarse en otros pasos del proceso de producción, no solo en la funcionalidad que aporta a la construcción 
@@ -312,19 +326,27 @@ que el usuario considere relevantes como parte del proceso experimental.
 \subsubsection{Linkers naturales}
 
 
-
-% 
-
+\paragraph{Características} \hspace{0pt} \\
 
 % El 'descubrimiento' de las regiones/secuencias linkers esta ligado a las teorias de structura-funcion(desarrolladas en la parte de conformacion) que se dieron durante casi 100 años
 % En un principio se comenzo a pensar en una estructura rigida asociada a la proteina, luego se fueron revelendo propiedades dinamicas que le permitian cumplir la funcion. 
 % Todo esto esta muy asociado a las tecnicas experimentales que se fueron desarrollando.
 
 Como ya se mencionó, la modularidad en proteínas naturales es algo muy común y existen muchisimos ejemplos de proteinas compuestas de dos o mas dominios funcionales unidas por linkers.
-Estas secuencias linker sirven, principalmente, para mantener unidos los distintos dominios y proveer la flexibilidad necesaria para que puedan ocurrir las interacciones relevantes para la actividad biológica la proteína.
+Estas secuencias linker sirven, principalmente, para mantener unidos los distintos dominios y proveer la flexibilidad necesaria para que puedan ocurrir las interacciones relevantes para la actividad biológica la proteína
+(ver figura \ref{multidomainRb}).
 Esta funcionalidad asociada a propiedades conformacionales es lo que define las características generales de los linker naturales. 
 Sin embargo, en muchos casos también proveen otras funciones que forman parte de esta actividad, tales como intervenir en las interacciones cooperativas entre los dominios, 
 contener elementos secuenciales que median interacciones con otras proteínas o ligandos, etc.
+
+\begin{figure}[htbp,centered]
+\centering
+\includegraphics[width=0.8\textwidth]{img/multidomainRb.png} 
+\caption{Ejemplo de linkers naturales de la proteina multidominio RB (Retinoblastoma). Los linkers y loops se muestran en \textbf{a} mediante lineas entrecortadas. En \textbf{b} se muestra una representación más abstracta de la misma estructura multidominio.
+REferencia..................Molecular mechanisms underlying RB protein function} 
+\label{multidomainRb}
+\end{figure}
+
 
 El primer estudio realizado sobre secuencias linkers registra la preferencia intrínseca por las conformaciones desplegadas\cite{argos1990investigation}.   
 Sin embargo este estudio está bastante desactualizado y los resultados no son representativos ya que se realizó sobre un total de 51 linkers detectados manualmente a partir de 32 proteínas.
@@ -402,8 +424,14 @@ asociadas a restricciones funcionales de la proteína global buscando balancear 
 para que los dominios puedan explorar el ensamble de conformaciones asociado a su funcionalidad, con la rigidez requerida para que no existan interacciones desfavorables entre estos, 
 resultando en perfiles estructurales muy variados.
 
+
+
+
+\paragraph{Utilización en diseños de proteínas quiméricas} \hspace{0pt} \\
+
+% USO EN INGENIERIA DE PROTEINAS
 En cada proteina, la secuencia linker puede tener una estructura y una función que haya sido seleccionada para la actividad biológica de la proteina como un todo, 
-y esta función del linker en este contexto puede no ser solamente la unión covalente de los dominios. 
+y esta función del linker en este contexto puede no ser solamente la unión covalente de los dominios, tal como se busca al diseñar un linker. 
 % Las propiedades funcionales no solo afectan a la conformación sino que abarcan la longitud, composición y propiedades secuenciales puntuales.
 
 
@@ -555,6 +583,7 @@ Además, estas secuencias han evolucionado como parte de sistemas biológicos, d
 \subsubsection{Diseño racional}
 % The general properties of linkers derived from naturally-occurring multi-domain proteins(que se vieron en la seccion anterior) can be considered as the foundation in linker design. 
 
+\paragraph{Diseños y conceptos comunes} \hspace{0pt} \\
 
 % PRIMERO HABLAR DE LINKERS USADOS EMPIRICAMENTE 
 Con tantos y tan distintos requerimientos positivos y negativos para el diseño, el problema de encontrar un linker adecuado puede llegar a ser un proceso complejo.
@@ -662,7 +691,7 @@ En otros casos, la rigidez se obtiene a partir de polipéptidos poli-prolina \ci
 
 
 
-
+\paragraph{Algoritmos existentes} \hspace{0pt} \\
 
 
 % DESPUES EMPIEZO CON DISEÑO RACIONAL

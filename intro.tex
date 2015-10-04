@@ -5,9 +5,9 @@
 \section{Estructura de este trabajo}
 
 Este primer capítulo introductorio está dividido en dos secciones que presentan los aspectos necesarios para comprender el trabajo realizado, el cual se centra en el diseño de nuevas secuencias linkers 
-siguiendo los requerimientos de diseño que se 
-% con propiedades conformacionales definidas, restringiendo cualquier actividad biológica y elemento estructural no deseado.
-En la primer sección (\ref{proteinLandscape}) se describe el amplio panorama conformacional y funcional que pueden presentar las proteinas, lo que da una idea de cuales son las elementos proteicos que pueden encontrarse.
+% siguiendo los requerimientos de diseño que se 
+con propiedades conformacionales definidas, restringiendo cualquier actividad biológica y elemento estructural no deseado.
+En la primera sección (\ref{proteinLandscape}) se describe el amplio panorama conformacional y funcional que pueden presentar las proteinas, lo que da una idea de cuales son las elementos proteicos que pueden encontrarse en la naturaleza.
 % identificando cuáles son los elementos funcionales que pueden de acuerdo a las propiedades estructurales que adquieren.
 % in-vivo, describiendo cuales son los posibles destinos de las proteinas desde que son sintetizadas en el ribosoma y a lo largo de su etapa funcional en la célula. 
 % Se desarrollan los conocimientos actuales acerce del perfil de conformaciones y funciones conocidas, y las propiedades secuenciales asociadas con estas.
@@ -18,12 +18,12 @@ En la sección siguiente (\ref{proteinEngineering}) se desarrolla el tema de ing
 En el capítulo \ref{method} se describe la implementación desarrollada para el diseño de secuencias linker, indicando los fundamentos y detalles del método.
 % , limitaciones y aspectos relevantes de su utilización.
 
-En el capítulo \ref{tools} se detalla los distintos recursos utilizados para evaluar las propiedades de interés sobre la secuencia, describiendo el objetivo de cada evaluación y los fundamentos de cada método. 
+En el capítulo \ref{tools} se detalla los distintos métodos utilizados para evaluar propiedades de interés sobre la secuencia, describiendo el objetivo de cada evaluación y los fundamentos de cada método. 
 
 En el capítulo \ref{manual} se documentan todos los aspectos necesarios para poder hacer uso de la herramienta.
 
 En el capítulo \ref{results} se muestran, en primer lugar, las evaluaciones realizadas para obtener los parámetros óptimos de ejecución. 
-Además, se evalúan distintas propiedades de la herramienta resultante y su ejecución analizando, luego, las secuencias obtenidas. 
+Además, se evalúan distintas propiedades de la herramienta resultante y su ejecución analizando, luego, los diseños resultantes. 
 
 Finalmente, el capítulo \ref{conclusiones} contiene las discusiones relevantes, conclusiones y trabajo a futuro.
 
@@ -57,7 +57,7 @@ Finalmente, el capítulo \ref{conclusiones} contiene las discusiones relevantes,
 % 
 
 \subsection{Definición inicial de una proteína}
-Las proteínas son polímeros de aminoácidos y como tales, sus propiedades conformaciones y funcionales estan asociadas a la secuencia especifica que la define, 
+Las proteínas son polímeros de aminoácidos(\ref{polipeptidoEstructura}) y, como tales, sus propiedades conformaciones y funcionales estan asociadas a la secuencia especifica que la define.
 Es decir, las diferentes combinaciones de aminoacidos les asignan distintas capacidades de interacción intramoleculares y con el contexto en el que se encuentra.
 % La proteina queda definida por esta secuencia especifica la cual define las posibles interacciones, entre los residuos de la cadena o con el contexto en el que se encuentra. 
 % De esta forma, la secuencia específica que compone una proteína define las propiedades conformacionales resultantes y las posibles funciones asociadas a esta.
@@ -65,6 +65,15 @@ Es decir, las diferentes combinaciones de aminoacidos les asignan distintas capa
 % La cadena polipeptídica puede formar interacciones que involucren a la estructura intrínseca del polipeptido(cadena carbonada y función amino) 
 % e interacciones que involucren a la cadena lateral de los distintos aminoácidos, 
 La diversidad de aminoácidos existentes permite una gran cantidad de combinaciones, lo que resulta en un perfil de propiedades conformacionales y funcionales muy amplio.
+
+\begin{figure}[htbp,centered]
+\centering
+\includegraphics[width=0.6\textwidth]{img/polipeptidoStructure.jpg} 
+\caption{Estructura química de un polipéptido} 
+\label{polipeptidoEstructura}
+\end{figure}
+
+
 
 Por definición, una proteína puede estar compuesta por cadenas lineales formadas por cualquier combinación de aminoácidos.
 Sin embargo, las proteínas se originan en la naturaleza como producto de los sistemas biológicos, por lo tanto, 
@@ -141,15 +150,27 @@ Se identifican otro tipo de módulos, por ejemplo motivos que pueden estar en cu
 Las proteínas globulares son los compuestos proteicos más estudiados. En términos generales, estas proteínas se caracterizan por adoptar en condiciones nativas una conformación plegada compacta, 
 dándole un aspecto globular y haciéndola soluble en el medio acuoso de la célula.
 
+
+
+
 El hecho que sean, probablemente, las proteínas más estudiadas tiene que ver con todas estas propiedades estructurales básicas, 
 al ser solubles y con una estructura determinada y relativamente estable, fueron las primeras que pudieron ser cristalizadas para luego resolver su estructura mediante difracción de rayos X.
 La anotación de las estructuras que se resolvían permitió conocer mas sobre las propiedades estructurales mostrando que las proteínas globulares poseen una gran cantidad de estructuras secundarias interaccionando entre si, 
-unidas por regiones de la secuencia con estructura flexible no determinada.
+unidas por regiones de la secuencia con estructura flexible no determinada (ver \ref{globularExample}).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{img/transferrin.png} 
+\caption{Ejemplo gráfico de proteína con estructura globular. Imagen de: PDB 1A8E (Transferrin)} 
+\label{globularExample}
+\end{figure}
 
 Las distintas estructuras secundarias se unen entre si mediante interacciones hidrofóbicas que involucran las cadenas laterales apolares, y por puentes de hidrógeno y a través de interacciones iónicas entre aminoácidos cargados, dando lugar
 a la estructura compacta del plegamiento globular. Por lo tanto, el plegamiento adoptado por las estructuras secundarias(estructura terciaria) está intimamente asociado a las propiedades fisicoquímicas de la secuencia. 
 En este plegamiento compacto, los aminoácidos más hidrofóbicos quedan alojados principalmente en el interior de la estructura, formando un núcleo hidrofóbico, 
 y la superficie globular tiene mayoría de residuos polares, los cuales tienen la capacidad de interaccionar favorablemente con el solvente, lo que lo que le provee la solubilidad característica en el entorno celular. 
+
+
 
 La estructura globular puede estar conformada por más de una cadena polipeptídica. En este caso, las diferentes subunidades se unen mediante las mismas interacciones que generan el plegamiento en una cadena, así, 
 el plegamiento individual de una cadena puede contener aminoácidos con cadena lateral apolar en alguna región de su superficie, pero esta se complementa con la superficie hidrofóbica de otra cadena cuya interacción mantiene la estructura 
@@ -300,7 +321,7 @@ El otro conjunto de proteínas de membrana son las proteínas integrales(o intr�
 En la mayoria, la región insertada atraviesa la membrana (proteínas transmembrana) y tienen dominios intra y extra celulares.
 A partir de estos conceptos generales se puede deducir que esta clase de proteínas tendrá una arquitectura/topología particular, donde 
 
-Los segmentos que atraviesan permiten hacer una nueva clasificación por si mismos, así, las proteínas transmembrana se pueden agrupar en dos conjuntos según la estructura que les permite atravesar el núcleo hidrofóbico.
+Los segmentos que atraviesan permiten hacer una nueva clasificación por si mismos(ver figura \ref{proteinasMembrana}), así, las proteínas transmembrana se pueden agrupar en dos conjuntos según la estructura que les permite atravesar el núcleo hidrofóbico.
 Un primer conjunto de proteínas, las porinas, contienen una estructura característica compuesta por hebras-$\beta$ en una conformación característica con forma de barril que atraviesa la membrana, formando una expansión similar a un poro.
 Los aminoácidos de la secuencia son generalmente polares pero, a diferencia de las proteínas globulares típicas, los grupos laterales que están en contacto con la cara externa del barril son hidrofóbicos, y son los que están en contacto con 
 los grupos lipídicos, mientras que las cadenas laterales hidrofílicas se encuentran mirando hacia el interior del poro.
@@ -310,6 +331,14 @@ El otro conjunto está dado por aquellas proteínas que contienen hélices-$\alp
 Esta estructura secundaria es la más común entre los segmentos transmembrana ya que permite permite satisfacer todos los puentes de hidrógeno caracterísicos de la estructura carbonada de
 the helical structure can satisfy all backbone hydrogen-bonds internally, 
 sin dejar grupos polares expuestos hacia fuera de la hélice, y por lo tanto, en contacto con el núcleo hidrofóbico de la membrana
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{img/proteinasMembrana.png} 
+\caption{Re} 
+\label{proteinasMembrana}
+\end{figure}
+
 
 Estos dominios transmembrana tienen, por lo tanto, propiedades secuenciales particulares caracterizadas por aminoácidos con cadenas laterales hidrofóbicas que les permiten interaccionar con el núcleo de la membrana.
 % y, generalmente, también con los grupos polares en las superficies de ésta.
@@ -367,6 +396,15 @@ Este reconocimiento trajo consigo una gran cantidad de preguntas, relacionadas c
 Los avances sobre estas preguntas iban mas allá de las técnicas de resolución estructural conocidas que estaban basadas en el promedio del ensamble, quedando, entonces,
 a la espera de aproximaciones/conocimientos provenientes de nuevas técnicas del campo de la biofísica\cite{eliezer2009biophysical}.
 
+
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{img/idpExample-TSP9.jpg} 
+\caption{NMR structure of the Thylakoid soluble phosphoprotein TSP9, intrinsically disordered protein. Ref:  Micelle-induced folding of spinach thylakoid soluble phosphoprotein of 9 kDa and its functional implications. Biochemistry} 
+\label{idpExample}
+\end{figure}
 
 
 
