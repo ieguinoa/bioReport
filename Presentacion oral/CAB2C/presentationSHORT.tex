@@ -24,7 +24,10 @@
 
 \author{Ignacio Eguinoa, Ignacio Enrique Sánchez}
 \institute[VFU] % (optional)
-{ Protein Physiology Laboratory, Departamento de Química Biológica, Facultad de Ciencias Exactas y Naturales and IQUIBICEN-CONICET, Universidad de Buenos Aires, Buenos Aires, Argentina}
+{ Protein Physiology Laboratory \\
+Departamento de Química Biológica \\
+Facultad de Ciencias Exactas y Naturales and IQUIBICEN-CONICET\\
+Universidad de Buenos Aires - Buenos Aires, Argentina}
 
 \begin{document}
 
@@ -58,39 +61,97 @@
 
 
 
+\begin{frame}[plain]{Chimeric Proteins}
+\begin{adjustwidth}{-2.0em}{-2.0em}
 
 
+Use of GFP as fluorescent tag 
 
 
-\begin{frame}[plain]{Chimeric proteins}
-%  Many proteins in nature are multidomain \\
-%  use of protein engineering process to covalently join 2+ proteins/domains
-%  New construction made of 2+ proteins/domains\\
- %  \Put(0,10)
-%  \vspace{-3.5\baselineskip}
+% \vspace{30px}
+% Adition of GFP to target proteins\\ % amonitoring cellular processes in living systems\\
+\Put(60,-300){ \includegraphics[width=260px]{../img/proteinFusion-GFP-tubulinTransparent.png}}
 
+% \vspace{70px}
+Construction: GFP + Linker + Tubulin
 
-% for example, we have here 2 fluorescent domains(Cyan fluorescent protein and yellow fluorescent protein)
-% When 2 fluorescent proteins/domains) are sufficiently separated, they retain their spectral properties.
-
-% FRET dependence with distance\\
-Cyan Fluorescent Protein(CFP) - Yellow Fluorescent Protein(YFP)\\
- \begin{adjustwidth}{-1.5em}{-3.5em}
- \includegraphics[width=170px]{../img/fretDomainsA.png}
- \includegraphics[width=170px]{../img/fretDomainsB.png}
+\vspace{145px}
+Addition of GFP can affect the localization or function of the tagged protein $\rightarrow$ \textbf{importance of correct linker}
 \end{adjustwidth}
-Distance-dependent spectral properties\\
-  \vspace{10px}
-Macromolecular crowding sensor:  CFP + Linker + YFP \\
-\vspace{10px}
-% Multiple molecular sensors:  YFP -  
-\includegraphics[width=125px,height=60px]{../img/fretSeparadosCFP.png}
-\includegraphics[width=80px]{../img/crowdingSign.png}
-\includegraphics[width=125px]{../img/fretJuntosCFP.png}
-% one construction(one macrmolecule) function as a sensor
-%   \centering
-%  \includegraphics[width=330px]{../img/fret.png}
 \end{frame}
+
+% There are several relevant aspects to decide when designing this construction (for example, if the GFP is added in C or N terminal, that is , the order of the elements), 
+% one of these aspects is the sequence that will be used to link both proteins
+%  in this case is quite relevant that the naturally expressed proten(i.e tubulin) 
+%  it has been studied that GFP is a relatively small and inert molecule, that doesn't seem to interfere with any biological processes of interest....
+%  but what about the new sequence that function as a linker? these and other considerations build of different uses help to build a definition of a linker sequence...
+
+
+
+
+
+
+
+% \begin{frame}[plain]{Chimeric Proteins}
+% \begin{adjustwidth}{-2.0em}{-2.0em}
+% 
+% \Put(0,-200){\includegraphics[width=190px]{../img/gfp.jpg}}
+% % \vspace{-1.5\baselineskip}
+% \hspace{180px} Use of GFP as fluorescent tag 
+% % \vspace{-20px}
+% 
+% \vspace{50px}
+% % Adition of GFP to target proteins\\ % amonitoring cellular processes in living systems\\
+% \Put(130,-240){ \includegraphics[width=220px]{../img/proteinFusion-GFP-tubulinTransparent.png}}
+% 
+% \vspace{70px}
+% GFP + Linker + Tubulin
+% 
+% \vspace{35px}
+% Addition of GFP can affect the localization or function of the tagged protein $\rightarrow$ \textbf{importance of correct linker}
+% \end{adjustwidth}
+% \end{frame}
+
+
+
+
+
+% EJEMPLO VIEJO
+
+% \begin{frame}[plain]{Chimeric proteins}
+% %  Many proteins in nature are multidomain \\
+% %  use of protein engineering process to covalently join 2+ proteins/domains
+% %  New construction made of 2+ proteins/domains\\
+%  %  \Put(0,10)
+% %  \vspace{-3.5\baselineskip}
+% 
+% 
+% % for example, we have here 2 fluorescent domains(Cyan fluorescent protein and yellow fluorescent protein)
+% % When 2 fluorescent proteins/domains) are sufficiently separated, they retain their spectral properties.
+% 
+% % FRET dependence with distance\\
+% Cyan Fluorescent Protein(CFP) - Yellow Fluorescent Protein(YFP)\\
+%  \begin{adjustwidth}{-1.5em}{-3.5em}
+%  \includegraphics[width=170px]{../img/fretDomainsA.png}
+%  \includegraphics[width=170px]{../img/fretDomainsB.png}
+% \end{adjustwidth}
+% Distance-dependent spectral properties\\
+%   \vspace{10px}
+% Macromolecular crowding sensor:  CFP + Linker + YFP \\
+% \vspace{10px}
+% % Multiple molecular sensors:  YFP -  
+% \includegraphics[width=125px,height=60px]{../img/fretSeparadosCFP.png}
+% \includegraphics[width=80px]{../img/crowdingSign.png}
+% \includegraphics[width=125px]{../img/fretJuntosCFP.png}
+% % one construction(one macrmolecule) function as a sensor
+% %   \centering
+% %  \includegraphics[width=330px]{../img/fret.png}
+% \end{frame}
+
+
+
+
+
 
 % These construcions are 
 
@@ -130,6 +191,10 @@ Macromolecular crowding sensor:  CFP + Linker + YFP \\
     \end{itemize}
 
   \item Biologically inert  %lack of functional features
+    \begin{itemize}
+     \item Does not interact with other molecules
+    \end{itemize}
+
   \item Other desirable aspects  %experimental aspects
     \begin{itemize}
      \item AAs frequencies, UV silent, net charge
@@ -215,9 +280,9 @@ PATENA uses different applications to evaluate a candidate linker.
 \begin{tabular}{l|l}
 \textbf{Undesired feature} & \textbf{Prediction method} \\ \hline \hline
 \rowcolor{Gray} Globular structure & IUPred  \\
-Aggregate structure & TANGO, PASTA, WALTZ   \\
+Insoluble aggregates & TANGO, PASTA, WALTZ   \\
 \rowcolor{Gray}Functional features & BLAST, ELM, PROSITE, ANCHOR \\  
-UV absorbers(OPTIONAL) & Presence of UV-absorbers residues \\
+UV absorption(OPTIONAL) & W, Y, F \\ %Presence of UV-absorbers residues \\
 \rowcolor{Gray}Net charge(OPTIONAL)& Presence of charged residues\\
 \end{tabular}
  
@@ -472,18 +537,40 @@ PROSITE 	      			& 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\ \hline
 
 
 % *********************************************
-%      DIVERGENCIA
-% *********************************************
+%      DIVERGENCIA: dividido en 2 slides
+% *********************************************% 
+% 
+% 	DECIR SIEMPRE IDENTITY , PORQUE SI DIGO SIMILARITY SE CONFUNDE CON ALINEAMIENTO , ETC, ETC
+% 		ACLARAR QUE COMO LOS RESULTADOS TIENEN LA MISMA LONGITUD, LA IDENTIDAD SE EVALUA SIMPLEMENTE COMPARANDO QUE POSICIONES TIENEN EXACTAMENTE EL MISMO RESIDUO
+% 
 \begin{frame}[plain]{Nondeterministic algorithm: same input $\rightarrow$ different results}
 \centering
-Fixed starting sequence $\rightarrow$ 74 designs\\
-\vspace{15px}
+\vspace{10px}
 \begin{adjustwidth}{-2.5em}{-2.5em}
-% \hspace{10px} Identity between resulting designs  \hspace{15px}   Identity against starting seq.
-\includegraphics[width=175px,height=145px]{../img/againstAll-random.png}
-\includegraphics[width=175px,height=145px]{../img/againstInitial-random.png}
+\hspace{10px} 
+Fixed starting sequence $\rightarrow$ 74 designs - Identity \textbf{between final sequences}
+% mayor que random pero claramente heterogeneas
 \end{adjustwidth}
+\hspace{10px} 
+\includegraphics[width=275px,height=215px]{../img/againstAll-random.png}
+% \includegraphics[width=175px,height=145px]{../img/againstInitial-random.png}
 \end{frame}
+
+
+\begin{frame}[plain]{Nondeterministic algorithm: same input $\rightarrow$ different results}
+\centering
+\vspace{10px}
+\begin{adjustwidth}{-2.5em}{-2.5em}
+\hspace{10px}
+Fixed starting sequence $\rightarrow$ 74 designs - Identity \textbf{with initial sequence}
+% mayor que random pero claramente hubo bastantes mutaciones
+\end{adjustwidth}
+\hspace{10px}
+% \includegraphics[width=175px,height=145px]{../img/againstAll-random.png}
+\includegraphics[width=275px,height=215px]{../img/againstInitial-random.png}
+\end{frame}
+
+
 
 
 
@@ -491,7 +578,7 @@ Fixed starting sequence $\rightarrow$ 74 designs\\
 \begin{itemize}
  \item PATENA can find suitable protein linkers in a short execution time.
  \item The set of designs that can be obtained from the same sequence shows high diversity. 
- \item Allows for development of server to obtain and collect linker sequences.
+ \item Allows for development of server to design linker sequences.
 %  \item We interpret that the space of suitable linker sequences is a large fraction of the whole sequence space.
 \end{itemize}
 \end{frame}
