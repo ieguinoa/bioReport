@@ -1,36 +1,32 @@
 \chapter{Análisis de las secuencias}
 \label{tools}
 
-En este capítulo se describen las evaluaciones que esta implementación permite realizar sobre las secuencias para detectar las características deseadas y no deseadas dentro de la secuencia durante el proceso iterativo de diseño. 
-Se explica cual es el objetivo de aplicar cada uno de los métodos y los fundamentos en los que se basan.
+En este capítulo se describen las evaluaciones que la herramienta permite realizar sobre las secuencias para detectar características deseadas y no deseadas dentro de la secuencia durante el proceso iterativo de diseño. 
+Se explica en general cual es el objetivo de aplicar cada uno de los métodos y los fundamentos en los que se basan.
 Se detalla como se integran los distintos recursos en el contexto de nuestra aplicación, representando sus resultados en el esquema de puntajes propio de nuestro método.
 
-En conjunto de evaluaciones que se describen corresponde a esta primera versión de nuestra herramienta, por lo tanto no representa un conjunto exhaustivo ni definitivo, 
-sino una primera etapa que deberá ser analizado y modificado de forma iterativa en función de los resultados obtenidos.
+El conjunto de evaluaciones que se describen corresponde a esta primera versión de nuestra herramienta, por lo tanto no representa un conjunto exhaustivo ni definitivo, 
+sino una primera etapa que deberá ser analizada y modificada de forma iterativa en función de los resultados obtenidos.
 % hipotesis subyacente 
 
-El conjunto de herramientas utilizadas está directamente asociado a los fundamentos del método vistos en la sección \ref{fundamentos}.
+La definición del conjunto de evaluaciones utilizadas está directamente asociado a los fundamentos del método vistos en la sección \ref{fundamentos}.
 Por un lado, se tiene en cuenta la hipótesis general sobre el espacio de secuencias buscadas, que nos permite asumir que este espacio es relativamente grande con respecto al conjunto total de posibles soluciones.
 Por otro lado tenemos un conjunto de herramientas bioinformáticas que utilizan mecanismos y aproximaciones muy distintas y cuyos resultados pueden complementarse. 
-Esto nos permite pensar que la utilización de diferentes herramientas para la deteccion de las caracteristicas de interés, aún cuando los resultados de estas puedan solaparse,
-puede dar mejores diseños(con mayores probabilidades de tener las características deseadas), sin tener un aumento considerable en el tiempo de búsqueda.
+Basándonos en estas propiedades, podemos pensar que la utilización de diferentes herramientas para la detección de caracteristica de interés, aún cuando algunos resultados de estas puedan solaparse entre si,
+es una buena práctica al momento de definir el conjunto de herramientas utilizadas. 
 % Como principio general para definir este conjunto, se tuvo en cuenta la hipótesis general sobre el espacio de secuencias buscadas, vista en la sección \ref{espacioSecuencial} . 
 % De esta forma, dado que el espacio de soluciones buscadas se asume como considerablemente grande con respecto al espacio total de posibles secuencias, al hacer   
 % una evaluacion sobrerestrictiva con respecto a las caracteristicas buscadas no se impediría alcanzar un resultado.
 
-Por lo tanto, un aspecto que se repite es el solapamiento entre las caracteristicas que buscan(o los resultados que realmente se obtienen) los distintos recursos utilizados con el fin de hacer mas exhaustiva la detección, 
-además de políticas considerablemente permisivas en cuanto a los métodos, con el fin de asegurar una mayor cobertura de las propiedades buscadas.
+Por lo tanto, un aspecto que se repite es el solapamiento entre las características buscadas por las herramientas de evaluación(o los resultados que realmente se obtienen), pensado con el fin de hacer mas exhaustiva la detección,
+además de políticas considerablemente abarcativas en cuanto a los métodos, con el fin de asegurar una mayor cobertura de las propiedades buscadas.
+Esta decisión permite dar mejores diseños finales(con mayor probabilidad de tener las características deseadas), sin tener un aumento considerable en el tiempo de búsqueda.
+Como complemento de esta política, parte del trabajo realizado durante el desarrollo de la herramienta consistió en implementar un código versátil que permita modificar fácilmente el conjunto de métodos de evaluación.
+% La implementación está centrada en el esquema de mutaciones(visto en el capitulo previo) y es posible añadir herramientas de forma modularizada.
+% Para esto, se debe agregar en la implementación una función independiente que tome como parámetro la secuencia correspondiente a evaluar y devuelva el puntaje asociado a cada posición. 
+% Cualquier herramienta que pueda ser adaptada a este esquema podrá ser agregada a la implementación.
 
-% Esto podria traer 2 problemas con respecto a la ejecución:
-% En primer lugar 1 extender el tiempo de ejecucion, no solo para agregar el tiempo de ejecucion de nuevas evaluaciones, sino tambien porque la aparición de falsos positivos reduce el espacio real de soluciones.
-% El segundo problema, tampoco relevante en nuestro caso, es que podria modificar la búsqueda, ya que aquellas posiciones 
-% para las cuales exista mas de 1 evaluacion que los pueda detectar tendran un mayor puntaje y, por lo tanto, seran mas propensas a ser mutadas
-% 
 
-Siguiendo esta política, parte del trabajo realizado durante el desarrollo de la herramienta consistió en implementar un código versátil que permita expandir/modificar el conjunto de propiedades evaluadas de manera simple.
-La implementación está centrada en el esquema de mutaciones(visto en el capitulo previo) y es posible añadir herramientas de forma modularizada.
-Para esto, se debe agregar en la implementación una función independiente que tome como parámetro la secuencia correspondiente a evaluar y devuelva el puntaje asociado a cada posición. 
-Cualquier herramienta que pueda ser adaptada a este esquema podrá ser agregada a la implementación.
 
 % Como complemento a esta idea de tener un amplio conjunto de propiedades/métodos a evaluar, se provee al usuario la posibilidad de seleccionar al momento de la ejecución 
 % permite parametrizar la definición de las evaluaciones realizadas(\ref{evaluacion}). 
@@ -39,17 +35,17 @@ Cualquier herramienta que pueda ser adaptada a este esquema podrá ser agregada 
 
 \section{Propiedades conformacionales} \label{propiedadesConformacionales}
 
-Uno de los objetivos fundamentos de esta herramienta se encuentra en la restricción de elementos estructurales ordenados en la secuencia linker.
-Como vimos al comienzo de la sección \ref{method}, para obtener la flexibilidad requerida para la función de un linker, es importante que la secuencia adopte una conformación intrínsecamente desordenada. 
+Uno de los objetivos fundamentales de esta herramienta consiste en la restricción de elementos estructurales ordenados en la secuencia. 
+Esto brinda al diseño resultante la flexibilidad requerida para la función de linker, adoptando una conformación intrínsecamente desordenada. 
 
-En primer lugar vamos a utilizar la herramienta IUPred descrita en la sección \ref{iupred}, para intentar detectar aquellas posiciones que puedan generar interacciones favorables en el contexto de la secuencia, indicando una tendencia a 
-adoptar estructuras plegadas, caracteristicas de las proteínas globulares.
+En primer lugar vamos a utilizar la herramienta IUPred, descrita en la sección \ref{iupred}, para intentar detectar aquellas posiciones que puedan generar interacciones 
+favorables en el contexto de la secuencia, indicando una tendencia a adoptar estructuras plegadas, caracteristicas de las proteínas globulares.
 
-Sin embargo, la estabilización de estructuras tridimensionales puede no sólo deberse a interacciones intramoleculares.
-En el capitulo 1 se describieron a las proteínas de membrana como módulos proteícos con propiedades secuenciales distintivas, las cuales, a pesar de su diferencia con las proteínas globulares, 
-pueden adoptar una estructura tridimensional determinada, estabilizada por interacciones con contexto hidrofóbico en el que se encuentran.
+Sin embargo, la estabilización de estructuras tridimensionales puede deberse a otras interacciones con el contexto, que van mas allá de las interacciones intramoleculares.
+Las proteínas de membrana son módulos proteícos con propiedades secuenciales distintivas y que, a pesar de su diferencia con las proteínas globulares, 
+pueden adoptar una estructura tridimensional determinada, estabilizada por interacciones con el contexto hidrofóbico en el que normalmente se encuentran.
 Teniendo en cuenta este panorama más amplio, creemos conveniente agregar a la evaluación un predictor para identificar proteínas de membrana,
-principalmente de los segmentos transmembrana ya que son estos los que poseen propiedades particulares y, probablemente, sus estructuras no han sido detectadas por el método anterior.
+principalmente de los segmentos transmembrana ya que son estos los que poseen propiedades particulares y, probablemente, no hayan sido detectados por el método anterior.
 Utilizamos la herramienta TMHMM(\ref{tmhmm}) para predecir su ocurrencia, profundizando nuestra capacidad de encontrar regiones propensas a formar estructuras ordenadas.
 
 
@@ -117,28 +113,15 @@ Utilizamos la herramienta TMHMM(\ref{tmhmm}) para predecir su ocurrencia, profun
 
 
 
-
-% 
-%    SEGUNDA EVALUACION DE PROPIEDADES ESTRUCTURALES:  HELICES TRANSMEMBRANA
-% 
-% SECUENCIAS-HELICES TRANSMEMBRANA
-% Usando IUPred intentamos asegurarnos que nuestra secuencia adopte una estructura desordenada, es decir, que no se encuentre en una conformación plegada.
-IUPred nos permite, entonces, distinguir secuencias propensas a adoptar una conformación globular.
-En el capítulo 1 se describieron, además, a las proteínas de membrana como módulos proteícos con propiedades secuenciales distintivas, las cuales, a pesar de su diferencia con las proteínas globulares, 
-pueden adoptar una estructura tridimensional determinada, estabilizada en el contexto hidrofóbico en el que se encuentran.
-% les permiten a las proteínas de membrana estabilizar la conformación estructurada en el contexto hidrófobico en el que se encuentran. 
-% En el capítulo 1 se vió como ciertas conformaciones estructurales ordenadas, como las proteínas de membrana, tienen  
-Teniendo en cuenta este panorama más amplio, creemos conveniente agregar a la evaluación un predictor para identificar proteínas de membrana,
-principalmente de los segmentos transmembrana ya que son estos los que poseen propiedades particulares y, probablemente, sus estructuras no han sido detectadas por el método anterior.
-Utilizamos la herramienta TMHMM(\ref{tmhmm}) para predecir su ocurrencia, profundizando nuestra capacidad de encontrar regiones propensas a formar estructuras ordenadas.
-
 % PEGAR EL TEMA DE AGREGACION DICIENDO COMO QUE ES OTRA FORMA DE INTERACCIONES QUE NO SON INTRAMOLECULARES PERO DAN UNA CONFORMACION TRIDIMENSIONAL NO-FLEXIBLE
 % Otra forma de alcanzar una estructura tridimensional , como ya se describió, 
-Una estructura tridimensional rígida puede ser alcanzada por interacciones con otras proteínas, como se vió en la formación de agregados proteicos. 
-Estas conformaciones agregadas pueden o no tener una estructura tridimensional ordenada pero, en todos los casos, limitan la flexibilidad requerida para una secuencia linker.
+Los agregados proteícos son otro tipo de módulos que involucran la formación de una estructura tridimensional estable, en este caso mediante interacciones con otras unidades proteicas.
+% Una estructura tridimensional rígida puede ser alcanzada por interacciones con otras proteínas, como se vió en la formación de agregados proteicos. 
+Estas conformaciones agregadas pueden o no tener una estructura tridimensional ordenada pero, en todos los casos, limitan la flexibilidad requerida para una secuencia linker, generando, además,
+módulos proteicos insolubles que afectan a todo el sistema biológico.
 % Por lo tanto, a continuación nos centraremos en evitar la formación de agregados a partir del análisis secuencial.
-Debido a estas implicancias altamente negativas de la formación de agregados, se evaluará detalladamente la tendenca a su formación en la secuencia que estamos diseñando.
-
+Debido a estas implicancias altamente negativas se evaluará detalladamente la tendencia a formar agregados dentro de la secuencia que estamos diseñando.
+ 
 
 Existe actualmente una gran variedad de métodos existentes para predecir agregación desestructurada y formación de fibras amiloides (\cite{hamodrakas2011protein,redler2014computational,agrawal2011aggregation})
 Cada método hace sus propias hipótesis e implementa predictores independientes, los cuales varían desde análisis muy simples (por ej. análisis de la composición secuencial) a métodos específicos más complejos.
@@ -1050,12 +1033,14 @@ Evaluación en busca de patrón secuencial & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 &
 % Esto implica no sólo probar con cierta certeza que tendrá la funcionalidad deseada, sino también evaluar el comportamiento en todos los pasos del proceso de ingeniería. 
 % propiedades de la secuencia no afectarán este proceso de ninguna forma.
 % De forma general, esto se traduce en tener una secuencia 
-Para asegurar que el linker diseñado funcione únicamente como conector flexible entre dominios, es importante asegurar 
-que no posea interacción ni funcionalidad biológica alguna, evitando así cualquier interferencia con la expresión, utilización y actividad biológica del producto final de la ingeniería de proteínas.
-De forma resumida, es necesario evaluar que el diseño es biológicamente inerte.
+Para asegurar que el linker diseñado funcione únicamente como conector flexible entre dominios, debemos evaluar que sea biológicamente inerte.
+Esto implica que su secuencia no posea interacción alguna, evitando así cualquier interferencia con la expresión, utilización y actividad biológica de la proteína quimérica.
+% , producto final de la ingeniería de proteínas.
+% De forma resumida, es necesario evaluar que el diseño es biológicamente inerte.
 % Esto implica que no tenga regiones target para clivaje,fosforilación, glicosilación, regiones de unión a otras proteínas, etc.
-Si bien es posible reducir este análisis conociendo más detalladamente las condiciones experimentales con las que se trabajará, el objetivo de esta herramienta es que se pueda obtener 
-un resultado genérico, que cumpla con este principio de permanecer inerte en cualquier contexto experimental. 
+Si bien es posible simplificar este análisis conociendo en detalle las condiciones experimentales con las que se trabajará, el objetivo de esta herramienta es que se pueda obtener 
+un resultado genérico, que cumpla con el principio de permanecer inerte en cualquier contexto experimental. 
+La evaluación de funcionalidades biológicas 
 
 % Durante el capítulo 1(sección \ref{functionalLandscape}) describimos una gran cantidad de elementos funcionales que integran las proteína naturales. 
 % Siguiendo estos conocimientos, en esta etapa de la evaluación secuencial describiremos un conjunto de recursos para poder detectar la presencia de estas funcionalidades en nuestra secuencia, 

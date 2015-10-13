@@ -40,17 +40,22 @@ Universidad de Buenos Aires - Buenos Aires, Argentina}
 
 
 
+% My name is ... 
+% 
+
+% I will present PATENA, which is an algorithm for the design of protein linker sequences
+% So lets first see why we need a linker sequence....
+
+%*************SWITCH 
 
 % *********************************************
-%            START 
+%            MI PRESENTACION
 % *********************************************
 \begin{frame}
  \titlepage
-% \includegraphics[width=70px]{../img/logofcen.pdf} 
 \hspace{4px}
 \includegraphics[width=55px,height=50px]{../img/logouba.png}
 \hspace{50.7px}
-% \centering
 \includegraphics[width=70px,height=50px]{../img/logoCONICET.jpg} 
 \hspace{15px}
 \includegraphics[width=100px,height=50px]{../img/logoLFP.jpeg}
@@ -61,108 +66,35 @@ Universidad de Buenos Aires - Buenos Aires, Argentina}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+% We want to tag a protein by fusion of a fluorescent protein.
+% We known that GFP can provide this (fluorescence) 
+% So we decide to use it and we first think a possible construction, made of our target protein(in this case, tubulin), linked to GFP.
+% it has been studied that GFP is a relatively small and inert molecule, that doesn't seem to interfere with any biological processes of interest, 
+% but the addition of it to can affect the localization or function of the tagged protein
+% to prevent this, it is important to use the correct linker sequence, so the whole construction will have the desired properties
+% ....OPCIONAL .......  otras coas importantes.....we need to decide if the GFP is added in C or N terminal, that is , the order of the elements....also
 \begin{frame}[plain]{Chimeric Proteins}
 \begin{adjustwidth}{-2.0em}{-2.0em}
-
-
-Use of GFP as fluorescent tag 
-
-
-% \vspace{30px}
-% Adition of GFP to target proteins\\ % amonitoring cellular processes in living systems\\
+Use of GFP as fluorescent tag\\
 \Put(60,-300){ \includegraphics[width=260px]{../img/proteinFusion-GFP-tubulinTransparent.png}}
-
-% \vspace{70px}
-Construction: GFP + Linker + Tubulin
-
+\\
+Construction: GFP + Linker + Tubulin\\
 \vspace{145px}
 Addition of GFP can affect the localization or function of the tagged protein $\rightarrow$ \textbf{importance of correct linker}
 \end{adjustwidth}
 \end{frame}
 
-% There are several relevant aspects to decide when designing this construction (for example, if the GFP is added in C or N terminal, that is , the order of the elements), 
-% one of these aspects is the sequence that will be used to link both proteins
-%  in this case is quite relevant that the naturally expressed proten(i.e tubulin) 
-%  it has been studied that GFP is a relatively small and inert molecule, that doesn't seem to interfere with any biological processes of interest....
-%  but what about the new sequence that function as a linker? these and other considerations build of different uses help to build a definition of a linker sequence...
-
-
-
-
-
-
-
-% \begin{frame}[plain]{Chimeric Proteins}
-% \begin{adjustwidth}{-2.0em}{-2.0em}
-% 
-% \Put(0,-200){\includegraphics[width=190px]{../img/gfp.jpg}}
-% % \vspace{-1.5\baselineskip}
-% \hspace{180px} Use of GFP as fluorescent tag 
-% % \vspace{-20px}
-% 
-% \vspace{50px}
-% % Adition of GFP to target proteins\\ % amonitoring cellular processes in living systems\\
-% \Put(130,-240){ \includegraphics[width=220px]{../img/proteinFusion-GFP-tubulinTransparent.png}}
-% 
-% \vspace{70px}
-% GFP + Linker + Tubulin
-% 
-% \vspace{35px}
-% Addition of GFP can affect the localization or function of the tagged protein $\rightarrow$ \textbf{importance of correct linker}
-% \end{adjustwidth}
-% \end{frame}
-
-
-
-
-
-% EJEMPLO VIEJO
-
-% \begin{frame}[plain]{Chimeric proteins}
-% %  Many proteins in nature are multidomain \\
-% %  use of protein engineering process to covalently join 2+ proteins/domains
-% %  New construction made of 2+ proteins/domains\\
-%  %  \Put(0,10)
-% %  \vspace{-3.5\baselineskip}
-% 
-% 
-% % for example, we have here 2 fluorescent domains(Cyan fluorescent protein and yellow fluorescent protein)
-% % When 2 fluorescent proteins/domains) are sufficiently separated, they retain their spectral properties.
-% 
-% % FRET dependence with distance\\
-% Cyan Fluorescent Protein(CFP) - Yellow Fluorescent Protein(YFP)\\
-%  \begin{adjustwidth}{-1.5em}{-3.5em}
-%  \includegraphics[width=170px]{../img/fretDomainsA.png}
-%  \includegraphics[width=170px]{../img/fretDomainsB.png}
-% \end{adjustwidth}
-% Distance-dependent spectral properties\\
-%   \vspace{10px}
-% Macromolecular crowding sensor:  CFP + Linker + YFP \\
-% \vspace{10px}
-% % Multiple molecular sensors:  YFP -  
-% \includegraphics[width=125px,height=60px]{../img/fretSeparadosCFP.png}
-% \includegraphics[width=80px]{../img/crowdingSign.png}
-% \includegraphics[width=125px]{../img/fretJuntosCFP.png}
-% % one construction(one macrmolecule) function as a sensor
-% %   \centering
-% %  \includegraphics[width=330px]{../img/fret.png}
-% \end{frame}
-
-
-
-
-
-
-% These construcions are 
-
-% QUE SON
-% ejemplos:
-% 	Formación de proteinas bifuncionales mediante union covalente de dominios.
-% 	Promover la unión entre proteinas que forman complejos, generando una unión covalente entre ellos
-% 
-% proceso de sintesis:
-% 	-unir los dominios de interes
-%       -clone into expression system
 
 
 
@@ -172,10 +104,20 @@ Addition of GFP can affect the localization or function of the tagged protein $\
 
 
 
+% VIENE DE ......to prevent this, it is important to use the correct linker sequence
+
+
+% So, a linker is a sequence with a very important function, it (allows the domains to remain)/(it keeps the domains) covalently linked while folding in an independent manner, moving and interacting freely.
+% To choose the correct sequence we need to take several aspects(properties) into account: 
+% First: length, the sequence needs to allow sufficient distance between units
+% Second: the sequence needs to adopt a flexible conformation. This propoerty will allow the units to move and interact freely. To provide this flexibility, the sequence . 
+% What is more, this property needs to remain constant, so 
+
+% It is also very important that the linker sequence remains biologically inert. That means we dont want any kind of interaction with molecules that could interfere with normal processes of biological system.
+
+% Finally, the linkers will be part of an experimental process, so there can be some other preferences regarding composition, specifically AAs frequencies, UV silent, net charge.
 
 \begin{frame}{Relevant linker properties}
-% From this example application(fret sensors) we see that, besides defining the domains to be linked, we need to define a linker sequence.
-%  a linker is a sequence with a very important function....it allows the domains to remain covalently linker while folding in an independent manner, moving and interacting freely
 \vspace{-20px}
 \begin{adjustwidth}{-0.5em}{-1.5em}
 \textbf{Allows domains to fold independently, move and interact freely}
@@ -198,12 +140,8 @@ Addition of GFP can affect the localization or function of the tagged protein $\
   \item Other desirable aspects  %experimental aspects
     \begin{itemize}
      \item AAs frequencies, UV silent, net charge
-%   Composition
     \end{itemize}
 \end{itemize}
-
-% \Large{....linker design is not a trivial problem}
-
 \end{frame}
 
 
@@ -213,6 +151,18 @@ Addition of GFP can affect the localization or function of the tagged protein $\
 
 
 
+
+% At the moment we have 3 different approaches to linker design
+% First we can, of course, use linkers extracted from natural multidomain proteins
+% We can also propose novel designs containing small and disorder-favoring(disorder-promoting) amino acids.
+% Another option is to use different servers available. These servers collect natural and aritificial linkers and provide a search over these set using specific parameters, so the user can find a sequence with the required properties
+% (length,    ....)
+
+% We will be able to get different designs but...    , 
+% most of the sequences we will get wont have all the desired properties. 
+% for example, natural linkers can, of course, have biological functions
+% others can have rigid structure
+% even if we get sequences with all desired properties, the set of possible designs will be very small, and we will only get a few possible different designs.
 
 
 
@@ -223,31 +173,16 @@ Addition of GFP can affect the localization or function of the tagged protein $\
 
 
 \item Intuitive design.
-%  there are lots of chimeric constructions that were experimentally tested....reuse. may involve small engineering process to adapt the sequence(lenght, composition, etc)
  \begin{itemize}
-%   \item Reuse from literature or propose novel sequence. 
   \item Usually (G/S/P)-rich 
-%   \begin{itemize}
-%    \item  i.e $(GGGS)_n$ 
   \end{itemize}
-%     \end{itemize}
-
 \item Pseudo-Rational design. 
 \begin{itemize}
  \item Servers: LINKER, Linkerdb, SynLinker.
 \end{itemize}
-
-%      DB (natural/previously used designs)
-%     these include from different collections obtained in different projects	
-
-%   \item Very limited set of sequences and composition
-%  \subitem Requires experimental test (prueba y error) 
-% \begin{itemize}
-%  \item 
 \end{itemize}
 \vspace{20px}
 \LARGE{Structure? Inert? Diversity?}
-% \end{itemize}
 \end{frame}
 
 
@@ -262,21 +197,35 @@ Addition of GFP can affect the localization or function of the tagged protein $\
 
 
 
+% Clearly, we dont have a method to design linkers with the correct properties
+% but if we have a sequence, we can check any undesired feature by means of different bioinformatic tools available, that can analyze the sequence
+% That is, We can predict all unwanted properties.
+% OPTIONAL ...That is, we can evaluate (get an idea, get an estimation of) how good or how bad(quality) is a sequence to work as a linker.
+
+% ACA NO DIGO NADA DEL NOMBRE DEL METODO, TOTAL ESTA EN LA DIAPO
+% The main idea behind our method is to define a set of tools to check each of the undesired features.
+% This evaluation set is composed of: 
+% IUPred, to evalute if the sequence will adopt a globular structure
+% we have 3 different methods to evaluate sequence propensity to form insluble aggregates
+% functional features are evaluated by means of: BLAST(to try to infer function through sequence similarity), also  ELM resource(to find instances of linear motifs), PROSITE(to find functional sites), and ANCHOR(to find recognition elements)
+% Finally, some optional evaluations are:
+%      check the presence of ultraviolet aboserbers aminoacids W(Tryptophan), Y(Tyrosine), F(Phenylalanine)
+% 	and check the presence of charged residues.
 
 
-% \section{Method}
+% so....what do we do with this evaluation set?
+
+% 
+% DECIR QUE TODOS LOS MÉTODOS DAN INFORMACION A NIVEL DE POSICION DENTRO DE LA SECUENCIA
+%  any of these methods allows to define if a particular position contains a specific negative aspect 
+% each of these methods allows to asses if a particular position has that specific negative aspect we are evaluating
+% so we can define a scoring function
 
 \begin{frame}{Rational approach}
-% No method can provide a clean design\\ % a design clean of unwanted properties
  
-% If we have a candidate linker sequence...
 PATENA uses different applications to evaluate a candidate linker.
 \vspace{15px}
-% all apsects associated with linker properties can be assses by means of different bioinformatic tools available, that can analyze the sequence
-% a pesar que los requerimientos no son muuchos, es decir, podemos asumir que gran cantidad de secuencias podrian funcionar como linkers
 
-% We can evaluate (get an idea, get an estimation of) how good or how bad(quality) is a sequence to work as a linker.
-% We can predict all unwanted properties.
 \begin{tabular}{l|l}
 \textbf{Undesired feature} & \textbf{Prediction method} \\ \hline \hline
 \rowcolor{Gray} Globular structure & IUPred  \\
@@ -286,25 +235,9 @@ UV absorption(OPTIONAL) & W, Y, F \\ %Presence of UV-absorbers residues \\
 \rowcolor{Gray}Net charge(OPTIONAL)& Presence of charged residues\\
 \end{tabular}
  
-% \Large{Use this information to aid in linker design process}
+
 \vspace{20px} 
-% DECIR QUE TODOS LOS MÉTODOS DAN INFORMACION A NIVEL DE POSICION DENTRO DE LA SECUENCIA
-%  any of these methods allows to define if a particular position contains a specific negative aspect 
-% each of these methods allows to asses if a particular position has that specific negative aspect we are evaluating
-% so we can define a scoring function
 Each of these methods allows to predict the presence of undesired features at specific position $\rightarrow$ define a scoring function
-% Each method predicts the presence of undesired features at position level $\rightarrow$ we can define a scoring function
-% \vspace{10px}
- 
-% once we have a scoring function, we add a method to 
-
-% Use heuristic approach(Monte Carlo): \\
-% \textbf{Input}
-% (User's sequence / Random sequence) $\rightarrow$ (Sequence with score=0)
-
-
-
-
 \end{frame}
 
 
@@ -312,111 +245,17 @@ Each of these methods allows to predict the presence of undesired features at sp
 
 
 
-% ESTO ES BASICAMENTE EL FUNDAMENTO DEL MÉTODO
-% if we want to use this aspects to evaluate
-% para usar esta informacion necesitamos 2 cosas
-% 1 - formalize this estimation idea...i mean, we can get automatize and quantify the evaluation 
-% AND
-% 2 - find a good way to search for candidate sequences , to evaluate if they have the desired properties.
-%	 we (probably) cant just start testing random sequences and see if they work...it would be highly inefficient
-%	 we cant use natural sequences because, as we said, they dont always fulfill our needs
-% 
-% if we can find these 2 things we will have a design method
-% 
-% what is more, in our application these 2 aspects are connected !!!
 
 
-
-% ACA EXPLICO EL PUNTO 1 - CUANTIFICACION DE LA CALIDAD 
-% \begin{frame}{Linker evaluation}
-% \begin{itemize}
-% 
-% %  Turn the evaluation schema into a function $f(sequence) -> score$
-% % quantify using discrete values
-%  \item Turn the estimation into a scoring function by calculating the undesired features\\
-% % Penalize unwanted properties\\
-% % Quantify how good(or bad) is a sequence
-% 
-% % quantify de quality of the sequence
-% % es decir...if we define a function f(face)
-% %   
-% %   \item Higher score $\rightarrow$ unwanted properties $\rightarrow$ worse linker
-%   
-%  \item Score $\geqslant 0$ (Higher score $\rightarrow$ bad linker)
-% % we dont really care how high or low is the score, we want a linker with score = 0
-% \end{itemize}
-% 
-% % ES IMPORTANTE DESTACAR QUE EL PROCESO DE EVALUACIÓN CAN BE ADAPTED TO ANY RELEVANT ASPECT THAT WANT TO BE ASSESED
-% % IF YOU THINK THAT ITS GONNA BE RELEVANT THAT ASSES 
-% % \vspace{0.3cm}
-% % \begin{adjustwidth}{-1.5em}{-2.5em}
-%  
-% 
-% % \end{adjustwidth}
-% \end{frame}
-
-
-
-
-
-% 
-% % dijimos que queriamos usar esta informacion (el score) to aid in linker design
-% \begin{frame}{Linker design}
-% % the second thing we need is 
-% % ahora que definimos un score
-% \begin{itemize}
-%  \item Aiming at sequence with Global score = 0.
-%   
-%  \item We have information for each position and the whole sequence
-% %  \item We have information of quality(score) at sequence level (detalied for each position).
-%  
-% \end{itemize}
-% 
-% %  TENEMOS INFORMACION SOBRE DETALLADA A NIVEL DE RESIDUO(NO SOLO EL SCORE GLOBAL)
-% % we can use this information to guide the search
-% 
-% % so, we propose a search method 
-% % We propose a search method: 
-% % to search for (optimal) sequence 
-% \begin{enumerate}
-%  \item Propose tentative linker as starting sequence 
-% %     \begin{itemize}
-% %     \item Random sequence works too! (\textit{de novo} design)
-% %     \end{itemize}
-%    
-%  \item Propose point mutations to high scoring positions
-% %  we will get back to this later
-%       \begin{itemize}
-%       \item If score decreases $\rightarrow$ incorporate mutation to design.  
-%       \item If NOT $\rightarrow$ heuristic decision (Score difference $\rightarrow$  $A_{rate}$).  
-%      \end{itemize}
-%       
-%  \item Repeat step 2 until score=0
-% \end{enumerate}
-% 
-% 
-% % $\beta=k_b Temp$  POR LO TANTO, A MAYOR Temp, MAYOR BETA Y POR LO TANTO MAYOR FRECUENCIA DE ACEPTACION
-%  
-% \Large{Random sequences can work too! (\textit{de novo} design)}\\
-% \vspace{7px}
-%  
-% \Large{Obtaining a design is now an optimization problem}
-% 
-% 
-% % and we are trying to apply an heuristic search method
-% 
-% % SOLVING AN OPTIMIZATION PROBLEM MIGHT HAVE DIFFERENT SOLUTIONS
-% % una aproximacion mediante mutaciones permitiria buscar soluciones similares a una secuencia inicial definida por el usuario
-% % ademas, mediante el control de la frecuencia de aminoacidos podriamos controlar la composicion
-% 
-% \end{frame}
-
+% this is an example of application of this scoring function
+% each tool provides a value of 1 for each position that has undesired feature. 
+% summing up all the values for each position we have a position score, defining the total number of undesired features for it
+% and finally, if we add all the position scores we can get a global score.
+% so we have a function, defining a value of how bad is a linker. what can we do with it? ..... ****SWITCH
 
 % *********************************************
 %      EJEMPLO DE EVALUACION DE SCORE
 % *********************************************
-
-% ACA DIGO: YA QUE TENEMOS LAS HERRAMIENTAS DISPONIBLES PARA LA EVALUACION Y UN METODO GENERAL PARA ENCONTRAR UNA SECUENCIA FINAL, DETALLAMOS CUAL ES LA FUNCION DE SCORING
 % 
 \begin{frame}{Scoring example}
  \begin{tabular}{llllllllllllll} 
@@ -439,6 +278,50 @@ PROSITE 	      			& 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\ \hline
 
 
 
+
+
+
+
+% So, we have seen the core of PATENA, which is the use of a scoring function to evaluate undesired features of linker sequences
+% We now will see how PATENA use this function to implement a linker design method.
+
+% to use this method the user will need to provide a candidate linker , or just the length. 
+
+% as a result, the user will get a sequence which has no undesired features. that is, a sequence with score equal to zero.
+% this resulting design can be used as linker
+
+% As you can see, if the user only defines the length of the sequence, this method can design a linker from scratch. 
+
+% lets see more in detail how this method works, using the scoring function to implement an optimization method
+
+\begin{frame}{PATENA: Input - Output}
+
+% \centering
+\vspace{24px}
+\begin{adjustwidth}{-2.0em}{-2.0em}
+\includegraphics[width=350px]{../img/patenaCoarseGrained.png}
+ 
+\end{adjustwidth}
+
+
+\end{frame}
+
+
+
+
+
+
+
+% The method starts defining an initial sequence, this sequence can be a users input, or if the user defined a length, a random sequence is created.
+% Once we have a starting sequence, we make a first score evaluation.
+% If the score is greater than zero, we have some undesired features, in this case we propose a point mutation, aiming at the high scoring positions, that is, the positions that accumulate most undesired features.
+% We evaluate this proposition, again using the scoring function.
+% If this mutation decreases the score, then we will incorporate that into the sequence.
+% The heuristic decision is implemented using a method known as Monte Carlo decision. This decision is based on the score difference and on a beta parameter, which is proportional to the acceptance rate.
+% Based on this decision we can accept the mutation or not.
+
+% What we have here is, again, an optimization of the scoring function.
+% Once we have this algorithm implemented we need to see if we can find an effective beta value that will allow the execution to efficiently find a design.
 
 
 % *********************************************
@@ -477,7 +360,11 @@ PROSITE 	      			& 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\ \hline
 
 
 
+% 
+%
 
+% The execution can find designs in all cases but we see that the effective range is located below  beta value of 2.0
+% Just to move on with evaluation we choose a beta of 1.0, which is in the middle. This is just a decision we made.
 
 % *********************************************
 %      BETA vs TIME
@@ -495,6 +382,24 @@ PROSITE 	      			& 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\ \hline
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+% we know it works and we have one effective value for beta.
+% In this case, the execution profile is something like this.
+% this graphic is only to get a better idea of how the execution profile looks like.
+% how many mutations are required? in this particular execution we have a bit more than two hundred mutations 
+% This number will be variable, since the method has some heuristics behind so it is not deterministic and it of course depends in the initial sequence and the length if it...
+% that is an important aspect, what happens if we variate the length of the sequence??.....ACA ENGANCHO CON EL PROX. SLIDE
+% 
 % ***************************************************************
 %      SCORE vs MUTACION  PARA 1 SOLA EJECUCION USANDO BETA=1.0
 % ****************************************************************
@@ -502,10 +407,6 @@ PROSITE 	      			& 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\ \hline
 % \vspace{-0.5\baselineskip}
 \begin{adjustwidth}{-1.5em}{-2.5em}
 \centering
-% \begin{Verbatim}
-% How many mutations are required?  - \hspace{5px} Length = 30   
-% Length = 30 residues \hspace{5px} - \hspace{5px}   Effect of $\beta$  
-% \end{Verbatim}
 
 \includegraphics[width=330px,height=210px]{../img/iterationVsScore-individualBeta1-EXAMPLE.png}
 % \includegraphics[width=330px,height=210px]{../img/scoreVsMutation-individual.png} 
@@ -519,6 +420,10 @@ PROSITE 	      			& 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\ \hline
 
 
 
+
+
+% to evaluate this we made a total of 36 different executions, starting from natural and random sequences of diffferent lengths.
+% 
 
 % *********************************************
 %      TIEMPO EJECUCION vs LENGTH SECUENCIA
@@ -536,6 +441,8 @@ PROSITE 	      			& 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\ \hline
 
 
 
+
+
 % *********************************************
 %      DIVERGENCIA: dividido en 2 slides
 % *********************************************% 
@@ -543,6 +450,19 @@ PROSITE 	      			& 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\ \hline
 % 	DECIR SIEMPRE IDENTITY , PORQUE SI DIGO SIMILARITY SE CONFUNDE CON ALINEAMIENTO , ETC, ETC
 % 		ACLARAR QUE COMO LOS RESULTADOS TIENEN LA MISMA LONGITUD, LA IDENTIDAD SE EVALUA SIMPLEMENTE COMPARANDO QUE POSICIONES TIENEN EXACTAMENTE EL MISMO RESIDUO
 % 
+
+
+
+% So, at the moment we have a method that allows to, at least, get some resulting designs.
+% Since it is a Nondeterministic algorithm it could allow to get a diverse set of results.
+% (OPTIONAL) but i said first that one of the problems with linker design methods nowadays is that they 
+% lets see what kind of results we get, to see how different are the results ?
+% Here we have identity between a set of results(a total of 74 designs) obtained from running PATENA using the same initial sequence(these are the green bars).
+% We have also blue bars indicating the identity that can be found between random sequences of the same length
+% Conclusion: we can see, that, identity between resulting designs is greater than that between random sequences. Nevertheless the set of results is clearly heterogeneous.
+
+% It is great to have such diversity but, if the user defines a sequence to start, the idea is to get a at least some similarity in the resulting design. 
+% how similar are these results with the initial sequence??  ******** SWITCH DIAPO
 \begin{frame}[plain]{Nondeterministic algorithm: same input $\rightarrow$ different results}
 \centering
 \vspace{10px}
@@ -557,6 +477,10 @@ Fixed starting sequence $\rightarrow$ 74 designs - Identity \textbf{between fina
 \end{frame}
 
 
+
+% Using the same set of results we show here(in green bars) the identity between the set of results and the initial sequence.
+% blue bars show the identity between that initial sequence and a set of random sequences of the same length
+% Conclusion: the resulting set, although is quite diverse, still maintain certain similarity with initial sequence.
 \begin{frame}[plain]{Nondeterministic algorithm: same input $\rightarrow$ different results}
 \centering
 \vspace{10px}
@@ -574,6 +498,12 @@ Fixed starting sequence $\rightarrow$ 74 designs - Identity \textbf{with initial
 
 
 
+
+
+% To sum everything up
+% PATENA can find suitable linkers in a short execution time, that is, in the order of tens of minutes usually
+% We can also obtain a set of designs showing high diversity, which is ideal since we can fill lot of different preferences.
+% The input can be very simple so this method allows to develop a server to easily obtain linker designs. 
 \begin{frame}{Conclusion}
 \begin{itemize}
  \item PATENA can find suitable protein linkers in a short execution time.
@@ -582,6 +512,15 @@ Fixed starting sequence $\rightarrow$ 74 designs - Identity \textbf{with initial
 %  \item We interpret that the space of suitable linker sequences is a large fraction of the whole sequence space.
 \end{itemize}
 \end{frame}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -614,7 +553,7 @@ Fixed starting sequence $\rightarrow$ 74 designs - Identity \textbf{with initial
 
 
 % *************************************************************
-% 		 LOGO  
+% 		SEQUENCE LOGO  
 % *************************************************************
 
 \begin{frame}
@@ -733,4 +672,22 @@ Fixed starting sequence $\rightarrow$ 74 designs - Beta 0.5 , 0.1\\
 \end{adjustwidth}
 \end{frame}
 
+
+
+
+
+
+
+
+
+
+
+% The name
+\begin{frame}{Limpio como una patena}
+\centering
+\includegraphics[width=300px]{../img/patena.jpg}
+\end{frame}
+
+
 \end{document}
+

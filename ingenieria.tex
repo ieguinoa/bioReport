@@ -211,7 +211,7 @@ que se eviten las secuencias muy cortas, que no logran obtener una separación s
 
 Por su parte, los requerimientos conformacionales suelen ser más estrictos e incluso pequeños cambios en la estructura pueden limitar la funcionalidad del diseño.
 
-\paragraph{Propiedades conformacionales} \hspace{0pt} \\
+\paragraph{Propiedades conformacionales} \hspace{0pt} \\ \indent 
 En primer lugar buscamos que la secuencia linker adopte una conformación desordenada, es decir, que no se pliegue formando una estructura compacta con los dominios que une.
 Esta conformación provee la flexibilidad necesaria para que los dominios puedan moverse libremente y las interacciones puedan ocurrir sin ninguna restricción estructural.
 % Para las arquitecturas más comunes, compuestas de dominios globulares unidos por linkers, esta flexibilidad es el requerimiento mas importante ya que permite a los distintos dominios interaccionar libremente.
@@ -245,7 +245,7 @@ sino que también puede ocurrir durante las etapas posteriores de separación y 
 Es importante que el diseño del linker tenga en cuenta estos aspectos(y otros similares), evitando que la secuencia posea tendencias a formar uniones estables con otros componentes del sistema.
 
 
-\paragraph{Elementos biológicamente funcionales} \hspace{0pt} \\
+\paragraph{Elementos biológicamente funcionales} \hspace{0pt} \\ \indent 
 % 
 % 
 Los aspectos conformacionales no son los únicos relevantes. 
@@ -275,7 +275,7 @@ el desarrollo de un proceso biológico mediante un mecanismo conocido como plega
 % Esta es una propiedad que describimos como característica de las proteínas intrínsecamente desordenadas y, por lo tanto, es posible que ocurra en el linker dada su conformación intrínsecamente desordenada.
 
 
-\paragraph{Otras propiedades} \hspace{0pt} \\
+\paragraph{Otras propiedades} \hspace{0pt} \\ \indent 
 
 % COMPOSICION DE AMINOACIDOS: Carga metabolica y propiedades espectroscópicas
 % Los requerimientos para la secuencia linker pueden originarse en otros pasos del proceso de producción, no solo en la funcionalidad que aporta a la construcción. 
@@ -349,46 +349,45 @@ que el usuario considere relevantes como parte del proceso experimental.
 
 
 
-  1.3.2.3. Linkers naturales
+%   1.3.2.3. Linkers naturales
 %             1.3.2.3.1 Características (1 página y 1 figura)
 %             1.3.2.3.2 Uso en ingeniería de proteínas (ventajas y desventajas, 1 página)
 
 \subsubsection{Linkers naturales}
 
 
-\paragraph{Características} \hspace{0pt} \\
+\paragraph{Características} \hspace{0pt} \\ \indent 
 % El 'descubrimiento' de las regiones/secuencias linkers esta ligado a las teorias de structura-funcion(desarrolladas en la parte de conformacion) que se dieron durante casi 100 años
 % En un principio se comenzo a pensar en una estructura rigida asociada a la proteina, luego se fueron revelendo propiedades dinamicas que le permitian cumplir la funcion. 
 % Todo esto esta muy asociado a las tecnicas experimentales que se fueron desarrollando.
-Como ya se mencionó, la modularidad en proteínas naturales es algo muy común y existen muchos ejemplos de proteinas compuestas de dos o mas dominios funcionales unidas por linkers.
+La modularidad en proteínas naturales es algo muy común y existen muchos ejemplos de proteinas compuestas por dos o más dominios funcionales unidos mediante linkers.
 Estas secuencias linker sirven, principalmente, para mantener unidos los distintos dominios y proveer la flexibilidad necesaria para que puedan ocurrir las interacciones asociadas a la actividad biológica de la proteína
-(ver figura \ref{multidomainRb}). Esta es la funcionalidad básica inherente a todos los linkers naturales, y está directamente asociada a sus propiedades conformacionales. 
-Sin embargo, en muchos casos también proveen otras funciones que forman parte de la actividad biológica de la proteína, tales como intervenir en las interacciones cooperativas entre los dominios, 
-contener elementos secuenciales que median interacciones con otras proteínas o ligandos, etc.
+(ver figura \ref{multidomainRb}). Esta es la funcionalidad básica inherente a todos los linkers naturales, y está directamente asociada a la dinámica conformacional de cada proteína. 
+
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{img/multidomainRb.png} 
-\caption{Ejemplo de linkers naturales de la proteina multidominio RB (Retinoblastoma). Los linkers y loops se muestran en \textbf{a} mediante lineas entrecortadas. En \textbf{b} se muestra una representación más abstracta de la misma estructura multidominio.
-REferencia..................Molecular mechanisms underlying RB protein function} 
+\caption{Ejemplo de linkers naturales de la proteina multidominio RB (Retinoblastoma). Los linkers y loops se muestran en \textbf{a} mediante lineas entrecortadas. 
+En \textbf{b} se muestra una representación más abstracta de la misma estructura multidominio. Figura extraída de \cite{dick2013molecular}} 
 \label{multidomainRb}
 \end{figure}
 
 
-El primer estudio realizado sobre secuencias linkers registra la preferencia intrínseca por las conformaciones desplegadas\cite{argos1990investigation}.   
-Sin embargo este estudio está bastante desactualizado y los resultados no son representativos ya que se realizó sobre un total de 51 linkers detectados manualmente a partir de 32 proteínas.
-En \cite{george2002analysis} se encuentra un análisis más actual sobre un total de 638 proteínas multidominio, cuyas estructuras fueron analizadas mediante métodos automatizados 
-para determinar los dominios y luego las regiones linkers(un total de 1280).
-En \cite{chen2013fusion} se revisan los resultados obtenidos en ambos con respecto a diversas propiedades como son longitud, hidrofobicidad, enriquecimiento de ciertos aminoacidos y estructura secundaria adoptada.
+% CORTO ESTE PARRAFO, SIMPLEMENTE PONGO LAS REFERENCIAS EN EL PROXIMO, ANTES DE DESCRIBIR
+% El primer estudio realizado sobre secuencias linkers registra la preferencia intrínseca por las conformaciones desplegadas\cite{argos1990investigation}.   
+% Sin embargo este estudio está bastante desactualizado y los resultados no son representativos ya que se realizó sobre un total de 51 linkers detectados manualmente a partir de 32 proteínas.
+% En \cite{george2002analysis} se encuentra un análisis más actual sobre un total de 638 proteínas multidominio, cuyas estructuras fueron analizadas mediante métodos automatizados 
+% para determinar los dominios y luego las regiones linkers(un total de 1280).
+% En \cite{chen2013fusion} se revisan los resultados obtenidos en ambos con respecto a diversas propiedades como son longitud, hidrofobicidad, enriquecimiento de ciertos aminoacidos y estructura secundaria adoptada.
 
 
-En general, los residuos encontrados pertenecían principalmente al grupo de aminoácidos polares(con o sin carga), 
-y puntualmente los preferidos eran Pro, Thr y Gln.
+Los estudios realizados sobre secuencias linkers naturales \cite{argos1990investigation, george2002analysis, chen2013fusion} muestran que, en general, 
+los residuos encontrados en estas pertenecen al grupo de aminoácidos polares(con o sin carga), y son específicamente ricos en Prolina. %, Treonina y Glutamina.
 La ocurrencia de Prolina es bastante esperable, su cadena lateral cíclica y la falta de un hidrógeno disponible 
-en su función amida previene la formación de puentes de hidrógeno con otros aminoácidos, esto le da una baja 
-tendencia a formar estructuras secundarias típicas (hélices-$\alpha$ y hojas-$\beta$).
-Por lo tanto, las secuencias ricas en prolina resultan en una estructura más bien rígida que, como parte de un linker, permitirían 
-prevenir la formación de una estructura plegada e interacciones desfavorables entre/con los dominios. 
+en su función amida previene la formación de puentes de hidrógeno con otros aminoácidos, dándole una baja 
+tendencia a formar estructuras secundarias típicas (hélices-$\alpha$ y hojas-$\beta$) y, por lo tanto, las secuencias ricas en prolina resultan en una cadena carbonada con estructura 
+más bien rígida. Como parte de un linker, entonces, la presencia de prolina permitiría prevenir la formación de una estructura plegada con interacciones desfavorables entre los dominios. 
 
 
 
@@ -401,32 +400,32 @@ prevenir la formación de una estructura plegada e interacciones desfavorables e
 % β-strands, 8.4\% are in turns and the rest, 37.6\%, are in coil
 % or bend secondary structures.
 
-En general, se encontro que los linkers naturales adoptaban principalmente conformaciones desplegadas y tenían estructuras independientes sin interacciones con los dominios adyacentes.
+Todas las propiedades analizadas(longitud, composición, hidrofobicidad y estructura secundaria) resultaron importantes para alcanzar las funciones deseadas.
+En general, se encontró que los linkers naturales adoptaban principalmente conformaciones desplegadas y tenían estructuras independientes sin interacciones con los dominios adyacentes.
 En términos de estructura, se encontraron tanto linkers flexibles como relativamente rígidos, estos últimos formados principalmente por $\alpha$-hélices en su estructura secundaria. 
 % A través de una mayor rigidez, ciertos linkers pueden ayudar a reducir interacciones no funcionales entre los dominios que unen. 
 % Por otro lado, una estructura más flexible, como es usual para conformaciones extendidas, provee una mayor flexibilidad y libertad de movimiento a los dominios.
-Basándose en la frecuencia de este tipo de estructura secundaria, en \cite{george2002analysis} se esboza una clasificación de los linkers dividiéndolos en dos categorías: helicoidales y no helicoidales.
+Basándose en la frecuencia de este tipo de estructuras, en \cite{george2002analysis} se esboza una clasificación de los linkers dividiéndolos en dos categorías: helicoidales y no helicoidales.
 % Los linkers con estructuras de $\alpha$-hélice pueden tener funciones como, por ejemplo, actuar como espaciadores rígidos impidiendo interacciones no funcionales entre los dominios.
 % Aunque no sea exhaustiva, esta clasificación permite ver diferencias en los linkers también a nivel de estructura que adquieren, existiendo linkers que, a través de una mayor rigidez, impiden . 
-Todas las propiedades analizadas(longitud, composición, hidrofobicidad y estructura secundaria.) resultaron importantes para alcanzar las funciones deseadas.
+
 
 
 
 % AL FINAL DE TODO PONGO ESTOS EJEMPLOS, DEMOSTRANDO QUE LA FUNCIONALIDAD DE LOS LINKERS NO ESTÁ LIMITADA A PROVEER FLEXIBLIDAD Y QUE PUEDEN CUMPLIR OTRAS FUNCIONES
 
 %EJEMPLOS DE PROPIEDADES CONFORMACIONALES
-En terminos de flexibilidad, y por lo tanto de propiedades conformacionales en general, los linkers muestran un rango muy amplio de características las cuales se pueden apreciar mejor a partir de algunos ejemplos.
-En algunos casos la flexibilidad provista se origina a nivel de estructura terciaria, y esta limitada a una región corta que funciona como bisagra.% EJEMPLO!!!!
-En otros casos la flexibilidad es ``completa'' y la región del linker es intrínsecamente desordenada\cite{luo2010flexibility}, 
-encontrándose incluso que la funcionalidad de la proteína se pierde cuando se reemplaza por un linker que adopta una estructura de hélice-$\alpha$ dándole una mayor rigidez estructural\cite{hrycyna1998structural}
-% EJEMPLO !
-Ademas, existen linkers que, a pesar de mantener una conformación extendida en solución, pueden plegarse (o fijar una estructura secundaria transitiva) en presencia de ligandos.
-Por ejemplo en el caso de ciertas proteínas que se unen a DNA\cite{laity2000dna}
+En términos de flexibilidad, y por lo tanto de propiedades conformacionales en general, los linkers naturales muestran un rango muy amplio de características las cuales se pueden apreciar mejor a partir de algunos ejemplos:
+En algunos casos la flexibilidad provista se origina a nivel de estructura terciaria, y está limitada a una región corta que funciona como bisagra.% EJEMPLO!!!!
+En otros casos la flexibilidad es ``completa'' y la región linker es intrínsecamente desordenada\cite{luo2010flexibility}, 
+encontrándose, incluso, que la funcionalidad de la proteína se pierde cuando se reemplaza por un linker que adopta una conformación estructurada como en el caso de una hélice-$\alpha$ \cite{hrycyna1998structural}.
+Además existen linkers que, a pesar de mantener una conformación extendida en solución, pueden plegarse (o fijar una estructura secundaria transitiva) en presencia de ligandos, 
+tal es el caso de ciertas proteínas que se unen a DNA\cite{laity2000dna}.
 %ESTE ES UN EJEMPLO DE FUNCIONALIDAD 
+En otras proteínas, las propiedades conformacionales de la secuencia linker sirven para mediar la propagación eficiente de estimulos entre los dominios que conecta(alosterismo).%, por ejemplo los efectos originados por la unión de ligandos o modificaciones post-traduccionales.
+Ejemplo de esto es la miosina del músculo liso, en la cual el dominio que comprende la función motora puede ser activado mediante fosforilación de una cadena regulatoria, 
+la cual se encuentra conectada a este mediante una región linker\cite{ikebe1998hinge}.
 
-
-En algunos casos, las secuencias linker permiten mediar la propagacion eficiente de los efectos originados por la unión de ligandos o modificaciones post-traduccionales en uno de los dominios que conecta(alosterismo).
-Un ejemplo es el caso de la miosina del musculo liso, en la cual un dominio que comprende la funcion motora es activado mediante fosforilacion  de una cadena regulatoria unida a este mediante un linker\cite{ikebe1998hinge}.
 % OTRO EJEMPLO
 % An example is the intramolecular interaction between the Src homology domains (SH2 and SH3) and the catalytic domains of Src family kinases, which results in repression of catalytic
 % activity. Repression by the regulatory domain is nullified upon mutation of Trp260 to Ala within the linker separating the SH2 and kinase domain, which proves that the linker plays a crucial role in the coupling of
@@ -442,44 +441,41 @@ Un ejemplo es el caso de la miosina del musculo liso, en la cual un dominio que 
 % CONCLUSIONES
 Por lo tanto, a pesar que la flexibilidad es un aspecto que se sabe esta ligado a las secuencias linker en la naturaleza\cite{wriggers2005control}, 
 y que estás regiones permiten los grandes cambios conformacionales en las estructuras de las proteínas, 
-no son simplemente secuencias que evolucionan hacia conformaciones totalmente flexibles, ya que cada proteína impone requerimientos conformacionales específicos. 
+no son simplemente secuencias que evolucionan hacia regiones totalmente flexibles, ya que cada proteína impone requerimientos conformacionales específicos.
 % esto puede no estar directamente ligado al cumplimiento de la función requerida, o no hacerlo de forma eficiente.
 
-De esta forma, las secuencias linker son una parte mas de las proteínas y sus propiedades conformacionales no pueden definirse en forma generalizada, sino que están 
+De esta forma, podemos ver a las secuencias linker como un módulo más de las proteínas naturales, cuyas propiedades conformacionales no pueden definirse en forma generalizada, sino que están 
 % De esta forma, las propiedades conformacionales de las regiones linkers naturales están usualmente 
-asociadas a restricciones funcionales de la proteína global buscando balancear la flexibilidad requerida 
-para que los dominios puedan explorar el ensamble de conformaciones asociado a su funcionalidad, con la rigidez requerida para que no existan interacciones desfavorables entre estos, 
-resultando en perfiles estructurales muy variados.
+asociadas a restricciones funcionales de la proteína, buscando balancear la flexibilidad requerida para que los dominios tengan la dinámica que su funcionalidad requiere, 
+% puedan explorar el ensamble de conformaciones asociado a su funcionalidad, 
+con la rigidez necesaria para que no existan interacciones desfavorables entre estos, resultando en perfiles estructurales muy variados.
+
+% Although the role of linker sequences is likely to be primarily topological, allowing distant parts of the polypeptide chain to interact with diverse partner sequences that might be far apart or close together, 
+% linkers and unstructured tail sequences play quite specific roles in a number of systems.
 
 
 
-
-\paragraph{Utilización en diseños de proteínas quiméricas} \hspace{0pt} \\
-
+\paragraph{Utilización en diseños de proteínas quiméricas} \hspace{0pt} \\ \indent 
 % USO EN INGENIERIA DE PROTEINAS
-En primer lugar, si bien en todos los casos los linkers naturales permiten mantener covalentemente unidos a los dominios, 
+% DESVENTAJAS
+Si bien todos los linkers naturales permiten mantener covalentemente unidos a los dominios, 
 las propiedades conformacionales pueden ser muy distintas a las que buscamos para un linker en el contexto de una proteína quimérica.
-Por otro lado, en cada proteína natural,   y por lo tanto, al utilizar este linker estaríamos agregando un módulo biológicamente funcional a la proteína quimérica.
+Por otro lado, en cada proteína natural, la secuencia linker puede proveer funciones que forman parte directa de la actividad biológica correspondiente, 
+tales como intervenir en las interacciones cooperativas entre los dominios, contener elementos secuenciales que median interacciones con otras proteínas o ligandos, etc.
+Por lo tanto, al utilizar este tipo de linkers podríamos estar agregando un módulo biológicamente funcional a la proteína que estamos diseñando.
 
-% Sin embargo, en cada proteína, la secuencia linker puede tener propiedades conformacionales independientes, 
-% En cada proteina, la secuencia linker puede tener una estructura y una función que haya sido seleccionada para la actividad biológica de la proteina como un todo, 
-% y esta función del linker en este contexto puede no ser solamente la unión covalente de los dominios, tal como se busca al diseñar un linker. 
-
-
-
-% UTILIZACION DE LINKERS NATURALES PARA 
 Dado este contexto, el uso de secuencias linkers naturales en el diseño de proteínas quiméricas debe realizarse con mucho cuidado ya que no todos cumplen con los requerimientos conformacionales y funcionales buscados.
-% dado que los linkers en la naturaleza funcionan muchas veces como una parte integrada de la proteína, no sólo en términos conformacionales sino también en cuanto a aspectos funcionales.
 % DIVERSIDAD
-Por último, aún en el caso de encontrar secuencias naturales que cumplan los requerimientos buscados, la diversidad de secuencias existente, principalmente en cuanto a composición y longitud, puede no ajustarse a la diversidad de 
-preferencias que se presentan en el contexto de cada experimento posible que requiera la utilización de proteínas quiméricas. %, los cuales están asociados, como vimos, a los pasos del proceso de ingeniería.
+Mas allá de esto, aún en el caso de encontrar secuencias naturales que cumplan los requerimientos buscados, la diversidad de secuencias existente, principalmente en cuanto a composición y longitud, puede no ajustarse a la diversidad de 
+preferencias que se presentan a partir de la utilización experimental de proteínas quiméricas. %, los cuales están asociados, como vimos, a los pasos del proceso de ingeniería.
 
-% Por otro lado, si bien existe una gran cantidad de secuencias linkers naturales con propiedades conformacionales y funcionales tan diferentes, no es fácil encontrar secuencias que se adapten correctamente a los requerimientos del proceso
-% que requiere la ingenieria de proteínas quiméricas.
-
-Poder usar secuencias naturales presenta, sin embargo, varias ventajas. 
-En primer lugar, generalmente se conocen las propiedades conformacionales y funcionales asociadas a los linkers naturales en el contexto de un sistema biológico, o estas puede inferirse a partir de análisis secuenciales comparativos. 
-Además, estas secuencias han evolucionado como parte de sistemas biológicos, de forma que no suelen plantear ningún desafío para la expresión.
+% VENTAJAS
+Poder usar secuencias naturales presenta, sin embargo, una ventaja fundamental. 
+Generalmente se han estudiado en detalle las propiedades conformacionales y funcionales asociadas a los linkers naturales en el contexto de sistemas biológicos.
+De otra forma, existe información disponible para poder inferir sus propiedades a partir de análisis secuenciales comparativos. 
+En cualquier caso, podemos tener una mejor idea de que esperar si utilizamos estas secuencias como módulo de una nueva proteína expresándola en un sistema biológico real.
+Por último, más allá de las propiedades finales de la proteína, las secuencias nucleotídicas que codifican linkers naturales han evolucionado como parte de sistemas biológicos reales,
+de forma que no suelen plantear ningún desafío para la expresión.
 % ACÁ PUEDO PONER QUE LOS LINKERS NATURALES TAMBIEN PUEDEN SERVIR COMO BASE PARA UN PROCESO DE INGENIERIA?? O LO PASO A LA PROX. SECCION???
 
 
@@ -488,70 +484,6 @@ Además, estas secuencias han evolucionado como parte de sistemas biológicos, d
 
 
 
-
-
-% Los primeros estudios de analisis (estructura y composicion) de secuencias linkers\cite{argos1990investigation} se comenzaron a hacer a partir del analisis estadistico de secuencias que podian ser clasificadas 
-% como linkers a partir de las primeras estructuras de proteinas multidominio almacenadas en bases de datos.
-% % Estos estudios estaban sesgados por todo el proceso historico de descubrimiento marcado por 
-% Los resultados indicaban que la mayoria adquiría una conformación desplegada(tipo \textit{coil}) sin estructura secundaria. 
-% % many studies of linker peptides in various protein families have come to the conclusion that linkers lack regular secondary structure (la mayoria se encontraba en estructuraas tipo coil), 
-% % they display varying degrees of flexibility to match their particular biological purpose and are rich in Ala, Pro and charged residues
-% Asi surgio la idea que los linkers eran secuencias cortas cuya unica funcion era proveer la conexion covalente, lo que estaba de acuerdo con el concepto de hinge-bending.
-% Este concepto indicaba que la flexibilidad de estas regiones cortas dentro de un polipéptido permitía el suficiente movimiento a los dominios estructurales.
-% % The concept of hinge-bending, whereby the relative flexibility of these short regions of the polypeptide chain allows significant movement of structural domains, gained widespread acceptance in
-% % the 1980s and early 1990s, after evidence for conformational transitions in identical or homologous proteins became known.
-
-
-
-% A lo largo de los años los conocimientos sobre la composición y propiedades de estas secuencias ha ido cambiando, 
-% a medida que mayor cantidad de estructuras se resolvian y mayor conocimiento se obtenia acerca de los dominios que componen 
-% las proteinas. Tambien influyeron otras cosas como tecnicas biofisicas que permiten obtener información del ensamble conformacional en solución,
-% o algoritmos para automatizar la identificación de los dominios y las secuencias que actúan como linker en una proteina.
-% 
-
-% Although the role of linker sequences is likely to be primarily topological, allowing distant parts of the polypeptide chain to interact with diverse partner sequences that might be far apart or close together, 
-% linkers and unstructured tail sequences play quite specific roles in a number of systems.
-
-
-
-
-
-
-
-
-% A FUTURO
-% Con el incremento del número de estructuras almacenadas en la PDB que ocurrió en los últimos años, sería posible realizar un estudio actualizado de las propiedades de los linkers naturales.
-% Además, sería interesante extender el número de propiedades analizadas agregando categorías asociadas a función y estructura de la proteína, e identificando la relación entre estas y las propiedades del linker.
-% With the rapid increase of the number of protein structures deposited in the PDB database, an updated study of natural linkers could be conducted. 
-% In addition to the properties analyzed in previous studies (e.g., amino acid composition, structure classification), 
-% it would be interesting to categorize the multi-domain proteins by their functions and structures, and identify the relationship between them and the linker properties
-
-
-% 
-% 
-% Based on From George and
-% Heringa’s secondary structure analysis, linkers were grouped into two categories: helical and
-% non-helical. The $\alpha$-helix was a rigid and stable structure, with intra-segment hydrogen bonds
-% and a closely packed backbone [28]. Some $\alpha$-helical conformations form rapidly during
-% folding [28], allowing the correct folding of connecting protein domains without non-native
-% interactions with the linker. Linkers in an $\alpha$-helix structure might also serve as rigid spacers
-% to effectively separate protein domains, and to reduce their unfavorable interactions.
-% Therefore, this conformation was commonly adopted by many natural and empirical linkers
-% (to be discussed later). On the other hand, without an inherent rigid structure, the non-helical
-% linkers tended to be rich in Pro, which could increase the stiffness of the linker as mentioned
-% previously [25]. As a result, non-helical linkers with Pro-rich sequence could exhibit
-% relatively rigid structures and serve to reduce inter-domain interference.
-% 
-% 
-% 
-% Both flexible and relatively rigid peptide linkers are found in many multidomain proteins. 
-% Linkers are thought to control favorable and unfavorable interactions between adjacent domains by means of variable softness
-% furnished by their primary sequence. Large-scale structural heterogeneity of multidomain proteins
-% and their complexes, facilitated by soft peptide linkers, is now seen as the norm rather than the
-% exception. Biophysical discoveries as well as computational algorithms and databases have
-% reshaped our understanding of the often spectacular biomolecular dynamics enabled by soft linkers.
-% Absence of such motion, as in so-called molecular rulers, also has desirable functional effects in
-% protein architecture.
 
 
 
@@ -614,6 +546,36 @@ Además, estas secuencias han evolucionado como parte de sistemas biológicos, d
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 %          1.3.2.4. Diseño racional
 %             1.3.2.4.1 Diseños y conceptos comunes (1 página y 1 figura)
 %             1.3.2.4.2 Algoritmos existentes (cómo funcionan, ventajas y desventajas, 2 páginas y 2 figuras)
@@ -621,12 +583,14 @@ Además, estas secuencias han evolucionado como parte de sistemas biológicos, d
 \subsubsection{Diseño racional}
 % The general properties of linkers derived from naturally-occurring multi-domain proteins(que se vieron en la seccion anterior) can be considered as the foundation in linker design. 
 
-\paragraph{Diseños y conceptos comunes} \hspace{0pt} \\
-
+\paragraph{Diseños y conceptos comunes} \hspace{0pt} \\ \indent 
+% 
+% 
 % PRIMERO HABLAR DE LINKERS USADOS EMPIRICAMENTE 
-Con tantos y tan distintos requerimientos positivos y negativos para el diseño, el problema de encontrar un linker adecuado puede llegar a ser un proceso complejo.
-Los diseños encontrados en la literatura están basados en la intuición y en las propiedades generales de los linkers naturales encontrados en proteínas multi-dominio.
-En \cite{chen2013fusion} se revisan los diseños resultantes de este proceso artesanal que han sido útiles al evaluarse experimentalmente en varios contextos.
+Con tantos y tan distintos requerimientos para el diseño, el problema de encontrar un linker adecuado puede llegar a ser un proceso complejo.
+Los diseños encontrados en la literatura están generalmente basados en la intuición y en propiedades generales de los linkers naturales. 
+Además, generalmente implican un proceso iterativo de evaluación y optimización experimental del diseño base.
+En \cite{chen2013fusion} se revisan los diseños resultantes de este proceso artesanal que han sido finálmente utilizados en distintos contextos experimentales.
 
 
 % A partir de esta recopilación se intenta hacer una clasificación general que resulta en 3 categorias:
@@ -634,19 +598,20 @@ En \cite{chen2013fusion} se revisan los diseños resultantes de este proceso art
 % Como se puede ver, esta clasificación esta basada, principalmente, en propiedades estructurales/conformacionales. 
 % Para obtener secuencias que posean otras propiedades de interés deberán analizarse cada uno de los linkers que se detallan en este trabajo.
 
-Basándose en los aspectos conformacionales, un linker poli-G parece ser la opción evidente para proveer a la construcción de máxima flexibilidad.
-Como vimos antes, la flexibilidad no es todo, una secuencia nucleotídica con alto contenido de Guanina(el codón que codifica para Glicina contiene Guanina en 2 de las 3 posiciones) 
-puede ser difícil de manejar experimentalmente y de expresar para el huésped\cite{trinh2004optimization}.
+Basándose en los aspectos conformacionales de interés, un linker poli-G parece ser la opción evidente para proveer a la construcción de máxima flexibilidad.
+Sin embargo, como vimos antes, la flexibilidad no es todo. 
 % y linkers poli-G, por ejemplo, pueden ser target de actividad proteolítica, a través del patrón Gly-Gly-X, donde X es un residuo con cadena lateral hidrofóbica.
-Además, la cadena poli-G puede resultar en una conformación altamente inestable debido a que no contiene ningún residuo polar, afectando la actividad de los dominios que une\cite{robinson1998optimizing}. 
-La secuencia poli-G por si sola, puede no resultar el mejor linker, sin embargo se ha utilizado en algunos casos\cite{iwakura1998effects,de2012characterization,sabourin2007flexible} y es la base de la mayoría de los linkers flexibles 
-encontrados, sobre los cuales se agregand modificaciones usando otros aminoácidos pequeños como Serina.% y Thr?
+Por ejemplo, una cadena poli-G puede resultar en una conformación altamente inestable debido a que no contiene ningún residuo polar, afectando la actividad de los dominios que une\cite{robinson1998optimizing}. 
+Por otro lado, la secuencia nucleotídica que codifica a este polipéptido tiene un alto contenido de Guanina(el codón que codifica para Glicina contiene Guanina en 2 de las 3 posiciones), lo cual  
+puede hacerla difícil de manejar experimentalmente y de expresar en el huésped\cite{trinh2004optimization}.
+De esta forma, la secuencia poli-G puede no ser favorable para utilizar como linker aunque se ha utilizado en algunos casos\cite{iwakura1998effects,de2012characterization,sabourin2007flexible}, 
+y es la base de gran parte de los linkers flexibles encontrados, sobre los cuales se agregan algunas modificaciones puntuales usando otros aminoácidos pequeños como Serina.% y Thr?
 
-Probablemente, el linker más común encontrado en la literatura es el compuesto por distinto número de repeticiones del motivo $(G_4S_n)$, %PONER REFERENCIAS AL USO DE ESTE.
-en estos casos la sustitución de algunas posiciones por residuos polares (Ser) busca reducir estabilizar el linker permitiendo interacciones entre la cadena lateral polar y el medio acuoso,
-lo que previene interacciones no deseadas entre el linker y los dominios que une de forma tal que no interfieran en la funcionalidad.
-Una aproximación de diseño más avanzada se puede ver en \cite{bird1988single}, donde se utilizan residuos Gly y Ser para proveer flexibilidad pero se agregan Glu y Lys para incrementar la solubilidad,
-el linker resultante tiene la secuencia \textit{}.
+El diseño de linker más común encontrado en la literatura está compuesto por un número variable de repeticiones del motivo $(G_4S)$. %PONER REFERENCIAS AL USO DE ESTE.
+En estos casos la sustitución de algunas posiciones por residuos polares (Ser) busca estabilizar la secuencia poli-G, permitiendo interacciones entre la cadena lateral polar y el medio acuoso. 
+Al usar esta secuencia como linker, esto previene interacciones no deseadas con los dominios que une, de forma tal que no interfiera en la funcionalidad.
+Una aproximación de diseño más avanzada se puede ver en \cite{bird1988single}, donde se utiliza un linker natural como diseño base y se agregan residuos de Glicina y Serina para proveer flexibilidad, 
+y residuos de ácido Glutámico y Lisina para incrementar la solubilidad, la secuencia resultante es \texttt{EGKSSGSGSESKST}.
 % COMENTAR EL METODO USADO MAS EN DETALLE
 
 
@@ -680,17 +645,19 @@ el linker resultante tiene la secuencia \textit{}.
 % the protein domains
 
 
-En todos estos casos, los péptidos con motivos repetidos de Gly y Ser son usados porque se asume que adoptan una conformacion similar a random coil y no interfieren en el plegado y funcionamiento de los dominios que unen,
-la funcionalidad provista por estos se evalúa en cada caso en particular.
+En todos estos casos, los péptidos con motivos repetidos de G y S son usados porque se asume que adoptan una conformacion similar a random coil y no interfieren en el plegado y funcionamiento de los dominios que unen,
+sin embargo en cada caso de aplicación particular se debe evaluar experimentalmente que el diseño cumple el objetivo buscado.
 % En \cite{evers2006quantitative} se hace una evaluación de estos linkers tan usados, en el contexto de la unión de dos proteínas fluorescentes, evaluando cuantitativamente las propiedades conformacionales y el efecto de la longitud del linker 
 % a partir de la transferencia de energía entre estas.
-Estos linkers poseen conformaciones desestructuradas (Gly suele considerarse como capaz de romper la estructura ordenada de las hélices), y esta flexibilidad puede, en algunos casos, impedir que se logre una separación 
+Estos linkers poseen conformaciones desestructuradas (la glicina suele considerarse como capaz de romper la estructura ordenada de las hélices), y esta flexibilidad puede, en algunos casos, impedir que se logre una separación 
 suficiente entre los dominios \cite{evers2006quantitative}.
-En estos casos, donde se requiere mantener la flexibilidad, pero al mismo tiempo mantener suficiente distancia entre los dominios, se han utilizado linkers que adquieren una estructura completa de $\alpha$-hélice.
+En este último caso, donde se requiere cierta flexibilidad pero al mismo tiempo mantener suficiente distancia entre los dominios, se han utilizado linkers que adquieren una estructura completa de $\alpha$-hélice.
 El ejemplo más común de linkers con estas propiedades es $(EAAAK)_n$ \cite{arai2001design}. 
-En otros casos, la rigidez se obtiene a partir de polipéptidos poli-prolina \cite{schuler2005polyproline}
+En otros casos, la rigidez se puede obtener utilizando secuencias poli-P \cite{schuler2005polyproline}
 
 
+Cómo se ve, si bien hay un patrón en los diseños, que contienen prioritariamente residuos G y P, en cada caso se analizan los requerimientos específico del nuevo diseño, 
+definiendo individualmente los residuos en cada posición de la secuencia.
 
 
 % LINKERS RIGIDOS
@@ -729,21 +696,24 @@ En otros casos, la rigidez se obtiene a partir de polipéptidos poli-prolina \ci
 
 
 
-\paragraph{Algoritmos existentes} \hspace{0pt} \\
 
 
+
+\paragraph{Algoritmos existentes} \hspace{0pt} \\ \indent 
+% 
+% 
 % DESPUES EMPIEZO CON DISEÑO RACIONAL
-A pesar que algunos de los ejemplos mencionados hasta acá muestran cierta metodologia con alto grado de racionalidad en el proceso de diseño, 
-la creación de un método sistemático de diseño racional para secuencias linkers basado en los requerimientos vistos está aún en los principios del desarrollo. 
-
+A pesar que los ejemplos de diseño descritos muestran cierta sistematización y racionalidad en el proceso utilizado (agregando distintos residuos según las necesidades), 
+la creación de un método de diseño racional para secuencias linkers basado en los requerimientos está aún en los principios del desarrollo. 
+Los estudios detallados de la composición, estructura y función de linkers naturales son un claro punto de inicio, 
+abriendo la posibilidad de crear bases de datos conteniendo las secuencias encontradas y sus propiedades asociadas.
+Asociados a estas bases de datos, se desarrollado distintos métodos de búsqueda que permiten extraer secuencias con propiedades deseadas específicas, lo que simula un mecanismo de diseño.
 
 % Although many examples of various types of linkers have been developed in the past, the rational design of linkers for the construction of fusion proteins is still in its infancy. 
 
 % En algunos casos se ha 
 % Existen pocos ejemplos concretos donde se haya utilizado una aproximación racional para el diseño de linkers \cite{arai2001design,arai2004conformations}.
 
-Los estudios detallados de la composición, estructura y función de linkers naturales son un claro punto de inicio.
-Estos abrieron la posibilidad de crear bases de datos conteniendo las secuencias encontradas y sus propiedades asociadas.
 
 
 % Systematic, strategic scientific endeavors are in demand to greatly advance the science of linker design and application.
@@ -768,19 +738,16 @@ Estos abrieron la posibilidad de crear bases de datos conteniendo las secuencias
 
 % FINALMENTE EXPLICAR LAS APROXIMACIONES RACIONALES QUE ENCONTRE, QUE CONSISTEN BASICAMENTE EN BUSCAR EN BBDD
 
-
-Los estudios realizados sobre linkers naturales que mencionados en la sección anterior) 
-Asociados a estas bases de datos, se han desarrollado distintos métodos que permiten extraer  ,  que simula un mecanismo de diseño.
 % The extensive studies about linkers in natural multi-domain proteins and recombinant fusion proteins fostered the idea of building databases and coming up with linker (designing??) tools 
 % to aid the (rational???) design of linkers based on the desired characteristics of fusion proteins.
 % Es decir, actualmente la metodologia esta centrada en crear bases de datos de linkers y hacer consultas sobre esta en base a las propiedades que se buscan.
 
 Los resultados del estudio desarrollado en \cite{george2002analysis} son el primer ejemplo de este tipo de metodologías.
-En este trabajo se estudian diversos aspectos de secuencias linkers, los cuales son extraídos mediante un método automatizado a partir de una base de datos de estructuras proteicas. 
-los linkers y se desarrolla una base de datos asociada a un algoritmo de búsqueda que puede ser utilizado mediante un servidor web\cite{linkerdbIBIVU}.
-El algoritmo implementado acepta distintos parámetros de búsqueda tales como longitud del linker, accesibilidad del solvente, estructura secundaria adoptada, similitud secuencial con una secuencia input, etc.
-El programa devuelve las secuencias linker que contienen los criterios solicitados y, además, provee información del contexto en el que se encuentra el linker, con información del ID en PDB, descripciones de la proteína, etc.,
-de forma que el usuario pueda inferir otras propiedades del linker que no pueden ser extraídas automáticamente.
+En este trabajo se estudian diversos aspectos de secuencias linkers, las cuales son extraídos mediante un método automatizado a partir de una base de datos de estructuras proteicas. 
+A partir de las secuencias recolectadas se desarrolla una base de datos asociada a un algoritmo de búsqueda, el cual puede ser utilizado mediante un servidor web\cite{linkerdbIBIVU}.
+El método de búsqueda implementado acepta distintos parámetros como longitud del linker, accesibilidad del solvente, estructura secundaria, similitud con una secuencia input, etc.
+El programa devuelve las secuencias que contienen los criterios solicitados y, además, provee información del contexto en el que se encuentra en la proteína natural, con información del identificador PDB, 
+descripciones funcionales de la proteína, etc., de forma que el usuario pueda inferir otras propiedades del linker que no son presentadas automáticamente.
 
 % Otro ejemplo de búsqueda sobre bases de datos es \url{http://bioinf.modares.ac.ir/software/linda/}
 % NO HAY NINGUNA REFERENCIA A ESTE SERVIDOR, EN NINGUN LADO SE DESCRIBE EL FUNCIONAMIENTO
@@ -788,19 +755,18 @@ de forma que el usuario pueda inferir otras propiedades del linker que no pueden
 Un ejemplo más reciente de este tipo de aproximación mediante bases de datos da origen a la herramienta LINKER \cite{crasto2000linker,xue2004linker}.
 Al margen de la falta de creatividad en el nombre de la aplicación, esta posee un método de búsqueda que brinda una gran cantidad de opciones al usuario incluyendo aspectos experimentales como la sensibilidad a la actividad de proteasas.
 En este caso, el centro del método es base de datos conteniendo secuencias loop extraidas de PDB y que son luego levemente procesadas removiento secuencias idénticas, hairpin loops y secuencias de menos de 4 residuos. 
-El programa de búsqueda/diseño construido sobre esta base de datos asume que la conformación de loop adoptada por la estructura cristalizada que se encuentra en la PDB dará una conformación extendida 
-si se utiliza esta secuencia como linker en una proteína quimérica
+El programa de búsqueda sobre esta base de datos asume que la conformación de loop adoptada por la estructura cristalizada encontrada en la PDB dará siempre una conformación desordenada al utilizarse como linker en una proteína quimérica.
+Este es un aspecto que debe ser comprobado experimentalmente para cada caso ya que, como vimos, la flexibilidad puede no estar asegurada.
 Desafortunadamente, el servidor web asociado a este programa no se encuentra más disponible.
 
 
-
-La versión más actual de este tipo de soluciones se encuentra en SynLinker\cite{liu2015synlinker}. 
+SynLinker\cite{liu2015synlinker} representa la versión más actual y completa de este tipo de soluciones para el diseño de linkers. 
 Este nuevo programa incorpora en su base de datos no sólo secuencias linker naturales, sino también algunos linkers empíricos extraídos de la literatura, 
-que siguen los principios de diseño que vimos hasta ahora en esta sección. Si bien representan solo una parte de los linkers totales y principalmente se trata de simples variaciones de los modelos comunes vistos hasta acá,
-estas secuencias tienen la particularidad de haber sido evaluados experimentalmente como linkers en proteínas quiméricas lo que les da ciertas propiedades particulares que los distiguen de los linkers naturales.
+los cuales siguen los principios de diseño que vistos previamente. Estos últimos, si bien representan sólo una pequeña parte de las secuencias disponibles en la base de datos, 
+tienen la particularidad de haber sido evaluados experimentalmente como linkers en proteínas quiméricas lo que les asegura ciertas propiedades particulares que los distiguen de los linkers naturales.
 En la figura \ref{SynLinker} se muestran de manera gráfica todos los elementos secuenciales que se integran en la base de datos sobre la cual corre el método de búsqueda de SynLinker.
 
-\begin{figure}[htbp,centered]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{img/synLink.png} 
 \caption{ } 
@@ -808,19 +774,19 @@ En la figura \ref{SynLinker} se muestran de manera gráfica todos los elementos 
 \end{figure}
 
 
-
-
-Esta herramienta va aún mas allá en el proceso de diseño y permite obtener un modelo computacional asociado a la construcción que estamos armando. 
-Este modelo representa 1 o más linkers resultantes de la búsqueda, unidos a estructuras de dominios seleccionados por el usuario. 
-Este modelo puede ser usado directamente como input en el próximo paso(siguiendo el esquema de la figura \ref{esquemaProcesoFusion}) para evaluar mediante simulaciones 
+Esta herramienta va más allá en el proceso de diseño visto previamente (figura \ref{esquemaProcesoFusion}), permitiendo obtener un modelo computacional asociado a la construcción que estamos armando. 
+El modelo contiene uno o más linkers resultantes de la búsqueda, unidos a estructuras de dominios seleccionados por el usuario.
+El mismo modelo puede ser usado directamente como input en el próximo paso(siguiendo el esquema de la figura \ref{esquemaProcesoFusion}) para evaluar mediante simulaciones 
 de dinámica molecular algunas propiedades conformacionales de la construccion obtenida.
 
 
-En todos estos ejemplos, el proceso de diseño asume que la secuencia obtenida se comportará de la misma forma en la proteína natural que en una nueva construcción uniendo dominios completamente diferentes.
-Por otro lado, la selección está siempre basa en propiedades conformacionales aunque, como vimos antes, estas no son los únicos requerimientos de las secuencias linker.
-De esta forma ,a pesar que las bases de datos no proveen una solución total al problema de diseño, la construcción de estas y los métodos de búsqueda asociados 
-ayuda a la utilización de los conocimientos adquiridos a partir de estudios sobre secuencias naturales y sirve como primer paso para un proceso posterior de ingeniería que debe involucrar siempre la evaluación experimental de la construcción.
-El desarrollo de métodos de búsqueda más abarcativos junto con nuevos estudios para encontrar secuencias linker naturales podría generar un avance en este tipo de metodologías.
+En todos estos ejemplos de búsquedas parametrizadas, el proceso de diseño asume que la secuencia 
+obtenida se comportará de la misma forma en la proteína natural que en una nueva construcción, donde se encuentra uniendo dominios completamente diferentes, lo cual debe ser comprobado siempre de manera experimental.
+Por otro lado, la selección está siempre basa en propiedades conformacionales aunque, como vimos antes, estos no son los únicos requerimientos de las secuencias linker.
+De esta forma, a pesar que no proveen una solución completa al problema de diseño, la construcción de estas bases de datos y los métodos de búsqueda asociados 
+ayuda a la utilización de los conocimientos adquiridos a partir de estudios sobre secuencias naturales y sirve como primer paso para un proceso posterior de ingeniería, 
+el cual debe involucrar necesariamente la evaluación experimental de la construcción diseñada.
+El desarrollo de métodos de búsqueda más abarcativos junto con nuevos estudios para encontrar y refinar las secuencias linker naturales podría generar un avance en este tipo de metodologías.
 % building an empirical linker database could help summarize the knowledge and facilitate the future linker design.
 % The extensive studies on the structures of empirical linkers have provided us with useful information for optimal linker design. 
 % Con el rápido incremento de los conocimientos sobre la secuencia y estructuras de proteínas, nuevos estudios podrían aportar conocimientos relevantes en esta dirección.
