@@ -58,6 +58,23 @@ por el apropiado "y".
 }
 
 
+@misc{tmhmmServer,
+  author = {},
+  title = {{TMHMM v2.0}},
+  howpublished = "\url{http://www.cbs.dtu.dk/services/TMHMM/}",
+  year = {}, 
+  note = "[Online; accessed 19-October-2015]"
+}
+
+
+@misc{tangoWeb,
+  author = {},
+  title = {{TANGO WebServer}},
+  howpublished = "\url{http://tango.crg.es/}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
 
 @misc{elmweb,
   author = {},
@@ -1342,7 +1359,7 @@ por el apropiado "y".
 
 ***********   PROSITE UNO ********
 @article{sigrist2012new,
-  title={New and continuing developments at PROSITE},
+  title={{New and continuing developments at PROSITE}},
   author={Sigrist, Christian JA and De Castro, Edouard and Cerutti, Lorenzo and Cuche, B{\'e}atrice A and Hulo, Nicolas and Bridge, Alan and Bougueleret, Lydie and Xenarios, Ioannis},
   journal={Nucleic acids research},
   pages={gks1067},

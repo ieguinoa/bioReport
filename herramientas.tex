@@ -41,14 +41,17 @@ Esto brinda al diseño resultante la flexibilidad requerida para la función de 
 En primer lugar vamos a utilizar la herramienta IUPred, descrita en la sección \ref{iupred}, para intentar detectar aquellas posiciones que puedan generar interacciones 
 favorables en el contexto de la secuencia, indicando una tendencia a adoptar estructuras plegadas, caracteristicas de las proteínas globulares.
 
-Sin embargo, la estabilización de estructuras tridimensionales puede deberse a otras interacciones con el contexto, que van mas allá de las interacciones intramoleculares.
-Las proteínas de membrana son módulos proteícos con propiedades secuenciales distintivas y que, a pesar de su diferencia con las proteínas globulares, 
-pueden adoptar una estructura tridimensional determinada, estabilizada por interacciones con el contexto hidrofóbico en el que normalmente se encuentran.
-Teniendo en cuenta este panorama más amplio, creemos conveniente agregar a la evaluación un predictor para identificar proteínas de membrana,
-principalmente de los segmentos transmembrana ya que son estos los que poseen propiedades particulares y, probablemente, no hayan sido detectados por el método anterior.
-Utilizamos la herramienta TMHMM(\ref{tmhmm}) para predecir su ocurrencia, profundizando nuestra capacidad de encontrar regiones propensas a formar estructuras ordenadas.
 
+% %ESTO LO PASO DIRECTAMENTE A LA PARTE DE TMHMM 
+% Sin embargo, la estabilización de estructuras tridimensionales puede deberse a otras interacciones con el contexto, que van mas allá de las interacciones intramoleculares.
+% Las proteínas de membrana son módulos proteícos con propiedades secuenciales distintivas y que, a pesar de su diferencia con las proteínas globulares, 
+% pueden adoptar una estructura tridimensional determinada, estabilizada por interacciones con el contexto hidrofóbico en el que normalmente se encuentran.
+% Teniendo en cuenta este panorama más amplio, creemos conveniente agregar a la evaluación un predictor para identificar proteínas de membrana,
+% principalmente de los segmentos transmembrana ya que son estos los que poseen propiedades particulares y, probablemente, no hayan sido detectados por el método anterior.
+% Utilizamos la herramienta TMHMM(\ref{tmhmm}) para predecir su ocurrencia, profundizando nuestra capacidad de encontrar regiones propensas a formar estructuras ordenadas.
 
+Por otro lado, utilizamos TMHMM (ver sección \ref{tmhmm}) para predecir la ocurrencia de segmentos transmembrana, 
+los cuales presentan estructuras ordenadas y, por sus propiedadess particulares, probablemente no hayan sido detectados por el método anterior.
 
 
 
@@ -115,7 +118,7 @@ Utilizamos la herramienta TMHMM(\ref{tmhmm}) para predecir su ocurrencia, profun
 
 % PEGAR EL TEMA DE AGREGACION DICIENDO COMO QUE ES OTRA FORMA DE INTERACCIONES QUE NO SON INTRAMOLECULARES PERO DAN UNA CONFORMACION TRIDIMENSIONAL NO-FLEXIBLE
 % Otra forma de alcanzar una estructura tridimensional , como ya se describió, 
-Los agregados proteícos son otro tipo de módulos que involucran la formación de una estructura tridimensional estable, en este caso mediante interacciones con otras unidades proteicas.
+Los agregados proteicos son otro tipo de módulos que involucran la formación de una estructura tridimensional estable, en este caso mediante interacciones con otras unidades proteicas.
 % Una estructura tridimensional rígida puede ser alcanzada por interacciones con otras proteínas, como se vió en la formación de agregados proteicos. 
 Estas conformaciones agregadas pueden o no tener una estructura tridimensional ordenada pero, en todos los casos, limitan la flexibilidad requerida para una secuencia linker, generando, además,
 módulos proteicos insolubles que afectan a todo el sistema biológico.
@@ -125,9 +128,9 @@ Debido a estas implicancias altamente negativas se evaluará detalladamente la t
 
 Existe actualmente una gran variedad de métodos existentes para predecir agregación desestructurada y formación de fibras amiloides (\cite{hamodrakas2011protein,redler2014computational,agrawal2011aggregation})
 Cada método hace sus propias hipótesis e implementa predictores independientes, los cuales varían desde análisis muy simples (por ej. análisis de la composición secuencial) a métodos específicos más complejos.
-La capacidad para formar hojas-$beta$ es una característica central de las evaluaciones ya que es un denominador común de la formación de agregados.
+La capacidad para formar hojas-$\beta$ es una característica central de las evaluaciones ya que es un denominador común de la formación de agregados.
 
-En primer lugar, en nuestra herramienta evaluaremos la tendencia a formar agregados utilizando TANGO(ver sección \ref{tango}). 
+En primer lugar, en nuestra herramienta evaluaremos la tendencia a formar agregados utilizando TANGO(sección \ref{tango}). 
 Para evaluar específicamente la formación de fibrillas amiloides utilizaremos Waltz (descrito en la sección \ref{waltz}), y PASTA (sección \ref{pasta}).
 Por último, evaluamos la presencia de determinantes secuenciales que pueden indicar la formación de fibrillas amiloides, lo cual se describe en la sección \ref{determinantesSecuenciales}.
 
@@ -480,10 +483,23 @@ Evaluación con IUPred & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 &
   
   
   
+
+  
+  
+  
   
   
 \subsection{TMHMM: Secuencias transmembrana} \label{tmhmm}
-TMHMM\cite{krogh2001predicting} es un método para detección de proteínas transmembrana, utilizando una aproximación mediante modelos ocultos de Markov (Hidden Markov Models, o HMM).
+
+% QUE QUEREMOS DETECTAR
+% La estabilización de estructuras tridimensionales puede deberse a interacciones con el contexto, que van mas allá de las interacciones intramoleculares.
+Las proteínas de membrana son módulos proteícos con propiedades secuenciales distintivas y que, a pesar de su diferencia con las proteínas globulares, 
+pueden adoptar una estructura tridimensional determinada, estabilizada por interacciones con el contexto hidrofóbico en el que normalmente se encuentran.
+Teniendo en cuenta este panorama más amplio, utilizamos el predictor TMHMM\cite{krogh2001predicting} para identificar proteínas de membrana,
+principalmente de los segmentos transmembrana ya que son estos los que poseen propiedades particulares y, probablemente, no hayan sido detectados por otros métodos de nuestra evaluación.
+
+% EL MÉTODO
+TMHMM es un método para detección de segmentos transmembrana que utiliza una aproximación mediante modelos ocultos de Markov (Hidden Markov Models, o HMM).
 Un HMM representa un modelo de Markov con estados no visibles. Es decir, el sistema es descrito por un modelo estocástico representado por estados y transiciones entre estos, las cuales están determinadas únicamente por el estado actual.
 
 Describiendo el modelo de Markov que represente a la arquitectura de una proteína transmembrana se puede conocer si una secuencia desconocida pertenece a esta clase, evaluando si se adapta a este modelo.
@@ -505,14 +521,16 @@ transiciones entre estos permite definir los limites en las longitudes de las di
 \label{tmhmmModel}
 \end{figure}
 
- 
- 
+
 Para evaluar secuencias se utiliza el algoritmo de Viterbi, el cual permite calcular cual es el camino más probable del modelo que adopta la secuencia a evaluar. Es decir, cual es la secuencia mas probable de estados del HMM 
 (entre todas las posibles ), que produce la secuencia de estados observados(aminoácidos de la secuencia).
 El resultado de la ejecución muestra cómo los residuos de la secuencia se ajustan a los diferentes estados del modelo de acuerdo a este recorrido más probable, clasificándolos según pertenezcan a regiones intracelulares, hélices transmembrana, 
 o regiones extracelulares. 
+% MODO DE UTILIZACION
+Este método puede ser ejecutado como servicio web o descargado como paquete de software en \cite{tmhmmServer}.
+En nuestro caso realizamos la ejecución de manera local.
 
-Nuestro interés está en detectar las regiones que forman las hélices transmembrana, por lo tanto, el puntaje resultante será igual a 1 para aquellas posiciones que pertenezcan a estos segmentos y 0 para el resto. 
+Nuestro interés está en detectar las regiones que forman los segmentos transmembrana, por lo tanto, el puntaje resultante será igual a 1 para aquellas posiciones que pertenezcan a estos segmentos y 0 para el resto. 
 Por ejemplo, la ejecución de TMHMM a partir de la secuencia \texttt{NFVLIGSFVAFFVITYFLE} devuelve los siguientes resultados: 
 
 % \noindent
@@ -651,52 +669,60 @@ Puntaje TMHMM & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 
 \subsection{Tango}\label{tango}
 
 
-TANGO\cite{fernandez2004prediction} es un método para predecir regiones de agregación $\beta$, desarrollado a partir de un modelo de mecánica estadística con
-un espacio de fases que incluye, además de estos agregados, conformaciones de $\beta$-turn, hélices-$\alpha$ y hebras-$\beta$.
+TANGO\cite{fernandez2004prediction} es un método utilizado principalmente para predecir regiones de agregación $\beta$, desarrollado a partir de un modelo de mecánica estadística que define 
+un espacio de fases incluyendo, además de estos agregados, conformaciones de $\beta$-turn, hélices-$\alpha$ y hebras-$\beta$.
+En nuestro sistema de evaluación, deseamos evitar tanto las conformaciones agregadas como cualquier otra estructura ordenada, por lo tanto utilizaremos TANGO para detectar las posiciones que tienen tendencia a encontrarse formando
+alguna de estas conformaciones.
 % el estado nativo de la proteína??.
-De acuerdo con este modelo, cada segmento de un péptido/proteína puede encontrarse en alguno de estos estados de acuerdo a una distribución de Boltzmann. 
-Es decir, la frecuencia con la que se encuentra en cada estado posible es relativa a la energía asociada a este, que se deriva de consideraciones empíricas y estadísticas para cada conformación posible
-(todas las consideraciones y evaluaciones se hacen con respecto al estado desplegado).
+
+De acuerdo con el modelo definido por TANGO, cada segmento de un péptido/proteína puede encontrarse en alguno de estos estados de acuerdo a una distribución de Boltzmann. 
+Es decir, la frecuencia con la que el segmento se encuentra en alguno de los posibles estados, es relativa a la energía asociada a este, la cual se deriva de consideraciones empíricas y estadísticas. 
+% Para cada conformación posible se realizan consideraciones y evaluaciones energéticas con respecto al estado desplegado.
 De esta forma, el método consiste de un algoritmo que simplemente calcula la función de partición y en base a eso predice las regiones con tendencia a agregación $\beta$
 
-Para calcular la energía asociada a la conformación de hélice-alfa, los parámetros que se tienen en cuenta son los evaluados previamente en el desarrollo del método AGADIR\cite{lacroix1998elucidating}.
-
-Para calcular la energía asociada a las conformaciones $\beta$ se tiene en cuenta la energía de interacción entre las cadenas laterales.
-Para evaluar esta energía entre 
-% Para calcular la energía de interacción entre las cadenas laterales de 
-cualquier par de aminoácidos en conformación de $\beta$-strands, se calcula un potencial estadístico a partir de la relación 
-entre la frecuencia observada y la frecuencia esperada para los pares encontrados dentro de una base de datos(identificados en conformación $\beta$ de acuerdo a sus ángulos phi y psi).
-Asumiendo que la base de datos representa un sistema termodinámico en equilibrio, la frecuencias observadas y esperadas se relacionan con la energía de interacción de acuerdo a la siguiente ecuación:
+Puntualmente, para el cálculo de la energía asociada a la conformación de hélice-$\alpha$, se tienen en cuenta los parámetros definidos previamente en el desarrollo del método AGADIR\cite{lacroix1998elucidating}.
+Para el cálculo de la energía asociada a las conformaciones $\beta$ se tiene en cuenta la energía de interacción entre las cadenas laterales.
+Esta energía se deriva, a partir de una base de datos de estructuras, calculando la relación entre frecuencias observadas y esperadas para cada par de aminoácidos que se encuentra en este tipo de conformación.
+% (identificados en conformación $\beta$ de acuerdo a sus ángulos phi y psi).
+% Para evaluar esta energía entre cualquier par de aminoácidos en conformación de $\beta$-strands, se calcula un potencial estadístico a partir de la relación 
+% entre la frecuencia observada y la frecuencia esperada para los pares encontrados dentro de una base de datos(identificados en conformación $\beta$ de acuerdo a sus ángulos phi y psi).
+Asumiendo que la base de datos representa un sistema termodinámico en equilibrio, la frecuencias se relacionan con la energía de interacción de acuerdo a la siguiente ecuación:
 
 \begin{equation}
 \large
  \Delta G_{interacc-cadenas}=-RTln(\frac{f_{observada}}{f_{esperada}})
 \end{equation}
 
-Para el caso en que la conformación sea de $\beta$-turn, dado que los residuos no están fijos sino que pueden adoptar diferentes conformaciones, por lo tanto se agrega una penalización por el aumento de entropía.
-Este valor empírico es de 0.3 Kcal/mol
+% ESTA ACLARACION NO SE SI ES NECESARIA, CONFIRMAR SI ESTA ESCRITA CORRECTAMENTE
+% \noindent donde $\Delta G_{interacc-cadenas}$ representa la diferencia en energía libre entre la conformación desplegada del polipéptido y la interacción formando la conformación definida.
 
-Para el caso de agregados $\beta$ se asume que los residuos que adoptan esta conformación se encuentran completamente insertos en el núcleo y pagan el costo energético correspondiente. 
+Para el caso en que la conformación sea de $\beta$-turn, dado que los residuos no están fijos sino que pueden adoptar diferentes conformaciones, se agrega una penalización por el aumento de entropía.
+% Este valor empírico es de 0.3 Kcal/mol
+Por otro lado, en el caso de agregados $\beta$ se asume que los residuos que adoptan esta conformación se encuentran completamente insertos en el núcleo y pagan el costo energético correspondiente. 
 En este caso se calculan los diferentes parámetros energéticos, de hidrofobicidad, de solvatación, las interacciones electrostáticas y las interacciones por formación de puentes de hidrógeno.
 
-A partir de las energías de estas cuatro conformaciones se calcula la función de partición resultante que permite definir las tendencias de cada residuo a poblar los estados conformacionales evaluados.
+A partir de las energías definidas para estas cuatro conformaciones, se calcula la función de partición resultante que permite definir las tendencias de cada residuo a poblar los distintos estados conformacionales evaluados.
 La salida que muestra TANGO se compone de un archivo con las siguientes columnas:
 Número de posición, residuo en esa posición, porcentaje en conformación hebra-$\beta$, porcentaje en conformación $\beta$-turn, porcentaje en conformación hélice-$\alpha$, porcentaje de agregados $\beta$ y
 porcentaje en agregación de hélices-$\alpha$.
-Esta última columna no forma parte del modelo inicial que describimos y se calcula aparte, no representa un resultado confiable.
+Esta última columna no forma parte del modelo inicial que describimos y se calcula aparte, no representando un resultado confiable.
 % , por lo tanto la suma total puede dar mayor a 1.
 
+El método puede ser utilizado a través del servidor web en \cite{tangoWeb}. En nuestro caso solicitamos a los creadores especialmente una versión ejecutable para poder usarla de manera local.
+Una vez ejecutados y obtenidos los resultados para una secuencia, es necesario definir un valor de \textit{threshold} que determine la significancia de la tendencia obtenida.
 En \cite{fernandez2004prediction} se definen dos intervalos de confianza para la predicción de regiones de agregación: segmentos con residuos que posean más de 5\% de tendencia agregación $\beta$(resultando en una alta certeza de predicción),
 y segmentos con residuos entre 0.2\% y 5\%. En nuestro caso utilizamos 1\% como valor de \textit{threshold} en esta primera implementación de la herramienta.
+% Si bien el objetivo principal de TANGO, y de la aplicación de este en nuestra herramienta, es buscar segmentos con potencial de agregación, estamos interesados en eliminar cualquier región estructurada y, dado que TANGO incorpora como parte
+% de la función de partición a distintos estados conformacionales nativos, el puntaje reflejará también todas estas tendencias en la secuencia. 
 
-Si bien el objetivo principal de TANGO, y de la aplicación de este en nuestra herramienta, es buscar segmentos con potencial de agregación, estamos interesados en eliminar cualquier región estructurada y, dado que TANGO incorpora como parte
-de la función de partición a distintos estados conformacionales nativos, el puntaje reflejará también todas estas tendencias en la secuencia. Durante el desarrollo de TANGO no se evaluaron las predicciones asociadas a 
-otros estados conformacionales, a modo de prueba utilizamos el mismo porcentaje de \textit{threshold} que para la prediccón de agregados $\beta$. 
-Por lo tanto, el puntaje será igual a 1 cuando el residuo tenga una tendencia superior a cierto valor de \textit{threshold} para la formación de agregados, hélices-$\alpha$, hebras-$\beta$ o $\beta$-turns, 
+Dado que TANGO fue desarrollado con el objetivo de evaluar tendencias a formar agregados, no se evaluaron las predicciones asociadas a otros estados conformacionales. 
+Para utilizar estas evaluaciones en nuestra implementación utilizaremos el mismo valor de \textit{threshold} que se obtuvo para la predicción de agregación $\beta$. 
+Por lo tanto, el puntaje será igual a 1 cuando el residuo tenga una tendencia superior al valor de \textit{threshold} para la formación de agregados, hélices-$\alpha$, hebras-$\beta$ o $\beta$-turns, 
 y un puntaje igual a 0 en caso contrario.
 Por ejemplo, si evaluamos usando TANGO la secuencia \texttt{AMAPVLYLQDKSS}, obtenemos la siguiente tabla de valores:
 
 \vspace{0.3cm}
+\begin{center}
 \begin{tabular}{ccccccc}
 Pos & Residuo & Beta & Turn & 	Hélice & Beta Aggregation & Helical Aggregation\\
 01 &          A & 0.2 & 0.0 &  0.000  & 0.000 &  0.000\\
@@ -713,18 +739,21 @@ Pos & Residuo & Beta & Turn & 	Hélice & Beta Aggregation & Helical Aggregation\
 12  &         S &      0.2   &     1.6 &  0.000 &  0.000 &  0.000\\
 13  &         S  &     0.2  &      1.6 &  0.000 &  0.000 &  0.000\\
 \end{tabular}
+\end{center}
 
 \vspace{0.5cm}
-El segmento en las posiciones 5-9 supera el porcentaje de agregación que utilizamos como threshold, mientras que el segmento 10-13 supera este valor para el porcentaje de $\beta$-turn.
+El segmento en las posiciones 5-9 supera el porcentaje de agregación que utilizamos como threshold, mientras que el segmento 10-13 supera este valor en la tendencia a encontrarse en conformaciones de $\beta$-turn.
 Por lo tanto, el puntaje resultante de la evaluación es:
 
 \vspace{0.5cm}
-\noindent
+% \noindent
+\begin{center}
 \begin{tabular}{llllllllllllll} 
 \hline      		
 Secuencia & \textbf{A} & \textbf{M} & \textbf{A} & \textbf{P} & \textbf{V} & \textbf{L} & \textbf{Y} & \textbf{L} & \textbf{Q} & \textbf{D} & \textbf{K} & \textbf{S} & \textbf{S} \\ \hline
 Evaluación con TANGO & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
 \end{tabular}
+\end{center}
 
 
 
@@ -745,25 +774,28 @@ Evaluación con TANGO & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hl
 \subsection{PASTA}\label{pasta}
 
 
-PASTA\cite{trovato2006insight} es una herramienta que permite, principalmente, predecir cuales son las regiones de un polipéptido que permiten estabilizar la estructura conocida para las fibrillas amiloides.
-Para esto, realiza un calculo de las energias de interaccion entre los distintos segmentos, asumiendo que las interacciones entre aminoácidos que llevan a la formación 
+PASTA \cite{trovato2006insight} es una herramienta que permite, principalmente, predecir las regiones de un polipéptido que pueden estabilizar la estructura de las fibrillas amiloides.
+Para esto, realiza un cálculo de las energías de interacción entre los distintos segmentos, asumiendo que el mecanismo de las interaccion entre aminoácidos que lleva a la formación 
 de láminas-$\beta$ en proteínas globulares es el mismo que lleva a la formación de apilamientos de hebras-$\beta$ en estructuras cross-$\beta$.
 % (estructura asociada a fibras amiloides).
 
 % En primer lugar, Pasta deriva una funcion energetica a partir de un conjunto de datos de estructuras globulares (potenciales estadisticos).
-PASTA deriva un potencial estadístico para cada par de residuos, extraído de una base de datos de proteínas globulares(selección de proteínas no-redundantes y con estructuras resuletas con alta definición)
-
-Para cada posible par de residuos $a$-$b$ se dividen las instancias encontradas en 4 categorias según los residuos estén interaccionando formando una hoja plegada-$\beta$ en forma paralela($n_{ab}^p$) o antiparalela($n_{ab}^p$), 
+La evaluación de la energía de interacción se realiza a partir de un potencial estadístico derivado de una base de datos de proteínas globulares.
+% (selección de proteínas no-redundantes y con estructuras resuletas con alta definición)
+Para esto, se dividen las instancias encontradas de cada par $a$-$b$ de residuos en 4 categorias, según estén interaccionando formando una hoja plegada-$\beta$ en forma paralela($n_{ab}^p$) o antiparalela($n_{ab}^p$), 
 o si no están participando de una estructura $\beta$ y sus carbonos-$\alpha$ están a menos de $6.5$\AA ($n_{ab}^c$ contactos genéricos), o a más de $6.5$\AA ($n_{ab}^d$ , pares desordenados sin contacto). 
-
-A partir de las frecuencias obtenidos se pueden derivar valores de energía asociados a las interacciones de a pares formando de los distintos estados, asumiendo que la base de datos analizada es un sistema en equilibrio termodinámico 
+A partir de las frecuencias obtenidas se pueden derivar valores de energía asociados a las interacciones de a pares para los distintos estados, asumiendo que la base de datos analizada es un sistema en equilibrio termodinámico 
 a temperatura constante para todas las proteínas.
-De esta forma, la tendencia de cada par $a$-$b$ a encontrarse en un estado $x$ se relaciona con el valor de la energía mediante el factor de Boltzman $p_{ab}(x)= e^{-E_{ab}^x}$. 
-Aproximando $p_{ab}(x)$ se puede despejar el obtener una estimación de la energía asociada.
-Las tendencia se define como la relación entre la frecuencia observada y la esperada en el estado de referencia. Esta probabilidad esperada se puede aproximar como la frecuencia observada para todos los pares.
-Utilizando los valores definidos previamente, se despeja el valor de $E_{ab}^x$ que corresponde a la diferencia en energía entre un estado $x$ y el estado que se toma como referencia.
+De esta forma, la probabilidad de cada par $a$-$b$ de encontrarse en un estado $x$ se relaciona con el valor de la energía mediante el factor de Boltzman $p_{ab}(x)= e^{-E_{ab}^x}$. 
+
+Si podemos obtener una aproximación para $p_{ab}(x)$ se puede despejar el valor del potencial de interacción estadístico asociado ($E_{ab}^x$) para cada estado $x$,
+el cual corresponde a la diferencia en energía entre el estado $x$ y el estado que se toma como referencia.
+Definiendo la probabilidad $p_{ab}(x)$ como la relación entre la frecuencia de interacciones observada para cada par y la esperada en el estado de referencia, 
+y aproximando esta última como la frecuencia observada para todos los pares, se obtiene:
+% Utilizando los valores definidos previamente, se despeja el 
+% Despejando el valor de $E_{ab}^x$ para cada estado $x$, el cual corresponde a la diferencia en energía entre el estado $x$ y el estado que se toma como referencia, se obtiene:
 % El método asume que la forma soluble(estado de referencia) es nativamente desestructurada, por lo que hay que tener cuidado cuando se lo usa para predecir proteinas que nativamente adquieren una estructura globular.
-El valor de energía resultante para cada estado $x$ queda definido por:
+% El valor de energía resultante para cada estado $x$ queda definido por:
 
 \begin{equation}
 {E_{ab}^x = -log\left(\dfrac{\dfrac{n_{ab}^x}{n_{ab}}} {\dfrac{\sum\limits_{ab} n_{ab}^x}{\sum\limits_{ab} n_{ab}}}\right)}
@@ -778,56 +810,59 @@ El valor de energía resultante para cada estado $x$ queda definido por:
 % la frecuencia observada es el numero de pares ab que estan en esa clase / el total de pares ab encontrados.
 % los cuales pueden ser usados 
 % para calcular el valor energético para cualquier emparejamiento de dos secuencias con la misma longitud(sumando los scores de cada par que interaccione) 
-El cálculo de los valores de $E_{ab}$ para los estados paralelos y antiparalelos, resulta en un par de matrices con un valor asociado(score) para cada par $a$-$b$ de residuos posibles.
-Usando estos datos es posible asignar una energía total a cada emparejamiento especifico entre subsecuencias de la misma longitud, sumando los potenciales de interaccion de a pares involucrados. 
-El método permite evaluar emparejamientos entre subsecuencias correspondientes a una misma o proteína o a distintas. 
+% El cálculo de los valores de $E_{ab}$ para los estados paralelos y antiparalelos, resulta en un par de matrices con un valor asociado(score) para cada par $a$-$b$ de residuos posibles.
 
+% Usando los valores de $E_{ab}$ resultantes es posible asignar una energía total a cada emparejamiento especifico entre subsecuencias de la misma longitud, simplemente sumando los valores para correspondientes a cada par involucrado. 
+% El método permite evaluar emparejamientos entre subsecuencias correspondientes a una misma o proteína o a distintas. 
 Para predecir los segmentos que pueden estar involucrados en la agregación de una proteína
 se prueban todos los emparejamientos posibles entre subsecuencias de ésta, en sentido paralelo y antiparalelo, y para cada uno 
-se calcula la energía asociada, resultante de sumar todos los potenciales de interacción de a pares involucrados.
-El método devuelve los valores predecidos en unidades PEU (PASTA Energy Units), donde 1 PEU es equivalente a aprox. 1,192 Kcal/mol 
+se calcula la energía asociada, resultante de sumar todos los potenciales de interacción de a pares ($E_{ab}$) involucrados.
+% El método devuelve los valores predecidos en unidades PEU (PASTA Energy Units), donde 1 PEU es equivalente a aprox. 1,192 Kcal/mol 
 % The server predicts aggregation in energy units where 1 PASTA Energy Unit (PEU) is equivalent to 2 KBT at room temperature, that is 1.192 Kcal/mol (see Supplementary Material). 
 
-Lo que nosotros queremos conocer son los residuos que podrian formar conformaciones de fibra amiloide(interacciones beta) con una energia asociada
-suficientemente baja, es decir, conformaciones suficientemente estables como para que esta estructura se adopte realmente en un \% considerable.
-Para lograr esto debemos obviamente definir un valor de \textit{cut-off} ya que el termino ``suficientemente bajo'' es algo totalmente subjetivo. 
-% El valor de cutoff se debera elegir de forma tal que se balancee la sensibilidad y la especificidad en la deteccion.
-Para balancear la sensibilidad y la especificidad el método permite, entonces, modificar dos paráemtros en el análisis. En primer lugar el valor de \textit{cut-off} que se utilizará y en segundo lugar el número de emparejamientos que 
-se tendrán en cuenta dentro de ese \textit{cut-off}.
+% En nuestra evaluación intentamos conocer cuales son los residuos que pueden formar estructuras de fibra amiloide con una energia asociada
+% suficientemente baja, es decir, conformaciones suficientemente estables como para que esta estructura se adopte realmente en un \% considerable.
+% Para lograr esto debemos obviamente definir un valor de \textit{cut-off} ya que el termino ``suficientemente bajo'' es algo totalmente subjetivo. 
+% % El valor de cutoff se debera elegir de forma tal que se balancee la sensibilidad y la especificidad en la deteccion.
+% Para balancear la sensibilidad y la especificidad el método permite, entonces, modificar dos paráemtros en el análisis. 
+% En primer lugar el valor de \textit{cut-off} que se utilizará y en segundo lugar el número de emparejamientos que se tendrán en cuenta dentro de ese \textit{cut-off}.
 
-Si bien la herramienta permite definir estos valores libremente, para aplicarla nos basamos en las recomendaciones analizadas en \cite{walsh2014pasta}.
-En nuestro caso utilizamos el esquema de valores que se describe como más específico, utilzando un valor de \textit{cut-off}$=-5$ y teniendo en cuenta sólo el emparejamiento de menor energía aún cuando existan otros con valores menores al \textit{cut-off}. , 
+Sobre los valores de energía resultantes de estas sumas se aplica un punto de corte, siguiendo las recomendaciones analizadas en \cite{walsh2014pasta}.
+% Si bien la herramienta permite definir estos valores libremente, para aplicarla nos basamos en las recomendaciones analizadas en \cite{walsh2014pasta}.
+Puntualmente, utilizamos el esquema de valores que se describe como más específico, con un valor de \textit{cut-off}$=-5$ y teniendo en cuenta 
+sólo el emparejamiento de menor energía aún cuando existan otros con valores menores al \textit{cut-off}.
+% *****ESTAS LINEAS QUE SIGUEN LAS PUEDO SACAR SI HACE FALTA RECORTAR
 Sólo usamos el primero de los emparejamientos porque, al implementar un esquema iterativo, si los emparejamientos que se encuentran por debajo  del valor de \textit{cut-off} persisten, se incrementan o se modifican,
 igualmente los tendremos en cuenta a todos en las próximas iteraciones. Otra forma de implementarlo sería ``uniendo'' todos los segmentos que entran en el rango de \textit{cut-off}.
 % , de forma que en cada iteración se apunte a mutar dentro de un conjunto mas amplio de segmentos. 
-% En cuanto al valor definido de \textit{cut-off}, 
-% e se recomienda en \cite{walsh2014pasta} es de -2.8. Cuando se agregó incorporó PASTA en la implementación de nuestra herramienta se utilizó primero este valor, el cual, en 
-% un principio pareció incorporar demasiadas restricciones a la busqueda porque....... 
-% Sin embargo, esto puede haberse modificado cuando se incorporaron el resto de las herramientas de evaluación. 
-El \textit{cut-off} utilizado puede ser muy específico pero es sólo el punto de inicio para la incorporación de PASTA en nuestra herramienta y es uno de los parámetros que quizás sea mejor optimizar, 
-buscando un valor acorde probablemente más cercano a $-2.8$ que es el próximo valor analizado en \cite{walsh2014pasta}, para tener una mayor sensibilidad. 
+% El \textit{cut-off} utilizado puede ser muy específico pero es sólo el punto de inicio para la incorporación de PASTA en nuestra herramienta y es uno de los parámetros que quizás sea mejor optimizar, 
+% buscando un valor acorde probablemente más cercano a $-2.8$ que es el próximo valor analizado en \cite{walsh2014pasta}, para tener una mayor sensibilidad. 
 
-Una vez que se obtiene el segmento que será tenido en cuenta, simplemente se asigna un puntaje de 1 a cada posición en nuestro esquema de puntajes.
+
+
+El método PASTA es ejecutado de forma local mediante un script escrito en lenguaje Perl, obtenido directamente de sus desarrolladores, junto con las matrices de energías.
+Si los resultados indican que algún segmento de la secuencia tiene una tendencia considerable a la formación de agregados, 
+simplemente se asigna un puntaje de 1 a cada posición de este.
 Hay que tener en cuenta que, si bien la mayoria de las veces los emparejamientos de menor energía se corresponden con emparejamientos en forma paralela e \textit{in-register} (PIRA), es decir, 
 que involucre el mismo segmento en ambas moléculas que interactúan, en el caso que esto no sea así se asigna el puntaje 1 a las posiciones de ambas regiones. 
 
-El método PASTA es ejecutado de forma local mediante un script escrito en lenguaje Perl, obtenido de sus creadores junto con las matrices de datos(energías).
 Para ejemplificar el proceso de evaluación, se muestra el resultado del evaluar la secuencia \texttt{VTNVGGAVVTGVTAV}.
-
 La ejecución de PASTA sobre esta secuencia devuelve: \\
 \noindent
 \texttt{pairing 0  PASTA energy -5.735704  length 13  between segments 1-13 and 1-13  parallel}
 
-Este resultado indica que existe un emparejamiento con un score de $-5.735704$ entre dos segmentos correspondientes a la subsecuencia \texttt{VTNVGGAVVTGVT} (posiciones 1-13). 
+Este resultado indica que existe un emparejamiento de forma paralela, con un score de $-5.735704$, entre dos segmentos correspondientes a la subsecuencia \texttt{VTNVGGAVVTGVT}. 
 El puntaje resultante, por lo tanto, es:
 
-\vspace{0.5cm}
-\noindent
+% \vspace{0.5cm}
+% \noindent
+\begin{center}
 \begin{tabular}{lllllllllllllllll} 
 \hline    
 Secuencia & \textbf{V} & \textbf{T} & \textbf{N} & \textbf{V} & \textbf{G} & \textbf{G} & \textbf{A} & \textbf{V} & \textbf{V} &\textbf{T} & \textbf{G} & \textbf{V} & \textbf{T} & \textbf{A} & \textbf{V} \\ \hline
 Evaluación con PASTA & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 \\ \hline
 \end{tabular}
+\end{center}
 
 
 
