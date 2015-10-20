@@ -275,83 +275,128 @@ Por último, evaluamos la presencia de determinantes secuenciales que pueden ind
 
 \subsection{IUPred: Análisis de tendencia al desorden} \label{iupred}
 
-La herramienta IUPred\cite{dosztanyi2005pairwise} está disponible a través de un servidor web \cite{iupredWeb,dosztanyi2005iupred} o descargando la implementación y ejecutándola localmente \cite{iupredDownload}.   
+La herramienta IUPred\cite{dosztanyi2005pairwise} permite diferenciar secuencias con capacidad para formar plegamientos globulares de aquellas que no y, por lo tanto, están destinadas a permanecer en una conformación desordenada.
+En nuestro método de evaluación, utilizamos esta herramienta para identificar aquellas posiciones que tienen una tendencia a formar conformaciones globulares en el contexto de la secuencia evaluada,
+una propiedad que describimos como no deseada para secuencias linker.
+
+% El método se basa en la estimación de la energía de interacción intramolecular, utilizando la secuencia
+% Este modelo para describir la energia total en funcion de las interacciones puede representarse como:
+% El primer paso en el desarrollo del método es el cálculo de una energía de interacción de a pares. Dada una estructura conformacional de una proteína, la :
+% El método se basa en utilizar información de estructuras de proteínas globulares, las cuales. 
+% Sabemos que podemos calcular la energía asociada a la estructura de una proteína mediante:
 
 
 
-Este modelo para describir la energia total en funcion de las interacciones puede representarse como:
+
+% ***********************
+% DESCRIPCION DEL METODO
+% ***********************
+El primer paso del método es definir un modelo simple para calcular la energía total de una conformación nativa a partir de los contactos que se encuentran en esta:
+
 % FORMULA 1
 \begin{equation}\label{modelo1}
 E = \sum_{ij=1}^{20} M_{ij}C_{ij}
 \end{equation}
 
-Donde $M_{ij}$ es el potencial de interacción entre dos residuos de tipos $i,j$, y $C_{ij}$ es el número de contactos entre residuos de tipos $i,j$ encontrados en la estructura.
+\noindent donde $M_{ij}$ es el potencial de interacción entre dos residuos de tipos $i,j$(sólo depende del tipo de residuos), y $C_{ij}$ es el número de este par de residuos que se encuentran en contacto en la estructura.
+% de contactos entre residuos de tipos $i,j$ encontrados en la estructura.
 
-Sin embargo, obviamente, se requiere conocer una estructura a partir de la cual extraer los pares que interaccionan y poder así evaluar el aporte energético de éstos.
-El centro de IUPred es poder evaluar la contribución energética promedio por AA en una secuencia usando como parámetro solamente su composición.
-Esta evaluación tendrá la forma
+Sin embargo, el método IUPred busca poder evaluar la contribución energética de cada aminoácido usando, únicamente, la composición secuencial como parámetro. 
+% Sin embargo, obviamente, se requiere conocer una estructura a partir de la cual extraer los pares que interaccionan y poder así evaluar el aporte energético de éstos.
+% El centro de IUPred es poder evaluar la contribución energética promedio por AA en una secuencia usando como parámetro solamente su composición.
+Esta evaluación tendrá la forma: 
 % PONER FORMULA 2
 \begin{equation}\label{modelo2}
 \frac{E_{estimada}}{L} = \sum_{ij=1}^{20} n_{i}P_{ij}n_{j}
 \end{equation}
 
+\noindent donde $n_i$ y $n_j$ representan la frecuencia de residuos de tipo $i$ y $j$, respectivamente, en la secuencia.
+P es la matriz de predicción de energia, que indica cómo la energía de un residuo de tipo $i$ depende de la existencia de residuos de tipo $j$ en el contexto.
+% is the energy predictor matrix, which tells how the energy of amino acid i depends on the jth element of the amino acid composition vector.
+
+
 % la idea es que la existencia de contactos(interacciones) favorables es resultado de las potenciales parejas de interacción en la secuencia.
-La idea es, entonces, obtener un potencial de interacción estadístico para cada par de AAs(Pij), el cual es totalmente independiente de la posicion que ocupan estos en la secuencia.
-Este valor representa la energia de interaccion entre cada ocurrencia del par ij en cualquier proteina.
+% La idea es, entonces, obtener un potencial de interacción estadístico para cada par de AAs(Pij), el cual es totalmente independiente de la posicion que ocupan estos en la secuencia.
+% Este valor representa la energia de interaccion entre cada ocurrencia del par ij en cualquier proteina.
 % Es decir, para cada posible aminoacido i , saber como depende la contribucion energetica con respecto a la presencia de un aminoacido de tipo j en la secuencia.
 % Conociendo este valor promedio, usando la ecuacion anterior(que solo depende de la composición) se podría obtener el valor de E por residuo (E/L).
-Lo que se requiere ahora es poder derivar la matriz P.
+% Lo que se requiere ahora es poder derivar la matriz P.
 
-Para extraer estos valores a partir de una base de datos de estructuras conocidas, se desglosa la energia total de cada proteina en las contribuciones que hace cada aminoácido.
-Usando el modelo de la ecuación \ref{modelo1}, aplicado a cada proteina, se obtiene la energía total por tipo de residuo a partir de:
+De esta forma, sin conocer la estructura de la proteína, basamos el cálculo de la energía en valores estadísticos(matriz P) que pueden ser extraídos de una base de datos de proteínas globulares.
+Para esto, primero se desglosa la energía total de cada proteina en las contribuciones que hace cada aminoácido.
+Esto puede hacerse reusando el modelo de la ecuación \ref{modelo1}, ya que conocemos las estructuras. 
+La energía total por tipo de residuo se obtiene como:
 % ecuacion de ek
 \begin{equation}\label{ek1}
   e_i = \sum_{j=1}^{20} M_{ij}C_{ij}
 \end{equation}
-Este valor depende de los contacto(interacciones) que hacen todos los aminoacidos de tipo i dentro de esa proteina. 
+% Este valor depende de los contactos(interacciones) que hacen todos los aminoacidos de tipo i dentro de esa proteina. 
 % En algunas estructuras, un par ij de aminoacidos estaran formando contactos , en otro no , en otro solo un par, etc...
 
-Usando una aproximación similar a la de la ecuación \ref{modelo2}, la contribucion de cada tipo de aminoacido a la energia de una proteina específica se puede estimar como:
+Usando una aproximación similar a la de la ecuación \ref{modelo2}, esta energía por tipo de residuo se puede estimar mediante:
+% la contribución de cada tipo de aminoacido a la energia de una proteina específica se puede estimar como:
 % ecuacion ek estimado
 \begin{equation}\label{ek2}
 e_i(estimada) = N_i\sum_{j=1}^{20} P_{ij}n_{j}
 \end{equation}
+\noindent donde $N_i$ representa el número total de residuos de tipo $i$ en la secuencia ($L*n_i$).
 
-Utilizando las ecuaciones \ref{ek1} y \ref{ek2} tenemos la base para estimar cada valor $P_{ij}$ de la matriz a partir de los valores $M_{ij}$ y una base de datos de estructuras globulares conocidas.
-Para esto, se minimiza la diferencia entre los $e_i(evaluado)$ y los $e_i(calculado)$ para todas las estructuras de la base de datos.
-Dadas las propiedades de la ecuacion \ref{ek2}, la minimizacion se hace para cada fila de la matriz por separado.
+% Utilizando las ecuaciones \ref{ek1} y \ref{ek2} tenemos la base para estimar cada valor $P_{ij}$ de la matriz a partir de los valores $M_{ij}$ y una base de datos de estructuras globulares conocidas.
+Para esto estimar cada valor $P_{ij}$ de la matriz, se minimiza la diferencia entre los $e_i(evaluado)$ y los $e_i(calculado)$ para todas las estructuras de una base de datos de estructuras globulares.
+% Dadas las propiedades de la ecuacion \ref{ek2}, la minimizacion se hace para cada fila de la matriz por separado.
 La función a minimizar es, entonces: 
 % funcion de Zi
 \begin{equation}\label{z}
 Z_i = \sum_{k} (e_i^k - N_i^k\sum_{j=1}^{20} P_{ij}n_{j}^k)^2   
 \end{equation}
-Donde $k$ indica el indice de las estructuras en la base de datos. Es decir, se minimiza esta diferencia cuadrática para los valores de $e_i$ sobre todas las estructuras.
+\noindent donde $k$ indica el índice de la estructura en la base de datos. 
+% Es decir, se minimiza esta diferencia cuadrática para los valores de $e_i$ sobre todas las estructuras.
 
-Se tienen ahora los valores obtenidos de $P_{ij}$ los cuales son, luego, evaluados mediante la comparación de los cálculos de energía para un set de estructuras usando la ecuación \ref{modelo1} y la ecuación \ref{modelo2}, 
-obteniéndose una correlación que indica, de acuerdo a los análisis estadísticos aplicados, un nivel razonable de concordancia entre ambos cálculos.
 
-Lo que tenemos ahora es, entonces, un modelo que nos permite estimar la energía miníma de la estructura asociada a una secuencia, sin asumir ninguna conformación.
+% Se tienen ahora los valores obtenidos de $P_{ij}$ los cuales son, luego, evaluados mediante la comparación de los cálculos de energía para un set de estructuras usando la ecuación \ref{modelo1} y la ecuación \ref{modelo2}, 
+% obteniéndose una correlación que indica, de acuerdo a los análisis estadísticos aplicados, un nivel razonable de concordancia entre ambos cálculos.
+
+Tenemos ahora un modelo completo que nos permite estimar la energía miníma de la estructura asociada a una secuencia, sin asumir ninguna conformación (\ref{modelo2}).
 Este modelo primero se prueba sobre dos conjuntos de proteinas globulares e IDPs obteniéndose que la energia estimada para el conjunto de IDPs son menos favorables que las correspondientes al set de proteínas globulares,
 lo que esta de acuerdo con la hipotesis que indica que las proteinas globulares tienen secuencias especificas con potencial para formar un gran numero de interacciones favorables, mientras que las IDPs no.
-Utilizando esta separación significativa, lo que resta es transformar esta aproximación en un método para predecir el desorden a partir de la secuencia.
-
-Sin embargo, el modelo se debe adaptar ya que es mas realista si se consideran solo la composición de la secuencia mas próxima a la posición que se está analizando, de manera que se puedan analizar por regiones desordenadas/ordenadas.
-Para esto se recalculan los valores de la matriz $P_{ij}$ pero cada posición se trata de forma separada teniendo en cuenta, solamente, la secuencia del contexto
-(sólo se tienen en cuenta posibles interacciones con residuos a distancias entre 2 y 100 posiciones alrededor).
-% Ahora si, con la matriz $P^p$(dependiente de la posición, p), es posible estimar las energias de cada residuo de acuerdo a la posición especifica en la secuencia.
-La energía de a pares asociada a cada posición $k$ de una secuencia se calcula ahora según la ecuación \ref{modelofinal}.
-
-\begin{equation}\label{modelofinal}
-E_i^k = \sum_{j=1}^{20} P_{ij}f_{j}^k(w_o) 
-\end{equation}
-
-donde $f_{j}^k(w_o)$ es la fracción de residuos de tipo $j$ en el entorno de la posición $k$
+Utilizando esta separación significativa, lo que resta es transformar esta aproximación en un método para predecir el desorden a partir de la secuencia, 
+para lo cual se transforma el valor de energía en un valor de probabilidad(\textit{score} resultante, $s_k$).
 
 
-% or the final prediction output, the energies are transformed into probability values
-El resultado final de la predicción consiste en la transformación del valor de energía en un valor de probabilidad(\textit{score} resultante, $s_k$).
+
+% *********************************************
+% % SACO ESTA ULTIMA PARTE  EXPLICA COMO SE ADAPTA P PARA TENER EN CUENTA SOLO EL CONTEXTO CERCANO DE CADA POSICION
+% *********************************************
+% Sin embargo, el modelo se debe adaptar ya que es mas realista si se consideran solo la composición de la secuencia mas próxima a la posición que se está analizando, de manera que se puedan analizar por regiones desordenadas/ordenadas.
+% Para esto se recalculan los valores de la matriz $P_{ij}$ pero cada posición se trata de forma separada teniendo en cuenta, solamente, la secuencia del contexto
+% (sólo se tienen en cuenta posibles interacciones con residuos a distancias entre 2 y 100 posiciones alrededor).
+
+% % SACO ESTA ULTIMA ECUACION, ME PARECE QUE QUEDA BASTANTE CLARO EN EL TEXTO
+% La energía de a pares asociada a cada posición $k$ de una secuencia se calcula ahora según la ecuación \ref{modelofinal}.
+% 
+% \begin{equation}\label{modelofinal}
+% E_i^k = \sum_{j=1}^{20} P_{ij}f_{j}^k(w_o) 
+% \end{equation}
+% 
+% donde $f_{j}^k(w_o)$ es la fracción de residuos de tipo $j$ en el entorno de la posición $k$
+
+% % ESTO LO PUSE ANTES, PORQUE SAQUE LA ULTIMA ECUACION
+% El resultado final de la predicción consiste en la transformación del valor de energía en un valor de probabilidad(\textit{score} resultante, $s_k$).
+
+
+
+
+
+
+
+
+% *************************
+% UTILIZACION DEL METODO 
+% ***********************
+La herramienta para el cálculo del score a partir de una secuencia está disponible a través de un servidor web \cite{iupredWeb,dosztanyi2005iupred} o descargando la implementación y ejecutándola localmente \cite{iupredDownload}.   
+En nuestro caso utilizaremos la segunda opción. 
 Tal como se menciona en la información del servidor\cite{dosztanyi2005iupred}, los residuos que tengan un valor asociado de \textit{score} mayor a 0.5 pueden ser tomados como desordenados.
-Por lo tanto, en nuestro método, los residuos que posean un \textit{score} resultante menor a 0.5 tendrán un aumento de 1 en el valor asociado a la posición.
+Por lo tanto, en nuestro método, los residuos que posean un \textit{score} resultante menor a 0.5 tendrán un valor de 1 en el puntaje asociado a la posición.
 Por ejemplo, la evaluación de la secuencia \texttt{VLKQTKGVGASGSFR} con IUPred devuelve los valores de score que se ven en la figura \ref{iupredResults}
 % PONER RESULTADOS DE IUPred EN GRAFICO O TABLA
 
@@ -362,28 +407,6 @@ Por ejemplo, la evaluación de la secuencia \texttt{VLKQTKGVGASGSFR} con IUPred 
 \caption{}
 \label{iupredResults}
 \end{figure}
-
-% \begin{figure}[h!]
-% \centering
-% \begin{subfigure}[ht]{\linewidth}
-% \centering
-% \includegraphics[width=0.5\textwidth]{img/iupredTabla.png} 
-% \caption{}
-% \label{iupredTabla}
-% \end{subfigure}
-% 
-% \begin{subfigure}[ht]{\linewidth}
-% \centering
-% \includegraphics[width=0.7\textwidth]{img/iupredGrafico.png} 
-% % \includegraphics[width=0.7\textwidth]{img/globularEnLandscape.png} 
-% \caption{}
-% \label{iupredGrafico}
-% \end{subfigure}
-% 
-% \caption{}
-% \label{iupredResults}
-% \end{figure}
-
 
 Utilizando nuestro esquema de evaluación, estos valores resultan en los siguientes puntajes:
 
@@ -1639,39 +1662,43 @@ Puntaje BLAST 		& 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 1 
 
 \subsection{Limbo: Interacción con chaperonas} \label{limbo}
 % QUE DETECTA
-El algoritmo Limbo\cite{van2009accurate} es un predictor de sitios de unión a la chaperona DnaK, representante de la extensa familia Hsp70, que se especializa en la unión de regiones hidrofóbicas expuestas, generalmente
+El método Limbo\cite{van2009accurate} es un predictor de sitios de unión a la chaperona DnaK, representante de la extensa familia Hsp70, que se especializa en la unión de regiones hidrofóbicas expuestas, generalmente
 presentes en polipéptidos desplegados. 
 
 % METODO
 El método se desarrolló utilizando una combinación de información secuencial y estructural para analizar el perfil de secuencias que se unen a la DnaK.
 El primer paso en el desarrollo del método es crear un predictor basado exclusivamente en información secuencial.
-Para armar el set de aprendizaje que se usará para esto, se realizaron una serie de ensayos experimentales de unión a péptidos, los cuales se inmobilizaron unidos a una membrana de celulosa, 
-y luego de la incubación con DnaK se detectó la unión mediante un anticuerpo específico.
+Para armar el set de aprendizaje usado, se realizaron una serie de ensayos experimentales en los cuales un conjunto de péptidos se inmoboliza en membranas de celulosa 
+% de unión a péptidos, los cuales se inmobilizaron unidos a una membrana de celulosa, 
+y luego de la incubación con DnaK se detectó la unión a estos mediante un anticuerpo específico.
 
-Los pépetidos usados en los ensayos de unión se obtienen de 3 conjuntos distintos. Un primer set se obtiene de predicciones basadas en el uso de Tango, asumiendo que la DnaK se une a secuencias propensas a formar agregados.
-Usando los resultados obtenidos con el primer set, se desarrolla un predictor simple de unión a DnaK, utilizado para la búsqueda de sitios en el proteoma de E.coli 
-y separando las proteínas cortas con al menos dos de estos sitios de unión, las cuales conforman el set 2. El último conjunto corresponde a dos péptidos supuestamente reconocidos por la DnaK, ubicados en el factor$\sigma$ de la RNA-polimerasa.
+Los pépetidos usados en los ensayos de unión se obtienen de 3 conjuntos distintos. El set inicial se obtiene de predicciones basadas en el uso de TANGO\cite{fernandez2004prediction}(ver sección \ref{tango}),
+asumiendo que la DnaK se une a secuencias propensas a formar agregados.
+Usando los resultados obtenidos, se desarrolla un predictor simple de unión a DnaK, el cual es utilizado para la búsqueda de sitios de unión a chaperonas en el proteoma de E.coli 
+% y separando las proteínas cortas con al menos dos de estos sitios de unión
+, las cuales conforman el segundo set. El último conjunto corresponde a dos péptidos supuestamente reconocidos por la DnaK, ubicados en el factor$\sigma$ de la RNA-polimerasa.
+Estos péptidos, luego de ser sometidos al ensayo de binding, se dividen en dos conjuntos según los resultados obtenidos:
+% Los resultados de los ensayos fueron filtrados para separar aquellos que resultaban en señal positiva aún cuando no se realizaba el paso de incubación con DnaK (falsos positivos). 
+% La señal de todo el conjunto resultante se corrigió usando esta señal de control negativo. Finalmente los resultados se dividieron, según dos valores de cutoff(alto y bajo), para dar 2 conjuntos de péptidos:
+los que son reconocidos por la DnaK y lo que no. 
 
-Los resultados de los ensayos fueron filtrados para separar aquellos que resultaban en señal positiva aún cuando no se realizaba el paso de incubación con DnaK (falsos positivos). 
-La señal de todo el conjunto resultante se corrigió usando esta señal de control negativo. Finalmente los resultados se dividieron, según dos valores de cutoff(alto y bajo), para dar 2 conjuntos de péptidos:
-los que son reconocidos por la DnaK y lo que no. El set de aprendizaje final se construye obteniendo primero todas las subsecuencias de 7 residuos posibles. 
-
-Del set de péptidos de no-unión todos los posibles heptapéptidos formados son seleccionados, 
-mientras que del set de péptidos de unión positiva sólo se incluyen aquellos que dan una mayor energía de unión a DnaK(evaluada mediante el campo de fuerzas de FoldX).
+El set de aprendizaje final se construye obteniendo primero todas las subsecuencias de 7 residuos posibles. 
+Del set de péptidos de no-unión todos los posibles heptapéptidos formados son seleccionados, para dar el set de resultados negativos.
+Por su parte, del set de péptidos de unión sólo se incluyen en el set de péptidos positovos a aquellos que dan una mayor energía de unión a DnaK(evaluada mediante el campo de fuerzas de FoldX).
 A partir de los conjuntos de heptapéptidos positivos y negativos se obtienen dos matrices PSSM y una matriz final se obtiene restando los valores de score de la PSSM de no-unión a los valores encontrados en la PSSM positiva.
 
 De manera independiente se contruyó un perfil secuencial a partir de un análisis puramente estructural de unión a DnaK.
 Para esto se hizo primero un análisis de mutaciones posicionales sobre el heptapéptido unido a la DnaK utilizando la estructura de ésta(cristalizada junto con un hepapéptido) y el campo de fuerzas FoldX. 
 En primer lugar se mutaron todas las posiciones a Alanina y luego cada posición fue mutada individualmente a cada uno de los restantes 19 aminoácidos.
-Se obtuvieron asi los valores de $\Delta\Delta$G para cada residuo y cada posición. 
-The more
-negative the DDG, the better the residue fits DnaK binding. To
-convert each DDG into a PSSM score, we took the negative of
-each DDG and filled the structure-based PSSM accordingly.
+Se obtuvieron asi los valores de $\Delta\Delta$G para cada residuo y cada posición, donde los valores más negativos indican una mejor unión a la DnaK.
+Por lo tanto, la PSSM se obtiene del negativo correspondiente a cada valor de $\Delta\Delta$G.
+% The more
+% negative the DDG, the better the residue fits DnaK binding. To
+% convert each DDG into a PSSM score, we took the negative of
+% each DDG and filled the structure-based PSSM accordingly.
 
-
-Los valores de todas las matrices son optimizados mediante un algoritmo de validación cruzada el cual permite eliminar algunos péptidos de los conjuntos de aprendizaje .
-Los perfiles resultantes, representados en las PSSMs obtenidas del análisis secuencial y del análisis estructural se combinan para dar el predictor final. 
+Los valores de todas las matrices son optimizados mediante un algoritmo de validación cruzada el cual permite eliminar algunos péptidos de los conjuntos de aprendizaje.
+Los perfiles representados en las PSSMs, obtenidas del análisis secuencial y del análisis estructural por separado, se combinan para dar el predictor final. 
 
 
 % UTILIZACION
@@ -1746,17 +1773,21 @@ Evaluación con Limbo & 1 & 1 & 2 & 2 & 2 & 2 & 2 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
 
 \subsection{ANCHOR: predicción de MoREs} \label{anchor}
 
-La herramienta ANCHOR\cite{meszaros2009prediction} reutiliza el modelo definido para implementar la herramienta IUPred(ver sección \ref{iupred}), en la cual se lograba estimar la energía de interacción asociada a cada posición basándose en 
-el tipo de aminoácido y la composición del contexto más próximo. Usando esta modelo, se pueden calcular las energías de interacción de cada posición pero ``simulando'' un contexto de unión con otra proteína hipotética, lo que permite
-identificar cuales son las posiciones que experimentan cambios relevantes en su energía de interacción. 
+La herramienta ANCHOR\cite{meszaros2009prediction} busca identificar una clase especial de segmentos desordenados que son capaces de experimentar un proceso de \textit{binding \& folding}, 
+propio de la unión a una proteína globular.
+% reconocimiento molecular en proteínas. 
+Para esto, el método reutiliza el modelo definido para implementar la herramienta IUPred(ver sección \ref{iupred}), en la cual se logra estimar la energía de interacción asociada a cada posición basándose en 
+el tipo de aminoácido y la composición del contexto más próximo. Usando esta modelo se pueden calcular, también, las energía de interacción en el contexto de la unión a una proteína globular.
+Mediante la diferencia entre estos valores, se pueden identificar cuales son los segmentos que experimentan interacciones favorables en este nuevo contexto y que podrían estabilizar la unión. 
 
 % The goal of the present work was to recognize a special class of
 % disordered segments from the amino acid sequence, namely those
 % that are capable of undergoing a disorder-to-order transition upon
 % binding to a globular protein partner
-Dado que el método busca identificar una clase especial de segmentos desordenados que son capaces de experimentar un proceso de \textit{binding \& folding}   , 
-se identifican las siguientes propiedades que los segmentos buscados deben cumplir:
+% Dado que el método busca identificar una clase especial de segmentos desordenados que son capaces de experimentar un proceso de \textit{binding \& folding}   , 
+% se identifican las siguientes propiedades que los segmentos buscados deben cumplir:
 % Para esto se plantea, en primer lugar, un conjunto de propiedades que debe cumplir el segmento a identificar:
+Los segmentos buscados deben poseer residuos con propiedades específicas:
 \begin{enumerate}
  \item El residuo debe pertenecer a una región larga desordenada, es decir, fuera de cualquier dominio globular.
  \item En el estado aislado, el residuo no debe ser capaz de formar uniones favorables con sus vecinos cercanos que le permitan plegarse.
@@ -1765,17 +1796,18 @@ se identifican las siguientes propiedades que los segmentos buscados deben cumpl
 %  El tercer criterio tiene en cuenta la capacidad del residuo para interaccionar con proteínas globulares durante la unión a éstas. 
  \end{enumerate}
 
-Cada uno de estos criterios está asociado a un valor numérico y la predicción de los segmentos buscados se basa en una combinación lineal derivada directamente de estos.
+Cada uno de estos criterios está asociado a un valor numérico y la predicción de los segmentos buscados se basa en una combinación derivada directamente de estos.
 % tres criterio, reutilizando los conceptos y parámetros definidos para la herramienta IUPred.
 La ecuación asociada tendrá entonces 3 componentes que se combinan linealmente:
 \begin{enumerate}
- \item El primer componente resulta de promediar los valores de \textit{score} obtenidos directamente de IUPred, en una ventana de tamaño $w1$(que deberá definirse como parte de los ajustes de este predictor)  alrededor de cada residuo. 
+ \item El primer componente resulta de promediar los valores de \textit{score} obtenidos directamente de IUPred, en una ventana de tamaño $w_1$(que deberá definirse como parte de los ajustes de este predictor) alrededor de cada residuo. 
 Esto evalúa la tendencia al desorden que tiene el entorno de cada residuo, separando regiones desordenadas de posiciones puntuales que puedan tener cierta tendencia al desorden.
 \begin{equation}\label{score1}
  S_k = \frac{1}{N} \sum_{j=b_{lower}}^{b_{upper}} score_j
 \end{equation}
 
-donde $N$ es el número de aminoácidos efectivamente contenidos en la ventana para obtener el promedio del residuo $k$, y $b_{lower}$ - $b_{upper}$ los límites de esta.
+donde $N$ es el número de aminoácidos efectivamente contenidos en la ventana para obtener el promedio del residuo con índice $k$, y $b_{lower}$ - $b_{upper}$ los límites de esta.
+$score_j$ es el valor obtenido directamente de IUPred para el residuo en la posición $j$.
 
 \item El segundo componente evalúa la ganancia de energía que tendrá el residuo al formar interacciones de a pares con los vecinos contenidos dentro de una ventana de tamaño $w_2$. 
 La ecuación asociada es idéntica a la obtenida para IUPred (ecuación \ref{modelofinal}), pero el valor de la ventana se redefine como parámetro, el valor del cual será ajustado 
@@ -1793,17 +1825,19 @@ La diferencia resultante entre la interacción con los vecinos propios de la sec
 E_i^{ganancia,k} = E_i^{intra,k} - E_i^{globular,k}
 \end{equation}
 
-donde $E_i^{intra,k}$ y $E_i^{globular,k}$ se calculan usando nuevamente la ecuación \ref{modelofinal}, usando las frecuencias del contexto de la posición $k$ y las frecuencias estándar, respectivamente.
+donde $E_i^{intra,k}$ y $E_i^{globular,k}$ representan la energía de interacción de a pares asociada a cada posición, y se calculan usando nuevamente la ecuación \ref{modelofinal}, 
+con las frecuencias de aminoácidos del contexto de la posición $k$(en el primer caso) y las frecuencias estándar de proteínas globulares(en el segundo caso).
 \end{enumerate}
 
 La ecuación para cada posición $k$ de la secuencia, resultante de la combinación de criterios es:
+
 \begin{equation}\label{scorefinal}
 I_k = p_1S_k + p_2E_i^{intra,k} + E_i^{ganancia,k}
 \end{equation}
 
 
 Varios de los parámetros de este nuevo modelo ya fueron determinados previamente utilizando datos conocidos de estructuras de proteínas globulares(durante el desarrollo de IUPred).
-Queda determinar cuál es el peso de cada uno en el valor total(coeficientes de la combinación lineal) y los tamaños de la ventanas ($w_1$ y $w2$, correspondientes a los componentes 1 y 2).
+Queda determinar cuál es el peso de cada uno en el valor total(coeficientes de la combinación lineal) y los tamaños de la ventanas ($w_1$ y $w_2$, correspondientes a los componentes 1 y 2).
 % (cantidad de vecinos) que se tienen en cuenta para hacer el promedio en el componente 1 (w1).
 % Valor de la ventana que se tiene en cuenta para evaluar cada el componente 2 (w2).
 
@@ -1817,12 +1851,11 @@ A pesar de esta condición, y que la cantidad de datos del conjunto de resultado
 % Dado que el resultado de ANCHOR es una combinación de varios aportes, principalmente la tendencia al desorden y la sensibilidad al estar en un entorno estructurado, 
 % el resultado obtenido es relativamente independiente del score obtenido únicamente con IUPred. 
 
-Como se define en \cite{dosztanyi2009anchor},las regiones que tienen un $score>0.5$ se puede tomar como potneciales segmentos de unión.
-Dentro de nuestro esquema de evaluación, los segmentos de unión representan posibles pérdidas de flexiblidad en la región linker y, por lo tanto, se toman como propiedades negativas.
-De esta forma, los residuos que posean $score>0.5$ tendrán un puntaje asociado = 1 como resultado de la evaluación.
+Como se define en \cite{dosztanyi2009anchor},las regiones que tienen un $score>0.5$ se puede tomar como potenciales segmentos de unión y, por lo tanto, los residuos en estas tendrán un puntaje asociado = 1 como resultado de la evaluación.
+% Dentro de nuestro esquema de evaluación, los segmentos de unión representan posibles pérdidas de flexiblidad en la región linker y, por lo tanto, se toman como propiedades negativas.
+% De esta forma, los residuos que posean $score>0.5$ tendrán un puntaje asociado = 1 como resultado de la evaluación.
 % la herramienta ANCHOR se aplica utilizando un punto de corte igual a 0.5, como se define en el servidor . 
 % Los residuos de la secuencia que tengan un valor asociado mayor a éste se considerarán como posiblemente pertenecientes a segmentos desordenados de unión a proteínas.   
-
 Por ejemplo, la evaluación de la secuencia \texttt{TFSLWKPENMLSPDD} con ANCHOR devuelve los valores de \textit{score} mostrados en la figura \ref{anchorResults}. 
 
 \begin{figure}[ht]
