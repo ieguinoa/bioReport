@@ -76,6 +76,14 @@ por el apropiado "y".
 }
 
 
+@misc{tangoWeb,
+  author = {},
+  title = {{Waltz Web Server}},
+  howpublished = "\url{http://waltz.switchlab.org/}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
 @misc{elmweb,
   author = {},
   title = {{ELM WebServer}},
@@ -1077,6 +1085,18 @@ por el apropiado "y".
   publisher={Nature Publishing Group}
 }
 
+
+*************  FoldX *********************
+@article{schymkowitz2005foldx,
+  title={The FoldX web server: an online force field},
+  author={Schymkowitz, Joost and Borg, Jesper and Stricher, Francois and Nys, Robby and Rousseau, Frederic and Serrano, Luis},
+  journal={Nucleic acids research},
+  volume={33},
+  number={suppl 2},
+  pages={W382--W388},
+  year={2005},
+  publisher={Oxford Univ Press}
+}
 
 
 

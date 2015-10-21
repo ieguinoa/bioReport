@@ -18,9 +18,9 @@ es una buena práctica al momento de definir el conjunto de herramientas utiliza
 % De esta forma, dado que el espacio de soluciones buscadas se asume como considerablemente grande con respecto al espacio total de posibles secuencias, al hacer   
 % una evaluacion sobrerestrictiva con respecto a las caracteristicas buscadas no se impediría alcanzar un resultado.
 
-Por lo tanto, un aspecto que se repite es el solapamiento entre las características buscadas por las herramientas de evaluación(o los resultados que realmente se obtienen), pensado con el fin de hacer mas exhaustiva la detección,
+Por lo tanto, un aspecto que se repite es el solapamiento entre las características detectadas por las herramientas de evaluación, pensado con el fin de hacer mas exhaustiva la detección,
 además de políticas considerablemente abarcativas en cuanto a los métodos, con el fin de asegurar una mayor cobertura de las propiedades buscadas.
-Esta decisión permite dar mejores diseños finales(con mayor probabilidad de tener las características deseadas), sin tener un aumento considerable en el tiempo de búsqueda.
+Esta decisión permite dar mejores diseños finales, sin tener un aumento considerable en el tiempo de búsqueda.
 Como complemento de esta política, parte del trabajo realizado durante el desarrollo de la herramienta consistió en implementar un código versátil que permita modificar fácilmente el conjunto de métodos de evaluación.
 % La implementación está centrada en el esquema de mutaciones(visto en el capitulo previo) y es posible añadir herramientas de forma modularizada.
 % Para esto, se debe agregar en la implementación una función independiente que tome como parámetro la secuencia correspondiente a evaluar y devuelva el puntaje asociado a cada posición. 
@@ -126,11 +126,11 @@ módulos proteicos insolubles que afectan a todo el sistema biológico.
 Debido a estas implicancias altamente negativas se evaluará detalladamente la tendencia a formar agregados dentro de la secuencia que estamos diseñando.
  
 
-Existe actualmente una gran variedad de métodos existentes para predecir agregación desestructurada y formación de fibras amiloides (\cite{hamodrakas2011protein,redler2014computational,agrawal2011aggregation})
+Existe actualmente una gran variedad de métodos existentes para predecir agregación desestructurada y formación de fibras amiloides \cite{hamodrakas2011protein,redler2014computational,agrawal2011aggregation}.
 Cada método hace sus propias hipótesis e implementa predictores independientes, los cuales varían desde análisis muy simples (por ej. análisis de la composición secuencial) a métodos específicos más complejos.
 La capacidad para formar hojas-$\beta$ es una característica central de las evaluaciones ya que es un denominador común de la formación de agregados.
 
-En primer lugar, en nuestra herramienta evaluaremos la tendencia a formar agregados utilizando TANGO(sección \ref{tango}). 
+En primer lugar, en nuestra herramienta evaluaremos la tendencia a formar agregados utilizando TANGO (sección \ref{tango}). 
 Para evaluar específicamente la formación de fibrillas amiloides utilizaremos Waltz (descrito en la sección \ref{waltz}), y PASTA (sección \ref{pasta}).
 Por último, evaluamos la presencia de determinantes secuenciales que pueden indicar la formación de fibrillas amiloides, lo cual se describe en la sección \ref{determinantesSecuenciales}.
 
@@ -278,7 +278,7 @@ Por último, evaluamos la presencia de determinantes secuenciales que pueden ind
 
 \subsection{IUPred: Análisis de tendencia al desorden} \label{iupred}
 
-La herramienta IUPred\cite{dosztanyi2005pairwise} permite diferenciar secuencias con capacidad para formar plegamientos globulares de aquellas que no y, por lo tanto, están destinadas a permanecer en una conformación desordenada.
+La herramienta IUPred \cite{dosztanyi2005pairwise} permite diferenciar secuencias con capacidad para formar plegamientos globulares de aquellas que no y, por lo tanto, están destinadas a permanecer en una conformación desordenada.
 En nuestro método de evaluación, utilizamos esta herramienta para identificar aquellas posiciones que tienen una tendencia a formar conformaciones globulares en el contexto de la secuencia evaluada,
 una propiedad que describimos como no deseada para secuencias linker.
 
@@ -301,7 +301,7 @@ El primer paso del método es definir un modelo simple para calcular la energía
 E = \sum_{ij=1}^{20} M_{ij}C_{ij}
 \end{equation}
 
-\noindent donde $M_{ij}$ es el potencial de interacción entre dos residuos de tipos $i,j$(sólo depende del tipo de residuos), y $C_{ij}$ es el número de este par de residuos que se encuentran en contacto en la estructura.
+\noindent donde $M_{ij}$ es el potencial de interacción entre dos residuos de tipos $i,j$ (sólo depende del tipo de residuos), y $C_{ij}$ es el número de este par de residuos que se encuentran en contacto en la estructura.
 % de contactos entre residuos de tipos $i,j$ encontrados en la estructura.
 
 Sin embargo, el método IUPred busca poder evaluar la contribución energética de cada aminoácido usando, únicamente, la composición secuencial como parámetro. 
@@ -325,7 +325,7 @@ P es la matriz de predicción de energia, que indica cómo la energía de un res
 % Conociendo este valor promedio, usando la ecuacion anterior(que solo depende de la composición) se podría obtener el valor de E por residuo (E/L).
 % Lo que se requiere ahora es poder derivar la matriz P.
 
-De esta forma, sin conocer la estructura de la proteína, basamos el cálculo de la energía en valores estadísticos(matriz P) que pueden ser extraídos de una base de datos de proteínas globulares.
+De esta forma, sin conocer la estructura de la proteína, basamos el cálculo de la energía en valores estadísticos (matriz P) que pueden ser extraídos de una base de datos de proteínas globulares.
 Para esto, primero se desglosa la energía total de cada proteina en las contribuciones que hace cada aminoácido.
 Esto puede hacerse reusando el modelo de la ecuación \ref{modelo1}, ya que conocemos las estructuras. 
 La energía total por tipo de residuo se obtiene como:
@@ -363,7 +363,7 @@ Tenemos ahora un modelo completo que nos permite estimar la energía miníma de 
 Este modelo primero se prueba sobre dos conjuntos de proteinas globulares e IDPs obteniéndose que la energia estimada para el conjunto de IDPs son menos favorables que las correspondientes al set de proteínas globulares,
 lo que esta de acuerdo con la hipotesis que indica que las proteinas globulares tienen secuencias especificas con potencial para formar un gran numero de interacciones favorables, mientras que las IDPs no.
 Utilizando esta separación significativa, lo que resta es transformar esta aproximación en un método para predecir el desorden a partir de la secuencia, 
-para lo cual se transforma el valor de energía en un valor de probabilidad(\textit{score} resultante, $s_k$).
+para lo cual se transforma el valor de energía en un valor de probabilidad (\textit{score} resultante, $s_k$).
 
 
 
@@ -495,7 +495,7 @@ Evaluación con IUPred & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 &
 % La estabilización de estructuras tridimensionales puede deberse a interacciones con el contexto, que van mas allá de las interacciones intramoleculares.
 Las proteínas de membrana son módulos proteícos con propiedades secuenciales distintivas y que, a pesar de su diferencia con las proteínas globulares, 
 pueden adoptar una estructura tridimensional determinada, estabilizada por interacciones con el contexto hidrofóbico en el que normalmente se encuentran.
-Teniendo en cuenta este panorama más amplio, utilizamos el predictor TMHMM\cite{krogh2001predicting} para identificar proteínas de membrana,
+Teniendo en cuenta este panorama más amplio, utilizamos el predictor TMHMM \cite{krogh2001predicting} para identificar proteínas de membrana,
 principalmente de los segmentos transmembrana ya que son estos los que poseen propiedades particulares y, probablemente, no hayan sido detectados por otros métodos de nuestra evaluación.
 
 % EL MÉTODO
@@ -523,7 +523,7 @@ transiciones entre estos permite definir los limites en las longitudes de las di
 
 
 Para evaluar secuencias se utiliza el algoritmo de Viterbi, el cual permite calcular cual es el camino más probable del modelo que adopta la secuencia a evaluar. Es decir, cual es la secuencia mas probable de estados del HMM 
-(entre todas las posibles ), que produce la secuencia de estados observados(aminoácidos de la secuencia).
+(entre todas las posibles), que produce la secuencia de estados observados (aminoácidos de la secuencia).
 El resultado de la ejecución muestra cómo los residuos de la secuencia se ajustan a los diferentes estados del modelo de acuerdo a este recorrido más probable, clasificándolos según pertenezcan a regiones intracelulares, hélices transmembrana, 
 o regiones extracelulares. 
 % MODO DE UTILIZACION
@@ -680,7 +680,7 @@ Es decir, la frecuencia con la que el segmento se encuentra en alguno de los pos
 % Para cada conformación posible se realizan consideraciones y evaluaciones energéticas con respecto al estado desplegado.
 De esta forma, el método consiste de un algoritmo que simplemente calcula la función de partición y en base a eso predice las regiones con tendencia a agregación $\beta$
 
-Puntualmente, para el cálculo de la energía asociada a la conformación de hélice-$\alpha$, se tienen en cuenta los parámetros definidos previamente en el desarrollo del método AGADIR\cite{lacroix1998elucidating}.
+Puntualmente, para el cálculo de la energía asociada a la conformación de hélice-$\alpha$, se tienen en cuenta los parámetros definidos previamente en el desarrollo del método AGADIR \cite{lacroix1998elucidating}.
 Para el cálculo de la energía asociada a las conformaciones $\beta$ se tiene en cuenta la energía de interacción entre las cadenas laterales.
 Esta energía se deriva, a partir de una base de datos de estructuras, calculando la relación entre frecuencias observadas y esperadas para cada par de aminoácidos que se encuentra en este tipo de conformación.
 % (identificados en conformación $\beta$ de acuerdo a sus ángulos phi y psi).
@@ -710,7 +710,7 @@ Esta última columna no forma parte del modelo inicial que describimos y se calc
 
 El método puede ser utilizado a través del servidor web en \cite{tangoWeb}. En nuestro caso solicitamos a los creadores especialmente una versión ejecutable para poder usarla de manera local.
 Una vez ejecutados y obtenidos los resultados para una secuencia, es necesario definir un valor de \textit{threshold} que determine la significancia de la tendencia obtenida.
-En \cite{fernandez2004prediction} se definen dos intervalos de confianza para la predicción de regiones de agregación: segmentos con residuos que posean más de 5\% de tendencia agregación $\beta$(resultando en una alta certeza de predicción),
+En \cite{fernandez2004prediction} se definen dos intervalos de confianza para la predicción de regiones de agregación: segmentos con residuos que posean más de 5\% de tendencia agregación $\beta$ (resultando en una alta certeza de predicción),
 y segmentos con residuos entre 0.2\% y 5\%. En nuestro caso utilizamos 1\% como valor de \textit{threshold} en esta primera implementación de la herramienta.
 % Si bien el objetivo principal de TANGO, y de la aplicación de este en nuestra herramienta, es buscar segmentos con potencial de agregación, estamos interesados en eliminar cualquier región estructurada y, dado que TANGO incorpora como parte
 % de la función de partición a distintos estados conformacionales nativos, el puntaje reflejará también todas estas tendencias en la secuencia. 
@@ -782,17 +782,18 @@ de láminas-$\beta$ en proteínas globulares es el mismo que lleva a la formaci�
 % En primer lugar, Pasta deriva una funcion energetica a partir de un conjunto de datos de estructuras globulares (potenciales estadisticos).
 La evaluación de la energía de interacción se realiza a partir de un potencial estadístico derivado de una base de datos de proteínas globulares.
 % (selección de proteínas no-redundantes y con estructuras resuletas con alta definición)
-Para esto, se dividen las instancias encontradas de cada par $a$-$b$ de residuos en 4 categorias, según estén interaccionando formando una hoja plegada-$\beta$ en forma paralela($n_{ab}^p$) o antiparalela($n_{ab}^p$), 
+Para esto, se dividen las instancias encontradas de cada par $a$-$b$ de residuos en 4 categorias, según estén interaccionando formando una hoja plegada-$\beta$ en forma paralela ($n_{ab}^p$) o antiparalela ($n_{ab}^p$), 
 o si no están participando de una estructura $\beta$ y sus carbonos-$\alpha$ están a menos de $6.5$\AA ($n_{ab}^c$ contactos genéricos), o a más de $6.5$\AA ($n_{ab}^d$ , pares desordenados sin contacto). 
 A partir de las frecuencias obtenidas se pueden derivar valores de energía asociados a las interacciones de a pares para los distintos estados, asumiendo que la base de datos analizada es un sistema en equilibrio termodinámico 
 a temperatura constante para todas las proteínas.
-
 De esta forma, la probabilidad de cada par $a$-$b$ de encontrarse en un estado $x$ se relaciona con el valor de la energía mediante el factor de Boltzman $p_{ab}(x)= e^{-E_{ab}^x}$. 
-Si podemos obtener una aproximación para $p_{ab}(x)$ se puede despejar el valor de $E_{ab}^x$, obteniendo el potencial de interacción estadístico asociado.
-Las probabilidad se define como la relación entre la frecuencia de interacciones observada para cada par y la esperada en el estado de referencia. 
-Esta probabilidad esperada se puede aproximar como la frecuencia observada para todos los pares.
+
+Si podemos obtener una aproximación para $p_{ab}(x)$ se puede despejar el valor del potencial de interacción estadístico asociado ($E_{ab}^x$) para cada estado $x$,
+el cual corresponde a la diferencia en energía entre el estado $x$ y el estado que se toma como referencia.
+Definiendo la probabilidad $p_{ab}(x)$ como la relación entre la frecuencia de interacciones observada para cada par y la esperada en el estado de referencia, 
+y aproximando esta última como la frecuencia observada para todos los pares, se obtiene:
 % Utilizando los valores definidos previamente, se despeja el 
-Despejando el valor de $E_{ab}^x$ para cada estado $x$, el cual corresponde a la diferencia en energía entre el estado $x$ y el estado que se toma como referencia, se obtiene:
+% Despejando el valor de $E_{ab}^x$ para cada estado $x$, el cual corresponde a la diferencia en energía entre el estado $x$ y el estado que se toma como referencia, se obtiene:
 % El método asume que la forma soluble(estado de referencia) es nativamente desestructurada, por lo que hay que tener cuidado cuando se lo usa para predecir proteinas que nativamente adquieren una estructura globular.
 % El valor de energía resultante para cada estado $x$ queda definido por:
 
@@ -809,43 +810,44 @@ Despejando el valor de $E_{ab}^x$ para cada estado $x$, el cual corresponde a la
 % la frecuencia observada es el numero de pares ab que estan en esa clase / el total de pares ab encontrados.
 % los cuales pueden ser usados 
 % para calcular el valor energético para cualquier emparejamiento de dos secuencias con la misma longitud(sumando los scores de cada par que interaccione) 
-El cálculo de los valores de $E_{ab}$ para los estados paralelos y antiparalelos, resulta en un par de matrices con un valor asociado(score) para cada par $a$-$b$ de residuos posibles.
-Usando estos datos es posible asignar una energía total a cada emparejamiento especifico entre subsecuencias de la misma longitud, sumando los potenciales de interaccion de a pares involucrados. 
-El método permite evaluar emparejamientos entre subsecuencias correspondientes a una misma o proteína o a distintas. 
+% El cálculo de los valores de $E_{ab}$ para los estados paralelos y antiparalelos, resulta en un par de matrices con un valor asociado(score) para cada par $a$-$b$ de residuos posibles.
 
+% Usando los valores de $E_{ab}$ resultantes es posible asignar una energía total a cada emparejamiento especifico entre subsecuencias de la misma longitud, simplemente sumando los valores para correspondientes a cada par involucrado. 
+% El método permite evaluar emparejamientos entre subsecuencias correspondientes a una misma o proteína o a distintas. 
 Para predecir los segmentos que pueden estar involucrados en la agregación de una proteína
 se prueban todos los emparejamientos posibles entre subsecuencias de ésta, en sentido paralelo y antiparalelo, y para cada uno 
-se calcula la energía asociada, resultante de sumar todos los potenciales de interacción de a pares involucrados.
-El método devuelve los valores predecidos en unidades PEU (PASTA Energy Units), donde 1 PEU es equivalente a aprox. 1,192 Kcal/mol 
+se calcula la energía asociada, resultante de sumar todos los potenciales de interacción de a pares ($E_{ab}$) involucrados.
+% El método devuelve los valores predecidos en unidades PEU (PASTA Energy Units), donde 1 PEU es equivalente a aprox. 1,192 Kcal/mol 
 % The server predicts aggregation in energy units where 1 PASTA Energy Unit (PEU) is equivalent to 2 KBT at room temperature, that is 1.192 Kcal/mol (see Supplementary Material). 
 
-En nuestra evaluación intentamos conocer cuales son los residuos que pueden formar estructuras de fibra amiloide con una energia asociada
-suficientemente baja, es decir, conformaciones suficientemente estables como para que esta estructura se adopte realmente en un \% considerable.
-Para lograr esto debemos obviamente definir un valor de \textit{cut-off} ya que el termino ``suficientemente bajo'' es algo totalmente subjetivo. 
-% El valor de cutoff se debera elegir de forma tal que se balancee la sensibilidad y la especificidad en la deteccion.
-Para balancear la sensibilidad y la especificidad el método permite, entonces, modificar dos paráemtros en el análisis. 
-En primer lugar el valor de \textit{cut-off} que se utilizará y en segundo lugar el número de emparejamientos que se tendrán en cuenta dentro de ese \textit{cut-off}.
+% En nuestra evaluación intentamos conocer cuales son los residuos que pueden formar estructuras de fibra amiloide con una energia asociada
+% suficientemente baja, es decir, conformaciones suficientemente estables como para que esta estructura se adopte realmente en un \% considerable.
+% Para lograr esto debemos obviamente definir un valor de \textit{cut-off} ya que el termino ``suficientemente bajo'' es algo totalmente subjetivo. 
+% % El valor de cutoff se debera elegir de forma tal que se balancee la sensibilidad y la especificidad en la deteccion.
+% Para balancear la sensibilidad y la especificidad el método permite, entonces, modificar dos paráemtros en el análisis. 
+% En primer lugar el valor de \textit{cut-off} que se utilizará y en segundo lugar el número de emparejamientos que se tendrán en cuenta dentro de ese \textit{cut-off}.
 
-Si bien la herramienta permite definir estos valores libremente, para aplicarla nos basamos en las recomendaciones analizadas en \cite{walsh2014pasta}.
-En nuestro caso utilizamos el esquema de valores que se describe como más específico, utilzando un valor de \textit{cut-off}$=-5$ y teniendo en cuenta 
-sólo el emparejamiento de menor energía aún cuando existan otros con valores menores al \textit{cut-off}. , 
+Sobre los valores de energía resultantes de estas sumas se aplica un punto de corte, siguiendo las recomendaciones analizadas en \cite{walsh2014pasta}.
+% Si bien la herramienta permite definir estos valores libremente, para aplicarla nos basamos en las recomendaciones analizadas en \cite{walsh2014pasta}.
+Puntualmente, utilizamos el esquema de valores que se describe como más específico, con un valor de \textit{cut-off}$=-5$ y teniendo en cuenta 
+sólo el emparejamiento de menor energía aún cuando existan otros con valores menores al \textit{cut-off}.
+% *****ESTAS LINEAS QUE SIGUEN LAS PUEDO SACAR SI HACE FALTA RECORTAR
 Sólo usamos el primero de los emparejamientos porque, al implementar un esquema iterativo, si los emparejamientos que se encuentran por debajo  del valor de \textit{cut-off} persisten, se incrementan o se modifican,
-igualmente los tendremos en cuenta a todos en las próximas iteraciones. Otra forma de implementarlo sería ``uniendo'' todos los segmentos que entran en el rango de \textit{cut-off}.
+igualmente los tendremos en cuenta a todos en las próximas iteraciones. 
+% Otra forma de implementarlo sería ``uniendo'' todos los segmentos que entran en el rango de \textit{cut-off}.
 % , de forma que en cada iteración se apunte a mutar dentro de un conjunto mas amplio de segmentos. 
-% En cuanto al valor definido de \textit{cut-off}, 
-% e se recomienda en \cite{walsh2014pasta} es de -2.8. Cuando se agregó incorporó PASTA en la implementación de nuestra herramienta se utilizó primero este valor, el cual, en 
-% un principio pareció incorporar demasiadas restricciones a la busqueda porque....... 
-% Sin embargo, esto puede haberse modificado cuando se incorporaron el resto de las herramientas de evaluación. 
-El \textit{cut-off} utilizado puede ser muy específico pero es sólo el punto de inicio para la incorporación de PASTA en nuestra herramienta y es uno de los parámetros que quizás sea mejor optimizar, 
-buscando un valor acorde probablemente más cercano a $-2.8$ que es el próximo valor analizado en \cite{walsh2014pasta}, para tener una mayor sensibilidad. 
+% El \textit{cut-off} utilizado puede ser muy específico pero es sólo el punto de inicio para la incorporación de PASTA en nuestra herramienta y es uno de los parámetros que quizás sea mejor optimizar, 
+% buscando un valor acorde probablemente más cercano a $-2.8$ que es el próximo valor analizado en \cite{walsh2014pasta}, para tener una mayor sensibilidad. 
 
-Una vez que se obtiene el segmento que será tenido en cuenta, simplemente se asigna un puntaje de 1 a cada posición en nuestro esquema de puntajes.
+
+
+El método PASTA es ejecutado de forma local mediante un script escrito en lenguaje Perl, obtenido directamente de sus desarrolladores, junto con las matrices de energías.
+Si los resultados indican que algún segmento de la secuencia tiene una tendencia considerable a la formación de agregados, 
+simplemente se asigna un puntaje de 1 a cada posición de este.
 Hay que tener en cuenta que, si bien la mayoria de las veces los emparejamientos de menor energía se corresponden con emparejamientos en forma paralela e \textit{in-register} (PIRA), es decir, 
 que involucre el mismo segmento en ambas moléculas que interactúan, en el caso que esto no sea así se asigna el puntaje 1 a las posiciones de ambas regiones. 
 
-El método PASTA es ejecutado de forma local mediante un script escrito en lenguaje Perl, obtenido directamente de sus desarrolladores, junto con las matrices de energías.
 Para ejemplificar el proceso de evaluación, se muestra el resultado del evaluar la secuencia \texttt{VTNVGGAVVTGVTAV}.
-
 La ejecución de PASTA sobre esta secuencia devuelve: \\
 \noindent
 \texttt{pairing 0  PASTA energy -5.735704  length 13  between segments 1-13 and 1-13  parallel}
@@ -853,7 +855,7 @@ La ejecución de PASTA sobre esta secuencia devuelve: \\
 Este resultado indica que existe un emparejamiento de forma paralela, con un score de $-5.735704$, entre dos segmentos correspondientes a la subsecuencia \texttt{VTNVGGAVVTGVT}. 
 El puntaje resultante, por lo tanto, es:
 
-\vspace{0.5cm}
+% \vspace{0.5cm}
 % \noindent
 \begin{center}
 \begin{tabular}{lllllllllllllllll} 
@@ -867,11 +869,24 @@ Evaluación con PASTA & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 \subsection{Waltz}\label{waltz}
 
-Waltz \cite{maurer2010exploring} combina información secuencial, fisicoquímica y estructural para generar una matriz específica de posición(PSSM),
-en función de la cual se evalúan las secuencias para predecir la tendencia a formar agregados amiloides.
-
+Utilizamos Waltz \cite{maurer2010exploring} dentro de las evaluaciones de nuestra herramienta para predecir la tendencia de la secuencia a formar agregados amiloides.
+% Específicamente, el método Waltz combina información secuencial, fisicoquímica y estructural para generar una matriz específica de posición (PSSM),
+% en función de la cual se evalúan las secuencias.
+% para predecir la tendencia a formar agregados amiloides.
 % we explored the sequence diversity of amyloid hexa-
 % peptides by inspecting more than 200 peptides using various
 % structural and biophysical methods,
@@ -880,19 +895,19 @@ en función de la cual se evalúan las secuencias para predecir la tendencia a f
 % determine amyloid-forming sequences. Waltz allows users to
 % identify and better distinguish between amyloid sequences
 % and amorphous beta-sheet aggregates
-
-
-El score para cada posición tiene, entonces, tres componentes: un componente derivado de información secuencial, un componente derivado de un conjunto de 19 propiedades fisicoquímicas, 
+Específicamente, el método Waltz determina la tendencia a formar agregados amiloides en base a 
+% El puntaje que determina la tendencia para cada posición se calcula, entonces, en base a 
+tres contribuciones: un componente derivado de información secuencial, un componente derivado de un conjunto de 19 propiedades fisicoquímicas, 
 y un componente resultante de evaluar distintos residuos sobre un modelo estructural de la cadena carbonada de fibras amiloides.
 
-El primer componente se obtiene a partir del análisis secuencial de una bases de datos de hexapéptidos generadores de fibrillas amiloides que han sido evaluados experimentalmente(AmylHex).
+El primer componente se obtiene a partir del análisis secuencial de una bases de datos de hexapéptidos generadores de fibrillas amiloides, los cuales han sido evaluados experimentalmente (AmylHex).
 Esta base de datos y el estudio realizado están basados en hexapéptidos porque la mayoría de las secuencias amiloides disponibles hasta el momento tienen esta longitud.
-De esta forma, se ha tomado como una longitud representativa del núcleo que genera la formación de amiloides, de manera que
-la inserción de estos segmentos es suficiente para inducir la conversión de todo el dominio de la proteína. 
+De esta forma, se ha tomado como una longitud representativa del núcleo que genera la formación de amiloides, asumiendo que
+la inserción de estos segmentos es suficiente para inducir la conversión de todo el dominio de la proteína hacia una estructura agregada. 
 
 La base de datos utilizada, sin embargo, posee una alta redundancia secuencial ya que tiene una gran cantidad de entradas correspondientes a mutaciones puntuales del péptido \texttt{STVIIE}.
-De esta forma, el conjunto inicial de la base de datos se utiliza para obtener una PSSM inicial e identificar nuevas instancias de hexapéptidos, los cuales fueron evaluados experimentalmente para el desarrollo de la herramienta.
-A partir de este conjunto expandido de datos se realiza un alineamiento y se usa para generar una nueva PSSM, utilizando el método de puntuación por log-probabilidades(log-odd score).
+Para reducir esto, el conjunto inicial de la base de datos se utiliza para obtener una PSSM inicial e identificar nuevas instancias de hexapéptidos, los cuales fueron evaluados experimentalmente para el desarrollo de la herramienta.
+A partir de este conjunto expandido de datos se realiza un alineamiento y se usa para generar una nueva PSSM, utilizando el método de puntuación por log-probabilidades (log-odd score).
 Este es el primer componente de la función de scoring de Waltz.
 
 El segundo componente se deriva de analizar un conjunto de propiedades físicas sobre el conjunto de secuencias alineadas.
@@ -901,14 +916,14 @@ y el valor normalizado de la cada propiedad. De esta forma, se obtiene un perfil
 
 
 El último componente de la función de scoring es una PSSM derivada del modelado estructural. 
-Para obtener esta matriz se utiliza el campo de fuerzas FoldX y el péptido \texttt{GNNQQNY} (proveniente de Sup35).
+Para obtener esta matriz se utiliza el campo de fuerzas FoldX \cite{schymkowitz2005foldx}, y el péptido \texttt{GNNQQNY} (proveniente de Sup35).
 En primer lugar se mutan todas las posiciones a Alanina calculando el valor de $\Delta$G para obtener finalmente el hexapéptido poli-A.
 Sobre este se comienzan a realizar todas las combinaciones posibles de mutaciones utilizando los 20 aminoácidos naturales, calculando ahora el valor de $\Delta$G con respecto a este hexapéptido poli-A de referencia y 
 el $\Delta\Delta$G con respecto al péptido original. 
 El valor del score específico para cada posición y cada aminoácido se obtiene de promediar los valores de energía fijando este aminoácido a la posición y combinando todos los demás aminoácidos posibles en el resto de las posiciones.
 
 
-La función de scoring final es la combinación lineal de los tres scores detallados:
+La función de scoring final resulta de la combinación lineal de los tres scores detallados:
 
 {
 \large
@@ -917,13 +932,16 @@ La función de scoring final es la combinación lineal de los tres scores detall
 S_{total}= \alpha S_{secuencial} + \beta S_{propiedadesFisicas} + \gamma S_{estructural}
 \end{equation}
 }
+% DE DONDE SALEN LOS TERMINOS INDEPENDIENTES??
 
-Aplicando esta función, es posible obtener los valores de score asociados a un hexapéptido(la PSSM se deriva del análisis posicional de cada una de las 6 posiciones de un hexapéptido).
-Para obtener los resultados de este análisis es posible utilizar un servidor web(\url{http://waltz.switchlab.org/}), el cual permite detectar todas las posiciones de una secuencia que forman parte de algun polipéptido que supera cierto
-valor de \textit{cut-off}. Este valor puede ser definido por el usuario o seleccionar alguno de las opciones estándar (alta especificidad o alta sensibilidad, con valores de 97 y 79 respectivamente).
 
-En nuestro caso obtuvimos una versión de la PSSM correspondiente al método, junto con un script en lenguaje Perl que permite detectar las posiciones que superen el \textit{cut-off} indicado.
-Ejecutando el script sobre la secuencia en cada evaluación, usando un valor de \textit{cut-off} = 79 (alta sensibilidad), asignamos un puntaje igual a 1 en todas las posiciones detectadas.
+% Aplicando esta función, es posible obtener los valores de score asociados a un hexapéptido(la PSSM se deriva del análisis posicional de cada una de las 6 posiciones de un hexapéptido).
+El resultado de aplicar esta función puede obtenerse mediante un servidor web \cite{waltzWeb}, el cual permite detectar todas las posiciones de una secuencia que forman parte de algún polipéptido y que supera cierto
+valor de \textit{cut-off}. En el mismo servidor se definen dos opciones estándar para este valor de corte: alta especificidad, con un \textit{cut-off} de 97, o alta sensibilidad, con un valor de \textit{cut-off} de 79.
+
+Para nuestro sistema de evaluaciones obtuvimos, de los desarrolladores del método, una versión de la PSSM correspondiente junto con un script en lenguaje Perl que permite evaluar el score de cada posicioón.
+% detectar las posiciones que superen el \textit{cut-off} indicado.
+Ejecutando el script sobre la secuencia en cada evaluación, usando un valor de \textit{cut-off} = 79 (alta sensibilidad), asignamos un puntaje igual a 1 en todas las posiciones que superen este valor.
 Por ejemplo, ejecutando Waltz sobre la secuencia \texttt{VTNVGGAVVTGVT}, se obtiene que el segmento 6-13 forma parte de hexapéptidos con score mayor al \textit{cut-off}. Por lo tanto, el puntaje de la evaluación será:
 
 
@@ -945,17 +963,23 @@ Evaluación con Waltz & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hl
 
 \subsection{Determinantes secuenciales de fibras amiloides}\label{determinantesSecuenciales}
 
-El trabajo realizado en \cite{de2004sequence} realiza un análisis secuencial en  profundidad mediante un experimento de mutagénesis a partir de un péptido formador de fibrillas amiloides diseñado \textit{de novo} en \cite{de2002novo}. 
-El ensayo consiste en reemplazar sistemáticamente los residuos de este péptido(STVIIE) por todos los aminoácidos naturales, excepto Cisteína el cual no fue utilizado bajo la suposición que, por su similitud con Serina, las restricciones 
-secuenciales para ambas serían similares.
+En esta etapa de la evaluación utilizaremos un patrón secuencial extraído a partir de evaluaciones experimentales \cite{de2004sequence} 
+con el fin de encontrar determinantes secuenciales para la formación de fibrillas amiloides sobre la secuencia linker que estamos evaluando.
 
+% Como parte de tal trabajo se deriva un patrón secuencial a partir de los resultados cuali/cuantitativos experimentales, el cual que permitiría identificar tramos de secuencias formadores de fibrillas amiloides.
+El trabajo realizado para obtener el patrón secuencial que determina la formación de fibrillas amiloides se basa en el análisis secuencial mediante 
+un experimento de mutagénesis a partir de un péptido formador de fibrillas amiloides diseñado \textit{de novo} en \cite{de2002novo}. 
+En este proceso se reemplazan
+% El ensayo desarrollado para obtener el patrón consiste en reemplazar 
+sistemáticamente los residuos del péptido diseñado (STVIIE) por todos 
+los aminoácidos naturales, excepto Cisteína el cual no fue utilizado bajo la suposición que, por su similitud con Serina, las restricciones secuenciales para ambas serían similares.
 % Este estudio sigue la linea de utilizar péptidos cortos para investigar elementos de la secuencia que favorecen la agregación, 
 % basándose en la idea que este proceso es conducido por fragmentos cortos de proteinas mal(o parcialmente) plegadas.
 
-El trabajo implica la evaluación experimental de los péptidos resultantes, para lo cual se monitorea la polimerización de hojas-$\beta$ utilizando la técnica de dicroísmo circular (CD) y la detección de las fibrillas formadas mediante 
-microcopía electrónica. Un análisis descriptivo se provee\cite{de2004sequence}, encontrándose una dependencia posicional con la formación de este tipo de estructuras de agregación, existiendo tanto posiciones muy tolearantes como 
+El trabajo implica, luego, la evaluación experimental de los péptidos resultantes, para lo cual se monitorea la polimerización de hojas-$\beta$ utilizando la técnica de dicroísmo circular (CD) y la detección de las fibrillas formadas mediante 
+microcopía electrónica. Un análisis descriptivo se provee en \cite{de2004sequence}, encontrándose una dependencia posicional con la formación de este tipo de estructuras de agregación, existiendo tanto posiciones muy tolearantes como 
 restrictivas a las mutaciones.
-Como parte de tal trabajo se deriva un patrón secuencial a partir de los resultados cuali/cuantitativos experimentales, el cual que permitiría identificar tramos de secuencias formadores de fibrillas amiloides.
+% Como parte de tal trabajo se deriva un patrón secuencial a partir de los resultados cuali/cuantitativos experimentales, el cual que permitiría identificar tramos de secuencias formadores de fibrillas amiloides.
 Dado que existen diferencias en los resultados experimentales según el estado de ionización de algunos residuos, se obtienen dos patrones distintos según el pH en el que se encuentran los péptidos.
 Los patrones resultantes son:
 \vspace{0.2cm}
@@ -1126,7 +1150,7 @@ un resultado genérico, cuyo resultado cumpla con el principio de permanecer ine
 
 
 La evaluación de funcionalidades biológicas se realiza mediante distintos métodos:
-Utilizando la herramienta BLAST(descrita en \ref{blast}) intentaremos detectar posibles regiones biológicamente funcionales infiriéndolas a partir de la similitud con proteínas naturales.
+Utilizando la herramienta BLAST (descrita en \ref{blast}) intentaremos detectar posibles regiones biológicamente funcionales infiriéndolas a partir de la similitud con proteínas naturales.
 % Esta herramienta permite hacer un alineamiento secuencial general frente a una base de datos de proteinas anotadas(en nuestro caso SwissProt).
 % Sin embargo, algunas funcionalidades en las proteinas no imponen suficientes restricciones, o no lo hacen homogéneamente a lo largo de toda la secuencia y, por lo tanto, 
 % la similitud global entre dos secuencias puede no ser suficientemente considerable, aunque efectivamente tengan una similitud funcional. 
@@ -1134,7 +1158,7 @@ Utilizando la herramienta BLAST(descrita en \ref{blast}) intentaremos detectar p
 En muchos casos en que las proteínas cumplen una misma función puede haber regiones sobre 
 las cuales se imponen restricciones evolutivas muy fuertes, ya que contienen determinantes secuenciales importantes para la función.
 Estos casos puedan no ser detectados por una búsqueda de similitud secuencial ya que son limitados en tamaño. 
-Para detectarlos, utilizamos el recurso PROSITE(descrito en \ref{prosite}).
+Para detectarlos, utilizamos el recurso PROSITE (descrito en \ref{prosite}).
 % para buscar motivos en la secuencia. 
 % búsqueda de motivos en la secuencia a través del recurso PROSITE(descrito en \ref{prosite}).
 % Utilizando el recurso PROSITE(descrito en \ref{prosite}) buscaremos la presencia de estos en la secuencia. 
@@ -1437,7 +1461,7 @@ Para intentar detectar en la secuencia de trabajo motivos asociados con el recon
 
 \subsection{ELM}\label{elm}
 
-El recurso de motivos lineales eucariotas(ELM) \cite{puntervoll2003elm,dinkel2013eukaryotic} fue establecido con la misión de recolectar, anotar y clasificar motivos lineales cortos
+El recurso de motivos lineales eucariotas (ELM) \cite{puntervoll2003elm,dinkel2013eukaryotic} fue establecido con la misión de recolectar, anotar y clasificar motivos lineales cortos 
 (conocidos como LMs, ELMs, SLiMs o MiniMotifs y detallados en la sección \ref{idpFunction}). 
 % The aim(del recurso) is to cover the set of functional sites that can be defined by the local peptide sequence, operating essentially independently of protein tertiary structure. 
 % Este recurso provee actualmente una completa base de datos con motivos conocidos validados experimentalmente, con datos curados manualmente a partir de la literatura.
@@ -1456,7 +1480,7 @@ Este recurso provee actualmente una completa base de datos con motivos organizad
 %  ESTOS ULTIMOS 2 TIPOS FUERON AGREGADOS EN EL ULTIMO TIEMPO: 
 %           Technically, all docking sites and destruction motifs belong to the ‘ligand binding sites (LIG)’ type; however, grouping together motif classes of similar function adds an additional level of discrimination.
 Cada tipo agrupa un conjunto de clases, y cada clase define la especificación de un dominio o familia de dominios de péptidos, 
-los cuales se describen mediante una expresión regular(cadena de carácteres para describir un patrón secuencial\cite{regex}) representativa de la secuencia que los compone.
+los cuales se describen mediante una expresión regular (cadena de carácteres para describir un patrón secuencial \cite{regex}) representativa de la secuencia que los compone.
 Cada clase contiene al menos una instancia anotada, donde cada instancia representa una secuencia determinada experimentalmente que se ajusta a la expresión definida para la clase.
 El énfasis está puesto en la validación experimental que ha sido realizada sobre estas secuencias, logrando un proceso de curación manual a partir de la literatura con las instancias que son ingresadas en la base de datos.
 
@@ -1494,7 +1518,7 @@ Si estamos trabajando con la secuencia PSKPLRGNAMVGL, el resultado de la búsque
 \noindent 
 \begin{tabular}{c|c|c} 
 % \hline
-\textbf{Clase ELM} & \textbf{Expresión regular} & \textbf{Instancia(ubicación)}\\ \hline
+\textbf{Clase ELM} & \textbf{Expresión regular} & \textbf{Instancia (ubicación)}\\ \hline
 LIG\_SH3\_2 & P..P.[KR] & PSKPLR (1-6)\\ 
 % LIG\_PDZ\_Class\_2 & ...[VLIFY].[ACVILF]\$ & NAMVGL (8-13)  \\
 DOC\_MAPK\_1 MAPK  & [KR]\{0,2\}[KR].\{0,2\}[KR].\{2,4\}[ILVM].[ILVF] & KPLRGNAMVGL(3-13)
@@ -1547,17 +1571,17 @@ De forma resumida, se puede definir como una colección anotada de motivos biol�
 Esta base de datos contiene información derivada de alineamientos de múltiples secuencias homólogas. 
 Los motivos resultantes se describen usando dos métodos distintos, cada uno con sus ventajas y desventajas.
 
-La primera forma de describir los motivos es a través de patrones secuenciales(utilizando expresiones regulares como se mostró para ELM, sección \ref{elm}),
+La primera forma de describir los motivos es a través de patrones secuenciales (utilizando expresiones regulares como se mostró para ELM, sección \ref{elm}),
 en los cuales se tiene en cuenta solo la información de los residuos más significativos, descartando el resto. 
 La búsqueda de un patrón en una secuencia da un resultado cualitativo: hay una coincidencia o no la hay. 
 Si hay una sustitución en alguna de las posiciones de la secuencia el patrón no coincide, independientemente del tipo de sustitución que ocurrió.
 
-Otra forma para describir los motivos es mediante perfiles(o matrices de pesos). Estos pesos proveen valores numéricos para cada posible coincidencia o sustitución cuando se busca el motivo en una secuencia. 
+Otra forma para describir los motivos es mediante perfiles (o matrices de pesos). Estos pesos proveen valores numéricos para cada posible coincidencia o sustitución cuando se busca el motivo en una secuencia. 
 De esta forma, al utilizarlos en la búsqueda de un motivo, funcionan como descriptores cualitativos que consideran la similitud global en toda la longitud secuencial de un dominio o proteína. 
 Un motivo puede ser encontrado en una secuencia que posee una sustitución en una posición conservada si el resto de la secuencia tiene un nivel de similitud suficientemente alto.
 Estas propiedades dan una mayor sensibilidad a los perfiles con respecto a los patrones, permitiendo encontrar dominios o familias con alta divergencia que solo tienen unas pocas posiciones muy conservadas.
 
-Diversas búsquedas relacionadas con patrones anotados en PROSITE se pueden hacer a través de la herramienta ScanProsite\cite{de2006scanprosite,scanprositeWeb}, 
+Diversas búsquedas relacionadas con patrones anotados en PROSITE se pueden hacer a través de la herramienta ScanProsite \cite{de2006scanprosite,scanprositeWeb}, 
 la cual permite escanear secuencias para buscar ocurrencias de los motivos, buscar motivos en una base de datos entera de secuencias, o buscar motivos propios del usuario en una secuencia.
 Esta herramienta se encuentra disponible para descargar, junto con la base de datos completa de motivos secuenciales, lo que permite realizar la búsqueda de forma local.
 
@@ -1574,7 +1598,7 @@ lo cual trae dos consecuencias. En primer lugar, para cualquier búsqueda, puede
 En segundo lugar, debido al contexto en el cual la estamos aplicando, donde también se búscan SLMs mediante el recurso ELM, puede haber un solapamiento con los resultados obtenidos entre ambas herramientas.
 % utilizando la herramienta ELM.
 
-Para ejemplificar el proceso de evaluación usaremos la secuencia \texttt{VKTCLALGVDINTCD}. El proceso de búsqueda usando ScanProsite identifica que contiene en su secuencia el patrón PS00008(MYRISTYL N-myristoylation site 
+Para ejemplificar el proceso de evaluación usaremos la secuencia \texttt{VKTCLALGVDINTCD}. El proceso de búsqueda usando ScanProsite identifica que contiene en su secuencia el patrón PS00008 (MYRISTYL N-myristoylation site 
 \url{http://prosite.expasy.org/cgi-bin/prosite/nicedoc.pl?PS00008}) ubicado en la subsecuencia \texttt{GVDINT} (posiciones 8-13), por lo tanto el puntaje correspondiente es:
 
 \vspace{0.5cm}
@@ -1632,7 +1656,7 @@ las cuales, asumimos, tienen una funcionalidad biológica.
 
 
 % METODO
-Para realizar la comparación BLAST requiere una secuencia de búsqueda(query) y una secuencia contra la cual comparar.
+Para realizar la comparación BLAST requiere una secuencia de búsqueda (query) y una secuencia contra la cual comparar.
 % , o alternativamente, una base de datos conteniendo múltiples secuencias.
 % To run the software, BLAST requires a query sequence to search for, and a sequence to search against (also called the target sequence) or a sequence database containing multiple such sequences.
 La ventaja principal del método es que permite realizar, de forma muy eficiente, la comparación de una misma secuencia contra gran cantidad de secuencias contenidas en una base de datos.
@@ -1706,7 +1730,7 @@ Para armar el set de aprendizaje usado, se realizaron una serie de ensayos exper
 % de unión a péptidos, los cuales se inmobilizaron unidos a una membrana de celulosa, 
 y luego de la incubación con DnaK se detectó la unión a estos mediante un anticuerpo específico.
 
-Los pépetidos usados en los ensayos de unión se obtienen de 3 conjuntos distintos. El set inicial se obtiene de predicciones basadas en el uso de TANGO\cite{fernandez2004prediction}(ver sección \ref{tango}),
+Los pépetidos usados en los ensayos de unión se obtienen de 3 conjuntos distintos. El set inicial se obtiene de predicciones basadas en el uso de TANGO \cite{fernandez2004prediction} (ver sección \ref{tango}),
 asumiendo que la DnaK se une a secuencias propensas a formar agregados.
 Usando los resultados obtenidos, se desarrolla un predictor simple de unión a DnaK, el cual es utilizado para la búsqueda de sitios de unión a chaperonas en el proteoma de E.coli 
 % y separando las proteínas cortas con al menos dos de estos sitios de unión
@@ -1718,11 +1742,11 @@ los que son reconocidos por la DnaK y lo que no.
 
 El set de aprendizaje final se construye obteniendo primero todas las subsecuencias de 7 residuos posibles. 
 Del set de péptidos de no-unión todos los posibles heptapéptidos formados son seleccionados, para dar el set de resultados negativos.
-Por su parte, del set de péptidos de unión sólo se incluyen en el set de péptidos positovos a aquellos que dan una mayor energía de unión a DnaK(evaluada mediante el campo de fuerzas de FoldX).
+Por su parte, del set de péptidos de unión sólo se incluyen en el set de péptidos positovos a aquellos que dan una mayor energía de unión a DnaK, evaluada mediante el campo de fuerzas de FoldX.
 A partir de los conjuntos de heptapéptidos positivos y negativos se obtienen dos matrices PSSM y una matriz final se obtiene restando los valores de score de la PSSM de no-unión a los valores encontrados en la PSSM positiva.
 
 De manera independiente se contruyó un perfil secuencial a partir de un análisis puramente estructural de unión a DnaK.
-Para esto se hizo primero un análisis de mutaciones posicionales sobre el heptapéptido unido a la DnaK utilizando la estructura de ésta(cristalizada junto con un hepapéptido) y el campo de fuerzas FoldX. 
+Para esto se hizo primero un análisis de mutaciones posicionales sobre el heptapéptido unido a la DnaK utilizando la estructura de ésta (cristalizada junto con un hepapéptido) y el campo de fuerzas FoldX. 
 En primer lugar se mutaron todas las posiciones a Alanina y luego cada posición fue mutada individualmente a cada uno de los restantes 19 aminoácidos.
 Se obtuvieron asi los valores de $\Delta\Delta$G para cada residuo y cada posición, donde los valores más negativos indican una mejor unión a la DnaK.
 Por lo tanto, la PSSM se obtiene del negativo correspondiente a cada valor de $\Delta\Delta$G.
@@ -1737,7 +1761,7 @@ Los perfiles representados en las PSSMs, obtenidas del análisis secuencial y de
 
 % UTILIZACION
 La versión final de la matriz y un script implementado en Python para realizar el análisis fue provisto por los desarrolladores de Limbo.
-El valor de \textit{threshold} utilizado es 11.08(valor por default). Para utilizar el método de manera local se corre el script provisto y se pasa por parámetro el archivo conteniendo las secuencias a analizar en formato fasta.
+El valor de \textit{threshold} utilizado es 11.08 (valor por default). Para utilizar el método de manera local se corre el script provisto y se pasa por parámetro el archivo conteniendo las secuencias a analizar en formato fasta.
 El resultado contiene una lista de heptapéptidos cuyo score calculado supera el valor del \textit{threshold}.
 Por ejemplo, analizando la secuencia \texttt{DLWKLLPENNVLSP}, el resultado obtenido es:
 
@@ -1810,7 +1834,7 @@ Evaluación con Limbo & 1 & 1 & 2 & 2 & 2 & 2 & 2 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
 La herramienta ANCHOR\cite{meszaros2009prediction} busca identificar una clase especial de segmentos desordenados que son capaces de experimentar un proceso de \textit{binding \& folding}, 
 propio de la unión a una proteína globular.
 % reconocimiento molecular en proteínas. 
-Para esto, el método reutiliza el modelo definido para implementar la herramienta IUPred(ver sección \ref{iupred}), en la cual se logra estimar la energía de interacción asociada a cada posición basándose en 
+Para esto, el método reutiliza el modelo definido para implementar la herramienta IUPred (ver sección \ref{iupred}), en la cual se logra estimar la energía de interacción asociada a cada posición basándose en 
 el tipo de aminoácido y la composición del contexto más próximo. Usando esta modelo se pueden calcular, también, las energía de interacción en el contexto de la unión a una proteína globular.
 Mediante la diferencia entre estos valores, se pueden identificar cuales son los segmentos que experimentan interacciones favorables en este nuevo contexto y que podrían estabilizar la unión. 
 
@@ -1834,7 +1858,7 @@ Cada uno de estos criterios está asociado a un valor numérico y la predicción
 % tres criterio, reutilizando los conceptos y parámetros definidos para la herramienta IUPred.
 La ecuación asociada tendrá entonces 3 componentes que se combinan linealmente:
 \begin{enumerate}
- \item El primer componente resulta de promediar los valores de \textit{score} obtenidos directamente de IUPred, en una ventana de tamaño $w_1$(que deberá definirse como parte de los ajustes de este predictor) alrededor de cada residuo. 
+ \item El primer componente resulta de promediar los valores de \textit{score} obtenidos directamente de IUPred, en una ventana de tamaño $w_1$ (que deberá definirse como parte de los ajustes de este predictor) alrededor de cada residuo. 
 Esto evalúa la tendencia al desorden que tiene el entorno de cada residuo, separando regiones desordenadas de posiciones puntuales que puedan tener cierta tendencia al desorden.
 \begin{equation}\label{score1}
  S_k = \frac{1}{N} \sum_{j=b_{lower}}^{b_{upper}} score_j
@@ -1851,7 +1875,7 @@ al nuevo predictor de segmentos ANCHOR.
 % \end{equation}
 
 \item El tercer componente evalúa la ganancia de energía que tendrá el residuo al formar interacciones de a pares con una proteína globular, 
-con respecto a la formación de contactos únicamente entre los vecinos(componente 2). Para hacer esta evaluación, se reutiliza el modelo de IUPred, pero ahora, 
+con respecto a la formación de contactos únicamente entre los vecinos (componente 2). Para hacer esta evaluación, se reutiliza el modelo de IUPred, pero ahora, 
 la composición del contexto con el cual se dan las interacciones estará dado por la composición de una proteína globular hipotética. 
 Para esto se utiliza la frecuencia de aminoácidos estándar en estas proteínas.
 La diferencia resultante entre la interacción con los vecinos propios de la secuencia y este nuevo valor calculado será:
@@ -1860,7 +1884,7 @@ E_i^{ganancia,k} = E_i^{intra,k} - E_i^{globular,k}
 \end{equation}
 
 donde $E_i^{intra,k}$ y $E_i^{globular,k}$ representan la energía de interacción de a pares asociada a cada posición, y se calculan usando nuevamente la ecuación \ref{modelofinal}, 
-con las frecuencias de aminoácidos del contexto de la posición $k$(en el primer caso) y las frecuencias estándar de proteínas globulares(en el segundo caso).
+con las frecuencias de aminoácidos del contexto de la posición $k$ (en el primer caso) y las frecuencias estándar de proteínas globulares (en el segundo caso).
 \end{enumerate}
 
 La ecuación para cada posición $k$ de la secuencia, resultante de la combinación de criterios es:
@@ -1870,7 +1894,7 @@ I_k = p_1S_k + p_2E_i^{intra,k} + E_i^{ganancia,k}
 \end{equation}
 
 
-Varios de los parámetros de este nuevo modelo ya fueron determinados previamente utilizando datos conocidos de estructuras de proteínas globulares(durante el desarrollo de IUPred).
+Varios de los parámetros de este nuevo modelo ya fueron determinados previamente utilizando datos conocidos de estructuras de proteínas globulares (durante el desarrollo de IUPred).
 Queda determinar cuál es el peso de cada uno en el valor total(coeficientes de la combinación lineal) y los tamaños de la ventanas ($w_1$ y $w_2$, correspondientes a los componentes 1 y 2).
 % (cantidad de vecinos) que se tienen en cuenta para hacer el promedio en el componente 1 (w1).
 % Valor de la ventana que se tiene en cuenta para evaluar cada el componente 2 (w2).
