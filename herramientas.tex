@@ -1,7 +1,7 @@
 \chapter{Análisis de las secuencias}
 \label{tools}
 
-En este capítulo se describen las evaluaciones que la herramienta permite realizar sobre las secuencias para detectar características deseadas y no deseadas dentro de la secuencia durante el proceso iterativo de diseño. 
+En este capítulo se describen las evaluaciones que la herramienta permite realizar sobre las secuencias para detectar características deseadas y no deseadas durante el proceso iterativo de diseño. 
 Se explica en general cual es el objetivo de aplicar cada uno de los métodos y los fundamentos en los que se basan.
 Se detalla como se integran los distintos recursos en el contexto de nuestra aplicación, representando sus resultados en el esquema de puntajes propio de nuestro método.
 
@@ -51,7 +51,8 @@ favorables en el contexto de la secuencia, indicando una tendencia a adoptar est
 % Utilizamos la herramienta TMHMM(\ref{tmhmm}) para predecir su ocurrencia, profundizando nuestra capacidad de encontrar regiones propensas a formar estructuras ordenadas.
 
 Por otro lado, utilizamos TMHMM (ver sección \ref{tmhmm}) para predecir la ocurrencia de segmentos transmembrana, 
-los cuales presentan estructuras ordenadas y, por sus propiedadess particulares, probablemente no hayan sido detectados por el método anterior.
+los cuales presentan estructuras ordenadas con propiedades particulares que permiten identificarlos como módulos proteicos independientes.
+% , probablemente no hayan sido detectados por el método anterior.
 
 
 
@@ -118,7 +119,7 @@ los cuales presentan estructuras ordenadas y, por sus propiedadess particulares,
 
 % PEGAR EL TEMA DE AGREGACION DICIENDO COMO QUE ES OTRA FORMA DE INTERACCIONES QUE NO SON INTRAMOLECULARES PERO DAN UNA CONFORMACION TRIDIMENSIONAL NO-FLEXIBLE
 % Otra forma de alcanzar una estructura tridimensional , como ya se describió, 
-Los agregados proteicos son otro tipo de módulos que involucran la formación de una estructura tridimensional estable, en este caso mediante interacciones con otras unidades proteicas.
+Los agregados proteicos son otro tipo de módulos identificables que involucran la formación de una estructura tridimensional estable, en este caso mediante interacciones con otras unidades proteicas.
 % Una estructura tridimensional rígida puede ser alcanzada por interacciones con otras proteínas, como se vió en la formación de agregados proteicos. 
 Estas conformaciones agregadas pueden o no tener una estructura tridimensional ordenada pero, en todos los casos, limitan la flexibilidad requerida para una secuencia linker, generando, además,
 módulos proteicos insolubles que afectan a todo el sistema biológico.
@@ -127,11 +128,11 @@ Debido a estas implicancias altamente negativas se evaluará detalladamente la t
  
 
 Existe actualmente una gran variedad de métodos existentes para predecir agregación desestructurada y formación de fibras amiloides \cite{hamodrakas2011protein,redler2014computational,agrawal2011aggregation}.
-Cada método hace sus propias hipótesis e implementa predictores independientes, los cuales varían desde análisis muy simples (por ej. análisis de la composición secuencial) a métodos específicos más complejos.
-La capacidad para formar hojas-$\beta$ es una característica central de las evaluaciones ya que es un denominador común de la formación de agregados.
+Cada método hace sus propias hipótesis e implementa predictores independientes, los cuales varían desde análisis muy simples (por ej. análisis de la composición secuencial) a métodos específicos más complejos, siendo 
+la capacidad para formar hojas-$\beta$ una característica central de las evaluaciones, ya que es un denominador común de la formación de agregados.
 
-En primer lugar, en nuestra herramienta evaluaremos la tendencia a formar agregados utilizando TANGO (sección \ref{tango}). 
-Para evaluar específicamente la formación de fibrillas amiloides utilizaremos Waltz (descrito en la sección \ref{waltz}), y PASTA (sección \ref{pasta}).
+En primer lugar, en nuestra herramienta, evaluaremos la tendencia a formar agregados utilizando TANGO (sección \ref{tango}). 
+Para evaluar específicamente la formación de fibrillas amiloides utilizaremos Waltz (descrito en la sección \ref{waltz}) y PASTA (sección \ref{pasta}).
 Por último, evaluamos la presencia de determinantes secuenciales que pueden indicar la formación de fibrillas amiloides, lo cual se describe en la sección \ref{determinantesSecuenciales}.
 
 
@@ -278,23 +279,21 @@ Por último, evaluamos la presencia de determinantes secuenciales que pueden ind
 
 \subsection{IUPred: Análisis de tendencia al desorden} \label{iupred}
 
-La herramienta IUPred \cite{dosztanyi2005pairwise} permite diferenciar secuencias con capacidad para formar plegamientos globulares de aquellas que no y, por lo tanto, están destinadas a permanecer en una conformación desordenada.
-En nuestro método de evaluación, utilizamos esta herramienta para identificar aquellas posiciones que tienen una tendencia a formar conformaciones globulares en el contexto de la secuencia evaluada,
+La herramienta IUPred \cite{dosztanyi2005pairwise} permite diferenciar aquellas secuencias que pueden formar suficientes interacciones favorables entre sus residuos, y por lo tanto podrían plegarse en una estructura globular, 
+de aquellas no tienen esta capacidad y, por si solas, estan destinadas a permanecer en una conformación desordenada.
+Esta diferencia nos permite, dentro de nuestro método, identificar las posiciones de la secuencia evaluad que tienen una mayor tendencia a formar conformaciones globulares, 
 una propiedad que describimos como no deseada para secuencias linker.
 
-% El método se basa en la estimación de la energía de interacción intramolecular, utilizando la secuencia
-% Este modelo para describir la energia total en funcion de las interacciones puede representarse como:
-% El primer paso en el desarrollo del método es el cálculo de una energía de interacción de a pares. Dada una estructura conformacional de una proteína, la :
-% El método se basa en utilizar información de estructuras de proteínas globulares, las cuales. 
-% Sabemos que podemos calcular la energía asociada a la estructura de una proteína mediante:
-
+% La herramienta IUPred \cite{dosztanyi2005pairwise} permite diferenciar secuencias con capacidad para formar plegamientos globulares de aquellas que no y, por lo tanto, están destinadas a permanecer en una conformación desordenada.
+% En nuestro método de evaluación, utilizamos esta herramienta para identificar aquellas posiciones que tienen una tendencia a formar conformaciones globulares en el contexto de la secuencia evaluada,
+% una propiedad que describimos como no deseada para secuencias linker.
 
 
 
 % ***********************
 % DESCRIPCION DEL METODO
 % ***********************
-El primer paso del método es definir un modelo simple para calcular la energía total de una conformación nativa a partir de los contactos que se encuentran en esta:
+El primer paso en el desarrollo de IUPred es definir un modelo simple para calcular la energía total de una estructura nativa de una proteína, a partir de los contactos que se encuentran en esta:
 
 % FORMULA 1
 \begin{equation}\label{modelo1}
@@ -326,7 +325,7 @@ P es la matriz de predicción de energia, que indica cómo la energía de un res
 % Lo que se requiere ahora es poder derivar la matriz P.
 
 De esta forma, sin conocer la estructura de la proteína, basamos el cálculo de la energía en valores estadísticos (matriz P) que pueden ser extraídos de una base de datos de proteínas globulares.
-Para esto, primero se desglosa la energía total de cada proteina en las contribuciones que hace cada aminoácido.
+Para calcular P, primero se desglosa la energía total de cada proteina en las contribuciones que hace cada tipo de aminoácido.
 Esto puede hacerse reusando el modelo de la ecuación \ref{modelo1}, ya que conocemos las estructuras. 
 La energía total por tipo de residuo se obtiene como:
 % ecuacion de ek
@@ -345,7 +344,7 @@ e_i(estimada) = N_i\sum_{j=1}^{20} P_{ij}n_{j}
 \noindent donde $N_i$ representa el número total de residuos de tipo $i$ en la secuencia ($L*n_i$).
 
 % Utilizando las ecuaciones \ref{ek1} y \ref{ek2} tenemos la base para estimar cada valor $P_{ij}$ de la matriz a partir de los valores $M_{ij}$ y una base de datos de estructuras globulares conocidas.
-Para esto estimar cada valor $P_{ij}$ de la matriz, se minimiza la diferencia entre los $e_i(evaluado)$ y los $e_i(calculado)$ para todas las estructuras de una base de datos de estructuras globulares.
+Cada valor $P_{ij}$ de la matriz puede estimarse minimizando la diferencia entre los $e_i(evaluado)$ y los $e_i(calculado)$ para todas las estructuras de una base de datos de estructuras globulares.
 % Dadas las propiedades de la ecuacion \ref{ek2}, la minimizacion se hace para cada fila de la matriz por separado.
 La función a minimizar es, entonces: 
 % funcion de Zi
@@ -359,7 +358,7 @@ Z_i = \sum_{k} (e_i^k - N_i^k\sum_{j=1}^{20} P_{ij}n_{j}^k)^2
 % Se tienen ahora los valores obtenidos de $P_{ij}$ los cuales son, luego, evaluados mediante la comparación de los cálculos de energía para un set de estructuras usando la ecuación \ref{modelo1} y la ecuación \ref{modelo2}, 
 % obteniéndose una correlación que indica, de acuerdo a los análisis estadísticos aplicados, un nivel razonable de concordancia entre ambos cálculos.
 
-Tenemos ahora un modelo completo que nos permite estimar la energía miníma de la estructura asociada a una secuencia, sin asumir ninguna conformación (\ref{modelo2}).
+Una vez obtenidos los valores de la matriz $P$, tenemos un modelo completo que nos permite estimar la energía miníma de la estructura asociada a una secuencia, sin asumir ninguna conformación (\ref{modelo2}).
 Este modelo primero se prueba sobre dos conjuntos de proteinas globulares e IDPs obteniéndose que la energia estimada para el conjunto de IDPs son menos favorables que las correspondientes al set de proteínas globulares,
 lo que esta de acuerdo con la hipotesis que indica que las proteinas globulares tienen secuencias especificas con potencial para formar un gran numero de interacciones favorables, mientras que las IDPs no.
 Utilizando esta separación significativa, lo que resta es transformar esta aproximación en un método para predecir el desorden a partir de la secuencia, 
@@ -406,7 +405,7 @@ Por ejemplo, la evaluación de la secuencia \texttt{VLKQTKGVGASGSFR} con IUPred 
 \begin{figure}[h!]
 % {\linewidth}
 \centering
-\includegraphics[width=0.5\textwidth]{img/iupredTabla.png} 
+\includegraphics[width=0.4\textwidth]{img/iupredTabla.png} 
 \caption{}
 \label{iupredResults}
 \end{figure}
@@ -495,7 +494,7 @@ Evaluación con IUPred & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 &
 % La estabilización de estructuras tridimensionales puede deberse a interacciones con el contexto, que van mas allá de las interacciones intramoleculares.
 Las proteínas de membrana son módulos proteícos con propiedades secuenciales distintivas y que, a pesar de su diferencia con las proteínas globulares, 
 pueden adoptar una estructura tridimensional determinada, estabilizada por interacciones con el contexto hidrofóbico en el que normalmente se encuentran.
-Teniendo en cuenta este panorama más amplio, utilizamos el predictor TMHMM \cite{krogh2001predicting} para identificar proteínas de membrana,
+Teniendo en cuenta este panorama más amplio, utilizamos el predictor TMHMM \cite{krogh2001predicting} para identificar, dentro de la secuencia que estamos evaluando, elementos estructurales de proteínas de membrana,
 principalmente de los segmentos transmembrana ya que son estos los que poseen propiedades particulares y, probablemente, no hayan sido detectados por otros métodos de nuestra evaluación.
 
 % EL MÉTODO
@@ -508,14 +507,15 @@ Cada estado tendrá un valor de probabilidad asociado a cada uno de los 20 amino
 de un estado pueden ocurrir nuevas instancias de este o si debe pasarse a un nuevo estado determinado.
 La distribución de probabilidades de los aminoácidos en cada estado y la probabilidad de transición se derivan a partir de frecuencias observadas en un conjunto de proteínas conocidas que se adaptan al modelo
 
-El modelo utilizado para describir la arquitectura de las proteínas en el método TMHMM (proteínas transmembrana) es cíclico y está compuesto por 7 estados distintos que representan: el núcleo de la hélice transmembrana, los dos extremos de ésta, 
-el loop que se encuentra en el lado citoplasmático, dos loops en el lado no-citoplasmático, y un dominio globular en el medio de estos. En la figura \ref{tmhmmModel} se ve la descripción gráfica de este.
+El modelo utilizado para describir la arquitectura de las proteínas en el método TMHMM (proteínas transmembrana) es cíclico y está compuesto por 7 estados distintos que representan: el núcleo de la hélice transmembrana, 
+los dos extremos de ésta, el loop que se encuentra en el lado citoplasmático, dos loops en el lado no-citoplasmático, y un dominio globular en el medio de estos.
+En la figura \ref{tmhmmModel} se ve la descripción gráfica de este.
 En \cite{sonnhammer1998hidden} se describe como se procede al entrenamiento del HMM para poder obtener todos los parámetros asociados.
 
 
 \begin{figure}[h!,centered]
 \centering
-\includegraphics[width=0.7\textwidth]{img/tmhmmModel.png} 
+\includegraphics[width=0.66\textwidth]{img/tmhmmModel.png} 
 \caption{\textbf{A:} esquema general de la arquitectura asociada al modelo. En \textbf{B} y \textbf{C} se muestran en detalle algunos de los estados y cómo las
 transiciones entre estos permite definir los limites en las longitudes de las distintas regiones y sus propiedades. Figura extraida de \cite{sonnhammer1998hidden}}
 \label{tmhmmModel}
@@ -536,7 +536,7 @@ Por ejemplo, la ejecución de TMHMM a partir de la secuencia \texttt{NFVLIGSFVAF
 % \noindent
 \texttt{inside         1-1}\\
 \indent \texttt{TMhelix   2-18}\\
-\indent \texttt{outside	    19-19}\\
+\indent \texttt{outside	    19-19}
 
 Por lo tanto, el puntaje resultante de la evaluación es:
 
@@ -773,17 +773,17 @@ Evaluación con TANGO & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hl
 
 \subsection{PASTA}\label{pasta}
 
-
-PASTA \cite{trovato2006insight} es una herramienta que permite, principalmente, predecir las regiones de un polipéptido que pueden estabilizar la estructura de las fibrillas amiloides.
-Para esto, realiza un cálculo de las energías de interacción entre los distintos segmentos, asumiendo que el mecanismo de las interaccion entre aminoácidos que lleva a la formación 
+En nuestra herramienta, utilizamos PASTA \cite{trovato2006insight} para identificar cuales son las regiones dentro de la secuencia que estamos evaluando, que podrían estabilizar una estructura de fibrillas amiloides.
+% PASTA \cite{trovato2006insight} es una herramienta que permite, principalmente, predecir las regiones de un polipéptido que pueden estabilizar la estructura de las fibrillas amiloides.
+Para realizar esta predicción, el método realiza un cálculo de las energías de interacción entre los distintos segmentos, asumiendo que el mecanismo de las interaccion entre aminoácidos que lleva a la formación 
 de láminas-$\beta$ en proteínas globulares es el mismo que lleva a la formación de apilamientos de hebras-$\beta$ en estructuras cross-$\beta$.
 % (estructura asociada a fibras amiloides).
 
 % En primer lugar, Pasta deriva una funcion energetica a partir de un conjunto de datos de estructuras globulares (potenciales estadisticos).
 La evaluación de la energía de interacción se realiza a partir de un potencial estadístico derivado de una base de datos de proteínas globulares.
 % (selección de proteínas no-redundantes y con estructuras resuletas con alta definición)
-Para esto, se dividen las instancias encontradas de cada par $a$-$b$ de residuos en 4 categorias, según estén interaccionando formando una hoja plegada-$\beta$ en forma paralela ($n_{ab}^p$) o antiparalela ($n_{ab}^p$), 
-o si no están participando de una estructura $\beta$ y sus carbonos-$\alpha$ están a menos de $6.5$\AA ($n_{ab}^c$ contactos genéricos), o a más de $6.5$\AA ($n_{ab}^d$ , pares desordenados sin contacto). 
+Para esto, se dividen las instancias encontradas de cada par $a$-$b$ de residuos en 4 categorias, según estén interaccionando formando una hoja plegada-$\beta$ en forma paralela ($n_{ab}^p$) o antiparalela ($n_{ab}^a$), 
+o si no están participando de una estructura $\beta$ y sus carbonos-$\alpha$ están a menos de $6.5$\AA~($n_{ab}^c$ contactos genéricos), o a más de $6.5$\AA~($n_{ab}^d$ , pares desordenados sin contacto). 
 A partir de las frecuencias obtenidas se pueden derivar valores de energía asociados a las interacciones de a pares para los distintos estados, asumiendo que la base de datos analizada es un sistema en equilibrio termodinámico 
 a temperatura constante para todas las proteínas.
 De esta forma, la probabilidad de cada par $a$-$b$ de encontrarse en un estado $x$ se relaciona con el valor de la energía mediante el factor de Boltzman $p_{ab}(x)= e^{-E_{ab}^x}$. 
@@ -916,7 +916,7 @@ y el valor normalizado de la cada propiedad. De esta forma, se obtiene un perfil
 
 
 El último componente de la función de scoring es una PSSM derivada del modelado estructural. 
-Para obtener esta matriz se utiliza el campo de fuerzas FoldX \cite{schymkowitz2005foldx}, y el péptido \texttt{GNNQQNY} (proveniente de Sup35).
+Para obtener esta matriz se utiliza el campo de fuerzas FoldX \cite{schymkowitz2005foldx}, y el péptido \texttt{GNNQQNY} (conocido como formador de agregados amiloides, proveniente de Sup35).
 En primer lugar se mutan todas las posiciones a Alanina calculando el valor de $\Delta$G para obtener finalmente el hexapéptido poli-A.
 Sobre este se comienzan a realizar todas las combinaciones posibles de mutaciones utilizando los 20 aminoácidos naturales, calculando ahora el valor de $\Delta$G con respecto a este hexapéptido poli-A de referencia y 
 el $\Delta\Delta$G con respecto al péptido original. 
@@ -945,7 +945,7 @@ Ejecutando el script sobre la secuencia en cada evaluación, usando un valor de 
 Por ejemplo, ejecutando Waltz sobre la secuencia \texttt{VTNVGGAVVTGVT}, se obtiene que el segmento 6-13 forma parte de hexapéptidos con score mayor al \textit{cut-off}. Por lo tanto, el puntaje de la evaluación será:
 
 
-\vspace{0.5cm}
+\vspace{0.3cm}
 \noindent
 \begin{center}
 \begin{tabular}{lllllllllllllll} 
@@ -1024,7 +1024,7 @@ Para buscarlas se utiliza el módulo re de Python que permite, justamente, busca
 Todas las posiciones que pertenecen a instancias de este patrón tendrán un puntaje igual a 1.
 Por ejemplo, al evaluar la secuencia \texttt{HPALFTIWHP} se encuentra una instancia del patrón buscado en la subsecuencia \texttt{ALFTIW}, por lo tanto el puntaje correspondiente es:
 
-\vspace{0.5cm}
+\vspace{0.3cm}
 \noindent
 \begin{center}
 \begin{tabular}{llllllllllll} 
@@ -1117,11 +1117,10 @@ Evaluación en busca de patrón secuencial & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 &
 Para asegurar que el linker diseñado funcione únicamente como conector flexible entre dominios, debemos evaluar que sea biológicamente inerte.
 Esto implica que su secuencia no posea interacción alguna, evitando así cualquier interferencia con la expresión, utilización y actividad biológica de la proteína quimérica.
 % , producto final de la ingeniería de proteínas.
-% De forma resumida, es necesario evaluar que el diseño es biológicamente inerte.
 % Esto implica que no tenga regiones target para clivaje,fosforilación, glicosilación, regiones de unión a otras proteínas, etc.
-Si bien es posible simplificar este análisis conociendo en detalle las condiciones experimentales con las que se trabajará, el objetivo de la herramienta es que pueda obtener 
-un resultado genérico, cuyo resultado cumpla con el principio de permanecer inerte en cualquier contexto experimental. 
-% De esta forma, la evaluación de funcionalidades biológicas 
+% Si bien es posible simplificar este análisis conociendo en detalle las condiciones experimentales con las que se trabajará, el objetivo de la herramienta es que pueda obtener 
+% un resultado genérico, cuyo resultado cumpla con el principio de permanecer inerte en cualquier contexto experimental. 
+Realizamos la evaluación de posibles funcionalidades biológicas existentes en la secuencia a través de distintos métodos.
 
 % Durante el capítulo 1(sección \ref{functionalLandscape}) describimos una gran cantidad de elementos funcionales que integran las proteína naturales. 
 % Siguiendo estos conocimientos, en esta etapa de la evaluación secuencial describiremos un conjunto de recursos para poder detectar la presencia de estas funcionalidades en nuestra secuencia, 
@@ -1149,16 +1148,19 @@ un resultado genérico, cuyo resultado cumpla con el principio de permanecer ine
 
 
 
-La evaluación de funcionalidades biológicas se realiza mediante distintos métodos:
+
 Utilizando la herramienta BLAST (descrita en \ref{blast}) intentaremos detectar posibles regiones biológicamente funcionales infiriéndolas a partir de la similitud con proteínas naturales.
 % Esta herramienta permite hacer un alineamiento secuencial general frente a una base de datos de proteinas anotadas(en nuestro caso SwissProt).
 % Sin embargo, algunas funcionalidades en las proteinas no imponen suficientes restricciones, o no lo hacen homogéneamente a lo largo de toda la secuencia y, por lo tanto, 
 % la similitud global entre dos secuencias puede no ser suficientemente considerable, aunque efectivamente tengan una similitud funcional. 
 % Dado que, al trabajar con secuencias de longitudes muy cortas, la detección de funcionalidades mediante similitud secuencial puede no resultar exhaustiva, 
-En muchos casos en que las proteínas cumplen una misma función puede haber regiones sobre 
-las cuales se imponen restricciones evolutivas muy fuertes, ya que contienen determinantes secuenciales importantes para la función.
-Estos casos puedan no ser detectados por una búsqueda de similitud secuencial ya que son limitados en tamaño. 
-Para detectarlos, utilizamos el recurso PROSITE (descrito en \ref{prosite}).
+En muchos casos, sin embargo, los determinantes secuenciales para la función biológica no están homogéneamente distribuidos a los largo de la 
+secuencia o son limitados en tamaño, por lo tanto no serán detectados por métodos de similitud secuencial.
+Para detectar este tipo de elementos funcionales utilizamos el recurso PROSITE (descrito en \ref{prosite}).
+% En muchos casos en que las proteínas cumplen una misma función puede haber regiones sobre 
+% las cuales se imponen restricciones evolutivas muy fuertes, ya que contienen determinantes secuenciales importantes para la función.
+% Estos casos puedan no ser detectados por una búsqueda de similitud secuencial ya que no están homogéneamente distribuidos a los largo de la secuencia y son limitados en tamaño. 
+% Para detectarlos, utilizamos el recurso PROSITE (descrito en \ref{prosite}).
 % para buscar motivos en la secuencia. 
 % búsqueda de motivos en la secuencia a través del recurso PROSITE(descrito en \ref{prosite}).
 % Utilizando el recurso PROSITE(descrito en \ref{prosite}) buscaremos la presencia de estos en la secuencia. 
@@ -1184,7 +1186,7 @@ Para detectarlos, utilizamos el recurso PROSITE (descrito en \ref{prosite}).
 
 
 % Estas búsquedas de similitud secuencial serán importantes en la detección de elementos funcionales de distintas longitudes. 
-Más allá de estos, en la sección \ref{idpFunction} describimos la existencia de motivos lineales cortos (short linear motifs, o SLiMs) como elementos funcionales con algunas propiedades particulares.  
+Más allá de estos, en la sección \ref{idpFunction} describimos la existencia de motivos lineales cortos (short linear motifs, o SLiMs) como elementos funcionales con propiedades particulares.  
 % distinguibles por su ubicación característica, frecuentemente insertos en regiones desordenadas, y por estar representados por unos pocos residuos contiguos.  
 % Estos motivos lineales cortos (short linear motifs, o SLiMs) representan, entonces, una clase de módulos de interacción compactos, degenerados y evolutivamente convergentes.
 % Por lo tanto, dado que nuestro algoritmo guiará la búsqueda hacia conformaciones desordenadas, y teniendo en cuenta que el proceso de mutaciones iterativas podría fácilmente hacer (re)surgir este tipo de elementos de forma similar 
@@ -1228,8 +1230,8 @@ Estos elementos son detectados en nuestra evaluación mediante la herramienta AN
 
 
 Otro tipo de interacciones biológicas relevantes son aquellas mediadas por chaperonas.
-Dentro del complejo mecanismo de proteostasis celular, las chaperonas son elementos fundamentales para el correcto funcionamiento y calidad de las proteinas, 
-El reconocimiento por parte de chaperonas implica la unión a ésta, lo cual puede, además, interferir en la flexibilidad de la secuencia linker diseñada.
+Dentro del complejo mecanismo de proteostasis celular, las chaperonas son elementos fundamentales para el correcto funcionamiento y calidad de las proteinas.
+El reconocimiento por parte de chaperonas implica la unión a ésta lo cual puede, además, interferir en la flexibilidad de la secuencia linker diseñada.
 % % QUE HERRAMIENTAS VAMOS A USAR
 Para intentar detectar en la secuencia de trabajo motivos asociados con el reconocimiento por parte de chaperonas utilizamos la herramienta Limbo, detallada en la sección \ref{limbo}. 
 
@@ -1459,15 +1461,185 @@ Para intentar detectar en la secuencia de trabajo motivos asociados con el recon
 
 
 
+
+\subsection{BLAST}\label{blast}
+
+% OBJETIVO: QUE TRATAMOS DE DETECTAR
+El método BLAST \cite{altschul1990basic,mcginnis2004blast} permite evaluar la similitud entre dos secuencias biológicas, tales como cadenas de aminoácidos correspondientes a proteínas o secuencias nucleotídicas.
+En nuestra herramienta utilizaremos BLAST para inferir la existencia de elementos funcionales en la secuencia linker que estamos evaluando a partir de una similitud considerable con secuencias naturales, 
+las cuales asumimos que poseen una funcionalidad biológica.
+% En nuestro caso lo utilizaremos, obviamente, sobre secuencias peptídicas.
+
+
+% 
+% La búsqueda BLAST se basa en los cambios que pueden ocurrir entre 2 secuencias homólogas durante la evolución. 
+% Las mutaciones pueden dar como resultado distintos residuos en las secuencias de proteínas, también pueden ocurrir inserciones y deleciones de residuos. 
+% Cada uno de los posibles eventos tiene una frecuencia de ocurrencia asociada. El método de alineamiento utiliza un esquema de valores para asignar puntaje a cada uno de estos eventos y,
+% utilizando una estrategia de optimización, se exploran formas alternativas de alinear los residuos de ambas secuencias para logar sumar el máximo score.
+% Realizando una búsqueda optimizada se pueden recuperar secuencias similares de una base de datos con gran cantidad de entradas, haciendo un alineamiento de la secuencia de búsqueda frente a todas las almacenadas en la base de datos. Para analizar los resultados de esta búsqueda no es posible evaluar solamente el score obtenido en cada alineamiento, sino que se debe tener en cuenta la probabilidad de que la similitud encontrada sea solo al azar. En este punto se deben aplicar métodos estadísticos para evaluar la significancia del resultado dada la longitud de la secuencia consultada y el tamaño de la base de datos.
+% El resultado que devuelve la búsqueda BLAST es, en caso de éxito, un conjunto de secuencias de la base de datos ordenadas por un score de alineamiento. Además de realizar el alineamiento, BLAST provee información estadística que ayuda a descifrar la significancia biológica del alineamiento, este es el valor "expect" o e-value. Para utilizar los resultados de BLAST en nuestra herramienta utilizaremos un cutoff sobre el valor de e-value que nos de cierta certeza de que la similitud secuencial es significativa y, por lo tanto, la secuencia podría tener una función similar. El valor de cutoff utilizado es de 0.01, todas las secuencias encontradas con un e-value menor que este valor serán significativamente similares. En caso de encontrarse muchas secuencias dentro del cutoff se utilizará la primera de éstas.
+% Dado que el objetivo de este paso es evaluar que posiciones tienden a una similitud con alguna secuencia natural, el resultado obtenido se utilizará para identificar estas posiciones y marcarlas para una nueva ronda de mutaciones.
+% 
+
+
+% En particular, al principio de dicha sección vimos cómo las secuencias de proteinas pueden tener ciertas restricciones en su evolución, principalmente asociadas 
+% con la funcionalidad que deben proveer y que pueden ser más estrictas(o aplicarse a un mayor porcentaje de la secuencia) si la función está fuertemente asociada a una estructura.
+% Estos requerimientos funcionales y estructurales en la evolución resultan en una similitud secuencial entre las diversas proteínas homólogas.
+% Una forma de evaluar la posible funcionalidad asociada a una proteína, entonces, es buscando la existencia de secuencias proteicas similares en la naturaleza, que hayan sido detectadas y se encuentren anotadas en una base de datos.
+% El descubrimiento de una nueva proteína con gran similitud frente a alguna secuencia conocida, permite presumir que se trata de secuencias homólogas y por lo tanto muy probablemente tendrán la misma función o una función similar. 
+% En el contexto de la herramienta que estamos desarrollando, las secuencias pueden no pertenecer a proteínas naturales y por lo tanto, no representan casos de homología, sin embargo la similitud secuencial podría dar indicios de elementos funcionales emergentes de nuestra secuencia. La información resultante de la búsqueda sirve como indicador de qué posiciones puntuales son las que conforman esta similitud secuencial, las cuales , por lo tanto, podrían inducir la función. 
+% Domains are now readily detectable with sequence searching programs (e.g., Blast [9] or HMMer [10]) and readily alignable by standard methods (e.g., ClustalW [11] or MUSCLE [12]). 
+% Known domains are now stored in a number of databases including Pfam [1], SMART [13], CDD [14] and
+% InterPro [15] and remain a critical component of genome annotation procedures. 
+
+
+
+
+
+
+
+% METODO
+Para realizar la comparación, BLAST requiere una secuencia de búsqueda (query) y una secuencia contra la cual comparar.
+% , o alternativamente, una base de datos conteniendo múltiples secuencias.
+% To run the software, BLAST requires a query sequence to search for, and a sequence to search against (also called the target sequence) or a sequence database containing multiple such sequences.
+La ventaja principal del método es que permite realizar, de forma muy eficiente, la comparación de una misma secuencia contra gran cantidad de secuencias contenidas en una base de datos.
+% Esta comparación entre dos secuencias puede extenderse para comparar una secuencia 
+Para esto, BLAST utiliza un método heuristico no exhaustivo llamado word method o método de k-tuplas.
+Al ser un método heurístico, no esta garantizado que encuentre los alineamientos óptimos con las secuencias de la base de datos, lo que si ocurriría si se utilizara el clásico algoritmo de Smith-Waterman \cite{smith1981identification}.
+Este último, permite encontrar el alineamiento óptimo a expensas de un gran costo computacional.
+% it cannot "guarantee the optimal alignments of the query and database sequences" as Smith-Waterman does.
+% para hallar alineamientos locales, los cuales son extendidos usando una matriz de sustitución. 
+
+% Consiste en armar una tabla de look-up con subsecuencias y luego realizar búsquedas a gran escala en diversas bases de datos
+En primer lugar, BLAST extrae de la secuencia query todas las subsecuencias de largo k (valor definido según el tipo de secuencias que se están comparando, etc) y busca ocurrencias de éstas en la base de datos.
+A partir de estos alineamientos locales, se seleccionan aquellos con mayor valor de score y se extiende el alineamiento hacia la derecha e izquierda de las secuencias, 
+hasta que ocurre una disminución en el score correspondiente.
+Por último, si existen extensiones de alineamiento que se encuentran en una misma secuencia estas pueden unirse.
+Finalmente, se muestra un alineamiento completo entre las secuencias con mayor score, junto con 
+la significancia estadística del alineamiento, dependiente del largo de la secuencia query y el tamaño de la base de datos.
+
+
+
+
+% UTILIZACION
+La herramienta BLAST puede ser ejecutada de dos maneras. La opción más simple es a través del servidor web \cite{blastWeb}, lo cual implica ejecutar la búsqueda remotamente con retardos importantes para obtener los resultados. 
+% %     hacer una llamada al servidor remoto que ejecuta la búsqueda (http://blast.ncbi.nlm.nih.gov/). 
+% %     Se puede hacer simplemente desde Python utilizando el módulo BioPython(http://biopython.org/). (http://www.biotnet.org/sites/biotnet.org/files/documents/25/biopython_blast.pdf ) 
+La segunda opción es realizar la búsqueda de forma local, para lo cual es necesario tener disponible el paquete de software provisto por NCBI \cite{blastLocal}, junto con la base de datos sobre la cual se quiere hacer la comparación.
+Esta es la opción que utilizamos en nuestra herramienta y, en nuestro caso, realizamos la búsqueda sobre la base de datos UniProtKB \cite{bairoch2000swiss}.
+Utilizamos 0.01 como valor de \textit{cutoff}, es decir, todas las secuencias encontradas que tengan un e-value menor a 0.01 serán consideradas como significativamente similares.
+Todas las posiciones que, en el alineamiento final, sean idénticas en ambas secuencias, tendrán un puntaje igual a 1 en nuestro sistema de evaluación.
+
+Como ejemplo de aplicación realizamos la búsqueda de la secuencia \texttt{MVLSPADKTNVKGGWGKV}, encontrando la secuencia \texttt{MVLSPADKTNVKAAWGKV} con un e-value de 7e-09. 
+El alineamiento entre estas dos secuencias y el puntaje resultante asignado por nuestro método es:
+\vspace{0.5cm}
+
+\noindent
+\begin{tabular}{lllllllllllllllllll} 
+\hline
+Secuencia 		& \textbf{M} & \textbf{V} & \textbf{L} & \textbf{S} & \textbf{P} & \textbf{A} & \textbf{D} & \textbf{K} & \textbf{T} & \textbf{N} & \textbf{V} & \textbf{K} & \textbf{G} & \textbf{G} & \textbf{W} & \textbf{G} & \textbf{K} & \textbf{V}\\ \hline
+Alineamiento Hit	& \textbf{M} & \textbf{V} & \textbf{L} & \textbf{S} & \textbf{P} & \textbf{A} & \textbf{D} & \textbf{K} & \textbf{T} & \textbf{N} & \textbf{V} & \textbf{K} & \textbf{-} & \textbf{-} & \textbf{W} & \textbf{G} & \textbf{K} & \textbf{V}\\ \hline
+Puntaje BLAST 		& 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\ \hline
+\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Prosite}\label{prosite}
+
+PROSITE \cite{sigrist2002prosite,prositeWeb} es un recurso que agrupa una gran cantidad de motivos secuenciales de diversas características,
+permitiendo anotar e identificar regiones conservadas en secuencias de proteínas.
+En nuestra implementación utilizamos este recurso para extender la búsqueda de elementos funcionales en la secuencia.  
+
+De forma resumida, se puede definir a PROSITE como una colección anotada de motivos biológicamente significativos, dedicada a la identificación de familias y dominios de proteínas.
+Esta base de datos contiene información derivada de alineamientos de múltiples secuencias homólogas. 
+Los motivos resultantes se describen usando dos métodos distintos, cada uno con sus ventajas y desventajas.
+
+La primera forma de describir los motivos es a través de patrones secuenciales (utilizando expresiones regulares como se mostró para ELM, sección \ref{elm}),
+en los cuales se tiene en cuenta solo la información de los residuos más significativos, descartando el resto. 
+La búsqueda de un patrón en una secuencia da un resultado cualitativo: hay una coincidencia o no la hay. 
+Si hay una sustitución en alguna de las posiciones de la secuencia el patrón no coincide, independientemente del tipo de sustitución que ocurrió.
+
+Otra forma para describir los motivos es mediante perfiles (o matrices de pesos). Estos pesos proveen valores numéricos para cada posible coincidencia o sustitución cuando se busca el motivo en una secuencia. 
+De esta forma, al utilizarlos en la búsqueda de un motivo, funcionan como descriptores cualitativos que consideran la similitud global en toda la longitud secuencial de un dominio o proteína. 
+Un motivo puede ser encontrado en una secuencia que posee una sustitución en una posición conservada si el resto de la secuencia tiene un nivel de similitud suficientemente alto.
+Estas propiedades dan una mayor sensibilidad a los perfiles con respecto a los patrones, permitiendo encontrar dominios o familias con alta divergencia que solo tienen unas pocas posiciones muy conservadas.
+
+Diversas búsquedas relacionadas con patrones anotados en PROSITE se pueden hacer a través de la herramienta ScanProsite \cite{de2006scanprosite,scanprositeWeb}, 
+la cual permite escanear secuencias para buscar ocurrencias de los motivos, buscar motivos en una base de datos entera de secuencias, o buscar motivos propios del usuario en una secuencia.
+Esta herramienta se encuentra disponible para descargar, junto con la base de datos completa de motivos secuenciales, lo que permite realizar la búsqueda de forma local.
+
+% El objetivo de nuestra herramienta es poder encontrar cualquier ocurrencia de motivos en la secuencia sobre la que estamos trabajando. 
+Para encontrar motivos secuenciales en la secuencia que evaluamos, es posible escanearla utilizando patrones y/o perfiles, y variar también los límites usados en la detección de los perfiles. 
+En nuestro caso utilizaremos patrones para realizar la búsqueda, principalmente porque el tiempo de búsqueda utilizando perfiles es de aproximadamente 10 veces el que demora la búsqueda mediante patrones 
+y, si bien esta diferencia es despreciable cuando se hacen búsquedas sobre una sola secuencia, al realizar evaluaciones en una gran cantidad de iteraciones la diferencia se vuelve significativa.
+En segundo lugar, consideramos que la sensibilidad provista por los patrones es suficiente para los fines buscados en nuestra herramienta, al menos inicialmente.
+De todas formas, es uno de los aspectos a evaluar con mayor profundidad a futuro, por lo que no se descarta extender la búsqueda para poder utilizar perfiles, al menos de forma opcional para el usuario. 
+% describir si hay superposición entre elm y prosite. Se justifica usar los dos? qué hipótesis subyacente estamos usando?
+
+Un aspecto relevante de la base de datos PROSITE es que, si bien se ha orientado hacia la anotación de dominios globulares por sobre motivos lineales, existen anotaciones que representan motivos lineales cortos, 
+lo cual trae dos consecuencias. En primer lugar, para cualquier búsqueda, pueden ocurrir una gran cantidad de falsos positivos debido a las propiedades intrínsecas de estos.
+En segundo lugar, debido al contexto en el cual la estamos aplicando, donde también se búscan SLMs mediante el recurso ELM, puede haber un solapamiento con los resultados obtenidos entre ambas herramientas.
+% utilizando la herramienta ELM.
+
+Usando la secuencia \texttt{VKTCLALGVDINTCD} ejemplificaremos el proceso de evaluación.
+% , analizaremos la secuencia \texttt{VKTCLALGVDINTCD}. 
+Mediante la ejecución de ScanProsite se identifica que esta secuencia contiene el patrón PS00008 (MYRISTYL N-myristoylation site 
+\url{http://prosite.expasy.org/cgi-bin/prosite/nicedoc.pl?PS00008}) ubicado en la subsecuencia \texttt{GVDINT} (posiciones 8-13), por lo tanto el puntaje correspondiente es:
+
+\vspace{0.5cm}
+\begin{tabular}{llllllllllllllll} 
+\hline
+Secuencia & \textbf{V} & \textbf{K} & \textbf{T} & \textbf{C} & \textbf{L} & \textbf{A} & \textbf{L} & \textbf{G} & \textbf{V} & \textbf{D} & \textbf{I} & \textbf{N} & \textbf{T} & \textbf{C} & \textbf{D}\\ \hline
+Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 \\ \hline
+\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsection{ELM}\label{elm}
 
 El recurso de motivos lineales eucariotas (ELM) \cite{puntervoll2003elm,dinkel2013eukaryotic} fue establecido con la misión de recolectar, anotar y clasificar motivos lineales cortos 
 (conocidos como LMs, ELMs, SLiMs o MiniMotifs y detallados en la sección \ref{idpFunction}). 
+Lo utilizaremos para detectar instancias de estos elementos dentro de la secuencia linker que estamos evaluando, algo que, debido a las propiedades intrínsecas de los SLMs, no sería posible sin un recurso 
+con datos curados manualmente de la literatura y que están completamente a disposición de la comunidad científica, como es ELM.
+% Debido a las características de estos elementos funcionales, no es nada simple detectar instancias de estos en la secuencia linker que estamos evaluando sin las consecuencias de tener gran cantidad de falsos positivos.
+% Sin embargo, los datos almacenados en este recursos son curados manualmente a partir de la literatura y están a disposición de la comunidad científica, permitiendo detectarlos con 
+% instancias de SLMs en la secuencia linker que estamos evaluando, algo que, por las características propias de estos elementos funcionales, no es posible de 
+
 % The aim(del recurso) is to cover the set of functional sites that can be defined by the local peptide sequence, operating essentially independently of protein tertiary structure. 
 % Este recurso provee actualmente una completa base de datos con motivos conocidos validados experimentalmente, con datos curados manualmente a partir de la literatura.
 % además de una herramienta para descubrir instancias de estos sobre secuencias provistas por el usuario. 
 % segmentos posiblemente correspondientes a motivos lineales 
-% Es relevante destacar que todos los datos anotados son curados manualmente a partir de la literatura y están a disposición de la comunidad científica.
 
 Este recurso provee actualmente una completa base de datos con motivos organizada jerárquicamente: en el nivel superior se tiene un conjunto de tipos (actualmente hay un total de 6 tipos diferentes). 
 % los tipos son: 
@@ -1498,18 +1670,18 @@ De todas formas, la validación final de la funcionalidad del motivo debe ser si
 
 Este recurso puede ser utilizado directamente a través del servidor web \cite{elmweb}, el cual provee una herramienta para encontrar, en una secuencia ingresada por el usuario, instancias de los motivos contenidos en la base de datos.
 % Esta herramienta permite encontrar en una secuencia ingresada por el usuario, instancias de los motivos contenidos en la base de datos.
-Otra forma de realizar esto es haciendo una búsqueda local.Para ésto es necesario descargar la base de datos de expresiones regulares correspondientes a los motivos y, 
+Otra forma de realizar esto es haciendo una búsqueda local. Para ésto es necesario descargar la base de datos de expresiones regulares correspondientes a los motivos y, 
 a partir de estos datos, realizar la búsqueda de cada expresión regular sobre la secuencia con la que estamos trabajando.
-Esta última forma de detección es la que utilizaremos para nuestra evaluación, utilizando el módulo re de Python que permite buscar instancias de una expresión regular sobre una secuencia.
+Esta última forma de detección es la que utilizaremos para nuestra evaluación, mediante el módulo re de Python que permite buscar instancias de una expresión regular sobre una secuencia.
 La base de datos utilizada corresponde a la versión con fecha 1-3-2015 obtenida de \cite{elmweb}.
 % ya que nos permite independizarnos de la disponibilidad de la herramienta en el momento en que la requerimos.
 
 La búsqueda de motivos sobre la secuencia resulta en un conjunto de subsecuencias correspondientes a cada instancia encontrada las cuales pueden estar solapadas, es decir, 
-cada posición de la secuencia puede contener 0,1 o más instancias encontradas. 
+cada posición de la secuencia puede estar contenida en 0,1 o más instancias encontradas. 
 Cada una de estas subsecuencias se trata de forma individual y, por cada posición de ésta, se suma 1 al puntaje asociado.
 % El algoritmo toma cada una de las subsecuencias resultantes 
-Se puede ver ésto en un ejemplo sencillo:
-Si estamos trabajando con la secuencia PSKPLRGNAMVGL, el resultado de la búsqueda da un conjunto de 2 motivos encontrados en las subsecuencias:
+A modo de ejemplo, si estamos trabajando con la secuencia \texttt{PSKPLRGNAMVGL}, el resultado de la búsqueda indica 2 motivos encontrados:
+% es un conjunto de 2 motivos encontrados en las subsecuencias:
 % INCLUIR EXPRESIONES REGULARES, A SER POSIBLE TOMADAS DE ELM
 % 
 \vspace{0.5cm}
@@ -1563,149 +1735,6 @@ Evaluación global ELM 		& 1 & 1 & 2 & 2 & 2 & 2 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\ \
 
 
 
-\subsection{Prosite}\label{prosite}
-
-PROSITE \cite{sigrist2002prosite,prositeWeb} es un recurso que agrupa una gran cantidad de motivos secuenciales de diversas características,
-permitiendo anotar e identificar regiones conservadas en secuencias de proteínas.
-De forma resumida, se puede definir como una colección anotada de motivos biológicamente significativos, dedicada a la identificación de familias y dominios de proteínas.
-Esta base de datos contiene información derivada de alineamientos de múltiples secuencias homólogas. 
-Los motivos resultantes se describen usando dos métodos distintos, cada uno con sus ventajas y desventajas.
-
-La primera forma de describir los motivos es a través de patrones secuenciales (utilizando expresiones regulares como se mostró para ELM, sección \ref{elm}),
-en los cuales se tiene en cuenta solo la información de los residuos más significativos, descartando el resto. 
-La búsqueda de un patrón en una secuencia da un resultado cualitativo: hay una coincidencia o no la hay. 
-Si hay una sustitución en alguna de las posiciones de la secuencia el patrón no coincide, independientemente del tipo de sustitución que ocurrió.
-
-Otra forma para describir los motivos es mediante perfiles (o matrices de pesos). Estos pesos proveen valores numéricos para cada posible coincidencia o sustitución cuando se busca el motivo en una secuencia. 
-De esta forma, al utilizarlos en la búsqueda de un motivo, funcionan como descriptores cualitativos que consideran la similitud global en toda la longitud secuencial de un dominio o proteína. 
-Un motivo puede ser encontrado en una secuencia que posee una sustitución en una posición conservada si el resto de la secuencia tiene un nivel de similitud suficientemente alto.
-Estas propiedades dan una mayor sensibilidad a los perfiles con respecto a los patrones, permitiendo encontrar dominios o familias con alta divergencia que solo tienen unas pocas posiciones muy conservadas.
-
-Diversas búsquedas relacionadas con patrones anotados en PROSITE se pueden hacer a través de la herramienta ScanProsite \cite{de2006scanprosite,scanprositeWeb}, 
-la cual permite escanear secuencias para buscar ocurrencias de los motivos, buscar motivos en una base de datos entera de secuencias, o buscar motivos propios del usuario en una secuencia.
-Esta herramienta se encuentra disponible para descargar, junto con la base de datos completa de motivos secuenciales, lo que permite realizar la búsqueda de forma local.
-
-El objetivo de nuestra herramienta es poder encontrar cualquier ocurrencia de motivos en la secuencia sobre la que estamos trabajando. 
-Para esto es posible escanearla utilizando patrones y/o perfiles, y variar también los límites usados en la detección de los perfiles. 
-En nuestro caso utilizaremos patrones para realizar la búsqueda, principalmente porque el tiempo de búsqueda utilizando perfiles es de aproximadamente 10 veces el que demora la búsqueda mediante patrones 
-y, si bien esta diferencia es despreciable cuando se hacen búsquedas sobre una sola secuencia, al realizar evaluaciones en una gran cantidad de iteraciones la diferencia se vuelve significativa.
-En segundo lugar, consideramos que la sensibilidad provista por los patrones es suficiente para los fines buscados en nuestra herramienta, al menos inicialmente.
-De todas formas, es uno de los aspectos a evaluar con mayor profundidad a futuro, por lo que no se descarta extender la búsqueda para poder utilizar perfiles, al menos de forma opcional para el usuario. 
-% describir si hay superposición entre elm y prosite. Se justifica usar los dos? qué hipótesis subyacente estamos usando?
-
-Un aspecto relevante de la base de datos PROSITE es que, si bien se ha orientado hacia la anotación de dominios globulares por sobre motivos lineales, existen anotaciones que representan motivos lineales cortos, 
-lo cual trae dos consecuencias. En primer lugar, para cualquier búsqueda, pueden ocurrir una gran cantidad de falsos positivos debido a las propiedades intrínsecas de estos.
-En segundo lugar, debido al contexto en el cual la estamos aplicando, donde también se búscan SLMs mediante el recurso ELM, puede haber un solapamiento con los resultados obtenidos entre ambas herramientas.
-% utilizando la herramienta ELM.
-
-Para ejemplificar el proceso de evaluación usaremos la secuencia \texttt{VKTCLALGVDINTCD}. El proceso de búsqueda usando ScanProsite identifica que contiene en su secuencia el patrón PS00008 (MYRISTYL N-myristoylation site 
-\url{http://prosite.expasy.org/cgi-bin/prosite/nicedoc.pl?PS00008}) ubicado en la subsecuencia \texttt{GVDINT} (posiciones 8-13), por lo tanto el puntaje correspondiente es:
-
-\vspace{0.5cm}
-\begin{tabular}{llllllllllllllll} 
-\hline
-Secuencia & \textbf{V} & \textbf{K} & \textbf{T} & \textbf{C} & \textbf{L} & \textbf{A} & \textbf{L} & \textbf{G} & \textbf{V} & \textbf{D} & \textbf{I} & \textbf{N} & \textbf{T} & \textbf{C} & \textbf{D}\\ \hline
-Evaluación global ELM & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 \\ \hline
-\end{tabular}
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{BLAST}\label{blast}
-
-% OBJETIVO: QUE TRATAMOS DE DETECTAR
-El método BLAST permite evaluar la similitud entre dos secuencias biológicas, tales como cadenas de aminoácidos correspondientes a proteínas o secuencias nucleotídicas.
-En nuestro caso lo utilizaremos, obviamente, sobre secuencias peptídicas.
-El objetivo de aplicar esta herramienta es inferir la existencia de elementos funcionales en la secuencia que estamos evaluando, a partir de una similitud considerable con secuencias naturales
-las cuales, asumimos, tienen una funcionalidad biológica.
-
-% 
-% La búsqueda BLAST se basa en los cambios que pueden ocurrir entre 2 secuencias homólogas durante la evolución. 
-% Las mutaciones pueden dar como resultado distintos residuos en las secuencias de proteínas, también pueden ocurrir inserciones y deleciones de residuos. 
-% Cada uno de los posibles eventos tiene una frecuencia de ocurrencia asociada. El método de alineamiento utiliza un esquema de valores para asignar puntaje a cada uno de estos eventos y,
-% utilizando una estrategia de optimización, se exploran formas alternativas de alinear los residuos de ambas secuencias para logar sumar el máximo score.
-% Realizando una búsqueda optimizada se pueden recuperar secuencias similares de una base de datos con gran cantidad de entradas, haciendo un alineamiento de la secuencia de búsqueda frente a todas las almacenadas en la base de datos. Para analizar los resultados de esta búsqueda no es posible evaluar solamente el score obtenido en cada alineamiento, sino que se debe tener en cuenta la probabilidad de que la similitud encontrada sea solo al azar. En este punto se deben aplicar métodos estadísticos para evaluar la significancia del resultado dada la longitud de la secuencia consultada y el tamaño de la base de datos.
-% El resultado que devuelve la búsqueda BLAST es, en caso de éxito, un conjunto de secuencias de la base de datos ordenadas por un score de alineamiento. Además de realizar el alineamiento, BLAST provee información estadística que ayuda a descifrar la significancia biológica del alineamiento, este es el valor "expect" o e-value. Para utilizar los resultados de BLAST en nuestra herramienta utilizaremos un cutoff sobre el valor de e-value que nos de cierta certeza de que la similitud secuencial es significativa y, por lo tanto, la secuencia podría tener una función similar. El valor de cutoff utilizado es de 0.01, todas las secuencias encontradas con un e-value menor que este valor serán significativamente similares. En caso de encontrarse muchas secuencias dentro del cutoff se utilizará la primera de éstas.
-% Dado que el objetivo de este paso es evaluar que posiciones tienden a una similitud con alguna secuencia natural, el resultado obtenido se utilizará para identificar estas posiciones y marcarlas para una nueva ronda de mutaciones.
-% 
-
-
-% En particular, al principio de dicha sección vimos cómo las secuencias de proteinas pueden tener ciertas restricciones en su evolución, principalmente asociadas 
-% con la funcionalidad que deben proveer y que pueden ser más estrictas(o aplicarse a un mayor porcentaje de la secuencia) si la función está fuertemente asociada a una estructura.
-% Estos requerimientos funcionales y estructurales en la evolución resultan en una similitud secuencial entre las diversas proteínas homólogas.
-% Una forma de evaluar la posible funcionalidad asociada a una proteína, entonces, es buscando la existencia de secuencias proteicas similares en la naturaleza, que hayan sido detectadas y se encuentren anotadas en una base de datos.
-% El descubrimiento de una nueva proteína con gran similitud frente a alguna secuencia conocida, permite presumir que se trata de secuencias homólogas y por lo tanto muy probablemente tendrán la misma función o una función similar. 
-% En el contexto de la herramienta que estamos desarrollando, las secuencias pueden no pertenecer a proteínas naturales y por lo tanto, no representan casos de homología, sin embargo la similitud secuencial podría dar indicios de elementos funcionales emergentes de nuestra secuencia. La información resultante de la búsqueda sirve como indicador de qué posiciones puntuales son las que conforman esta similitud secuencial, las cuales , por lo tanto, podrían inducir la función. 
-% Domains are now readily detectable with sequence searching programs (e.g., Blast [9] or HMMer [10]) and readily alignable by standard methods (e.g., ClustalW [11] or MUSCLE [12]). 
-% Known domains are now stored in a number of databases including Pfam [1], SMART [13], CDD [14] and
-% InterPro [15] and remain a critical component of genome annotation procedures. 
-
-
-
-
-
-
-
-% METODO
-Para realizar la comparación BLAST requiere una secuencia de búsqueda (query) y una secuencia contra la cual comparar.
-% , o alternativamente, una base de datos conteniendo múltiples secuencias.
-% To run the software, BLAST requires a query sequence to search for, and a sequence to search against (also called the target sequence) or a sequence database containing multiple such sequences.
-La ventaja principal del método es que permite realizar, de forma muy eficiente, la comparación de una misma secuencia contra gran cantidad de secuencias contenidas en una base de datos.
-% Esta comparación entre dos secuencias puede extenderse para comparar una secuencia 
-Para esto, BLAST utiliza un método heuristico no exhaustivo llamado word method o método de k-tuplas.
-Al ser un método heurístico, no esta garantizado que encuentre los alineamientos óptimos con las secuencias de la base de datos, lo que si ocurriría si se utilizara el clásico algoritmo de Smith-Waterman para alineamiento.
-Este último, permite encontrar el alineamiento óptimo a expensas de un gran costo computacional.
-% it cannot "guarantee the optimal alignments of the query and database sequences" as Smith-Waterman does.
-% para hallar alineamientos locales, los cuales son extendidos usando una matriz de sustitución. 
-% Consiste en armar una tabla de look-up con subsecuencias y luego realizar búsquedas a gran escala en diversas bases de datos
-En primer lugar este método extrae de la secuencia query todas las subsecuencias de largo k y busca ocurrencias de éstas en la base de datos.
-A partir de estos alineamientos locales, se seleccionan aquellos con mayor valor de score y se extiende el alineamiento hacia la derecha e izquierda de las secuencias, 
-hasta que ocurre una disminución en el score correspondiente.
-
-Por último, si existen extensiones de alineamiento que se encuentran en una misma secuencia estas pueden unirse y, finalmente, se muestra un alineamiento completo entre las secuencias con mayor score, junto con 
-la significancia estadística del alineamiento, dependiente del largo de la secuencia query y el tamaño de la base de datos.
-
-
-
-
-
-
-% UTILIZACION
-La herramienta BLAST puede ser ejecutada de dos maneras. La opción más simple es a través del servidor web \cite{blastWeb}, lo cual implica ejecutar la búsqueda remotamente, implicando retardos importantes para obtener los resultados. 
-% %     hacer una llamada al servidor remoto que ejecuta la búsqueda (http://blast.ncbi.nlm.nih.gov/). 
-% %     Se puede hacer simplemente desde Python utilizando el módulo BioPython(http://biopython.org/). (http://www.biotnet.org/sites/biotnet.org/files/documents/25/biopython_blast.pdf ) 
-La segunda opción es realizar la búsqueda de forma local, para lo cual es necesario tener disponible el paquete de software provisto por NCBI \cite{blastLocal}, junto con la base de datos sobre la cual se quiere hacer la comparación.
-Esta es la opción que utilizamos en nuestra herramienta y, en nuestro caso, realizamos la búsqueda sobre la base de datos UniProtKB \cite{bairoch2000swiss}.
-Utilizamos 0.01 como valor de cutoff.
-
-Si realizamos la búsqueda de la secuencia \texttt{MVLSPADKTNVKGGWGKV}, encontramos un hit con la secuencia \texttt{MVLSPADKTNVKAAWGKV}, con un e-value de 7e-09. 
-El alineamiento entre estas dos secuencias y el puntaje resultante asignado por nuestro método es:
-\vspace{0.5cm}
-
-\noindent
-\begin{tabular}{lllllllllllllllllll} 
-\hline
-Secuencia 		& \textbf{M} & \textbf{V} & \textbf{L} & \textbf{S} & \textbf{P} & \textbf{A} & \textbf{D} & \textbf{K} & \textbf{T} & \textbf{N} & \textbf{V} & \textbf{K} & \textbf{G} & \textbf{G} & \textbf{W} & \textbf{G} & \textbf{K} & \textbf{V}\\ \hline
-Alineamiento Hit	& \textbf{M} & \textbf{V} & \textbf{L} & \textbf{S} & \textbf{P} & \textbf{A} & \textbf{D} & \textbf{K} & \textbf{T} & \textbf{N} & \textbf{V} & \textbf{K} & \textbf{-} & \textbf{-} & \textbf{W} & \textbf{G} & \textbf{K} & \textbf{V}\\ \hline
-Puntaje BLAST 		& 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\ \hline
-\end{tabular}
-
-
-
-
-
-
-
-
 
 
 
@@ -1721,10 +1750,13 @@ Puntaje BLAST 		& 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 1 
 \subsection{Limbo: Interacción con chaperonas} \label{limbo}
 % QUE DETECTA
 El método Limbo \cite{van2009accurate} es un predictor de sitios de unión a la chaperona DnaK, representante de la extensa familia Hsp70, que se especializa en la unión de regiones hidrofóbicas expuestas, generalmente
-presentes en polipéptidos desplegados. 
+presentes en polipéptidos desplegados. La unión de chaperonas a una secuencia gobierna una gran variedad de procesos tales como translocación, replegamiento y degradación de la proteína reconocida,
+además de la activación de un amplio rango de proteínas asociadas.
+El objetivo de aplicar esta herramienta en nuestro esquema de evaluación es detectar la presencia sitios de unión a chaperonas en la secuencia linker, 
+evitando el reconocimiento y la interacción con proteínas en el sistema biológico de expresión.
 
 % METODO
-El método se desarrolló utilizando una combinación de información secuencial y estructural para analizar el perfil de secuencias que se unen a la DnaK.
+El método Limbo se desarrolló utilizando una combinación de información secuencial y estructural para analizar el perfil de secuencias que se unen a la DnaK.
 El primer paso en el desarrollo del método es crear un predictor basado exclusivamente en información secuencial.
 Para armar el set de aprendizaje usado, se realizaron una serie de ensayos experimentales en los cuales un conjunto de péptidos se inmoboliza en membranas de celulosa 
 % de unión a péptidos, los cuales se inmobilizaron unidos a una membrana de celulosa, 
@@ -1829,14 +1861,31 @@ Evaluación con Limbo & 1 & 1 & 2 & 2 & 2 & 2 & 2 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 \subsection{ANCHOR: predicción de MoREs} \label{anchor}
 
 La herramienta ANCHOR\cite{meszaros2009prediction} busca identificar una clase especial de segmentos desordenados que son capaces de experimentar un proceso de \textit{binding \& folding}, 
-propio de la unión a una proteína globular.
+propio de la unión a una proteína globular. El objetivo de aplicar esta herramienta como parte de nuestra evaluación se debe, principalmente, a que estos procesos de reconocimiento molecular 
+suelen estar asociados a la señalización de distintos procesos biológicos, algo que destacamos como negativo para un linker ya que podría afectar el normal funcionamiendo del sistema biológico en el que se encuentra. 
+De esta forma, intentamos detectar cuales son las posiciones que componen estos elementos en la secuencia que estamos evaluando.
 % reconocimiento molecular en proteínas. 
-Para esto, el método reutiliza el modelo definido para implementar la herramienta IUPred (ver sección \ref{iupred}), en la cual se logra estimar la energía de interacción asociada a cada posición basándose en 
-el tipo de aminoácido y la composición del contexto más próximo. Usando esta modelo se pueden calcular, también, las energía de interacción en el contexto de la unión a una proteína globular.
-Mediante la diferencia entre estos valores, se pueden identificar cuales son los segmentos que experimentan interacciones favorables en este nuevo contexto y que podrían estabilizar la unión. 
+
+
+Para identificar estos elementos, el método reutiliza el modelo definido para implementar la herramienta IUPred (ver sección \ref{iupred}), en la cual se logra estimar la energía de interacción asociada a cada posición basándose en 
+el tipo de aminoácido y la composición del contexto más próximo. Usando esta modelo se pueden calcular, no solo la capacidad de interacción intramolecular, 
+sino también las energía de interacción en el contexto de la unión a una proteína globular.
+Mediante la diferencia entre estos valores, se pueden identificar cuales son los segmentos que experimentan interacciones favorables en este nuevo contexto y que podrían estabilizar el plegamiento y unión con respecto a la conformación desordenada. 
 
 % The goal of the present work was to recognize a special class of
 % disordered segments from the amino acid sequence, namely those
@@ -1883,7 +1932,7 @@ La diferencia resultante entre la interacción con los vecinos propios de la sec
 E_i^{ganancia,k} = E_i^{intra,k} - E_i^{globular,k}
 \end{equation}
 
-donde $E_i^{intra,k}$ y $E_i^{globular,k}$ representan la energía de interacción de a pares asociada a cada posición, y se calculan usando nuevamente la ecuación \ref{modelo2}, 
+\noindent donde $E_i^{intra,k}$ y $E_i^{globular,k}$ representan la energía de interacción de a pares asociada a cada posición, y se calculan usando nuevamente la ecuación \ref{modelo2}, 
 con las frecuencias de aminoácidos del contexto de la posición $k$ (en el primer caso) y las frecuencias estándar de proteínas globulares (en el segundo caso).
 \end{enumerate}
 
@@ -1909,7 +1958,8 @@ A pesar de esta condición, y que la cantidad de datos del conjunto de resultado
 % Dado que el resultado de ANCHOR es una combinación de varios aportes, principalmente la tendencia al desorden y la sensibilidad al estar en un entorno estructurado, 
 % el resultado obtenido es relativamente independiente del score obtenido únicamente con IUPred. 
 
-Como se define en \cite{dosztanyi2009anchor}, las regiones que tienen un $score>0.5$ se puede tomar como potenciales segmentos de unión y, por lo tanto, los residuos en estas tendrán un puntaje asociado = 1 como resultado de la evaluación.
+Como se define en \cite{dosztanyi2009anchor}, las regiones que tienen un $score>0.5$ se puede tomar como potenciales segmentos de unión y, por lo tanto, asignaremos a cada residuos en estas un puntaje asociado = 1.
+% como resultado de la evaluación.
 % Dentro de nuestro esquema de evaluación, los segmentos de unión representan posibles pérdidas de flexiblidad en la región linker y, por lo tanto, se toman como propiedades negativas.
 % De esta forma, los residuos que posean $score>0.5$ tendrán un puntaje asociado = 1 como resultado de la evaluación.
 % la herramienta ANCHOR se aplica utilizando un punto de corte igual a 0.5, como se define en el servidor . 
@@ -1919,20 +1969,29 @@ Por ejemplo, la evaluación de la secuencia \texttt{TFSLWKPENMLSPDD} con ANCHOR 
 \begin{figure}[ht]
 % {\linewidth}
 \centering
-\includegraphics[width=0.5\textwidth]{img/anchorTabla.png} 
+\includegraphics[width=0.36\textwidth]{img/anchorTabla.png} 
 \caption{}
 \label{anchorResults}
 \end{figure}
 
 Las posiciones 1-6 tienen asociados valores $>0.5$. Aplicando nuestro esquema de evaluación, estos resultados se traducen en la siguiente tabla de puntajes:
 
-\vspace{0.5cm}
-\noindent
+\vspace{0.2cm}
+% \noindent
+\begin{center}
 \begin{tabular}{llllllllllllllll} 
+% \centering
 \hline      
 Secuencia & \textbf{T} & \textbf{F} & \textbf{S} & \textbf{L} & \textbf{W} & \textbf{K} & \textbf{P} & \textbf{E} & \textbf{N} & \textbf{M} & \textbf{L} & \textbf{S} & \textbf{P} & \textbf{D} & \textbf{D} \\ \hline
 Evaluación con ANCHOR & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ \hline
 \end{tabular}
+\end{center}
+
+
+
+
+
+
 
 
 
@@ -1954,24 +2013,25 @@ Evaluación con ANCHOR & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &
 \section{Otros propiedades evaluadas}
 
 Como parte de la herramienta se provee la opción de realizar evaluaciones adicionales sobre la secuencia que permiten restringir la búsqueda más allá de las propiedades intrínsecas que debe poseer una secuencia linker.
-Las distintas características ``extras'' que se permite definir sobre la secuencia complementan el objetivo principal de la herramienta que es proveer secuencias que puedan ser utilizadas 
+Las distintas características ``extra'' que se permiten definir sobre la secuencia complementan el objetivo principal de la herramienta que es proveer secuencias que puedan ser utilizadas 
 en el contexto de desarrollos experimentales de biología molecular.
 % distintas propiedades de la secuencia que, si bien no hacen directamente a su funcionalidad como linker, 
 % complementan las características de la herramienta y 
 % el objetivo de las secuencias resultantes como productos que serán utilizados 
 
-Estas opciones, al no formar parte del conjunto de propiedades evaluadas de forma estándar, se debe indica su aplicación mediante parámetros al iniciar la ejecución, tal como se indica en la sección \ref{evaluacion} del manual.
+Al no formar parte del conjunto de propiedades evaluadas de forma estándar, se debe indicar la aplicación de estas opciones mediante parámetros al iniciar la ejecución, tal como se indica en la sección \ref{evaluacion} del manual.
+% Estas opciones, al no formar parte del conjunto de propiedades evaluadas de forma estándar, se deben indicar su aplicación mediante parámetros al iniciar la ejecución, tal como se indica en la sección \ref{evaluacion} del manual.
 
 \subsection{Carga neta de la secuencia}
 
 % Otro de los motivos por las cuales se podría querer eliminar aminoácidos cargados es cuando se esta diseñando una proteína que se une a dna porque los residuos del linker podrían 
 % entonces formar puentes salinos con los fosfatos del dna
-
-Para evaluar una secuencia con respecto a la carga neta se tienen en cuenta tres categorias de aminoácidos: con carga positiva (K,R,H), carga negativa (E,D) y neutros.
-Al evaluar una secuencia, primero se evalua la carga neta de esta lo que puede dar 3 casos:
+Esta opción permite que el usuario defina una carga neta deseada para la secuencia linker resultante lo que implica que, en cada paso, se evalúe la secuencia con respecto a la carga. 
+Para esta evaluación se tienen en cuenta tres categorias de aminoácidos: con carga positiva (K,R,H), carga negativa (E,D) y neutros.
+Al evaluar una secuencia con respecto a la carga neta, puede ocurrir alguno de los siguientes casos:
 
 \begin{itemize}
-  \item Si la carga neta objetivo y la actual son iguales, todos los puntajes serán 0.
+  \item Si la carga neta deseada y la actual son iguales, todos los puntajes serán 0.
  
 \item Si la carga neta a la que se está apuntando es más positiva que la actual, los puntajes resultantes son: 
   \begin{itemize}
@@ -1982,11 +2042,10 @@ Al evaluar una secuencia, primero se evalua la carga neta de esta lo que puede d
 Por ejemplo, si se está evaluando la secuencia \texttt{VKTCLALGVDI} (carga neta=0), y el usuario indicó como requerimiento una carga neta objetivo igual a +2, 
    
  
- \vspace{0.5cm}
+%  \vspace{0.2cm}
 \begin{center}
   \begin{tabular}{llllllllllllllll} 
 \hline
-
 Secuencia & \textbf{V} & \textbf{K} & \textbf{T} & \textbf{C} & \textbf{L} & \textbf{A} & \textbf{L} & \textbf{G} & \textbf{V} & \textbf{D} & \textbf{I} \\ \hline
 Evaluación carga neta & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 2 & 1  \\ \hline
 \end{tabular}
@@ -2002,7 +2061,7 @@ Evaluación carga neta & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 2 & 1  \\ \hline
 
    Por ejemplo, si se está evaluando la secuencia \texttt{VKTCLALGVDI} (carga neta=0), y el usuario indicó como requerimiento una carga neta objetivo igual a -2:
    
-   \vspace{0.5cm}
+%    \vspace{0.3cm}
 
    \begin{center}
 \begin{tabular}{llllllllllllllll} 
@@ -2027,7 +2086,7 @@ En este caso, ya que se espera que el resultado final NO posea ninguno de estos 
 Para eliminar los residuos que se encuentran en la secuencia, se asigna un puntaje de 1 a aquellas posiciones que contengan residuos absorbentes en el rango UV. 
 Por ejemplo, si estamos evaluando la secuencia \texttt{VYTCLALGWDI}:
 
-  \vspace{0.5cm}
+%   \vspace{0.3cm}
 
 \begin{center}
 \begin{tabular}{lcccccccccccccc} 

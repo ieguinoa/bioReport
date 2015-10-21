@@ -76,7 +76,7 @@ por el apropiado "y".
 }
 
 
-@misc{tangoWeb,
+@misc{waltzWeb,
   author = {},
   title = {{Waltz Web Server}},
   howpublished = "\url{http://waltz.switchlab.org/}",
