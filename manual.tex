@@ -1,5 +1,15 @@
 \chapter{Manual de uso}\label{manual}
 
+% 
+
+
+\section{Instalación}
+
+El método descrito en los capítulos previos se encuentra disponible bajo el nombre de PATENA. 
+Los requerimientos previos y el proceso de instalación se detallan en el apéndice \ref{install}.
+Una vez instalado, la ejecución se realiza mediante: 
+
+\texttt{python patena.py [parámetros de ejecución]}
 
 \section{Parámetros de ejecución}\label{parametros}
 
@@ -7,26 +17,48 @@
 
 \subsection{Secuencia inicial} \label{secuenciaInicial}
 \subsubsection{Secuencia inicial random}\label{secuenciaInicialRandom}
-Por default (si no se agrega ningún parámetro), la secuencia inicial se generará una secuencia random con la composición designada para la ejecución (ver \ref{composicion}).\\
-Por default esta secuencia tendrá una longitud inicial = 10 AAs.
+Por default, la ejecución comenzará a partir de una secuencia random generada utilizando la composición designada para la ejecución (ver \ref{composicion}).
+% la secuencia inicial se generará una secuencia random con la composición designada para la ejecución (ver \ref{composicion}).\\
+La longitud predeterminada para la secuencia es de 10 aminoácidos. 
+El usuario puede modificar este valor mediante el parámetro \texttt{length} de la forma: 
 
-La longitud(en número de residuos) de esta secuencia inicial puede ser definida por el usuario mediante el parámetro \texttt{length} de la forma: \\
-\indent \texttt{--length [seq-length]}
+\indent \texttt{--length [longitud deseada]}
 \\Por ejemplo: \\
-\indent \texttt{--length 30} \hspace{0.5cm} Inicia la ejecución con una secuencia random de largo = 30 AAs
+\indent \texttt{--length 30} \hspace{0.5cm} \textit{Inicia la ejecución con una secuencia random de largo = 30}
 
 
-\subsubsection{Secuencia inicial definida}\label{secuenciaInicialDefinida}
-Para definir una secuencia inicial especifica se debe usar el parámetro \texttt{seq} de la forma: \\
+
+\subsubsection{Secuencia inicial definida por el usuario}\label{secuenciaInicialDefinida}
+
+Para definir una secuencia inicial específica se debe usar el parámetro \texttt{seq} de la forma:
+
 \indent \texttt{--seq [secuencia]} 
 \\Por ejemplo: \\
-\indent \texttt{--seq AAHHWWWLLLLHHGGG} \hspace{0.5cm} Inicia la ejecución con la secuencia \texttt{AAHHWWWLLLLHHGGG}
+\indent \texttt{--seq AAHHWWWLLLLHHGGG} \hspace{0.5cm} \textit{Inicia la ejecución con la secuencia \texttt{AAHHWWWLLLLHHGGG}}
 
 En caso de especificarse una secuencia inicial no es necesario definir longitud y, si se define, es ignorada.
 
 
+
 % PONER detalles de como definir regiones estáticas que no pueden ser mutadas
-\paragraph{Secuencias flanqueantes}\label{flanqueantes}
+% \paragraph{Secuencias flanqueantes}\label{flanqueantes} \hspace{0pt} \\
+\subsubsection{Secuencias flanqueantes}\label{flanqueantes} 
+
+Es posible especificar segmentos en uno o ambos extremos que, si bien no serán parte del linker y no serán mutados, si serán tenidos en cuenta a la hora evaluar la secuencia.
+% es decir, que deben permanecer intactos en el diseño resultante.
+% Estas regiones flanqueantes permanecerán intactas en el diseño resultante, sin embargo, serán tenidas en cuenta en la etapa de evaluación de la secuencia.
+Para indicar estas secuencias flanqueantes se proveen los parámetros \texttt{left} y \texttt{right} los cuales definen secuencias a la izquierda y derecha respectivamente.
+El formato para especificarlas es:
+
+
+\indent \texttt{--left  [flanquer izquierdo]} \\
+\indent \texttt{--right [flanquer derecho]} 
+\\Por ejemplo: \\
+\indent \texttt{--left AHWLLHHGG} \hspace{0.5cm} \textit{Se asume que a la izquierda del linker se encuentra la secuencia \texttt{AHWLLHHGG}}
+
+
+
+
 
 \subsection{Composición de la secuencia} \label{composicion}
 
@@ -34,23 +66,63 @@ En caso de especificarse una secuencia inicial no es necesario definir longitud 
 % Existen dos opciones para definir la composición usada durante la ejecución del método.
 Si no se define ningún parametro al respecto, la composición \textit{default} que se usa es la composición estándar obtenida de SwissProt \cite{compositionAA}.  
 
-En caso que se haya seleccionado la opcion de secuencia silente en UV (ver sección \ref{uvsilent}) la composición es igual a la estándar pero los residuos Y, T y F tendrán una frecuencia igual a 0.
+En caso que se haya seleccionado la opción de secuencia silente en UV (ver sección \ref{uvsilent}) la composición es igual a la estándar pero los residuos que absorben en el rango del UV (W,Y,F) tendrán una frecuencia igual a 0.
 
 \subsubsection{Composición definida por el usuario}
-Es posible también definir una composición a medida, para esto se deben definir las frecuencias de los residuos
 
-En caso que se haya seleccionado la opcion de secuencia silente en UV (ver sección \ref{uvsilent}) se debe seleccionar una frecuencia igual a 0 para los residuos Y, T y F. 
+Es posible que el usuario defina una frecuencia específica para uno o más aminoácidos. 
+La frecuencia se debe especificar en forma de porcentaje y cada aminoácido tiene un parámetro asociado para definir su frecuencia. 
+Este parámetro se corresponde con nomenclatura de una sola letra asociada al aminoácido. Ejemplos de esto son:
+
+\indent \texttt{--a  [frecuencia Alanina]} \\
+\indent \texttt{--m  [frecuencia Metionina]} \\
+\indent \texttt{--s  [frecuencia Serina]} 
+% \indent \indent .............
+
+En caso que no se definan las frecuencias para todos los 20 tipos de aminoácidos, el resto tendrá la frecuencia estándar. El único requerimiento es que la suma total de las frecuencias sea menor o igual a 100.
+A modo de ejemplo:
+
+\indent \texttt{--a 50 --l 10 --g 13.3 } \\
+\textit{Esta definición de la composición generará una secuencia inicial con 50\% de Alanina, 10\% de Leucina y 13.3\% de Glicina. 
+El porcentaje restante tendrá la distribución correspondiente a la composición estándar.}
 
 
-\subsection{Modificación del parámetro Beta}
+
+En caso que también se haya seleccionado la opción de secuencia silente en UV (ver sección \ref{uvsilent}), los residuos que absorben en el rango del UV (W,Y,F) tendrán una frecuencia igual a 0, independientemente del valor que se especificó.
+
+\subsection{Definición del parámetro Beta}
+
+Basándose en las evaluaciones realizadas (ver sección \ref{betaResults}), el valor estándar de Beta está definido como \texttt{1.0}. 
+Es posible modificar este valor para ejecuciones individuales mediante el parámetro \texttt{beta} de la forma:
+
+\indent \texttt{--beta [valor deseado de Beta]} 
+\\Por ejemplo: \\
+\indent \texttt{--beta 2.3} \hspace{0.5cm} \textit{Inicia la ejecución con un valor de beta = 2.3}
+
 
 
 \subsection{Evaluación de la secuencia}\label{evaluacion}
 
+Si no se especifica ningún parametro adicional, el set de evaluaciones que se utilizará esta compuesto de aquellas que se detallan en las secciones \ref{propiedadesConformacionales} y \ref{evaluacionFuncional}.
+El usuario puede quitar, para una ejecución individual, alguna de las herramientas del conjunto de evaluación. Para esto, cada herramienta tiene asociado un parámetro para poder quitarla del esquema de evaluación.
+Los parámetros disponibles son: 
+\texttt{--noblast, --notango, --noelm, --noiupred, --noanchor, --noprosite, 
+--nolimbo, 
+--notmhmm, 
+--nopasta, 
+--nowaltz, 
+--noamyloidpattern}
 
-\subsubsection{Selección del set de herramientas a utilizar}
+\noindent Por ejemplo: \\
+\indent \texttt{--noblast --nowaltz} \\%\hspace{0.5cm} 
+\indent \indent \textit{La evaluación se realiza usando todas las herramientas \textbf{EXCEPTO} BLAST y Waltz}
+
+
+% \subsubsection{Selección del set de herramientas a utilizar}
 % seleccion de herramientas a evaluar
 
+
+El usuario puede, además, agregar evaluaciones correspondientes a la carga neta y a la absorción UV de la secuencia, las cuales se detallan a continuación.
 
 \subsubsection{Evaluación de carga neta}
 % evaluacion de la carga neta
@@ -58,7 +130,7 @@ En caso que se haya seleccionado la opcion de secuencia silente en UV (ver secci
 La carga neta deseada para la secuencia resultante puede ser definida mediante la opción \texttt{netcharge} de la forma: \\
 \indent \texttt{--netcharge [carga neta deseada]} 
 \\Por ejemplo: \\
-\indent \texttt{--netcharge +3} \hspace{0.5cm} La secuencia resultante tendrá carga neta = +3
+\indent \texttt{--netcharge +3} \hspace{0.5cm} \textit{La secuencia resultante tendrá carga neta = +3}
 
 El valor absoluto de la carga buscada debe ser menor o igual que la longitud de la secuencia, de otra forma no podría alcanzarse nunca la carga neta objetivo.
 Esta condición se evalúa al inicio de la ejecución y se informa si no es posible continuar
@@ -73,12 +145,29 @@ La forma de indicar esto es mediante la opción \texttt{--uvsilent}(sin parámet
 
 \subsection{Condición de finalización} \label{condicionFin}
 
+Por definición, el método tiene un límite máximo de 5000 mutaciones aceptadas.
+% iteraciones. Cada una de estas iteraciones implica   aceptadas. 
+Este límite representa un valor muy alto, incluso para secuencias linkers largas (50 residuos), y representa un valor donde se considera inproductivo seguir intentando mutaciones porque puede no ser posible encontrar el resultado deseado. 
+De todas formas, es posible modificar este valor para una ejecución en particular mediante el parámetro \texttt{maxiterations}, de la forma:
+
+\indent \texttt{--maxiterations [número máximo de iteraciones]} 
+\\Por ejemplo: \\
+\indent \texttt{--maxiterations 30} \hspace{0.5cm} \textit{Finaliza la ejecución si se alcanzan 30 mutaciones}
+
+
+El objetivo de la modificación puede ser imponer un límite menor al número de mutaciones, para obtener un resultado más rapidamente aunque de menor calidad , 
+o incrementar el límite cuando, a partir de las propiedades del diseño buscado (un conjunto de restricciones muy fuertes, o un largo superior al normal), se crea necesario permitirlo.
+En todos los casos donde se alcanza el limite de mutaciones se informa lo sucedido y la secuencia al momento de finalización.
+
 \subsection{Formato y detalles del resultado}\label{output}
-Los parámetros que permiten modificar el formato de la salida son:
+
+Por definición el método sólo devuelve el resultado final de la ejecución informando, además, la condición de finalización.
+Es posible extender o modificar el formato de salida mediante las siguientes opciones:
+% Los parámetros que permiten modificar el formato de la salida son:
 \vspace{0.2cm}\\
-\texttt{--verbose} \\
-\indent \indent Devuelve una salida detallada de la ejecución \\
-\texttt{--minoutput} \\
-\indent \indent Solo devuelve el resultado final y guarda el historial de mutaciones en un log \\
-\texttt{--stepped} \\
-\indent \indent Espera por input del usuario en cada paso del método. \\
+\indent \texttt{--logoutput [logpath]} \\
+\indent \indent \textit{Guarda el historial de mutaciones en un archivo .log ubicado en logpath.} \\
+\indent \texttt{--verbose} \\
+\indent \indent \textit{Devuelve por pantalla una salida detallada de la ejecución.} \\
+\indent \texttt{--stepped} \\
+\indent \indent \textit{Ejecución paso a paso: espera por input del usuario en cada paso del método.} \\

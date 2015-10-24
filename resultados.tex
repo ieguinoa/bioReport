@@ -1,7 +1,12 @@
 \chapter{Evaluaciones y análisis de resultados}
 \label{results}
 
-\section{Estimación del parámetro Beta}
+\section{Parámetros de ejecución}
+
+Todas las evaluaciones se realizaron con los parámetros estándar del método descritos en el manual (ver capítulo \ref{manual}).
+El equipamiento y software utilizado para las pruebas se encuentra descrito en el apéndice \ref{equipamiento}.
+
+\section{Estimación del parámetro Beta}\label{betaResults}
 % PRIMERO EXPLICAR COMO DEPENDE LA EJECUCION CON EL PARÁMETRO BETA
 % PARA VALORES MAS CHICOS ...
 % PARA VALORES MAS GRANDES...
@@ -13,9 +18,9 @@ En las secciones previas hemos propuesto un método de diseño que se basa en b�
 El método de búsqueda es guiado por el resultado de una función que asigna un puntaje a cada secuencia, el cual resulta siempre mayor o igual a 0.
 La secuencia resultante buscada se caracteriza por tener un puntaje igual a 0, por lo tanto, el método puede verse como la búsqueda de un mínimo global sobre la superficie
 que relaciona cada posible secuencia con su valor de puntaje.
-
-El comportamiento del método de búsqueda del diseño resultante depende de un único parámetro $\beta$ cuyo valor(o rango) óptimo está fuertemente asociado a las características de esta superficie.
 % El el valor(o el rango) óptimo para el parámetro que Beta depende en gran parte de las características de esta superficie.
+
+El comportamiento del método de búsqueda depende de un único parámetro $\beta$ cuyo valor (o rango) óptimo está fuertemente asociado a las características de esta superficie.
 Un valor de $\beta$ más grande tiene un porcentaje de aceptación mayor de mutaciones que aumentan el puntaje de la secuencia, por lo tanto, permite la exploración de superficies que 
 requieren superar mínimos locales para alcanzar secuencias con puntaje 0.
 Un valor de beta mas chico implica recorrer un camino más directo hacia el mínimo ya que se aceptan menos mutaciones que aumenten el puntaje, pero esto podría requerir la evaluación de una gran cantidad de posibilidades. 
@@ -27,31 +32,107 @@ Por lo tanto, la probabilidad de aceptación nunca es 0 y no es imposible encont
 % En esta aplicación, además, partiendo de una secuencia inicial dada por el usuario, resultaría mejor obtener la secuencia con puntaje mínimo que esté más cerca en la superficie, es decir, que sea más similar a la secuencia inicial.
 % Esto implica una menor cantidad de mutaciones, lo que equivale a un valor de beta mas chico.
 
-
-Sin embargo, a pesar que previo a desarrollar la aplicación asumimos que el espacio de soluciones era considerablemente grande, no sabemos cómo es exactamente 
+A pesar que previamente a desarrollar la aplicación asumimos que el espacio de soluciones era considerablemente grande, no sabemos cómo es exactamente 
 la superficie que asocia cada secuencia con el puntaje definido por las evaluaciones. 
-De esta forma, inicialmente no tenemos ningún conocimiento de como se relaciona el valor del parámetro $\beta$ con la ejecución resultante.
-Para tener una primera idea global de esta dependencia analizamos las ejecuciones de 6 corridas independientes.
-Tres de estas corridas se realizaron a partir de secuencias generadas aleatoriamente, mientras que las tres restantes se inician a partir de secuencias naturales definidas(distintas entre si).
-En todos los casos la longitud de la secuencia fue de 30 aminoácidos.
-Este mismo esquema de 6 corridas se repitió para valores de $\beta=0.5$ y $\beta=2.4$.
-En el caso del $\beta$ más chico(0.5), la probabilidad de aceptar una mutación para un incremento de 1 en el puntaje es de $13\%$, mientras que para el beta más grande(2.4) esta probabilidad es de $65,9\%$.
+De esta forma, inicialmente no tenemos ningún conocimiento de como se relaciona el valor del parámetro $\beta$ con la ejecución
+resultante ni cuales serán los valores de $\beta$ que nos permitirán obtener diseños de la forma más eficiente.
+% Sin embargo, no sabemos como estos intentos de encontrar mejores mutaciones afectan a la optimalidad de la búsqueda global.
+% Para tener una primera idea global de esta dependencia analizamos e
+% Todavía no sabemos las implicancias de realizar esta cantidad de intentos de mutacion sobre la búsqueda.
+La forma más directa de conocer cual es el rango (o valor) óptimo de $\beta$ es mediante la evaluación del tiempo de ejecución, es decir, el tiempo total requerido para la búsqueda del diseño resultante. 
+La evaluación realizada implicó la medición del tiempo de ejecución para distintas ejecuciones que utilizan valores de beta en el rango 0.1-2.5.
+Puntualmente se analizan los valores en el conjunto (0.1, 0.5, 1.0, 1.5, 2.0, 2.3, 2.5). 
+Se realizaron 6 ejecuciones para cada valor de $\beta$ analizado, de las cuales 3 se realizan a partir de secuencias definidas (obtenidas de proteínas naturales) y otras 3 a partir de secuencias generadas aleatoriamente.
+En todos los casos con una longitud de 50 residuos.
+
+En la figura \ref{fig:beta-vs-time} se muestran los tiempos medios asociados a cada conjunto de evaluaciones.
+En primer lugar vemos que no hay una diferencia significativa constante entre las ejecuciones que inician a partir de secuencias naturales y las que lo hacen a partir de secuencias aleatorias.
+% Al parecer, si bien las primeras pueden tener valores de score mayore
+Por otro lado, se ve que el tiempo de ejecución es altamente variable para la mayoria de los valores de $\beta$.
+Esta variabilidad, que se basa en las propiedades estocásticas de la búsqueda, no permite definir un valor óptimo puntual. Se puede ver, igualmente, que el tiempo de ejecución es significativamente mayor en el caso de $\beta$ muy grande (2.5), 
+indicando que el rango óptimo de valores está ubicado hacia el extremo inferior.
+Aunque el rango completo 0.1-2.0 es aceptable, definimos a $\beta=$1.0 como un valor que nos permitirá realizar la ejecución en un tiempo aceptable, quedando como valor estándar de la herramienta.
+
+
+
+\begin{figure}[htbp]
+% \advance\leftskip-1.2cm
+% \includegraphics[width=1.1\textwidth]{img/resultados/beta-vs-time-length50-rate.png}
+\includegraphics[width=\textwidth]{img/resultados/beta-vs-time-length50-300dpi.png}
+\caption{\textbf{Valores efectivos de Beta.}}
+\label{fig:beta-vs-time}
+\end{figure}
+
+
+
+%************************ HASTA ACA ESTA BIEN ***********************
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Análisis detallado de la ejecución}
+% ***************************************************************
+% 
+%    ACA LA IDEA ES DESGLOSAR LA DEPENDENCIA DEL TIEMPO CON BETA
+% 
+
+
+
+% Una vez definido el valor efectivo de $\beta$ queda completo el método listo para su utilización. 
+% La estimación del valor de $\beta$ que provea un menor tiempo de ejecución nos permite conocer cual es el valor que provee un correcto balance entre la exploración y la explotación de la superficie.
+El rango de $\beta$ obtenido es útil para poder ejecutar eficientemente la búsqueda pero, si queremos conocer más en detalle las propiedades de la búsqueda,
+% detalle más sobre la superficie que estamos explorando, 
+% pero para tener una idea más detallada del perfil de las ejecuciones, 
+hace falta desglosar el tiempo de ejecución.
+Sabemos que los tiempos de ejecución vistos son producto directo de la cantidad total de mutaciones aceptadas y la cantidad de mutaciones que se intentan para cada ejecución.
+Los detalles de las búsquedas permiten, además, inferir ciertas características de la superficie que se esta explorando.
+Por lo tanto, en lo que resta de esta sección, analizaremos cómo cambian los perfiles de estas variables según el valor de beta.
+% Sabemos que el tiempo de ejecución resultante es producto del número de mutaciones y de intentos de mutación, 
+ 
+Para tener una primera idea de esta dependencia que describimos analizaremos los perfiles de ejecución para dos valores puntuales de beta: $\beta=$0.5 y $\beta=$2.4.
+En el caso del $\beta$ más chico (0.5), la probabilidad de aceptar una mutación para un incremento de 1 en el puntaje es de $13\%$, mientras que para el beta más grande (2.4) esta probabilidad es de $65,9\%$.
 Por lo tanto, los dos valores podrían clasificarse como cercanos a los extremos dentro del esquema de decisión basado en el puntaje.
+Para cada valor de $\beta$ se realizaron 6 corridas independientes.
+% En los gráficos \ref{fig:scoreVsiter} y \ref{fig:mutAttemptsVsite} se muestran los resultados de 6 corridas independientes para cada uno de los valores de $\beta$ evaluados (0.5 y 2.4).
+% El tiempo de ejecución resultante es producto de dos variables de l
+La mitad de estas corridas se iniciaron a partir de secuencias generadas aleatoriamente, mientras que las restantes se inician a partir de secuencias naturales definidas (distintas entre si).
+En todos los casos la longitud de la secuencia fue de 30 aminoácidos.
+% Este mismo esquema de 6 corridas se repitió para los dos valores de $\beta$ (0.5 y 2.4).
+% En el caso del $\beta$ más chico (0.5), la probabilidad de aceptar una mutación para un incremento de 1 en el puntaje es de $13\%$, mientras que para el beta más grande (2.4) esta probabilidad es de $65,9\%$.
+% Por lo tanto, los dos valores podrían clasificarse como cercanos a los extremos dentro del esquema de decisión basado en el puntaje.
 % rango de posibles valores para $\beta$.
 % Los resultados de las corridas se muestran en la tabla ......... ***CONVIENE RESUMIR BIEN LOS DATOS EN UNA TABLA? EL UNICO DATO CREO QUE SERIA EL TOTAL DE ITERACIONES
 
 
 % GRAFICO DE SCORE vs ITERACION   (MEDIAS Y StdDeV COMPLETO HASTA EL FINAL)   +  CORRIDAS INDIVIDUALES
-En el gráfico \ref{fig:scoreVsiter} se muestra la dependencia del puntaje con las iteraciones, tanto los valores medios(y desviación estandar) para todas las ejecuciones mencionadas(gráfico \ref{fig:scoreVsiter-b}), 
-como el detalle de las ejecuciones individuales(gráfico \ref{fig:scoreVsiter-a}).
+En el gráfico \ref{fig:scoreVsiter} se muestra la dependencia del puntaje con las iteraciones, tanto los valores medios (y desviaciones estándar) para todas las ejecuciones mencionadas (gráfico \ref{fig:scoreVsiter-b}), 
+como el detalle de las ejecuciones individuales (gráfico \ref{fig:scoreVsiter-a}).
 El perfil que se muestra permite aclarar mejor los conceptos mencionados previamente acerca de la dependencia de $\beta$ con el comportamiento de la búsqueda. 
 Un valor más grande de $\beta$ realiza una mayor exploración del espacio de soluciones, lo que se ve reflejado en un rango mucho más amplio de mutaciones aplicadas para las ejecuciones.
-Se ve claramente que hay una diferencia en el orden de magnitud de la cantidad de iteraciones, donde las ejecuciones con $\beta=2.4$ pueden alcanzar $>2000$ iteraciones.
+Se ve claramente que hay una diferencia en el orden de magnitud de la cantidad de iteraciones, donde las ejecuciones con $\beta=$2.4 pueden alcanzar $>2000$ iteraciones.
 Por su parte, el valor más chico de $\beta$ permite alcanzar el objetivo en un número mucho menor de mutaciones, lo cual parece indicar que hay un camino 
 que conduce desde cada punto de inicio hacia un resultado bajando continuamente el valor del puntaje, es decir, sin atravesar ninguna barrera.
 De todas formas, no podemos decir nada sobre las características de este recorrido hacía el mínimo.
 % PONER ALGUNA CONCLUSION DE QUE DICE ESTO ACERCA DE LA SUPERFICIE 
 
+% Esta es, sin embargo, una visión muy general de la ejecución, y para tener una idea mas detallada es necesario analizar otros parámetros relevantes.
+% y   MUT-ATTEMPTS vs ITERACION (MEDIAS Y StdDeV COMPLETO HASTA EL FINAL)   +  CORRIDAS INDIVIDUALES
+En el gráfico \ref{fig:mutAttemptsVsite} se muestra el número de intentos de mutación asociado a cada valor de $\beta$.
+Nuevamente se muestran los valores medios (y sus desviaciones correspondientes) en el gráfico \ref{fig:mutAttemptsVsite-b}, y el detalle de las ejecuciones individuales (gráfico \ref{fig:mutAttemptsVsite-a}).
+Vemos que el reducido número de iteraciones que resulta de un valor bajo de $\beta$ se produce a costa de una cantidad más elevada de intentos de mutaciones, es decir, se evalúa una mayor cantidad de posibles mutaciones hasta 
+que eventualmente una sea aceptada, lo que representa la dificultad del camino hacia el valor mínimo buscado. 
+Esta condición se incrementa en las iteraciones cercanas al fín de la ejecución, que se corresponden con los valores más bajos de puntaje (cercanos a 0). 
+
+
+% A partir de estos análisis podemos diferenciar 
 
 % 
 % \begin{figure} 
@@ -63,7 +144,7 @@ De todas formas, no podemos decir nada sobre las características de este recorr
 % 
 % \end{figure}
 
-
+% SCORE vs MUTACIONES  
 \begin{figure}[htbp]
 \advance\leftskip-1.5cm
   \begin{subfigure}[b]{\textwidth}
@@ -79,17 +160,11 @@ De todas formas, no podemos decir nada sobre las características de este recorr
     \caption{Valores medios y desviaciones}
   \label{fig:scoreVsiter-b}
   \end{subfigure}
-  \caption{Puntaje asociado a cada iteración}
+  \caption{\textbf{Perfil de puntajes asociado a cada iteración}}
   \label{fig:scoreVsiter}
 \end{figure}
 
-Esta es, sin embargo, una visión muy general de la ejecución, y para tener una idea mas detallada es necesario analizar otros parámetros relevantes.
-% y   MUT-ATTEMPTS vs ITERACION (MEDIAS Y StdDeV COMPLETO HASTA EL FINAL)   +  CORRIDAS INDIVIDUALES
-En el gráfico \ref{fig:mutAttemptsVsite} se muestra el número de intentos de mutación asociado a cada valor de $\beta$.
-Nuevamente se muestran los valores medios (y sus desviaciones correspondientes) en el gráfico \ref{fig:mutAttemptsVsite-b}, y el detalle de las ejecuciones individuales (gráfico \ref{fig:mutAttemptsVsite-a}).
-Vemos que el reducido número de iteraciones que resulta de un valor bajo de $\beta$ se produce a costa de una cantidad más elevada de intentos de mutaciones, es decir, se evalúa una mayor cantidad de posibles mutaciones hasta 
-que eventualmente una sea aceptada, lo que representa la dificultad del camino hacia el valor mínimo buscado. 
-Esta condición se incrementa en las iteraciones cercanas al fín de la ejecución, que se corresponden con los valores más bajos de puntaje(cercanos a 0). 
+
 
 
 % \begin{figure} 
@@ -101,6 +176,7 @@ Esta condición se incrementa en las iteraciones cercanas al fín de la ejecuci�
 % \end{figure}
 
 
+% INTENTOS DE MUTACION PARA BETA  0.5 Y 2.4
 \begin{figure}[htbp]
 \advance\leftskip-1.5cm
   \begin{subfigure}[b]{\textwidth}
@@ -120,44 +196,78 @@ Esta condición se incrementa en las iteraciones cercanas al fín de la ejecuci�
   \label{fig:mutAttemptsVsite}
 \end{figure}
 
-Sin embargo, no sabemos como estos intentos de encontrar mejores mutaciones afectan a la optimalidad de la búsqueda global.
-% Todavía no sabemos las implicancias de realizar esta cantidad de intentos de mutacion sobre la búsqueda.
-Para conocer cual es el rango(o valor) óptimo de $\beta$ utilizamos como variable de evaluación al tiempo de ejecución, 
-el cual es directamente proporcional a la cantidad total de mutaciones aceptadas que se necesitan y la cantidad de mutaciones que se intentan.
-Por lo tanto, la estimación del valor de $\beta$ que provea un menor tiempo de ejecución nos permite conocer cual es el valor que provee un correcto balance entre la exploración y la explotación de la superficie.
-La evaluación realizada implicó evaluar el tiempo de ejecución para distintos valores de beta en el rango 0.1-2.5.
-Puntualmente se analizan los valores en el conjunto (0.1, 0.5, 1.0, 1.5, 2.0, 2.3, 2.5). 
-Se realizaron 6 ejecuciones para cada valor de $\beta$ analizado, de las cuales 3 se realizan a partir de secuencias definidas(obtenidas de proteínas naturales) y otras 3 a partir de secuencias generadas aleatoriamente.
-En todos los casos con una longitud de 50 residuos.
-
-En la figura \ref{fig:beta-vs-time} se muestran los tiempos medios asociados a cada conjunto de evaluaciones.
-En primer lugar vemos que no hay una diferencia significativa constante entre las ejecuciones que inician a partir de secuencias naturales y las que lo hacen a partir de secuencias aleatorias.
-% Al parecer, si bien las primeras pueden tener valores de score mayore
-Por otro lado, se ve que el tiempo de ejecución es altamente variable para la mayoria de los valores de $\beta$.
-Esta alta variabilidad, que se basa en las propiedades estocásticas de la búsqueda, no permite definir un valor óptimo puntual aunque se ve que el tiempo de ejecución es significativamente mayor en el caso de beta muy grande(2.5), 
-inficando que el rango óptimo de valores para $\beta$ está ubicado hacia el extremo inferior.
-Aunque el rango completo 0.1-2.0 es aceptable, tomamos un valor de $\beta=1.0$, a partir de ahora, como un valor aceptado que nos permitirá realizar la ejecución en un tiempo aceptable.
 
 
 
+
+% ************************REVISAR HASTA ACÁ ***********************
+
+
+
+
+
+% FALTA UNA CONEXION DE LAS EVALUACIONES PREVIAS (PARA BETA 0.5 Y 2.4) CON ESTO NUEVO,  
+Ahora tenemos una idea más clara de cómo afecta beta a los parámetros de exploración.
+Trataremos de explicar los valores de tiempo de ejecución y el rango efectivo de beta encontrados previamente, basándonos en los parámetros de la búsqueda.
+Es decir, intentaremos explicar cómo la suma entre el número total de mutaciones y de intentos de mutacion producen los tiempos de ejecución encontrados. 
+% ACA EMPIEZO A HABLAR DE LOS GRAFICOS DE VALORES  vs RANGO DE BETA:  intentos de mutacion, iteraciones , intentos de mutacion por iteracion
+
+Lo que vemos en la figura \ref{fig:betaVsMut-AttemptsPerit} es que el número de intentos de mutación por iteración baja al aumentar el valor de $\beta$, lo cual es esperable de acuerdo a lo visto previamente.
+Sin embargo, en algunos rangos de beta (entre 0.5 y 1.0, y entre 2.0 y 2.5), no hay una disminución correspondiente del número de intentos totales de mutación al aumentar $\beta$. 
+Según se puede ver del grafico \ref{fig:betaVsMutations-Attempts}, el gran número de mutaciones totales requeridas genera un incremento en el número total de intentos de mutación. 
+% De esta forma, para valores muy grandes de beta no se logran un balance de 
+% Sin embargo, el número de mutaciones totales de la ejecución no siempre disminuye junto con $\beta$. 
+% En algunos rangos de $\beta$ (como por ejemplo entre 0.1 y 0.5 , y entre 1.0 y 2.0), 
+% En el extremo inferior ($\beta$ <= 0.5), el número total de mutaciones disminuye con $\beta$, mientras que el en rango de 
+
+
+
+
+
+
+
+
+
+
+% BETA vs ITERACIONES y MUTACIONES TOTALES
+% BETA vs INTENTOS DE MUTACION 
 \begin{figure}[htbp]
-\advance\leftskip-1.2cm
-% \includegraphics[width=1.1\textwidth]{img/resultados/beta-vs-time-length50-rate.png}
-\includegraphics[width=1.1\textwidth]{img/resultados/beta-vs-time-length50-300dpi.png}
-\caption{Largo de secuencia = 50}
-\label{fig:beta-vs-time}
+% \advance\leftskip-1.5cm
+  \begin{subfigure}[b]{0.9\textwidth}
+%     \includegraphics[width=1.15\textwidth]{img/resultados/individuales-mutAt-vs-iter-hasta200.png}
+    \includegraphics[width=\textwidth]{img/resultados/beta-vs-Mut-iterationsPerIt.png}
+    \caption{}
+%     LOS INTENTOS DE MUTACION DISMINUYEN CASI SIEMPRE CON EL AUMENTO DE BETA
+    \label{fig:betaVsMut-AttemptsPerit}
+  \end{subfigure}
+%   \hspace{20px}
+  \begin{subfigure}[b]{0.9\textwidth}
+%     \includegraphics[width=1.15\textwidth]{img/resultados/mutAttemptsVsite-cada1-hasta2270.png}
+      \includegraphics[width=\textwidth]{img/resultados/beta-vs-Mut-iterations.png}
+    \caption{}
+  \label{fig:betaVsMutations-Attempts}
+  \end{subfigure}
+  \caption{\textbf{Dependencia de los parámetros de la búsqueda con el valor de beta}}
+  \label{fig:betaVsAll}
 \end{figure}
 
 
 
-\section{Tiempo de ejecución correspondiente}
+
+
+
+
+
+
+
+
+\section{Dependencia con la longitud de la secuencia}
 
 % RESULTANDOS DE TIEMPO EN FUNCION DE LONGITUD
-% Ahora que tenemos fijado un valor para el parámetro $\beta$ y tenemos un conjunto definido de herramientas de evaluación
 Una vez definido un valor de beta que permite un balance estable entre intentos de mutación y mutaciones aceptadas, queremos saber como se traduce esto en un tiempo de ejecución concreto para distintos casos de uso de la herramienta.
 Se realizan, entonces, evaluaciones del tiempo de ejecución en función de la longitud de la secuencia, lo que nos dará una idea del orden de tiempo que demoran las ejecuciones y como éste varía con la longitud.
 % Utilizando los parámetros estándar, el tiempo de ejecución solo varía con la longitud de la secuencia. 
-En el gráfico \ref{fig:time-vs-length} se muestran los resultados de distintas ejecuciones individuales de la aplicación, utilizando siempre el valor de $\beta$ definido previamente(1.0), pero con longitudes de secuencia variable, 
+En el gráfico \ref{fig:time-vs-length} se muestran los resultados de distintas ejecuciones individuales de la aplicación, utilizando siempre el valor de $\beta$ definido previamente (1.0), pero con longitudes de secuencia variable, 
 tanto para secuencias aleatorias como para secuencias iniciales naturales.
 
 Si bien los resultados parecen indican una relación aproximadamente lineal entre la longitud de la secuencia y el tiempo de ejecución, la relevancia de estos resultados es que nos permiten 
@@ -186,13 +296,13 @@ es posible pensar que debería existir al menos cierta diversidad entre los resu
 
 Hasta el momento vimos el proceso de ejecución analizando de forma abstracta el número de iteraciones, sin tener en cuenta sobre que posiciones se aplicaban,
 sin embargo, la diversidad resultante de la búsqueda dependerá fuertemente del número y distribución de mutaciones que se aplican sobre la secuencia inicial.
-Para analizar estos aspectos se realizaron un total de 74 ejecuciones independientes a partir de una misma secuencia inicial(\texttt{MALWMRLLPLLALLALWGPDPAAAFVNQHL}).
+Para analizar estos aspectos se realizaron un total de 74 ejecuciones independientes a partir de una misma secuencia inicial (\texttt{MALWMRLLPLLALLALWGPDPAAAFVNQHL}).
 En primer lugar se analizaron los porcentajes de mutación para cada posición de la secuencia, los cuales se muestran en la figura \ref{fig:mutationPerSite}.
-Si bien no hay ninguna diferencia significativa en el patrón de mutaciones, las 4 posiciones que presentan el menor porcentaje medio de mutaciones(residuos 9,18,19,21),
+Si bien no hay ninguna diferencia significativa en el patrón de mutaciones, las 4 posiciones que presentan el menor porcentaje medio de mutaciones (residuos 9,18,19,21),
 se corresponden con residuos de Prolina y Glicina.
 Como vimos en el capítulo 1, estos son los residuos más encontrados en linkers tanto naturales como artificiales debido a sus propiedades fisicoquímicas caracterísicas.
 
-\begin{figure}[htbp]
+\begin{figure}[h]
 \includegraphics[width=\textwidth]{img/resultados/mutationsPerPosition.png}
 \caption{Procentaje de mutaciones medio para cada posición en 74 corridas individuales}
 \label{fig:mutationPerSite}
@@ -227,7 +337,7 @@ Luego se analizaron las características secuenciales de este conjunto de result
     \label{fig:identity-b}
 %     \caption{Identidad entre cada par posible de secuencias resultantes(74*74)}
   \end{subfigure}
-  \caption{Histograma de identidad entre las secuencias resultantes entre si(derecha) y entre estas y la secuencia inicial(izquierda)}
+  \caption{Histograma de identidad entre las secuencias resultantes entre si (derecha) y entre estas y la secuencia inicial(izquierda)}
   \label{fig:identity}
 \end{figure}
 
@@ -238,13 +348,13 @@ una gran divergencia entre distintas ejecuciones independientes.
 Por otro lado, las secuencias resultantes ciertamente muestran una similitud remanente con la secuencia inicial, lo cual podría indicar que, en cada ejecución, las mutaciones no se distribuyen de manera uniforme entre las posiciones.
 
 Sin embargo, este análisis de identidad global entre secuencias no permite conocer si la similitud se encuentra localizada en alguna posición especifica.
-La extracción de un logo secuencial a partir del conjunto de resultados permite analizar ,en detalle(para cada posición), la similitud entre los resultados. 
+La extracción de un logo secuencial a partir del conjunto de resultados permite analizar ,en detalle (para cada posición), la similitud entre los resultados. 
 Un logo secuencial muestra en una representación gráfica de la similitud en un conjunto de secuencias\cite{schneider1990sequence}, 
-en este caso entre los resultados de las 74 corridas independientes(figura \ref{fig:logo}).
+en este caso entre los resultados de las 74 corridas independientes (figura \ref{fig:logo}).
 % generar una respresentación gráfica más relevante de la similitud entre estos.
 % Una mejor representación de esta similitud entre las secuencias resultantes se obtiene extrayendo un logo secuencial a partir de este conjunto de resultados.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \includegraphics[width=\textwidth]{img/resultados/logo.png}
 \caption{Representación gráfica de la similitud secuencial. Obtenida de \cite{crooks2004weblogo}}
 \label{fig:logo}
@@ -253,7 +363,7 @@ en este caso entre los resultados de las 74 corridas independientes(figura \ref{
 Como se ve, la similitud entre los resultados se concentra en las posiciones que inicialmente  
 % los residuos que mas se repiten entre las secuencias resultantes son los correspondientes a las posiciones que inicialmente
 poseían residuos de Glicina y Prolina (posiciones 9,18,19,21), y los residuos mas representados en estas posiciones son, justamente, los mismos que se encontraban en la secuencia inicialmente. 
-Si revisamos los resultados del análisis de mutaciones para cada posición(figura \ref{fig:mutationPerSite}), veremos que, si bien no hay una diferencia significativa, 
+Si revisamos los resultados del análisis de mutaciones para cada posición (figura \ref{fig:mutationPerSite}), veremos que, si bien no hay una diferencia significativa, 
 son justamente estas posiciones las que tienen menores porcentajes medio de mutación.
 Por otro lado, el resto de las posiciones mantienen una gran diversidad en cuanto a aminoácidos, cómo se ve en la figura \ref{fig:logo},
 por lo tanto, la similitud en estas posiciones parece ser producto de la falta de mutaciones.

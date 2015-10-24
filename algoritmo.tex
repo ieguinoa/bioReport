@@ -154,7 +154,7 @@ en cada iteración.
 \begin{figure}[h!]
 \centering
    \includegraphics[width=\textwidth]{img/diagrama-algoritmo-2.png}
- \caption{Esquema general del método aplicado para obtener la secuencia final}
+ \caption{\textbf{Esquema general del método}}
  \label{fig:esquema-algoritmo}
 \end{figure}
 
@@ -177,15 +177,19 @@ La utilización de esta parametrización opcional se detalla en la sección \ref
 La generación de una secuencia aleatoria no es un problema trivial. 
 En la naturaleza las proteínas están compuestas de un conjunto de 20 aminoácidos, los cuales se encuentran con diferentes abundancias relativas. 
 La frecuencia de cada aminoácido dentro de un proteoma está dada por un balance entre el costo metabólico de este y la necesidad de contar con un conjunto de secuencias diversas que darán proteínas funcionales \cite{krick2014amino}. 
-Para generar una secuencia aleatoria, entonces, es necesario definir primero la frecuencia que tendrá cada aminoácido. 
-Esta frecuencia se obtiene a partir de la frecuencia global que tiene cada aminoácido en la base de datos de secuencias proteicas.
-La aplicación que se utiliza para obtener la secuencia random es RandSeq \cite{randseq}.
+Siguiendo los mismos principios, definiremos estas frecuencias como la composición estándar para nuestra herramienta. 
+De esta forma, podremos obtener la diversidad buscada a la vez que minimizamos el costo metabólico de las secuencias linker generadas.
+Las frecuencias estándar resultan del cálculo de la composición de aminoácidos de todas las proteínas de la base de datos SwissProt \cite{compositionAA}.  
+% De esta forma, la composición total representa un consenso de frecuencias de aminoácidos entre todas las secuencias documentadas hasta el momento en la base de datos UniProtKB/Swiss-Prot.
 
-Por default, la herramienta utiliza la composición estándar obtenida de SwissProt \cite{compositionAA}.  
-Estos valores resultan del cálculo de la composición de aminoácidos de todas las proteínas de la base de datos. 
-De esta forma, la composición total representa un consenso de frecuencias de aminoácidos entre todas las secuencias documentadas hasta el momento en la base de datos UniProtKB/Swiss-Prot.
+% De esta forma, utilizando la 
+% Esta frecuencia 
 % Los valores de la composición estándar se encuentran en http://web.expasy.org/protscale/pscale/A.A.Swiss-Prot.html
 
+Una vez definida la frecuencia que tendrá cada aminoácido, la aplicación que se utiliza para generar una secuencia aleatoria es RandSeq \cite{randseq}.
+% Por default, la herramienta utiliza la composición estándar obtenida de SwissProt \cite{compositionAA}.  
+% Para generar una secuencia aleatoria, entonces, es necesario definir primero la frecuencia que tendrá cada aminoácido. 
+% Esta frecuencia se obtiene a partir de la frecuencia global que tiene cada aminoácido en la base de datos de secuencias proteicas.
 Entre otras que existen, esta herramienta ofrece la posibilidad de definir las frecuencias que desea para cada aminoácido e, incluso,
 indicar solo la frecuencia de algunos residuos en particular, dejando el restos con la frecuencia estándar. 
 Nuestra herramienta también ofrece al usuario esta flexibilidad para definir la composición que tendrá la secuencia (ver \ref{composicion})

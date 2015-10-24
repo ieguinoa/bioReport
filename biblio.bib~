@@ -171,6 +171,19 @@ por el apropiado "y".
 
 
 
+*********SMITH-WATERMANN ALGORITHM
+@article{smith1981identification,
+  title={Identification of common molecular subsequences},
+  author={Smith, Temple F and Waterman, Michael S},
+  journal={Journal of molecular biology},
+  volume={147},
+  number={1},
+  pages={195--197},
+  year={1981},
+  publisher={Elsevier}
+}
+
+
 
 ****EJEMPLO DE CONSTRUCCION DE ENZIMA BIFUNCIONAL
 @article{ljungcrantz1989construction,
@@ -864,16 +877,51 @@ por el apropiado "y".
 @misc{blastLocal,
   author = {},
   title = {{Standalone BLAST Setup for Unix}},
-  howpublished = "\url{(http://www.ncbi.nlm.nih.gov/books/NBK52640/}",
+  howpublished = "\url{http://www.ncbi.nlm.nih.gov/books/NBK52640/}",
   year = {}, 
   note = "[Online; accessed 19-July-2015]"
 }
 
 
+@misc{python,
+  author = {},
+  title = {{Python}},
+  howpublished = "\url{https://www.python.org/downloads/}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
+
+@misc{biopython,
+  author = {},
+  title = {{Biopython}},
+  howpublished = "\url{http://biopython.org/wiki/Main_Page}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
+
+@misc{perl,
+  author = {},
+  title = {{Perl}},
+  howpublished = "\url{https://www.perl.org/get.html}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+@misc{perl,
+  author = {},
+  title = {{Git}},
+  howpublished = "\url{https://www.perl.org/get.html}",
+  year = {}, 
+  note = "[Online; accessed 19-July-2015]"
+}
+
 @misc{blastWeb,
   author = {},
   title = {{WEB - BLAST: Basic local alignment search tool}},
-  howpublished = "\url{(http://blast.ncbi.nlm.nih.gov/Blast.cgi}",
+  howpublished = "\url{http://blast.ncbi.nlm.nih.gov/Blast.cgi}",
   year = {}, 
   note = "[Online; accessed 19-July-2015]"
 }
