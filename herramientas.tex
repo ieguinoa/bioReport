@@ -1542,9 +1542,21 @@ Alineamiento Hit	& \textbf{M} & \textbf{V} & \textbf{L} & \textbf{S} & \textbf{P
 Puntaje BLAST 		& 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\ \hline
 \end{tabular}
 
+\vspace{0.5cm}
 
+% Es importante aclarar que l
+La búsqueda BLAST, aún siendo un método heuristico y altamente optimizado, tiene un tiempo de ejecución considerablemente alto con respecto al resto de las herramientas descritas.
+% aproximadamente 10 veces superior
+Por otro lado, para encontrar un \textit{hit} estadísticamente significativo la secuencia debe tener, generalmente, un largo considerable.
+Esto se debe a que el valor de \textit{e-value} depende, en parte, del largo de la secuencia \textit{query}. 
+% Este no es el caso típicolo cual no es el principal objetivo del método que estamos desarrollando.
 
-
+Gran parte de las evaluaciones realizadas en nuestro método no cumplen esta característica de longitud. 
+De esta forma, para reducir el tiempo de ejecución global de nuestro método, la evaluación usando BLAST se realiza de forma separada. 
+% De esta forma, dado que el tiempo de ejecución es relativamente alto y que probablemente sólo se encuentren resultados en casos puntuales, 
+Para esto, en primer lugar se realiza el proceso iterativo de mutaciones utilizando todo el conjunto de herramientas de evaluación excepto BLAST.
+Una vez que se alcanza una secuencia con score = 0 según ese esquema de evaluación, se realiza el mismo proceso utilizando exclusivamente BLAST para las evaluaciones.
+La iteración global termina cuando, usando el total de las herramientas aqui descritas, la secuencia alcanzada tiene un score = 0. 
 
 
 

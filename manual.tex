@@ -1,12 +1,18 @@
 \chapter{Manual de uso}\label{manual}
 
-% 
+
+El método descrito en los capítulos previos se encuentra disponible bajo el nombre de \mbox{PATENA}. 
+El origen del nombre se encuentra en la descripción del método, metafóricamente, como un mecanismo para ``limpiar'' secuencias, eliminando elementos funcionales y estructurales.
+De esta forma, las secuencias resultantes podrían describirse usando la expresión popular ``limpias como una patena''.
+Esta expresión hace alusión al platillo de metal en el que se pone la hostia durante la celebración eucarística (\url{https://es.wikipedia.org/wiki/Patena}), el cual se mantiene siempre limpio y brillante.
+
+% La metáfora hace alusión a que los resultados se corresponden con secuencias ´´limpias como una patena''. dado que, para el usuario, el método puede verse como un   . 
 
 
 \section{Instalación}
 
-El método descrito en los capítulos previos se encuentra disponible bajo el nombre de PATENA. 
-Los requerimientos previos y el proceso de instalación se detallan en el apéndice \ref{install}.
+
+Los requerimientos de software y el proceso de instalación se detallan en el apéndice \ref{install}.
 Una vez instalado, la ejecución se realiza mediante: 
 
 \texttt{python patena.py [parámetros de ejecución]}
@@ -44,7 +50,7 @@ En caso de especificarse una secuencia inicial no es necesario definir longitud 
 % \paragraph{Secuencias flanqueantes}\label{flanqueantes} \hspace{0pt} \\
 \subsubsection{Secuencias flanqueantes}\label{flanqueantes} 
 
-Es posible especificar segmentos en uno o ambos extremos que, si bien no serán parte del linker y no serán mutados, si serán tenidos en cuenta a la hora evaluar la secuencia.
+Es posible especificar segmentos en uno o ambos extremos que, si bien no serán parte del linker ni serán mutados, si se tendrán en cuenta a la hora evaluar la secuencia.
 % es decir, que deben permanecer intactos en el diseño resultante.
 % Estas regiones flanqueantes permanecerán intactas en el diseño resultante, sin embargo, serán tenidas en cuenta en la etapa de evaluación de la secuencia.
 Para indicar estas secuencias flanqueantes se proveen los parámetros \texttt{left} y \texttt{right} los cuales definen secuencias a la izquierda y derecha respectivamente.
@@ -64,7 +70,7 @@ El formato para especificarlas es:
 
 \subsubsection{Composición estándar}
 % Existen dos opciones para definir la composición usada durante la ejecución del método.
-Si no se define ningún parametro al respecto, la composición \textit{default} que se usa es la composición estándar obtenida de SwissProt \cite{compositionAA}.  
+Si no se define ningún parámetro al respecto, la composición \textit{default} que se usa corresponde a la composición estándar obtenida de SwissProt \cite{compositionAA}.  
 
 En caso que se haya seleccionado la opción de secuencia silente en UV (ver sección \ref{uvsilent}) la composición es igual a la estándar pero los residuos que absorben en el rango del UV (W,Y,F) tendrán una frecuencia igual a 0.
 
@@ -72,7 +78,7 @@ En caso que se haya seleccionado la opción de secuencia silente en UV (ver secc
 
 Es posible que el usuario defina una frecuencia específica para uno o más aminoácidos. 
 La frecuencia se debe especificar en forma de porcentaje y cada aminoácido tiene un parámetro asociado para definir su frecuencia. 
-Este parámetro se corresponde con nomenclatura de una sola letra asociada al aminoácido. Ejemplos de esto son:
+Esto parámetro se corresponde con la nomenclatura de una sola letra asociada al aminoácido. Ejemplos de esto son:
 
 \indent \texttt{--a  [frecuencia Alanina]} \\
 \indent \texttt{--m  [frecuencia Metionina]} \\
@@ -103,8 +109,8 @@ Es posible modificar este valor para ejecuciones individuales mediante el parám
 
 \subsection{Evaluación de la secuencia}\label{evaluacion}
 
-Si no se especifica ningún parametro adicional, el set de evaluaciones que se utilizará esta compuesto de aquellas que se detallan en las secciones \ref{propiedadesConformacionales} y \ref{evaluacionFuncional}.
-El usuario puede quitar, para una ejecución individual, alguna de las herramientas del conjunto de evaluación. Para esto, cada herramienta tiene asociado un parámetro para poder quitarla del esquema de evaluación.
+Si no se especifica ningún parámetro adicional, el set de evaluaciones estará compuesto de aquellas herramientas detalladas las secciones \ref{propiedadesConformacionales} y \ref{evaluacionFuncional}.
+El usuario puede quitar, para una ejecución individual, alguna de las herramientas del conjunto de evaluación. Para esto, cada herramienta tiene asociado un parámetro que permite quitarla del esquema de evaluación.
 Los parámetros disponibles son: 
 \texttt{--noblast, --notango, --noelm, --noiupred, --noanchor, --noprosite, 
 --nolimbo, 
@@ -133,7 +139,7 @@ La carga neta deseada para la secuencia resultante puede ser definida mediante l
 \indent \texttt{--netcharge +3} \hspace{0.5cm} \textit{La secuencia resultante tendrá carga neta = +3}
 
 El valor absoluto de la carga buscada debe ser menor o igual que la longitud de la secuencia, de otra forma no podría alcanzarse nunca la carga neta objetivo.
-Esta condición se evalúa al inicio de la ejecución y se informa si no es posible continuar
+Esta condición se evalúa al inicio de la ejecución y se informa si no es posible continuar.
 
 
 \subsubsection{Evaluación de silente en UV}\label{uvsilent}
@@ -147,8 +153,10 @@ La forma de indicar esto es mediante la opción \texttt{--uvsilent}(sin parámet
 
 Por definición, el método tiene un límite máximo de 5000 mutaciones aceptadas.
 % iteraciones. Cada una de estas iteraciones implica   aceptadas. 
-Este límite representa un valor muy alto, incluso para secuencias linkers largas (50 residuos), y representa un valor donde se considera inproductivo seguir intentando mutaciones porque puede no ser posible encontrar el resultado deseado. 
-De todas formas, es posible modificar este valor para una ejecución en particular mediante el parámetro \texttt{maxiterations}, de la forma:
+Este límite representa un valor muy alto donde se considera improductivo seguir intentando mutaciones porque probablemente no sea posible encontrar el resultado deseado.
+%, incluso para secuencias linkers
+%Este límite representa una cantidad muy alta de mutaciones a partir de las valor muy alto, incluso para secuencias linkers largas (50 residuos), y representa un valor donde se considera improductivo seguir intentando mutaciones porque puede no ser posible encontrar el resultado deseado. 
+Es posible modificar este valor para una ejecución en particular mediante el parámetro \texttt{maxiterations}, de la forma:
 
 \indent \texttt{--maxiterations [número máximo de iteraciones]} 
 \\Por ejemplo: \\
@@ -157,7 +165,8 @@ De todas formas, es posible modificar este valor para una ejecución en particul
 
 El objetivo de la modificación puede ser imponer un límite menor al número de mutaciones, para obtener un resultado más rapidamente aunque de menor calidad , 
 o incrementar el límite cuando, a partir de las propiedades del diseño buscado (un conjunto de restricciones muy fuertes, o un largo superior al normal), se crea necesario permitirlo.
-En todos los casos donde se alcanza el limite de mutaciones se informa lo sucedido y la secuencia al momento de finalización.
+En todos los casos donde se alcanza el límite de mutaciones se informa lo sucedido y la secuencia correspondiente a esa iteración. 
+%al momento de finalización.
 
 \subsection{Formato y detalles del resultado}\label{output}
 

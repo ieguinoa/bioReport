@@ -1,5 +1,6 @@
 \prefacesection{Abstract}
 
+
 The successful construction of multidomain fusion proteins requires a linker sequence to covalently join the
 selected domains. Usual requirements for this sequence are to lack any interfering functional feature and the
 adoption of an extended conformation, allowing globular domains to move freely
@@ -7,12 +8,15 @@ Natural linkers are not always flexible and cannot be considered inert. Furtherm
 available in linker databases does not usually fill the properties required by the protein engineering process.
 Hence, a rational approach could aid linker design.
 
-This work presents PATENA, a novel method that allows the user to generate linkers de novo from a random 
+This work presents a method that allows the user to generate linkers de novo from a random 
 sequence or starting from a user input sequence.
-The initial sequence is evaluated for structured regions using the algorithms IUPRED, ANCHOR, TANGO, PASTA
-and WALTZ. Putative functional sites are searched using BLAST and sequence patterns in the ELM and
-PROSITE databases. Net charge and UV absorption can also be evaluated at the user’s request. Undesired
-structure and functional features are mapped to each sequence position, and the total number of undesired
+The initial sequence is evaluated for structured regions using the algorithms IUPRED, TMHMM, TANGO, PASTA, WALTZ, 
+and also scanning for sequence determinants of amyloid fibril formation. 
+
+Putative functional sites are searched using BLAST, sequence patterns in the ELM and
+PROSITE databases, and using ANCHOR to detect molecular recognition elements. 
+Net charge and UV absorption can also be evaluated at the user’s request. 
+Undesired structure and functional features are mapped to each sequence position, and the total number of undesired
 features is calculated.
 Point mutations are iteratively proposed in order to remove all structural and functional features. The mutation is
 accepted if the total number of undesired features decreases. If the mutation results in an increased number of
@@ -22,11 +26,22 @@ values are associated with higher probability of acceptance.
 
 We tested beta values ranging from 0.1 to 2.5, using random (n=3) and natural (n=3) starting sequences of length
 30. The algorithm found a suitable linker in every case. The execution time was shorter for smaller beta values,
-with a plateau below beta = 1.5 in the minutes timescale. We chose a beta value of 1 for PATENA.
-PATENA runs starting from an input set comprising a total of 36 random and natural sequences, with lengths
-varying from 5 to 50 residues also found a suitable linker in every case. The execution time increased with
-sequence length in an approximately linear manner.
+with a plateau below beta = 2.0 in the minutes timescale. 
+From this range, the value 1.0 was chosen as standard for the method.
+% We chose a beta value of 1 for .
 
-PATENA can find suitable protein linkers in a short execution time. We interpret that the space of suitable linker
-sequences is a large fraction of the whole sequence space, while the space of sequences with predicted
-structural or functional features is relatively small.
+Different executions starting from an input set comprising a total of 36 random and natural sequences, with lengths
+varying from 5 to 50 residues also found a suitable linker in every case. 
+The execution time increased with sequence length in an approximately linear manner.
+% PATENA runs starting from an input set comprising a total of 36 random and natural sequences, with lengths
+% varying from 5 to 50 residues also found a suitable linker in every case. The execution time increased with
+% sequence length in an approximately linear manner.
+
+Finally, we analyzed a set of 74 results obtained after using UniProtKB/Swiss-Prot amino acid composition for mutations and starting from a unique input sequence.
+The corresponding results allow to assess the capacity of the method to provide a diverse set of designs, while minimizing the associated metabolic cost.
+This composition is then incorporated to the method as default.
+
+Using the evaluated parameters, the method can find suitable protein linkers in a short execution time. 
+We interpret that the space of suitable linker sequences is a large fraction of the whole sequence space, 
+while the space of sequences with predicted structural or functional features is relatively small.
+As a step towards the development of a web server, the method is made available under the name of PATENA including the standard set of evaluated parameters.

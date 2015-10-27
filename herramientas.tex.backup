@@ -1105,7 +1105,7 @@ Evaluación en busca de patrón secuencial & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 &
 
 %     REESCRIBIR/RESUMIR ESTA SECCION, AGREGANDO ANCHOR Y LIMBO(QUE LOS SAQUE DE LA PARTE DE PROPIEDADES CONFORMACIONALES)
 
-\section{Elementos biológicamente funcionales}
+\section{Elementos biológicamente funcionales}\label{evaluacionFuncional}
 
 % POR QUE QUEREMOS SACAR TODAS LAS PROPIEDADES FUNCIONALES
 % ¿QUE DESEAMOS PARA EL LINKER? ¿POR QUE?
@@ -1544,7 +1544,15 @@ Puntaje BLAST 		& 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 1 
 
 
 
-
+Es importante aclarar que la búsqueda BLAST, aún siendo un método heuristico y altamente optimizado, tiene un tiempo de ejecución considerablemente alto con respecto al resto de las herramientas descritas.
+Por otro lado, para encontrar un hit estadisticamente significativo, la secuencia debe tener un largo considerable y gran parte de las evaluaciones realizadas en nuestro método no cumplen esta característica.
+Esto se debe a que el e-value depende, en parte, del largo de la secuencia query.
+% Este no es el caso típicolo cual no es el principal objetivo del método que estamos desarrollando.
+De esta forma, p
+% De esta forma, dado que el tiempo de ejecución es relativamente alto y que probablemente sólo se encuentren resultados en casos puntuales, la evaluación usando BLAST se realiza de forma separada. 
+Es decir, en primer lugar se realiza el proceso iterativo de mutaciones utilizando todo el conjunto de herramientas de evaluación excepto BLAST.
+Una vez que se alcanza una secuencia con score = 0, se realiza el mismo proceso utilizando exclusivamente BLAST.
+El proceso global termina cuando, usando el total de las herramientas evaluadas, la secuencia tiene un score = 0. 
 
 
 
@@ -2028,10 +2036,10 @@ Al no formar parte del conjunto de propiedades evaluadas de forma estándar, se 
 % entonces formar puentes salinos con los fosfatos del dna
 Esta opción permite que el usuario defina una carga neta deseada para la secuencia linker resultante lo que implica que, en cada paso, se evalúe la secuencia con respecto a la carga. 
 Para esta evaluación se tienen en cuenta tres categorias de aminoácidos: con carga positiva (K,R,H), carga negativa (E,D) y neutros.
-Al evaluar una secuencia primero se evalúa la carga neta de ésta, la cual puede estar en alguno de los siguientes casos:
+Al evaluar una secuencia con respecto a la carga neta, puede ocurrir alguno de los siguientes casos:
 
 \begin{itemize}
-  \item Si la carga neta objetivo y la actual son iguales, todos los puntajes serán 0.
+  \item Si la carga neta deseada y la actual son iguales, todos los puntajes serán 0.
  
 \item Si la carga neta a la que se está apuntando es más positiva que la actual, los puntajes resultantes son: 
   \begin{itemize}
@@ -2042,11 +2050,10 @@ Al evaluar una secuencia primero se evalúa la carga neta de ésta, la cual pued
 Por ejemplo, si se está evaluando la secuencia \texttt{VKTCLALGVDI} (carga neta=0), y el usuario indicó como requerimiento una carga neta objetivo igual a +2, 
    
  
- \vspace{0.5cm}
+%  \vspace{0.2cm}
 \begin{center}
   \begin{tabular}{llllllllllllllll} 
 \hline
-
 Secuencia & \textbf{V} & \textbf{K} & \textbf{T} & \textbf{C} & \textbf{L} & \textbf{A} & \textbf{L} & \textbf{G} & \textbf{V} & \textbf{D} & \textbf{I} \\ \hline
 Evaluación carga neta & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 2 & 1  \\ \hline
 \end{tabular}
@@ -2062,7 +2069,7 @@ Evaluación carga neta & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 2 & 1  \\ \hline
 
    Por ejemplo, si se está evaluando la secuencia \texttt{VKTCLALGVDI} (carga neta=0), y el usuario indicó como requerimiento una carga neta objetivo igual a -2:
    
-   \vspace{0.5cm}
+%    \vspace{0.3cm}
 
    \begin{center}
 \begin{tabular}{llllllllllllllll} 
@@ -2087,7 +2094,7 @@ En este caso, ya que se espera que el resultado final NO posea ninguno de estos 
 Para eliminar los residuos que se encuentran en la secuencia, se asigna un puntaje de 1 a aquellas posiciones que contengan residuos absorbentes en el rango UV. 
 Por ejemplo, si estamos evaluando la secuencia \texttt{VYTCLALGWDI}:
 
-  \vspace{0.5cm}
+%   \vspace{0.3cm}
 
 \begin{center}
 \begin{tabular}{lcccccccccccccc} 
