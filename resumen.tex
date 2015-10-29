@@ -1,1 +1,106 @@
 \prefacesection{Resumen}
+
+
+% \prefacesection{Abstract}
+
+% The successful construction of multidomain fusion proteins requires a linker sequence to covalently join the
+% selected domains. Usual requirements for this sequence are to lack any interfering functional feature and the
+% adoption of an extended conformation, allowing globular domains to move freely
+% Natural linkers are not always flexible and cannot be considered inert. Furthermore, the diversity of sequences
+% available in linker databases does not usually fill the properties required by the protein engineering process.
+% Hence, a rational approach could aid linker design.
+
+
+La construcción exitosa de proteínas multidominio de fusión requiere una secuencia linker para unir covalentemente los dominios elegidos.
+Usualmente se requiere que esta secuencia no posea características funcionales que interfieran 
+y que la misma adopte una conformación extendida, permitiendo a los dominios globulares moverse libremente.
+Los linkers naturales no siempre son flexibles y no pueden ser considerados inertes. 
+Además, la diversidad de secuencias disponibles en las bases de datos de linkers no suele cubrir las propiedades requeridas por el proceso de ingeniería de proteínas.
+De esta forma, una aproximación racional podría ayudar en el diseño de linkers.
+
+
+
+
+
+% This work presents a method that allows the user to generate linkers de novo from a random 
+% sequence or starting from a user input sequence.
+% The initial sequence is evaluated for structured regions using the algorithms IUPRED, TMHMM, TANGO, PASTA, WALTZ, 
+% and also scanning for sequence determinants of amyloid fibril formation. 
+
+Este trabajo presenta un método que permite al usuario generar linkers \textit{de novo} a partir de una secuencia random o de una secuencia impuesta por el usuario.
+La secuencia inicial se evalúa en busca de regiones estructuradas usando IUPRED, TMHMM, TANGO, PASTA, WALTZ, 
+y también analizando determinantes secuenciales para la formación de fibrillas amiloides.
+
+
+
+% Putative functional sites are searched using BLAST, sequence patterns in the ELM and
+% PROSITE databases, and using ANCHOR to detect molecular recognition elements. 
+% Net charge and UV absorption can also be evaluated at the user’s request. 
+% Undesired structure and functional features are mapped to each sequence position, and the total number of undesired
+% features is calculated.
+
+Se buscan posibles sitios funcionales utilizando BLAST, patrones secuenciales de las bases de datos ELM y PROSITE, y usando ANCHOR para detectar elementos de reconocimiento molecular.
+La carga neta y la absorción UV también pueden ser evaluadas según los requerimientos del usuario.
+Las características estructurales y funcionales no deseadas se mapean a cada posición de la secuencia, y se calcula el total de características no deseadas.
+% Point mutations are iteratively proposed in order to remove all structural and functional features. The mutation is
+% accepted if the total number of undesired features decreases. If the mutation results in an increased number of
+% undesired features, the decision is based on a Monte Carlo approach. This method uses a beta parameter to
+% define the probability of acceptance for a given change in the number of undesired features, where higher beta
+% values are associated with higher probability of acceptance.
+Se proponen mutaciones puntuales de forma iterativa para quitar todas las características estructurales y funcionales.
+Las mutaciones son aceptadas si decrece el número total de características no deseadas.
+Si la mutación resulta en un incremento del número de características no deseadas, la decisión se basa en una aproximación de Monte Carlo.
+Este método utiliza un parámetro beta para definir la probabilidad de aceptación de un determinado cambio en el número de caracteristicas no deseadas, 
+donde un valor mayor de beta se asocia a una mayor probabilidad de aceptación.
+
+
+
+
+
+% We tested beta values ranging from 0.1 to 2.5, using random (n=3) and natural (n=3) starting sequences of length
+% 30. The algorithm found a suitable linker in every case. The execution time was shorter for smaller beta values,
+% with a plateau below beta = 2.0 in the minutes timescale. 
+% From this range, the value 1.0 was chosen as standard for the method.
+
+Se probaron valores de beta en el rango 0.1 a 2.5, usando secuencias iniciales random (n=3) y naturales (n=3) de largo 30.
+El algoritmo pudo encontrar linkers apropiados en cada caso. El tiempo de ejecución fue más corto para valores menores de beta,
+con un estancamiento en el orden de los minutos por debajo de beta = 2.0.
+De este rango, el valor 1.0 se eligió como estándar para el método.
+
+
+% Different executions starting from an input set comprising a total of 36 random and natural sequences, with lengths
+% varying from 5 to 50 residues also found a suitable linker in every case. 
+% The execution time increased with sequence length in an approximately linear manner.
+
+
+Diferentes ejecuciones iniciadas a partir de un conjunto compuesto por 36 secuencias random y naturales en total, 
+con longitudes variables entre 5 y 50 residuos, también pudieron encontrar linkers apropiados en cada caso.
+El tiempo de ejecución se incrementó con la longitud de secuencia en una forma aproximadamente lineal.
+
+
+
+
+
+% Finally, we analyzed a set of 74 results obtained after using UniProtKB/Swiss-Prot amino acid composition for mutations and starting from a unique input sequence.
+% A high degree of diversity is found in the set of results. Nevertheless, it still shows a remaining identity with the initial sequence.
+% The amino acid frequencies found in this set of results show no significant difference with the composition applied during mutations. 
+% This allows to assess the capacity of the method to provide a diverse set of designs, while minimizing the associated metabolic cost.
+% The composition is then incorporated to the method as default.
+
+Finalmente, se analizaron un total de 74 resultados obtenidos usando la composición de aminoácidos de UniProtKB/Swiss-Prot para las mutaciones, e iniciando a partir una única secuencia inicial.
+Se encontró una alta diversidad en el conjunto de resultados. Sin embargo, este mostró una identidad remanente con la secuencia inicial.
+Las frecuencias de aminoácidos encontradas en el conjunto de resultados no muestran diferencias significativas con la composición aplicada durante las mutaciones.
+Esto permite apreciar la capacidad del método para proveer un conjunto diverso de diseños, a la vez que se minimiza el costo metabólico asociado.
+La composición es entonces incorporada por defecto en el método.
+
+
+% Using the evaluated parameters, the method can find suitable protein linkers in a short execution time. 
+% We interpret that the space of suitable linker sequences is a large fraction of the whole sequence space, 
+% while the space of sequences with predicted structural or functional features is relatively small.
+% As a step towards the development of a web server, the method is made available under the name of PATENA including the standard set of evaluated parameters.
+
+
+Usando los parámetros evaluados, el método puede encontrar linkers apropiados en un corto tiempo de ejecución.
+Se interpreta que el espacio de secuencias linkers apropiadas es una gran fracción del espacio completo de secuencias, 
+mientras que el espacio de secuencias que se predicen con características estructurales y funcionales es relativamente pequeño.
+Como un paso hacia el desarrollo de un servidor web, el método se pone a disposición bajo el nombre de PATENA incluyendo el conjunto de parámetros estandar evaluados.

@@ -12,10 +12,30 @@ Esta expresión hace alusión al platillo de metal en el que se pone la hostia d
 \section{Instalación}
 
 
-Los requerimientos de software y el proceso de instalación se detallan en el apéndice \ref{install}.
+%Los requerimientos de software y el proceso de instalación se detallan en el apéndice \ref{install}.
+
+El software fue desarrollado para correr en un entorno Linux.
+Para poder instalar PATENA se necesita primero tener instalados los siguientes paquetes de software:
+
+\begin{itemize}
+ \item Python $>$2.7 \cite{python}
+ \item BioPython \cite{biopython}
+ \item Perl \cite{perl}
+ \item Blast software command line \cite{blastLocal} (asegurarse que el ejecutable esté en el path del usuario)
+ \item Git \cite{git} (necesario sólo para la instalación)
+ %  \item Standalone BLAST Setup for Unix \cite{blastLocal} % http://www.ncbi.nlm.nih.gov/books/NBK52640/
+\end{itemize}
+
+Una vez que se cumplen todos los requerimientos, el proceso de instalación de la herramienta requiere dos pasos: \\ 
+
+\noindent 1. \hspace{0.5cm} \texttt{git clone https://github.com/ieguinoa/patena}\\
+2. \hspace{0.5cm} \texttt{source install.sh}
+
+
 Una vez instalado, la ejecución se realiza mediante: 
 
 \texttt{python patena.py [parámetros de ejecución]}
+
 
 \section{Parámetros de ejecución}\label{parametros}
 
@@ -53,12 +73,12 @@ En caso de especificarse una secuencia inicial no es necesario definir longitud 
 Es posible especificar segmentos en uno o ambos extremos que, si bien no serán parte del linker ni serán mutados, si se tendrán en cuenta a la hora evaluar la secuencia.
 % es decir, que deben permanecer intactos en el diseño resultante.
 % Estas regiones flanqueantes permanecerán intactas en el diseño resultante, sin embargo, serán tenidas en cuenta en la etapa de evaluación de la secuencia.
-Para indicar estas secuencias flanqueantes se proveen los parámetros \texttt{left} y \texttt{right} los cuales definen secuencias a la izquierda y derecha respectivamente.
+Para indicar estas secuencias flanqueantes se proveen los parámetros \texttt{left} y \texttt{right} los cuales definen secuencias hacia los extremos N- y C-terminal respectivamente.
 El formato para especificarlas es:
 
 
-\indent \texttt{--left  [flanquer izquierdo]} \\
-\indent \texttt{--right [flanquer derecho]} 
+\indent \texttt{--left  [secuencia flanqueante N terminal]} \\
+\indent \texttt{--right [secuencia flanqueante C terminal]} 
 \\Por ejemplo: \\
 \indent \texttt{--left AHWLLHHGG} \hspace{0.5cm} \textit{Se asume que a la izquierda del linker se encuentra la secuencia \texttt{AHWLLHHGG}}
 
@@ -121,7 +141,7 @@ Los parámetros disponibles son:
 
 \noindent Por ejemplo: \\
 \indent \texttt{--noblast --nowaltz} \\%\hspace{0.5cm} 
-\indent \indent \textit{La evaluación se realiza usando todas las herramientas \textbf{EXCEPTO} BLAST y Waltz}
+\indent \indent \textit{La evaluación se realiza usando todas las herramientas excepto BLAST y Waltz}
 
 
 % \subsubsection{Selección del set de herramientas a utilizar}
@@ -163,8 +183,7 @@ Es posible modificar este valor para una ejecución en particular mediante el pa
 \indent \texttt{--maxiterations 30} \hspace{0.5cm} \textit{Finaliza la ejecución si se alcanzan 30 mutaciones}
 
 
-El objetivo de la modificación puede ser imponer un límite menor al número de mutaciones, para obtener un resultado más rapidamente aunque de menor calidad , 
-o incrementar el límite cuando, a partir de las propiedades del diseño buscado (un conjunto de restricciones muy fuertes, o un largo superior al normal), se crea necesario permitirlo.
+El objetivo de la modificación puede ser disminuir el número máximo de mutaciones, para obtener un resultado más rapidamente, aunque de menor calidad. También se puede incrementar el número máximo de mutaciones para linkers especialmente largos o con restricciones muy fuertes para el diseño.
 En todos los casos donde se alcanza el límite de mutaciones se informa lo sucedido y la secuencia correspondiente a esa iteración. 
 %al momento de finalización.
 
@@ -179,4 +198,4 @@ Es posible extender o modificar el formato de salida mediante las siguientes opc
 \indent \texttt{--verbose} \\
 \indent \indent \textit{Devuelve por pantalla una salida detallada de la ejecución.} \\
 \indent \texttt{--stepped} \\
-\indent \indent \textit{Ejecución paso a paso: espera por input del usuario en cada paso del método.} \\
+\indent \indent \textit{Ejecución paso a paso: espera el input del usuario en cada paso del método.} \\
