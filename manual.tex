@@ -60,7 +60,9 @@ Para definir una secuencia inicial específica se debe usar el parámetro \textt
 
 \indent \texttt{--seq [secuencia]} 
 \\Por ejemplo: \\
+\begin{adjustbox}{width=\textwidth}
 \indent \texttt{--seq AAHHWWWLLLLHHGGG} \hspace{0.5cm} \textit{Inicia la ejecución con la secuencia \texttt{AAHHWWWLLLLHHGGG}}
+\end{adjustbox}
 
 En caso de especificarse una secuencia inicial no es necesario definir longitud y, si se define, es ignorada.
 
@@ -80,8 +82,9 @@ El formato para especificarlas es:
 \indent \texttt{--left  [secuencia flanqueante N terminal]} \\
 \indent \texttt{--right [secuencia flanqueante C terminal]} 
 \\Por ejemplo: \\
+\begin{adjustbox}{width=\textwidth}
 \indent \texttt{--left AHWLLHHGG} \hspace{0.5cm} \textit{Se asume que a la izquierda del linker se encuentra la secuencia \texttt{AHWLLHHGG}}
-
+\end{adjustbox}
 
 
 
@@ -132,17 +135,18 @@ Es posible modificar este valor para ejecuciones individuales mediante el parám
 Si no se especifica ningún parámetro adicional, el set de evaluaciones estará compuesto de aquellas herramientas detalladas las secciones \ref{propiedadesConformacionales} y \ref{evaluacionFuncional}.
 El usuario puede quitar, para una ejecución individual, alguna de las herramientas del conjunto de evaluación. Para esto, cada herramienta tiene asociado un parámetro que permite quitarla del esquema de evaluación.
 Los parámetros disponibles son: 
-\texttt{--noblast, --notango, --noelm, --noiupred, --noanchor, --noprosite, 
---nolimbo, 
---notmhmm, 
---nopasta, 
---nowaltz, 
---noamyloidpattern}
+\texttt{--noblast}, \texttt{ --notango}, \texttt{--noelm}, \texttt{--noiupred}, \texttt{--noanchor,}  \texttt{--noprosite}, 
+\texttt{--nolimbo}, 
+\texttt{--notmhmm}, 
+\texttt{--nopasta}, 
+\texttt{--nowaltz}, 
+\texttt{--noamyloidpattern}
 
 \noindent Por ejemplo: \\
 \indent \texttt{--noblast --nowaltz} \\%\hspace{0.5cm} 
+\begin{adjustbox}{width=\textwidth}
 \indent \indent \textit{La evaluación se realiza usando todas las herramientas excepto BLAST y Waltz}
-
+\end{adjustbox}
 
 % \subsubsection{Selección del set de herramientas a utilizar}
 % seleccion de herramientas a evaluar

@@ -1,0 +1,334 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+\usepackage[margin=2cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+
+% \title{}
+% \author{}
+% \date{}
+% \pdfinfo{%
+%   /Title    ()
+%   /Author   ()
+%   /Creator  ()
+%   /Producer ()
+%   /Subject  ()
+%   /Keywords ()
+% }
+
+
+
+
+
+\begin{document}
+% \maketitle
+
+\textbf{Slide 1: Presentacion}\\
+Bueno, voy a presentar un trabajo que hice en el laboratorio de fisiologia de proteinas , en la uni....\\
+y que voy a presentar ahora como trabajo final de la carrera\\
+el trabajo consiste en el desarrollo de una herramienta ....\
+Como voy a hablar de secuencias linker entonces primero voy a arrancar tratando de explicar que es y para que sirven estos elementos\\
+% ...lets first see what is and why we need a linker sequence *************SWITCH \\
+
+
+
+\textbf{Slide 2: Intro}\\
+% APROX TIME: 1 min\\
+Bien, supongamos que, por ejemplo, queremos rastrear alguna proteína in vivo...\\ 
+para esto decidimos usar GFP (proteina verde fluorescente), que sabemos es relativamente chica y está estudiada como una proteína inerte entonces, por si misma, no debería interferir con ningun proceso biologico \\
+parece ideal para usar en este tipo de experimento, entonces pensamos en una construccion de este estilo....con la gfp unida a la proteina de interes(en este caso tubulina) unidos por una secuencia linker \\
+la idea entonces parece parece muy simple pero, en la practica, probablemente no funcione como nosotros queramos\\ 
+el problema es que la fusion de la proteina target con GFP puede afectar por ejemplo la funcionalidad de la proteina que estamos etiquetando, lo cual cambia completamente la idea que queremos lograr\\
+los problemas en la función o en la localización de la proteina que estamos etiquetando aparecen si no usamos el linker correcto\\ 
+de esta forma, cuando diseñamos una proteína quimérica donde estamos fusionando 2 o mas dominios, es importante, ademas de seleccionar los dominios que nos interesan, utilizar el linker correcto para unirlos.\\
+sabemos que, como propiedad basica, esta secuencia esta para mantener unidos de forma covalente a las unidades, pero que otras caracteristicas definen a un buen linker\\
+% we know we need a sequence to keep the units together but....what makes a sequence, a correct(good) linker?\textit{*************SWITCH } \\
+
+
+
+
+
+\textbf{Slide 3: Linker properties}\\
+Definimos a un linker como una secuencia que permite a los dominios plegarse de forma independiente, además de moverse e interaccionar libremente
+De acuerdo a esta definicion, para poder elegir la secuencia correcta tenemos que tener en cuenta varios aspectos:
+
+-En primer lugar la longitud de la secuencia tiene que proveer la separacion suficiente entre los dominios.
+Es decir, debe ser suficientemente larga para que permita a los dominios plegarse de forma independiente, por eso justamente está ahi,
+pero no demasiado como para que las unidades sean completamente independientes, de forma que se pierda el sentido de haberlas fusionado
+
+-En segundo lugar, la secuencia tiene que adoptar una conformacion flexible. Esta propiedad es lo que le permite a las unidades moverse e interaccionar libremente.
+Para proveer esta flexibilidad es importante que la secuencia adopte naturalmente una conformacion desordenada, es decir que no se pliege en una estructura compacta.
+Pero además, debe mantenerse en este tipo de conformación, evitando principalmente estados agregados.
+
+-Además, es importante que la secuencia sea totalmente inerte en términos biológicos. 
+La idea es que la función de la nueva proteina que estamos armando sea producto de las unidades que fusionamos y que la secuencia que los une no interfiera con nada del sistema donde se expresa.
+Es decir, que no posea ninguna interaccion con el entorno
+
+-Por ultimo, para lograr este diseño, toda la construccion requiere de un proceso experimental con pasos previos que implican procedimientos de ingenieria genetica para fusionar los genes correspondientes, expresarlos, 
+y además algunos pasos posteriores que puede significar la utilizacion del producto. Como estamos usando una nueva secuencia es normal tener ciertas preferencias que faciliten todos estos pasos del proceso.
+Estos requerimientos pueden verse como cambios en la composicion de la secuencia
+
+
+Una vez definidos los requerimientos de forma un poco mas detallada pasamos a ver como se hace actualmente para obtener este tipo de secuencias ***SWITCH
+
+
+
+
+\textbf{4: current aporoaches}\\
+% APROX TIME: 1.15 min\\
+Actualmente se usan 3 métodos para obtener este tipo de secuencias, tratando de cubrir las caracteristicas buscadas\\
+En primer lugar podemos usar linkers que se encuentren en proteinas naturales multidominio. 
+Es decir, muchas proteínas en la naturaleza aparecen como fusiones de dominios preexistentes y de esta forma evolutivamente se crea una nueva proteina con nuevas funciones que resultan de las distintas unidades que se unen.
+si se pueden identificar los dominios se podría usar la secuencia que los une como unidad conectora para nuestras construcciones artificiales
+
+Dado que el requerimiento que mas se tiene en cuenta normalmente es el de la flexibilidad, 
+otra opción usada normalmente es diseñar secuencias de forma intuitiva usando una secuencia que tenga esta caracteristicas conformacionales. 
+Para esto se usan normalmente aminoácidos que tienden a prevenir las conformaciones estructuradas y que se conocen por promover el desorden en la estructura.
+
+La otra opción, quizás no es tan distinta a la primera, es usar algunos servidores disponibles que permiten al usuario definir propiedades deseadas para el linker a diseñar.
+Por ej, longitud de la secuencia, similitud con otras secuencias, accesibilidad del solvente, y medio mágicamente el servidor devuelve una o mas 
+Yo lo llamé aca aproximación pseudo racional porque en realidad lo que se hace es buscar secuencias que tengan estas caracteristicas.
+En algunos casos se busca de recopilaciones de linkers naturales, en otros se recopilan tambien linkers ya usados y diseñados artificialmente o que 
+
+
+Sin embargo\\
+Si usamos un linker natural, por ejemplo, no sabemos si este esta cumpliendo un papel en la proteína como puede ser una interaccion.
+Esto solo se sabe si la proteina fue estudiada en detalle y si obviamente buscamos la informacion y lo tenemos en cuenta
+
+En el caso de proponer una secuencia diseñada intuitivamente, tampoco sabemos si va a tener algun tipo de interaccion molecular que interfiera en el procesamiento normal del sistema biologico.
+Esto es porque se diseñan teniendo en cuenta solo requerimientos estructurales
+
+Por ultimo, incluso si podemos obtener secuencias que hayan sido suficientemente evaluadas y que probablemente funcionen, la diversidad de opciones que vamos a tener es muy poca y eso limita 
+las opciones que tenemos para evaluar experimentalmente y para cumplir con otros requerimientos posibles del usuario.
+
+De esta forma, no tenemos actualmente un método que permita 
+% finally, even if we can find some correct designs, the number of options is very restricted (we will get a very small diversity).\\
+
+Clearly, we dont have a method to design linkers with ALL the desired properties****SWITCH\\
+
+
+
+\textbf{5-6: PATENA scoring function}\\
+% APROX TIME: \\
+Sin embargo, si tenemos una secuencia candidato, una que creemos que puede funcionar bien, actualmente tenemos a disposicion publicamente una gran cantidad de herramientas bioinformaticas disponibles que permiten predecir
+gran cantidad de propiedades secuenciales utilizando unicamente la secuencia primaria.
+
+Por ejemplo, podemos tomar la secuencia y usar IUPred. Este metodo...
+
+Tambien dijimos que queriamos evitar cualquier actividad biologica que pueda interferir, entonces deberiamos buscar este tipo de elementos en la secuencia.
+Los motivos lineales cortos son elementos funcionales que suelen estar presentes en regiones desordenadas. 
+El recurso elm recopila este tipo de elementos en forma de patrones secuenciales y permite buscar instancias de estos en la....
+de esta forma podemos buscar en nuestra secuencia que creemos que funcionara bien este tipo de elementos que podrían mediar la señalizacion de algun evento o una fosforilacion, etc
+
+....SEGUIR CON LAS OTRAS HERRAMIENTAS...
+para todos los metodos, recalcar que informacion dan para cada posicion.
+
+
+estos son solo algunos ejemplos para mostrar que si buscamos y analizamos hay muchas herramientas que permiten predecir las caracteristicas indeseadas\\
+esta idea de poder evaluar un monton de caracteristicas no deseadas a partir de la secuencia es una de las bases del método que vamos a desarrollar\\
+pero...como usamos esto?
+% this idea of evaluating underisred features is one of the most important parts of PATENA\\
+% but......how do we use this set of tools?\\
+% what do we do with these tools?? ......\\
+
+
+
+\textbf{7: Aproximacion racional}\\
+Como se vio de la explicacion, es posible extraer de los métodos de analisis secuencial informacion relevante para cada posicion \\
+entonces es posible construir una funcion que permita extraer un puntaje de cada posicion indicando la cantidad de propiedades indeseadas que tiene\\
+% so, it is possible to build a scoring function to quantify the number of(how many) undesired features in the sequence\\
+............\\
+para esto primero definimos, como parte de nuestra herramienta, un set completo de métodos de evaluacion que abarquen todos los aspectos que nos interesan\\
+despues adaptamos la salida de cada uno de estos  we interpret(use) the presence of these features as a binary value*****SWITCH\\ 
+
+
+
+% OPTIONAL ...That is, we can evaluate (get an idea, get an estimation of) how good or how bad(quality) is a sequence to work as a linker.
+
+% ACA NO DIGO NADA DEL NOMBRE DEL METODO, TOTAL ESTA EN LA DIAPO
+% The main idea behind our method is to define a set of tools to check each of the undesired features.
+% This evaluation set is composed of: 
+% IUPred, to evalute if the sequence will adopt a globular structure
+% we have 3 different methods to evaluate sequence propensity to form insluble aggregates
+% functional features are evaluated by means of: BLAST(to try to infer function through sequence similarity), also  ELM resource(to find instances of linear motifs), PROSITE(to find functional sites), and ANCHOR(to find recognition elements)
+% Finally, some optional evaluations are:
+%      check the presence of ultraviolet aboserbers aminoacids W(Tryptophan), Y(Tyrosine), F(Phenylalanine)
+% 	and check the presence of charged residues.
+
+
+% so....what do we do with this evaluation set?
+
+
+
+
+
+
+
+
+\textbf{Slide 8: Scoring example}\\
+% APROX TIME: 1min \\
+% viene de antes.....
+....here is an example of application of this scoring function\\
+for each method, a value of 1 means the presence of undesired features\\
+% each tool provides a value of 1 for each position that has undesired feature. 
+if we sum up all the values for each position we have a position score, defining the total number of undesired features.\\
+and finally, if we add all the position scores we can get a global score.\\
+tenemos automatizado el método de evaluacion \\
+.....so we have a scoring function for the sequence, where a higher valuer means a worse linker\\
+ what can we do with this? ..... ****SWITCH\\
+
+
+
+\textbf{Slide 9: PATENA input-output}\\
+% APROX TIME: \\
+% now, lets get a bit moe into our method.....\\
+% given this scoring function the idea behind PATENA is very (simple)intuitive\\
+first, we need to get an initial sequence, that is the input... \\
+this can be a candidate linker defined by the user, or we can use a random sequence created using just the length....\\
+% This can be done starting from a user defined sequence, or a random sequence generated at the start of the method.\\
+the method will then try to optimize the score of this sequence to reach a value of zero....\\
+that is, we are looking after a sequence with no undesired features\\
+% we expect that the output sequence can be used as a linker\\
+So, we have here the structure of this method...we will now see how this is done... ****SWITCH\\
+
+
+\textbf{Slide 10: PATENA schema}\\
+% APROX TIME: \\
+Once we have an initial sequence\\
+we make use of the scoring function to see if the score is zero\\
+if NOT...we propose a point mutation, aiming at the higher scoring positions\\
+we then reevaluate the sequence, including this mutation to see if it decreses the score\\
+if so, we incorporate that mutation and move on\\
+if not, it might not be a good idea to discard that mutation\\
+so the method uses an heuristic decision, based on how much the mutation incremented the score and also it is based on a parameter beta\\
+the result of this decision can be...to incorporate the mutation or to discard it\\
+after incorporating a mutation we check if the new score is zero...if not, we repeat the same schema\\
+as i said, the final sequence will have score zero , and thus, it is defined as a correct linker\\
+just as a general review, we have an initial sequence, we implement an optimization schema proposing point mutations and get the resulting sequence once we reach a minimal value...\\
+% What we have here is, again, an optimization of the scoring function.\\
+% Once we have this algorithm implemented we need to see if we can find an effective beta value that will allow the execution to efficiently find a design.\\
+% HAY QUE TENER EN CUENTA DOS ASPECTOS RELEVANTES, QUE ESTAN RELACIONADOS ENTRE SI: 
+%     	-PRIMERO VER SI FUNCIONA Y CUAL ES EL VALOR EFECTIVO DE BETA QUE PERMITE ENCONTRAR LOS DISEÑOS RESULTANTES
+% 	-EN SEGUNDO LUGAR HAY QUE ANALIZAR LAS CARACTERÍSTICAS SECUENCIALES DE LOS RESULTADOS QUE ESTAMOS OBTENIENDO Y ESTANDARIZAR UNA COMPOSICION PARA LAS MUTACIONES	
+
+
+\textbf{Slide 11: Effective beta range}\\
+% APROX TIME: 45seg\\
+We evaluate the method starting from natural(defined) sequences and also from random sequences, using different beta values\\
+First, it is important that the method can find designs in all cases with variable execution times\\
+then we can see that the effective range of beta is located below beta value of 2.0\\
+This is the range where the execution time is lower\\
+Just to move on with evaluation we choose a beta of 1.0.\\
+so, from now on, all executions will be made using a beta of 1.0. This is just a decision we made.\\
+
+
+\textbf{Slide 12: Execution example}\\
+% APROX TIME: 45seg\\
+we know it works and we have one effective value for beta.\\
+We have here an example of execution\\
+we see the scrore decreasing after the aplication of mutations\\
+how many mutations are required? in this particular execution we have a bit more than two hundred mutations\\ 
+but we have a non deterministic method behind so the execution profile can change for different executions\\
+one importante aspect(variable) is the length of the initial sequence, this can change the number of mutations required\\
+so we will see now, what happens if we variate the length of the initial sequence?? ***** SWITCH\\
+
+
+\textbf{13: Dependence with length}\\
+% APROX TIME: 30seg\\
+to evaluate this we ran several executions starting from natural and random sequences of diffferent lengths ....totalling 36 executions\\
+what we find is an approximate linear dependence of execution time with sequence length\\
+but...we still dont know what kind of results we are getting\\
+...what sequences\\
+********SWITCH\\
+
+
+
+
+\textbf{14: composicion estandar}
+************************************************************
+AGREGAR UNA DIAP QUE ARRENQUE DICIENDO QUE YA TENEMOS E
+ARRANCAR DICIENDO QUE SABEMOS QUE EL MÉTODO FUNCIONA, PERO NO SABEMOS QUE TIPO DE RESULTADOS DEVUELVE
+EXPLICAR POR QUE USAMOS LA COMPOSICION ESTANDAR
+*******************************************************
+So, at the moment we have a method that allows to, at least, get some resulting designs.
+but i said first that one of the problems with linker design methods nowadays is that they may not provide de required diversity
+La diversidad resultante depende fuertemente de la composición que utilizamos para las mutaciones.
+
+
+La composicion estándar de Uniprot representa para la naturaleza una posibilidad de balancear, en la naturaleza, la diversidad requerida para armar un proteoma y la minimización del costo metabólico asociado a la secuencia.
+Entonces, ahora vamos a evaluar si utilizando esta composicion para las mutaciones en nuestro método, 
+podemos obtener resultados que sean suficientemente diversos pero que a la vez no representen un gran costo metabólico para la expresion.
+
+% \begin{frame}[plain]{Composición estándar}
+ANTES ACLARE COMO SE HACE PARA SELECCIONAR LA POSICION A MUTAR PERO NO SABEMOS COMO SELECCIONAMOS EL REEMPLAZO
+TODAVIA NO HABLE DE LA COMPOSICION QUE ESTAMOS USANDO PARA PROPONER LAS MUTACIONES
+ES DECIR, CUANDO SELECCIONAMOS UNA POSICION PARA CAMBIAR PORQUE EL MÉTODO LA SELECCIONA, NO ACLARE TODAVIA A QUE POSICION SE MUTA Y CON QUE FRECUENCIA
+% \begin{itemize}
+  ¿Cómo seleccionamos el reemplazo para una mutación?
+ ¿Cómo generamos secuencias random?
+ Usamos composición extraída de UniProtKB
+%  \begin{itemize}
+%   No todos los aminoácidos tienen la misma frecuencia en la naturaleza
+%   \item Balance de diversidad y costo metabólico
+  BREVEMENTE.... en la naturaleza no todos  los aminoacidos se encuentran en la misma frecuencia...
+los organismos no solo minimizan el costo metabolico asociado a la biosintesis de proteínas (de esta forma, todas las proteínas esta)
+sino que tambien tienen que balancear esto con la diversidad de aminoacidos que se requiere para crear proteinas que puedan cumplir todas las funciones
+%   \end{itemize}
+  en nuestro caso tambien buscamos este balance ya que necesitamos cierta diversidad(para cummplir con distintos requerimientos impuestos) 
+y ademas, al estar disenando una secuencia que va a ser expresada queremos minimizar el costo metabolico
+ si nosotros imponemos esta composicion, es decir, tratamos que los diseños vayan hacia una composicion similar a la de uniprot podemos obtener un balance similar
+ El diseño de linkers también requiere este balance. 
+%  \begin{itemize}
+ ya aplicamos esta composicion, ahora queda...
+ Evaluar los diseños obtenidos por el método
+%  \end{itemize}
+% \end{itemize}
+
+
+
+
+
+
+\textbf{15: divergence}\\
+% APROX TIME: \\
+% So, we have an effective method to obtain linkers and we can use it for different lengths of sequence\\
+% another ideal goal is to get a diverse set of results....lets see how different are the results ?
+En primer lugar vamos a evaluar la divergencia del método, analizando los resultados que obtenemos\\
+Here we have an histogram of identity between a set of results(a total of 74 designs) obtained from running PATENA using the same initial sequence(these are the green bars).\\
+We have also blue bars indicating the identity that can be found between random sequences of the same length\\
+Conclusion: we can see, that, the identity between resulting designs is usually higher than that between random sequences.\\
+.....it is great to have such diversity but, if the user defines a sequence to start, the idea is to get a at least some similarity in the resulting design. \\
+how similar are these results with the initial sequence??  ******** SWITCH DIAPO\\
+
+
+\textbf{16: divergence 2}\\
+% APROX TIME: \\
+Using the same set of results we show here(in green bars) an histogram of the identity between the results and the initial sequence.\\
+if we compare this with the identity found for a set of random sequences(that is in blue bars) we can see that....\\
+although the resulting set is quite diverse(is clearly heterogeneous), still maintain certain similarity with initial sequence.\\
+
+
+
+\textbf{17: divergence 3 - logo}
+Si bien sabemos ahora que hay una similitud entre los resultados y la secuencia inicial, no sabemos exactamente donde esta esta\\
+hacemos un analisis de la similitud secuencial por posicion entre todos los resultados.\\
+En este logo secuencial se ven graficamente cuales son las posiciones que tienen residuos mas representados.\\
+la secuencia inicial se muestra abajo\\
+Si bien no es totalmente significativo, no solo porq el valor de bits es bajo sino tambien porque no se analizan muchos resultados, 
+las posiciones mas conservadas son las que inicialmente tenian aminoacidos que describimos como que favorecen el desorden
+
+
+\textbf{18: desviacion composicion estandar}
+% El otro aspecto relevante de la composicion es el analisis del costo metabolico
+sabemos entonces que esta composicion que tratamos de imponer nos da una cierta diversidad de resultados , que algo buscado, pero no sabemos si tambien se esta cumpliendo la minimizacion del costo metabolico.\\
+asi que comparamos la composicion que encontramos en el set de resultados con la composicion que tratamos de imponer, la composicion estandar.\\
+vemos que en general hay una corrrespondencia en la frecuencia de todos los tipos de aminoacidos\\
+las excepciones son, nuevamente la prolina, probablemente por las caracteristicas propias de este aminoacido\\
+y quizas tambien la leucina que en la naturaleza es el aminoacido mas abundante\\
+
+
+\textbf{19: aplicacion completa}  %semi conclusion
+
+\textbf{20: conclusion}
+
+\end{document}

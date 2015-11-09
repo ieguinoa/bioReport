@@ -1,10 +1,11 @@
-\documentclass[oneside,numbers,spanish]{ezthesis}
+\documentclass[a4paper,oneside,numbers,spanish]{ezthesis}
 \usepackage[utf8]{inputenc}
 % \usepackage{caratula}
 % \usepackage{cite}
 \usepackage{amsmath}
 \usepackage{csquotes}
 \usepackage{graphicx}
+\usepackage{adjustbox}  
 \usepackage{subcaption}
 \usepackage{comment}
 \usepackage{hyperref}
@@ -110,7 +111,7 @@
 % ***************************************
 % PARA AGREGAR LA TAPA DESCOMENTAR ESTO
 % ***************************************
-% \input{caratula}
+\input{caratula}
 
 
 
@@ -130,7 +131,7 @@
 
 \include{resumen}
 \include{abstract}
-% \include{gracias}
+\include{gracias}
 
 %% # 'Indices y listas de contenido #
 %% Quitar los comentarios en las lineas siguientes para obtener listas de
@@ -167,7 +168,7 @@
 \appendix
 %% Cap'itulos incluidos despues del comando \appendix aparecen como ap'endices
 %% de la tesis.
-% \include{requerimientosEquipo}
+%\include{requerimientosEquipo}
 %\include{apendiceB}
 %\include{apendiceC}
 
